@@ -41,6 +41,32 @@ session, then rebuild the piece it covers into the matching domain folder
 here as your own instance, checked against your own hand-calc — that's how
 every archetype in this repo got built.
 
+Beyond that starting point, the conventions and the depth targets for each
+archetype draw on public standards and texts rather than any single
+proprietary source — worth reading directly if you want to go deeper than
+what's built here:
+
+- **Modeling standards & auditability**: the [ICAEW Financial Modelling
+  Code](https://www.icaew.com/technical/technology/financial-modelling/financial-modelling-code)
+  and its Twenty Principles, and the
+  [FAST Standard](https://fast-standard.org/) — more prescriptive on layout
+  and formula consistency. This repo's color convention and Cover/RefreshLog
+  structure are in the same spirit; neither standard is formally certified
+  here, but both are worth reading to push past what this repo enforces
+  automatically.
+- **Valuation / IB / LBO**: Rosenbaum & Pearl, *Investment Banking:
+  Valuation, LBOs, M&A, and IPOs*; Aswath Damodaran's
+  [*Investment Valuation*](https://pages.stern.nyu.edu/~adamodar/) and his
+  free public spreadsheets/datasets.
+- **Options / derivatives**: John C. Hull, *Options, Futures, and Other
+  Derivatives*; Espen Haug, *The Complete Guide to Option Pricing Formulas*.
+- **Fixed income / structured**: Tuckman & Serrat, *Fixed Income
+  Securities*; the Fabozzi series for securitization and credit.
+
+None of the above is reproduced here — same policy as the Shkreli material:
+the debt is to the discipline and the formulas that are public knowledge,
+not to anyone's proprietary content.
+
 ## Domains
 
 | # | Domain | Archetype | Status |
@@ -84,6 +110,7 @@ tools/
   scaffold_repo.py             <- regenerates the folder skeleton (does NOT touch instance data)
   weekly_refresh_check.py      <- staleness/error/drift scanner
   recalc.py                    <- headless recalculation + formula error check
+  verify_reference_calcs.py    <- independent-oracle regression tests (see below)
   template_helpers.py          <- shared openpyxl styling
   builders/                    <- source scripts that generated each _template
 ```
@@ -103,6 +130,17 @@ python3 tools/weekly_refresh_check.py .
 ## Verification standard
 
 Every archetype was checked against a known reference before being marked "Built" — e.g. Black-Scholes checked against put-call parity, bond pricing hand-verified against the annuity/PV formula (10yr 5% semi-annual bond @ 5.5% YTM: 25×15.225 + 1000×0.5813 = 961.9, matches spreadsheet exactly), the Public Finance debt-stabilizing primary balance checked against the standard IMF/DSA formula pb\*=(r−g)/(1+g)×debt ratio (r=5%, g=2%, debt/GDP=60% → 1.76%, matches spreadsheet exactly), and the Private Credit approximate YTM checked against the standard bond-math formula (which collapses to the coupon rate exactly at par — a built-in sanity check on the formula itself). See `CONTRIBUTING.md` for the full checklist new models must pass.
+
+That's the one-time bar for merging. `tools/verify_reference_calcs.py` is
+the *ongoing* one: a regression suite that recalculates real templates with
+known inputs and checks the result against an independent Python
+re-implementation — not "did the formula throw an error" but "is it
+computing the right number." It runs on every push via
+`.github/workflows/verify-models.yml`. Run it locally with:
+
+```bash
+python3 tools/verify_reference_calcs.py
+```
 
 ## License
 

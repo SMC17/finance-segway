@@ -1,0 +1,28 @@
+name: Model Verification
+
+on:
+  push:
+    branches: [main]
+  pull_request: {}
+  workflow_dispatch: {}
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install LibreOffice (needed to actually recalculate formulas)
+        run: sudo apt-get update && sudo apt-get install -y libreoffice-calc
+
+      - name: Install dependencies
+        run: pip install openpyxl
+
+      - name: Run independent-oracle reference-calc checks
+        run: python3 tools/verify_reference_calcs.py
