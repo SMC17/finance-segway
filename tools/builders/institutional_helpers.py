@@ -16,6 +16,7 @@ BLUE = "0000FF"
 GREEN = "008000"
 YELLOW = "FFFF00"
 LIGHT_GREEN = "E2F0D9"
+LIGHT_GRENN = LIGHT_GREEN  # compatibility alias for the early public-finance builder typo
 LIGHT_RED = "FCE4D6"
 LIGHT_YELLOW = "FFF2CC"
 MED_GRAY = "BFBFBF"
