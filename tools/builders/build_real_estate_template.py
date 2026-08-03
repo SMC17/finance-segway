@@ -68,7 +68,92 @@ for r2 in [4,5,6,7,9,10,11,13,14,15]:
     ws.cell(row=r2, column=3).border = BORDER
 ws.sheet_view.showGridLines = False
 
+# ---------------- 5-YEAR HOLD & LEVERED IRR ----------------
+ws = wb.create_sheet("5-Year Hold & IRR")
+set_col_widths(ws, [4, 30, 12, 12, 12, 12, 12, 12])
+ws["B2"] = "5-Year Hold — Levered Cash Flow & IRR"; ws["B2"].font = TITLE
+ws["B4"] = "Assumptions"; ws["B4"].font = BOLD; ws["B4"].fill = GRAY_FILL
+ws["B5"] = "NOI growth rate (%/yr)"
+ws["C5"] = 0.02; ws["C5"].font = BLUE; ws["C5"].fill = YELLOW_FILL; ws["C5"].number_format = PCT
+ws["B6"] = "Exit cap rate (%)"
+ws["C6"] = 0.065; ws["C6"].font = BLUE; ws["C6"].fill = YELLOW_FILL; ws["C6"].number_format = PCT
+ws["B7"] = "Selling costs (% of exit value)"
+ws["C7"] = 0.02; ws["C7"].font = BLUE; ws["C7"].number_format = PCT
+ws["B8"] = "Annual debt service ($, assumed constant / interest-only)"
+ws["C8"] = "=IFERROR(ABS('Property Pro Forma'!C13),\"-\")"; ws["C8"].font = GREEN; ws["C8"].number_format = CUR
+ws["B9"] = "Initial equity (purchase price - debt)"
+ws["C9"] = "=IFERROR('Cap Rate & Valuation'!C8-'Cap Rate & Valuation'!C10,\"-\")"
+ws["C9"].font = GREEN; ws["C9"].number_format = CUR
+for r2 in (5, 6, 7, 8, 9):
+    ws.cell(row=r2, column=3).border = BORDER
+
+ws["B12"] = ""
+for i, h in enumerate(["", "", "Yr1", "Yr2", "Yr3", "Yr4", "Yr5"], start=1):
+    ws.cell(row=12, column=i, value=h)
+style_header_row(ws, 12, 5, start_col=3)
+ws["B13"] = "NOI"
+ws["C13"] = "='Property Pro Forma'!C11"; ws["C13"].font = GREEN
+for col in range(4, 8):
+    prev = get_column_letter(col - 1)
+    ws.cell(row=13, column=col, value=f"={prev}13*(1+$C$5)")
+ws["B14"] = "Debt service"
+for col in range(3, 8):
+    ws.cell(row=14, column=col, value="=$C$8")
+ws["B15"] = "Levered cash flow"
+for col in range(3, 8):
+    letter = get_column_letter(col)
+    ws.cell(row=15, column=col, value=f"={letter}13-{letter}14")
+ws["B16"] = "DSCR (NOI / debt service)"
+for col in range(3, 8):
+    letter = get_column_letter(col)
+    ws.cell(row=16, column=col, value=f"=IFERROR({letter}13/{letter}14,\"-\")")
+    ws.cell(row=16, column=col).number_format = MULT
+    ws.cell(row=16, column=col).fill = YELLOW_FILL
+for row in (13, 14, 15):
+    for col in range(3, 8):
+        ws.cell(row=row, column=col).number_format = CUR
+for row in (13, 14, 15, 16):
+    for col in range(3, 8):
+        ws.cell(row=row, column=col).border = BORDER
+
+ws["B18"] = "Exit (end of Yr5)"; ws["B18"].font = BOLD; ws["B18"].fill = GRAY_FILL
+ws["B19"] = "Forward NOI (Yr6, for exit cap)"
+ws["C19"] = "=G13*(1+$C$5)"; ws["C19"].number_format = CUR; ws["C19"].border = BORDER
+ws["B20"] = "Exit value (forward NOI / exit cap rate)"
+ws["C20"] = "=IFERROR(C19/C6,\"-\")"; ws["C20"].number_format = CUR; ws["C20"].border = BORDER
+ws["B21"] = "Less: selling costs"
+ws["C21"] = "=-C20*C7"; ws["C21"].number_format = CUR; ws["C21"].border = BORDER
+ws["B22"] = "Less: debt payoff (assumed interest-only, balance unchanged)"
+ws["C22"] = "=-'Cap Rate & Valuation'!C10"; ws["C22"].font = GREEN; ws["C22"].number_format = CUR
+ws["C22"].border = BORDER
+ws["B23"] = "Net exit equity proceeds"
+ws["C23"] = "=C20+C21+C22"; ws["C23"].font = BOLD; ws["C23"].number_format = CUR; ws["C23"].border = BORDER
+
+ws["B25"] = "Levered Returns"; ws["B25"].font = BOLD; ws["B25"].fill = GRAY_FILL
+for i, h in enumerate(["", "", "Yr0", "Yr1", "Yr2", "Yr3", "Yr4", "Yr5"], start=1):
+    ws.cell(row=25, column=i, value=h)
+style_header_row(ws, 25, 6, start_col=3)
+ws["B26"] = "Equity cash flow"
+ws["C26"] = "=-C9"; ws["C26"].number_format = CUR; ws["C26"].border = BORDER
+# Row 26 runs Yr0..Yr5 (columns C-H); the NOI/CF block above runs Yr1..Yr5
+# (columns C-G, no Yr0) — row26's column N maps to that block's column N-1.
+for col in range(4, 8):
+    source = get_column_letter(col - 1)
+    ws.cell(row=26, column=col, value=f"={source}15")
+    ws.cell(row=26, column=col).number_format = CUR
+    ws.cell(row=26, column=col).border = BORDER
+ws.cell(row=26, column=8, value="=G15+C23")
+ws.cell(row=26, column=8).number_format = CUR
+ws.cell(row=26, column=8).border = BORDER
+ws["B27"] = "Levered IRR"
+ws["C27"] = "=IFERROR(IRR(C26:H26),\"-\")"; ws["C27"].font = BOLD; ws["C27"].number_format = PCT
+ws["C27"].fill = YELLOW_FILL; ws["C27"].border = BORDER
+ws["B28"] = "Equity multiple (MOIC)"
+ws["C28"] = "=IFERROR(SUM(D26:H26)/C9,\"-\")"; ws["C28"].font = BOLD; ws["C28"].number_format = MULT
+ws["C28"].border = BORDER
+ws.sheet_view.showGridLines = False
+
 add_refresh_log(wb)
-out_path = "/home/claude/model_shop/REAL_ESTATE_template.xlsx"
+out_path = "REAL_ESTATE_template.xlsx"
 wb.save(out_path)
 print("saved", out_path)
