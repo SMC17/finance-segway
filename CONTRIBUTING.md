@@ -24,6 +24,32 @@ A model isn't done until it passes all of these:
    check put-call parity, cross-check against a published example — whatever
    applies to the archetype. State the check in the PR description.
 
+## Reference-calc verification (a stronger bar than "recalc succeeds")
+
+`tools/recalc.py` proves a formula didn't throw an error. It does not prove
+the formula is computing the *right* number — several real bugs in this
+library shipped past a clean recalc (a conservation-breaking error in the
+VC waterfall, an unwired LBO debt schedule, a wrong day-count convention in
+the Commodities curve) and were only caught by comparing the recalculated
+output against a value computed a second, independent way.
+
+`tools/verify_reference_calcs.py` codifies that pattern as a permanent,
+re-runnable regression suite: build a template with known inputs, recalc it
+for real, and assert the result against a pure-Python re-implementation
+(closed-form Black-Scholes, closed-form Macaulay/modified duration cross-
+checked against the sheet's numerical finite-difference duration, an
+independent LBO cash-sweep cascade, etc.). Run it with:
+
+```bash
+python3 tools/verify_reference_calcs.py
+```
+
+It's wired into `.github/workflows/verify-models.yml` and runs on every
+push and PR. When you add real formula depth to an archetype — not just a
+new input cell, but new *math* — add a check for it here. A hand-verified
+number in a PR description is good; a check that keeps verifying it on
+every future change is better.
+
 ## Adding a new archetype (a genuinely new type of model)
 
 1. Confirm it doesn't already exist — check `README.md`'s domain table first.
@@ -33,6 +59,9 @@ A model isn't done until it passes all of these:
 4. Run `tools/recalc.py` and fix every error before opening a PR.
 5. Add the archetype's required tabs to `tools/weekly_refresh_check.py`'s
    `ARCHETYPE_REQUIRED_TABS` so the weekly job can detect structural drift.
+6. Where the archetype has a genuine closed-form or independently
+   computable reference value, add a check to
+   `tools/verify_reference_calcs.py` rather than only hand-verifying once.
 
 ## Adding a company/deal/instance to an existing domain
 
