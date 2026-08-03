@@ -23,6 +23,7 @@ CUR = '$#,##0;($#,##0);"-"'
 PCT = '0.0%;(0.0%);"-"'
 MULT = '0.0x'
 YR = '@'
+ITALIC_GRAY = Font(name="Arial", size=8, italic=True, color="808080")
 
 wb = openpyxl.Workbook()
 wb.remove(wb.active)
@@ -127,14 +128,50 @@ for label in is_rows:
     r += 1
 last_data_row = r - 1
 
-# Sample formula wiring (illustrative — real model should link every period consistently)
-rev_row, growth_row, cogs_row, gp_row, gm_row = first_data_row, first_data_row+1, first_data_row+2, first_data_row+3, first_data_row+4
-for c in range(4, 10):  # FY-1A onward references prior col growth
+# IS rows (from is_rows, r starting at 5): 5 Revenue, 6 Revenue growth %, 7 COGS,
+# 8 Gross profit, 9 Gross margin %, 10 Opex, 11 EBITDA, 12 EBITDA margin %,
+# 13 D&A, 14 EBIT, 15 Interest expense, 16 Pre-tax income, 17 Tax,
+# 18 Net income, 19 Diluted shares, 20 Diluted EPS.
+(rev_row, growth_row, cogs_row, gp_row, gm_row, opex_row, ebitda_row, ebitdam_row,
+ da_row, ebit_row, int_row, pretax_row, tax_row, ni_row, shares_row, eps_row) = range(5, 21)
+
+# Historical columns (C,D,E = FY-2A/FY-1A/FY0A) are hardcoded actuals the user
+# enters — growth%/gross profit/gross margin% are still derived from them.
+for c in range(4, 10):
     col_letter = get_column_letter(c)
     prev_letter = get_column_letter(c-1)
     ws.cell(row=growth_row, column=c, value=f"=IFERROR({col_letter}{rev_row}/{prev_letter}{rev_row}-1,\"-\")")
     ws.cell(row=gp_row, column=c, value=f"={col_letter}{rev_row}-{col_letter}{cogs_row}")
     ws.cell(row=gm_row, column=c, value=f"=IFERROR({col_letter}{gp_row}/{col_letter}{rev_row},\"-\")")
+
+# Projection columns (F,G,H,I = FY1E-FY4E) map to Assumptions columns C,D,E,F
+# (FY1-FY4) — a fixed 3-column offset (IS column minus 3). Fully driven by
+# Assumptions from here down; nothing here should need manual input once the
+# FY0A actuals and Assumptions are filled in.
+for c in range(6, 10):
+    col = get_column_letter(c)
+    prev = get_column_letter(c-1)
+    a = get_column_letter(c-3)  # matching Assumptions column
+    ws.cell(row=rev_row, column=c, value=f"={prev}{rev_row}*(1+Assumptions!{a}5)")
+    ws.cell(row=cogs_row, column=c, value=f"={col}{rev_row}*(1-Assumptions!{a}6)")
+    ws.cell(row=opex_row, column=c, value=f"={col}{rev_row}*Assumptions!{a}7")
+    ws.cell(row=ebitda_row, column=c, value=f"={col}{gp_row}-{col}{opex_row}")
+    ws.cell(row=ebitdam_row, column=c, value=f"=IFERROR({col}{ebitda_row}/{col}{rev_row},\"-\")")
+    # D&A driven off capex (capex itself isn't its own IS row — computed inline
+    # as revenue x capex%, then x D&A-as-%-of-capex, per the Assumptions design).
+    ws.cell(row=da_row, column=c,
+            value=f"={col}{rev_row}*Assumptions!{a}10*Assumptions!{a}9")
+    ws.cell(row=ebit_row, column=c, value=f"={col}{ebitda_row}-{col}{da_row}")
+    # Interest held flat at the last actual (FY0A, column E) — avoids a
+    # circular reference to the Balance Sheet's debt balance, which this
+    # simplified template doesn't otherwise schedule. Deals with real debt
+    # schedules should override this with a proper link.
+    ws.cell(row=int_row, column=c, value=f"=$E${int_row}")
+    ws.cell(row=pretax_row, column=c, value=f"={col}{ebit_row}-{col}{int_row}")
+    ws.cell(row=tax_row, column=c, value=f"={col}{pretax_row}*Assumptions!{a}8")
+    ws.cell(row=ni_row, column=c, value=f"={col}{pretax_row}-{col}{tax_row}")
+    ws.cell(row=shares_row, column=c, value=f"=Assumptions!{a}12")
+    ws.cell(row=eps_row, column=c, value=f"=IFERROR({col}{ni_row}/{col}{shares_row},\"-\")")
 ws.sheet_view.showGridLines = False
 ws.freeze_panes = "C5"
 
@@ -155,6 +192,27 @@ for label in bs_rows:
     for c in range(3, 8):
         cell = ws.cell(row=r, column=c); cell.number_format = CUR; cell.border = BORDER; cell.font = BLACK
     r += 1
+
+# Rows: 5 Cash, 6 AR, 7 Inventory, 8 Total current assets, 9 PP&E, 10 Goodwill,
+# 11 Total assets, 12 AP, 13 Debt (current), 14 Total current liab,
+# 15 LT debt, 16 Total liabilities, 17 Total equity. Every line item (5-7,
+# 9-10, 12-13, 15, 17) stays a manual input — this template doesn't project
+# a full balance sheet roll-forward, only the arithmetic totals, so those
+# always tie to whatever the user enters above them.
+for c in range(3, 8):
+    col = get_column_letter(c)
+    ws.cell(row=8, column=c, value=f"={col}5+{col}6+{col}7")
+    ws.cell(row=11, column=c, value=f"={col}8+{col}9+{col}10")
+    ws.cell(row=14, column=c, value=f"={col}12+{col}13")
+    ws.cell(row=16, column=c, value=f"={col}14+{col}15")
+
+ws["B19"] = "Balance check (Total assets - Total liabilities - Total equity, should = 0)"
+ws["B19"].font = ITALIC_GRAY
+for c in range(3, 8):
+    col = get_column_letter(c)
+    cell = ws.cell(row=19, column=c, value=f"={col}11-{col}16-{col}17")
+    cell.number_format = CUR
+    cell.border = BORDER
 ws.sheet_view.showGridLines = False
 
 # ---------------- CASH FLOW ----------------
@@ -173,6 +231,29 @@ for label in cf_rows:
     for c in range(3, 8):
         cell = ws.cell(row=r, column=c); cell.number_format = CUR; cell.border = BORDER; cell.font = BLACK
     r += 1
+
+# Rows: 5 NI, 6 D&A, 7 +/- NWC chg, 8 CFO, 9 Capex, 10 FCF, 11 Debt iss/(repay),
+# 12 Dividends, 13 Net change in cash. Capex/dividends entered as negative
+# numbers (outflows), consistent with the "-" convention used elsewhere in
+# this repo (e.g. the LBO and Real Estate archetypes).
+for c in range(3, 8):
+    col = get_column_letter(c)
+    ws.cell(row=8, column=c, value=f"={col}5+{col}6+{col}7")
+    ws.cell(row=10, column=c, value=f"={col}8+{col}9")
+    ws.cell(row=13, column=c, value=f"={col}10+{col}11+{col}12")
+
+# Projection columns only (E,F,G = FY1E-FY3E) pull NI and D&A straight from
+# the Income Statement — a fixed +1 column offset (CF's FY1E is column E,
+# IS's FY1E is column F, because IS carries one more historical year than
+# CF/BS do). Historicals (C,D) stay manual inputs, same as IS's own
+# historical columns.
+for c in range(5, 8):
+    col = get_column_letter(c)
+    is_col = get_column_letter(c + 1)
+    ws.cell(row=5, column=c, value=f"=IS!{is_col}18")
+    ws.cell(row=5, column=c).font = GREEN
+    ws.cell(row=6, column=c, value=f"=IS!{is_col}13")
+    ws.cell(row=6, column=c).font = GREEN
 ws.sheet_view.showGridLines = False
 
 # ---------------- DCF ----------------
@@ -183,9 +264,27 @@ for i, h in enumerate(["", "", "FY1E", "FY2E", "FY3E", "FY4E", "FY5E"], start=1)
     ws.cell(row=4, column=i, value=h)
 style_header_row(ws, 4, 5, start_col=3)
 ws["B5"] = "Unlevered FCF"
-for c in range(3, 8):
+# DCF's FY1E-FY4E (columns C-F) map to IS's FY1E-FY4E (columns F-I, offset +3)
+# and, conveniently, DCF's own columns already line up 1:1 with Assumptions'
+# FY1-FY5 columns (both start FY1 at column C) — no offset needed there.
+# Unlevered FCF = EBIT x (1-tax) + D&A - Capex, computed straight off the IS
+# (not CF's levered FCF, which nets out interest — a DCF wants the unlevered
+# figure). Capex isn't its own IS line, so it's rebuilt inline exactly like
+# the IS's own D&A formula does: revenue x capex%.
+for c in range(3, 7):
+    col = get_column_letter(c)
+    is_col = get_column_letter(c + 3)
+    ws.cell(row=5, column=c,
+            value=(f"=IS!{is_col}14*(1-Assumptions!{col}8)+IS!{is_col}13"
+                   f"-IS!{is_col}5*Assumptions!{col}10"))
+    ws.cell(row=5, column=c).font = GREEN
     ws.cell(row=5, column=c).number_format = CUR
-    ws.cell(row=5, column=c).font = GREEN  # link to CF sheet
+# FY5E (column G) has no matching IS column (IS only projects 4 years) —
+# extend it by growing FY4E's unlevered FCF at the Assumptions FY5 revenue
+# growth rate, a standard one-year bridge to a 5-year DCF window.
+ws["G5"] = "=F5*(1+Assumptions!G5)"
+ws["G5"].font = GREEN
+ws["G5"].number_format = CUR
 ws["B6"] = "Discount factor"
 ws["B7"] = "PV of FCF"
 for c in range(3, 8):
@@ -259,6 +358,6 @@ for r in range(5, 15):
 ws.sheet_view.showGridLines = False
 
 wb.move_sheet("Cover", offset=-len(wb.sheetnames))
-out_path = "/home/claude/model_shop/_template.xlsx"
+out_path = "_template_BASE.xlsx"
 wb.save(out_path)
 print("saved", out_path)
