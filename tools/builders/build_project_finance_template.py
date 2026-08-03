@@ -88,11 +88,32 @@ for c in range(3, 8):
 
 ws["B9"] = "Minimum DSCR covenant"; ws["C9"] = 1.20; ws["C9"].font = BLUE; ws["C9"].fill = YELLOW_FILL
 ws["C9"].number_format = '0.00x'; ws["C9"].border = BORDER
-ws["B10"] = "Debt sizing: Max debt = PV of CFADS at target DSCR (build amortization schedule per deal to solve precisely)"
-ws["B10"].font = ITALIC_GRAY
+ws["B10"] = "Debt interest rate (for sizing PV)"
+ws["C10"] = 0.06; ws["C10"].font = BLUE; ws["C10"].fill = YELLOW_FILL
+ws["C10"].number_format = PCT2; ws["C10"].border = BORDER
+
+ws["B12"] = "Debt sizing (sculpted to the DSCR covenant)"; ws["B12"].font = BOLD; ws["B12"].fill = GRAY_FILL
+ws["B13"] = "Max annual debt service (CFADS / target DSCR)"
+ws["B14"] = "PV of max debt service (discounted at debt rate)"
+for c in range(3, 8):
+    col = get_column_letter(c)
+    year = c - 2
+    ws.cell(row=13, column=c, value=f"=IFERROR({col}5/$C$9,\"-\")")
+    ws.cell(row=13, column=c).number_format = CUR
+    ws.cell(row=13, column=c).border = BORDER
+    ws.cell(row=14, column=c, value=f"=IFERROR({col}13/(1+$C$10)^{year},\"-\")")
+    ws.cell(row=14, column=c).number_format = CUR
+    ws.cell(row=14, column=c).border = BORDER
+ws["B16"] = "Max sculpted debt (sum of PVs of annual capacity)"
+ws["C16"] = "=SUM(C14:G14)"
+ws["C16"].font = BOLD; ws["C16"].number_format = CUR; ws["C16"].border = BORDER
+ws["D16"] = ("This is capacity, not a repayment schedule — a real deal still needs an amortization "
+             "profile (sculpted or level) that fits within it and keeps DSCR above covenant every "
+             "period, not just on average")
+ws["D16"].font = ITALIC_GRAY
 ws.sheet_view.showGridLines = False
 
 add_refresh_log(wb)
-out_path = "/home/claude/model_shop/PROJECT_FINANCE_template.xlsx"
+out_path = "PROJECT_FINANCE_template.xlsx"
 wb.save(out_path)
 print("saved", out_path)
