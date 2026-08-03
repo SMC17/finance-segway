@@ -40,18 +40,33 @@ ws["D13"] = "Square-root-of-time scaling assumes i.i.d. returns — a simplifica
 ws["D13"].font = ITALIC_GRAY
 ws["B14"] = "VaR as % of portfolio"
 ws["C14"] = "=IFERROR(C13/C5,\"-\")"; ws["C14"].number_format = PCT
-for r2 in range(11, 15):
+ws["B15"] = "Expected Shortfall / CVaR (1-day, $)"
+ws["C15"] = "=IFERROR(C5*C6*NORMDIST(C11,0,1,FALSE)/(1-C7),\"-\")"
+ws["C15"].font = BOLD; ws["C15"].number_format = CUR
+ws["D15"] = "Analytic ES under normality: sigma x phi(Z) / (1-confidence). Always >= VaR — it's the average loss GIVEN that VaR is breached, not just the threshold."
+ws["D15"].font = ITALIC_GRAY
+for r2 in range(11, 16):
     ws.cell(row=r2, column=3).border = BORDER
 
-ws["B17"] = "Historical VaR (alternative method)"; ws["B17"].font = BOLD; ws["B17"].fill = GRAY_FILL
-ws["B18"] = "Enter trailing daily P&L observations below (min 100 recommended); "
-ws["B18"].font = ITALIC_GRAY
-ws["B19"] = "Historical VaR = PERCENTILE of P&L distribution at (1-confidence)"
+ws["B18"] = "Historical VaR (alternative method)"; ws["B18"].font = BOLD; ws["B18"].fill = GRAY_FILL
+ws["B19"] = "Enter trailing daily P&L observations below (min 100 recommended)"
 ws["B19"].font = ITALIC_GRAY
-ws["B20"] = "Historical VaR ($)"
-ws["C20"] = "=IFERROR(-PERCENTILE(E20:E119,1-C7),\"[fill in P&L history in col E]\")"
-ws["C20"].number_format = CUR
-ws["C20"].border = BORDER
+ws["B20"] = "Historical VaR = PERCENTILE of P&L distribution at (1-confidence)"
+ws["B20"].font = ITALIC_GRAY
+ws["B21"] = "Historical VaR ($)"
+ws["C21"] = "=IFERROR(-PERCENTILE(E23:E122,1-C7),\"-\")"
+ws["C21"].font = BOLD; ws["C21"].number_format = CUR
+ws["C21"].border = BORDER
+ws["B22"] = "Historical CVaR / ES ($, avg of losses beyond the VaR percentile)"
+ws["C22"] = ("=IFERROR(-AVERAGEIF(E23:E122,\"<=\"&PERCENTILE(E23:E122,1-C7)),\"-\")")
+ws["C22"].number_format = CUR
+ws["C22"].border = BORDER
+ws["E22"] = "Daily P&L ($)"; ws["E22"].font = BOLD; ws["E22"].fill = GRAY_FILL
+for r2 in range(23, 123):
+    c = ws.cell(row=r2, column=5, value=None)
+    c.font = BLUE
+    c.number_format = CUR
+    c.border = BORDER
 ws.sheet_view.showGridLines = False
 
 # ---------------- STRESS SCENARIOS ----------------
@@ -98,6 +113,6 @@ for j, v in enumerate(vols, start=5):
 ws.sheet_view.showGridLines = False
 
 add_refresh_log(wb)
-out_path = "/home/claude/model_shop/RISK_template.xlsx"
+out_path = "RISK_template.xlsx"
 wb.save(out_path)
 print("saved", out_path)
