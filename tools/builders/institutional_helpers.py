@@ -1,18 +1,12 @@
-"""Institutional workbook helpers for scenario-driven finance templates.
-
-These helpers intentionally sit beside the legacy template_helpers module so
-existing archetype builders remain stable while new models adopt stricter
-source, scenario, formatting, and check conventions.
-"""
+"""Shared controls and styling for institutional finance workbook builders."""
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Iterable, Sequence
+from typing import Sequence
 
 from openpyxl import Workbook
 from openpyxl.formatting.rule import FormulaRule
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
-from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 
 NAVY = "1F4E78"
@@ -22,11 +16,8 @@ BLUE = "0000FF"
 GREEN = "008000"
 YELLOW = "FFFF00"
 LIGHT_GREEN = "E2F0D9"
-# Backward-compatible alias for an early integration-branch typo.
-LIGHT_GRENN = LIGHT_GREEN
 LIGHT_RED = "FCE4D6"
 LIGHT_YELLOW = "FFF2CC"
-LIGHT_GRAY = "E7E6E6"
 MED_GRAY = "BFBFBF"
 
 THIN = Side(style="thin", color=MED_GRAY)
@@ -73,7 +64,6 @@ def section(ws, cell_range: str, text: str) -> None:
     cell.value = text
     cell.fill = PatternFill("solid", fgColor=NAVY)
     cell.font = Font(name="Arial", size=10, bold=True, color=WHITE)
-    cell.alignment = Alignment(horizontal="left", vertical="center")
 
 
 def input_cell(cell, number_format: str | None = None) -> None:
@@ -101,18 +91,11 @@ def total_row(ws, row: int, start_col: int, end_col: int, number_format: str | N
 
 def add_status_rules(ws, cell_range: str) -> None:
     first = cell_range.split(":")[0]
-    ws.conditional_formatting.add(
-        cell_range,
-        FormulaRule(formula=[f'{first}="PASS"'], fill=PatternFill("solid", fgColor=LIGHT_GREEN)),
-    )
-    ws.conditional_formatting.add(
-        cell_range,
-        FormulaRule(formula=[f'{first}="FAIL"'], fill=PatternFill("solid", fgColor=LIGHT_RED)),
-    )
-    ws.conditional_formatting.add(
-        cell_range,
-        FormulaRule(formula=[f'{first}="REVIEW"'], fill=PatternFill("solid", fgColor=LIGHT_YELLOW)),
-    )
+    for label, color in (("PASS", LIGHT_GREEN), ("FAIL", LIGHT_RED), ("REVIEW", LIGHT_YELLOW)):
+        ws.conditional_formatting.add(
+            cell_range,
+            FormulaRule(formula=[f'{first}="{label}"'], fill=PatternFill("solid", fgColor=color)),
+        )
 
 
 def add_cover(wb: Workbook, title_text: str, fields: Sequence[tuple[str, object]], *, scenario: bool = True):
@@ -122,16 +105,16 @@ def add_cover(wb: Workbook, title_text: str, fields: Sequence[tuple[str, object]
         ws.cell(row=row, column=2, value=label).font = Font(name="Arial", size=10, bold=True, color=DARK)
         input_cell(ws.cell(row=row, column=3, value=value))
     if scenario:
-        dv = DataValidation(type="list", formula1='"Base,Downside"', allow_blank=False)
-        ws.add_data_validation(dv)
-        dv.add(ws["C9"])
+        validation = DataValidation(type="list", formula1='"Base,Downside"', allow_blank=False)
+        ws.add_data_validation(validation)
+        validation.add(ws["C9"])
     section(ws, "B12:F12", "Modeling conventions")
-    legend = [
+    legend = (
         ("Blue text / yellow fill", "Hardcoded scenario input"),
         ("Black text", "Formula / same-sheet calculation"),
         ("Green text", "Cross-sheet formula / link"),
         ("Checks", "PASS / REVIEW / FAIL must be visible"),
-    ]
+    )
     for row, (label, meaning) in enumerate(legend, start=13):
         ws.cell(row=row, column=2, value=label).font = Font(name="Arial", size=10, bold=True, color=DARK)
         ws.cell(row=row, column=3, value=meaning).font = Font(name="Arial", size=10, color=DARK)
@@ -146,7 +129,7 @@ def add_cover(wb: Workbook, title_text: str, fields: Sequence[tuple[str, object]
 
 def add_refresh_log(wb: Workbook):
     ws = wb["RefreshLog"] if "RefreshLog" in wb.sheetnames else wb.create_sheet("RefreshLog")
-    title(ws, "B2:F2, "Refresh Log")
+    title(ws, "B2:F2", "Refresh Log")
     header(ws, 4, 2, ["Date", "Trigger", "What changed", "Reviewer notes", "Next check"])
     for row in range(5, 25):
         for col in range(2, 7):
