@@ -37,6 +37,7 @@ ARCHETYPE_REQUIRED_TABS = {
     "lbo": {"Cover", "Sources & Uses", "Debt Schedule", "Returns", "Sensitivity", "RefreshLog"},
     "credit": {"Cover", "Assumptions", "Covenants", "Debt Schedule", "RefreshLog"},
     "risk": {"Cover", "VaR", "Stress Scenarios", "RefreshLog"},
+    "public_finance": {"Cover", "Debt Sustainability", "Revenue Bond Coverage", "RefreshLog"},
     "default": {"Cover", "RefreshLog"},  # fallback: only the two universal tabs
 }
 
@@ -49,6 +50,8 @@ def detect_archetype(path, sheetnames):
         return "credit"
     if "risk" in lower:
         return "risk"
+    if "public_finance" in lower or {"Debt Sustainability", "Revenue Bond Coverage"}.issubset(sheetnames):
+        return "public_finance"
     if {"IS", "BS", "CF", "DCF"}.issubset(sheetnames):
         return "corp_finance"
     return "default"
