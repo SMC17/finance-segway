@@ -121,24 +121,81 @@ ws.sheet_view.showGridLines = False
 
 # ---------------- COMPARABLE PROTOCOLS ----------------
 ws = wb.create_sheet("Comparable Protocols")
-set_col_widths(ws, [4, 18, 14, 14, 12, 12, 12])
+set_col_widths(ws, [4, 18, 14, 14, 14, 14, 12, 12, 12])
 ws["B2"] = "Comparable Protocols"; ws["B2"].font = TITLE
-for i, h in enumerate(["", "Protocol", "Mkt cap", "TVL", "Mkt/TVL", "FDV/TVL", "NVT"], start=1):
+headers = ["", "Protocol", "Mkt cap", "FDV", "TVL", "Daily volume", "Mkt/TVL", "FDV/TVL", "NVT"]
+for i, h in enumerate(headers, start=1):
     ws.cell(row=4, column=i, value=h)
-style_header_row(ws, 4, 6)
+style_header_row(ws, 4, 8)
+
+# Row 5 auto-pulls this protocol's own stats from the Valuation tab so it's
+# always the first, always-current comp — everything below is peer data the
+# user fills in by hand.
+ws["B5"] = "This protocol"; ws["B5"].font = BOLD
+ws["C5"] = "=Valuation!C11"; ws["D5"] = "=Valuation!C12"
+ws["E5"] = "=Valuation!C6"; ws["F5"] = "=Valuation!C8"
+for c in (3, 4, 5, 6):
+    ws.cell(row=5, column=c).font = GREEN
+    ws.cell(row=5, column=c).number_format = CUR
+    ws.cell(row=5, column=c).border = BORDER
+
+for r in range(6, 12):
+    ws.cell(row=r, column=2, value="[fill in]").font = BLUE
+    ws.cell(row=r, column=2).border = BORDER
+    for c in (3, 4, 5, 6):
+        cell = ws.cell(row=r, column=c, value=0)
+        cell.font = BLUE; cell.number_format = CUR; cell.border = BORDER
+
 for r in range(5, 12):
-    for c in range(2, 8):
-        cell = ws.cell(row=r, column=c, value="[fill in]" if c in (2,) else 0)
-        cell.font = BLUE
-        cell.border = BORDER
-        if c in (3, 4):
-            cell.number_format = CUR
-        elif c in (5, 6, 7):
-            cell.number_format = MULT
+    ws.cell(row=r, column=7, value=f"=IFERROR(C{r}/E{r},\"-\")").number_format = MULT
+    ws.cell(row=r, column=8, value=f"=IFERROR(D{r}/E{r},\"-\")").number_format = MULT
+    ws.cell(row=r, column=9, value=f"=IFERROR(C{r}/(F{r}*365),\"-\")").number_format = MULT
+    for c in (7, 8, 9):
+        ws.cell(row=r, column=c).border = BORDER
+ws.sheet_view.showGridLines = False
+
+# ---------------- SUPPLY EMISSION & DILUTION ----------------
+ws = wb.create_sheet("Supply Emission Schedule")
+set_col_widths(ws, [4, 32, 14, 14, 14, 14, 14, 40])
+ws["B2"] = "Forward Supply Emission & Dilution"; ws["B2"].font = TITLE
+ws["B4"] = "Annual emission rate (% of max supply issued/yr)"
+ws["C4"] = 0.05; ws["C4"].font = BLUE; ws["C4"].fill = YELLOW_FILL; ws["C4"].number_format = PCT
+ws["C4"].border = BORDER
+ws["D4"] = "Simplified: assumes a flat schedule. Real unlocks are usually cliff + linear per allocation — treat this as a planning approximation, not a substitute for the actual unlock table."
+ws["D4"].font = ITALIC_GRAY
+
+for i, h in enumerate(["", "", "Period 0", "Period 1", "Period 2", "Period 3", "Period 4"], start=1):
+    ws.cell(row=6, column=i, value=h)
+style_header_row(ws, 6, 5, start_col=3)
+ws["B7"] = "Circulating supply"
+ws["C7"] = f"=Tokenomics!C{circ_row}"; ws["C7"].font = GREEN
+for col in range(4, 8):
+    prev = get_column_letter(col - 1)
+    ws.cell(row=7, column=col, value=f"=MIN(Tokenomics!$C${max_row},{prev}7+Tokenomics!$C${max_row}*$C$4)")
+for col in range(3, 8):
+    ws.cell(row=7, column=col).number_format = NUM
+    ws.cell(row=7, column=col).border = BORDER
+
+ws["B8"] = "Cumulative dilution vs. today"
+for col in range(3, 8):
+    letter = get_column_letter(col)
+    ws.cell(row=8, column=col, value=f"=IFERROR(1-$C$7/{letter}7,\"-\")")
+    ws.cell(row=8, column=col).number_format = PCT
+    ws.cell(row=8, column=col).border = BORDER
+ws["B9"] = "Implied mkt cap at today's price (if price held flat)"
+for col in range(3, 8):
+    letter = get_column_letter(col)
+    ws.cell(row=9, column=col, value=f"=Valuation!$C$5*{letter}7")
+    ws.cell(row=9, column=col).number_format = CUR
+    ws.cell(row=9, column=col).border = BORDER
+ws["B10"] = ("A holder who doesn't add to their position loses this much ownership share to new "
+             "issuance over time -- the price needs to grow faster than dilution just to keep the "
+             "position's dollar value from falling.")
+ws["B10"].font = ITALIC_GRAY
 ws.sheet_view.showGridLines = False
 
 add_refresh_log(wb)
 
-out_path = "/home/claude/model_shop/CRYPTO_template.xlsx"
+out_path = "CRYPTO_template.xlsx"
 wb.save(out_path)
 print("saved", out_path)
