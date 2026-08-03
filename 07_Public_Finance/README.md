@@ -1,7 +1,7 @@
 # 07 Public Finance
 
-**Archetype:** `PUBLIC_FINANCE_template.xlsx` (TEMPLATE NOT YET BUILT — placeholder only)
+**Archetype:** `_template_PUBLIC_FINANCE.xlsx` (template copied)
 
-Sovereign/muni debt sustainability, revenue bond coverage. [NOT YET BUILT]
+Two lenses: sovereign/muni debt sustainability (IMF/DSA-style debt-stabilizing primary balance) and revenue bond coverage (net revenue, senior/all-in DSCR, additional bonds test).
 
-Instances live in `/issuers/`. Copy the template, rename to ticker or deal code, fill in Cover tab, run weekly_refresh_check.py.
+Instances live in `/issuers/`. Copy the template, rename to issuer/deal code, fill in Cover tab, run weekly_refresh_check.py.

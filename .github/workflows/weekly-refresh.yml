@@ -2,32 +2,5 @@ name: Weekly Model Refresh Check
 
 on:
   schedule:
-    # Every Monday 08:00 UTC
-    - cron: '0 8 * * 1'
-  workflow_dispatch: {}  # allow manual trigger from the Actions tab
-
-jobs:
-  refresh-check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: pip install openpyxl
-
-      - name: Run refresh checker across entire repo
-        run: python3 tools/weekly_refresh_check.py .
-
-      - name: Commit refresh report(s)
-        run: |
-          git config user.name "refresh-bot"
-          git config user.email "actions@users.noreply.github.com"
-          git add "**/refresh_report_*.csv" || true
-          git diff --staged --quiet || git commit -m "Weekly refresh report $(date +%F)"
-          git push
+    - cron: '0 12 * * 1'  # Monday 08:00 America/New_YošÈ\š[™È^[YÚ[YBˆÛÜšÙ›İ×Ù\Ü]Ú‚‚œ\›Z\ÜÚ[ÛœÎ‚ˆÛÛ[Îˆ™XY‚š›ØœÎ‚ˆ™Yœ™\ÚXÚXÚÎ‚ˆ[œË[ÛˆX[K[]\İˆİ\Î‚ˆH\Ù\ÎˆXİ[ÛœËØÚXÚÛİ]ˆH\Ù\ÎˆXİ[ÛœËÜÙ]\\]ÛBˆÚ]‚ˆ]Û‹]™\œÚ[Ûˆ	ÌËŒLIÂˆØXÚNˆ\ˆH˜[YNˆ[œİ[\[™[˜ÚY\Âˆ[ˆ\[œİ[\ˆ™\]Z\™[Y[ËˆH˜[YNˆ[ˆ™Yœ™\ÚÚXÚÙ\‚ˆ[ˆ]ÛˆÛÛËİÙYZÛWÜ™Yœ™\ÚØÚXÚËœH‚ˆH˜[YNˆ\ØY™Yœ™\Ú™\ÜˆYˆ[Ø^\Ê
+Bˆ\Ù\ÎˆXİ[ÛœËİ\ØYX\Y˜XİˆÚ]‚ˆ˜[YNˆÙYZÛK[[Ù[\™Yœ™\Ú\™\Üˆ]ˆ™Yœ™\ÚÜ™\ÜÊ‹˜Üİ‚ˆY‹[›ËYš[\ËY›İ[™ˆ\œ›Ü‚ˆ™][[Û‹Y^\ÎˆÌ
