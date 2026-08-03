@@ -49,9 +49,9 @@ every archetype in this repo got built.
 | 02 | Corporate Finance | Same engine, capital-structure lens | Built |
 | 03 | Private Equity | LBO: sources & uses, debt schedule, returns waterfall | Built |
 | 04 | Merchant Banking | LBO engine (principal-investing variant) | Built |
-| 05 | Private Credit | Leverage, covenant headroom, yield/spread | **Not yet built** |
-| 06 | Debt Finance | Same credit engine | **Not yet built** |
-| 07 | Public Finance | Sovereign/muni debt sustainability | **Not yet built** |
+| 05 | Private Credit | Leverage, covenant headroom, debt schedule, lender yield (OID) | Built |
+| 06 | Debt Finance | Same credit engine | Built |
+| 07 | Public Finance | Sovereign/muni DSA + revenue bond coverage/ABT | Built |
 | 08 | Asset Management | Fund NAV, fee waterfall (mgmt+carry+hurdle+catch-up) | Built |
 | 09 | Risk Management | Parametric/historical VaR, stress scenarios | Built |
 | 10 | Trade Finance | Cash conversion cycle, LC & factoring cost | Built |
@@ -102,7 +102,7 @@ python3 tools/weekly_refresh_check.py .
 
 ## Verification standard
 
-Every archetype was checked against a known reference before being marked "Built" — e.g. Black-Scholes checked against put-call parity, bond pricing hand-verified against the annuity/PV formula (10yr 5% semi-annual bond @ 5.5% YTM: 25×15.225 + 1000×0.5813 = 961.9, matches spreadsheet exactly). See `CONTRIBUTING.md` for the full checklist new models must pass.
+Every archetype was checked against a known reference before being marked "Built" — e.g. Black-Scholes checked against put-call parity, bond pricing hand-verified against the annuity/PV formula (10yr 5% semi-annual bond @ 5.5% YTM: 25×15.225 + 1000×0.5813 = 961.9, matches spreadsheet exactly), the Public Finance debt-stabilizing primary balance checked against the standard IMF/DSA formula pb\*=(r−g)/(1+g)×debt ratio (r=5%, g=2%, debt/GDP=60% → 1.76%, matches spreadsheet exactly), and the Private Credit approximate YTM checked against the standard bond-math formula (which collapses to the coupon rate exactly at par — a built-in sanity check on the formula itself). See `CONTRIBUTING.md` for the full checklist new models must pass.
 
 ## License
 

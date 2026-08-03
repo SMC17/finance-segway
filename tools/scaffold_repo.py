@@ -39,17 +39,17 @@ DOMAINS = {
     },
     "05_Private_Credit": {
         "archetype": "CREDIT_template.xlsx",
-        "desc": "Leverage ratios, covenant headroom, yield/spread, loss-given-default. [NOT YET BUILT]",
+        "desc": "Leverage ratios, covenant headroom, debt schedule, lender yield incl. OID.",
         "instances": "deals",
     },
     "06_Debt_Finance": {
         "archetype": "CREDIT_template.xlsx",
-        "desc": "Same credit engine — general debt-finance instances live here. [NOT YET BUILT]",
+        "desc": "Same credit engine — general debt-finance instances live here.",
         "instances": "instruments",
     },
     "07_Public_Finance": {
         "archetype": "PUBLIC_FINANCE_template.xlsx",
-        "desc": "Sovereign/muni debt sustainability, revenue bond coverage. [NOT YET BUILT]",
+        "desc": "Sovereign/muni debt sustainability (IMF/DSA), revenue bond coverage & additional bonds test.",
         "instances": "issuers",
     },
     "08_Asset_Management": {
@@ -145,7 +145,7 @@ FRAMEWORKS_ONLY = {
     "28_Social_Finance": "Impact/ESG frameworks and case writeups — not spreadsheet deliverables.",
 }
 
-NOT_YET_BUILT = {"CREDIT_template.xlsx", "PUBLIC_FINANCE_template.xlsx"}
+NOT_YET_BUILT = set()
 
 
 def scaffold():

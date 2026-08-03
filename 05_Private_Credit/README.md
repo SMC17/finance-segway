@@ -1,7 +1,7 @@
 # 05 Private Credit
 
-**Archetype:** `CREDIT_template.xlsx` (TEMPLATE NOT YET BUILT — placeholder only)
+**Archetype:** `_template_CREDIT.xlsx` (template copied)
 
-Leverage ratios, covenant headroom, yield/spread, loss-given-default. [NOT YET BUILT]
+Direct-lending / leveraged-loan model: facility assumptions, covenant headroom (leverage, interest coverage, DSCR), a multi-year debt schedule, and lender yield-to-maturity including OID.
 
 Instances live in `/deals/`. Copy the template, rename to ticker or deal code, fill in Cover tab, run weekly_refresh_check.py.
