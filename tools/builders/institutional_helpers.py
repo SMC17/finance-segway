@@ -22,6 +22,8 @@ BLUE = "0000FF"
 GREEN = "008000"
 YELLOW = "FFFF00"
 LIGHT_GREEN = "E2F0D9"
+# Backward-compatible alias for an early integration-branch typo.
+LIGHT_GRENN = LIGHT_GREEN
 LIGHT_RED = "FCE4D6"
 LIGHT_YELLOW = "FFF2CC"
 LIGHT_GRAY = "E7E6E6"
@@ -144,7 +146,7 @@ def add_cover(wb: Workbook, title_text: str, fields: Sequence[tuple[str, object]
 
 def add_refresh_log(wb: Workbook):
     ws = wb["RefreshLog"] if "RefreshLog" in wb.sheetnames else wb.create_sheet("RefreshLog")
-    title(ws, "B2:F2", "Refresh Log")
+    title(ws, "B2:F2, "Refresh Log")
     header(ws, 4, 2, ["Date", "Trigger", "What changed", "Reviewer notes", "Next check"])
     for row in range(5, 25):
         for col in range(2, 7):

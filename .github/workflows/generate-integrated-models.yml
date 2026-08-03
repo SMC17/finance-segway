@@ -1,0 +1,58 @@
+name: Generate Integrated Workbooks
+
+on:
+  push:
+    branches:
+      - agent/integrate-finance-model-library
+    paths:
+      - tools/builders/build_credit_template.py
+      - tools/builders/build_public_finance_template.py
+      - tools/builders/institutional_helpers.py
+      - tools/validate_integrated_models.py
+      - .github/workflows/generate-integrated-models.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout integration branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate integrated workbooks
+        run: |
+          python tools/builders/build_credit_template.py --output 05_Private_Credit/_template_CREDIT.xlsx
+          cp 05_Private_Credit/_template_CREDIT.xlsx 06_Debt_Finance/_template_CREDIT.xlsx
+          python tools/builders/build_public_finance_template.py --output 07_Public_Finance/_template_PUBLIC_FINANCE.xlsx
+
+      - name: Validate generated and committed contracts
+        run: python tools/validate_integrated_models.py
+
+      - name: Commit exact workbook artifacts
+        run: |
+          git config user.name "finance-model-bot"
+          git config user.email "finance-model-bot@users.noreply.github.com"
+          git add 05_Private_Credit/_template_CREDIT.xlsx \
+                  06_Debt_Finance/_template_CREDIT.xlsx \
+                  07_Public_Finance/_template_PUBLIC_FINANCE.xlsx
+          if git diff --staged --quiet; then
+            echo "Generated workbooks already match the branch."
+          else
+            git commit -m "Regenerate integrated finance workbooks [skip generate]"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
