@@ -21,7 +21,9 @@ BORDER = Border(left=THIN, right=THIN, top=THIN, bottom=THIN)
 
 CUR = '$#,##0;($#,##0);"-"'
 PCT = '0.0%;(0.0%);"-"'
+PCT2 = '0.00%;(0.00%);"-"'
 MULT = '0.0x'
+ITALIC_GRAY = Font(name="Arial", size=8, italic=True, color="808080")
 
 wb = openpyxl.Workbook()
 wb.remove(wb.active)
@@ -90,20 +92,87 @@ ws.sheet_view.showGridLines = False
 
 # ---------------- DEBT SCHEDULE ----------------
 ws = wb.create_sheet("Debt Schedule")
-set_col_widths(ws, [4, 24, 12, 12, 12, 12, 12, 12])
+set_col_widths(ws, [4, 24, 12, 12, 12, 12, 12, 12, 4, 26, 14])
 ws["B2"] = "Debt Schedule (with cash sweep)"; ws["B2"].font = TITLE
 for i, h in enumerate(["", "", "Yr0", "Yr1", "Yr2", "Yr3", "Yr4", "Yr5"], start=1):
     ws.cell(row=4, column=i, value=h)
 style_header_row(ws, 4, 6, start_col=3)
 
+# ---- assumptions block (drives every formula below; columns J:K) ----
+ws["J4"] = "Assumptions"; ws["J4"].font = BOLD; ws["J4"].fill = GRAY_FILL
+ws["K4"] = ""; ws["K4"].fill = GRAY_FILL
+assumptions = [
+    ("Entry EBITDA growth (%/yr)", 0.05, PCT),
+    ("FCF conversion (FCF / EBITDA, %)", 0.50, PCT),
+    ("Mandatory amort (% of original TLB/yr)", 0.01, PCT),
+    ("Cash sweep (% of excess FCF, after debt svc)", 0.75, PCT),
+    ("Term Loan B interest rate (%)", 0.09, PCT2),
+]
+r = 5
+for label, default, fmt in assumptions:
+    ws.cell(row=r, column=10, value=label).font = BLACK
+    c = ws.cell(row=r, column=11, value=default); c.font = BLUE; c.fill = YELLOW_FILL
+    c.number_format = fmt; c.border = BORDER
+    r += 1
+ws["J10"] = "Original TLB balance (Yr0, $)"
+ws["K10"] = "='Sources & Uses'!C7"; ws["K10"].font = GREEN; ws["K10"].number_format = CUR
+ws["K10"].border = BORDER
+ws["J12"] = "Models Term Loan B only — the amortizing/sweep tranche in a typical"
+ws["J13"] = "structure. Revolver stays undrawn at close; notes are bullet/no-amort."
+ws["J12"].font = ITALIC_GRAY; ws["J13"].font = ITALIC_GRAY
+
+# ---- EBITDA and FCF, grown off the entry EBITDA on the Returns tab ----
 ws["B5"] = "EBITDA"; ws["B5"].font = GREEN
-ws["B6"] = "Cash flow available for debt paydown (FCF)"; ws["B6"].font = GREEN
+ws["C5"] = "=Returns!C5"; ws["C5"].font = GREEN
+for col in range(4, 9):
+    prev = get_column_letter(col - 1)
+    ws.cell(row=5, column=col, value=f"={prev}5*(1+$K$5)")
+ws["B6"] = "Cash flow available for debt paydown (FCF)"; ws["B6"].font = BLACK
+for col in range(3, 9):
+    letter = get_column_letter(col)
+    ws.cell(row=6, column=col, value=f"={letter}5*$K$6")
+for row in (5, 6):
+    for c in range(3, 9):
+        ws.cell(row=row, column=c).number_format = CUR
+        ws.cell(row=row, column=c).border = BORDER
+
 ws["B8"] = "Term Loan B"; ws["B8"].font = BOLD
 ws["B9"] = "  Beginning balance"
 ws["B10"] = "  Mandatory amortization"
-ws["B11"] = "  Cash sweep (excess FCF, 75%)"
+ws["B11"] = "  Cash sweep (excess FCF after debt svc)"
 ws["B12"] = "  Ending balance"
-ws["B13"] = "  Interest expense (rate x avg balance)"
+ws["B13"] = "  Interest expense (rate x beginning balance)"
+
+# Beginning balance: Yr0 = original TLB at close; Yr1+ = prior year's ending.
+ws["C9"] = "=$K$10"
+for col in range(4, 9):
+    prev = get_column_letter(col - 1)
+    ws.cell(row=9, column=col, value=f"={prev}12")
+
+# Mandatory amortization: flat % of the ORIGINAL balance, capped at what's left.
+for col in range(3, 9):
+    letter = get_column_letter(col)
+    ws.cell(row=10, column=col, value=f"=MIN($K$10*$K$7,{letter}9)")
+
+# Interest: on the BEGINNING balance only (not average) — keeps the schedule
+# acyclic. Sweep can then depend on interest without a circular reference,
+# since interest never depends on this period's ending balance.
+for col in range(3, 9):
+    letter = get_column_letter(col)
+    ws.cell(row=13, column=col, value=f"={letter}9*$K$9")
+
+# Cash sweep: sweep% of FCF left over after mandatory amort + interest,
+# capped so it can never amortize past what mandatory amort already left.
+for col in range(3, 9):
+    letter = get_column_letter(col)
+    ws.cell(row=11, column=col,
+            value=f"=MIN(MAX(0,$K$8*({letter}6-{letter}10-{letter}13)),{letter}9-{letter}10)")
+
+# Ending balance = beginning - mandatory amort - sweep.
+for col in range(3, 9):
+    letter = get_column_letter(col)
+    ws.cell(row=12, column=col, value=f"={letter}9-{letter}10-{letter}11")
+
 for row in [9, 10, 11, 12, 13]:
     for c in range(3, 9):
         cell = ws.cell(row=row, column=c)
@@ -113,12 +182,13 @@ for row in [9, 10, 11, 12, 13]:
 
 ws["B15"] = "Total debt (end of period)"; ws["B15"].font = BOLD
 ws["B16"] = "Total debt / EBITDA (leverage)"; ws["B16"].font = BOLD
-for c in range(3, 9):
-    ws.cell(row=15, column=c).number_format = CUR
-    ws.cell(row=16, column=c).number_format = MULT
-    ws.cell(row=16, column=c).fill = YELLOW_FILL
-
-ws["H18"] = "Assumptions"; ws["H18"].font = BOLD
+for col in range(3, 9):
+    letter = get_column_letter(col)
+    ws.cell(row=15, column=col, value=f"={letter}12")
+    ws.cell(row=15, column=col).number_format = CUR
+    ws.cell(row=16, column=col, value=f"=IFERROR({letter}15/{letter}5,\"-\")")
+    ws.cell(row=16, column=col).number_format = MULT
+    ws.cell(row=16, column=col).fill = YELLOW_FILL
 ws.sheet_view.showGridLines = False
 
 # ---------------- RETURNS WATERFALL ----------------
@@ -170,6 +240,6 @@ for i, h in enumerate(["", "Date", "Trigger", "What changed", "Reviewer notes", 
 style_header_row(ws, 4, 5, start_col=2)
 ws.sheet_view.showGridLines = False
 
-out_path = "/home/claude/model_shop/LBO_template.xlsx"
+out_path = "LBO_template.xlsx"
 wb.save(out_path)
 print("saved", out_path)
