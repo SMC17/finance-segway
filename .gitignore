@@ -1,0 +1,14 @@
+# Excel lock/temp files
+~$*.xlsx
+*.tmp
+
+# Weekly refresh reports (generated — commit via CI, not manually, to avoid noise)
+refresh_report_*.csv
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS
+.DS_Store
