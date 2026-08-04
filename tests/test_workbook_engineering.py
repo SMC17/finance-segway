@@ -2,11 +2,11 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
 
-from openpyxl import Workbook
+from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font
 
 from tools.workbook_engineering import audit_workbook
-from tools.workbook_parity import compare_workbooks
+from tools.workbook_parity import compare_workbooks, normalize_formula
 
 
 class WorkbookEngineeringTests(unittest.TestCase):
@@ -41,14 +41,22 @@ class WorkbookEngineeringTests(unittest.TestCase):
             self.assertIn("Model:cells", result["semantic_differences"])
             self.assertEqual(result["semantic_cell_differences"][0]["cell"], "D1")
 
+    def test_equivalent_formula_serialization(self):
+        self.assertEqual(normalize_formula("='VaR'!C5*FALSE()*9E+099"), "=VaR!C5*FALSE*9E99")
+        with TemporaryDirectory() as directory:
+            left = Path(directory) / "left.xlsx"
+            right = Path(directory) / "right.xlsx"
+            self.create_book(left, "='VaR'!B1+9E99")
+            self.create_book(right, "=VaR!B1+9E+099")
+            self.assertTrue(compare_workbooks(left, right)["semantic_parity"])
+
     def test_presentation_drift_does_not_fail_semantics(self):
         with TemporaryDirectory() as directory:
             left = Path(directory) / "left.xlsx"
             right = Path(directory) / "right.xlsx"
             self.create_book(left)
             self.create_book(right)
-            workbook = Workbook()
-            workbook = __import__("openpyxl").load_workbook(right)
+            workbook = load_workbook(right)
             workbook["Model"]["D1"].font = Font(bold=True)
             workbook.save(right)
             result = compare_workbooks(left, right)
