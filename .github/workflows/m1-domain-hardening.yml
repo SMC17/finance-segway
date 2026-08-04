@@ -8,10 +8,8 @@ on:
       - "tools/validate_domain_hardening.py"
       - "tools/validate_hardened_workbooks.py"
       - "tools/builders/legacy_release_adapter.py"
-      - "tools/builders/build_commodities_release.py"
-      - "tools/builders/build_real_estate_release.py"
-      - "tools/builders/build_fintech_release.py"
-      - "tools/builders/build_restructuring_release.py"
+      - "tools/builders/hardening_formula_compatibility.py"
+      - "tools/builders/build_*_release.py"
       - "tests/test_domain_hardening.py"
       - "tests/test_hardened_workbooks.py"
       - ".github/workflows/m1-domain-hardening.yml"
@@ -26,10 +24,8 @@ on:
       - "tools/validate_domain_hardening.py"
       - "tools/validate_hardened_workbooks.py"
       - "tools/builders/legacy_release_adapter.py"
-      - "tools/builders/build_commodities_release.py"
-      - "tools/builders/build_real_estate_release.py"
-      - "tools/builders/build_fintech_release.py"
-      - "tools/builders/build_restructuring_release.py"
+      - "tools/builders/hardening_formula_compatibility.py"
+      - "tools/builders/build_*_release.py"
       - "tests/test_domain_hardening.py"
       - "tests/test_hardened_workbooks.py"
       - ".github/workflows/m1-domain-hardening.yml"
@@ -70,7 +66,7 @@ jobs:
       - name: Validate reference registry and adversarial cases
         run: PYTHONPATH=. python tools/validate_domain_hardening.py --report m1-domain-hardening-report.json
 
-      - name: Build and validate hardened workbooks before recalculation
+      - name: Build and validate all nine hardened workbooks before recalculation
         run: |
           rm -rf .hardening-build
           PYTHONPATH=.:tools python tools/validate_hardened_workbooks.py \
@@ -82,7 +78,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libreoffice-calc
 
-      - name: Recalculate hardened workbooks and reject cached errors
+      - name: Recalculate all nine hardened workbooks and reject cached errors
         run: |
           PYTHONPATH=.:tools python - <<'PY'
           import json
@@ -91,7 +87,10 @@ jobs:
 
           results = {}
           failed = []
-          for path in sorted(Path('.hardening-build').glob('*.xlsx')):
+          paths = sorted(Path('.hardening-build').glob('*.xlsx'))
+          if len(paths) != 9:
+              raise SystemExit(f"expected 9 hardened workbooks, found {len(paths)}")
+          for path in paths:
               result = recalc(path, timeout=90)
               results[path.name] = result
               if result.get('status') != 'success' or result.get('total_errors', 0) != 0:
@@ -103,7 +102,7 @@ jobs:
               raise SystemExit(f"hardened workbook recalculation failures: {failed}")
           PY
 
-      - name: Re-run workbook contracts after recalculation
+      - name: Re-run all workbook contracts after recalculation
         run: |
           PYTHONPATH=.:tools python tools/validate_hardened_workbooks.py \
             --workbook-dir .hardening-build \
