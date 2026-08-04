@@ -16,6 +16,11 @@ from typing import Callable
 from openpyxl import load_workbook
 from openpyxl.workbook import Workbook
 
+try:
+    from tools.builders.hardening_formula_compatibility import normalize_hardened_formulas
+except ModuleNotFoundError:
+    from hardening_formula_compatibility import normalize_hardened_formulas
+
 ROOT = Path(__file__).resolve().parents[2]
 BUILDERS = Path(__file__).resolve().parent
 
@@ -55,6 +60,7 @@ def build_release(
 ) -> None:
     workbook = load_legacy_workbook(script_name)
     enrich(workbook)
+    normalize_hardened_formulas(workbook)
     output.parent.mkdir(parents=True, exist_ok=True)
     try:
         workbook.calculation.fullCalcOnLoad = True
