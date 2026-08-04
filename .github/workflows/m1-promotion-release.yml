@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - "tools/release_m1_domain_promotions.py"
+      - "tools/apply_m1_promotion_surfaces.py"
       - "tools/validate_hardened_workbooks.py"
       - "tools/domain_hardening_oracles.py"
       - "tools/validate_domain_hardening.py"
@@ -12,6 +13,7 @@ on:
       - "tools/builders/build_*_release.py"
       - "standards/domain_hardening/m1_registry.json"
       - "tests/test_m1_promotion_release.py"
+      - "tests/test_m1_promotion_surfaces.py"
       - "tests/test_domain_hardening.py"
       - "tests/test_hardened_workbooks.py"
       - ".github/workflows/m1-promotion-release.yml"
@@ -20,6 +22,7 @@ on:
       - agent/harden-m1-domain-engines
     paths:
       - "tools/release_m1_domain_promotions.py"
+      - "tools/apply_m1_promotion_surfaces.py"
       - "tools/validate_hardened_workbooks.py"
       - "tools/domain_hardening_oracles.py"
       - "tools/validate_domain_hardening.py"
@@ -28,6 +31,7 @@ on:
       - "tools/builders/build_*_release.py"
       - "standards/domain_hardening/m1_registry.json"
       - "tests/test_m1_promotion_release.py"
+      - "tests/test_m1_promotion_surfaces.py"
       - "tests/test_domain_hardening.py"
       - "tests/test_hardened_workbooks.py"
       - ".github/workflows/m1-promotion-release.yml"
@@ -68,6 +72,7 @@ jobs:
           PYTHONPATH=. python -m unittest tests.test_domain_hardening -v
           PYTHONPATH=. python -m unittest tests.test_hardened_workbooks -v
           PYTHONPATH=. python -m unittest tests.test_m1_promotion_release -v
+          PYTHONPATH=. python -m unittest tests.test_m1_promotion_surfaces -v
 
       - name: Revalidate independent references and adversarial cases
         run: |
@@ -79,15 +84,17 @@ jobs:
           PYTHONPATH=.:tools python tools/release_m1_domain_promotions.py prepare \
             --report m1-promotion-prepare-report.json
 
+      - name: Apply institutional surfaces to every promotion artifact
+        run: |
+          PYTHONPATH=.:tools python tools/apply_m1_promotion_surfaces.py \
+            --report m1-promotion-surface-report.json
+
       - name: Enforce canonical and instance contracts before recalculation
         run: |
           PYTHONPATH=.:tools python - <<'PY'
           import json
           from pathlib import Path
-          from tools.release_m1_domain_promotions import (
-              INVENTORY_PATH,
-              case_specs,
-          )
+          from tools.release_m1_domain_promotions import INVENTORY_PATH, case_specs
           from tools.validate_hardened_workbooks import validate_workbook
 
           inventory = json.loads(INVENTORY_PATH.read_text(encoding='utf-8'))
@@ -154,7 +161,6 @@ jobs:
           from tools.workbook_engineering import audit_workbook
 
           inventory = json.loads(INVENTORY_PATH.read_text(encoding='utf-8'))
-          inventory_by_id = {item['id']: item for item in inventory['models']}
           candidate_ids = {spec['model_id'] for spec in case_specs()}
           entries = [
               (item['id'], item['workbook'], f"canonical {item['id']}")
@@ -285,6 +291,7 @@ jobs:
           path: |
             m1-domain-hardening-release-report.json
             m1-promotion-prepare-report.json
+            m1-promotion-surface-report.json
             m1-promotion-pre-recalc-contracts.json
             m1-promotion-recalc-report.json
             m1-promotion-post-recalc-contracts.json
