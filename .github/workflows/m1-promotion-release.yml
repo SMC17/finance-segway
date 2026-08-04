@@ -1,0 +1,297 @@
+name: M1 to M2 Promotion Release
+
+on:
+  pull_request:
+    paths:
+      - "tools/release_m1_domain_promotions.py"
+      - "tools/validate_hardened_workbooks.py"
+      - "tools/domain_hardening_oracles.py"
+      - "tools/validate_domain_hardening.py"
+      - "tools/builders/legacy_release_adapter.py"
+      - "tools/builders/hardening_formula_compatibility.py"
+      - "tools/builders/build_*_release.py"
+      - "standards/domain_hardening/m1_registry.json"
+      - "tests/test_m1_promotion_release.py"
+      - "tests/test_domain_hardening.py"
+      - "tests/test_hardened_workbooks.py"
+      - ".github/workflows/m1-promotion-release.yml"
+  push:
+    branches:
+      - agent/harden-m1-domain-engines
+    paths:
+      - "tools/release_m1_domain_promotions.py"
+      - "tools/validate_hardened_workbooks.py"
+      - "tools/domain_hardening_oracles.py"
+      - "tools/validate_domain_hardening.py"
+      - "tools/builders/legacy_release_adapter.py"
+      - "tools/builders/hardening_formula_compatibility.py"
+      - "tools/builders/build_*_release.py"
+      - "standards/domain_hardening/m1_registry.json"
+      - "tests/test_m1_promotion_release.py"
+      - "tests/test_domain_hardening.py"
+      - "tests/test_hardened_workbooks.py"
+      - ".github/workflows/m1-promotion-release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: m1-to-m2-promotion-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout immutable hardening head
+        uses: actions/checkout@v4
+        with:
+          ref: agent/harden-m1-domain-engines
+          fetch-depth: 0
+
+      - name: Capture immutable source head
+        run: git rev-parse HEAD > .promotion-start-sha
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install repository dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile and test promotion source
+        run: |
+          python -m compileall -q tools tests
+          PYTHONPATH=. python -m unittest tests.test_domain_hardening -v
+          PYTHONPATH=. python -m unittest tests.test_hardened_workbooks -v
+          PYTHONPATH=. python -m unittest tests.test_m1_promotion_release -v
+
+      - name: Revalidate independent references and adversarial cases
+        run: |
+          PYTHONPATH=. python tools/validate_domain_hardening.py \
+            --report m1-domain-hardening-release-report.json
+
+      - name: Prepare canonical templates, manifests, instances, and staged inventory
+        run: |
+          PYTHONPATH=.:tools python tools/release_m1_domain_promotions.py prepare \
+            --report m1-promotion-prepare-report.json
+
+      - name: Enforce canonical and instance contracts before recalculation
+        run: |
+          PYTHONPATH=.:tools python - <<'PY'
+          import json
+          from pathlib import Path
+          from tools.release_m1_domain_promotions import (
+              INVENTORY_PATH,
+              case_specs,
+          )
+          from tools.validate_hardened_workbooks import validate_workbook
+
+          inventory = json.loads(INVENTORY_PATH.read_text(encoding='utf-8'))
+          inventory_by_id = {item['id']: item for item in inventory['models']}
+          errors = []
+          results = []
+          for model_id in sorted({spec['model_id'] for spec in case_specs()}):
+              model = inventory_by_id[model_id]
+              result = validate_workbook(model_id, Path(model['workbook']))
+              results.append(result)
+              errors.extend(f"canonical {model_id}: {item}" for item in result['errors'])
+          for spec in case_specs():
+              result = validate_workbook(spec['model_id'], Path(spec['output']))
+              results.append(result)
+              errors.extend(f"instance {spec['id']}: {item}" for item in result['errors'])
+          Path('m1-promotion-pre-recalc-contracts.json').write_text(
+              json.dumps({'status': 'PASS' if not errors else 'FAIL', 'errors': errors, 'results': results}, indent=2),
+              encoding='utf-8',
+          )
+          if errors:
+              raise SystemExit(errors)
+          PY
+
+      - name: Install LibreOffice
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice-calc
+
+      - name: Recalculate nine canonical templates and eighteen benchmark instances
+        run: |
+          PYTHONPATH=.:tools python - <<'PY'
+          import json
+          from pathlib import Path
+          from recalc import recalc
+          from tools.release_m1_domain_promotions import INVENTORY_PATH, case_specs
+
+          inventory = json.loads(INVENTORY_PATH.read_text(encoding='utf-8'))
+          candidate_ids = {spec['model_id'] for spec in case_specs()}
+          paths = [Path(item['workbook']) for item in inventory['models'] if item['id'] in candidate_ids]
+          paths += [Path(spec['output']) for spec in case_specs()]
+          report = {}
+          failed = []
+          if len(paths) != 27:
+              raise SystemExit(f"expected 27 promotion workbooks, found {len(paths)}")
+          for path in paths:
+              result = recalc(path, timeout=120)
+              report[str(path)] = result
+              if result.get('status') != 'success' or result.get('total_errors', 0) != 0:
+                  failed.append(str(path))
+          Path('m1-promotion-recalc-report.json').write_text(
+              json.dumps(report, indent=2), encoding='utf-8'
+          )
+          if failed:
+              raise SystemExit(f"promotion workbook recalculation failed: {failed}")
+          PY
+
+      - name: Enforce post-recalculation contracts and engineering audit
+        run: |
+          PYTHONPATH=.:tools python - <<'PY'
+          import json
+          from pathlib import Path
+          from tools.release_m1_domain_promotions import INVENTORY_PATH, case_specs
+          from tools.validate_hardened_workbooks import validate_workbook
+          from tools.workbook_engineering import audit_workbook
+
+          inventory = json.loads(INVENTORY_PATH.read_text(encoding='utf-8'))
+          inventory_by_id = {item['id']: item for item in inventory['models']}
+          candidate_ids = {spec['model_id'] for spec in case_specs()}
+          entries = [
+              (item['id'], item['workbook'], f"canonical {item['id']}")
+              for item in inventory['models'] if item['id'] in candidate_ids
+          ]
+          entries += [
+              (spec['model_id'], spec['output'], f"instance {spec['id']}")
+              for spec in case_specs()
+          ]
+          errors = []
+          results = []
+          audits = []
+          for model_id, path_string, label in entries:
+              path = Path(path_string)
+              result = validate_workbook(model_id, path)
+              results.append(result)
+              errors.extend(f"{label}: {item}" for item in result['errors'])
+              summary, findings = audit_workbook(path)
+              audit_errors = [finding.__dict__ for finding in findings if finding.severity == 'error']
+              audits.append({'label': label, 'path': str(path), 'summary': summary, 'errors': audit_errors})
+              errors.extend(f"{label}: engineering {item}" for item in audit_errors)
+          Path('m1-promotion-post-recalc-contracts.json').write_text(
+              json.dumps({'status': 'PASS' if not errors else 'FAIL', 'errors': errors, 'contracts': results, 'audits': audits}, indent=2),
+              encoding='utf-8',
+          )
+          if errors:
+              raise SystemExit(errors)
+          PY
+
+      - name: Finalize receipts, benchmark index, and M2 transaction
+        run: |
+          PYTHONPATH=.:tools python tools/release_m1_domain_promotions.py finalize \
+            --report m1-promotion-final-report.json
+
+      - name: Validate conservative M2 inventory and builder parity
+        run: |
+          PYTHONPATH=.:tools python tools/validate_model_inventory.py \
+            --report m1-promotion-model-inventory-report.json
+          PYTHONPATH=.:tools python tools/build_all_models.py \
+            --report m1-promotion-builder-parity-report.json \
+            --require-parity
+
+      - name: Verify final benchmark receipts and promotion declaration
+        run: |
+          PYTHONPATH=.:tools python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+          from tools.release_m1_domain_promotions import (
+              BENCHMARK_INDEX_PATH,
+              CANDIDATE_PATH,
+              EXPECTED_IDS,
+              INVENTORY_PATH,
+              case_specs,
+          )
+
+          inventory = json.loads(INVENTORY_PATH.read_text(encoding='utf-8'))
+          models = {item['id']: item for item in inventory['models']}
+          candidates = json.loads(CANDIDATE_PATH.read_text(encoding='utf-8'))
+          index = json.loads(BENCHMARK_INDEX_PATH.read_text(encoding='utf-8'))
+          errors = []
+          if candidates.get('status') != 'applied_release_validated':
+              errors.append('promotion candidate transaction is not validated')
+          if index.get('instance_count') != 36:
+              errors.append(f"expected benchmark index count 36, found {index.get('instance_count')}")
+          for model_id in EXPECTED_IDS:
+              if models[model_id]['declared_maturity'] != 'M2':
+                  errors.append(f"{model_id}: not declared M2")
+              if not models[model_id]['reference_checks']:
+                  errors.append(f"{model_id}: empty reference checks")
+          for spec in case_specs():
+              output = Path(spec['output'])
+              receipt = json.loads(output.with_suffix('.receipt.json').read_text(encoding='utf-8'))
+              digest = hashlib.sha256(output.read_bytes()).hexdigest()
+              if receipt.get('workbook_sha256') != digest:
+                  errors.append(f"{spec['id']}: stale workbook receipt")
+              if receipt.get('counts_toward_M4') is not False:
+                  errors.append(f"{spec['id']}: invalid M4 classification")
+          Path('m1-promotion-final-verification.json').write_text(
+              json.dumps({'status': 'PASS' if not errors else 'FAIL', 'errors': errors}, indent=2),
+              encoding='utf-8',
+          )
+          if errors:
+              raise SystemExit(errors)
+          PY
+
+      - name: Reject stale promotion release
+        if: github.event_name == 'push'
+        run: |
+          git fetch origin agent/harden-m1-domain-engines
+          START_SHA=$(cat .promotion-start-sha)
+          REMOTE_SHA=$(git rev-parse origin/agent/harden-m1-domain-engines)
+          echo "promotion source: $START_SHA"
+          echo "remote source:    $REMOTE_SHA"
+          test "$START_SHA" = "$REMOTE_SHA"
+
+      - name: Commit complete nine-domain M2 release
+        if: github.event_name == 'push'
+        run: |
+          git config user.name 'finance-segway-promotion-bot'
+          git config user.email 'finance-segway-promotion-bot@users.noreply.github.com'
+          git add \
+            08_Asset_Management/_template_AM.xlsx 08_Asset_Management/instances \
+            10_Trade_Finance/_template_TRADE_FINANCE.xlsx 10_Trade_Finance/instances \
+            11_Microfinance/_template_MICROFINANCE.xlsx 11_Microfinance/instances \
+            12_Equity_Finance/_template_BASE.xlsx 12_Equity_Finance/instances \
+            15_Commodities/_template_COMMODITIES.xlsx 15_Commodities/instances \
+            16_Crypto_Digital_Assets/_template_CRYPTO.xlsx 16_Crypto_Digital_Assets/instances \
+            17_Real_Estate_REIT/_template_REAL_ESTATE.xlsx 17_Real_Estate_REIT/instances \
+            23_Fintech_Payments/_template_FINTECH.xlsx 23_Fintech_Payments/instances \
+            24_Distressed_Restructuring/_template_RESTRUCTURING.xlsx 24_Distressed_Restructuring/instances \
+            standards/model_inventory.json \
+            standards/domain_hardening/m2_promotion_candidates.json \
+            standards/benchmark_cases \
+            m1-domain-promotion-report.json
+          if git diff --staged --quiet; then
+            echo 'Nine-domain M2 release is already current.'
+          else
+            git commit -m 'Promote nine hardened finance domains to M2'
+            git push origin HEAD:agent/harden-m1-domain-engines
+          fi
+
+      - name: Upload complete promotion evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m1-to-m2-promotion-${{ github.event_name }}
+          path: |
+            m1-domain-hardening-release-report.json
+            m1-promotion-prepare-report.json
+            m1-promotion-pre-recalc-contracts.json
+            m1-promotion-recalc-report.json
+            m1-promotion-post-recalc-contracts.json
+            m1-promotion-final-report.json
+            m1-promotion-model-inventory-report.json
+            m1-promotion-builder-parity-report.json
+            m1-promotion-final-verification.json
+            m1-domain-promotion-report.json
+          if-no-files-found: warn
+          retention-days: 30
