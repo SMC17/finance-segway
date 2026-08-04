@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "model_id": "20",
+  "domain": "Project Finance",
+  "case_id": "project-nrel-solar-2024",
+  "case_type": "conventional",
+  "as_of": "2024-07-01",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "NREL Annual Technology Baseline 2024",
+      "url": "https://atb.nrel.gov/electricity/2024/utility-scale_pv",
+      "publisher": "U.S. National Renewable Energy Laboratory",
+      "captured_values": {
+        "normalized_capex_usd_mm": 900.0,
+        "availability": 0.98
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 900.0,
+      "kind": "derived",
+      "source": "NREL Annual Technology Baseline 2024"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C23",
+      "value": 0.98,
+      "kind": "modeler_assumption",
+      "source": "Availability assumption calibrated to public benchmark"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "first_operating_year_availability",
+    "forecast": 0.98,
+    "realized": null,
+    "realized_source": null,
+    "status": "future_test_defined"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "7ec08b23dc3cc6c9e01a6032ef1ab34e2f928046f0a156f12dc9b2cc12082a59"
+}

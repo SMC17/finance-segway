@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "model_id": "19",
+  "domain": "Structured Finance & Securitization",
+  "case_id": "securitization-fed-mortgage-2024",
+  "case_type": "conventional",
+  "as_of": "2024-01-01",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Mortgage delinquency rate via FRED",
+      "url": "https://fred.stlouisfed.org/series/DRSFRMACBS",
+      "publisher": "Federal Reserve Board / FRED",
+      "captured_values": {
+        "delinquency_rate": 0.0189
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "value": 0.0189,
+      "kind": "observed",
+      "source": "Mortgage delinquency rate via FRED"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.14,
+      "kind": "modeler_assumption",
+      "source": "Base CPR assumption"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "next_year_delinquency_rate",
+    "forecast": 0.0189,
+    "realized": 0.0179,
+    "realized_source": "Mortgage delinquency rate via FRED",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "e0e38a2fee80d8f50e71ef5695d8a0d5cafad66d072b43009188632e9f71ae26"
+}

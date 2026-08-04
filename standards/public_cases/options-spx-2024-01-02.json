@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0",
+  "id": "options-spx-2024-01-02",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "14_Options_Derivatives/_template_OPTIONS.xlsx",
+  "output": "14_Options_Derivatives/instances/public_spx_2024_01_02.xlsx",
+  "as_of": "2024-01-02",
+  "scenario": "Base",
+  "cover": {
+    "Underlying:": "SPX near-ATM public-market snapshot"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 4742.83,
+      "input_kind": "observed",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2024-01-02",
+        "notes": "Federal Reserve Bank of St. Louis / S&P; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 4750.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Nearest round strike",
+        "url": "repo://14_Options_Derivatives/sources/snapshots/options-spx-2024-01-02.json",
+        "as_of": "2024-01-02",
+        "notes": "Modeler-owned assumption documented in frozen snapshot"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.5,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from options-reference-atm.json",
+        "url": "repo://standards/benchmark_cases/options-reference-atm.json",
+        "as_of": "2024-01-02",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C10",
+      "value": 0.132,
+      "input_kind": "observed",
+      "source": {
+        "name": "CBOE VIX via FRED",
+        "url": "https://fred.stlouisfed.org/series/VIXCLS",
+        "as_of": "2024-01-02",
+        "notes": "Federal Reserve Bank of St. Louis / CBOE; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "value": 8.25,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from options-reference-atm.json",
+        "url": "repo://standards/benchmark_cases/options-reference-atm.json",
+        "as_of": "2024-01-02",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "value": 0.0524,
+      "input_kind": "observed",
+      "source": {
+        "name": "6-Month Treasury via FRED",
+        "url": "https://fred.stlouisfed.org/series/DGS6MO",
+        "as_of": "2024-01-02",
+        "notes": "Federal Reserve Bank of St. Louis / U.S. Treasury; frozen curated observation as of case date"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "S&P 500 via FRED",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "as_of": "2024-01-02",
+      "notes": "Federal Reserve Bank of St. Louis / S&P; frozen curated observation as of case date"
+    },
+    {
+      "name": "CBOE VIX via FRED",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "as_of": "2024-01-02",
+      "notes": "Federal Reserve Bank of St. Louis / CBOE; frozen curated observation as of case date"
+    },
+    {
+      "name": "6-Month Treasury via FRED",
+      "url": "https://fred.stlouisfed.org/series/DGS6MO",
+      "as_of": "2024-01-02",
+      "notes": "Federal Reserve Bank of St. Louis / U.S. Treasury; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://14_Options_Derivatives/sources/snapshots/options-spx-2024-01-02.json",
+      "as_of": "2024-01-02",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://14_Options_Derivatives/sources/snapshots/options-spx-2024-01-02.json",
+    "what_changed": "Generated public case options-spx-2024-01-02 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

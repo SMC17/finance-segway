@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0",
+  "id": "merchant-alleghany-2021",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "04_Merchant_Banking/_template_LBO.xlsx",
+  "output": "04_Merchant_Banking/instances/public_alleghany_2021.xlsx",
+  "as_of": "2022-02-24",
+  "scenario": "Base",
+  "cover": {
+    "Target / transaction:": "Alleghany pre-acquisition principal case",
+    "Sponsor / principal:": "Benchmark Merchant Bank"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 12004.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Alleghany 2021 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/775368/000077536822000010/y-20211231.htm",
+        "as_of": "2022-02-24",
+        "notes": "U.S. SEC; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 0.105,
+      "input_kind": "derived",
+      "source": {
+        "name": "Alleghany 2021 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/775368/000077536822000010/y-20211231.htm",
+        "as_of": "2022-02-24",
+        "notes": "U.S. SEC; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.23,
+      "input_kind": "derived",
+      "source": {
+        "name": "Alleghany 2021 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/775368/000077536822000010/y-20211231.htm",
+        "as_of": "2022-02-24",
+        "notes": "U.S. SEC; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C19",
+      "value": 3.5,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from merchant-reference-principal.json",
+        "url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
+        "as_of": "2022-02-24",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C22",
+      "value": 0.75,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from merchant-reference-principal.json",
+        "url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
+        "as_of": "2022-02-24",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C29",
+      "value": 7,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from merchant-reference-principal.json",
+        "url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
+        "as_of": "2022-02-24",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Alleghany 2021 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/775368/000077536822000010/y-20211231.htm",
+      "as_of": "2022-02-24",
+      "notes": "U.S. SEC; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://04_Merchant_Banking/sources/snapshots/merchant-alleghany-2021.json",
+      "as_of": "2022-02-24",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://04_Merchant_Banking/sources/snapshots/merchant-alleghany-2021.json",
+    "what_changed": "Generated public case merchant-alleghany-2021 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "id": "options-spx-2020-03-16",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "14_Options_Derivatives/_template_OPTIONS.xlsx",
+  "output": "14_Options_Derivatives/instances/public_spx_2020_03_16_adversarial.xlsx",
+  "as_of": "2020-03-16",
+  "scenario": "Downside",
+  "cover": {
+    "Underlying:": "SPX March 2020 gap-and-volatility shock"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "value": 2386.13,
+      "input_kind": "observed",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2020-03-16",
+        "notes": "Federal Reserve Bank of St. Louis / S&P; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 0.8269,
+      "input_kind": "observed",
+      "source": {
+        "name": "CBOE VIX via FRED",
+        "url": "https://fred.stlouisfed.org/series/VIXCLS",
+        "as_of": "2020-03-16",
+        "notes": "Federal Reserve Bank of St. Louis / CBOE; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "value": 30.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from options-adversarial-skew.json",
+        "url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
+        "as_of": "2020-03-16",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D14",
+      "value": -0.339,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 peak-to-trough drawdown",
+        "url": "repo://14_Options_Derivatives/sources/snapshots/options-spx-2020-03-16.json",
+        "as_of": "2020-03-16",
+        "notes": "Modeler-owned assumption documented in frozen snapshot"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "S&P 500 via FRED",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "as_of": "2020-03-16",
+      "notes": "Federal Reserve Bank of St. Louis / S&P; frozen curated observation as of case date"
+    },
+    {
+      "name": "CBOE VIX via FRED",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "as_of": "2020-03-16",
+      "notes": "Federal Reserve Bank of St. Louis / CBOE; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://14_Options_Derivatives/sources/snapshots/options-spx-2020-03-16.json",
+      "as_of": "2020-03-16",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://14_Options_Derivatives/sources/snapshots/options-spx-2020-03-16.json",
+    "what_changed": "Generated public case options-spx-2020-03-16 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

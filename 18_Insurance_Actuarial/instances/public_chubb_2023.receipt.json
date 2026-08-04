@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "insurance-chubb-2023",
+  "as_of": "2024-02-23",
+  "manifest": "standards/public_cases/insurance-chubb-2023.json",
+  "template": "18_Insurance_Actuarial/_template_INSURANCE.xlsx",
+  "output": "18_Insurance_Actuarial/instances/public_chubb_2023.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "previous": 0.62,
+      "value": 0.57,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/896159/000089615924000007/cb-20231231.htm",
+      "source_as_of": "2024-02-23"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "previous": 0.28,
+      "value": 0.28,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/896159/000089615924000007/cb-20231231.htm",
+      "source_as_of": "2024-02-23"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "previous": 500,
+      "value": 47359.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/896159/000089615924000007/cb-20231231.htm",
+      "source_as_of": "2024-02-23"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C14",
+      "previous": 350,
+      "value": 72000.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/896159/000089615924000007/cb-20231231.htm",
+      "source_as_of": "2024-02-23"
+    }
+  ],
+  "workbook_sha256": "fd8e6d405fb493ce64bd151184256659eacfb12d0a593e0e01cd1939a785d925",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

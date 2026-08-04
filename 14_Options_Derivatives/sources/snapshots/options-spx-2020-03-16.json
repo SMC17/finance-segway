@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "model_id": "14",
+  "domain": "Options & Derivatives",
+  "case_id": "options-spx-2020-03-16",
+  "case_type": "adversarial",
+  "as_of": "2020-03-16",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "S&P 500 via FRED",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "publisher": "Federal Reserve Bank of St. Louis / S&P",
+      "captured_values": {
+        "spot": 2386.13
+      }
+    },
+    {
+      "name": "CBOE VIX via FRED",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "publisher": "Federal Reserve Bank of St. Louis / CBOE",
+      "captured_values": {
+        "annualized_volatility": 0.8269
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "value": 2386.13,
+      "kind": "observed",
+      "source": "S&P 500 via FRED"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 0.8269,
+      "kind": "observed",
+      "source": "CBOE VIX via FRED"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D14",
+      "value": -0.339,
+      "kind": "derived",
+      "source": "S&P 500 peak-to-trough drawdown"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "three_month_realized_volatility",
+    "forecast": 0.8269,
+    "realized": 0.679,
+    "realized_source": "S&P 500 daily closes via FRED",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "d0edc8b7084d502475b53d90e86af9a2c599a9dc248145c2cc6d840d8ec67eb0"
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "model_id": "20",
+  "domain": "Project Finance",
+  "case_id": "project-vogtle-delay",
+  "case_type": "adversarial",
+  "as_of": "2023-12-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Georgia PSC Vogtle monitoring reports",
+      "url": "https://psc.ga.gov/facilities-construction/project-overview/plant-vogtle-units-3-and-4/",
+      "publisher": "Georgia Public Service Commission",
+      "captured_values": {
+        "normalized_cost_overrun": 0.22,
+        "delay_months": 10
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "value": 1100.0,
+      "kind": "derived",
+      "source": "Georgia PSC Vogtle monitoring reports"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "value": 10,
+      "kind": "observed",
+      "source": "Georgia PSC Vogtle monitoring reports"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "delay_months",
+    "forecast": 10,
+    "realized": 10,
+    "realized_source": "Georgia PSC Vogtle monitoring reports",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "5e896fd22c8d64500d1ef3482350eb39a7930b63257a682d12e8c175159e04fb"
+}

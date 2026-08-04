@@ -1,0 +1,3 @@
+case_id,case_type,metric,forecast,realized,error,realized_source,status
+merchant-alleghany-2021,conventional,announced_transaction_equity_value_usd_mm,11600.0,11600.0,0.0,Berkshire Hathaway transaction announcement,recorded
+merchant-wework-2022,adversarial,bankruptcy_within_12_months,1.0,1.0,0.0,"WeWork Chapter 11 filing, November 2023",recorded

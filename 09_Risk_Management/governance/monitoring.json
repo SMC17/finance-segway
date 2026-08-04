@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "model_id": "09",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "var_backtest_exceptions_250d",
+      "warning": 4,
+      "breach": 7,
+      "action": "Recalibrate volatility/correlation and escalate limits"
+    },
+    {
+      "metric": "component_var_reconciliation_abs",
+      "warning": 0.01,
+      "breach": 0.05,
+      "action": "Block release and investigate factor mapping"
+    },
+    {
+      "metric": "liquidity_days_to_exit",
+      "warning": 10,
+      "breach": 20,
+      "action": "Escalate concentration and liquidation plan"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

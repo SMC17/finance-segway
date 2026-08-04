@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "model_id": "18",
+  "domain": "Insurance & Actuarial",
+  "case_id": "insurance-chubb-2023",
+  "case_type": "conventional",
+  "as_of": "2024-02-23",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Chubb 2023 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/896159/000089615924000007/cb-20231231.htm",
+      "publisher": "U.S. SEC",
+      "captured_values": {
+        "loss_ratio": 0.57,
+        "expense_ratio": 0.28,
+        "net_premiums_usd_mm": 47359.0,
+        "loss_reserves_usd_mm": 72000.0
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 0.57,
+      "kind": "derived",
+      "source": "Chubb 2023 Form 10-K"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 0.28,
+      "kind": "derived",
+      "source": "Chubb 2023 Form 10-K"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "value": 47359.0,
+      "kind": "observed",
+      "source": "Chubb 2023 Form 10-K"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C14",
+      "value": 72000.0,
+      "kind": "observed",
+      "source": "Chubb 2023 Form 10-K"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "following_year_combined_ratio",
+    "forecast": 0.85,
+    "realized": 0.868,
+    "realized_source": "Chubb 2024 Form 10-K",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "23d26728afa683ffa2b17a213f91c4acb39a11a93800cb5c51155227b6f56de7"
+}

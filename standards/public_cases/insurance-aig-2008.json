@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "id": "insurance-aig-2008",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "18_Insurance_Actuarial/_template_INSURANCE.xlsx",
+  "output": "18_Insurance_Actuarial/instances/public_aig_2008_adversarial.xlsx",
+  "as_of": "2009-03-02",
+  "scenario": "Downside",
+  "cover": {
+    "Entity / line of business:": "AIG 2008 reserve and capital stress"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "value": 1.05,
+      "input_kind": "derived",
+      "source": {
+        "name": "AIG 2008 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/5272/000095012309006583/y74787e10vk.htm",
+        "as_of": "2009-03-02",
+        "notes": "U.S. SEC; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "value": 0.12,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from insurance-adversarial-social-inflation.json",
+        "url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
+        "as_of": "2009-03-02",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 0.22,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from insurance-adversarial-social-inflation.json",
+        "url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
+        "as_of": "2009-03-02",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D17",
+      "value": 0.2,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Capital stress calibrated to public filing",
+        "url": "repo://18_Insurance_Actuarial/sources/snapshots/insurance-aig-2008.json",
+        "as_of": "2009-03-02",
+        "notes": "Modeler-owned assumption documented in frozen snapshot"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "AIG 2008 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/5272/000095012309006583/y74787e10vk.htm",
+      "as_of": "2009-03-02",
+      "notes": "U.S. SEC; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://18_Insurance_Actuarial/sources/snapshots/insurance-aig-2008.json",
+      "as_of": "2009-03-02",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://18_Insurance_Actuarial/sources/snapshots/insurance-aig-2008.json",
+    "what_changed": "Generated public case insurance-aig-2008 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

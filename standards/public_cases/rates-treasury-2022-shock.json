@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "id": "rates-treasury-2022-shock",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "21_Fixed_Income_Rates/_template_FIXED_INCOME.xlsx",
+  "output": "21_Fixed_Income_Rates/instances/public_treasury_2022_shock.xlsx",
+  "as_of": "2022-10-21",
+  "scenario": "Downside",
+  "cover": {
+    "Portfolio / security:": "2022 Treasury bear-market stress"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": 0.0423,
+      "input_kind": "observed",
+      "source": {
+        "name": "Daily Treasury Par Yield Curve Rates",
+        "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates",
+        "as_of": "2022-10-21",
+        "notes": "U.S. Department of the Treasury; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 0.025,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from rates-adversarial-bear-steepener.json",
+        "url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+        "as_of": "2022-10-21",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Zero Curve",
+      "cell": "D10",
+      "value": 0.08,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from rates-adversarial-bear-steepener.json",
+        "url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+        "as_of": "2022-10-21",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Zero Curve",
+      "cell": "D14",
+      "value": 0.0434,
+      "input_kind": "observed",
+      "source": {
+        "name": "Daily Treasury Par Yield Curve Rates",
+        "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates",
+        "as_of": "2022-10-21",
+        "notes": "U.S. Department of the Treasury; frozen curated observation as of case date"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Daily Treasury Par Yield Curve Rates",
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates",
+      "as_of": "2022-10-21",
+      "notes": "U.S. Department of the Treasury; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://21_Fixed_Income_Rates/sources/snapshots/rates-treasury-2022-shock.json",
+      "as_of": "2022-10-21",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://21_Fixed_Income_Rates/sources/snapshots/rates-treasury-2022-shock.json",
+    "what_changed": "Generated public case rates-treasury-2022-shock from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

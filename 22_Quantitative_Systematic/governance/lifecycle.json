@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "model_id": "22",
+  "active_release": "2.1.0",
+  "rollback_release": "flagship-2.1.0",
+  "status": "active",
+  "replacement": null,
+  "retirement_trigger": "Signal loses economic rationale, live degradation breaches threshold, or data process is invalidated",
+  "rollback_tested": false,
+  "retirement_exercised": false
+}

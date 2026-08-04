@@ -1,0 +1,3 @@
+case_id,case_type,metric,forecast,realized,error,realized_source,status
+project-nrel-solar-2024,conventional,first_operating_year_availability,0.98,,,,future_test_defined
+project-vogtle-delay,adversarial,delay_months,10,10,0,Georgia PSC Vogtle monitoring reports,recorded

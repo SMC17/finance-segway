@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "model_id": "04",
+  "domain": "Merchant Banking",
+  "case_id": "merchant-alleghany-2021",
+  "case_type": "conventional",
+  "as_of": "2022-02-24",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Alleghany 2021 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/775368/000077536822000010/y-20211231.htm",
+      "publisher": "U.S. SEC",
+      "captured_values": {
+        "revenue_usd_mm": 12004.0,
+        "operating_margin": 0.105,
+        "revenue_growth": 0.23
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 12004.0,
+      "kind": "observed",
+      "source": "Alleghany 2021 Form 10-K"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 0.105,
+      "kind": "derived",
+      "source": "Alleghany 2021 Form 10-K"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.23,
+      "kind": "derived",
+      "source": "Alleghany 2021 Form 10-K"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "announced_transaction_equity_value_usd_mm",
+    "forecast": 11600.0,
+    "realized": 11600.0,
+    "realized_source": "Berkshire Hathaway transaction announcement",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "f801875491790a4915e792ccfb074b644babd5a5715fad117486dee76622eae7"
+}

@@ -1,0 +1,3 @@
+case_id,case_type,metric,forecast,realized,error,realized_source,status
+pe-public-home-depot-2023,conventional,next_fiscal_year_revenue_usd_mm,148088.9,159514.0,11425.100000000006,Home Depot FY2024 Form 10-K,recorded
+pe-public-macys-2020,adversarial,next_fiscal_year_revenue_usd_mm,12300.0,24460.0,12160.0,Macy's 2021 Form 10-K,recorded

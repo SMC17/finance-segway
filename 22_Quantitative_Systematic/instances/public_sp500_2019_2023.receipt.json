@@ -1,0 +1,533 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "quant-sp500-2019-2023",
+  "as_of": "2023-12-29",
+  "manifest": "standards/public_cases/quant-sp500-2019-2023.json",
+  "template": "22_Quantitative_Systematic/_template_QUANT.xlsx",
+  "output": "22_Quantitative_Systematic/instances/public_sp500_2019_2023.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "previous": 8,
+      "value": 10.0,
+      "source_url": "repo://22_Quantitative_Systematic/sources/snapshots/quant-sp500-2019-2023.json",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "previous": 0.002,
+      "value": 0.003,
+      "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "previous": 50,
+      "value": 60.0,
+      "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C18",
+      "previous": 1,
+      "value": 1,
+      "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C19",
+      "previous": 1,
+      "value": 1,
+      "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C5",
+      "previous": 0.0118652159242335,
+      "value": 0.02972893014311606,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C6",
+      "previous": 0.0151772011235084,
+      "value": 0.02972893014311606,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C7",
+      "previous": 0.0175550139277398,
+      "value": 0.01792428775107835,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C8",
+      "previous": 0.0187100300968512,
+      "value": 0.03931343494213935,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C9",
+      "previous": 0.00847826357322536,
+      "value": -0.06577772648116154,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C10",
+      "previous": 0.0168391695219598,
+      "value": 0.06893018320821498,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C11",
+      "previous": 0.0139188444160687,
+      "value": 0.013128195366039375,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C12",
+      "previous": 0.00997725176355615,
+      "value": -0.01809165274226776,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C13",
+      "previous": 0.00538085718888648,
+      "value": 0.017181167690656807,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C14",
+      "previous": -0.00943634017096778,
+      "value": 0.020431747482144935,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C15",
+      "previous": -0.00401911805060946,
+      "value": 0.03404706409091518,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C16",
+      "previous": -0.00793961497619996,
+      "value": 0.028589803182446305,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C17",
+      "previous": -0.0108428704725758,
+      "value": -0.001628089811129274,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C18",
+      "previous": -0.012484340024458,
+      "value": -0.08411046900964814,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C19",
+      "previous": -0.0227552867239183,
+      "value": -0.12511932083595656,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C20",
+      "previous": -0.011693285493763,
+      "value": 0.12684410293315374,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C21",
+      "previous": -0.00947671338935732,
+      "value": 0.04528177501261843,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C22",
+      "previous": -0.0064038604974068,
+      "value": 0.018388403283502663,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C23",
+      "previous": -0.00285898654454352,
+      "value": 0.0551012969754443,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C24",
+      "previous": -0.0092690824404773,
+      "value": 0.07006468732421922,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C25",
+      "previous": 0.0039438842050228,
+      "value": -0.0392279540954944,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C26",
+      "previous": 0.00640996723222435,
+      "value": -0.0276657746060065,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C27",
+      "previous": 0.00785229879394966,
+      "value": 0.10754565805086314,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C28",
+      "previous": 0.00811767839814802,
+      "value": 0.03712140665943231,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C29",
+      "previous": -0.00280667553386828,
+      "value": -0.011136640158463607,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C30",
+      "previous": 0.0052079466088486,
+      "value": 0.026091474971999817,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C31",
+      "previous": 0.00241702739946968,
+      "value": 0.04243863400810777,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C32",
+      "previous": -0.000826054898524681,
+      "value": 0.05242531255584737,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C33",
+      "previous": -0.0041098683365781,
+      "value": 0.005486502581813157,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C34",
+      "previous": -0.0170113288179311,
+      "value": 0.02221397632316946,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C35",
+      "previous": -0.00914353041562147,
+      "value": 0.02274810936591054,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C36",
+      "previous": -0.0101997134567755,
+      "value": 0.028990321391681118,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C37",
+      "previous": -0.00998850208202598,
+      "value": -0.047569140421166334,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C38",
+      "previous": -0.00845650221457471,
+      "value": 0.06914387330123462,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C39",
+      "previous": -0.0156957410420597,
+      "value": -0.00833373141847149,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C40",
+      "previous": -0.00193509721371111,
+      "value": 0.04361287497262989,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C41",
+      "previous": 0.00248336663625181,
+      "value": -0.05258508910699977,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C42",
+      "previous": 0.00714059472727621,
+      "value": -0.03136052086678265,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C43",
+      "previous": 0.0115852980820744,
+      "value": 0.03577323877328009,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C44",
+      "previous": 0.00538238409646321,
+      "value": -0.08795671914903935,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C45",
+      "previous": 0.018159749795409,
+      "value": 5.324388360872234e-05,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C46",
+      "previous": 0.0196483099882406,
+      "value": -0.08391999322386645,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C47",
+      "previous": 0.0197108728327755,
+      "value": 0.09111634763220589,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C48",
+      "previous": 0.0183566992284292,
+      "value": -0.04244011921681046,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C49",
+      "previous": 0.00574015432484417,
+      "value": -0.09339570164348932,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C50",
+      "previous": 0.0121436062989767,
+      "value": 0.07986345457689326,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C51",
+      "previous": 0.0079464572032407,
+      "value": 0.053752860293699856,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C52",
+      "previous": 0.0035837128016564,
+      "value": -0.058971449299161094,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C53",
+      "previous": -0.000501354580917067,
+      "value": 0.06175283240005203,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C54",
+      "previous": -0.0139052502583773,
+      "value": -0.026112446646715304,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C55",
+      "previous": -0.00630773479296565,
+      "value": 0.03505157235872702,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C56",
+      "previous": -0.00750596791669256,
+      "value": 0.01464236088297044,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C57",
+      "previous": -0.00743558260759404,
+      "value": 0.002482323934879238,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C58",
+      "previous": -0.00617639494320523,
+      "value": 0.0647275128414313,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C59",
+      "previous": -0.013942149190867,
+      "value": 0.031138913980379268,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C60",
+      "previous": -0.00105545697169086,
+      "value": -0.01771643248143373,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C61",
+      "previous": 0.00208927946906418,
+      "value": -0.04871929116215501,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C62",
+      "previous": 0.00507084643567315,
+      "value": -0.021979687736850106,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C63",
+      "previous": 0.00748911701523658,
+      "value": 0.08917926462873771,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C64",
+      "previous": -0.00098943569946022,
+      "value": 0.04422916940321375,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2023-12-29"
+    }
+  ],
+  "workbook_sha256": "35ced0404efea74033d7efd70e14431b90af4f5de5ca63b6672554778d8da318",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "rates-treasury-2025-12-01",
+  "as_of": "2025-12-01",
+  "manifest": "standards/public_cases/rates-treasury-2025-12-01.json",
+  "template": "21_Fixed_Income_Rates/_template_FIXED_INCOME.xlsx",
+  "output": "21_Fixed_Income_Rates/instances/public_treasury_2025_12_01.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "previous": 0.05,
+      "value": 0.05,
+      "source_url": "repo://standards/benchmark_cases/rates-reference-curve.json",
+      "source_as_of": "2025-12-01"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "previous": 0.055,
+      "value": 0.0409,
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202512&type=daily_treasury_yield_curve",
+      "source_as_of": "2025-12-01"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "previous": 10,
+      "value": 10.0,
+      "source_url": "repo://standards/benchmark_cases/rates-reference-curve.json",
+      "source_as_of": "2025-12-01"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C14",
+      "previous": 50,
+      "value": 75.0,
+      "source_url": "repo://standards/benchmark_cases/rates-reference-curve.json",
+      "source_as_of": "2025-12-01"
+    }
+  ],
+  "workbook_sha256": "cb88a34e5072561903d13771784fc7a8a1ffc6f94b74c9460fdf76f8fca4eaf4",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}
