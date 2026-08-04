@@ -1,55 +1,87 @@
-\"\"\"Build a research visualization workbook for the Stage-0 synthetic universe.
+\"\"\"Build a research visualization workbook for the Stage-0 universe.
 
-This produces research/ram/visualizations/_universe_viz_stage0.xlsx.
+Prefers real data (research/ram/data/cov_real_10.json + regime CSV) when present.
+Falls back to a small synthetic example only if real data has not been fetched.
 
-It is a visualization and exploration tool only. It is NOT a governed
-decision model, does not appear in standards/model_inventory.json, and
-must never be given an M-maturity claim.
+Output: research/ram/visualizations/_universe_viz_stage0.xlsx
 
-Conventions (aligned with core library where sensible):
-- Cover sheet with clear purpose and limitations
-- Blue-ish input / parameter area
-- Calculated risk numbers
-- Regime summary pulled from the synthetic kdb export shape
+RESEARCH VISUALIZATION ONLY — not a governed decision model.
 \"\"\"
 from __future__ import annotations
 
+import csv
+import json
 import math
 from pathlib import Path
 
 from openpyxl import Workbook
-from openpyxl.styles import Alignment, Font, PatternFill, Border, Side
+from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 
-from simple_covariance import equal_weight_risk, inverse_vol_weights, is_positive_semidefinite, portfolio_variance
+from simple_covariance import (
+    equal_weight_risk,
+    inverse_vol_weights,
+    is_positive_semidefinite,
+    portfolio_variance,
+)
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+DATA_DIR = Path(__file__).resolve().parent / "data"
+EXPORT_DIR = REPO_ROOT / "research" / "kdb" / "exports"
 OUT_DIR = Path(__file__).resolve().parent / "visualizations"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 OUT_PATH = OUT_DIR / "_universe_viz_stage0.xlsx"
 
-# Synthetic 10-name universe (deterministic)
-NAMES = [f"SYN{i:02d}" for i in range(1, 11)]
-N = len(NAMES)
 
-# Simple diagonal-dominant covariance (annualised variance units)
-def make_cov() -> list[list[float]]:
-    cov = [[0.0] * N for _ in range(N)]
-    for i in range(N):
-        cov[i][i] = 0.04 + 0.008 * (i % 5)          # vols roughly 20-28%
+def load_universe():
+    cov_path = DATA_DIR / "cov_real_10.json"
+    meta_path = DATA_DIR / "universe_real_10.json"
+    if cov_path.exists() and meta_path.exists():
+        cov = json.loads(cov_path.read_text())
+        meta = json.loads(meta_path.read_text())
+        return cov, meta, "real"
+    # synthetic fallback
+    names = [f"SYN{i:02d}" for i in range(1, 11)]
+    n = len(names)
+    cov = [[0.0] * n for _ in range(n)]
+    for i in range(n):
+        cov[i][i] = 0.04 + 0.008 * (i % 5)
         for j in range(i):
             cov[i][j] = cov[j][i] = 0.006 + 0.001 * ((i + j) % 3)
-    return cov
+    vols = [math.sqrt(cov[i][i]) for i in range(n)]
+    meta = {
+        "as_of": "synthetic",
+        "tickers": names,
+        "n_days": 0,
+        "vols": vols,
+        "avg_pairwise_corr": 0.35,
+        "source": "synthetic fallback",
+        "methodology": "diagonal-dominant synthetic",
+    }
+    return cov, meta, "synthetic"
+
+
+def load_regime(as_of: str):
+    if as_of == "synthetic":
+        return [
+            {"as_of_date": "synthetic", "universe": "synthetic_10", "metric": "realized_vol_1y_avg",
+             "value": 0.22, "methodology": "synthetic"},
+            {"as_of_date": "synthetic", "universe": "synthetic_10", "metric": "realized_vol_1y_p50",
+             "value": 0.21, "methodology": "synthetic"},
+            {"as_of_date": "synthetic", "universe": "synthetic_10", "metric": "avg_pairwise_corr",
+             "value": 0.35, "methodology": "synthetic"},
+        ]
+    path = EXPORT_DIR / f"regime_summary_{as_of.replace('-', '')}.csv"
+    if not path.exists():
+        return []
+    with path.open() as f:
+        return list(csv.DictReader(f))
 
 
 def style_header(cell):
     cell.font = Font(bold=True, color="FFFFFF")
     cell.fill = PatternFill("solid", fgColor="1F4E79")
     cell.alignment = Alignment(horizontal="center", wrap_text=True)
-
-
-def style_input(cell):
-    cell.font = Font(color="0000FF")  # blue = input / parameter
 
 
 def style_calc(cell):
@@ -62,101 +94,90 @@ def thin_border():
 
 
 def build() -> None:
-    cov = make_cov()
-    assert is_positive_semidefinite(cov)
+    cov, meta, mode = load_universe()
+    tickers = meta["tickers"]
+    vols = meta["vols"]
+    N = len(tickers)
+    as_of = meta["as_of"]
+    assert is_positive_semidefinite(cov), "covariance must be PSD"
 
-    vols = [math.sqrt(cov[i][i]) for i in range(N)]
     eq = equal_weight_risk(cov)
     inv_w = inverse_vol_weights(vols)
     inv_var = portfolio_variance(inv_w, cov)
     inv_vol = math.sqrt(max(inv_var, 0.0))
+    regime_rows = load_regime(as_of)
 
     wb = Workbook()
 
-    # ----- Cover -----
+    # Cover
     ws = wb.active
     ws.title = "Cover"
-    ws["B2"] = "Finance-Segway — Research Universe Visualization (Stage 0)"
+    title = "REAL DATA" if mode == "real" else "SYNTHETIC FALLBACK"
+    ws["B2"] = f"Finance-Segway — Research Universe Visualization (Stage 0, {title})"
     ws["B2"].font = Font(bold=True, size=14)
     ws["B4"] = "Purpose"
-    ws["C4"] = "Visualize the synthetic 10-name universe used by the Stage-0 RAM risk skeleton and the kdb regime-summary export."
+    ws["C4"] = "Visualize the Stage-0 universe with realized (or synthetic) covariance, RAM risk numbers, and Contract-1 regime metrics."
     ws["B5"] = "Status"
     ws["C5"] = "RESEARCH VISUALIZATION ONLY — not a governed decision model"
     ws["B6"] = "Maturity"
     ws["C6"] = "None (outside standards/model_inventory.json)"
     ws["B7"] = "Universe"
-    ws["C7"] = f"{N} synthetic names (SYN01–SYN10)"
-    ws["B8"] = "Generated by"
-    ws["C8"] = "research/ram/build_universe_viz.py"
-    ws["B10"] = "Limitations"
-    ws["C10"] = "Synthetic data only. No live market data. No claim of production risk system. Do not use for capital decisions."
-    ws["B12"] = "Related rails"
-    ws["C12"] = "research/ram/ (risk skeleton) · research/kdb/ (regime export) · analytics/dbt/ (portfolio marts)"
-
+    ws["C7"] = f"{N} names: {', '.join(tickers)}"
+    ws["B8"] = "As-of / window"
+    ws["C8"] = f"{as_of}  |  {meta.get('n_days', 0)} daily log-return observations"
+    ws["B9"] = "Data source"
+    ws["C9"] = f"{meta.get('source', '')}  |  {meta.get('methodology', '')}"
+    ws["B10"] = "Generated by"
+    ws["C10"] = "research/ram/build_universe_viz.py"
+    ws["B12"] = "Limitations"
+    ws["C12"] = "Research only. No claim of production risk system. Do not use for capital decisions."
+    ws["B14"] = "Proof point"
+    ws["C14"] = "Stage-0 pure-Python RAM functions executed on this covariance (PSD, equal-weight, inverse-vol)."
     for col in ("B", "C"):
-        ws.column_dimensions[col].width = 18 if col == "B" else 90
+        ws.column_dimensions[col].width = 18 if col == "B" else 95
 
-    # ----- Universe -----
+    # Universe
     ws = wb.create_sheet("Universe")
-    ws["B2"] = "Synthetic Universe"
+    ws["B2"] = "Universe"
     ws["B2"].font = Font(bold=True, size=12)
-    headers = ["Name", "Ann. Vol (from diag)", "Inv-Vol Weight", "Equal Weight"]
-    for col, h in enumerate(headers, start=2):
-        cell = ws.cell(row=4, column=col, value=h)
-        style_header(cell)
-
-    for i, name in enumerate(NAMES):
+    for col, h in enumerate(["Name", "Ann. Vol", "Inv-Vol Weight", "Equal Weight"], start=2):
+        style_header(ws.cell(row=4, column=col, value=h))
+    for i, name in enumerate(tickers):
         r = 5 + i
         ws.cell(row=r, column=2, value=name)
-        vol_cell = ws.cell(row=r, column=3, value=round(vols[i], 6))
-        style_calc(vol_cell)
-        inv_cell = ws.cell(row=r, column=4, value=round(inv_w[i], 6))
-        style_calc(inv_cell)
-        eq_cell = ws.cell(row=r, column=5, value=round(1.0 / N, 6))
-        style_calc(eq_cell)
+        style_calc(ws.cell(row=r, column=3, value=round(vols[i], 6)))
+        style_calc(ws.cell(row=r, column=4, value=round(inv_w[i], 6)))
+        style_calc(ws.cell(row=r, column=5, value=round(1.0 / N, 6)))
+    for col, w in zip("BCDE", (12, 14, 16, 14)):
+        ws.column_dimensions[col].width = w
 
-    ws.column_dimensions["B"].width = 12
-    ws.column_dimensions["C"].width = 20
-    ws.column_dimensions["D"].width = 16
-    ws.column_dimensions["E"].width = 14
-
-    # ----- Covariance -----
+    # Covariance
     ws = wb.create_sheet("Covariance")
-    ws["B2"] = "Annualised Covariance Matrix (synthetic, diagonal-dominant)"
+    ws["B2"] = "Annualised Covariance Matrix"
     ws["B2"].font = Font(bold=True, size=12)
-    ws["B3"] = "PSD check"
-    ws["C3"] = "PASS" if is_positive_semidefinite(cov) else "FAIL"
-    ws["C3"].font = Font(bold=True, color="006600" if is_positive_semidefinite(cov) else "990000")
-
-    for j, name in enumerate(NAMES):
-        cell = ws.cell(row=5, column=3 + j, value=name)
-        style_header(cell)
-    for i, name in enumerate(NAMES):
-        cell = ws.cell(row=6 + i, column=2, value=name)
-        style_header(cell)
+    ws["B3"] = "PSD check (Cholesky)"
+    ws["C3"] = "PASS"
+    ws["C3"].font = Font(bold=True, color="006600")
+    for j, name in enumerate(tickers):
+        style_header(ws.cell(row=5, column=3 + j, value=name))
+    for i, name in enumerate(tickers):
+        style_header(ws.cell(row=6 + i, column=2, value=name))
         for j in range(N):
             cell = ws.cell(row=6 + i, column=3 + j, value=round(cov[i][j], 6))
             style_calc(cell)
             cell.border = thin_border()
             if i == j:
                 cell.fill = PatternFill("solid", fgColor="D6EAF8")
-
     ws.column_dimensions["B"].width = 10
     for j in range(N):
         ws.column_dimensions[get_column_letter(3 + j)].width = 10
 
-    # ----- Risk Summary -----
+    # Risk Summary
     ws = wb.create_sheet("Risk Summary")
-    ws["B2"] = "Portfolio Risk Summary (Stage 0)"
+    ws["B2"] = "Portfolio Risk Summary — Stage-0 RAM"
     ws["B2"].font = Font(bold=True, size=12)
-
-    ws["B4"] = "Metric"
-    ws["C4"] = "Equal-Weight"
-    ws["D4"] = "Inverse-Vol"
-    style_header(ws["B4"])
-    style_header(ws["C4"])
-    style_header(ws["D4"])
-
+    for col, h in enumerate(["Metric", "Equal-Weight", "Inverse-Vol"], start=2):
+        style_header(ws.cell(row=4, column=col, value=h))
     rows = [
         ("Variance", round(eq.variance, 8), round(inv_var, 8)),
         ("Volatility (ann.)", round(eq.volatility, 6), round(inv_vol, 6)),
@@ -165,50 +186,40 @@ def build() -> None:
     for i, (metric, eq_v, inv_v) in enumerate(rows):
         r = 5 + i
         ws.cell(row=r, column=2, value=metric)
-        c = ws.cell(row=r, column=3, value=eq_v)
-        style_calc(c)
-        c = ws.cell(row=r, column=4, value=inv_v)
-        style_calc(c)
-
+        style_calc(ws.cell(row=r, column=3, value=eq_v))
+        style_calc(ws.cell(row=r, column=4, value=inv_v))
     ws["B9"] = "Notes"
-    ws["C9"] = "All figures derived from the pure-Python Stage-0 skeleton (research/ram/simple_covariance.py). No external risk engine."
+    ws["C9"] = "Risk figures from pure-Python Stage-0 skeleton (simple_covariance.py). NumPy used only for data prep when real data is loaded."
     ws.column_dimensions["B"].width = 22
     ws.column_dimensions["C"].width = 16
     ws.column_dimensions["D"].width = 14
 
-    # ----- Regime Summary -----
+    # Regime Summary
     ws = wb.create_sheet("Regime Summary")
-    ws["B2"] = "Regime Summary (from synthetic kdb export shape)"
+    ws["B2"] = "Regime Summary — Contract 1"
     ws["B2"].font = Font(bold=True, size=12)
     ws["B3"] = "Source contract"
     ws["C3"] = "research/kdb/INTEGRATION_CONTRACTS.md — Contract 1"
-
     headers = ["as_of_date", "universe", "metric", "value", "methodology"]
     for col, h in enumerate(headers, start=2):
-        cell = ws.cell(row=5, column=col, value=h)
-        style_header(cell)
-
-    # Values consistent with the generator defaults (illustrative)
-    regime_rows = [
-        ("2026-08-04", "synthetic_10_liquid", "realized_vol_1y_avg", 0.22, "synthetic_gaussian_252d_seed17"),
-        ("2026-08-04", "synthetic_10_liquid", "realized_vol_1y_p50", 0.21, "synthetic_gaussian_252d_seed17"),
-        ("2026-08-04", "synthetic_10_liquid", "avg_pairwise_corr", 0.35, "synthetic_fixed_example"),
-    ]
+        style_header(ws.cell(row=5, column=col, value=h))
     for i, row in enumerate(regime_rows):
-        for col, val in enumerate(row, start=2):
-            cell = ws.cell(row=6 + i, column=col, value=val)
-            style_calc(cell)
-
-    ws["B10"] = "Note"
-    ws["C10"] = "These are the illustrative Contract-1 metrics. Re-run research/kdb/scripts/generate_synthetic_regime_export.py and paste fresh values when desired."
+        for col, key in enumerate(headers, start=2):
+            val = row.get(key)
+            if key == "value":
+                try:
+                    val = float(val)
+                except (TypeError, ValueError):
+                    pass
+            style_calc(ws.cell(row=6 + i, column=col, value=val))
     for col in range(2, 7):
         ws.column_dimensions[get_column_letter(col)].width = 28 if col > 3 else 14
 
-    # ----- Notes -----
+    # Notes
     ws = wb.create_sheet("Notes")
-    ws["B2"] = "How to regenerate"
-    ws["C2"] = "python research/ram/build_universe_viz.py"
-    ws["B4"] = "How to re-benchmark"
+    ws["B2"] = "Re-fetch real data"
+    ws["C2"] = "python research/ram/fetch_real_universe.py"
+    ws["B4"] = "Re-benchmark"
     ws["C4"] = "python research/ram/bench_stage0.py"
     ws["B6"] = "Stage gates"
     ws["C6"] = "research/ram/STAGE_GATES.md"
@@ -216,11 +227,12 @@ def build() -> None:
     ws["C8"] = "research/ram/evidence/"
     ws["B10"] = "Core governance"
     ws["C10"] = "This workbook lives outside 01_–24_ domains and outside the model inventory. It cannot receive an M-maturity rating."
-    ws.column_dimensions["B"].width = 20
+    ws.column_dimensions["B"].width = 22
     ws.column_dimensions["C"].width = 90
 
     wb.save(OUT_PATH)
-    print(f"Wrote {OUT_PATH}")
+    print(f"Wrote {OUT_PATH}  (mode={mode})")
+    print(f"Equal-weight vol={eq.volatility:.4f}  Inv-vol vol={inv_vol:.4f}")
 
 
 if __name__ == "__main__":

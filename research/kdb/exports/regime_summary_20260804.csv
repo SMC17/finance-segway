@@ -1,0 +1,4 @@
+as_of_date,universe,metric,value,methodology
+2026-08-04,us_mega10_liquid,realized_vol_1y_avg,0.275922,yahoo_adjclose_logret_samplecov252
+2026-08-04,us_mega10_liquid,realized_vol_1y_p50,0.279956,yahoo_adjclose_logret_samplecov252
+2026-08-04,us_mega10_liquid,avg_pairwise_corr,0.078992,yahoo_adjclose_logret_samplecorr
