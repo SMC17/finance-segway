@@ -179,7 +179,24 @@ tools/
   reconcile_model_inventory.py
   weekly_refresh_check.py
   scaffold_model_evidence.py
+  postgres_etl.py
+  verify_postgres_etl.py
+
+db/
+  schema.sql
+  README.md
 ```
+
+## Excel or SQL — analyst's choice
+
+Excel stays the source of truth and calculation engine for every model.
+`db/` adds an optional Postgres layer for domains with enough populated
+instances to make cross-portfolio SQL queries useful, fed entirely by
+values already committed and recalculated in the workbooks -- no formula
+re-implemented in SQL, and nothing in the database mutates or re-runs the
+source workbook. Piloted on Private Equity / LBO (`03_Private_Equity/instances/`)
+since it currently has the deepest instance coverage; see `db/README.md`
+for setup and example queries.
 
 ## Quickstart
 
