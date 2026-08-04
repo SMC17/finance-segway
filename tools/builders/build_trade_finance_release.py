@@ -158,7 +158,7 @@ def enrich(workbook) -> None:
         (9, "Cash-conversion days", "='Credit & Facility'!E20", '=IF(NOT(ISNUMBER(C9)),"REVIEW",IF(C9<=\'Credit & Facility\'!E13,"PASS","REVIEW"))', "Longer cycles increase funding and performance risk."),
         (10, "Annualized LC cost", "='LC & Factoring Cost'!C10", '=IF(ISNUMBER(C10),"PASS","REVIEW")', "Confirm tenor, issuance, confirmation, amendment, and discrepancy fees."),
         (11, "Effective factoring APR", "='LC & Factoring Cost'!C21", '=IF(ISNUMBER(C11),"PASS","REVIEW")', "Compare fee to net proceeds and actual collection period."),
-        (12, "Documentary-control exceptions", "=COUNTIF('Documentary Controls'!D5:D12,"<>PASS")", '=IF(C12=0,"PASS","REVIEW")', "No financing-cost comparison overrides unresolved documentary or sanctions controls."),
+        (12, "Documentary-control exceptions", '=COUNTIF(\'Documentary Controls\'!D5:D12,"<>PASS")', '=IF(C12=0,"PASS","REVIEW")', "No financing-cost comparison overrides unresolved documentary or sanctions controls."),
     ]
     for row, label, formula, status, action in rows:
         checks.cell(row, 2, label)
