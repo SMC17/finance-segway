@@ -1,84 +1,95 @@
 # Finance Model Library Integration Ledger
 
 This ledger records the component-level synthesis of the Claude Code and
-ChatGPT/Codex implementation lanes. The canonical merge target is
-`agent/synthesize-finance-model-library-v2` through draft PR #3.
+ChatGPT/Codex implementation lanes. PR #3 established the engineered 2.1.0
+library on `main`. PR #5 is the institutional operating-system tranche.
 
-## Reconciled branch state
+## Reconciled implementation lanes
 
-| Lane | Disposition |
+| Lane | Retained contribution |
 |---|---|
-| Claude Code | Retained as the complete 24-domain baseline, workbook history, broad builder hardening, and independent spreadsheet regression suite |
-| Earlier ChatGPT/Codex credit prototype | Financial mechanics selectively rebuilt; obsolete binaries and workflows rejected |
-| Engineered synthesis lane | Canonical source, artifact, validation, benchmark, and release-evidence system |
+| Claude Code | Complete 24-domain baseline, workbook breadth, original builders, broad formula hardening, and the independent spreadsheet regression suite |
+| Earlier ChatGPT/Codex prototypes | Selected financial identities and credit mechanics; obsolete shared workbooks, binaries, and writers rejected |
+| Engineered synthesis | Canonical financial engines, domain contracts, semantic parity, recalculation, benchmark instances, receipts, and atomic artifact release |
+| Institutional tranche | Domain operating profiles, decision surfaces, challenge logs, lineage maps, control plane, and profile-bound release evidence |
 
-No active source branch was overwritten or force-pushed. Components were retained,
-combined, superseded, or rejected according to financial identity and test evidence.
+Components are combined according to economic identity and test evidence, not
+according to which agent or branch created them.
 
-## Current verified inventory
+## Current verified architecture
 
 - Inventory version: **2.1.0**
-- 24 core archetypes
-- 15 M2 Decision Models
-- 9 M1 Correct Skeletons
-- 0 M3 Institutional Underwriting Models
-- 0 M4 Maintained Production Systems
-- 18 synthetic reference/adversarial benchmark instances
-- 0 public maintained instances that count toward M4
+- **24** core archetypes
+- **15 M2 Decision Models** and **9 M1 Correct Skeletons**
+- **24** domain-specific institutional profiles
+- **24** canonical workbooks with `Institutional Surface`, `Challenge Log`, and `Lineage Map`
+- **18** source-addressed synthetic reference/adversarial benchmark instances
+- A nine-sheet institutional control plane under `00_Control_Plane/`
+- **0 M3** and **0 M4** claims without the required external evidence
+
+## Standardized operating envelope
+
+The common layer standardizes how a model is used without forcing different
+financial instruments into a generic calculation template. Every domain now
+specifies:
+
+- the actual decision arena and committee artifact;
+- decision outputs and binding constraints;
+- governing and diligence documents;
+- practitioner-level questions that expose weak underwriting;
+- scenario families and independent challenge tests;
+- recurrent implementation and interpretation failures;
+- source classes, refresh cadence, controls, and ownership;
+- applicable regulatory or methodological anchors.
+
+An LBO cash sweep, a loss-development triangle, a structured-credit waterfall,
+a volatility surface, and a sovereign debt sustainability analysis remain
+financially distinct.
 
 ## Completed component decisions
 
 | Component | Decision | Canonical implementation |
 |---|---|---|
 | Repository skeleton and domain coverage | Retain | Claude baseline |
-| Spreadsheet independent-oracle suite | Retain | `tools/verify_reference_calcs.py` |
-| Pure-Python financial engines | Combine and extend | `finance_segway/` and `tools/reference_engines.py` |
-| Model inventory and maturity gates | Retain | `standards/model_inventory.json` and `tools/validate_model_inventory.py` |
-| Whole-library workbook audit | Add | `tools/workbook_engineering.py` |
-| Semantic builder parity | Add and require | `tools/workbook_parity.py`, `tools/build_all_models.py`, required parity CI |
-| Private Credit | Rebuilt and promoted M2 | distinct five-year lender model |
-| Debt Finance | Split and promoted M2 | distinct issuance, refinancing, maturity-ladder, and recovery model |
-| Public Finance | Rebuilt and promoted M2 | sovereign DSA plus municipal operating, reserve, pension, and coverage model |
-| Private Equity / Merchant Banking | Rebuilt and promoted M2 | seven-year operating model, multi-tranche debt, covenants, management equity, exit waterfall |
-| Risk Management | Rebuilt and promoted M2 | positions, factor covariance, Euler/component VaR, ES, stress, liquidity, P&L explain, limits |
-| Options / Derivatives | Rebuilt and promoted M2 | pricing, IV, American option, Greeks, surface, portfolio and scenario risk |
-| Insurance / Actuarial | Rebuilt and promoted M2 | triangle, chain ladder, BF, underwriting, embedded value, capital and stress |
-| Structured Finance | Rebuilt and promoted M2 | monthly collateral, CPR/CDR/recoveries, waterfall, shortfalls, triggers, WAL and sensitivity |
-| Project Finance | Rebuilt and promoted M2 | construction/IDC, sources and uses, CFADS, sculpting, DSRA, DSCR/LLCR/PLCR |
-| Fixed Income / Rates | Rebuilt and promoted M2 | curve, price, duration, convexity, key-rate DV01, carry/roll, scenarios and P&L explain |
-| Quantitative / Systematic | Rebuilt and promoted M2 | point-in-time backtest, costs, capacity, walk-forward, VaR/ES and stress |
-| Artifact promotion | Supersede ad hoc transfer | GitHub-native, recalculated, stale-head-guarded atomic release |
-| Maintained instance plumbing | Add | manifest inputs, provenance, RefreshLog, SHA receipts, 18 benchmark instances |
-| Weekly refresh | Supersede commit-writing job | read-only report artifact |
+| Spreadsheet independent-oracle suite | Retain and update | `tools/verify_reference_calcs.py` |
+| Pure-Python financial engines | Combine and extend | `finance_segway/` and reference engines |
+| Model inventory and maturity gates | Retain | `standards/model_inventory.json` |
+| Whole-library workbook audit | Require | `tools/workbook_engineering.py` |
+| Semantic builder parity | Require | `tools/workbook_parity.py` and `tools/build_all_models.py` |
+| Model-specific institutional parity | Add | per-model enrichment after each shared builder runs |
+| Domain operating profiles | Add | `standards/domain_profiles/*.tsv` |
+| Workbook decision surface | Add | `tools/institutional_surface.py` |
+| Full-library surface promotion | Add | `tools/promote_institutional_surface.py` |
+| Portfolio control plane | Add | `tools/build_institutional_control_plane.py` |
+| Release evidence | Extend | profile-registry hash and per-model surface evidence |
+| Artifact promotion | Preserve single writer | stale-head-guarded atomic GitHub release |
+| Maintained instance plumbing | Preserve and enrich | provenance, RefreshLog, SHA receipts, and enriched templates |
+| Weekly refresh | Preserve read-only behavior | report artifact, not an uncontrolled binary writer |
 
-## Rejected implementation patterns
+## Institutional release gates
 
-- blanket “Built” labels without maturity evidence;
-- a single shared workbook for economically different domains;
-- connector-side binary XLSX transport;
-- source changes that silently leave committed artifacts stale;
-- formula parity based only on raw ZIP or byte equality;
-- array formulas that do not recalculate consistently across Excel engines;
-- bot commits triggered by shared-helper edits;
-- M3/M4 claims based on formula count, visual polish, or synthetic fixtures.
+1. Source compiles and all unit tests pass.
+2. The profile registry covers exactly the 24 inventory domains.
+3. Domain-specific workbook contracts pass before recalculation.
+4. LibreOffice recalculation produces zero cached formula errors.
+5. Domain contracts still pass after spreadsheet normalization.
+6. Every canonical workbook receives and validates its domain-specific operating surface.
+7. Each builder reproduces each model-specific committed workbook semantically.
+8. External links and literal Excel errors are absent.
+9. All 18 reference/adversarial instances regenerate and recalculate cleanly.
+10. Release evidence hashes builders, workbooks, and the institutional profile registry.
+11. The institutional control plane rebuilds from inventory, profiles, instances, and evidence.
+12. Any source-head movement aborts rather than rebasing stale binaries.
 
-## Permanent acceptance gates
+## Explicit maturity boundary
 
-1. Source compiles and unit tests pass.
-2. Domain-specific workbook contracts pass.
-3. LibreOffice recalculation produces zero cached Excel errors.
-4. Contracts still pass after spreadsheet normalization.
-5. Inventory claims are internally valid.
-6. Every inventory builder reproduces the committed workbook semantically.
-7. External links and literal errors are absent.
-8. Release artifacts and builders receive SHA-256 evidence.
-9. Reference and adversarial benchmark instances recalculate cleanly.
-10. Any source-head movement aborts rather than rebasing stale binaries.
+The new decision surfaces make M3 evidence gaps visible; they do not fill them.
+M3 still requires public source snapshots, populated model cards, independent
+validation, effective challenge, stakeholder sign-off, and externally sourced
+cases. M4 additionally requires maintained public instances, repeated refresh
+history, realized-outcome comparison, and documented model changes over time.
 
-## Remaining maturity work
+The next frontier is therefore two-sided:
 
-Reconciliation and model-engineering work are complete for the current flagship
-release. Remaining work is not another branch merge or cosmetic workbook expansion.
-M3 requires external source snapshots, completed model cards, independent validation
-and effective challenge, stakeholder sign-off, and externally sourced reference and
-adversarial instances. M4 requires repeated maintenance and outcome evidence over time.
+1. continue promoting M1 domains through deeper financial mechanics and independent oracles;
+2. begin a public evidence program that can legitimately move selected M2 models to M3 and eventually M4.
