@@ -1,0 +1,58 @@
+name: M1 Domain Hardening
+
+on:
+  pull_request:
+    paths:
+      - "standards/domain_hardening/**"
+      - "tools/domain_hardening_oracles.py"
+      - "tools/validate_domain_hardening.py"
+      - "tests/test_domain_hardening.py"
+      - ".github/workflows/m1-domain-hardening.yml"
+      - "standards/model_inventory.json"
+  push:
+    branches:
+      - main
+      - "agent/**"
+    paths:
+      - "standards/domain_hardening/**"
+      - "tools/domain_hardening_oracles.py"
+      - "tools/validate_domain_hardening.py"
+      - "tests/test_domain_hardening.py"
+      - ".github/workflows/m1-domain-hardening.yml"
+      - "standards/model_inventory.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-oracles:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout hardening branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install repository dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile hardening system
+        run: python -m compileall -q tools tests
+
+      - name: Run domain hardening tests
+        run: PYTHONPATH=. python -m unittest tests.test_domain_hardening -v
+
+      - name: Validate reference registry and cases
+        run: PYTHONPATH=. python tools/validate_domain_hardening.py --report m1-domain-hardening-report.json
+
+      - name: Upload hardening report
+        uses: actions/upload-artifact@v4
+        with:
+          name: m1-domain-hardening-${{ github.event_name }}
+          path: m1-domain-hardening-report.json
+          retention-days: 30
