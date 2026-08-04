@@ -57,7 +57,9 @@ def load_inventory(root: Path) -> dict[str, Any]:
 def load_profiles(root: Path) -> dict[str, Any]:
     profiles = []
     for path in sorted((root / "standards/domain_profiles").glob("*.tsv")):
-        for row in csv.DictReader(path.open(encoding="utf-8"), delimiter="\t"):
+        with path.open(encoding="utf-8") as handle:
+            rows = list(csv.DictReader(handle, delimiter="\t"))
+        for row in rows:
             sources = []
             for raw in _split(row["sources"]):
                 name, cadence, control = [item.strip() for item in raw.split("~", 2)]

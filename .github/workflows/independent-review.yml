@@ -1,0 +1,51 @@
+name: Independent Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  pull_request_review:
+    types: [submitted, dismissed]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  independent-approval:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require approval from someone other than the author
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pullNumber = context.payload.pull_request.number;
+            const author = context.payload.pull_request.user.login.toLowerCase();
+            const headSha = context.payload.pull_request.head.sha;
+            const reviews = await github.paginate(github.rest.pulls.listReviews, {
+              ...context.repo,
+              pull_number: pullNumber,
+              per_page: 100,
+            });
+            const decisive = new Map();
+            for (const review of reviews) {
+              const state = review.state.toUpperCase();
+              if (!["APPROVED", "CHANGES_REQUESTED", "DISMISSED"].includes(state)) continue;
+              if (review.commit_id !== headSha) continue;
+              decisive.set(review.user.login.toLowerCase(), state);
+            }
+            const approvers = [...decisive.entries()]
+              .filter(([login, state]) => login !== author && state === "APPROVED")
+              .map(([login]) => login);
+            await core.summary
+              .addHeading("Independent approval")
+              .addRaw(`Author: @${author}\n\n`)
+              .addRaw(`Reviewed head: ${headSha}\n\n`)
+              .addRaw(`Current independent approvers: ${approvers.map(login => `@${login}`).join(", ") || "none"}`)
+              .write();
+            if (approvers.length < 1) {
+              core.setFailed("At least one approval of the current head from someone other than the pull-request author is required.");
+            }

@@ -9,6 +9,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   governance:
     runs-on: ubuntu-latest
@@ -47,6 +51,9 @@ jobs:
       - name: Validate reconciled builder outputs
         run: python tools/validate_reconciled_models.py --report reconciled-model-report.json
 
+      - name: Validate committed reconciled artifacts
+        run: python tools/validate_reconciled_models.py --committed --report committed-reconciled-model-report.json
+
       - name: Validate model inventory and maturity claims
         run: python tools/validate_model_inventory.py --report model-governance-report.json
 
@@ -58,5 +65,6 @@ jobs:
           path: |
             model-governance-report.json
             reconciled-model-report.json
+            committed-reconciled-model-report.json
           if-no-files-found: warn
           retention-days: 30

@@ -2,54 +2,23 @@ name: Complete Engineered Release
 
 on:
   pull_request:
-  push:
-    branches: [agent/synthesize-finance-model-library-v2]
-    paths:
-      - '.github/workflows/complete-engineered-release.yml'
-      - '.github/workflows/release-engineered-flagships.yml'
-      - '.github/workflows/flagship-validation.yml'
-      - '.github/workflows/library-parity-required.yml'
-      - '00_Control_Plane/**'
-      - 'docs/INSTITUTIONAL_SURFACE_STANDARD.md'
-      - 'finance_segway/**'
-      - 'standards/domain_profiles/**'
-      - 'tools/institutional_surface.py'
-      - 'tools/promote_institutional_surface.py'
-      - 'tools/build_institutional_control_plane.py'
-      - 'tools/builders/build_*_release.py'
-      - 'tools/builders/build_securitization_institutional.py'
-      - 'tools/builders/formula_compatibility.py'
-      - 'tools/validate_*_model.py'
-      - 'tools/build_all_models.py'
-      - 'tools/workbook_engineering.py'
-      - 'tools/workbook_parity.py'
-      - 'tools/promote_engineered_flagships.py'
-      - 'tools/generate_release_evidence.py'
-      - 'tools/model_instances.py'
-      - 'tools/model_instance_release.py'
-      - 'tools/generate_benchmark_instances*.py'
-      - 'tests/**'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: complete-engineered-release-${{ github.event_name }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout canonical synthesis branch
+      - name: Checkout triggering revision
         uses: actions/checkout@v4
         with:
-          ref: agent/synthesize-finance-model-library-v2
           fetch-depth: 0
-
-      - name: Capture immutable source head
-        run: git rev-parse HEAD > .release-start-sha
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -178,37 +147,6 @@ jobs:
           PYTHONPATH=.:tools python tools/generate_release_evidence.py --release-id flagship-2.1.0 --output standards/releases/flagship-2.1.0.json
           PYTHONPATH=.:tools python tools/build_institutional_control_plane.py --report control-plane-report.json
           PYTHONPATH=.:tools python tools/workbook_engineering.py . --report complete-workbook-engineering-report.json
-
-      - name: Reject stale release
-        if: github.event_name == 'push'
-        run: |
-          git fetch origin agent/synthesize-finance-model-library-v2
-          START_SHA=$(cat .release-start-sha)
-          REMOTE_SHA=$(git rev-parse origin/agent/synthesize-finance-model-library-v2)
-          echo "release source: $START_SHA"
-          echo "remote source:  $REMOTE_SHA"
-          test "$START_SHA" = "$REMOTE_SHA"
-
-      - name: Commit complete institutional release
-        if: github.event_name == 'push'
-        run: |
-          git config user.name 'finance-segway-model-bot'
-          git config user.email 'actions@users.noreply.github.com'
-          git add \
-            00_Control_Plane/Finance_Model_Control_Plane.xlsx \
-            0[1-9]_*/_template_*.xlsx 1[0-9]_*/_template_*.xlsx 2[0-4]_*/_template_*.xlsx \
-            03_Private_Equity/instances 04_Merchant_Banking/instances \
-            09_Risk_Management/instances 14_Options_Derivatives/instances \
-            18_Insurance_Actuarial/instances 19_Structured_Finance_Securitization/instances \
-            20_Project_Finance/instances 21_Fixed_Income_Rates/instances \
-            22_Quantitative_Systematic/instances \
-            standards/model_inventory.json standards/benchmark_cases standards/releases/flagship-2.1.0.json
-          if git diff --staged --quiet; then
-            echo 'Canonical institutional release is already current.'
-          else
-            git commit -m 'Complete institutional finance model release'
-            git push origin HEAD:agent/synthesize-finance-model-library-v2
-          fi
 
       - name: Upload complete release evidence
         if: always()
