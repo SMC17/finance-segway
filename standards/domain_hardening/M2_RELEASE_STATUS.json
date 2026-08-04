@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "status": "committed_release",
+  "release_commit": "7927e119e21344b0f981ab7cda8e0132ab9687f6",
+  "validated_source_head": "c8bf15ede3713cf2714f9e77b7e57950a8bdcfc9",
+  "release_date": "2026-08-04",
+  "m2_promoted": ["08", "10", "11", "12", "15", "16", "17", "23", "24"],
+  "canonical_templates": 9,
+  "benchmark_instances_added": 18,
+  "benchmark_instances_total": 36,
+  "institutional_surface_artifacts": 27,
+  "counts_toward_M4": false,
+  "claim_boundary": "This release promotes the nine domains from M1 to M2 only. It does not support M3 or M4 promotion."
+}
