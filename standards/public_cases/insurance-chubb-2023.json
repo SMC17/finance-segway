@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "id": "insurance-chubb-2023",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "18_Insurance_Actuarial/_template_INSURANCE.xlsx",
+  "output": "18_Insurance_Actuarial/instances/public_chubb_2023.xlsx",
+  "as_of": "2024-02-23",
+  "scenario": "Base",
+  "cover": {
+    "Entity / line of business:": "Chubb 2023 underwriting and reserve profile"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 0.57,
+      "input_kind": "derived",
+      "source": {
+        "name": "Chubb 2023 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/896159/000089615924000007/cb-20231231.htm",
+        "as_of": "2024-02-23",
+        "notes": "U.S. SEC; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 0.28,
+      "input_kind": "derived",
+      "source": {
+        "name": "Chubb 2023 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/896159/000089615924000007/cb-20231231.htm",
+        "as_of": "2024-02-23",
+        "notes": "U.S. SEC; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "value": 47359.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Chubb 2023 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/896159/000089615924000007/cb-20231231.htm",
+        "as_of": "2024-02-23",
+        "notes": "U.S. SEC; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C14",
+      "value": 72000.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Chubb 2023 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/896159/000089615924000007/cb-20231231.htm",
+        "as_of": "2024-02-23",
+        "notes": "U.S. SEC; frozen curated observation as of case date"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Chubb 2023 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/896159/000089615924000007/cb-20231231.htm",
+      "as_of": "2024-02-23",
+      "notes": "U.S. SEC; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://18_Insurance_Actuarial/sources/snapshots/insurance-chubb-2023.json",
+      "as_of": "2024-02-23",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://18_Insurance_Actuarial/sources/snapshots/insurance-chubb-2023.json",
+    "what_changed": "Generated public case insurance-chubb-2023 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

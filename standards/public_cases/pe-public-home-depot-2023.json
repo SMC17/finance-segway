@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "id": "pe-public-home-depot-2023",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "03_Private_Equity/_template_LBO.xlsx",
+  "output": "03_Private_Equity/instances/public_home_depot_2023.xlsx",
+  "as_of": "2024-03-13",
+  "scenario": "Base",
+  "cover": {
+    "Target / transaction:": "The Home Depot FY2023 public-company operating case",
+    "Sponsor / principal:": "Benchmark Sponsor"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 152669.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Home Depot 2023 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/354950/000035495024000062/hd-20240128.htm",
+        "as_of": "2024-03-13",
+        "notes": "U.S. SEC; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 0.153,
+      "input_kind": "derived",
+      "source": {
+        "name": "Home Depot 2023 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/354950/000035495024000062/hd-20240128.htm",
+        "as_of": "2024-03-13",
+        "notes": "U.S. SEC; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": -0.03,
+      "input_kind": "derived",
+      "source": {
+        "name": "Home Depot 2023 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/354950/000035495024000062/hd-20240128.htm",
+        "as_of": "2024-03-13",
+        "notes": "U.S. SEC; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C13",
+      "value": 10.5,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from pe-reference-buyout.json",
+        "url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+        "as_of": "2024-03-13",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C19",
+      "value": 4.25,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from pe-reference-buyout.json",
+        "url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+        "as_of": "2024-03-13",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C22",
+      "value": 1.25,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from pe-reference-buyout.json",
+        "url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+        "as_of": "2024-03-13",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C28",
+      "value": 10.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from pe-reference-buyout.json",
+        "url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+        "as_of": "2024-03-13",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Home Depot 2023 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/354950/000035495024000062/hd-20240128.htm",
+      "as_of": "2024-03-13",
+      "notes": "U.S. SEC; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://03_Private_Equity/sources/snapshots/pe-public-home-depot-2023.json",
+      "as_of": "2024-03-13",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://03_Private_Equity/sources/snapshots/pe-public-home-depot-2023.json",
+    "what_changed": "Generated public case pe-public-home-depot-2023 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

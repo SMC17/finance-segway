@@ -1,0 +1,817 @@
+{
+  "schema_version": "1.0",
+  "id": "quant-sp500-2019-2023",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "22_Quantitative_Systematic/_template_QUANT.xlsx",
+  "output": "22_Quantitative_Systematic/instances/public_sp500_2019_2023.xlsx",
+  "as_of": "2023-12-29",
+  "scenario": "Base",
+  "cover": {
+    "Strategy / universe:": "Monthly S&P 500 public-index research series"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 10.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Public-market implementation-cost assumption",
+        "url": "repo://22_Quantitative_Systematic/sources/snapshots/quant-sp500-2019-2023.json",
+        "as_of": "2023-12-29",
+        "notes": "Modeler-owned assumption documented in frozen snapshot"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "value": 0.003,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from quant-reference-costed.json",
+        "url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+        "as_of": "2023-12-29",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "value": 60.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from quant-reference-costed.json",
+        "url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+        "as_of": "2023-12-29",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C18",
+      "value": 1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from quant-reference-costed.json",
+        "url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+        "as_of": "2023-12-29",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C19",
+      "value": 1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from quant-reference-costed.json",
+        "url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+        "as_of": "2023-12-29",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C5",
+      "value": 0.02972893014311606,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C6",
+      "value": 0.02972893014311606,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C7",
+      "value": 0.01792428775107835,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C8",
+      "value": 0.03931343494213935,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C9",
+      "value": -0.06577772648116154,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C10",
+      "value": 0.06893018320821498,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C11",
+      "value": 0.013128195366039375,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C12",
+      "value": -0.01809165274226776,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C13",
+      "value": 0.017181167690656807,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C14",
+      "value": 0.020431747482144935,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C15",
+      "value": 0.03404706409091518,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C16",
+      "value": 0.028589803182446305,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C17",
+      "value": -0.001628089811129274,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C18",
+      "value": -0.08411046900964814,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C19",
+      "value": -0.12511932083595656,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C20",
+      "value": 0.12684410293315374,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C21",
+      "value": 0.04528177501261843,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C22",
+      "value": 0.018388403283502663,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C23",
+      "value": 0.0551012969754443,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C24",
+      "value": 0.07006468732421922,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C25",
+      "value": -0.0392279540954944,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C26",
+      "value": -0.0276657746060065,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C27",
+      "value": 0.10754565805086314,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C28",
+      "value": 0.03712140665943231,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C29",
+      "value": -0.011136640158463607,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C30",
+      "value": 0.026091474971999817,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C31",
+      "value": 0.04243863400810777,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C32",
+      "value": 0.05242531255584737,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C33",
+      "value": 0.005486502581813157,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C34",
+      "value": 0.02221397632316946,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C35",
+      "value": 0.02274810936591054,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C36",
+      "value": 0.028990321391681118,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C37",
+      "value": -0.047569140421166334,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C38",
+      "value": 0.06914387330123462,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C39",
+      "value": -0.00833373141847149,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C40",
+      "value": 0.04361287497262989,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C41",
+      "value": -0.05258508910699977,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C42",
+      "value": -0.03136052086678265,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C43",
+      "value": 0.03577323877328009,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C44",
+      "value": -0.08795671914903935,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C45",
+      "value": 5.324388360872234e-05,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C46",
+      "value": -0.08391999322386645,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C47",
+      "value": 0.09111634763220589,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C48",
+      "value": -0.04244011921681046,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C49",
+      "value": -0.09339570164348932,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C50",
+      "value": 0.07986345457689326,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C51",
+      "value": 0.053752860293699856,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C52",
+      "value": -0.058971449299161094,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C53",
+      "value": 0.06175283240005203,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C54",
+      "value": -0.026112446646715304,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C55",
+      "value": 0.03505157235872702,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C56",
+      "value": 0.01464236088297044,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C57",
+      "value": 0.002482323934879238,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C58",
+      "value": 0.0647275128414313,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C59",
+      "value": 0.031138913980379268,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C60",
+      "value": -0.01771643248143373,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C61",
+      "value": -0.04871929116215501,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C62",
+      "value": -0.021979687736850106,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C63",
+      "value": 0.08917926462873771,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    },
+    {
+      "sheet": "Backtest",
+      "cell": "C64",
+      "value": 0.04422916940321375,
+      "input_kind": "derived",
+      "source": {
+        "name": "S&P 500 via FRED",
+        "url": "https://fred.stlouisfed.org/series/SP500",
+        "as_of": "2023-12-29",
+        "notes": "Month-end price-return proxy derived from public daily closes; not a total-return index"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "S&P 500 via FRED",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "as_of": "2023-12-29",
+      "notes": "Federal Reserve Bank of St. Louis / S&P; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://22_Quantitative_Systematic/sources/snapshots/quant-sp500-2019-2023.json",
+      "as_of": "2023-12-29",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://22_Quantitative_Systematic/sources/snapshots/quant-sp500-2019-2023.json",
+    "what_changed": "Generated public case quant-sp500-2019-2023 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

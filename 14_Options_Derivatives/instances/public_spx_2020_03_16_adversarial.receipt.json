@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "options-spx-2020-03-16",
+  "as_of": "2020-03-16",
+  "manifest": "standards/public_cases/options-spx-2020-03-16.json",
+  "template": "14_Options_Derivatives/_template_OPTIONS.xlsx",
+  "output": "14_Options_Derivatives/instances/public_spx_2020_03_16_adversarial.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "previous": 80,
+      "value": 2386.13,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2020-03-16"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "previous": 0.45,
+      "value": 0.8269,
+      "source_url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "source_as_of": "2020-03-16"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "previous": 15,
+      "value": 30.0,
+      "source_url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
+      "source_as_of": "2020-03-16"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D14",
+      "previous": -0.3,
+      "value": -0.339,
+      "source_url": "repo://14_Options_Derivatives/sources/snapshots/options-spx-2020-03-16.json",
+      "source_as_of": "2020-03-16"
+    }
+  ],
+  "workbook_sha256": "31230b7606e2d9f5eecedb68f0fed5b1f230c5e36e1e2d6acdcb50ed4dade00c",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

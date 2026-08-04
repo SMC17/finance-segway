@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "id": "project-nrel-solar-2024",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "20_Project_Finance/_template_PROJECT_FINANCE.xlsx",
+  "output": "20_Project_Finance/instances/public_nrel_solar_2024.xlsx",
+  "as_of": "2024-07-01",
+  "scenario": "Base",
+  "cover": {
+    "Project / concession:": "Utility-scale solar benchmark project"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 900.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "NREL Annual Technology Baseline 2024",
+        "url": "https://atb.nrel.gov/electricity/2024/utility-scale_pv",
+        "as_of": "2024-07-01",
+        "notes": "U.S. National Renewable Energy Laboratory; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "value": 205.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from project-reference-contracted.json",
+        "url": "repo://standards/benchmark_cases/project-reference-contracted.json",
+        "as_of": "2024-07-01",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C16",
+      "value": 1.4,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from project-reference-contracted.json",
+        "url": "repo://standards/benchmark_cases/project-reference-contracted.json",
+        "as_of": "2024-07-01",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C23",
+      "value": 0.98,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Availability assumption calibrated to public benchmark",
+        "url": "repo://20_Project_Finance/sources/snapshots/project-nrel-solar-2024.json",
+        "as_of": "2024-07-01",
+        "notes": "Modeler-owned assumption documented in frozen snapshot"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "NREL Annual Technology Baseline 2024",
+      "url": "https://atb.nrel.gov/electricity/2024/utility-scale_pv",
+      "as_of": "2024-07-01",
+      "notes": "U.S. National Renewable Energy Laboratory; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://20_Project_Finance/sources/snapshots/project-nrel-solar-2024.json",
+      "as_of": "2024-07-01",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://20_Project_Finance/sources/snapshots/project-nrel-solar-2024.json",
+    "what_changed": "Generated public case project-nrel-solar-2024 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

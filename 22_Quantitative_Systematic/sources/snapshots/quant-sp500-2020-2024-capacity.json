@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "model_id": "22",
+  "domain": "Quantitative & Systematic",
+  "case_id": "quant-sp500-2020-2024-capacity",
+  "case_type": "adversarial",
+  "as_of": "2024-12-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "S&P 500 via FRED",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "publisher": "Federal Reserve Bank of St. Louis / S&P",
+      "captured_values": {
+        "series_start": "2020-01-01",
+        "series_end": "2024-12-31",
+        "periods": 60
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": 20.0,
+      "kind": "modeler_assumption",
+      "source": "Stressed transaction-cost assumption"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "value": 250.0,
+      "kind": "modeler_assumption",
+      "source": "Stressed capital assumption"
+    }
+  ],
+  "series": {
+    "target_sheet": "Backtest",
+    "target_column": "C",
+    "start_row": 5,
+    "periods": 60,
+    "source": "S&P 500 via FRED",
+    "transform": "monthly_total_return_proxy"
+  },
+  "outcome": {
+    "metric": "max_drawdown_2020_2024",
+    "forecast": -0.2,
+    "realized": -0.339,
+    "realized_source": "S&P 500 via FRED",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "5fe3bdc30c026460b8ce38da47595b0a959f0501b7748048f3bdf46ae31e7a1f"
+}

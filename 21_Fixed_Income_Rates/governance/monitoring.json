@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "model_id": "21",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "price_oracle_residual",
+      "warning": 0.0001,
+      "breach": 0.001,
+      "action": "Block valuation release"
+    },
+    {
+      "metric": "key_rate_reconciliation_pct",
+      "warning": 0.02,
+      "breach": 0.05,
+      "action": "Review curve mapping and interpolation"
+    },
+    {
+      "metric": "pnl_explain_unexplained_pct",
+      "warning": 0.1,
+      "breach": 0.2,
+      "action": "Escalate model and market-data review"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

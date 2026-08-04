@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "id": "securitization-fed-mortgage-2009",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "19_Structured_Finance_Securitization/_template_SECURITIZATION.xlsx",
+  "output": "19_Structured_Finance_Securitization/instances/public_fed_mortgage_2009_adversarial.xlsx",
+  "as_of": "2009-10-01",
+  "scenario": "Downside",
+  "cover": {
+    "Transaction / collateral:": "U.S. mortgage-crisis delinquency stress"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": 0.03,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from securitization-adversarial-default.json",
+        "url": "repo://standards/benchmark_cases/securitization-adversarial-default.json",
+        "as_of": "2009-10-01",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "value": 0.1014,
+      "input_kind": "observed",
+      "source": {
+        "name": "Mortgage delinquency rate via FRED",
+        "url": "https://fred.stlouisfed.org/series/DRSFRMACBS",
+        "as_of": "2009-10-01",
+        "notes": "Federal Reserve Board / FRED; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "value": 0.15,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Stressed recovery assumption",
+        "url": "repo://19_Structured_Finance_Securitization/sources/snapshots/securitization-fed-mortgage-2009.json",
+        "as_of": "2009-10-01",
+        "notes": "Modeler-owned assumption documented in frozen snapshot"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 9,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Stressed recovery lag",
+        "url": "repo://19_Structured_Finance_Securitization/sources/snapshots/securitization-fed-mortgage-2009.json",
+        "as_of": "2009-10-01",
+        "notes": "Modeler-owned assumption documented in frozen snapshot"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Mortgage delinquency rate via FRED",
+      "url": "https://fred.stlouisfed.org/series/DRSFRMACBS",
+      "as_of": "2009-10-01",
+      "notes": "Federal Reserve Board / FRED; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://19_Structured_Finance_Securitization/sources/snapshots/securitization-fed-mortgage-2009.json",
+      "as_of": "2009-10-01",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://19_Structured_Finance_Securitization/sources/snapshots/securitization-fed-mortgage-2009.json",
+    "what_changed": "Generated public case securitization-fed-mortgage-2009 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "model_id": "18",
+  "active_release": "2.1.0",
+  "rollback_release": "flagship-2.1.0",
+  "status": "active",
+  "replacement": null,
+  "retirement_trigger": "Statutory data architecture or reserving methodology is replaced",
+  "rollback_tested": false,
+  "retirement_exercised": false
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "model_id": "14",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "put_call_parity_residual",
+      "warning": 0.01,
+      "breach": 0.05,
+      "action": "Block valuation release"
+    },
+    {
+      "metric": "implied_vol_solver_residual",
+      "warning": 0.0001,
+      "breach": 0.001,
+      "action": "Escalate solver and quote quality"
+    },
+    {
+      "metric": "model_market_price_error_pct",
+      "warning": 0.05,
+      "breach": 0.15,
+      "action": "Review surface, dividends, borrow, and microstructure"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "id": "pe-public-macys-2020",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "03_Private_Equity/_template_LBO.xlsx",
+  "output": "03_Private_Equity/instances/public_macys_2020_adversarial.xlsx",
+  "as_of": "2021-03-30",
+  "scenario": "Downside",
+  "cover": {
+    "Target / transaction:": "Macy's FY2020 pandemic contraction",
+    "Sponsor / principal:": "Benchmark Sponsor"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D6",
+      "value": 0.02,
+      "input_kind": "derived",
+      "source": {
+        "name": "Macy's 2020 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/794367/000079436721000038/m-20210130.htm",
+        "as_of": "2021-03-30",
+        "notes": "U.S. SEC; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": -0.291,
+      "input_kind": "observed",
+      "source": {
+        "name": "Macy's 2020 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/794367/000079436721000038/m-20210130.htm",
+        "as_of": "2021-03-30",
+        "notes": "U.S. SEC; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "value": -0.008,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from pe-adversarial-contraction.json",
+        "url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
+        "as_of": "2021-03-30",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D24",
+      "value": 0.07,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from pe-adversarial-contraction.json",
+        "url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
+        "as_of": "2021-03-30",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D28",
+      "value": 7.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from pe-adversarial-contraction.json",
+        "url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
+        "as_of": "2021-03-30",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Macy's 2020 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/794367/000079436721000038/m-20210130.htm",
+      "as_of": "2021-03-30",
+      "notes": "U.S. SEC; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://03_Private_Equity/sources/snapshots/pe-public-macys-2020.json",
+      "as_of": "2021-03-30",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://03_Private_Equity/sources/snapshots/pe-public-macys-2020.json",
+    "what_changed": "Generated public case pe-public-macys-2020 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

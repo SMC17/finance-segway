@@ -1,0 +1,3 @@
+case_id,source_name,publisher,url,as_of,snapshot,snapshot_sha256,status
+project-nrel-solar-2024,NREL Annual Technology Baseline 2024,U.S. National Renewable Energy Laboratory,https://atb.nrel.gov/electricity/2024/utility-scale_pv,2024-07-01,20_Project_Finance/sources/snapshots/project-nrel-solar-2024.json,7ec08b23dc3cc6c9e01a6032ef1ab34e2f928046f0a156f12dc9b2cc12082a59,frozen
+project-vogtle-delay,Georgia PSC Vogtle monitoring reports,Georgia Public Service Commission,https://psc.ga.gov/facilities-construction/project-overview/plant-vogtle-units-3-and-4/,2023-12-31,20_Project_Finance/sources/snapshots/project-vogtle-delay.json,5e896fd22c8d64500d1ef3482350eb39a7930b63257a682d12e8c175159e04fb,frozen

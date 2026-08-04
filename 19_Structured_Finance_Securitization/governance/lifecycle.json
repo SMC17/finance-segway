@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "model_id": "19",
+  "active_release": "2.1.0",
+  "rollback_release": "flagship-2.1.0",
+  "status": "active",
+  "replacement": null,
+  "retirement_trigger": "Transaction pays down, terminates, or collateral model is replaced",
+  "rollback_tested": false,
+  "retirement_exercised": false
+}

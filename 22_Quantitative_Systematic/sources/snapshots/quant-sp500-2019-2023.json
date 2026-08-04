@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "model_id": "22",
+  "domain": "Quantitative & Systematic",
+  "case_id": "quant-sp500-2019-2023",
+  "case_type": "conventional",
+  "as_of": "2023-12-29",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "S&P 500 via FRED",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "publisher": "Federal Reserve Bank of St. Louis / S&P",
+      "captured_values": {
+        "series_start": "2019-01-01",
+        "series_end": "2023-12-31",
+        "periods": 60
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 10.0,
+      "kind": "modeler_assumption",
+      "source": "Public-market implementation-cost assumption"
+    }
+  ],
+  "series": {
+    "target_sheet": "Backtest",
+    "target_column": "C",
+    "start_row": 5,
+    "periods": 60,
+    "source": "S&P 500 via FRED",
+    "transform": "monthly_total_return_proxy"
+  },
+  "outcome": {
+    "metric": "2024_net_return",
+    "forecast": 0.1,
+    "realized": 0.234,
+    "realized_source": "S&P 500 via FRED",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "3d37b34ca60601613c218cc2b0943edde03bd01e5e190d291a90911164c45a6f"
+}

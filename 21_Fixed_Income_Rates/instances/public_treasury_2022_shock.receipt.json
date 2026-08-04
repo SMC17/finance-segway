@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "rates-treasury-2022-shock",
+  "as_of": "2022-10-21",
+  "manifest": "standards/public_cases/rates-treasury-2022-shock.json",
+  "template": "21_Fixed_Income_Rates/_template_FIXED_INCOME.xlsx",
+  "output": "21_Fixed_Income_Rates/instances/public_treasury_2022_shock.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "previous": 0.07,
+      "value": 0.0423,
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates",
+      "source_as_of": "2022-10-21"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "previous": 0.02,
+      "value": 0.025,
+      "source_url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+      "source_as_of": "2022-10-21"
+    },
+    {
+      "sheet": "Zero Curve",
+      "cell": "D10",
+      "previous": 0.055,
+      "value": 0.08,
+      "source_url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+      "source_as_of": "2022-10-21"
+    },
+    {
+      "sheet": "Zero Curve",
+      "cell": "D14",
+      "previous": 0.062,
+      "value": 0.0434,
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates",
+      "source_as_of": "2022-10-21"
+    }
+  ],
+  "workbook_sha256": "db8ddf5712011e588d5644889aa81ad3cc9c42d9c0b2d524f434ce0e67454988",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

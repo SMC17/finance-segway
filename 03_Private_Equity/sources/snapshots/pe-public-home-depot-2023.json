@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "model_id": "03",
+  "domain": "Private Equity",
+  "case_id": "pe-public-home-depot-2023",
+  "case_type": "conventional",
+  "as_of": "2024-03-13",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Home Depot 2023 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/354950/000035495024000062/hd-20240128.htm",
+      "publisher": "U.S. SEC",
+      "captured_values": {
+        "revenue_usd_mm": 152669.0,
+        "operating_margin": 0.153,
+        "revenue_growth": -0.03
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 152669.0,
+      "kind": "observed",
+      "source": "Home Depot 2023 Form 10-K"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 0.153,
+      "kind": "derived",
+      "source": "Home Depot 2023 Form 10-K"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": -0.03,
+      "kind": "derived",
+      "source": "Home Depot 2023 Form 10-K"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "next_fiscal_year_revenue_usd_mm",
+    "forecast": 148088.9,
+    "realized": 159514.0,
+    "realized_source": "Home Depot FY2024 Form 10-K",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "0a771d73b74716152d171ab0883c09bd8887efeb397af9292d3315c5e0c0930b"
+}

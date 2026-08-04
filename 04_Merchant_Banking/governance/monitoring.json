@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "model_id": "04",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "holdco_interest_coverage",
+      "warning": 1.5,
+      "breach": 1.0,
+      "action": "Suspend distributions and run liquidity remediation"
+    },
+    {
+      "metric": "structural_subordination_ratio",
+      "warning": 0.35,
+      "breach": 0.5,
+      "action": "Escalate to IC and legal counsel"
+    },
+    {
+      "metric": "exit_multiple_dependency",
+      "warning": 0.4,
+      "breach": 0.6,
+      "action": "Require returns case with no multiple expansion"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

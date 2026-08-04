@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "project-vogtle-delay",
+  "as_of": "2023-12-31",
+  "manifest": "standards/public_cases/project-vogtle-delay.json",
+  "template": "20_Project_Finance/_template_PROJECT_FINANCE.xlsx",
+  "output": "20_Project_Finance/instances/public_vogtle_delay_adversarial.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "previous": 880,
+      "value": 1100.0,
+      "source_url": "https://psc.ga.gov/facilities-construction/project-overview/plant-vogtle-units-3-and-4/",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "previous": 10,
+      "value": 10,
+      "source_url": "https://psc.ga.gov/facilities-construction/project-overview/plant-vogtle-units-3-and-4/",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "previous": 150,
+      "value": 135.0,
+      "source_url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D23",
+      "previous": 0.85,
+      "value": 0.72,
+      "source_url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
+      "source_as_of": "2023-12-31"
+    }
+  ],
+  "workbook_sha256": "f4427aa0a3715ee9c1a89495956bac7d9d0c6182e3cf0d1e3117bf4df4a2c6c4",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}
