@@ -1,0 +1,10 @@
+[
+  {"concept": "Assets", "value": 107904000000, "end": "2026-05-03", "filed": "2026-05-27", "form": "10-Q"},
+  {"concept": "Liabilities", "value": 94030000000, "end": "2026-05-03", "filed": "2026-05-27", "form": "10-Q"},
+  {"concept": "StockholdersEquity", "value": 13874000000, "end": "2026-05-03", "filed": "2026-05-27", "form": "10-Q"},
+  {"concept": "NetIncomeLoss", "value": 3289000000, "end": "2026-05-03", "filed": "2026-05-27", "form": "10-Q"},
+  {"concept": "CashAndCashEquivalentsAtCarryingValue", "value": 1601000000, "end": "2026-05-03", "filed": "2026-05-27", "form": "10-Q"},
+  {"concept": "LongTermDebt", "value": 49397000000, "end": "2026-02-01", "filed": "2026-03-20", "form": "10-K"},
+  {"concept": "InterestExpense", "value": 485000000, "end": "2024-04-28", "filed": "2024-05-21", "form": "10-Q"},
+  {"concept": "EarningsPerShareBasic", "value": 3.31, "end": "2026-05-03", "filed": "2026-05-27", "form": "10-Q"}
+]

@@ -5,9 +5,10 @@ source_register-compatible CSV fragment that IB / PE / Credit instances
 can attach.
 
 Example:
-  python tools/data_fabric/edgar_company_facts.py --ticker AAPL --cik 0000320193
+  python tools/data_fabric/edgar_company_facts.py --ticker ARCC --cik 1287750
+  python tools/data_fabric/edgar_company_facts.py --ticker HD --cik 354950
 
-Note: SEC requires a descriptive User-Agent. Respect rate limits.
+SEC requires a descriptive User-Agent with contact.
 \"\"\"
 from __future__ import annotations
 
@@ -23,19 +24,23 @@ ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = ROOT / "tools" / "data_fabric" / "out"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-UA = "Finance-Segway Research (github.com/SMC17/finance-segway; local-dev)"
+# SEC fair-access: identify application + contact email
+UA = "FinanceSegway/1.0 (research; seancollins2027@u.northwestern.edu)"
 
 
 def fetch_company_facts(cik: str) -> dict:
-    cik_padded = cik.zfill(10)
+    cik_padded = str(cik).zfill(10)
     url = f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik_padded}.json"
-    r = requests.get(url, headers={"User-Agent": UA}, timeout=60)
+    r = requests.get(
+        url,
+        headers={"User-Agent": UA, "Accept-Encoding": "gzip, deflate"},
+        timeout=60,
+    )
     r.raise_for_status()
     return r.json()
 
 
 def extract_selected(facts: dict) -> list[dict]:
-    "\"\"Pull a small set of commonly needed US-GAAP facts (latest).\"\"\"
     usgaap = facts.get("facts", {}).get("us-gaap", {})
     wanted = [
         "Assets",
@@ -46,7 +51,9 @@ def extract_selected(facts: dict) -> list[dict]:
         "CashAndCashEquivalentsAtCarryingValue",
         "LongTermDebt",
         "LongTermDebtNoncurrent",
+        "InterestExpense",
         "EarningsPerShareBasic",
+        "DebtCurrent",
     ]
     rows = []
     for concept in wanted:
@@ -54,11 +61,13 @@ def extract_selected(facts: dict) -> list[dict]:
         if not node:
             continue
         units = node.get("units", {})
-        # prefer USD
-        series = units.get("USD") or units.get("USD/shares") or next(iter(units.values()), [])
+        series = (
+            units.get("USD")
+            or units.get("USD/shares")
+            or (next(iter(units.values())) if units else [])
+        )
         if not series:
             continue
-        # latest by end date
         latest = max(series, key=lambda x: x.get("end", ""))
         rows.append(
             {
@@ -74,18 +83,19 @@ def extract_selected(facts: dict) -> list[dict]:
     return rows
 
 
-def write_outputs(ticker: str, cik: str, facts: dict, rows: list[dict]) -> None:
+def write_outputs(ticker: str, cik: str, rows: list[dict]) -> tuple[Path, Path]:
     today = date.today().isoformat()
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    base = OUT_DIR / f"{ticker.upper()}_{cik}_{stamp}"
-    raw_path = Path(str(base) + "_companyfacts.json")
-    facts_path = Path(str(base) + "_selected.json")
-    reg_path = Path(str(base) + "_source_register.csv")
+    facts_path = OUT_DIR / f"{ticker.upper()}_facts_selected.json"
+    reg_path = OUT_DIR / f"{ticker.upper()}_source_register.csv"
+    # also timestamped copy
+    (OUT_DIR / f"{ticker.upper()}_{cik}_{stamp}_selected.json").write_text(
+        json.dumps(rows, indent=2), encoding="utf-8"
+    )
 
-    raw_path.write_text(json.dumps(facts)[:2_000_000])  # cap size in stub
-    facts_path.write_text(json.dumps(rows, indent=2))
+    facts_path.write_text(json.dumps(rows, indent=2), encoding="utf-8")
 
-    with reg_path.open("w", newline="") as f:
+    with reg_path.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(
             f,
             fieldnames=[
@@ -111,9 +121,9 @@ def write_outputs(ticker: str, cik: str, facts: dict, rows: list[dict]) -> None:
                     "as_of_date": row.get("end") or "",
                     "retrieval_date": today,
                     "unit_currency": "USD",
-                    "transformation": "latest USD fact by end date",
+                    "transformation": "latest USD (or USD/shares) fact by end date",
                     "workbook_destination": "Assumptions / historicals (IB, PE, Credit)",
-                    "license_or_restriction": "Public SEC data; see SEC terms",
+                    "license_or_restriction": "Public SEC data; see SEC terms of use",
                     "checksum_or_snapshot": str(facts_path.relative_to(ROOT)),
                 }
             )
@@ -121,17 +131,18 @@ def write_outputs(ticker: str, cik: str, facts: dict, rows: list[dict]) -> None:
     print(f"Wrote {facts_path}")
     print(f"Wrote {reg_path}")
     print(f"Selected concepts: {len(rows)}")
+    return facts_path, reg_path
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--ticker", required=True)
-    ap.add_argument("--cik", required=True, help="SEC CIK (number, leading zeros optional)")
+    ap.add_argument("--cik", required=True, help="SEC CIK (leading zeros optional)")
     args = ap.parse_args()
 
     facts = fetch_company_facts(args.cik)
     rows = extract_selected(facts)
-    write_outputs(args.ticker, args.cik, facts, rows)
+    write_outputs(args.ticker, args.cik, rows)
     return 0
 
 
