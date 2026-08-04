@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "model_id": "08",
+  "domain": "Asset Management",
+  "case_id": "am-public-blackrock-2022-stress",
+  "case_type": "adversarial",
+  "as_of": "2022-12-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "BlackRock 2022 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017023004343/blk-20221231.htm",
+      "publisher": "U.S. SEC / BlackRock",
+      "captured_values": {
+        "beginning_aum_usd_bn": 10010.143,
+        "net_inflows_usd_bn": 306.57,
+        "market_fx_change_usd_bn": -1722.228,
+        "ending_aum_usd_bn": 8594.485
+      }
+    },
+    {
+      "name": "BlackRock 2023 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+      "publisher": "U.S. SEC / BlackRock",
+      "captured_values": {
+        "beginning_aum_usd_bn": 8594.485,
+        "net_inflows_usd_bn": 288.695,
+        "market_fx_acquisition_change_usd_bn": 1125.815,
+        "ending_aum_usd_bn": 10008.995
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Fund NAV",
+      "cell": "C5",
+      "value": 10010.143,
+      "kind": "observed",
+      "source": "BlackRock 2022 Form 10-K"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C6",
+      "value": 306.57,
+      "kind": "observed",
+      "source": "BlackRock 2022 Form 10-K"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C7",
+      "value": -1722.228,
+      "kind": "derived",
+      "source": "BlackRock 2022 Form 10-K"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C8",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "AUM rollforward normalization"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C9",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "AUM rollforward normalization"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "next_year_ending_aum_usd_bn",
+    "forecast": 8500.0,
+    "realized": 10008.995,
+    "realized_source": "BlackRock 2023 Form 10-K",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "026e6d4ca200661b5ddafa9bcdee4ffac5e10757dab4ce7fdef93dfba7c3c6f4"
+}

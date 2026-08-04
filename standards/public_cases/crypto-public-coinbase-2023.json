@@ -1,0 +1,223 @@
+{
+  "schema_version": "1.0",
+  "id": "crypto-public-coinbase-2023",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "16_Crypto_Digital_Assets/_template_CRYPTO.xlsx",
+  "output": "16_Crypto_Digital_Assets/instances/public_coinbase_2023.xlsx",
+  "as_of": "2023-12-31",
+  "scenario": "Base",
+  "cover": {
+    "Subject:": "Coinbase 2023 custody and staking scale"
+  },
+  "inputs": [
+    {
+      "sheet": "Tokenomics",
+      "cell": "C5",
+      "value": 300.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-reference-network.json",
+        "url": "repo://standards/benchmark_cases/crypto-reference-network.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Tokenomics",
+      "cell": "C6",
+      "value": 200.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-reference-network.json",
+        "url": "repo://standards/benchmark_cases/crypto-reference-network.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Tokenomics",
+      "cell": "C7",
+      "value": 150.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-reference-network.json",
+        "url": "repo://standards/benchmark_cases/crypto-reference-network.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Tokenomics",
+      "cell": "C8",
+      "value": 150.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-reference-network.json",
+        "url": "repo://standards/benchmark_cases/crypto-reference-network.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Tokenomics",
+      "cell": "C9",
+      "value": 200.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-reference-network.json",
+        "url": "repo://standards/benchmark_cases/crypto-reference-network.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Tokenomics",
+      "cell": "C12",
+      "value": 700.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-reference-network.json",
+        "url": "repo://standards/benchmark_cases/crypto-reference-network.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Valuation",
+      "cell": "C5",
+      "value": 2.5,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-reference-network.json",
+        "url": "repo://standards/benchmark_cases/crypto-reference-network.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Valuation",
+      "cell": "C6",
+      "value": 197.154,
+      "input_kind": "observed",
+      "source": {
+        "name": "Coinbase 2023 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "U.S. SEC / Coinbase; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Valuation",
+      "cell": "C7",
+      "value": 4.571,
+      "input_kind": "observed",
+      "source": {
+        "name": "Coinbase 2023 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "U.S. SEC / Coinbase; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Valuation",
+      "cell": "C8",
+      "value": 16.8,
+      "input_kind": "derived",
+      "source": {
+        "name": "Coinbase 2023 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "U.S. SEC / Coinbase; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Staking Yield",
+      "cell": "C5",
+      "value": 0.6,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-reference-network.json",
+        "url": "repo://standards/benchmark_cases/crypto-reference-network.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Staking Yield",
+      "cell": "C6",
+      "value": 16.8,
+      "input_kind": "derived",
+      "source": {
+        "name": "Coinbase 2023 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "U.S. SEC / Coinbase; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Staking Yield",
+      "cell": "C7",
+      "value": 30.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-reference-network.json",
+        "url": "repo://standards/benchmark_cases/crypto-reference-network.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Staking Yield",
+      "cell": "C8",
+      "value": 2.5,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-reference-network.json",
+        "url": "repo://standards/benchmark_cases/crypto-reference-network.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Supply Rollforward & Unlocks",
+      "cell": "C3",
+      "value": "Base",
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-reference-network.json",
+        "url": "repo://standards/benchmark_cases/crypto-reference-network.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Coinbase 2023 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+      "as_of": "2023-12-31",
+      "notes": "U.S. SEC / Coinbase; frozen curated observation as of case date"
+    },
+    {
+      "name": "Coinbase Q1 2024 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000089/coin-20240331.htm",
+      "as_of": "2023-12-31",
+      "notes": "U.S. SEC / Coinbase; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://16_Crypto_Digital_Assets/sources/snapshots/crypto-public-coinbase-2023.json",
+      "as_of": "2023-12-31",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://16_Crypto_Digital_Assets/sources/snapshots/crypto-public-coinbase-2023.json",
+    "what_changed": "Generated public case crypto-public-coinbase-2023 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

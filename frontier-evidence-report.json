@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-08-04",
+  "flagships": 9,
+  "errors": [],
+  "warnings": [
+    "08: stakeholder sign-off pending",
+    "10: stakeholder sign-off pending",
+    "11: stakeholder sign-off pending",
+    "12: stakeholder sign-off pending",
+    "15: stakeholder sign-off pending",
+    "16: stakeholder sign-off pending",
+    "17: stakeholder sign-off pending",
+    "23: stakeholder sign-off pending",
+    "24: stakeholder sign-off pending"
+  ],
+  "results": [
+    {
+      "model_id": "08",
+      "domain": "Asset Management",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 1,
+      "m3_ready": false,
+      "m4_ready": false
+    },
+    {
+      "model_id": "10",
+      "domain": "Trade Finance",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 2,
+      "m3_ready": false,
+      "m4_ready": false
+    },
+    {
+      "model_id": "11",
+      "domain": "Microfinance",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 1,
+      "m3_ready": false,
+      "m4_ready": false
+    },
+    {
+      "model_id": "12",
+      "domain": "Equity Finance",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 2,
+      "m3_ready": false,
+      "m4_ready": false
+    },
+    {
+      "model_id": "15",
+      "domain": "Commodities",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 1,
+      "m3_ready": false,
+      "m4_ready": false
+    },
+    {
+      "model_id": "16",
+      "domain": "Crypto & Digital Assets",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 2,
+      "m3_ready": false,
+      "m4_ready": false
+    },
+    {
+      "model_id": "17",
+      "domain": "Real Estate & REIT",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 2,
+      "m3_ready": false,
+      "m4_ready": false
+    },
+    {
+      "model_id": "23",
+      "domain": "Fintech & Payments",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 2,
+      "m3_ready": false,
+      "m4_ready": false
+    },
+    {
+      "model_id": "24",
+      "domain": "Distressed & Restructuring",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 2,
+      "m3_ready": false,
+      "m4_ready": false
+    }
+  ],
+  "status": "PASS",
+  "m3_promoted": 0,
+  "m4_promoted": 0,
+  "statement": "No maturity promotion occurs without human sign-off and maintained-operation evidence."
+}

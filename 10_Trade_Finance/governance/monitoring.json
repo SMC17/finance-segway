@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "model_id": "10",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "cash_conversion_cycle_days",
+      "warning": 120,
+      "breach": 180,
+      "action": "Re-underwrite inventory, receivables, payables and facility availability"
+    },
+    {
+      "metric": "facility_utilization",
+      "warning": 0.85,
+      "breach": 1.0,
+      "action": "Escalate borrowing base and liquidity remediation"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

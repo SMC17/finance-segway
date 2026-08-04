@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "model_id": "08",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "aum_rollforward_residual",
+      "warning": 0.01,
+      "breach": 0.05,
+      "action": "Reconcile flows, markets, FX, acquisitions and distributions"
+    },
+    {
+      "metric": "liquidity_coverage",
+      "warning": 1.2,
+      "breach": 1.0,
+      "action": "Escalate redemption and unfunded-commitment funding plan"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

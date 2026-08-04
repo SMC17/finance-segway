@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "model_id": "15",
+  "domain": "Commodities",
+  "case_id": "commodities-public-wti-2023",
+  "case_type": "conventional",
+  "as_of": "2023-12-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "EIA Cushing stocks and WTI annual prices",
+      "url": "https://www.eia.gov/dnav/pet/PET_PRI_SPT_S1_A.htm",
+      "publisher": "U.S. Energy Information Administration",
+      "captured_values": {
+        "wti_2023_average_usd_per_bbl": 77.58,
+        "cushing_2023_year_end_stocks_mm_bbl": 34.454
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Hedging",
+      "cell": "C7",
+      "value": 77.58,
+      "kind": "observed",
+      "source": "EIA Cushing stocks and WTI annual prices"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "C14",
+      "value": 34.454,
+      "kind": "observed",
+      "source": "EIA Cushing stocks and WTI annual prices"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "next_year_wti_average_usd_per_bbl",
+    "forecast": 75.0,
+    "realized": null,
+    "realized_source": "Pending maintained annual EIA evidence refresh",
+    "status": "pending"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "68c92af0eb44512cfc13579cd292ec034037dd31e2435bc345d24ce6c7ca09c9"
+}

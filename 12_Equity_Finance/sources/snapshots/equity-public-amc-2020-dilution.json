@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "model_id": "12",
+  "domain": "Equity Finance",
+  "case_id": "equity-public-amc-2020-dilution",
+  "case_type": "adversarial",
+  "as_of": "2020-12-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "AMC Entertainment 2020 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1411579/000141157921000006/amc-20201231x10k.htm",
+      "publisher": "U.S. SEC / AMC Entertainment",
+      "captured_values": {
+        "backstop_shares": 5000000,
+        "mudrick_shares": 21978022,
+        "new_notes_usd_mm": 100.0,
+        "debt_exchange_usd_mm": 104.5
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Rights Offering",
+      "cell": "D9",
+      "value": 0.196,
+      "kind": "derived",
+      "source": "AMC Entertainment 2020 Form 10-K"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "emergency_financing_completed",
+    "forecast": 1.0,
+    "realized": 1.0,
+    "realized_source": "AMC Entertainment 2020 Form 10-K",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "065cade2cfd2c1954523d17a38582eb4167d4f191028edb208cc19709487d4dd"
+}

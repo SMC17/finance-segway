@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "model_id": "12",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "fully_diluted_ownership_change",
+      "warning": 0.1,
+      "breach": 0.25,
+      "action": "Escalate dilution attribution and shareholder protections"
+    },
+    {
+      "metric": "proceeds_reconciliation_residual",
+      "warning": 0.01,
+      "breach": 0.05,
+      "action": "Reconcile gross proceeds, fees and balance-sheet receipt"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "model_id": "23",
+  "domain": "Fintech & Payments",
+  "case_id": "fintech-public-fis-worldpay-2023-stress",
+  "case_type": "adversarial",
+  "as_of": "2023-12-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "FIS 2023 Form 10-K and Worldpay disposal",
+      "url": "https://www.sec.gov/Archives/edgar/data/1136893/000113689324000015/fis-20231231.htm",
+      "publisher": "U.S. SEC / FIS",
+      "captured_values": {
+        "worldpay_goodwill_impairment_usd_bn": 6.8,
+        "held_for_sale_allowance_usd_bn": 1.9,
+        "expected_net_proceeds_usd_bn": 11.7,
+        "transaction_value_up_to_usd_bn": 18.5
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "D5",
+      "value": 11.7,
+      "kind": "observed",
+      "source": "FIS 2023 Form 10-K and Worldpay disposal"
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "D6",
+      "value": 8.7,
+      "kind": "derived",
+      "source": "FIS 2023 Form 10-K and Worldpay disposal"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "worldpay_sale_closed_within_12_months",
+    "forecast": 1.0,
+    "realized": 1.0,
+    "realized_source": "FIS Worldpay sale closed January 31, 2024",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "f2d4fe702c89385d527976de6b499907c21ce4e87130331479a183b6ba5b301f"
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "model_id": "17",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "minimum_dscr",
+      "warning": 1.25,
+      "breach": 1.0,
+      "action": "Escalate refinance, reserves, capex and asset-sale plan"
+    },
+    {
+      "metric": "economic_occupancy",
+      "warning": 0.9,
+      "breach": 0.8,
+      "action": "Re-underwrite expirations, renewals, downtime and tenant concentration"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

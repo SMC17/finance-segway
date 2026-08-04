@@ -1,0 +1,1457 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-08-04",
+  "promotion_policy": {
+    "m3_requires": [
+      "completed_model_card",
+      "independent_validation",
+      "frozen_external_sources",
+      "conventional_public_case",
+      "adversarial_public_case",
+      "stakeholder_signoff",
+      "material_refresh_history",
+      "outcomes_analysis"
+    ],
+    "m4_requires": [
+      "m3_approved",
+      "two_maintained_public_instances",
+      "monitoring_and_escalation",
+      "multi_release_outcome_history",
+      "rollback_replacement_retirement_evidence"
+    ],
+    "synthetic_cases_count_toward_m4": false
+  },
+  "flagships": [
+    {
+      "model_id": "08",
+      "domain": "Asset Management",
+      "folder": "08_Asset_Management",
+      "version": "2.2.0-evidence",
+      "risk_tier": "Tier 1",
+      "approved_uses": [
+        "Fund and manager performance diagnostics",
+        "NAV, fee-waterfall, exposure and liquidity review",
+        "Historical public-manager stress comparison"
+      ],
+      "prohibited_uses": [
+        "Live capital, fiduciary, regulatory, legal, or tax use without named human approval",
+        "Representing retained modeler assumptions as external observations",
+        "Treating historical public cases as transaction-specific diligence"
+      ],
+      "limitations": [
+        "Public-manager AUM is a proxy for a fund-level NAV rollforward",
+        "AUM flow disclosures do not provide transaction-level fee and carry terms",
+        "Liquidity and unfunded-commitment cells remain sensitivity inputs unless explicitly sourced"
+      ],
+      "validation_conclusion": "Engineering evidence approved with limitations at M2; named stakeholder approval and maintained operating history remain mandatory for M3/M4",
+      "monitoring": [
+        {
+          "metric": "aum_rollforward_residual",
+          "warning": 0.01,
+          "breach": 0.05,
+          "action": "Reconcile flows, markets, FX, acquisitions and distributions"
+        },
+        {
+          "metric": "liquidity_coverage",
+          "warning": 1.2,
+          "breach": 1.0,
+          "action": "Escalate redemption and unfunded-commitment funding plan"
+        }
+      ],
+      "rollback_release": "m2-release-2.2.0",
+      "retirement_trigger": "Performance methodology, fee structure, or liquidity architecture is superseded",
+      "cases": [
+        {
+          "id": "am-public-blackrock-2023",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/am-reference-fund.json",
+          "output": "08_Asset_Management/instances/public_blackrock_2023.xlsx",
+          "subject": "BlackRock 2023 AUM rollforward",
+          "as_of": "2023-12-31",
+          "sources": [
+            {
+              "name": "BlackRock 2023 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+              "publisher": "U.S. SEC / BlackRock",
+              "captured_values": {
+                "beginning_aum_usd_bn": 8594.485,
+                "net_inflows_usd_bn": 288.695,
+                "market_fx_acquisition_change_usd_bn": 1125.815,
+                "ending_aum_usd_bn": 10008.995
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Fund NAV",
+              "cell": "C5",
+              "value": 8594.485,
+              "kind": "observed",
+              "source": "BlackRock 2023 Form 10-K"
+            },
+            {
+              "sheet": "Fund NAV",
+              "cell": "C6",
+              "value": 288.695,
+              "kind": "observed",
+              "source": "BlackRock 2023 Form 10-K"
+            },
+            {
+              "sheet": "Fund NAV",
+              "cell": "C7",
+              "value": 1125.815,
+              "kind": "derived",
+              "source": "BlackRock 2023 Form 10-K"
+            },
+            {
+              "sheet": "Fund NAV",
+              "cell": "C8",
+              "value": 0.0,
+              "kind": "modeler_assumption",
+              "source": "AUM rollforward normalization"
+            },
+            {
+              "sheet": "Fund NAV",
+              "cell": "C9",
+              "value": 0.0,
+              "kind": "modeler_assumption",
+              "source": "AUM rollforward normalization"
+            }
+          ],
+          "outcome": {
+            "metric": "ending_aum_usd_bn",
+            "forecast": 10500.0,
+            "realized": null,
+            "realized_source": "Pending next maintained evidence refresh",
+            "status": "pending"
+          }
+        },
+        {
+          "id": "am-public-blackrock-2022-stress",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/am-adversarial-liquidity.json",
+          "output": "08_Asset_Management/instances/public_blackrock_2022_stress.xlsx",
+          "subject": "BlackRock 2022 market and FX AUM contraction",
+          "as_of": "2022-12-31",
+          "sources": [
+            {
+              "name": "BlackRock 2022 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017023004343/blk-20221231.htm",
+              "publisher": "U.S. SEC / BlackRock",
+              "captured_values": {
+                "beginning_aum_usd_bn": 10010.143,
+                "net_inflows_usd_bn": 306.57,
+                "market_fx_change_usd_bn": -1722.228,
+                "ending_aum_usd_bn": 8594.485
+              }
+            },
+            {
+              "name": "BlackRock 2023 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+              "publisher": "U.S. SEC / BlackRock",
+              "captured_values": {
+                "beginning_aum_usd_bn": 8594.485,
+                "net_inflows_usd_bn": 288.695,
+                "market_fx_acquisition_change_usd_bn": 1125.815,
+                "ending_aum_usd_bn": 10008.995
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Fund NAV",
+              "cell": "C5",
+              "value": 10010.143,
+              "kind": "observed",
+              "source": "BlackRock 2022 Form 10-K"
+            },
+            {
+              "sheet": "Fund NAV",
+              "cell": "C6",
+              "value": 306.57,
+              "kind": "observed",
+              "source": "BlackRock 2022 Form 10-K"
+            },
+            {
+              "sheet": "Fund NAV",
+              "cell": "C7",
+              "value": -1722.228,
+              "kind": "derived",
+              "source": "BlackRock 2022 Form 10-K"
+            },
+            {
+              "sheet": "Fund NAV",
+              "cell": "C8",
+              "value": 0.0,
+              "kind": "modeler_assumption",
+              "source": "AUM rollforward normalization"
+            },
+            {
+              "sheet": "Fund NAV",
+              "cell": "C9",
+              "value": 0.0,
+              "kind": "modeler_assumption",
+              "source": "AUM rollforward normalization"
+            }
+          ],
+          "outcome": {
+            "metric": "next_year_ending_aum_usd_bn",
+            "forecast": 8500.0,
+            "realized": 10008.995,
+            "realized_source": "BlackRock 2023 Form 10-K",
+            "status": "recorded"
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "10",
+      "domain": "Trade Finance",
+      "folder": "10_Trade_Finance",
+      "version": "2.2.0-evidence",
+      "risk_tier": "Tier 1",
+      "approved_uses": [
+        "Working-capital-cycle and borrowing-need diagnostics",
+        "Documentary, country, facility and expected-loss stress",
+        "Historical exporter and supply-chain comparison"
+      ],
+      "prohibited_uses": [
+        "Live capital, fiduciary, regulatory, legal, or tax use without named human approval",
+        "Representing retained modeler assumptions as external observations",
+        "Treating historical public cases as transaction-specific diligence"
+      ],
+      "limitations": [
+        "Public statements aggregate multiple products and jurisdictions",
+        "LC, factoring and facility terms remain modeler assumptions without executed documents",
+        "Inventory includes program and production effects beyond trade-finance mechanics"
+      ],
+      "validation_conclusion": "Engineering evidence approved with limitations at M2; named stakeholder approval and maintained operating history remain mandatory for M3/M4",
+      "monitoring": [
+        {
+          "metric": "cash_conversion_cycle_days",
+          "warning": 120,
+          "breach": 180,
+          "action": "Re-underwrite inventory, receivables, payables and facility availability"
+        },
+        {
+          "metric": "facility_utilization",
+          "warning": 0.85,
+          "breach": 1.0,
+          "action": "Escalate borrowing base and liquidity remediation"
+        }
+      ],
+      "rollback_release": "m2-release-2.2.0",
+      "retirement_trigger": "Documentary-credit, facility or working-capital architecture changes materially",
+      "cases": [
+        {
+          "id": "trade-public-boeing-2019",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/trade-reference-exporter.json",
+          "output": "10_Trade_Finance/instances/public_boeing_2019.xlsx",
+          "subject": "Boeing 2019 working-capital and inventory case",
+          "as_of": "2019-12-31",
+          "sources": [
+            {
+              "name": "Boeing 2020 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/12927/000001292721000011/ba-20201231.htm",
+              "publisher": "U.S. SEC / Boeing",
+              "captured_values": {
+                "revenue_2019_usd_mm": 76559.0,
+                "costs_2019_usd_mm": 72093.0,
+                "receivables_2019_usd_mm": 3266.0,
+                "inventory_2019_usd_mm": 76622.0,
+                "payables_2019_usd_mm": 15553.0,
+                "revenue_2020_usd_mm": 58158.0,
+                "costs_2020_usd_mm": 63843.0,
+                "receivables_2020_usd_mm": 1955.0,
+                "inventory_2020_usd_mm": 81715.0,
+                "payables_2020_usd_mm": 12928.0
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Working Capital Cycle",
+              "cell": "C5",
+              "value": 76559.0,
+              "kind": "observed",
+              "source": "Boeing 2020 Form 10-K"
+            },
+            {
+              "sheet": "Working Capital Cycle",
+              "cell": "C6",
+              "value": 72093.0,
+              "kind": "observed",
+              "source": "Boeing 2020 Form 10-K"
+            },
+            {
+              "sheet": "Working Capital Cycle",
+              "cell": "C7",
+              "value": 3266.0,
+              "kind": "observed",
+              "source": "Boeing 2020 Form 10-K"
+            },
+            {
+              "sheet": "Working Capital Cycle",
+              "cell": "C8",
+              "value": 76622.0,
+              "kind": "observed",
+              "source": "Boeing 2020 Form 10-K"
+            },
+            {
+              "sheet": "Working Capital Cycle",
+              "cell": "C9",
+              "value": 15553.0,
+              "kind": "observed",
+              "source": "Boeing 2020 Form 10-K"
+            }
+          ],
+          "outcome": {
+            "metric": "next_year_revenue_usd_mm",
+            "forecast": 75000.0,
+            "realized": 58158.0,
+            "realized_source": "Boeing 2020 Form 10-K",
+            "status": "recorded"
+          }
+        },
+        {
+          "id": "trade-public-boeing-2020-stress",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/trade-adversarial-country-shock.json",
+          "output": "10_Trade_Finance/instances/public_boeing_2020_stress.xlsx",
+          "subject": "Boeing 2020 production and working-capital shock",
+          "as_of": "2020-12-31",
+          "sources": [
+            {
+              "name": "Boeing 2020 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/12927/000001292721000011/ba-20201231.htm",
+              "publisher": "U.S. SEC / Boeing",
+              "captured_values": {
+                "revenue_2019_usd_mm": 76559.0,
+                "costs_2019_usd_mm": 72093.0,
+                "receivables_2019_usd_mm": 3266.0,
+                "inventory_2019_usd_mm": 76622.0,
+                "payables_2019_usd_mm": 15553.0,
+                "revenue_2020_usd_mm": 58158.0,
+                "costs_2020_usd_mm": 63843.0,
+                "receivables_2020_usd_mm": 1955.0,
+                "inventory_2020_usd_mm": 81715.0,
+                "payables_2020_usd_mm": 12928.0
+              }
+            },
+            {
+              "name": "Boeing 2021 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/12927/000001292722000010/ba-20211231.htm",
+              "publisher": "U.S. SEC / Boeing",
+              "captured_values": {
+                "revenue_2021_usd_mm": 62286.0
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Working Capital Cycle",
+              "cell": "C5",
+              "value": 58158.0,
+              "kind": "observed",
+              "source": "Boeing 2020 Form 10-K"
+            },
+            {
+              "sheet": "Working Capital Cycle",
+              "cell": "C6",
+              "value": 63843.0,
+              "kind": "observed",
+              "source": "Boeing 2020 Form 10-K"
+            },
+            {
+              "sheet": "Working Capital Cycle",
+              "cell": "C7",
+              "value": 1955.0,
+              "kind": "observed",
+              "source": "Boeing 2020 Form 10-K"
+            },
+            {
+              "sheet": "Working Capital Cycle",
+              "cell": "C8",
+              "value": 81715.0,
+              "kind": "observed",
+              "source": "Boeing 2020 Form 10-K"
+            },
+            {
+              "sheet": "Working Capital Cycle",
+              "cell": "C9",
+              "value": 12928.0,
+              "kind": "observed",
+              "source": "Boeing 2020 Form 10-K"
+            }
+          ],
+          "outcome": {
+            "metric": "next_year_revenue_usd_mm",
+            "forecast": 55000.0,
+            "realized": 62286.0,
+            "realized_source": "Boeing 2021 Form 10-K",
+            "status": "recorded"
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "11",
+      "domain": "Microfinance",
+      "folder": "11_Microfinance",
+      "version": "2.2.0-evidence",
+      "risk_tier": "Tier 1",
+      "approved_uses": [
+        "Portfolio-quality and sustainability diagnostics",
+        "PAR, provisioning, funding and client-conduct stress",
+        "Historical MFI comparison"
+      ],
+      "prohibited_uses": [
+        "Live capital, fiduciary, regulatory, legal, or tax use without named human approval",
+        "Representing retained modeler assumptions as external observations",
+        "Treating historical public cases as transaction-specific diligence"
+      ],
+      "limitations": [
+        "Public regional disclosures may not provide complete reserve or funding schedules",
+        "Average loan size is derived from rounded portfolio and client counts",
+        "Affordability and conduct conclusions require borrower-level evidence"
+      ],
+      "validation_conclusion": "Engineering evidence approved with limitations at M2; named stakeholder approval and maintained operating history remain mandatory for M3/M4",
+      "monitoring": [
+        {
+          "metric": "par30",
+          "warning": 0.05,
+          "breach": 0.1,
+          "action": "Escalate collections, provisioning and client-protection review"
+        },
+        {
+          "metric": "operational_self_sufficiency",
+          "warning": 1.05,
+          "breach": 1.0,
+          "action": "Re-underwrite pricing, cost base and subsidy dependence"
+        }
+      ],
+      "rollback_release": "m2-release-2.2.0",
+      "retirement_trigger": "Portfolio definitions, lending methodology, funding or conduct standards change materially",
+      "cases": [
+        {
+          "id": "microfinance-public-asa-2025",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/microfinance-reference-book.json",
+          "output": "11_Microfinance/instances/public_asa_2025.xlsx",
+          "subject": "ASA International 2025 portfolio",
+          "as_of": "2025-12-31",
+          "sources": [
+            {
+              "name": "ASA International 2025 Annual Report",
+              "url": "https://www.asa-international.com/investors/annual-report-2025/",
+              "publisher": "ASA International",
+              "captured_values": {
+                "clients_m": 2.8,
+                "gross_olp_usd_mm": 611.0,
+                "par30": 0.018,
+                "net_profit_usd_mm": 56.5
+              }
+            },
+            {
+              "name": "ASA International Q1 2026 Business Update",
+              "url": "https://www.asa-international.com/media/featured-news/2026-business-update/",
+              "publisher": "ASA International",
+              "captured_values": {
+                "clients_m": 2.7,
+                "gross_olp_usd_mm": 583.2,
+                "portfolio_quality": 0.02
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Loan Portfolio",
+              "cell": "C5",
+              "value": 611.0,
+              "kind": "observed",
+              "source": "ASA International 2025 Annual Report"
+            },
+            {
+              "sheet": "Loan Portfolio",
+              "cell": "C6",
+              "value": 2800.0,
+              "kind": "observed",
+              "source": "ASA International 2025 Annual Report"
+            },
+            {
+              "sheet": "Loan Portfolio",
+              "cell": "C7",
+              "value": 10.998,
+              "kind": "derived",
+              "source": "ASA International 2025 Annual Report"
+            },
+            {
+              "sheet": "Loan Portfolio",
+              "cell": "C10",
+              "value": 0.218214,
+              "kind": "derived",
+              "source": "ASA International 2025 Annual Report"
+            }
+          ],
+          "outcome": {
+            "metric": "next_quarter_gross_olp_usd_mm",
+            "forecast": 625.0,
+            "realized": 583.2,
+            "realized_source": "ASA International Q1 2026 Business Update",
+            "status": "recorded"
+          }
+        },
+        {
+          "id": "microfinance-public-asa-zambia-stress",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/microfinance-adversarial-moratorium.json",
+          "output": "11_Microfinance/instances/public_asa_zambia_stress.xlsx",
+          "subject": "ASA Zambia elevated PAR portfolio",
+          "as_of": "2025-12-31",
+          "sources": [
+            {
+              "name": "ASA Zambia operating disclosure",
+              "url": "https://zambia.asa-international.com/",
+              "publisher": "ASA International Zambia",
+              "captured_values": {
+                "clients_thousand": 35.0,
+                "gross_olp_usd_mm": 7.5,
+                "par30": 0.092
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Loan Portfolio",
+              "cell": "C5",
+              "value": 7.5,
+              "kind": "observed",
+              "source": "ASA Zambia operating disclosure"
+            },
+            {
+              "sheet": "Loan Portfolio",
+              "cell": "C6",
+              "value": 35.0,
+              "kind": "observed",
+              "source": "ASA Zambia operating disclosure"
+            },
+            {
+              "sheet": "Loan Portfolio",
+              "cell": "C7",
+              "value": 0.69,
+              "kind": "derived",
+              "source": "ASA Zambia operating disclosure"
+            },
+            {
+              "sheet": "Loan Portfolio",
+              "cell": "C10",
+              "value": 0.214286,
+              "kind": "derived",
+              "source": "ASA Zambia operating disclosure"
+            }
+          ],
+          "outcome": {
+            "metric": "next_reporting_period_par30",
+            "forecast": 0.08,
+            "realized": null,
+            "realized_source": "Pending next maintained evidence refresh",
+            "status": "pending"
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "12",
+      "domain": "Equity Finance",
+      "folder": "12_Equity_Finance",
+      "version": "2.2.0-evidence",
+      "risk_tier": "Tier 1",
+      "approved_uses": [
+        "Primary issuance, rights, convert and dilution analysis",
+        "Ownership and proceeds reconciliation",
+        "Historical financing-structure comparison"
+      ],
+      "prohibited_uses": [
+        "Live capital, fiduciary, regulatory, legal, or tax use without named human approval",
+        "Representing retained modeler assumptions as external observations",
+        "Treating historical public cases as transaction-specific diligence"
+      ],
+      "limitations": [
+        "A public underwritten offering is used as a primary-issuance proxy rather than a literal rights offering",
+        "Anti-dilution, registration and voting terms require executed documents",
+        "Market impact and investor allocation are not observed from offering proceeds alone"
+      ],
+      "validation_conclusion": "Engineering evidence approved with limitations at M2; named stakeholder approval and maintained operating history remain mandatory for M3/M4",
+      "monitoring": [
+        {
+          "metric": "fully_diluted_ownership_change",
+          "warning": 0.1,
+          "breach": 0.25,
+          "action": "Escalate dilution attribution and shareholder protections"
+        },
+        {
+          "metric": "proceeds_reconciliation_residual",
+          "warning": 0.01,
+          "breach": 0.05,
+          "action": "Reconcile gross proceeds, fees and balance-sheet receipt"
+        }
+      ],
+      "rollback_release": "m2-release-2.2.0",
+      "retirement_trigger": "Capital structure, security terms, or ownership architecture is superseded",
+      "cases": [
+        {
+          "id": "equity-public-tesla-2020-offering",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/equity-reference-rights.json",
+          "output": "12_Equity_Finance/instances/public_tesla_2020_offering.xlsx",
+          "subject": "Tesla February 2020 underwritten primary offering",
+          "as_of": "2020-02-14",
+          "sources": [
+            {
+              "name": "Tesla February 2020 Final Prospectus",
+              "url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+              "publisher": "U.S. SEC / Tesla",
+              "captured_values": {
+                "shares": 2650000,
+                "offering_price": 767.0,
+                "gross_proceeds_usd_mm": 2032.55,
+                "underwriting_discount_usd_mm": 23.9,
+                "net_before_expenses_usd_mm": 2008.65
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Rights Offering",
+              "cell": "C7",
+              "value": 767.0,
+              "kind": "observed",
+              "source": "Tesla February 2020 Final Prospectus"
+            },
+            {
+              "sheet": "Rights Offering",
+              "cell": "C8",
+              "value": 767.0,
+              "kind": "observed",
+              "source": "Tesla February 2020 Final Prospectus"
+            },
+            {
+              "sheet": "Rights Offering",
+              "cell": "C9",
+              "value": 1.0,
+              "kind": "derived",
+              "source": "Tesla February 2020 Final Prospectus"
+            },
+            {
+              "sheet": "Rights Offering",
+              "cell": "C10",
+              "value": 0.01176,
+              "kind": "derived",
+              "source": "Tesla February 2020 Final Prospectus"
+            }
+          ],
+          "outcome": {
+            "metric": "net_proceeds_before_expenses_usd_mm",
+            "forecast": 2032.55,
+            "realized": 2008.65,
+            "realized_source": "Tesla February 2020 Final Prospectus",
+            "status": "recorded"
+          }
+        },
+        {
+          "id": "equity-public-amc-2020-dilution",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/equity-adversarial-dilution.json",
+          "output": "12_Equity_Finance/instances/public_amc_2020_dilution.xlsx",
+          "subject": "AMC 2020 emergency equity and debt financing",
+          "as_of": "2020-12-31",
+          "sources": [
+            {
+              "name": "AMC Entertainment 2020 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1411579/000141157921000006/amc-20201231x10k.htm",
+              "publisher": "U.S. SEC / AMC Entertainment",
+              "captured_values": {
+                "backstop_shares": 5000000,
+                "mudrick_shares": 21978022,
+                "new_notes_usd_mm": 100.0,
+                "debt_exchange_usd_mm": 104.5
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Rights Offering",
+              "cell": "D9",
+              "value": 0.196,
+              "kind": "derived",
+              "source": "AMC Entertainment 2020 Form 10-K"
+            }
+          ],
+          "outcome": {
+            "metric": "emergency_financing_completed",
+            "forecast": 1.0,
+            "realized": 1.0,
+            "realized_source": "AMC Entertainment 2020 Form 10-K",
+            "status": "recorded"
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "15",
+      "domain": "Commodities",
+      "folder": "15_Commodities",
+      "version": "2.2.0-evidence",
+      "risk_tier": "Tier 1",
+      "approved_uses": [
+        "Physical balance, storage, basis and cost-of-carry analysis",
+        "Hedge-ratio and contract-alignment stress",
+        "Historical market-dislocation comparison"
+      ],
+      "prohibited_uses": [
+        "Live capital, fiduciary, regulatory, legal, or tax use without named human approval",
+        "Representing retained modeler assumptions as external observations",
+        "Treating historical public cases as transaction-specific diligence"
+      ],
+      "limitations": [
+        "Annual prices and weekly storage data are simplified into a static workbook snapshot",
+        "Location, quality, timing and optionality basis require contract-level data",
+        "Physical operations and margin calls require daily treasury evidence"
+      ],
+      "validation_conclusion": "Engineering evidence approved with limitations at M2; named stakeholder approval and maintained operating history remain mandatory for M3/M4",
+      "monitoring": [
+        {
+          "metric": "basis_move",
+          "warning": 10.0,
+          "breach": 25.0,
+          "action": "Reconcile location, quality, timing and liquidity basis"
+        },
+        {
+          "metric": "storage_utilization",
+          "warning": 0.75,
+          "breach": 0.9,
+          "action": "Escalate logistics, financing and hedge-roll plan"
+        }
+      ],
+      "rollback_release": "m2-release-2.2.0",
+      "retirement_trigger": "Contract specification, delivery point, storage or hedging program changes materially",
+      "cases": [
+        {
+          "id": "commodities-public-wti-2023",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/commodities-reference-hedge.json",
+          "output": "15_Commodities/instances/public_wti_2023.xlsx",
+          "subject": "WTI 2023 price and Cushing inventory case",
+          "as_of": "2023-12-31",
+          "sources": [
+            {
+              "name": "EIA Cushing stocks and WTI annual prices",
+              "url": "https://www.eia.gov/dnav/pet/PET_PRI_SPT_S1_A.htm",
+              "publisher": "U.S. Energy Information Administration",
+              "captured_values": {
+                "wti_2023_average_usd_per_bbl": 77.58,
+                "cushing_2023_year_end_stocks_mm_bbl": 34.454
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Hedging",
+              "cell": "C7",
+              "value": 77.58,
+              "kind": "observed",
+              "source": "EIA Cushing stocks and WTI annual prices"
+            },
+            {
+              "sheet": "Physical Balance & Carry",
+              "cell": "C14",
+              "value": 34.454,
+              "kind": "observed",
+              "source": "EIA Cushing stocks and WTI annual prices"
+            }
+          ],
+          "outcome": {
+            "metric": "next_year_wti_average_usd_per_bbl",
+            "forecast": 75.0,
+            "realized": null,
+            "realized_source": "Pending maintained annual EIA evidence refresh",
+            "status": "pending"
+          }
+        },
+        {
+          "id": "commodities-public-wti-april-2020",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+          "output": "15_Commodities/instances/public_wti_april_2020.xlsx",
+          "subject": "April 2020 WTI expiry, demand and storage dislocation",
+          "as_of": "2020-04-20",
+          "sources": [
+            {
+              "name": "EIA April 2020 negative WTI and storage analysis",
+              "url": "https://www.eia.gov/todayinenergy/detail.php?id=43495",
+              "publisher": "U.S. Energy Information Administration",
+              "captured_values": {
+                "may_contract_settlement_usd_per_bbl": -37.63,
+                "june_contract_price_usd_per_bbl": 20.43,
+                "cushing_stocks_mm_bbl": 60.0,
+                "storage_utilization": 0.76
+              }
+            },
+            {
+              "name": "EIA July 2020 oil-price recovery",
+              "url": "https://www.eia.gov/todayinenergy/detail.php?id=46336",
+              "publisher": "U.S. Energy Information Administration",
+              "captured_values": {
+                "wti_price_2020_07_01_usd_per_bbl": 40.0
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Hedging",
+              "cell": "C7",
+              "value": -37.63,
+              "kind": "observed",
+              "source": "EIA April 2020 negative WTI and storage analysis"
+            },
+            {
+              "sheet": "Hedging",
+              "cell": "C8",
+              "value": 20.43,
+              "kind": "observed",
+              "source": "EIA April 2020 negative WTI and storage analysis"
+            },
+            {
+              "sheet": "Physical Balance & Carry",
+              "cell": "D14",
+              "value": 60.0,
+              "kind": "observed",
+              "source": "EIA April 2020 negative WTI and storage analysis"
+            },
+            {
+              "sheet": "Physical Balance & Carry",
+              "cell": "D18",
+              "value": 0.76,
+              "kind": "observed",
+              "source": "EIA April 2020 negative WTI and storage analysis"
+            }
+          ],
+          "outcome": {
+            "metric": "wti_price_by_2020_07_01_usd_per_bbl",
+            "forecast": 0.0,
+            "realized": 40.0,
+            "realized_source": "EIA July 2020 oil-price recovery",
+            "status": "recorded"
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "16",
+      "domain": "Crypto & Digital Assets",
+      "folder": "16_Crypto_Digital_Assets",
+      "version": "2.2.0-evidence",
+      "risk_tier": "Tier 1",
+      "approved_uses": [
+        "Supply, unlock, staking, treasury and liquidity diagnostics",
+        "Custody, venue, bridge and counterparty stress",
+        "Historical public-platform comparison"
+      ],
+      "prohibited_uses": [
+        "Live capital, fiduciary, regulatory, legal, or tax use without named human approval",
+        "Representing retained modeler assumptions as external observations",
+        "Treating historical public cases as transaction-specific diligence"
+      ],
+      "limitations": [
+        "Custodied customer assets are a platform-scale proxy rather than a native token supply schedule",
+        "On-chain ownership, validator and unlock data require protocol-specific snapshots",
+        "Custody controls require independent operating and security evidence"
+      ],
+      "validation_conclusion": "Engineering evidence approved with limitations at M2; named stakeholder approval and maintained operating history remain mandatory for M3/M4",
+      "monitoring": [
+        {
+          "metric": "unlock_to_liquidity_ratio",
+          "warning": 0.25,
+          "breach": 0.5,
+          "action": "Escalate unlock concentration and market-depth plan"
+        },
+        {
+          "metric": "custody_counterparty_concentration",
+          "warning": 0.25,
+          "breach": 0.5,
+          "action": "Re-underwrite custody, venue and key-management concentration"
+        }
+      ],
+      "rollback_release": "m2-release-2.2.0",
+      "retirement_trigger": "Protocol economics, custody architecture or market structure is superseded",
+      "cases": [
+        {
+          "id": "crypto-public-coinbase-2023",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/crypto-reference-network.json",
+          "output": "16_Crypto_Digital_Assets/instances/public_coinbase_2023.xlsx",
+          "subject": "Coinbase 2023 custody and staking scale",
+          "as_of": "2023-12-31",
+          "sources": [
+            {
+              "name": "Coinbase 2023 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+              "publisher": "U.S. SEC / Coinbase",
+              "captured_values": {
+                "total_customer_assets_usd_bn": 197.154,
+                "customer_custodial_funds_usd_bn": 4.571,
+                "consumer_and_institutional_staking_usd_bn": 16.8
+              }
+            },
+            {
+              "name": "Coinbase Q1 2024 Form 10-Q",
+              "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000089/coin-20240331.htm",
+              "publisher": "U.S. SEC / Coinbase",
+              "captured_values": {
+                "total_customer_assets_usd_bn": 334.708
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Valuation",
+              "cell": "C6",
+              "value": 197.154,
+              "kind": "observed",
+              "source": "Coinbase 2023 Form 10-K"
+            },
+            {
+              "sheet": "Valuation",
+              "cell": "C7",
+              "value": 4.571,
+              "kind": "observed",
+              "source": "Coinbase 2023 Form 10-K"
+            },
+            {
+              "sheet": "Valuation",
+              "cell": "C8",
+              "value": 16.8,
+              "kind": "derived",
+              "source": "Coinbase 2023 Form 10-K"
+            },
+            {
+              "sheet": "Staking Yield",
+              "cell": "C6",
+              "value": 16.8,
+              "kind": "derived",
+              "source": "Coinbase 2023 Form 10-K"
+            }
+          ],
+          "outcome": {
+            "metric": "next_quarter_total_customer_assets_usd_bn",
+            "forecast": 220.0,
+            "realized": 334.708,
+            "realized_source": "Coinbase Q1 2024 Form 10-Q",
+            "status": "recorded"
+          }
+        },
+        {
+          "id": "crypto-public-coinbase-2022-stress",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/crypto-adversarial-unlock-run.json",
+          "output": "16_Crypto_Digital_Assets/instances/public_coinbase_2022_stress.xlsx",
+          "subject": "Coinbase 2022 crypto-winter custody contraction",
+          "as_of": "2022-12-31",
+          "sources": [
+            {
+              "name": "Coinbase 2023 Form 10-K comparative 2022 custody data",
+              "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+              "publisher": "U.S. SEC / Coinbase",
+              "captured_values": {
+                "total_customer_assets_usd_bn": 80.454,
+                "customer_custodial_funds_usd_bn": 5.041,
+                "safeguarded_crypto_usd_bn": 75.413
+              }
+            },
+            {
+              "name": "Coinbase 2023 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+              "publisher": "U.S. SEC / Coinbase",
+              "captured_values": {
+                "total_customer_assets_usd_bn": 197.154,
+                "customer_custodial_funds_usd_bn": 4.571,
+                "consumer_and_institutional_staking_usd_bn": 16.8
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Valuation",
+              "cell": "C6",
+              "value": 80.454,
+              "kind": "observed",
+              "source": "Coinbase 2023 Form 10-K comparative 2022 custody data"
+            },
+            {
+              "sheet": "Valuation",
+              "cell": "C7",
+              "value": 5.041,
+              "kind": "observed",
+              "source": "Coinbase 2023 Form 10-K comparative 2022 custody data"
+            },
+            {
+              "sheet": "Valuation",
+              "cell": "C8",
+              "value": 75.413,
+              "kind": "observed",
+              "source": "Coinbase 2023 Form 10-K comparative 2022 custody data"
+            }
+          ],
+          "outcome": {
+            "metric": "next_year_total_customer_assets_usd_bn",
+            "forecast": 100.0,
+            "realized": 197.154,
+            "realized_source": "Coinbase 2023 Form 10-K",
+            "status": "recorded"
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "17",
+      "domain": "Real Estate & REIT",
+      "folder": "17_Real_Estate_REIT",
+      "version": "2.2.0-evidence",
+      "risk_tier": "Tier 1",
+      "approved_uses": [
+        "NOI, cap-rate, debt, lease-roll and REIT bridge analysis",
+        "DSCR, LTV and refinancing stress",
+        "Historical public-owner and flexible-office comparison"
+      ],
+      "prohibited_uses": [
+        "Live capital, fiduciary, regulatory, legal, or tax use without named human approval",
+        "Representing retained modeler assumptions as external observations",
+        "Treating historical public cases as transaction-specific diligence"
+      ],
+      "limitations": [
+        "Company-wide public filings are simplified into a property/REIT decision model",
+        "The flexible-office adversarial case is an occupancy-economics proxy and not REIT accounting",
+        "Lease-level rollover, tenant credit and property debt require asset-specific diligence"
+      ],
+      "validation_conclusion": "Engineering evidence approved with limitations at M2; named stakeholder approval and maintained operating history remain mandatory for M3/M4",
+      "monitoring": [
+        {
+          "metric": "minimum_dscr",
+          "warning": 1.25,
+          "breach": 1.0,
+          "action": "Escalate refinance, reserves, capex and asset-sale plan"
+        },
+        {
+          "metric": "economic_occupancy",
+          "warning": 0.9,
+          "breach": 0.8,
+          "action": "Re-underwrite expirations, renewals, downtime and tenant concentration"
+        }
+      ],
+      "rollback_release": "m2-release-2.2.0",
+      "retirement_trigger": "Portfolio, lease, debt or REIT reporting architecture is superseded",
+      "cases": [
+        {
+          "id": "real-estate-public-realty-income-2023",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/real-estate-reference-property.json",
+          "output": "17_Real_Estate_REIT/instances/public_realty_income_2023.xlsx",
+          "subject": "Realty Income 2023 simplified FFO bridge",
+          "as_of": "2023-12-31",
+          "sources": [
+            {
+              "name": "Realty Income 2023 FFO reconciliation",
+              "url": "https://www.sec.gov/Archives/edgar/data/726728/000072672825000080/o-20250326.htm",
+              "publisher": "U.S. SEC / Realty Income",
+              "captured_values": {
+                "net_income_common_usd_mm": 872.309,
+                "depreciation_amortization_usd_mm": 1895.177,
+                "gain_on_sales_usd_mm": 25.667,
+                "net_income_2024_usd_mm": 847.893
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "REIT FFO-AFFO",
+              "cell": "C4",
+              "value": 872.309,
+              "kind": "observed",
+              "source": "Realty Income 2023 FFO reconciliation"
+            },
+            {
+              "sheet": "REIT FFO-AFFO",
+              "cell": "C5",
+              "value": 1895.177,
+              "kind": "observed",
+              "source": "Realty Income 2023 FFO reconciliation"
+            },
+            {
+              "sheet": "REIT FFO-AFFO",
+              "cell": "C6",
+              "value": 25.667,
+              "kind": "observed",
+              "source": "Realty Income 2023 FFO reconciliation"
+            }
+          ],
+          "outcome": {
+            "metric": "next_year_net_income_common_usd_mm",
+            "forecast": 900.0,
+            "realized": 847.893,
+            "realized_source": "Realty Income 2024 public reconciliation",
+            "status": "recorded"
+          }
+        },
+        {
+          "id": "real-estate-public-wework-2022-stress",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+          "output": "17_Real_Estate_REIT/instances/public_wework_2022_stress.xlsx",
+          "subject": "WeWork 2022 occupancy-economics and refinancing stress proxy",
+          "as_of": "2022-12-31",
+          "sources": [
+            {
+              "name": "WeWork 2022 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1813756/000181375623000016/we-20221231.htm",
+              "publisher": "U.S. SEC / WeWork",
+              "captured_values": {
+                "revenue_usd_mm": 3245.0,
+                "operating_margin_proxy": -0.65,
+                "net_loss_usd_mm": 2034.0
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Property Pro Forma",
+              "cell": "C5",
+              "value": 3245.0,
+              "kind": "observed",
+              "source": "WeWork 2022 Form 10-K"
+            },
+            {
+              "sheet": "Property Pro Forma",
+              "cell": "C10",
+              "value": 5354.25,
+              "kind": "derived",
+              "source": "WeWork 2022 Form 10-K"
+            },
+            {
+              "sheet": "REIT FFO-AFFO",
+              "cell": "C4",
+              "value": -2034.0,
+              "kind": "observed",
+              "source": "WeWork 2022 Form 10-K"
+            },
+            {
+              "sheet": "REIT FFO-AFFO",
+              "cell": "C5",
+              "value": 0.0,
+              "kind": "modeler_assumption",
+              "source": "Flexible-office FFO proxy normalization"
+            },
+            {
+              "sheet": "REIT FFO-AFFO",
+              "cell": "C6",
+              "value": 0.0,
+              "kind": "modeler_assumption",
+              "source": "Flexible-office FFO proxy normalization"
+            }
+          ],
+          "outcome": {
+            "metric": "bankruptcy_within_12_months",
+            "forecast": 1.0,
+            "realized": 1.0,
+            "realized_source": "WeWork Chapter 11 filing, November 2023",
+            "status": "recorded"
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "23",
+      "domain": "Fintech & Payments",
+      "folder": "23_Fintech_Payments",
+      "version": "2.2.0-evidence",
+      "risk_tier": "Tier 1",
+      "approved_uses": [
+        "Payment-volume, network, unit-economics and cohort diagnostics",
+        "Fraud, chargeback, capital and settlement-liquidity stress",
+        "Historical payment-network and platform-disposal comparison"
+      ],
+      "prohibited_uses": [
+        "Live capital, fiduciary, regulatory, legal, or tax use without named human approval",
+        "Representing retained modeler assumptions as external observations",
+        "Treating historical public cases as transaction-specific diligence"
+      ],
+      "limitations": [
+        "Public network scale is annual and aggregated while the workbook labels monthly unit economics",
+        "The Worldpay case uses sale proceeds and impairments as capital-stress proxies",
+        "Product-level fraud, safeguarding and settlement data require operating records"
+      ],
+      "validation_conclusion": "Engineering evidence approved with limitations at M2; named stakeholder approval and maintained operating history remain mandatory for M3/M4",
+      "monitoring": [
+        {
+          "metric": "fraud_bps",
+          "warning": 50,
+          "breach": 100,
+          "action": "Escalate fraud controls, pricing and merchant exposure"
+        },
+        {
+          "metric": "liquidity_coverage",
+          "warning": 1.1,
+          "breach": 1.0,
+          "action": "Escalate unrestricted liquidity and settlement obligations"
+        }
+      ],
+      "rollback_release": "m2-release-2.2.0",
+      "retirement_trigger": "Payment network, safeguarding, capital or product architecture changes materially",
+      "cases": [
+        {
+          "id": "fintech-public-visa-2023",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/fintech-reference-payments.json",
+          "output": "23_Fintech_Payments/instances/public_visa_2023.xlsx",
+          "subject": "Visa 2023 global network scale",
+          "as_of": "2023-09-30",
+          "sources": [
+            {
+              "name": "Visa 2023 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+              "publisher": "U.S. SEC / Visa",
+              "captured_values": {
+                "payments_and_cash_volume_usd_bn": 15000.0,
+                "transactions_bn": 276.0,
+                "credentials_bn": 4.3,
+                "merchant_locations_m": 130.0
+              }
+            },
+            {
+              "name": "Visa 2024 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm",
+              "publisher": "U.S. SEC / Visa",
+              "captured_values": {
+                "payments_and_cash_volume_usd_bn": 16000.0,
+                "transactions_bn": 303.0,
+                "credentials_bn": 4.6,
+                "merchant_locations_m": 150.0
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Unit Economics",
+              "cell": "C5",
+              "value": 15000.0,
+              "kind": "observed",
+              "source": "Visa 2023 Form 10-K"
+            },
+            {
+              "sheet": "Network & Cohorts",
+              "cell": "C5",
+              "value": 4300.0,
+              "kind": "observed",
+              "source": "Visa 2023 Form 10-K"
+            },
+            {
+              "sheet": "Network & Cohorts",
+              "cell": "C8",
+              "value": 130.0,
+              "kind": "observed",
+              "source": "Visa 2023 Form 10-K"
+            },
+            {
+              "sheet": "Network & Cohorts",
+              "cell": "C11",
+              "value": 276000.0,
+              "kind": "observed",
+              "source": "Visa 2023 Form 10-K"
+            }
+          ],
+          "outcome": {
+            "metric": "next_year_payments_and_cash_volume_usd_bn",
+            "forecast": 16000.0,
+            "realized": 16000.0,
+            "realized_source": "Visa 2024 Form 10-K",
+            "status": "recorded"
+          }
+        },
+        {
+          "id": "fintech-public-fis-worldpay-2023-stress",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/fintech-adversarial-fraud-run.json",
+          "output": "23_Fintech_Payments/instances/public_fis_worldpay_2023_stress.xlsx",
+          "subject": "FIS Worldpay impairment, disposal and capital-recovery stress proxy",
+          "as_of": "2023-12-31",
+          "sources": [
+            {
+              "name": "FIS 2023 Form 10-K and Worldpay disposal",
+              "url": "https://www.sec.gov/Archives/edgar/data/1136893/000113689324000015/fis-20231231.htm",
+              "publisher": "U.S. SEC / FIS",
+              "captured_values": {
+                "worldpay_goodwill_impairment_usd_bn": 6.8,
+                "held_for_sale_allowance_usd_bn": 1.9,
+                "expected_net_proceeds_usd_bn": 11.7,
+                "transaction_value_up_to_usd_bn": 18.5
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Capital & Liquidity",
+              "cell": "D5",
+              "value": 11.7,
+              "kind": "observed",
+              "source": "FIS 2023 Form 10-K and Worldpay disposal"
+            },
+            {
+              "sheet": "Capital & Liquidity",
+              "cell": "D6",
+              "value": 8.7,
+              "kind": "derived",
+              "source": "FIS 2023 Form 10-K and Worldpay disposal"
+            }
+          ],
+          "outcome": {
+            "metric": "worldpay_sale_closed_within_12_months",
+            "forecast": 1.0,
+            "realized": 1.0,
+            "realized_source": "FIS Worldpay sale closed January 31, 2024",
+            "status": "recorded"
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "24",
+      "domain": "Distressed & Restructuring",
+      "folder": "24_Distressed_Restructuring",
+      "version": "2.2.0-evidence",
+      "risk_tier": "Tier 1",
+      "approved_uses": [
+        "13-week liquidity and rescue-financing analysis",
+        "Claim waterfall, fulcrum and priority diagnostics",
+        "Historical reorganization and failure-path comparison"
+      ],
+      "prohibited_uses": [
+        "Live capital, fiduciary, regulatory, legal, or tax use without named human approval",
+        "Representing retained modeler assumptions as external observations",
+        "Treating historical public cases as transaction-specific diligence"
+      ],
+      "limitations": [
+        "Public filings do not replace claim schedules, cash receipts and legal opinions",
+        "New-money economics and priority require executed documents and court orders",
+        "Historical outcomes cannot establish feasibility for a different debtor"
+      ],
+      "validation_conclusion": "Engineering evidence approved with limitations at M2; named stakeholder approval and maintained operating history remain mandatory for M3/M4",
+      "monitoring": [
+        {
+          "metric": "minimum_13_week_liquidity",
+          "warning": 1.2,
+          "breach": 1.0,
+          "action": "Escalate funding, disbursement and filing plan"
+        },
+        {
+          "metric": "waterfall_conservation_residual",
+          "warning": 0.01,
+          "breach": 0.05,
+          "action": "Block release and reconcile claims, value and distributions"
+        }
+      ],
+      "rollback_release": "m2-release-2.2.0",
+      "retirement_trigger": "Plan, capital structure, court status or operating case is superseded",
+      "cases": [
+        {
+          "id": "distressed-public-hertz-2021-reorganization",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/distressed-reference-reorganization.json",
+          "output": "24_Distressed_Restructuring/instances/public_hertz_2021_reorganization.xlsx",
+          "subject": "Hertz Chapter 11 emergence financing and recovery",
+          "as_of": "2021-06-30",
+          "sources": [
+            {
+              "name": "Hertz 2021 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785322000012/htz-20211231.htm",
+              "publisher": "U.S. SEC / Hertz",
+              "captured_values": {
+                "emergence_cash_usd_bn": 7.5,
+                "sponsor_common_equity_usd_bn": 2.8,
+                "rights_offering_usd_bn": 1.6,
+                "preferred_equity_usd_bn": 1.5,
+                "term_loan_usd_bn": 1.5
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "New Money",
+              "cell": "C5",
+              "value": 7500.0,
+              "kind": "observed",
+              "source": "Hertz 2021 Form 10-K"
+            }
+          ],
+          "outcome": {
+            "metric": "chapter_11_emergence_completed",
+            "forecast": 1.0,
+            "realized": 1.0,
+            "realized_source": "Hertz 2021 Form 10-K",
+            "status": "recorded"
+          }
+        },
+        {
+          "id": "distressed-public-bbby-2022-liquidity",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/distressed-adversarial-cramdown.json",
+          "output": "24_Distressed_Restructuring/instances/public_bbby_2022_liquidity.xlsx",
+          "subject": "Bed Bath & Beyond 2022 liquidity deterioration",
+          "as_of": "2022-08-27",
+          "sources": [
+            {
+              "name": "Bed Bath & Beyond Q2 2022 Form 10-Q",
+              "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+              "publisher": "U.S. SEC / Bed Bath & Beyond",
+              "captured_values": {
+                "cash_usd_mm": 166.7,
+                "six_month_operating_cash_use_usd_mm": 582.4,
+                "post_facility_borrowing_availability_usd_mm": 690.0
+              }
+            },
+            {
+              "name": "Bed Bath & Beyond 2022 Form 10-K and Chapter 11 disclosure",
+              "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615823000059/bbby-20230225.htm",
+              "publisher": "U.S. SEC / Bed Bath & Beyond",
+              "captured_values": {
+                "chapter_11_filing_date": "2023-04-23"
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "13-Week Liquidity",
+              "cell": "C3",
+              "value": 166.7,
+              "kind": "observed",
+              "source": "Bed Bath & Beyond Q2 2022 Form 10-Q"
+            },
+            {
+              "sheet": "New Money",
+              "cell": "C5",
+              "value": 690.0,
+              "kind": "observed",
+              "source": "Bed Bath & Beyond Q2 2022 Form 10-Q"
+            }
+          ],
+          "outcome": {
+            "metric": "chapter_11_filing_within_12_months",
+            "forecast": 1.0,
+            "realized": 1.0,
+            "realized_source": "Bed Bath & Beyond Chapter 11 filing, April 23, 2023",
+            "status": "recorded"
+          }
+        }
+      ]
+    }
+  ]
+}
