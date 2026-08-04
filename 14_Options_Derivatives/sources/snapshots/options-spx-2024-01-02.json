@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "model_id": "14",
+  "domain": "Options & Derivatives",
+  "case_id": "options-spx-2024-01-02",
+  "case_type": "conventional",
+  "as_of": "2024-01-02",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "S&P 500 via FRED",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "publisher": "Federal Reserve Bank of St. Louis / S&P",
+      "captured_values": {
+        "spot": 4742.83
+      }
+    },
+    {
+      "name": "CBOE VIX via FRED",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "publisher": "Federal Reserve Bank of St. Louis / CBOE",
+      "captured_values": {
+        "annualized_volatility": 0.132
+      }
+    },
+    {
+      "name": "6-Month Treasury via FRED",
+      "url": "https://fred.stlouisfed.org/series/DGS6MO",
+      "publisher": "Federal Reserve Bank of St. Louis / U.S. Treasury",
+      "captured_values": {
+        "risk_free_rate": 0.0524
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 4742.83,
+      "kind": "observed",
+      "source": "S&P 500 via FRED"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 4750.0,
+      "kind": "modeler_assumption",
+      "source": "Nearest round strike"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "value": 0.0524,
+      "kind": "observed",
+      "source": "6-Month Treasury via FRED"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C10",
+      "value": 0.132,
+      "kind": "observed",
+      "source": "CBOE VIX via FRED"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "six_month_realized_volatility",
+    "forecast": 0.132,
+    "realized": 0.128,
+    "realized_source": "S&P 500 daily closes via FRED",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "a461fa647621f2557baa3cdb2161119124040742a06f182c5a250155022e44b1"
+}

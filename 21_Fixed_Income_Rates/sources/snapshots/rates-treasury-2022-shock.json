@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "model_id": "21",
+  "domain": "Fixed Income & Rates",
+  "case_id": "rates-treasury-2022-shock",
+  "case_type": "adversarial",
+  "as_of": "2022-10-21",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Daily Treasury Par Yield Curve Rates",
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates",
+      "publisher": "U.S. Department of the Treasury",
+      "captured_values": {
+        "ten_year_yield": 0.0423,
+        "thirty_year_yield": 0.0434
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": 0.0423,
+      "kind": "observed",
+      "source": "Daily Treasury Par Yield Curve Rates"
+    },
+    {
+      "sheet": "Zero Curve",
+      "cell": "D14",
+      "value": 0.0434,
+      "kind": "observed",
+      "source": "Daily Treasury Par Yield Curve Rates"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "year_end_ten_year_yield",
+    "forecast": 0.0423,
+    "realized": 0.0388,
+    "realized_source": "Daily Treasury Par Yield Curve Rates",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "730a6b8d2368c77e0275a5430d52219dc43c4696cf17ef2b945c536a9435f687"
+}

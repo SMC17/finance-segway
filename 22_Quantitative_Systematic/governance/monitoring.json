@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "model_id": "22",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "live_sharpe_degradation",
+      "warning": -0.5,
+      "breach": -1.0,
+      "action": "Reduce risk and revalidate signal"
+    },
+    {
+      "metric": "cost_slippage_bps",
+      "warning": 5,
+      "breach": 10,
+      "action": "Recalibrate implementation shortfall and capacity"
+    },
+    {
+      "metric": "drawdown",
+      "warning": -0.15,
+      "breach": -0.2,
+      "action": "Escalate stop, regime, and retirement review"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

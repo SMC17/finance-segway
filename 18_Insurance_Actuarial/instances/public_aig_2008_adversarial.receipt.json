@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "insurance-aig-2008",
+  "as_of": "2009-03-02",
+  "manifest": "standards/public_cases/insurance-aig-2008.json",
+  "template": "18_Insurance_Actuarial/_template_INSURANCE.xlsx",
+  "output": "18_Insurance_Actuarial/instances/public_aig_2008_adversarial.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "previous": 0.78,
+      "value": 1.05,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/5272/000095012309006583/y74787e10vk.htm",
+      "source_as_of": "2009-03-02"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "previous": 0.075,
+      "value": 0.12,
+      "source_url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
+      "source_as_of": "2009-03-02"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "previous": 0.15,
+      "value": 0.22,
+      "source_url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
+      "source_as_of": "2009-03-02"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D17",
+      "previous": 0.14,
+      "value": 0.2,
+      "source_url": "repo://18_Insurance_Actuarial/sources/snapshots/insurance-aig-2008.json",
+      "source_as_of": "2009-03-02"
+    }
+  ],
+  "workbook_sha256": "a2e2685f1c4742e5fb4074b224379259a2162a99bfce93f21a70f10b959f21de",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

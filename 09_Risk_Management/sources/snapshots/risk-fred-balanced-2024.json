@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "model_id": "09",
+  "domain": "Risk Management",
+  "case_id": "risk-fred-balanced-2024",
+  "case_type": "conventional",
+  "as_of": "2024-01-02",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "CBOE VIX via FRED",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "publisher": "Federal Reserve Bank of St. Louis / CBOE",
+      "captured_values": {
+        "vix_close": 13.2
+      }
+    },
+    {
+      "name": "S&P 500 via FRED",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "publisher": "Federal Reserve Bank of St. Louis / S&P",
+      "captured_values": {
+        "sp500_close": 4742.83
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.132,
+      "kind": "derived",
+      "source": "CBOE VIX via FRED"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "value": 0.132,
+      "kind": "observed",
+      "source": "CBOE VIX via FRED"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "subsequent_60d_max_drawdown",
+    "forecast": -0.08,
+    "realized": -0.052,
+    "realized_source": "S&P 500 via FRED",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "b0fd93e131fdd0a731070a5ee604298288f1ecee546a65efc539a65de662898e"
+}

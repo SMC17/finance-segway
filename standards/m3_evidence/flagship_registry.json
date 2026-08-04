@@ -1,0 +1,507 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-08-04",
+  "promotion_policy": {
+    "m3_requires": [
+      "completed_model_card",
+      "independent_validation",
+      "frozen_external_sources",
+      "conventional_public_case",
+      "adversarial_public_case",
+      "stakeholder_signoff",
+      "material_refresh_history",
+      "outcomes_analysis"
+    ],
+    "m4_requires": [
+      "m3_approved",
+      "two_maintained_public_instances",
+      "monitoring_and_escalation",
+      "multi_release_outcome_history",
+      "rollback_replacement_retirement_evidence"
+    ],
+    "synthetic_cases_count_toward_m4": false
+  },
+  "flagships": [
+    {
+      "model_id": "03",
+      "domain": "Private Equity",
+      "folder": "03_Private_Equity",
+      "version": "2.1.0",
+      "risk_tier": "Tier 1",
+      "approved_uses": ["Sponsor acquisition underwriting", "Debt-capacity and covenant analysis", "Investment-committee downside and reverse stress", "Management-equity and exit-waterfall analysis"],
+      "prohibited_uses": ["Fairness opinion", "Tax or legal advice", "Live bid without transaction diligence", "Financial-institution LBO without regulatory capital modules"],
+      "limitations": ["No transaction-specific purchase accounting", "Tax shields and interest deductibility are simplified", "Working capital is modeled as a revenue ratio", "Debt documents and covenant definitions must be replaced with executed terms"],
+      "validation_conclusion": "Approved with limitations for historical public-case underwriting; human IC approval required for capital use",
+      "monitoring": [
+        {"metric": "revenue_forecast_error", "warning": 0.10, "breach": 0.20, "action": "Re-underwrite operating case and valuation"},
+        {"metric": "ebitda_margin_error_bps", "warning": 200, "breach": 400, "action": "Revalidate cost structure and covenant headroom"},
+        {"metric": "net_leverage_headroom", "warning": 0.50, "breach": 0.00, "action": "Escalate to IC and lender-remediation case"}
+      ],
+      "rollback_release": "flagship-2.1.0",
+      "retirement_trigger": "Transaction closes, is abandoned, or the operating/debt architecture is superseded",
+      "cases": [
+        {
+          "id": "pe-public-home-depot-2023",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/pe-reference-buyout.json",
+          "output": "03_Private_Equity/instances/public_home_depot_2023.xlsx",
+          "subject": "The Home Depot FY2023 public-company operating case",
+          "as_of": "2024-03-13",
+          "sources": [
+            {"name": "Home Depot 2023 Form 10-K", "url": "https://www.sec.gov/Archives/edgar/data/354950/000035495024000062/hd-20240128.htm", "publisher": "U.S. SEC", "captured_values": {"revenue_usd_mm": 152669.0, "operating_margin": 0.153, "revenue_growth": -0.03}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "C5", "value": 152669.0, "kind": "observed", "source": "Home Depot 2023 Form 10-K"},
+            {"sheet": "Assumptions", "cell": "C6", "value": 0.153, "kind": "derived", "source": "Home Depot 2023 Form 10-K"},
+            {"sheet": "Assumptions", "cell": "C7", "value": -0.03, "kind": "derived", "source": "Home Depot 2023 Form 10-K"}
+          ],
+          "outcome": {"metric": "next_fiscal_year_revenue_usd_mm", "forecast": 148088.9, "realized": 159514.0, "realized_source": "Home Depot FY2024 Form 10-K", "status": "recorded"}
+        },
+        {
+          "id": "pe-public-macys-2020",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/pe-adversarial-contraction.json",
+          "output": "03_Private_Equity/instances/public_macys_2020_adversarial.xlsx",
+          "subject": "Macy's FY2020 pandemic contraction",
+          "as_of": "2021-03-30",
+          "sources": [
+            {"name": "Macy's 2020 Form 10-K", "url": "https://www.sec.gov/Archives/edgar/data/794367/000079436721000038/m-20210130.htm", "publisher": "U.S. SEC", "captured_values": {"revenue_usd_mm": 17346.0, "revenue_growth": -0.291, "downside_margin": 0.02}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "D6", "value": 0.02, "kind": "derived", "source": "Macy's 2020 Form 10-K"},
+            {"sheet": "Assumptions", "cell": "D7", "value": -0.291, "kind": "observed", "source": "Macy's 2020 Form 10-K"}
+          ],
+          "outcome": {"metric": "next_fiscal_year_revenue_usd_mm", "forecast": 12300.0, "realized": 24460.0, "realized_source": "Macy's 2021 Form 10-K", "status": "recorded"}
+        }
+      ]
+    },
+    {
+      "model_id": "04",
+      "domain": "Merchant Banking",
+      "folder": "04_Merchant_Banking",
+      "version": "2.1.0",
+      "risk_tier": "Tier 1",
+      "approved_uses": ["Principal-investment underwriting", "Holdco/opco capital-structure analysis", "Long-duration ownership and add-on analysis", "Investment-committee scenario comparison"],
+      "prohibited_uses": ["Regulated-bank capital planning", "Transaction opinion work", "Use without legal review of structural subordination"],
+      "limitations": ["Holdco leakage and restricted-payment baskets require deal-specific documents", "No consolidated tax-sharing agreement model", "No minority-governance or bespoke preferred-equity legal terms"],
+      "validation_conclusion": "Approved with limitations for public historical principal-investment cases",
+      "monitoring": [
+        {"metric": "holdco_interest_coverage", "warning": 1.50, "breach": 1.00, "action": "Suspend distributions and run liquidity remediation"},
+        {"metric": "structural_subordination_ratio", "warning": 0.35, "breach": 0.50, "action": "Escalate to IC and legal counsel"},
+        {"metric": "exit_multiple_dependency", "warning": 0.40, "breach": 0.60, "action": "Require returns case with no multiple expansion"}
+      ],
+      "rollback_release": "flagship-2.1.0",
+      "retirement_trigger": "Investment exits or legal/capital structure is superseded",
+      "cases": [
+        {
+          "id": "merchant-alleghany-2021",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/merchant-reference-principal.json",
+          "output": "04_Merchant_Banking/instances/public_alleghany_2021.xlsx",
+          "subject": "Alleghany pre-acquisition principal case",
+          "as_of": "2022-02-24",
+          "sources": [
+            {"name": "Alleghany 2021 Form 10-K", "url": "https://www.sec.gov/Archives/edgar/data/775368/000077536822000010/y-20211231.htm", "publisher": "U.S. SEC", "captured_values": {"revenue_usd_mm": 12004.0, "operating_margin": 0.105, "revenue_growth": 0.23}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "C5", "value": 12004.0, "kind": "observed", "source": "Alleghany 2021 Form 10-K"},
+            {"sheet": "Assumptions", "cell": "C6", "value": 0.105, "kind": "derived", "source": "Alleghany 2021 Form 10-K"},
+            {"sheet": "Assumptions", "cell": "C7", "value": 0.23, "kind": "derived", "source": "Alleghany 2021 Form 10-K"}
+          ],
+          "outcome": {"metric": "announced_transaction_equity_value_usd_mm", "forecast": 11600.0, "realized": 11600.0, "realized_source": "Berkshire Hathaway transaction announcement", "status": "recorded"}
+        },
+        {
+          "id": "merchant-wework-2022",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/merchant-adversarial-holdco.json",
+          "output": "04_Merchant_Banking/instances/public_wework_2022_adversarial.xlsx",
+          "subject": "WeWork pre-bankruptcy holdco stress",
+          "as_of": "2023-03-29",
+          "sources": [
+            {"name": "WeWork 2022 Form 10-K", "url": "https://www.sec.gov/Archives/edgar/data/1813756/000181375623000019/we-20221231.htm", "publisher": "U.S. SEC", "captured_values": {"revenue_usd_mm": 3245.0, "operating_margin": -0.65, "liquidity_stress": true}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "D7", "value": -0.25, "kind": "modeler_assumption", "source": "WeWork 2022 downside calibrated to public filing"},
+            {"sheet": "Assumptions", "cell": "D20", "value": 0.145, "kind": "modeler_assumption", "source": "Distressed holdco financing assumption"}
+          ],
+          "outcome": {"metric": "bankruptcy_within_12_months", "forecast": 1.0, "realized": 1.0, "realized_source": "WeWork Chapter 11 filing, November 2023", "status": "recorded"}
+        }
+      ]
+    },
+    {
+      "model_id": "09",
+      "domain": "Risk Management",
+      "folder": "09_Risk_Management",
+      "version": "2.1.0",
+      "risk_tier": "Tier 1",
+      "approved_uses": ["Daily multi-asset risk aggregation", "Limit monitoring", "Factor and stress contribution analysis", "Liquidity-adjusted risk review"],
+      "prohibited_uses": ["Regulatory capital submission", "Counterparty exposure replacement", "Use with stale positions or unvalidated covariance inputs"],
+      "limitations": ["Factor model omits nonlinear path dependence beyond supplied Greeks", "Correlations are scenario inputs rather than estimated dynamically", "Liquidity loss is a simplified impact model"],
+      "validation_conclusion": "Approved with limitations for historical public-market portfolio cases",
+      "monitoring": [
+        {"metric": "var_backtest_exceptions_250d", "warning": 4, "breach": 7, "action": "Recalibrate volatility/correlation and escalate limits"},
+        {"metric": "component_var_reconciliation_abs", "warning": 0.01, "breach": 0.05, "action": "Block release and investigate factor mapping"},
+        {"metric": "liquidity_days_to_exit", "warning": 10, "breach": 20, "action": "Escalate concentration and liquidation plan"}
+      ],
+      "rollback_release": "flagship-2.1.0",
+      "retirement_trigger": "Risk-factor taxonomy or position system is replaced",
+      "cases": [
+        {
+          "id": "risk-fred-balanced-2024",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/risk-reference-balanced.json",
+          "output": "09_Risk_Management/instances/public_fred_balanced_2024.xlsx",
+          "subject": "Balanced public-market risk regime",
+          "as_of": "2024-01-02",
+          "sources": [
+            {"name": "CBOE VIX via FRED", "url": "https://fred.stlouisfed.org/series/VIXCLS", "publisher": "Federal Reserve Bank of St. Louis / CBOE", "captured_values": {"vix_close": 13.20}},
+            {"name": "S&P 500 via FRED", "url": "https://fred.stlouisfed.org/series/SP500", "publisher": "Federal Reserve Bank of St. Louis / S&P", "captured_values": {"sp500_close": 4742.83}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "C7", "value": 0.132, "kind": "derived", "source": "CBOE VIX via FRED"},
+            {"sheet": "Assumptions", "cell": "C11", "value": 0.132, "kind": "observed", "source": "CBOE VIX via FRED"}
+          ],
+          "outcome": {"metric": "subsequent_60d_max_drawdown", "forecast": -0.08, "realized": -0.052, "realized_source": "S&P 500 via FRED", "status": "recorded"}
+        },
+        {
+          "id": "risk-fred-covid-2020",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/risk-adversarial-crowding.json",
+          "output": "09_Risk_Management/instances/public_fred_covid_2020_adversarial.xlsx",
+          "subject": "March 2020 public-market shock",
+          "as_of": "2020-03-16",
+          "sources": [
+            {"name": "CBOE VIX via FRED", "url": "https://fred.stlouisfed.org/series/VIXCLS", "publisher": "Federal Reserve Bank of St. Louis / CBOE", "captured_values": {"vix_close": 82.69}},
+            {"name": "S&P 500 via FRED", "url": "https://fred.stlouisfed.org/series/SP500", "publisher": "Federal Reserve Bank of St. Louis / S&P", "captured_values": {"sp500_close": 2386.13}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "D7", "value": 0.8269, "kind": "observed", "source": "CBOE VIX via FRED"},
+            {"sheet": "Assumptions", "cell": "D11", "value": 0.8269, "kind": "observed", "source": "CBOE VIX via FRED"}
+          ],
+          "outcome": {"metric": "peak_to_trough_sp500_drawdown", "forecast": -0.30, "realized": -0.339, "realized_source": "S&P 500 via FRED", "status": "recorded"}
+        }
+      ]
+    },
+    {
+      "model_id": "14",
+      "domain": "Options & Derivatives",
+      "folder": "14_Options_Derivatives",
+      "version": "2.1.0",
+      "risk_tier": "Tier 1",
+      "approved_uses": ["European and American option valuation", "Implied-volatility and Greek analysis", "Portfolio scenario P&L", "Model-versus-market diagnostic review"],
+      "prohibited_uses": ["Exotic path-dependent valuation", "Production market making without live surface and execution systems", "Use outside documented day-count/dividend conventions"],
+      "limitations": ["Surface is illustrative rather than exchange-calibrated", "No stochastic volatility or jump diffusion", "Discrete dividends require explicit adjustment"],
+      "validation_conclusion": "Approved with limitations for public historical vanilla-option cases",
+      "monitoring": [
+        {"metric": "put_call_parity_residual", "warning": 0.01, "breach": 0.05, "action": "Block valuation release"},
+        {"metric": "implied_vol_solver_residual", "warning": 0.0001, "breach": 0.001, "action": "Escalate solver and quote quality"},
+        {"metric": "model_market_price_error_pct", "warning": 0.05, "breach": 0.15, "action": "Review surface, dividends, borrow, and microstructure"}
+      ],
+      "rollback_release": "flagship-2.1.0",
+      "retirement_trigger": "Pricing model is replaced or product scope becomes exotic",
+      "cases": [
+        {
+          "id": "options-spx-2024-01-02",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/options-reference-atm.json",
+          "output": "14_Options_Derivatives/instances/public_spx_2024_01_02.xlsx",
+          "subject": "SPX near-ATM public-market snapshot",
+          "as_of": "2024-01-02",
+          "sources": [
+            {"name": "S&P 500 via FRED", "url": "https://fred.stlouisfed.org/series/SP500", "publisher": "Federal Reserve Bank of St. Louis / S&P", "captured_values": {"spot": 4742.83}},
+            {"name": "CBOE VIX via FRED", "url": "https://fred.stlouisfed.org/series/VIXCLS", "publisher": "Federal Reserve Bank of St. Louis / CBOE", "captured_values": {"annualized_volatility": 0.132}},
+            {"name": "6-Month Treasury via FRED", "url": "https://fred.stlouisfed.org/series/DGS6MO", "publisher": "Federal Reserve Bank of St. Louis / U.S. Treasury", "captured_values": {"risk_free_rate": 0.0524}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "C5", "value": 4742.83, "kind": "observed", "source": "S&P 500 via FRED"},
+            {"sheet": "Assumptions", "cell": "C6", "value": 4750.0, "kind": "modeler_assumption", "source": "Nearest round strike"},
+            {"sheet": "Assumptions", "cell": "C8", "value": 0.0524, "kind": "observed", "source": "6-Month Treasury via FRED"},
+            {"sheet": "Assumptions", "cell": "C10", "value": 0.132, "kind": "observed", "source": "CBOE VIX via FRED"}
+          ],
+          "outcome": {"metric": "six_month_realized_volatility", "forecast": 0.132, "realized": 0.128, "realized_source": "S&P 500 daily closes via FRED", "status": "recorded"}
+        },
+        {
+          "id": "options-spx-2020-03-16",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/options-adversarial-skew.json",
+          "output": "14_Options_Derivatives/instances/public_spx_2020_03_16_adversarial.xlsx",
+          "subject": "SPX March 2020 gap-and-volatility shock",
+          "as_of": "2020-03-16",
+          "sources": [
+            {"name": "S&P 500 via FRED", "url": "https://fred.stlouisfed.org/series/SP500", "publisher": "Federal Reserve Bank of St. Louis / S&P", "captured_values": {"spot": 2386.13}},
+            {"name": "CBOE VIX via FRED", "url": "https://fred.stlouisfed.org/series/VIXCLS", "publisher": "Federal Reserve Bank of St. Louis / CBOE", "captured_values": {"annualized_volatility": 0.8269}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "D5", "value": 2386.13, "kind": "observed", "source": "S&P 500 via FRED"},
+            {"sheet": "Assumptions", "cell": "D10", "value": 0.8269, "kind": "observed", "source": "CBOE VIX via FRED"},
+            {"sheet": "Assumptions", "cell": "D14", "value": -0.339, "kind": "derived", "source": "S&P 500 peak-to-trough drawdown"}
+          ],
+          "outcome": {"metric": "three_month_realized_volatility", "forecast": 0.8269, "realized": 0.679, "realized_source": "S&P 500 daily closes via FRED", "status": "recorded"}
+        }
+      ]
+    },
+    {
+      "model_id": "18",
+      "domain": "Insurance & Actuarial",
+      "folder": "18_Insurance_Actuarial",
+      "version": "2.1.0",
+      "risk_tier": "Tier 1",
+      "approved_uses": ["Reserve-method comparison", "Underwriting profitability and combined-ratio analysis", "Embedded-value and capital stress", "Management and rating-agency challenge"],
+      "prohibited_uses": ["Signed actuarial opinion", "Statutory filing", "Line-level pricing without granular exposure and claims data"],
+      "limitations": ["Public filings do not provide a complete statutory triangle", "Tail factors and prior expectations require actuarial ownership", "Capital aggregation is simplified"],
+      "validation_conclusion": "Approved with limitations for public-company reserve and underwriting analysis",
+      "monitoring": [
+        {"metric": "reserve_development_pct", "warning": 0.05, "breach": 0.10, "action": "Re-estimate development factors and BF prior"},
+        {"metric": "combined_ratio", "warning": 0.98, "breach": 1.05, "action": "Escalate underwriting and pricing remediation"},
+        {"metric": "capital_coverage_ratio", "warning": 1.50, "breach": 1.20, "action": "Escalate capital plan and dividend constraints"}
+      ],
+      "rollback_release": "flagship-2.1.0",
+      "retirement_trigger": "Statutory data architecture or reserving methodology is replaced",
+      "cases": [
+        {
+          "id": "insurance-chubb-2023",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/insurance-reference-book.json",
+          "output": "18_Insurance_Actuarial/instances/public_chubb_2023.xlsx",
+          "subject": "Chubb 2023 underwriting and reserve profile",
+          "as_of": "2024-02-23",
+          "sources": [
+            {"name": "Chubb 2023 Form 10-K", "url": "https://www.sec.gov/Archives/edgar/data/896159/000089615924000007/cb-20231231.htm", "publisher": "U.S. SEC", "captured_values": {"loss_ratio": 0.57, "expense_ratio": 0.28, "net_premiums_usd_mm": 47359.0, "loss_reserves_usd_mm": 72000.0}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "C5", "value": 0.57, "kind": "derived", "source": "Chubb 2023 Form 10-K"},
+            {"sheet": "Assumptions", "cell": "C6", "value": 0.28, "kind": "derived", "source": "Chubb 2023 Form 10-K"},
+            {"sheet": "Assumptions", "cell": "C11", "value": 47359.0, "kind": "observed", "source": "Chubb 2023 Form 10-K"},
+            {"sheet": "Assumptions", "cell": "C14", "value": 72000.0, "kind": "observed", "source": "Chubb 2023 Form 10-K"}
+          ],
+          "outcome": {"metric": "following_year_combined_ratio", "forecast": 0.85, "realized": 0.868, "realized_source": "Chubb 2024 Form 10-K", "status": "recorded"}
+        },
+        {
+          "id": "insurance-aig-2008",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/insurance-adversarial-social-inflation.json",
+          "output": "18_Insurance_Actuarial/instances/public_aig_2008_adversarial.xlsx",
+          "subject": "AIG 2008 reserve and capital stress",
+          "as_of": "2009-03-02",
+          "sources": [
+            {"name": "AIG 2008 Form 10-K", "url": "https://www.sec.gov/Archives/edgar/data/5272/000095012309006583/y74787e10vk.htm", "publisher": "U.S. SEC", "captured_values": {"stressed_loss_ratio": 1.05, "capital_stress": 0.20}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "D5", "value": 1.05, "kind": "derived", "source": "AIG 2008 Form 10-K"},
+            {"sheet": "Assumptions", "cell": "D17", "value": 0.20, "kind": "modeler_assumption", "source": "Capital stress calibrated to public filing"}
+          ],
+          "outcome": {"metric": "government_support_required", "forecast": 1.0, "realized": 1.0, "realized_source": "Federal Reserve and U.S. Treasury intervention records", "status": "recorded"}
+        }
+      ]
+    },
+    {
+      "model_id": "19",
+      "domain": "Structured Finance & Securitization",
+      "folder": "19_Structured_Finance_Securitization",
+      "version": "2.1.0",
+      "risk_tier": "Tier 1",
+      "approved_uses": ["Collateral and tranche cash-flow analysis", "OC/IC trigger and waterfall stress", "WAL and loss sensitivity", "Investor/rating-agency challenge"],
+      "prohibited_uses": ["Rating issuance", "Legal interpretation of transaction documents", "Use without loan-level stratification for live capital"],
+      "limitations": ["Public macro delinquency series is a proxy for collateral CDR", "No stochastic prepayment/default dependence", "Servicer advances and transaction-specific triggers require document implementation"],
+      "validation_conclusion": "Approved with limitations for public macro-calibrated collateral cases",
+      "monitoring": [
+        {"metric": "collateral_loss_pct", "warning": 0.05, "breach": 0.10, "action": "Re-run tranche waterfall and rating stresses"},
+        {"metric": "oc_headroom_pct", "warning": 0.02, "breach": 0.00, "action": "Escalate diversion and payment-priority case"},
+        {"metric": "wal_extension_years", "warning": 1.0, "breach": 2.0, "action": "Reassess liquidity, price, and hedge"}
+      ],
+      "rollback_release": "flagship-2.1.0",
+      "retirement_trigger": "Transaction pays down, terminates, or collateral model is replaced",
+      "cases": [
+        {
+          "id": "securitization-fed-mortgage-2024",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/securitization-reference-pool.json",
+          "output": "19_Structured_Finance_Securitization/instances/public_fed_mortgage_2024.xlsx",
+          "subject": "U.S. mortgage delinquency-calibrated pool",
+          "as_of": "2024-01-01",
+          "sources": [
+            {"name": "Mortgage delinquency rate via FRED", "url": "https://fred.stlouisfed.org/series/DRSFRMACBS", "publisher": "Federal Reserve Board / FRED", "captured_values": {"delinquency_rate": 0.0189}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "C8", "value": 0.0189, "kind": "observed", "source": "Mortgage delinquency rate via FRED"},
+            {"sheet": "Assumptions", "cell": "C7", "value": 0.14, "kind": "modeler_assumption", "source": "Base CPR assumption"}
+          ],
+          "outcome": {"metric": "next_year_delinquency_rate", "forecast": 0.0189, "realized": 0.0179, "realized_source": "Mortgage delinquency rate via FRED", "status": "recorded"}
+        },
+        {
+          "id": "securitization-fed-mortgage-2009",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/securitization-adversarial-default.json",
+          "output": "19_Structured_Finance_Securitization/instances/public_fed_mortgage_2009_adversarial.xlsx",
+          "subject": "U.S. mortgage-crisis delinquency stress",
+          "as_of": "2009-10-01",
+          "sources": [
+            {"name": "Mortgage delinquency rate via FRED", "url": "https://fred.stlouisfed.org/series/DRSFRMACBS", "publisher": "Federal Reserve Board / FRED", "captured_values": {"delinquency_rate": 0.1014}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "D8", "value": 0.1014, "kind": "observed", "source": "Mortgage delinquency rate via FRED"},
+            {"sheet": "Assumptions", "cell": "D9", "value": 0.15, "kind": "modeler_assumption", "source": "Stressed recovery assumption"},
+            {"sheet": "Assumptions", "cell": "D10", "value": 9, "kind": "modeler_assumption", "source": "Stressed recovery lag"}
+          ],
+          "outcome": {"metric": "next_year_delinquency_rate", "forecast": 0.1014, "realized": 0.1044, "realized_source": "Mortgage delinquency rate via FRED", "status": "recorded"}
+        }
+      ]
+    },
+    {
+      "model_id": "20",
+      "domain": "Project Finance",
+      "folder": "20_Project_Finance",
+      "version": "2.1.0",
+      "risk_tier": "Tier 1",
+      "approved_uses": ["Construction funding and IDC analysis", "Debt sculpting and DSRA sizing", "DSCR/LLCR/PLCR underwriting", "Delay, cost-overrun, and availability stress"],
+      "prohibited_uses": ["Engineering certification", "Legal conclusion on concession or offtake contracts", "Live financing without transaction documents and tax model"],
+      "limitations": ["Construction schedule is aggregated", "No tax-equity or partnership-flip module", "Public benchmark costs are not a substitute for EPC and independent-engineer diligence"],
+      "validation_conclusion": "Approved with limitations for public benchmark infrastructure cases",
+      "monitoring": [
+        {"metric": "construction_cost_variance", "warning": 0.10, "breach": 0.20, "action": "Rebase funding plan and completion support"},
+        {"metric": "minimum_dscr", "warning": 1.20, "breach": 1.00, "action": "Escalate lock-up/default and restructuring case"},
+        {"metric": "schedule_delay_months", "warning": 3, "breach": 6, "action": "Recalculate IDC, liquidity, and covenant dates"}
+      ],
+      "rollback_release": "flagship-2.1.0",
+      "retirement_trigger": "Project reaches final maturity, is refinanced, or is abandoned",
+      "cases": [
+        {
+          "id": "project-nrel-solar-2024",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/project-reference-contracted.json",
+          "output": "20_Project_Finance/instances/public_nrel_solar_2024.xlsx",
+          "subject": "Utility-scale solar benchmark project",
+          "as_of": "2024-07-01",
+          "sources": [
+            {"name": "NREL Annual Technology Baseline 2024", "url": "https://atb.nrel.gov/electricity/2024/utility-scale_pv", "publisher": "U.S. National Renewable Energy Laboratory", "captured_values": {"normalized_capex_usd_mm": 900.0, "availability": 0.98}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "C5", "value": 900.0, "kind": "derived", "source": "NREL Annual Technology Baseline 2024"},
+            {"sheet": "Assumptions", "cell": "C23", "value": 0.98, "kind": "modeler_assumption", "source": "Availability assumption calibrated to public benchmark"}
+          ],
+          "outcome": {"metric": "first_operating_year_availability", "forecast": 0.98, "realized": null, "realized_source": null, "status": "future_test_defined"}
+        },
+        {
+          "id": "project-vogtle-delay",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/project-adversarial-delay.json",
+          "output": "20_Project_Finance/instances/public_vogtle_delay_adversarial.xlsx",
+          "subject": "Vogtle-style construction delay and cost-overrun stress",
+          "as_of": "2023-12-31",
+          "sources": [
+            {"name": "Georgia PSC Vogtle monitoring reports", "url": "https://psc.ga.gov/facilities-construction/project-overview/plant-vogtle-units-3-and-4/", "publisher": "Georgia Public Service Commission", "captured_values": {"normalized_cost_overrun": 0.22, "delay_months": 10}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "D5", "value": 1100.0, "kind": "derived", "source": "Georgia PSC Vogtle monitoring reports"},
+            {"sheet": "Assumptions", "cell": "D9", "value": 10, "kind": "observed", "source": "Georgia PSC Vogtle monitoring reports"}
+          ],
+          "outcome": {"metric": "delay_months", "forecast": 10, "realized": 10, "realized_source": "Georgia PSC Vogtle monitoring reports", "status": "recorded"}
+        }
+      ]
+    },
+    {
+      "model_id": "21",
+      "domain": "Fixed Income & Rates",
+      "folder": "21_Fixed_Income_Rates",
+      "version": "2.1.0",
+      "risk_tier": "Tier 1",
+      "approved_uses": ["Bond and portfolio valuation", "Duration, convexity, and key-rate risk", "Carry/roll and curve scenario analysis", "Rates P&L explain"],
+      "prohibited_uses": ["Complex callable/putable valuation", "Regulatory IRRBB submission", "Use without instrument-specific conventions and accrued interest"],
+      "limitations": ["Curve is deterministic", "No OAS or embedded-option lattice", "Credit spread and default are simplified"],
+      "validation_conclusion": "Approved with limitations for U.S. Treasury and plain-vanilla bond cases",
+      "monitoring": [
+        {"metric": "price_oracle_residual", "warning": 0.0001, "breach": 0.001, "action": "Block valuation release"},
+        {"metric": "key_rate_reconciliation_pct", "warning": 0.02, "breach": 0.05, "action": "Review curve mapping and interpolation"},
+        {"metric": "pnl_explain_unexplained_pct", "warning": 0.10, "breach": 0.20, "action": "Escalate model and market-data review"}
+      ],
+      "rollback_release": "flagship-2.1.0",
+      "retirement_trigger": "Instrument portfolio or curve methodology is replaced",
+      "cases": [
+        {
+          "id": "rates-treasury-2025-12-01",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/rates-reference-curve.json",
+          "output": "21_Fixed_Income_Rates/instances/public_treasury_2025_12_01.xlsx",
+          "subject": "U.S. Treasury curve snapshot",
+          "as_of": "2025-12-01",
+          "sources": [
+            {"name": "Daily Treasury Par Yield Curve Rates", "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202512&type=daily_treasury_yield_curve", "publisher": "U.S. Department of the Treasury", "captured_values": {"ten_year_yield": 0.0409, "thirty_year_yield": 0.0474}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "C7", "value": 0.0409, "kind": "observed", "source": "Daily Treasury Par Yield Curve Rates"}
+          ],
+          "outcome": {"metric": "one_month_ten_year_yield_change_bps", "forecast": 0.0, "realized": -12.0, "realized_source": "Daily Treasury Par Yield Curve Rates", "status": "recorded"}
+        },
+        {
+          "id": "rates-treasury-2022-shock",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+          "output": "21_Fixed_Income_Rates/instances/public_treasury_2022_shock.xlsx",
+          "subject": "2022 Treasury bear-market stress",
+          "as_of": "2022-10-21",
+          "sources": [
+            {"name": "Daily Treasury Par Yield Curve Rates", "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates", "publisher": "U.S. Department of the Treasury", "captured_values": {"ten_year_yield": 0.0423, "thirty_year_yield": 0.0434}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "D7", "value": 0.0423, "kind": "observed", "source": "Daily Treasury Par Yield Curve Rates"},
+            {"sheet": "Zero Curve", "cell": "D14", "value": 0.0434, "kind": "observed", "source": "Daily Treasury Par Yield Curve Rates"}
+          ],
+          "outcome": {"metric": "year_end_ten_year_yield", "forecast": 0.0423, "realized": 0.0388, "realized_source": "Daily Treasury Par Yield Curve Rates", "status": "recorded"}
+        }
+      ]
+    },
+    {
+      "model_id": "22",
+      "domain": "Quantitative & Systematic",
+      "folder": "22_Quantitative_Systematic",
+      "version": "2.1.0",
+      "risk_tier": "Tier 1",
+      "approved_uses": ["Point-in-time research backtests", "Cost and capacity analysis", "Walk-forward validation", "Backtest-to-live monitoring"],
+      "prohibited_uses": ["Live trading without execution/risk controls", "Use of revised data without vintage handling", "Performance claims without cost and capacity treatment"],
+      "limitations": ["Single-strategy workbook", "No portfolio optimizer or borrow model", "Public index series is a research proxy and may have redistribution restrictions"],
+      "validation_conclusion": "Approved with limitations for public historical index-research cases",
+      "monitoring": [
+        {"metric": "live_sharpe_degradation", "warning": -0.50, "breach": -1.00, "action": "Reduce risk and revalidate signal"},
+        {"metric": "cost_slippage_bps", "warning": 5, "breach": 10, "action": "Recalibrate implementation shortfall and capacity"},
+        {"metric": "drawdown", "warning": -0.15, "breach": -0.20, "action": "Escalate stop, regime, and retirement review"}
+      ],
+      "rollback_release": "flagship-2.1.0",
+      "retirement_trigger": "Signal loses economic rationale, live degradation breaches threshold, or data process is invalidated",
+      "cases": [
+        {
+          "id": "quant-sp500-2019-2023",
+          "type": "conventional",
+          "based_on": "standards/benchmark_cases/quant-reference-costed.json",
+          "output": "22_Quantitative_Systematic/instances/public_sp500_2019_2023.xlsx",
+          "subject": "Monthly S&P 500 public-index research series",
+          "as_of": "2023-12-29",
+          "sources": [
+            {"name": "S&P 500 via FRED", "url": "https://fred.stlouisfed.org/series/SP500", "publisher": "Federal Reserve Bank of St. Louis / S&P", "captured_values": {"series_start": "2019-01-01", "series_end": "2023-12-31", "periods": 60}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "C7", "value": 10.0, "kind": "modeler_assumption", "source": "Public-market implementation-cost assumption"}
+          ],
+          "series": {"target_sheet": "Backtest", "target_column": "C", "start_row": 5, "periods": 60, "source": "S&P 500 via FRED", "transform": "monthly_total_return_proxy"},
+          "outcome": {"metric": "2024_net_return", "forecast": 0.10, "realized": 0.234, "realized_source": "S&P 500 via FRED", "status": "recorded"}
+        },
+        {
+          "id": "quant-sp500-2020-2024-capacity",
+          "type": "adversarial",
+          "based_on": "standards/benchmark_cases/quant-adversarial-capacity.json",
+          "output": "22_Quantitative_Systematic/instances/public_sp500_2020_2024_capacity.xlsx",
+          "subject": "COVID shock and capacity-stress research series",
+          "as_of": "2024-12-31",
+          "sources": [
+            {"name": "S&P 500 via FRED", "url": "https://fred.stlouisfed.org/series/SP500", "publisher": "Federal Reserve Bank of St. Louis / S&P", "captured_values": {"series_start": "2020-01-01", "series_end": "2024-12-31", "periods": 60}}
+          ],
+          "overrides": [
+            {"sheet": "Assumptions", "cell": "D7", "value": 20.0, "kind": "modeler_assumption", "source": "Stressed transaction-cost assumption"},
+            {"sheet": "Assumptions", "cell": "D9", "value": 250.0, "kind": "modeler_assumption", "source": "Stressed capital assumption"}
+          ],
+          "series": {"target_sheet": "Backtest", "target_column": "C", "start_row": 5, "periods": 60, "source": "S&P 500 via FRED", "transform": "monthly_total_return_proxy"},
+          "outcome": {"metric": "max_drawdown_2020_2024", "forecast": -0.20, "realized": -0.339, "realized_source": "S&P 500 via FRED", "status": "recorded"}
+        }
+      ]
+    }
+  ]
+}

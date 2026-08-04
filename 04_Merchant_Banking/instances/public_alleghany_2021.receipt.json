@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "merchant-alleghany-2021",
+  "as_of": "2022-02-24",
+  "manifest": "standards/public_cases/merchant-alleghany-2021.json",
+  "template": "04_Merchant_Banking/_template_LBO.xlsx",
+  "output": "04_Merchant_Banking/instances/public_alleghany_2021.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "previous": 600,
+      "value": 12004.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/775368/000077536822000010/y-20211231.htm",
+      "source_as_of": "2022-02-24"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "previous": 0.2,
+      "value": 0.105,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/775368/000077536822000010/y-20211231.htm",
+      "source_as_of": "2022-02-24"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "previous": 0.06,
+      "value": 0.23,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/775368/000077536822000010/y-20211231.htm",
+      "source_as_of": "2022-02-24"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C19",
+      "previous": 4,
+      "value": 3.5,
+      "source_url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
+      "source_as_of": "2022-02-24"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C22",
+      "previous": 1.5,
+      "value": 0.75,
+      "source_url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
+      "source_as_of": "2022-02-24"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C29",
+      "previous": 5,
+      "value": 7,
+      "source_url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
+      "source_as_of": "2022-02-24"
+    }
+  ],
+  "workbook_sha256": "739b10ad93cb2b444a8f1acd7fa9d208798cf3f3e29874439777069d2267c0fb",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

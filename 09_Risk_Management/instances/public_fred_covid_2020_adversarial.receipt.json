@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "risk-fred-covid-2020",
+  "as_of": "2020-03-16",
+  "manifest": "standards/public_cases/risk-fred-covid-2020.json",
+  "template": "09_Risk_Management/_template_RISK.xlsx",
+  "output": "09_Risk_Management/instances/public_fred_covid_2020_adversarial.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "previous": 0.35,
+      "value": 0.8269,
+      "source_url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "source_as_of": "2020-03-16"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D12",
+      "previous": 10,
+      "value": 8.0,
+      "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
+      "source_as_of": "2020-03-16"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D13",
+      "previous": 30,
+      "value": 22.0,
+      "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
+      "source_as_of": "2020-03-16"
+    },
+    {
+      "sheet": "Positions",
+      "cell": "E6",
+      "previous": 35,
+      "value": 90.0,
+      "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
+      "source_as_of": "2020-03-16"
+    },
+    {
+      "sheet": "Positions",
+      "cell": "M14",
+      "previous": 20,
+      "value": 35.0,
+      "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
+      "source_as_of": "2020-03-16"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "previous": 0.5,
+      "value": 0.8269,
+      "source_url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "source_as_of": "2020-03-16"
+    }
+  ],
+  "workbook_sha256": "b48560c321717e952f53a7514129a5dd88900b70a4d3e9809f0e37b81bc62528",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

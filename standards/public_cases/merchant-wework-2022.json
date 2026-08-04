@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "id": "merchant-wework-2022",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "04_Merchant_Banking/_template_LBO.xlsx",
+  "output": "04_Merchant_Banking/instances/public_wework_2022_adversarial.xlsx",
+  "as_of": "2023-03-29",
+  "scenario": "Downside",
+  "cover": {
+    "Target / transaction:": "WeWork pre-bankruptcy holdco stress",
+    "Sponsor / principal:": "Benchmark Merchant Bank"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": -0.25,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "WeWork 2022 downside calibrated to public filing",
+        "url": "repo://04_Merchant_Banking/sources/snapshots/merchant-wework-2022.json",
+        "as_of": "2023-03-29",
+        "notes": "Modeler-owned assumption documented in frozen snapshot"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D20",
+      "value": 0.145,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Distressed holdco financing assumption",
+        "url": "repo://04_Merchant_Banking/sources/snapshots/merchant-wework-2022.json",
+        "as_of": "2023-03-29",
+        "notes": "Modeler-owned assumption documented in frozen snapshot"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D24",
+      "value": 0.08,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from merchant-adversarial-holdco.json",
+        "url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+        "as_of": "2023-03-29",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D28",
+      "value": 6.5,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from merchant-adversarial-holdco.json",
+        "url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+        "as_of": "2023-03-29",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "WeWork 2022 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1813756/000181375623000019/we-20221231.htm",
+      "as_of": "2023-03-29",
+      "notes": "U.S. SEC; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://04_Merchant_Banking/sources/snapshots/merchant-wework-2022.json",
+      "as_of": "2023-03-29",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://04_Merchant_Banking/sources/snapshots/merchant-wework-2022.json",
+    "what_changed": "Generated public case merchant-wework-2022 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

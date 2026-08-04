@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "model_id": "20",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "construction_cost_variance",
+      "warning": 0.1,
+      "breach": 0.2,
+      "action": "Rebase funding plan and completion support"
+    },
+    {
+      "metric": "minimum_dscr",
+      "warning": 1.2,
+      "breach": 1.0,
+      "action": "Escalate lock-up/default and restructuring case"
+    },
+    {
+      "metric": "schedule_delay_months",
+      "warning": 3,
+      "breach": 6,
+      "action": "Recalculate IDC, liquidity, and covenant dates"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

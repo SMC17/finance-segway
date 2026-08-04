@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-08-04",
+  "flagships": 9,
+  "errors": [],
+  "warnings": [
+    "03: stakeholder sign-off pending",
+    "04: stakeholder sign-off pending",
+    "09: stakeholder sign-off pending",
+    "14: stakeholder sign-off pending",
+    "18: stakeholder sign-off pending",
+    "19: stakeholder sign-off pending",
+    "20: stakeholder sign-off pending",
+    "21: stakeholder sign-off pending",
+    "22: stakeholder sign-off pending"
+  ],
+  "results": [
+    {
+      "model_id": "03",
+      "domain": "Private Equity",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 2,
+      "m3_ready": false,
+      "m4_ready": false
+    },
+    {
+      "model_id": "04",
+      "domain": "Merchant Banking",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 2,
+      "m3_ready": false,
+      "m4_ready": false
+    },
+    {
+      "model_id": "09",
+      "domain": "Risk Management",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 2,
+      "m3_ready": false,
+      "m4_ready": false
+    },
+    {
+      "model_id": "14",
+      "domain": "Options & Derivatives",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 2,
+      "m3_ready": false,
+      "m4_ready": false
+    },
+    {
+      "model_id": "18",
+      "domain": "Insurance & Actuarial",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 2,
+      "m3_ready": false,
+      "m4_ready": false
+    },
+    {
+      "model_id": "19",
+      "domain": "Structured Finance & Securitization",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 2,
+      "m3_ready": false,
+      "m4_ready": false
+    },
+    {
+      "model_id": "20",
+      "domain": "Project Finance",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 1,
+      "m3_ready": false,
+      "m4_ready": false
+    },
+    {
+      "model_id": "21",
+      "domain": "Fixed Income & Rates",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 2,
+      "m3_ready": false,
+      "m4_ready": false
+    },
+    {
+      "model_id": "22",
+      "domain": "Quantitative & Systematic",
+      "declared_maturity": "M2",
+      "stakeholder_signoff": "pending_stakeholder_review",
+      "public_cases": 2,
+      "recorded_outcomes": 2,
+      "m3_ready": false,
+      "m4_ready": false
+    }
+  ],
+  "status": "PASS",
+  "m3_promoted": 0,
+  "m4_promoted": 0,
+  "statement": "No maturity promotion occurs without human sign-off and maintained-operation evidence."
+}

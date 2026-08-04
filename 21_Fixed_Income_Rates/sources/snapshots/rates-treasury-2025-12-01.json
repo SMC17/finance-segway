@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "model_id": "21",
+  "domain": "Fixed Income & Rates",
+  "case_id": "rates-treasury-2025-12-01",
+  "case_type": "conventional",
+  "as_of": "2025-12-01",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Daily Treasury Par Yield Curve Rates",
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202512&type=daily_treasury_yield_curve",
+      "publisher": "U.S. Department of the Treasury",
+      "captured_values": {
+        "ten_year_yield": 0.0409,
+        "thirty_year_yield": 0.0474
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.0409,
+      "kind": "observed",
+      "source": "Daily Treasury Par Yield Curve Rates"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "one_month_ten_year_yield_change_bps",
+    "forecast": 0.0,
+    "realized": -12.0,
+    "realized_source": "Daily Treasury Par Yield Curve Rates",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "ad24ae62d6d2c10725170cd37047a825a622088a740e8e8ee8f7fcddc773edea"
+}
