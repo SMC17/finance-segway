@@ -1,7 +1,9 @@
 """Canonical release wrapper for the institutional risk-management builder.
 
 Adds position-level standalone and Euler component VaR, stress contribution,
-and liquidity-adjusted VaR to the core portfolio risk workbook.
+and liquidity-adjusted VaR to the core portfolio risk workbook. Modern Excel
+statistical names and unsupported range-array formulas are rewritten to the
+portable scalar equivalents used by both Excel and LibreOffice.
 """
 from __future__ import annotations
 
@@ -14,6 +16,7 @@ from openpyxl.utils import get_column_letter
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_risk_institutional import build as build_layout  # noqa: E402
+from formula_compatibility import normalize_workbook_formulas  # noqa: E402
 from institutional_helpers import CUR, PCT2, add_status_rules, finalize, header, set_widths, title, total_row  # noqa: E402
 
 FACTOR_POSITION_COLUMNS = [14, 15, 16, 17, 18]  # N:R on Positions
@@ -57,6 +60,23 @@ def _portfolio_covariance_formula(row: int) -> str:
 def build(output: Path) -> None:
     build_layout(output)
     workbook = load_workbook(output)
+
+    # Scalarize the liquidity penalty in each stress scenario. SUMPRODUCT with
+    # ABS/MAX over two ranges is not consistently evaluated outside Excel.
+    stress = workbook["Stress"]
+    liquidity_terms = "+".join(
+        f"ABS(Positions!$D${row})*MAX(0,Positions!$M${row}-1)"
+        for row in POSITION_ROWS
+    )
+    for row in range(5, 11):
+        stress.cell(
+            row,
+            9,
+            f"=SUMPRODUCT(Factors!$C$5:$C$9,C{row}:G{row})-"
+            f"({liquidity_terms})*Assumptions!$E$17*(1-H{row})",
+        )
+        stress.cell(row, 9).number_format = CUR
+
     if "Risk Contributions" in workbook.sheetnames:
         del workbook["Risk Contributions"]
     position = workbook.sheetnames.index("VaR & ES") + 1
@@ -137,6 +157,7 @@ def build(output: Path) -> None:
         "G": 18, "H": 16, "I": 20, "J": 18,
     })
     sheet.freeze_panes = "B5"
+    normalize_workbook_formulas(workbook)
     finalize(workbook, output)
 
 
