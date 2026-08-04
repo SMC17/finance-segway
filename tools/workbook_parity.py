@@ -3,14 +3,17 @@
 Semantic parity covers sheet order/state, formulas, hardcoded values, defined
 names, and external-link state. Presentation parity separately records number
 formats, styles, dimensions, merges, validations, conditional formatting, and
-calculation settings. Harmless Excel/LibreOffice formula serialization variants
-are canonicalized before semantic comparison.
+calculation settings. Harmless Excel/LibreOffice serialization variants are
+canonicalized before semantic comparison.
 """
 from __future__ import annotations
 
 import hashlib
 import json
+import math
 import re
+from decimal import Decimal
+from numbers import Real
 from pathlib import Path
 from typing import Any
 
@@ -18,16 +21,76 @@ from openpyxl import load_workbook
 
 _SIMPLE_QUOTED_SHEET = re.compile(r"'([A-Za-z_][A-Za-z0-9_]*)'!")
 _BOOLEAN_CALL = re.compile(r"\b(TRUE|FALSE)\(\)", re.IGNORECASE)
-_SCIENTIFIC_ZERO_PADDING = re.compile(r"(?<![A-Z0-9_.])(\d+(?:\.\d+)?)[Ee]\+?0*(\d+)(?![A-Z0-9_.])")
+_SCIENTIFIC_ZERO_PADDING = re.compile(
+    r"(?<![A-Z0-9_.$])(\d+(?:\.\d+)?)[Ee]\+?0*(\d+)(?![A-Z0-9_.$])"
+)
+# Only decimal literals are normalized here. Integers are left untouched so
+# row/column references and explicit integer assumptions remain transparent.
+# The reference guards exclude A1, $A$1, identifiers, and decimal fragments.
+_DECIMAL_LITERAL = re.compile(
+    r"(?<![A-Za-z0-9_.$])((?:\d+\.\d+)|(?:\d+\.))(?![A-Za-z0-9_.$])"
+)
+_SEMANTIC_SIGNIFICANT_DIGITS = 12
+
+
+def _normalize_decimal_literal(match: re.Match[str]) -> str:
+    value = Decimal(match.group(1))
+    normalized = format(value.normalize(), "f")
+    if "." in normalized:
+        normalized = normalized.rstrip("0").rstrip(".")
+    return normalized or "0"
+
+
+def _normalize_formula_segment(segment: str) -> str:
+    segment = _SIMPLE_QUOTED_SHEET.sub(r"\1!", segment)
+    segment = _BOOLEAN_CALL.sub(lambda match: match.group(1).upper(), segment)
+    segment = _SCIENTIFIC_ZERO_PADDING.sub(
+        lambda match: f"{_normalize_decimal_literal_from_text(match.group(1))}E{int(match.group(2))}",
+        segment,
+    )
+    segment = _DECIMAL_LITERAL.sub(_normalize_decimal_literal, segment)
+    return segment
+
+
+def _normalize_decimal_literal_from_text(text: str) -> str:
+    value = Decimal(text)
+    normalized = format(value.normalize(), "f")
+    if "." in normalized:
+        normalized = normalized.rstrip("0").rstrip(".")
+    return normalized or "0"
 
 
 def normalize_formula(formula: str) -> str:
-    """Canonicalize equivalent formula serialization without changing logic."""
+    """Canonicalize equivalent formula serialization without changing logic.
+
+    Formula text inside quoted Excel strings is preserved byte-for-byte. Outside
+    strings, the normalizer removes unnecessary sheet quotes, Boolean call
+    parentheses, exponent zero padding, and trailing decimal zeros. It does not
+    round formula constants, so a material assumption change remains a failure.
+    """
     normalized = formula.strip()
-    normalized = _SIMPLE_QUOTED_SHEET.sub(r"\1!", normalized)
-    normalized = _BOOLEAN_CALL.sub(lambda match: match.group(1).upper(), normalized)
-    normalized = _SCIENTIFIC_ZERO_PADDING.sub(lambda match: f"{match.group(1)}E{int(match.group(2))}", normalized)
-    return normalized
+    pieces = normalized.split('"')
+    for index in range(0, len(pieces), 2):
+        pieces[index] = _normalize_formula_segment(pieces[index])
+    return '"'.join(pieces)
+
+
+def _canonical_number(value: Real) -> str:
+    """Return deterministic spreadsheet precision for hardcoded numerics.
+
+    Excel and LibreOffice round-trip IEEE-754 values with slightly different
+    final digits. Twelve significant digits is stricter than displayed precision
+    in the model library while eliminating binary serialization noise. NaN and
+    infinities remain explicit and therefore auditable.
+    """
+    numeric = float(value)
+    if math.isnan(numeric):
+        return "NaN"
+    if math.isinf(numeric):
+        return "Infinity" if numeric > 0 else "-Infinity"
+    if numeric == 0:
+        return "0"
+    return format(numeric, f".{_SEMANTIC_SIGNIFICANT_DIGITS}g")
 
 
 def _color(value: Any) -> str | None:
@@ -54,6 +117,9 @@ def _semantic_cell(cell: Any) -> dict[str, Any]:
         value = normalize_formula(value)
     elif value is None:
         kind = "blank"
+    elif isinstance(value, Real) and not isinstance(value, bool):
+        kind = "number"
+        value = _canonical_number(value)
     else:
         kind = type(value).__name__
     return {"coordinate": cell.coordinate, "kind": kind, "value": value}
