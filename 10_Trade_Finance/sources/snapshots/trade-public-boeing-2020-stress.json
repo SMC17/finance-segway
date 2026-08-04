@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "model_id": "10",
+  "domain": "Trade Finance",
+  "case_id": "trade-public-boeing-2020-stress",
+  "case_type": "adversarial",
+  "as_of": "2020-12-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Boeing 2020 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/12927/000001292721000011/ba-20201231.htm",
+      "publisher": "U.S. SEC / Boeing",
+      "captured_values": {
+        "revenue_2019_usd_mm": 76559.0,
+        "costs_2019_usd_mm": 72093.0,
+        "receivables_2019_usd_mm": 3266.0,
+        "inventory_2019_usd_mm": 76622.0,
+        "payables_2019_usd_mm": 15553.0,
+        "revenue_2020_usd_mm": 58158.0,
+        "costs_2020_usd_mm": 63843.0,
+        "receivables_2020_usd_mm": 1955.0,
+        "inventory_2020_usd_mm": 81715.0,
+        "payables_2020_usd_mm": 12928.0
+      }
+    },
+    {
+      "name": "Boeing 2021 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/12927/000001292722000010/ba-20211231.htm",
+      "publisher": "U.S. SEC / Boeing",
+      "captured_values": {
+        "revenue_2021_usd_mm": 62286.0
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C5",
+      "value": 58158.0,
+      "kind": "observed",
+      "source": "Boeing 2020 Form 10-K"
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C6",
+      "value": 63843.0,
+      "kind": "observed",
+      "source": "Boeing 2020 Form 10-K"
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C7",
+      "value": 1955.0,
+      "kind": "observed",
+      "source": "Boeing 2020 Form 10-K"
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C8",
+      "value": 81715.0,
+      "kind": "observed",
+      "source": "Boeing 2020 Form 10-K"
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C9",
+      "value": 12928.0,
+      "kind": "observed",
+      "source": "Boeing 2020 Form 10-K"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "next_year_revenue_usd_mm",
+    "forecast": 55000.0,
+    "realized": 62286.0,
+    "realized_source": "Boeing 2021 Form 10-K",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "4aa9f2280b022f0cc61af4b0b50d191ad862f12cc4e5636f49cc331affc7d5a7"
+}

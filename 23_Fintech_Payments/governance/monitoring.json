@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "model_id": "23",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "fraud_bps",
+      "warning": 50,
+      "breach": 100,
+      "action": "Escalate fraud controls, pricing and merchant exposure"
+    },
+    {
+      "metric": "liquidity_coverage",
+      "warning": 1.1,
+      "breach": 1.0,
+      "action": "Escalate unrestricted liquidity and settlement obligations"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

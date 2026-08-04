@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "model_id": "24",
+  "domain": "Distressed & Restructuring",
+  "case_id": "distressed-public-hertz-2021-reorganization",
+  "case_type": "conventional",
+  "as_of": "2021-06-30",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Hertz 2021 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785322000012/htz-20211231.htm",
+      "publisher": "U.S. SEC / Hertz",
+      "captured_values": {
+        "emergence_cash_usd_bn": 7.5,
+        "sponsor_common_equity_usd_bn": 2.8,
+        "rights_offering_usd_bn": 1.6,
+        "preferred_equity_usd_bn": 1.5,
+        "term_loan_usd_bn": 1.5
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "New Money",
+      "cell": "C5",
+      "value": 7500.0,
+      "kind": "observed",
+      "source": "Hertz 2021 Form 10-K"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "chapter_11_emergence_completed",
+    "forecast": 1.0,
+    "realized": 1.0,
+    "realized_source": "Hertz 2021 Form 10-K",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "fcb0669ea127a18435a92a0fa1b446ff69664e64607e9a100c202aa61ab73519"
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "model_id": "11",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "par30",
+      "warning": 0.05,
+      "breach": 0.1,
+      "action": "Escalate collections, provisioning and client-protection review"
+    },
+    {
+      "metric": "operational_self_sufficiency",
+      "warning": 1.05,
+      "breach": 1.0,
+      "action": "Re-underwrite pricing, cost base and subsidy dependence"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

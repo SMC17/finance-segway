@@ -1,0 +1,288 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "am-public-blackrock-2023",
+  "as_of": "2023-12-31",
+  "manifest": "standards/public_cases/am-public-blackrock-2023.json",
+  "template": "08_Asset_Management/_template_AM.xlsx",
+  "output": "08_Asset_Management/instances/public_blackrock_2023.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Fund NAV",
+      "cell": "C5",
+      "previous": 0,
+      "value": 8594.485,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C6",
+      "previous": 0,
+      "value": 288.695,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C7",
+      "previous": 0,
+      "value": 1125.815,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C8",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C9",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "D6",
+      "previous": 0,
+      "value": 10.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "D7",
+      "previous": 0,
+      "value": 7.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "D8",
+      "previous": 0,
+      "value": 2.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "D9",
+      "previous": 0,
+      "value": 4.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "E6",
+      "previous": 0,
+      "value": 5.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "E7",
+      "previous": 0,
+      "value": 5.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "E8",
+      "previous": 0,
+      "value": 2.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "E9",
+      "previous": 0,
+      "value": 4.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "F6",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "F7",
+      "previous": 0,
+      "value": 4.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "F8",
+      "previous": 0,
+      "value": 2.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "F9",
+      "previous": 0,
+      "value": 6.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C5",
+      "previous": 0,
+      "value": 100.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C6",
+      "previous": 0.02,
+      "value": 80.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C7",
+      "previous": 0.08,
+      "value": 0.08,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C8",
+      "previous": 0.2,
+      "value": 0.2,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C9",
+      "previous": 1,
+      "value": 1.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C10",
+      "previous": 0,
+      "value": 100.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Return Measurement",
+      "cell": "C14",
+      "previous": 0,
+      "value": 0.08,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C5",
+      "previous": 150,
+      "value": 150.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C6",
+      "previous": 60,
+      "value": 60.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C8",
+      "previous": 35,
+      "value": 35.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C9",
+      "previous": 15,
+      "value": 15.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C10",
+      "previous": 12,
+      "value": 12.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C11",
+      "previous": 8,
+      "value": 8.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C12",
+      "previous": 30,
+      "value": 30.0,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C13",
+      "previous": 0.4,
+      "value": 0.4,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C14",
+      "previous": 0.25,
+      "value": 0.25,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C15",
+      "previous": 1.2,
+      "value": 1.2,
+      "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
+      "source_as_of": "2023-12-31"
+    }
+  ],
+  "workbook_sha256": "d5a00bdef7d92d2578ceb7c40ee8073291a9c48f2e4f513763effa225e6f688e",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "recalculated_on": "2026-08-04",
+  "recalculation_engine": "LibreOffice Calc",
+  "counts_toward_M4": false
+}

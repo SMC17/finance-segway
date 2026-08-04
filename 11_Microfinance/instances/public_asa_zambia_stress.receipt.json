@@ -1,0 +1,152 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "microfinance-public-asa-zambia-stress",
+  "as_of": "2025-12-31",
+  "manifest": "standards/public_cases/microfinance-public-asa-zambia-stress.json",
+  "template": "11_Microfinance/_template_MICROFINANCE.xlsx",
+  "output": "11_Microfinance/instances/public_asa_zambia_stress.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C5",
+      "previous": 0,
+      "value": 7.5,
+      "source_url": "https://zambia.asa-international.com/",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C6",
+      "previous": 0,
+      "value": 35.0,
+      "source_url": "https://zambia.asa-international.com/",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C7",
+      "previous": 0,
+      "value": 0.69,
+      "source_url": "https://zambia.asa-international.com/",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C8",
+      "previous": 0,
+      "value": 20.0,
+      "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C9",
+      "previous": 0,
+      "value": 8.0,
+      "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C10",
+      "previous": 0,
+      "value": 0.214286,
+      "source_url": "https://zambia.asa-international.com/",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C5",
+      "previous": 0,
+      "value": 8.0,
+      "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C6",
+      "previous": 0,
+      "value": 5.0,
+      "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C7",
+      "previous": 0,
+      "value": 8.0,
+      "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C8",
+      "previous": 0,
+      "value": 10.0,
+      "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C9",
+      "previous": 0,
+      "value": 2.0,
+      "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C5",
+      "previous": 0,
+      "value": 40.0,
+      "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C6",
+      "previous": 0,
+      "value": 20.0,
+      "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C7",
+      "previous": 0,
+      "value": 15.0,
+      "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C8",
+      "previous": 0,
+      "value": 7.0,
+      "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C12",
+      "previous": 0,
+      "value": 10.0,
+      "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Portfolio Rollforward",
+      "cell": "C3",
+      "previous": "Base",
+      "value": "Downside",
+      "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
+      "source_as_of": "2025-12-31"
+    }
+  ],
+  "workbook_sha256": "6af3a1009434f22381fe9d1519cb06bbc4aa1d31e2884e0fb8b2b4bf4fea475e",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "recalculated_on": "2026-08-04",
+  "recalculation_engine": "LibreOffice Calc",
+  "counts_toward_M4": false
+}

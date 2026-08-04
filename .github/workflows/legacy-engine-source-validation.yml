@@ -1,0 +1,65 @@
+name: Legacy Engine Source Validation
+
+on:
+  pull_request:
+    paths:
+      - "tools/release_legacy_engine_promotions.py"
+      - "tools/validate_legacy_engine_hardening.py"
+      - "tools/validate_legacy_release_workbooks.py"
+      - "tools/legacy_engine_oracles.py"
+      - "tools/builders/legacy_frontier_release.py"
+      - "tools/builders/build_*_release.py"
+      - "standards/frontier/legacy_engine_registry.json"
+      - "tests/test_legacy_engine_hardening.py"
+      - "tests/test_legacy_release_workbooks.py"
+      - "tests/test_legacy_engine_release.py"
+      - ".github/workflows/legacy-engine-source-validation.yml"
+  push:
+    branches:
+      - agent/all-domain-m3-evidence-network-risk
+    paths:
+      - "tools/release_legacy_engine_promotions.py"
+      - "tools/validate_legacy_engine_hardening.py"
+      - "tools/validate_legacy_release_workbooks.py"
+      - "tools/legacy_engine_oracles.py"
+      - "tools/builders/legacy_frontier_release.py"
+      - "tools/builders/build_*_release.py"
+      - "standards/frontier/legacy_engine_registry.json"
+      - "tests/test_legacy_engine_hardening.py"
+      - "tests/test_legacy_release_workbooks.py"
+      - "tests/test_legacy_engine_release.py"
+      - ".github/workflows/legacy-engine-source-validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Compile release source
+        run: python -m compileall -q tools tests
+      - name: Test independent oracles and release phase
+        run: PYTHONPATH=. python -m unittest tests.test_legacy_engine_hardening -v
+      - name: Test six clean release workbooks
+        run: PYTHONPATH=. python -m unittest tests.test_legacy_release_workbooks -v
+      - name: Test atomic manifest and path contract
+        run: PYTHONPATH=. python -m unittest tests.test_legacy_engine_release -v
+      - name: Validate current hardening phase
+        run: |
+          PYTHONPATH=. python tools/validate_legacy_engine_hardening.py \
+            --report legacy-engine-source-validation-report.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: legacy-engine-source-${{ github.event_name }}
+          path: legacy-engine-source-validation-report.json
+          if-no-files-found: warn
+          retention-days: 30

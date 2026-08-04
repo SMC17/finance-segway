@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "commodities-public-wti-april-2020",
+  "as_of": "2020-04-20",
+  "manifest": "standards/public_cases/commodities-public-wti-april-2020.json",
+  "template": "15_Commodities/_template_COMMODITIES.xlsx",
+  "output": "15_Commodities/instances/public_wti_april_2020.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Hedging",
+      "cell": "C5",
+      "previous": 0,
+      "value": 500.0,
+      "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Hedging",
+      "cell": "C6",
+      "previous": 1000,
+      "value": 100.0,
+      "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Hedging",
+      "cell": "C7",
+      "previous": 0,
+      "value": -37.63,
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=43495",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Hedging",
+      "cell": "C8",
+      "previous": 0,
+      "value": 20.43,
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=43495",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Hedging",
+      "cell": "C9",
+      "previous": 1,
+      "value": 0.0,
+      "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Hedging",
+      "cell": "C10",
+      "previous": null,
+      "value": 2.0,
+      "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D7",
+      "previous": 0.07,
+      "value": 0.02,
+      "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D8",
+      "previous": 0.2,
+      "value": 0.3,
+      "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D9",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D10",
+      "previous": 0.25,
+      "value": 0.25,
+      "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D11",
+      "previous": 20,
+      "value": 20.0,
+      "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D12",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D13",
+      "previous": 10,
+      "value": 10.0,
+      "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D14",
+      "previous": 25,
+      "value": 60.0,
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=43495",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D15",
+      "previous": 5,
+      "value": 5.0,
+      "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D16",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D17",
+      "previous": 5,
+      "value": 5.0,
+      "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+      "source_as_of": "2020-04-20"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D18",
+      "previous": 1.1,
+      "value": 0.76,
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=43495",
+      "source_as_of": "2020-04-20"
+    }
+  ],
+  "workbook_sha256": "21d08a70cd3c44494f93c8257244bc4f22d84b08086b9274e5a7a3535b3ad27b",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "recalculated_on": "2026-08-04",
+  "recalculation_engine": "LibreOffice Calc",
+  "counts_toward_M4": false
+}

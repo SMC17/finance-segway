@@ -1,0 +1,196 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "public-reference-stable",
+  "as_of": "2026-08-04",
+  "manifest": "standards/benchmark_cases/public-reference-stable.json",
+  "template": "07_Public_Finance/_template_PUBLIC_FINANCE.xlsx",
+  "output": "07_Public_Finance/instances/benchmark_reference_stable.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C5",
+      "previous": 0.6,
+      "value": 0.6,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D5",
+      "previous": 1.2,
+      "value": 0.6,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C6",
+      "previous": 0.05,
+      "value": 0.05,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D6",
+      "previous": 0.1,
+      "value": 0.05,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C7",
+      "previous": 0.04,
+      "value": 0.04,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D7",
+      "previous": 0.01,
+      "value": 0.04,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C8",
+      "previous": 0.015,
+      "value": 0.015,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D8",
+      "previous": -0.03,
+      "value": 0.015,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C9",
+      "previous": 120,
+      "value": 120.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D9",
+      "previous": 50,
+      "value": 120.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C10",
+      "previous": 80,
+      "value": 80.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D10",
+      "previous": 70,
+      "value": 80.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C11",
+      "previous": 20,
+      "value": 20.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D11",
+      "previous": 5,
+      "value": 20.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C12",
+      "previous": 100,
+      "value": 100.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D12",
+      "previous": 100,
+      "value": 100.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C13",
+      "previous": 1,
+      "value": 1.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D13",
+      "previous": 1,
+      "value": 1.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C14",
+      "previous": 1.2,
+      "value": 1.2,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D14",
+      "previous": 1.2,
+      "value": 1.2,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C15",
+      "previous": 0.1,
+      "value": 0.1,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D15",
+      "previous": 0.1,
+      "value": 0.1,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    }
+  ],
+  "workbook_sha256": "f042251ca424f07b1b935dc5d66ab0c029bfe74848572c5a494fe5fe2fc63dc7",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "recalculated_on": "2026-08-04",
+  "recalculation_engine": "LibreOffice Calc",
+  "model_id": "07",
+  "domain": "Public Finance",
+  "case_type": "conventional",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false
+}

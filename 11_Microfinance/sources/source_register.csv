@@ -1,0 +1,4 @@
+case_id,source_name,publisher,url,as_of,snapshot,snapshot_sha256,status
+microfinance-public-asa-2025,ASA International 2025 Annual Report,ASA International,https://www.asa-international.com/investors/annual-report-2025/,2025-12-31,11_Microfinance/sources/snapshots/microfinance-public-asa-2025.json,f17576293084dc201f7f6a8b57aadebc9081bd346dfbad4cd5b88a85f75481ce,frozen
+microfinance-public-asa-2025,ASA International Q1 2026 Business Update,ASA International,https://www.asa-international.com/media/featured-news/2026-business-update/,2025-12-31,11_Microfinance/sources/snapshots/microfinance-public-asa-2025.json,f17576293084dc201f7f6a8b57aadebc9081bd346dfbad4cd5b88a85f75481ce,frozen
+microfinance-public-asa-zambia-stress,ASA Zambia operating disclosure,ASA International Zambia,https://zambia.asa-international.com/,2025-12-31,11_Microfinance/sources/snapshots/microfinance-public-asa-zambia-stress.json,c3168a762535b8f26069c1f29185710c6354405f9205134ea4d61bece8a05893,frozen

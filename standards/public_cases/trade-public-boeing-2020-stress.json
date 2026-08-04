@@ -1,0 +1,307 @@
+{
+  "schema_version": "1.0",
+  "id": "trade-public-boeing-2020-stress",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "10_Trade_Finance/_template_TRADE_FINANCE.xlsx",
+  "output": "10_Trade_Finance/instances/public_boeing_2020_stress.xlsx",
+  "as_of": "2020-12-31",
+  "scenario": "Downside",
+  "cover": {
+    "Subject:": "Boeing 2020 production and working-capital shock"
+  },
+  "inputs": [
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C5",
+      "value": 58158.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Boeing 2020 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/12927/000001292721000011/ba-20201231.htm",
+        "as_of": "2020-12-31",
+        "notes": "U.S. SEC / Boeing; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C6",
+      "value": 63843.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Boeing 2020 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/12927/000001292721000011/ba-20201231.htm",
+        "as_of": "2020-12-31",
+        "notes": "U.S. SEC / Boeing; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C7",
+      "value": 1955.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Boeing 2020 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/12927/000001292721000011/ba-20201231.htm",
+        "as_of": "2020-12-31",
+        "notes": "U.S. SEC / Boeing; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C8",
+      "value": 81715.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Boeing 2020 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/12927/000001292721000011/ba-20201231.htm",
+        "as_of": "2020-12-31",
+        "notes": "U.S. SEC / Boeing; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C9",
+      "value": 12928.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Boeing 2020 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/12927/000001292721000011/ba-20201231.htm",
+        "as_of": "2020-12-31",
+        "notes": "U.S. SEC / Boeing; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C5",
+      "value": 100.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C6",
+      "value": 0.04,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C7",
+      "value": 0.03,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C8",
+      "value": 90.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C14",
+      "value": 100.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C15",
+      "value": 0.7,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C16",
+      "value": 0.18,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C17",
+      "value": 45.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Credit & Facility",
+      "cell": "C3",
+      "value": "Downside",
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C5",
+      "value": 30.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C6",
+      "value": 4.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C7",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C8",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C9",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C10",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C11",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C12",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from trade-adversarial-country-shock.json",
+        "url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Boeing 2020 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/12927/000001292721000011/ba-20201231.htm",
+      "as_of": "2020-12-31",
+      "notes": "U.S. SEC / Boeing; frozen curated observation as of case date"
+    },
+    {
+      "name": "Boeing 2021 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/12927/000001292722000010/ba-20211231.htm",
+      "as_of": "2020-12-31",
+      "notes": "U.S. SEC / Boeing; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://10_Trade_Finance/sources/snapshots/trade-public-boeing-2020-stress.json",
+      "as_of": "2020-12-31",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://10_Trade_Finance/sources/snapshots/trade-public-boeing-2020-stress.json",
+    "what_changed": "Generated public case trade-public-boeing-2020-stress from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

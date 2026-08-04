@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "model_id": "24",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "minimum_13_week_liquidity",
+      "warning": 1.2,
+      "breach": 1.0,
+      "action": "Escalate funding, disbursement and filing plan"
+    },
+    {
+      "metric": "waterfall_conservation_residual",
+      "warning": 0.01,
+      "breach": 0.05,
+      "action": "Block release and reconcile claims, value and distributions"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

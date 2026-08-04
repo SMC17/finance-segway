@@ -38,7 +38,7 @@
       "folder": "01_Investment_Banking",
       "archetype": "BASE",
       "workbook": "01_Investment_Banking/_template_BASE.xlsx",
-      "builder": "tools/builders/build_template.py",
+      "builder": "tools/builders/build_investment_banking_release.py",
       "horizon": "corporate_5y",
       "declared_maturity": "M2",
       "required_engines": [
@@ -53,8 +53,13 @@
         "advisor"
       ],
       "reference_checks": [
-        "three_statement_linkage",
-        "balance_sheet_balance"
+        "enterprise_to_equity_bridge",
+        "per_share_identity",
+        "deal_eps_identity",
+        "terminal_value_validity",
+        "valuation_dispersion",
+        "offer_premium",
+        "eps_accretion"
       ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -65,7 +70,7 @@
       "folder": "02_Corporate_Finance",
       "archetype": "BASE",
       "workbook": "02_Corporate_Finance/_template_BASE.xlsx",
-      "builder": "tools/builders/build_template.py",
+      "builder": "tools/builders/build_corporate_finance_release.py",
       "horizon": "corporate_5y",
       "declared_maturity": "M2",
       "required_engines": [
@@ -80,8 +85,13 @@
         "rating_agency"
       ],
       "reference_checks": [
-        "three_statement_linkage",
-        "balance_sheet_balance"
+        "cash_rollforward",
+        "debt_rollforward",
+        "net_debt_identity",
+        "minimum_cash",
+        "net_leverage",
+        "interest_coverage",
+        "distribution_funding"
       ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -172,7 +182,7 @@
       "folder": "05_Private_Credit",
       "archetype": "CREDIT",
       "workbook": "05_Private_Credit/_template_CREDIT.xlsx",
-      "builder": "tools/builders/build_private_credit_template.py",
+      "builder": "tools/builders/build_private_credit_release.py",
       "horizon": "corporate_5y",
       "declared_maturity": "M2",
       "required_engines": [
@@ -191,9 +201,13 @@
         "restructuring"
       ],
       "reference_checks": [
-        "approximate_cash_ytm",
-        "recovery_lgd_bounds",
-        "debt_cash_schedule_conservation"
+        "debt_rollforward",
+        "recovery_lgd_identity",
+        "recovery_claim_bound",
+        "dscr",
+        "leverage",
+        "recovery_rate",
+        "debt_compounding"
       ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -204,7 +218,7 @@
       "folder": "06_Debt_Finance",
       "archetype": "CREDIT",
       "workbook": "06_Debt_Finance/_template_CREDIT.xlsx",
-      "builder": "tools/builders/build_debt_finance_template.py",
+      "builder": "tools/builders/build_debt_finance_release.py",
       "horizon": "corporate_5y",
       "declared_maturity": "M2",
       "required_engines": [
@@ -222,9 +236,12 @@
         "rating_agency"
       ],
       "reference_checks": [
-        "sources_uses_balance",
+        "debt_rollforward",
+        "weighted_cost_identity",
+        "refinancing_gap_identity",
         "maturity_concentration",
-        "recovery_lgd_bounds"
+        "interest_coverage",
+        "refinancing_cost"
       ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -235,7 +252,7 @@
       "folder": "07_Public_Finance",
       "archetype": "PUBLIC_FINANCE",
       "workbook": "07_Public_Finance/_template_PUBLIC_FINANCE.xlsx",
-      "builder": "tools/builders/build_public_finance_template.py",
+      "builder": "tools/builders/build_public_finance_release.py",
       "horizon": "long_term_30y",
       "declared_maturity": "M2",
       "required_engines": [
@@ -255,9 +272,13 @@
         "dfi"
       ],
       "reference_checks": [
-        "debt_stabilizing_primary_balance",
-        "projected_debt_ratio_identity",
-        "coverage_bounds"
+        "debt_ratio_identity",
+        "stabilizing_primary_balance_identity",
+        "coverage_nonnegative",
+        "debt_sustainability",
+        "primary_balance_gap",
+        "debt_service_coverage",
+        "reserve_coverage"
       ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -436,7 +457,7 @@
       "folder": "13_Venture_Capital",
       "archetype": "VC",
       "workbook": "13_Venture_Capital/_template_VC.xlsx",
-      "builder": "tools/builders/build_vc_template.py",
+      "builder": "tools/builders/build_venture_capital_release.py",
       "horizon": "corporate_10y",
       "declared_maturity": "M2",
       "required_engines": [
@@ -455,7 +476,14 @@
         "lp_ic"
       ],
       "reference_checks": [
-        "waterfall_conservation"
+        "post_money_identity",
+        "ownership_conservation",
+        "exit_proceeds_identity",
+        "reserve_coverage",
+        "ownership_concentration",
+        "option_pool_dilution",
+        "down_round",
+        "gross_moic"
       ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2

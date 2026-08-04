@@ -1,0 +1,213 @@
+name: Committed Frontier Release Validation
+
+on:
+  pull_request:
+    paths:
+      - "tools/validate_committed_frontier_release.py"
+      - "tests/test_committed_frontier_release.py"
+      - ".github/workflows/committed-frontier-release.yml"
+      - "standards/frontier/legacy_engine_registry.json"
+      - "standards/model_inventory.json"
+      - "standards/benchmark_cases/**"
+      - "01_Investment_Banking/_template_BASE.xlsx"
+      - "01_Investment_Banking/instances/benchmark_*"
+      - "02_Corporate_Finance/_template_BASE.xlsx"
+      - "02_Corporate_Finance/instances/benchmark_*"
+      - "05_Private_Credit/_template_CREDIT.xlsx"
+      - "05_Private_Credit/instances/benchmark_*"
+      - "06_Debt_Finance/_template_CREDIT.xlsx"
+      - "06_Debt_Finance/instances/benchmark_*"
+      - "07_Public_Finance/_template_PUBLIC_FINANCE.xlsx"
+      - "07_Public_Finance/instances/benchmark_*"
+      - "13_Venture_Capital/_template_VC.xlsx"
+      - "13_Venture_Capital/instances/benchmark_*"
+  push:
+    branches:
+      - agent/all-domain-m3-evidence-network-risk
+    paths:
+      - "tools/validate_committed_frontier_release.py"
+      - "tests/test_committed_frontier_release.py"
+      - ".github/workflows/committed-frontier-release.yml"
+      - "standards/frontier/legacy_engine_registry.json"
+      - "standards/model_inventory.json"
+      - "standards/benchmark_cases/**"
+      - "01_Investment_Banking/_template_BASE.xlsx"
+      - "01_Investment_Banking/instances/benchmark_*"
+      - "02_Corporate_Finance/_template_BASE.xlsx"
+      - "02_Corporate_Finance/instances/benchmark_*"
+      - "05_Private_Credit/_template_CREDIT.xlsx"
+      - "05_Private_Credit/instances/benchmark_*"
+      - "06_Debt_Finance/_template_CREDIT.xlsx"
+      - "06_Debt_Finance/instances/benchmark_*"
+      - "07_Public_Finance/_template_PUBLIC_FINANCE.xlsx"
+      - "07_Public_Finance/instances/benchmark_*"
+      - "13_Venture_Capital/_template_VC.xlsx"
+      - "13_Venture_Capital/instances/benchmark_*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: committed-frontier-release-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout committed frontier head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile and test committed release validator
+        run: |
+          python -m compileall -q tools tests
+          PYTHONPATH=. python -m unittest tests.test_committed_frontier_release -v
+
+      - name: Validate exact committed ledgers and artifacts
+        run: |
+          PYTHONPATH=.:tools python tools/validate_committed_frontier_release.py \
+            --report committed-frontier-release-report.json
+
+      - name: Validate full inventory and builder parity
+        run: |
+          PYTHONPATH=.:tools python tools/validate_model_inventory.py \
+            --report committed-frontier-inventory-report.json
+          PYTHONPATH=.:tools python tools/build_all_models.py \
+            --report committed-frontier-builder-parity-report.json \
+            --require-parity
+
+      - name: Copy all eighteen committed workbooks for independent recalculation
+        run: |
+          PYTHONPATH=.:tools python - <<'PY'
+          import json
+          import shutil
+          from pathlib import Path
+
+          from tools.validate_committed_frontier_release import artifact_entries
+
+          target = Path('.committed-frontier-recalc')
+          target.mkdir(parents=True, exist_ok=True)
+          manifest = []
+          for model_id, source, label in artifact_entries():
+              destination = target / f"{model_id}__{source.name}"
+              shutil.copy2(source, destination)
+              manifest.append(
+                  {
+                      'model_id': model_id,
+                      'label': label,
+                      'source': str(source),
+                      'copy': str(destination),
+                  }
+              )
+          Path('committed-frontier-recalc-manifest.json').write_text(
+              json.dumps(manifest, indent=2) + '\n', encoding='utf-8'
+          )
+          PY
+
+      - name: Install LibreOffice
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice-calc
+
+      - name: Independently recalculate all committed copies
+        run: |
+          PYTHONPATH=.:tools python - <<'PY'
+          import json
+          from pathlib import Path
+
+          from recalc import recalc
+
+          manifest = json.loads(
+              Path('committed-frontier-recalc-manifest.json').read_text(encoding='utf-8')
+          )
+          report = {}
+          failed = []
+          for item in manifest:
+              path = Path(item['copy'])
+              result = recalc(path, timeout=120)
+              report[item['label']] = {'path': str(path), **result}
+              if result.get('status') != 'success' or result.get('total_errors', 0) != 0:
+                  failed.append(item['label'])
+          Path('committed-frontier-recalc-report.json').write_text(
+              json.dumps(report, indent=2) + '\n', encoding='utf-8'
+          )
+          if failed:
+              raise SystemExit(f'committed frontier recalculation failed: {failed}')
+          PY
+
+      - name: Revalidate contracts and engineering after independent recalculation
+        run: |
+          PYTHONPATH=.:tools python - <<'PY'
+          import json
+          from pathlib import Path
+
+          from tools.validate_legacy_release_workbooks import validate_workbook
+          from tools.workbook_engineering import audit_workbook
+
+          manifest = json.loads(
+              Path('committed-frontier-recalc-manifest.json').read_text(encoding='utf-8')
+          )
+          errors = []
+          results = []
+          audits = []
+          for item in manifest:
+              path = Path(item['copy'])
+              result = validate_workbook(item['model_id'], path)
+              results.append({'label': item['label'], **result})
+              errors.extend(f"{item['label']}: {error}" for error in result['errors'])
+              summary, findings = audit_workbook(path)
+              audit_errors = [
+                  finding.__dict__
+                  for finding in findings
+                  if finding.severity == 'error'
+              ]
+              audits.append(
+                  {
+                      'label': item['label'],
+                      'path': str(path),
+                      'summary': summary,
+                      'errors': audit_errors,
+                  }
+              )
+              errors.extend(
+                  f"{item['label']}: engineering {error}" for error in audit_errors
+              )
+          report = {
+              'status': 'PASS' if not errors else 'FAIL',
+              'contracts': results,
+              'audits': audits,
+              'errors': errors,
+          }
+          Path('committed-frontier-post-recalc-report.json').write_text(
+              json.dumps(report, indent=2) + '\n', encoding='utf-8'
+          )
+          if errors:
+              raise SystemExit(errors)
+          PY
+
+      - name: Upload committed release evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: committed-frontier-release-${{ github.event_name }}
+          path: |
+            committed-frontier-release-report.json
+            committed-frontier-inventory-report.json
+            committed-frontier-builder-parity-report.json
+            committed-frontier-recalc-manifest.json
+            committed-frontier-recalc-report.json
+            committed-frontier-post-recalc-report.json
+          if-no-files-found: warn
+          retention-days: 30

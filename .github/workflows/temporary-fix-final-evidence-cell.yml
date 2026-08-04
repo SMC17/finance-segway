@@ -1,0 +1,40 @@
+name: Temporary Final Evidence Cell Fix
+
+on:
+  push:
+    branches:
+      - agent/all-domain-m3-evidence-network-risk
+    paths:
+      - ".github/workflows/temporary-fix-final-evidence-cell.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/all-domain-m3-evidence-network-risk
+          fetch-depth: 0
+      - name: Patch exact input cell
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('tools/final_public_evidence_registry.py')
+          text = path.read_text(encoding='utf-8')
+          old = 'override("Capital Allocation", "D8", 0.0, "derived", intel_2024["name"])'
+          new = 'override("Treasury & Liquidity", "D8", 0.0, "derived", intel_2024["name"])'
+          if text.count(old) != 1:
+              raise SystemExit(f'expected one final evidence cell to patch, found {text.count(old)}')
+          path.write_text(text.replace(old, new), encoding='utf-8')
+          PY
+          python -m compileall -q tools/final_public_evidence_registry.py
+      - name: Commit exact patch
+        run: |
+          git config user.name 'finance-segway-final-evidence-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add tools/final_public_evidence_registry.py
+          git commit -m 'Map Intel dividend suspension to treasury input'
+          git push origin HEAD:agent/all-domain-m3-evidence-network-risk

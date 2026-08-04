@@ -1,0 +1,74 @@
+name: Legacy Engine Hardening
+
+on:
+  pull_request:
+    paths:
+      - "standards/frontier/legacy_engine_registry.json"
+      - "tools/legacy_engine_oracles.py"
+      - "tools/validate_legacy_engine_hardening.py"
+      - "tests/test_legacy_engine_hardening.py"
+      - ".github/workflows/legacy-engine-hardening.yml"
+  push:
+    branches:
+      - agent/all-domain-m3-evidence-network-risk
+    paths:
+      - "standards/frontier/legacy_engine_registry.json"
+      - "tools/legacy_engine_oracles.py"
+      - "tools/validate_legacy_engine_hardening.py"
+      - "tests/test_legacy_engine_hardening.py"
+      - ".github/workflows/legacy-engine-hardening.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: legacy-engine-hardening-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout frontier head
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile source
+        run: python -m compileall -q tools tests
+
+      - name: Run six-engine oracle tests
+        run: PYTHONPATH=. python -m unittest tests.test_legacy_engine_hardening -v
+
+      - name: Validate authoritative references, identities, and failure states
+        run: |
+          PYTHONPATH=. python tools/validate_legacy_engine_hardening.py \
+            --report legacy-engine-hardening-report.json
+
+      - name: Revalidate frontier and committed evidence systems
+        run: |
+          PYTHONPATH=. python tools/validate_frontier_program.py \
+            --report legacy-frontier-program-report.json
+          PYTHONPATH=.:tools python tools/frontier_evidence.py \
+            --validate --require-instances
+
+      - name: Upload hardening evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: legacy-engine-hardening-${{ github.event_name }}
+          path: |
+            legacy-engine-hardening-report.json
+            legacy-frontier-program-report.json
+            all-domain-evidence-report.json
+            frontier-evidence-report.json
+          if-no-files-found: warn
+          retention-days: 30

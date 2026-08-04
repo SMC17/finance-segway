@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "model_id": "23",
+  "domain": "Fintech & Payments",
+  "case_id": "fintech-public-visa-2023",
+  "case_type": "conventional",
+  "as_of": "2023-09-30",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Visa 2023 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+      "publisher": "U.S. SEC / Visa",
+      "captured_values": {
+        "payments_and_cash_volume_usd_bn": 15000.0,
+        "transactions_bn": 276.0,
+        "credentials_bn": 4.3,
+        "merchant_locations_m": 130.0
+      }
+    },
+    {
+      "name": "Visa 2024 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316124000058/v-20240930.htm",
+      "publisher": "U.S. SEC / Visa",
+      "captured_values": {
+        "payments_and_cash_volume_usd_bn": 16000.0,
+        "transactions_bn": 303.0,
+        "credentials_bn": 4.6,
+        "merchant_locations_m": 150.0
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Unit Economics",
+      "cell": "C5",
+      "value": 15000.0,
+      "kind": "observed",
+      "source": "Visa 2023 Form 10-K"
+    },
+    {
+      "sheet": "Network & Cohorts",
+      "cell": "C5",
+      "value": 4300.0,
+      "kind": "observed",
+      "source": "Visa 2023 Form 10-K"
+    },
+    {
+      "sheet": "Network & Cohorts",
+      "cell": "C8",
+      "value": 130.0,
+      "kind": "observed",
+      "source": "Visa 2023 Form 10-K"
+    },
+    {
+      "sheet": "Network & Cohorts",
+      "cell": "C11",
+      "value": 276000.0,
+      "kind": "observed",
+      "source": "Visa 2023 Form 10-K"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "next_year_payments_and_cash_volume_usd_bn",
+    "forecast": 16000.0,
+    "realized": 16000.0,
+    "realized_source": "Visa 2024 Form 10-K",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "07b00e098f47eec4e91230f9639f27485e8adb13fb7bb820a5f5de12a82e5136"
+}
