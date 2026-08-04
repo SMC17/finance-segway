@@ -164,6 +164,11 @@ class PolicyDecision:
     approval_ids: tuple[str, ...]
     missing_approval_roles: tuple[str, ...]
     reasons: tuple[str, ...]
+    request_hash: str
+    action: str
+    actor: str
+    evaluated_at: str
+    policy_context_hash: str
     decision_hash: str
 
 
@@ -182,6 +187,7 @@ class PolicyEngine:
         request: PolicyRequest,
         approvals: Iterable[ApprovalGrant] = (),
     ) -> PolicyDecision:
+        now = request.at or datetime.now(timezone.utc)
         values = {
             "actor": request.actor,
             "requester": request.requester,
@@ -197,7 +203,7 @@ class PolicyEngine:
         deny_rules = tuple(rule.rule_id for rule in matched if rule.effect is PolicyEffect.DENY)
         if deny_rules:
             return self._decision(
-                "denied", False, matched, obligations, (), (),
+                request, now, "denied", False, matched, obligations, (), (),
                 tuple(f"deny_override:{rule_id}" for rule_id in deny_rules),
             )
 
@@ -207,10 +213,10 @@ class PolicyEngine:
         )
         if not authorization_rules:
             return self._decision(
-                "denied", False, matched, obligations, (), (), ("default_deny",),
+                request, now, "denied", False, matched, obligations, (), (),
+                ("default_deny",),
             )
 
-        now = request.at or datetime.now(timezone.utc)
         valid_grants = [
             grant for grant in approvals
             if grant.request_hash == request.request_hash
@@ -247,16 +253,18 @@ class PolicyEngine:
         if missing_roles:
             reasons = tuple(sorted(set(segregation_reasons + ["approval_required"])))
             return self._decision(
-                "approval_required", False, matched, obligations,
+                request, now, "approval_required", False, matched, obligations,
                 tuple(item.approval_id for item in selected), tuple(sorted(missing_roles)), reasons,
             )
         return self._decision(
-            "allowed", True, matched, obligations,
+            request, now, "allowed", True, matched, obligations,
             tuple(item.approval_id for item in selected), (), (),
         )
 
     @staticmethod
     def _decision(
+        request: PolicyRequest,
+        evaluated_at: datetime,
         status: str,
         allowed: bool,
         matched: Iterable[PolicyRule],
@@ -275,4 +283,21 @@ class PolicyEngine:
             "missing_approval_roles": missing_roles,
             "reasons": reasons,
         }
-        return PolicyDecision(decision_hash=sha256_payload(body), **body)
+        binding = {
+            "request_hash": request.request_hash,
+            "action": request.action,
+            "actor": request.actor,
+            "requester": request.requester,
+            "executor": request.executor,
+            "evaluated_at": evaluated_at.isoformat(),
+            "attributes": request.attributes,
+        }
+        return PolicyDecision(
+            request_hash=request.request_hash,
+            action=request.action,
+            actor=request.actor,
+            evaluated_at=evaluated_at.isoformat(),
+            policy_context_hash=sha256_payload(binding),
+            decision_hash=sha256_payload({"binding": binding, "decision": body}),
+            **body,
+        )

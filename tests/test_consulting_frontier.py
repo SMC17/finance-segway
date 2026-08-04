@@ -155,6 +155,25 @@ class PolicyTests(unittest.TestCase):
         self.assertEqual(decision.status, "approval_required")
         self.assertIn("finance", decision.missing_approval_roles)
 
+    def test_decision_hash_binds_request_actor_and_evaluation_time(self):
+        base = self.request(amount=10, blocked=False)
+        changed_request = self.request(amount=11, blocked=False)
+        changed_actor = PolicyRequest.from_payload(
+            "purchase", "different-actor", {"amount": 10, "blocked": False},
+            requester="analyst", executor="buyer-agent", at=NOW,
+        )
+        changed_time = PolicyRequest.from_payload(
+            "purchase", "analyst", {"amount": 10, "blocked": False},
+            requester="analyst", executor="buyer-agent", at=NOW + timedelta(seconds=1),
+        )
+        decisions = [
+            self.engine.evaluate(request)
+            for request in (base, changed_request, changed_actor, changed_time)
+        ]
+        self.assertEqual(len({decision.decision_hash for decision in decisions}), 4)
+        self.assertEqual(decisions[0].request_hash, base.request_hash)
+        self.assertEqual(decisions[0].evaluated_at, NOW.isoformat())
+
 
 class WorkflowTests(unittest.TestCase):
     def setUp(self):
@@ -220,6 +239,125 @@ class WorkflowTests(unittest.TestCase):
         )
         self.assertEqual(result.status, "budget_exceeded")
         self.assertEqual(result.attempts_used, 0)
+
+    def test_policy_grant_authorizes_high_risk_runtime_execution(self):
+        registry = SkillRegistry()
+        registry.register(Skill(
+            "controlled-write",
+            lambda request: {"written": request["value"]},
+            risk_tier=RiskTier.HIGH,
+        ))
+        runtime = AgentRuntime(registry)
+        agent = AgentSpec(
+            "controlled-agent", BusinessFunction.OPERATIONS, "Controlled execution",
+            frozenset(registry.skill_ids), AutonomyLevel.DRAFT, frozenset(), frozenset(),
+        )
+        policy = PolicyEngine((
+            PolicyRule(
+                "write-approval", "write", PolicyEffect.REQUIRE_APPROVAL,
+                approval_roles=("controller",),
+            ),
+        ))
+        definition = WorkflowDefinition("controlled", "1", (
+            WorkflowStep(
+                "write", "controlled-write", constants={"value": 7},
+                policy_action="write",
+            ),
+        ))
+        request = PolicyRequest.from_payload(
+            "write", "consultant", {"value": 7},
+            attributes={
+                "request": {"value": 7},
+                "step_id": "write",
+                "agent_id": "controlled-agent",
+                "phase": "forward",
+            },
+            requester="consultant", executor="controlled-agent", at=NOW,
+        )
+        grant = ApprovalGrant(
+            "write-1", "controller-user", "controller", "write", request.request_hash,
+            NOW - timedelta(minutes=1), NOW + timedelta(hours=1),
+        )
+        result = WorkflowExecutor(runtime, policy).run(
+            definition,
+            agent,
+            {},
+            ExecutionContext(actor="consultant", timestamp=NOW),
+            run_id="CONTROLLED-1",
+            approvals=(grant,),
+        )
+        self.assertEqual(result.status, "completed")
+        self.assertEqual(result.steps[0].output, {"written": 7})
+        completed = [entry for entry in runtime.ledger.entries if entry.event_type == "execution_completed"]
+        self.assertEqual(len(completed), 1)
+        self.assertTrue(completed[0].payload["approval_reference"].startswith("policy:"))
+
+    def test_denied_compensation_is_not_executed(self):
+        calls = []
+        registry = SkillRegistry()
+        registry.register(Skill("reserve-controlled", lambda request: {"id": request["id"]}))
+        registry.register(Skill("release-controlled", lambda request: calls.append(request) or {"released": True}))
+
+        def fail(_request):
+            raise RuntimeError("failure")
+
+        registry.register(Skill("fail-controlled", fail, idempotent=False))
+        runtime = AgentRuntime(registry)
+        agent = AgentSpec(
+            "rollback-agent", BusinessFunction.OPERATIONS, "Controlled rollback",
+            frozenset(registry.skill_ids), AutonomyLevel.DRAFT, frozenset(), frozenset(),
+        )
+        policy = PolicyEngine((
+            PolicyRule("deny-release", "release", PolicyEffect.DENY),
+        ))
+        definition = WorkflowDefinition("rollback-controlled", "1", (
+            WorkflowStep(
+                "reserve", "reserve-controlled", constants={"id": "R-1"},
+                compensation_skill_id="release-controlled",
+                compensation_policy_action="release",
+            ),
+            WorkflowStep(
+                "fail", "fail-controlled", dependencies=("reserve",),
+                failure_policy=FailurePolicy.ROLLBACK,
+            ),
+        ))
+        result = WorkflowExecutor(runtime, policy).run(
+            definition,
+            agent,
+            {},
+            self.context,
+            run_id="ROLLBACK-DENIED",
+        )
+        self.assertEqual(result.status, "rollback_failed")
+        self.assertEqual(result.steps[0].compensation_status, "policy_denied")
+        self.assertEqual(calls, [])
+
+    def test_retry_attempt_count_changes_replay_fingerprint(self):
+        calls = 0
+
+        def flaky(request):
+            nonlocal calls
+            calls += 1
+            if calls == 1:
+                raise RuntimeError("transient")
+            return {"value": request["value"]}
+
+        registry = SkillRegistry()
+        registry.register(Skill("flaky", flaky, idempotent=False))
+        runtime = AgentRuntime(registry)
+        agent = AgentSpec(
+            "retry-agent", BusinessFunction.OPERATIONS, "Retry test",
+            frozenset(registry.skill_ids), AutonomyLevel.DRAFT, frozenset(), frozenset(),
+        )
+        definition = WorkflowDefinition("retry", "1", (
+            WorkflowStep("flaky", "flaky", constants={"value": 3}, max_attempts=2),
+        ))
+        executor = WorkflowExecutor(runtime)
+        first = executor.run(definition, agent, {}, self.context, run_id="RETRY-1")
+        second = executor.run(definition, agent, {}, self.context, run_id="RETRY-2")
+        self.assertEqual(first.steps[0].attempts, 2)
+        self.assertEqual(second.steps[0].attempts, 1)
+        self.assertFalse(replay_matches(first, second))
 
 
 class EvaluationTests(unittest.TestCase):

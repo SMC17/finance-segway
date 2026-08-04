@@ -44,6 +44,7 @@ class WorkflowStep:
     max_attempts: int = 1
     cost_units: float = 1.0
     compensation_skill_id: str = ""
+    compensation_policy_action: str = ""
     compensation_bindings: Mapping[str, str] = field(default_factory=dict)
     compensation_constants: Mapping[str, Any] = field(default_factory=dict)
 
@@ -110,6 +111,8 @@ class StepExecution:
     policy_decision_hash: str = ""
     compensation_status: str = ""
     compensation_receipt_hash: str = ""
+    compensation_reasons: tuple[str, ...] = ()
+    compensation_policy_decision_hash: str = ""
 
 
 @dataclass(frozen=True)
@@ -253,6 +256,7 @@ class WorkflowExecutor:
                 if step.failure_policy is FailurePolicy.ROLLBACK:
                     workflow_status = self._rollback(
                         ordered, agent, context, inputs, run_id, results, result_by_id,
+                        approvals, policy_attributes or {},
                     )
                 if step.failure_policy is not FailurePolicy.CONTINUE:
                     break
@@ -260,10 +264,11 @@ class WorkflowExecutor:
                 continue
 
             final = None
+            runtime_context = self._runtime_context(context, policy_decision)
             for attempt in range(1, step.max_attempts + 1):
                 attempts_used += 1
                 cost_used += step.cost_units
-                final = self.runtime.execute(agent, step.skill_id, request, context)
+                final = self.runtime.execute(agent, step.skill_id, request, runtime_context)
                 if final.status != "failed":
                     break
             assert final is not None
@@ -283,6 +288,7 @@ class WorkflowExecutor:
                 if step.failure_policy is FailurePolicy.ROLLBACK:
                     workflow_status = self._rollback(
                         ordered, agent, context, inputs, run_id, results, result_by_id,
+                        approvals, policy_attributes or {},
                     )
                 if step.failure_policy is not FailurePolicy.CONTINUE:
                     break
@@ -297,9 +303,11 @@ class WorkflowExecutor:
                 {
                     "step_id": item.step_id,
                     "status": item.status,
+                    "attempts": item.attempts,
                     "output": item.output,
                     "reasons": item.reasons,
                     "compensation_status": item.compensation_status,
+                    "compensation_reasons": item.compensation_reasons,
                 }
                 for item in results
             ],
@@ -339,16 +347,40 @@ class WorkflowExecutor:
         approvals: tuple[ApprovalGrant, ...],
         policy_attributes: Mapping[str, Any],
     ) -> PolicyDecision | None:
-        if self.policy_engine is None or not step.policy_action:
+        return self._authorize_action(
+            step.policy_action,
+            step.step_id,
+            request,
+            agent,
+            context,
+            approvals,
+            policy_attributes,
+            phase="forward",
+        )
+
+    def _authorize_action(
+        self,
+        action: str,
+        step_id: str,
+        request: Mapping[str, Any],
+        agent: AgentSpec,
+        context: ExecutionContext,
+        approvals: tuple[ApprovalGrant, ...],
+        policy_attributes: Mapping[str, Any],
+        *,
+        phase: str,
+    ) -> PolicyDecision | None:
+        if self.policy_engine is None or not action:
             return None
         attributes = {
             "request": request,
-            "step_id": step.step_id,
+            "step_id": step_id,
             "agent_id": agent.agent_id,
+            "phase": phase,
             **dict(policy_attributes),
         }
         policy_request = PolicyRequest.from_payload(
-            step.policy_action,
+            action,
             context.actor,
             request,
             attributes=attributes,
@@ -360,7 +392,8 @@ class WorkflowExecutor:
         self.runtime.ledger.append(
             "workflow_policy_evaluated",
             {
-                "step_id": step.step_id,
+                "step_id": step_id,
+                "phase": phase,
                 "decision_hash": decision.decision_hash,
                 "status": decision.status,
                 "matched_rule_ids": decision.matched_rule_ids,
@@ -371,6 +404,23 @@ class WorkflowExecutor:
         )
         return decision
 
+    @staticmethod
+    def _runtime_context(
+        context: ExecutionContext,
+        policy_decision: PolicyDecision | None,
+    ) -> ExecutionContext:
+        if (
+            policy_decision is None
+            or not policy_decision.allowed
+            or not policy_decision.approval_ids
+        ):
+            return context
+        return replace(
+            context,
+            approved=True,
+            approval_reference=f"policy:{policy_decision.decision_hash}",
+        )
+
     def _rollback(
         self,
         ordered: tuple[WorkflowStep, ...],
@@ -380,6 +430,8 @@ class WorkflowExecutor:
         run_id: str,
         results: list[StepExecution],
         result_by_id: dict[str, StepExecution],
+        approvals: tuple[ApprovalGrant, ...],
+        policy_attributes: Mapping[str, Any],
     ) -> str:
         steps = {step.step_id: step for step in ordered}
         rollback_failed = False
@@ -394,13 +446,86 @@ class WorkflowExecutor:
                 )
             else:
                 request = dict(prior.output)
+            policy_decision = None
+            if self.policy_engine is not None:
+                if step.compensation_policy_action:
+                    policy_decision = self._authorize_action(
+                        step.compensation_policy_action,
+                        step.step_id,
+                        request,
+                        agent,
+                        context,
+                        approvals,
+                        policy_attributes,
+                        phase="compensation",
+                    )
+                else:
+                    entry = self.runtime.ledger.append(
+                        "workflow_compensation_policy_blocked",
+                        {
+                            "run_id": run_id,
+                            "step_id": step.step_id,
+                            "request_hash": sha256_payload(request),
+                            "reason": "compensation_policy_action_required",
+                        },
+                        actor=context.actor,
+                        timestamp=context.timestamp,
+                    )
+                    updated = replace(
+                        prior,
+                        compensation_status="policy_denied",
+                        compensation_receipt_hash=entry.entry_hash,
+                        compensation_reasons=("compensation_policy_action_required",),
+                    )
+                    location = results.index(prior)
+                    results[location] = updated
+                    result_by_id[prior.step_id] = updated
+                    rollback_failed = True
+                    continue
+            if policy_decision is not None and not policy_decision.allowed:
+                status = (
+                    "approval_required"
+                    if policy_decision.status == "approval_required"
+                    else "policy_denied"
+                )
+                entry = self.runtime.ledger.append(
+                    "workflow_compensation_policy_blocked",
+                    {
+                        "run_id": run_id,
+                        "step_id": step.step_id,
+                        "request_hash": sha256_payload(request),
+                        "policy_decision_hash": policy_decision.decision_hash,
+                        "status": policy_decision.status,
+                    },
+                    actor=context.actor,
+                    timestamp=context.timestamp,
+                )
+                updated = replace(
+                    prior,
+                    compensation_status=status,
+                    compensation_receipt_hash=entry.entry_hash,
+                    compensation_reasons=policy_decision.reasons,
+                    compensation_policy_decision_hash=policy_decision.decision_hash,
+                )
+                location = results.index(prior)
+                results[location] = updated
+                result_by_id[prior.step_id] = updated
+                rollback_failed = True
+                continue
             compensation = self.runtime.execute(
-                agent, step.compensation_skill_id, request, context,
+                agent,
+                step.compensation_skill_id,
+                request,
+                self._runtime_context(context, policy_decision),
             )
             updated = replace(
                 prior,
                 compensation_status=compensation.status,
                 compensation_receipt_hash=compensation.receipt_hash,
+                compensation_reasons=compensation.reasons,
+                compensation_policy_decision_hash=(
+                    policy_decision.decision_hash if policy_decision else ""
+                ),
             )
             location = results.index(prior)
             results[location] = updated
