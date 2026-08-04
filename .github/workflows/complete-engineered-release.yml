@@ -6,6 +6,7 @@ on:
     branches: [agent/synthesize-finance-model-library-v2]
     paths:
       - '.github/workflows/complete-engineered-release.yml'
+      - '.github/workflows/release-engineered-flagships.yml'
       - '.github/workflows/flagship-validation.yml'
       - '.github/workflows/library-parity-required.yml'
       - 'finance_segway/**'
