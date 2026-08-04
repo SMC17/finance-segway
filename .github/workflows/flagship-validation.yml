@@ -1,0 +1,102 @@
+name: Flagship Validation
+
+on:
+  pull_request:
+  push:
+    branches: [agent/synthesize-finance-model-library-v2]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-flagships:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install LibreOffice and Python dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice-calc
+          pip install -r requirements.txt
+
+      - name: Compile sources and run engine tests
+        run: |
+          python -m compileall -q finance_segway tools tests
+          PYTHONPATH=. python -m unittest discover -s tests -v
+
+      - name: Generate eight institutional flagships
+        run: |
+          mkdir -p .flagship-build
+          PYTHONPATH=.:tools python tools/builders/build_options_institutional.py --output .flagship-build/OPTIONS.xlsx
+          PYTHONPATH=.:tools python tools/builders/build_project_finance_institutional.py --output .flagship-build/PROJECT_FINANCE.xlsx
+          PYTHONPATH=.:tools python tools/builders/build_securitization_institutional.py --output .flagship-build/SECURITIZATION.xlsx
+          PYTHONPATH=.:tools python tools/builders/build_insurance_release.py --output .flagship-build/INSURANCE.xlsx
+          PYTHONPATH=.:tools python tools/builders/build_quant_institutional.py --output .flagship-build/QUANT.xlsx
+          PYTHONPATH=.:tools python tools/builders/build_risk_institutional.py --output .flagship-build/RISK.xlsx
+          PYTHONPATH=.:tools python tools/builders/build_fixed_income_release.py --output .flagship-build/FIXED_INCOME.xlsx
+          PYTHONPATH=.:tools python tools/builders/build_lbo_release.py --output .flagship-build/LBO.xlsx
+
+      - name: Enforce domain contracts before recalculation
+        run: |
+          PYTHONPATH=.:tools python tools/validate_options_model.py .flagship-build/OPTIONS.xlsx
+          PYTHONPATH=.:tools python tools/validate_project_finance_model.py .flagship-build/PROJECT_FINANCE.xlsx
+          PYTHONPATH=.:tools python tools/validate_securitization_model.py .flagship-build/SECURITIZATION.xlsx
+          PYTHONPATH=.:tools python tools/validate_insurance_model.py .flagship-build/INSURANCE.xlsx
+          PYTHONPATH=.:tools python tools/validate_quant_model.py .flagship-build/QUANT.xlsx
+          PYTHONPATH=.:tools python tools/validate_risk_model.py .flagship-build/RISK.xlsx
+          PYTHONPATH=.:tools python tools/validate_fixed_income_model.py .flagship-build/FIXED_INCOME.xlsx
+          PYTHONPATH=.:tools python tools/validate_lbo_model.py .flagship-build/LBO.xlsx
+
+      - name: Recalculate every flagship and reject cached Excel errors
+        run: |
+          PYTHONPATH=.:tools python - <<'PY'
+          import json
+          from pathlib import Path
+          from recalc import recalc
+
+          results = {}
+          failed = []
+          for path in sorted(Path('.flagship-build').glob('*.xlsx')):
+              result = recalc(path, timeout=90)
+              results[path.name] = result
+              if result.get('status') != 'success' or result.get('total_errors', 0) != 0:
+                  failed.append(path.name)
+          Path('flagship-recalc-report.json').write_text(json.dumps(results, indent=2))
+          if failed:
+              raise SystemExit(f"flagship recalculation failures: {failed}")
+          PY
+
+      - name: Re-run contracts after LibreOffice normalization
+        run: |
+          PYTHONPATH=.:tools python tools/validate_options_model.py .flagship-build/OPTIONS.xlsx
+          PYTHONPATH=.:tools python tools/validate_project_finance_model.py .flagship-build/PROJECT_FINANCE.xlsx
+          PYTHONPATH=.:tools python tools/validate_securitization_model.py .flagship-build/SECURITIZATION.xlsx
+          PYTHONPATH=.:tools python tools/validate_insurance_model.py .flagship-build/INSURANCE.xlsx
+          PYTHONPATH=.:tools python tools/validate_quant_model.py .flagship-build/QUANT.xlsx
+          PYTHONPATH=.:tools python tools/validate_risk_model.py .flagship-build/RISK.xlsx
+          PYTHONPATH=.:tools python tools/validate_fixed_income_model.py .flagship-build/FIXED_INCOME.xlsx
+          PYTHONPATH=.:tools python tools/validate_lbo_model.py .flagship-build/LBO.xlsx
+
+      - name: Audit generated flagship library
+        run: PYTHONPATH=.:tools python tools/workbook_engineering.py .flagship-build --report flagship-engineering-report.json
+
+      - name: Upload generated workbooks and reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: institutional-flagship-validation
+          path: |
+            .flagship-build/*.xlsx
+            flagship-recalc-report.json
+            flagship-engineering-report.json
+          if-no-files-found: warn
+          retention-days: 30
