@@ -38,24 +38,20 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: m1-to-m2-promotion-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   promote:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout immutable hardening head
+      - name: Checkout triggering revision
         uses: actions/checkout@v4
         with:
-          ref: agent/harden-m1-domain-engines
           fetch-depth: 0
-
-      - name: Capture immutable source head
-        run: git rev-parse HEAD > .promotion-start-sha
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -246,42 +242,6 @@ jobs:
           if errors:
               raise SystemExit(errors)
           PY
-
-      - name: Reject stale promotion release
-        if: github.event_name == 'push'
-        run: |
-          git fetch origin agent/harden-m1-domain-engines
-          START_SHA=$(cat .promotion-start-sha)
-          REMOTE_SHA=$(git rev-parse origin/agent/harden-m1-domain-engines)
-          echo "promotion source: $START_SHA"
-          echo "remote source:    $REMOTE_SHA"
-          test "$START_SHA" = "$REMOTE_SHA"
-
-      - name: Commit complete nine-domain M2 release
-        if: github.event_name == 'push'
-        run: |
-          git config user.name 'finance-segway-promotion-bot'
-          git config user.email 'finance-segway-promotion-bot@users.noreply.github.com'
-          git add \
-            08_Asset_Management/_template_AM.xlsx 08_Asset_Management/instances \
-            10_Trade_Finance/_template_TRADE_FINANCE.xlsx 10_Trade_Finance/instances \
-            11_Microfinance/_template_MICROFINANCE.xlsx 11_Microfinance/instances \
-            12_Equity_Finance/_template_BASE.xlsx 12_Equity_Finance/instances \
-            15_Commodities/_template_COMMODITIES.xlsx 15_Commodities/instances \
-            16_Crypto_Digital_Assets/_template_CRYPTO.xlsx 16_Crypto_Digital_Assets/instances \
-            17_Real_Estate_REIT/_template_REAL_ESTATE.xlsx 17_Real_Estate_REIT/instances \
-            23_Fintech_Payments/_template_FINTECH.xlsx 23_Fintech_Payments/instances \
-            24_Distressed_Restructuring/_template_RESTRUCTURING.xlsx 24_Distressed_Restructuring/instances \
-            standards/model_inventory.json \
-            standards/domain_hardening/m2_promotion_candidates.json \
-            standards/benchmark_cases \
-            m1-domain-promotion-report.json
-          if git diff --staged --quiet; then
-            echo 'Nine-domain M2 release is already current.'
-          else
-            git commit -m 'Promote nine hardened finance domains to M2'
-            git push origin HEAD:agent/harden-m1-domain-engines
-          fi
 
       - name: Upload complete promotion evidence
         if: always()
