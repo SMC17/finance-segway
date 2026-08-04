@@ -4,8 +4,6 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from openpyxl.utils import get_column_letter
-
 try:
     from tools.builders.legacy_release_adapter import build_release
     from tools.builders.template_helpers import (
@@ -51,7 +49,6 @@ def enrich(workbook) -> None:
         if name in workbook.sheetnames:
             del workbook[name]
 
-    recovery = workbook["Recovery Waterfall"]
     liquidity_position = workbook.sheetnames.index("Recovery Waterfall") + 1
     liquidity = workbook.create_sheet("13-Week Liquidity", liquidity_position)
     set_col_widths(liquidity, [4, 12, 16, 16, 18, 14, 18, 16, 16, 16, 14])
@@ -77,13 +74,7 @@ def enrich(workbook) -> None:
         row = 6 + week
         liquidity.cell(row, 2, week)
         liquidity.cell(row, 3, "=$C$3" if week == 1 else f"=I{row-1}")
-        for column, value in (
-            (4, 8.0),
-            (5, 7.0),
-            (6, 0.75),
-            (7, 0.50),
-            (8, 0.0),
-        ):
+        for column, value in ((4, 8.0), (5, 7.0), (6, 0.75), (7, 0.50), (8, 0.0)):
             cell = liquidity.cell(row, column, value)
             cell.font = BLUE
             cell.fill = YELLOW_FILL
@@ -128,8 +119,8 @@ def enrich(workbook) -> None:
     for row, (label, value, number_format, note) in enumerate(inputs, start=5):
         new_money.cell(row, 2, label)
         cell = new_money.cell(row, 3, value)
-        cell.font = BLUE if not isinstance(value, str) else cell.font
         if not isinstance(value, str):
+            cell.font = BLUE
             cell.fill = YELLOW_FILL
         cell.number_format = number_format
         cell.border = BORDER
