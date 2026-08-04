@@ -1,0 +1,16 @@
+name: Release Engineered Flagships
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  retired:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use atomic release pipeline
+        run: |
+          echo "This partial artifact writer is retired."
+          echo "Use Complete Engineered Release for templates, inventory, benchmark instances, and release evidence in one transaction."

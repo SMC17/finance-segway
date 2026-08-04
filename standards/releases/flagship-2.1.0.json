@@ -1,0 +1,518 @@
+{
+  "schema_version": "1.0",
+  "release_id": "flagship-2.1.0",
+  "inventory_version": "2.1.0",
+  "git_commit": "d4505f793518c3a4e233bef0432014323da2ce57",
+  "generated_at": "2026-08-04T02:37:09.393029+00:00",
+  "github_run_id": "30872264518",
+  "models": [
+    {
+      "model_id": "03",
+      "domain": "Private Equity",
+      "maturity": "M2",
+      "workbook": "03_Private_Equity/_template_LBO.xlsx",
+      "workbook_sha256": "ec57540d5cd7a67f2ebac9689254b099baab3773e42527ac707bcfbb869b5283",
+      "builder": "tools/builders/build_lbo_release.py",
+      "builder_sha256": "85fe56ee18ea3d420ac3dff1fe5f9307c15b64dadf7f58876e8deab9035d0d86",
+      "formula_count": 519,
+      "sheet_count": 12,
+      "sheet_names": [
+        "Cover",
+        "Assumptions",
+        "Sources & Uses",
+        "Operating Model",
+        "Debt Schedule",
+        "Covenants",
+        "Management Equity",
+        "Returns Waterfall",
+        "Sensitivity",
+        "Checks",
+        "Sources",
+        "RefreshLog"
+      ],
+      "external_links": 0,
+      "literal_errors": 0,
+      "audit_findings": {
+        "error": 0,
+        "warning": 0,
+        "info": 208
+      },
+      "required_engines": [
+        "operating_model",
+        "sources_uses",
+        "working_capital",
+        "tax",
+        "revolver",
+        "multi_tranche_debt",
+        "pik",
+        "cash_sweep",
+        "covenants",
+        "management_equity",
+        "exit_waterfall",
+        "sensitivity"
+      ],
+      "required_perspectives": [
+        "sponsor",
+        "lender",
+        "management",
+        "lp_ic"
+      ],
+      "reference_checks": [
+        "sources_uses_balance",
+        "debt_schedule_conservation",
+        "cash_minimum",
+        "covenant_headroom",
+        "waterfall_conservation",
+        "returns_identity"
+      ]
+    },
+    {
+      "model_id": "04",
+      "domain": "Merchant Banking",
+      "maturity": "M2",
+      "workbook": "04_Merchant_Banking/_template_LBO.xlsx",
+      "workbook_sha256": "e54e87315717c139b1e57da6a63a0906fbf075c8e5f2a6d9a84d50374dc23300",
+      "builder": "tools/builders/build_lbo_release.py",
+      "builder_sha256": "85fe56ee18ea3d420ac3dff1fe5f9307c15b64dadf7f58876e8deab9035d0d86",
+      "formula_count": 519,
+      "sheet_count": 12,
+      "sheet_names": [
+        "Cover",
+        "Assumptions",
+        "Sources & Uses",
+        "Operating Model",
+        "Debt Schedule",
+        "Covenants",
+        "Management Equity",
+        "Returns Waterfall",
+        "Sensitivity",
+        "Checks",
+        "Sources",
+        "RefreshLog"
+      ],
+      "external_links": 0,
+      "literal_errors": 0,
+      "audit_findings": {
+        "error": 0,
+        "warning": 0,
+        "info": 208
+      },
+      "required_engines": [
+        "operating_model",
+        "sources_uses",
+        "working_capital",
+        "tax",
+        "revolver",
+        "multi_tranche_debt",
+        "pik",
+        "cash_sweep",
+        "covenants",
+        "management_equity",
+        "exit_waterfall",
+        "sensitivity"
+      ],
+      "required_perspectives": [
+        "principal",
+        "lender",
+        "management",
+        "investment_committee"
+      ],
+      "reference_checks": [
+        "sources_uses_balance",
+        "debt_schedule_conservation",
+        "cash_minimum",
+        "covenant_headroom",
+        "waterfall_conservation",
+        "returns_identity"
+      ]
+    },
+    {
+      "model_id": "09",
+      "domain": "Risk Management",
+      "maturity": "M2",
+      "workbook": "09_Risk_Management/_template_RISK.xlsx",
+      "workbook_sha256": "64038d7fe7961a419ad207ee78f008118f9d5a36f86a70be86b4d461fe11ce14",
+      "builder": "tools/builders/build_risk_release.py",
+      "builder_sha256": "ae87b00daec15bed4535f6357b65b7147f99c461e558753b93d908171b8f633e",
+      "formula_count": 313,
+      "sheet_count": 13,
+      "sheet_names": [
+        "Cover",
+        "Assumptions",
+        "Positions",
+        "Factors",
+        "VaR & ES",
+        "Risk Contributions",
+        "Stress",
+        "Liquidity",
+        "P&L Explain",
+        "Limits",
+        "Checks",
+        "Sources",
+        "RefreshLog"
+      ],
+      "external_links": 0,
+      "literal_errors": 0,
+      "audit_findings": {
+        "error": 0,
+        "warning": 43,
+        "info": 159
+      },
+      "required_engines": [
+        "position_inventory",
+        "factor_covariance",
+        "factor_euler_var",
+        "position_component_var",
+        "var",
+        "expected_shortfall",
+        "stress_testing",
+        "liquidity_risk",
+        "pnl_explain",
+        "limit_monitoring"
+      ],
+      "required_perspectives": [
+        "trader",
+        "risk",
+        "management",
+        "regulator"
+      ],
+      "reference_checks": [
+        "covariance_bounds",
+        "variance_nonnegative",
+        "expected_shortfall_var_order",
+        "component_var_reconciliation",
+        "limit_headroom"
+      ]
+    },
+    {
+      "model_id": "14",
+      "domain": "Options & Derivatives",
+      "maturity": "M2",
+      "workbook": "14_Options_Derivatives/_template_OPTIONS.xlsx",
+      "workbook_sha256": "cea95ef7f8ec5878222ed5d58191321dd9db9e657e291700daf91ee361ca28a6",
+      "builder": "tools/builders/build_options_release.py",
+      "builder_sha256": "7713cbb5770a01117e1c86af8ca7240e8237ef2993705ddc2ddf953395855d82",
+      "formula_count": 162,
+      "sheet_count": 11,
+      "sheet_names": [
+        "Cover",
+        "Assumptions",
+        "European Pricer",
+        "Implied Vol",
+        "Greeks",
+        "Vol Surface",
+        "Portfolio",
+        "Scenario P&L",
+        "Checks",
+        "Sources",
+        "RefreshLog"
+      ],
+      "external_links": 0,
+      "literal_errors": 0,
+      "audit_findings": {
+        "error": 0,
+        "warning": 25,
+        "info": 129
+      },
+      "required_engines": [
+        "black_scholes",
+        "implied_volatility",
+        "american_option",
+        "volatility_surface",
+        "portfolio_greeks",
+        "scenario_pnl",
+        "strategy_payoff"
+      ],
+      "required_perspectives": [
+        "trader",
+        "market_maker",
+        "risk",
+        "portfolio_manager"
+      ],
+      "reference_checks": [
+        "put_call_parity",
+        "implied_volatility_convergence",
+        "option_price_bounds",
+        "greek_signs",
+        "american_european_bound"
+      ]
+    },
+    {
+      "model_id": "18",
+      "domain": "Insurance & Actuarial",
+      "maturity": "M2",
+      "workbook": "18_Insurance_Actuarial/_template_INSURANCE.xlsx",
+      "workbook_sha256": "461fd9d68f41dd63a4b5e69e351caa9319c2eceb752e3ea74306d5a743101fc3",
+      "builder": "tools/builders/build_insurance_release.py",
+      "builder_sha256": "023a59a1d1198ade9cc9b2e6654b318749830379d417809f45e94fba3c90d0d7",
+      "formula_count": 317,
+      "sheet_count": 12,
+      "sheet_names": [
+        "Cover",
+        "Assumptions",
+        "Paid Triangle",
+        "Chain Ladder",
+        "Bornhuetter-Ferguson",
+        "Underwriting",
+        "Embedded Value",
+        "Capital",
+        "Stress",
+        "Checks",
+        "Sources",
+        "RefreshLog"
+      ],
+      "external_links": 0,
+      "literal_errors": 0,
+      "audit_findings": {
+        "error": 0,
+        "warning": 1,
+        "info": 129
+      },
+      "required_engines": [
+        "paid_triangle",
+        "chain_ladder",
+        "bornhuetter_ferguson",
+        "underwriting",
+        "embedded_value",
+        "capital_requirement",
+        "stress_testing"
+      ],
+      "required_perspectives": [
+        "actuary",
+        "underwriter",
+        "management",
+        "regulator",
+        "rating_agency"
+      ],
+      "reference_checks": [
+        "triangle_monotonicity",
+        "development_factor_bounds",
+        "reserve_nonnegative",
+        "capital_coverage"
+      ]
+    },
+    {
+      "model_id": "19",
+      "domain": "Structured Finance & Securitization",
+      "maturity": "M2",
+      "workbook": "19_Structured_Finance_Securitization/_template_SECURITIZATION.xlsx",
+      "workbook_sha256": "0cbde53e4318bfeb87bf9aea062cf15992702a8534f56974c2c1bf7afebfb5f0",
+      "builder": "tools/builders/build_securitization_institutional.py",
+      "builder_sha256": "d2d798a4c7c3432ee4a7f9096aac7ffd98fbe2044203c5655345c87aed379d08",
+      "formula_count": 956,
+      "sheet_count": 11,
+      "sheet_names": [
+        "Cover",
+        "Assumptions",
+        "Collateral",
+        "Loss Curves",
+        "Waterfall",
+        "Triggers",
+        "Tranche Analytics",
+        "Sensitivity",
+        "Checks",
+        "Sources",
+        "RefreshLog"
+      ],
+      "external_links": 0,
+      "literal_errors": 0,
+      "audit_findings": {
+        "error": 0,
+        "warning": 0,
+        "info": 379
+      },
+      "required_engines": [
+        "collateral_rollforward",
+        "cpr_cdr",
+        "recovery_lag",
+        "interest_waterfall",
+        "principal_waterfall",
+        "oc_ic_triggers",
+        "wal",
+        "sensitivity"
+      ],
+      "required_perspectives": [
+        "issuer",
+        "investor",
+        "servicer",
+        "trustee",
+        "rating_agency"
+      ],
+      "reference_checks": [
+        "collateral_conservation",
+        "waterfall_conservation",
+        "tranche_balance_nonnegative",
+        "wal_bounds"
+      ]
+    },
+    {
+      "model_id": "20",
+      "domain": "Project Finance",
+      "maturity": "M2",
+      "workbook": "20_Project_Finance/_template_PROJECT_FINANCE.xlsx",
+      "workbook_sha256": "93187dd11e0224d114e75a7d6e0a260f29bacab8e9f02e223bc75a66352cacc2",
+      "builder": "tools/builders/build_project_finance_release.py",
+      "builder_sha256": "c8b5001ff56063463ec87bcec0a2931519215440e06b3c4020ee9ef778758093",
+      "formula_count": 503,
+      "sheet_count": 12,
+      "sheet_names": [
+        "Cover",
+        "Assumptions",
+        "Construction",
+        "Sources & Uses",
+        "Operations",
+        "Debt Sculpting",
+        "DSRA",
+        "Coverage",
+        "Sensitivity",
+        "Checks",
+        "Sources",
+        "RefreshLog"
+      ],
+      "external_links": 0,
+      "literal_errors": 0,
+      "audit_findings": {
+        "error": 0,
+        "warning": 25,
+        "info": 227
+      },
+      "required_engines": [
+        "construction_draw",
+        "interest_during_construction",
+        "sources_uses",
+        "operating_cfads",
+        "debt_sculpting",
+        "dsra",
+        "dscr",
+        "llcr",
+        "plcr",
+        "sensitivity"
+      ],
+      "required_perspectives": [
+        "sponsor",
+        "lender",
+        "independent_engineer",
+        "offtaker",
+        "dfi"
+      ],
+      "reference_checks": [
+        "sources_uses_balance",
+        "construction_draw_conservation",
+        "debt_schedule_conservation",
+        "dscr_identity",
+        "llcr_identity"
+      ]
+    },
+    {
+      "model_id": "21",
+      "domain": "Fixed Income & Rates",
+      "maturity": "M2",
+      "workbook": "21_Fixed_Income_Rates/_template_FIXED_INCOME.xlsx",
+      "workbook_sha256": "e9f1980c885c9910f74ab2365b66e291e9dbc776e4f85ee9f5c5282170710392",
+      "builder": "tools/builders/build_fixed_income_release.py",
+      "builder_sha256": "8113d51d70a3ce436c043eb9ac04929e03c3720b5bbe2226e786fd362542e23a",
+      "formula_count": 195,
+      "sheet_count": 12,
+      "sheet_names": [
+        "Cover",
+        "Assumptions",
+        "Zero Curve",
+        "Bond Analytics",
+        "Portfolio",
+        "Key Rate Risk",
+        "Carry & Roll",
+        "Scenarios",
+        "P&L Explain",
+        "Checks",
+        "Sources",
+        "RefreshLog"
+      ],
+      "external_links": 0,
+      "literal_errors": 0,
+      "audit_findings": {
+        "error": 0,
+        "warning": 0,
+        "info": 80
+      },
+      "required_engines": [
+        "zero_curve",
+        "bond_pricing",
+        "duration",
+        "convexity",
+        "key_rate_dv01",
+        "carry_roll",
+        "curve_scenarios",
+        "pnl_explain"
+      ],
+      "required_perspectives": [
+        "trader",
+        "portfolio_manager",
+        "risk",
+        "treasury"
+      ],
+      "reference_checks": [
+        "price_yield_monotonicity",
+        "duration_positive",
+        "convexity_positive",
+        "key_rate_reconciliation",
+        "discount_factor_monotonicity"
+      ]
+    },
+    {
+      "model_id": "22",
+      "domain": "Quantitative & Systematic",
+      "maturity": "M2",
+      "workbook": "22_Quantitative_Systematic/_template_QUANT.xlsx",
+      "workbook_sha256": "d2f230af2a978c9563b17ab2f268397f70df80b6bf3589310a3bc9dbb1a45578",
+      "builder": "tools/builders/build_quant_release.py",
+      "builder_sha256": "a8548fb6dc975802910322ea8108f67fb51ed13395283570883132576a8c6e11",
+      "formula_count": 591,
+      "sheet_count": 11,
+      "sheet_names": [
+        "Cover",
+        "Assumptions",
+        "Backtest",
+        "Performance",
+        "Walk Forward",
+        "Costs & Capacity",
+        "Risk",
+        "Stress",
+        "Checks",
+        "Sources",
+        "RefreshLog"
+      ],
+      "external_links": 0,
+      "literal_errors": 0,
+      "audit_findings": {
+        "error": 0,
+        "warning": 0,
+        "info": 371
+      },
+      "required_engines": [
+        "point_in_time_backtest",
+        "walk_forward",
+        "transaction_costs",
+        "capacity",
+        "performance",
+        "var_es",
+        "stress_testing",
+        "backtest_live_controls"
+      ],
+      "required_perspectives": [
+        "researcher",
+        "portfolio_manager",
+        "risk",
+        "execution"
+      ],
+      "reference_checks": [
+        "gross_net_order",
+        "max_drawdown_identity",
+        "var_es_order",
+        "walk_forward_partition",
+        "cost_monotonicity"
+      ]
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

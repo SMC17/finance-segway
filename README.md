@@ -1,109 +1,234 @@
-# Finance Model Library
+# Finance-Segway
 
-A structured, multi-domain repository of financial models and templates — one archetype per discipline, built with consistent conventions, verified against known reference values, and kept current with an automated weekly refresh check.
+A governed, multi-domain financial-modeling system: reproducible Excel archetypes, independent reference engines, explicit model-risk controls, and a maintenance pipeline designed to prevent model rot.
+
+## Current state
+
+The repository is broad, formula-driven, and heavily checked. It is not yet a production-grade institutional model library.
+
+The machine-validated baseline after credit and public-finance reconciliation is:
+
+- **24** core spreadsheet archetypes
+- **10 M2 Decision Models**
+- **14 M1 Correct Skeletons**
+- **0 M3 Institutional Underwriting Models**
+- **0 M4 Maintained Production Systems**
+- **0 populated public instances**
+
+That distinction is deliberate. “The workbook opens” and “the core formula is correct” are necessary but not sufficient evidence of underwriting depth.
+
+The canonical inventory is `standards/model_inventory.json`. CI validates every maturity claim with `tools/validate_model_inventory.py`, validates the three reconciled builders with `tools/validate_reconciled_models.py`, and publishes governance evidence on each pull request.
+
+## Maturity scale
+
+| Level | Meaning |
+|---|---|
+| **M0** | Placeholder or concept only |
+| **M1** | Correct Skeleton: formula-driven, reproducible, core identity checked |
+| **M2** | Decision Model: integrated mechanics, scenarios/sensitivities, independent reference checks |
+| **M3** | Institutional Underwriting: complete domain engine, stakeholder lenses, sources, checks, validation, audit trail |
+| **M4** | Maintained Production System: M3 plus populated instances, outcome monitoring, source snapshots, and release discipline |
+
+See `docs/MODEL_GOVERNANCE_STANDARD.md` for the promotion and validation rules.
 
 ## Why this exists
 
-Most personal model libraries rot: a DCF gets built for one earnings cycle, never touched again, and six months later nobody trusts the numbers. This repo is designed against that failure mode specifically — every template is recalc-clean, every model has a `RefreshLog`, and a scheduled job (`.github/workflows/weekly-refresh.yml`) flags anything stale, structurally broken, or approaching a date that matters (earnings, expiry, distribution, unlock).
+Most personal model libraries rot. A DCF or trading worksheet gets built for one event, never refreshed, and becomes untrustworthy. Finance-Segway treats maintenance, verification, source provenance, and change control as part of the model itself.
 
-## Conventions (apply to every model, every domain)
+Every archetype is expected to have:
+
+- a reproducible Python builder;
+- `Cover` and append-only `RefreshLog` sheets;
+- consistent input, formula, and cross-sheet-link conventions;
+- formula and external-link scans;
+- independent benchmark tests for material math;
+- a declared use, horizon, owner, limitations, and maturity;
+- a path from blank archetype to maintained public instances.
+
+## Core conventions
 
 | Convention | Meaning |
 |---|---|
-| **Blue text** | Hardcoded input — edit freely |
-| **Black text** | Formula — do not overwrite |
+| **Blue text** | Hardcoded input |
+| **Black text** | Formula |
 | **Green text** | Cross-sheet link |
-| **Yellow fill** | Key assumption — review every refresh |
-| **`Cover` tab** | Thesis, refresh dates, next material date |
-| **`RefreshLog` tab** | Append-only history of what changed and why |
+| **Yellow fill** | Material assumption |
+| **Cover** | Purpose, thesis, ownership, refresh and next material date |
+| **RefreshLog** | Append-only record of what changed and why |
+| **Sources** | Dated provenance, units, transformations, and restrictions |
+| **Checks** | Visible financial identities, residuals, and status flags |
 
-Full detail in `CONTRIBUTING.md`.
+## Governance and verification
 
-## Inspiration & credits
+The system separates five levels of evidence:
 
-This library's philosophy — one clean archetype per discipline, color-coded
-inputs/formulas/links, a `Cover` tab that states the thesis and refresh
-cadence up front, models that are *maintained* rather than built once and
-abandoned — draws on the public modeling course and open-source model
-library Martin Shkreli published:
+1. workbook opens;
+2. formulas recalculate without errors;
+3. accounting, cash-flow, coverage, or waterfall identities tie;
+4. independent code or a closed-form benchmark agrees;
+5. realized outcomes or external observations support continued use.
 
-- Course/lecture playlist: https://youtube.com/playlist?list=PLJsVF3gZDcuTxcdH5FmQRTd6MiJ29X_OQ
-- Reference models: https://github.com/martinshkreli/models
+Current controls include:
 
-Every workbook and script in this repo is original work, built independently
-with `openpyxl` from first principles (formulas, structure, and verification
-checks are ours, hand-checked against textbook/reference values — see
-"Verification standard" below). Nothing here is copied from or a derivative
-of his proprietary spreadsheets; the debt is to the *discipline* his
-material teaches, not to his file contents. If you're going through that
-course yourself, a reasonable way to use this repo alongside it is: watch a
-session, then rebuild the piece it covers into the matching domain folder
-here as your own instance, checked against your own hand-calc — that's how
-every archetype in this repo got built.
+- `tools/recalc.py` — headless recalculation and cached-error detection;
+- `tools/verify_reference_calcs.py` — spreadsheet outputs versus independent calculations;
+- `tools/reference_engines.py` — Black-Scholes, bond, debt-sweep, coverage, and waterfall oracles;
+- `tools/reconciled_reference_engines.py` — yield, recovery/LGD, debt-sustainability, refinancing, and maturity-concentration oracles;
+- `tools/test_reference_engines.py` and `tools/test_reconciled_reference_engines.py` — closed-form, monotonicity, conservation, and identity tests;
+- `tools/validate_reconciled_models.py` — builder and workbook contracts for Private Credit, Debt Finance, and Public Finance;
+- `tools/weekly_refresh_check.py` — freshness and structural-drift scanner;
+- `tools/validate_model_inventory.py` — maturity and evidence gate;
+- `tools/scaffold_model_evidence.py` — model cards, validation records, source registers, release logs, and instance structure.
 
-## Domains
+The design is informed by—but does not claim certification or formal compliance with—the ICAEW Financial Modelling Code, the FAST Standard, current U.S. interagency model-risk guidance, and IFC/DFI blended-finance principles.
 
-| # | Domain | Archetype | Status |
+## Domain inventory
+
+| # | Domain | Archetype | Current maturity |
 |---|---|---|---|
-| 01 | Investment Banking | 3-statement + DCF + comps | Built |
-| 02 | Corporate Finance | Same engine, capital-structure lens | Built |
-| 03 | Private Equity | LBO: sources & uses, debt schedule, returns waterfall | Built |
-| 04 | Merchant Banking | LBO engine (principal-investing variant) | Built |
-| 05 | Private Credit | Leverage, covenant headroom, yield/spread | **Not yet built** |
-| 06 | Debt Finance | Same credit engine | **Not yet built** |
-| 07 | Public Finance | Sovereign/muni debt sustainability | **Not yet built** |
-| 08 | Asset Management | Fund NAV, fee waterfall (mgmt+carry+hurdle+catch-up) | Built |
-| 09 | Risk Management | Parametric/historical VaR, stress scenarios | Built |
-| 10 | Trade Finance | Cash conversion cycle, LC & factoring cost | Built |
-| 11 | Microfinance | PAR30/90, write-off ratio, OSS/FSS | Built |
-| 12 | Equity Finance | Cap table overlay on IB base | Built |
-| 13 | Venture Capital | Cap table, SAFE conversion, liquidation waterfall | Built |
-| 14 | Options / Derivatives | Black-Scholes, Greeks, strategy payoffs | Built |
-| 15 | Commodities | Futures curve, roll yield, hedge ratio | Built |
-| 16 | Crypto / Digital Assets | Tokenomics, on-chain multiples, staking yield | Built |
-| 17 | Real Estate / REIT | Pro forma, cap rate, FFO/AFFO | Built |
-| 18 | Insurance / Actuarial | Loss/combined ratio, reserve triangle, embedded value | Built |
-| 19 | Structured Finance / Securitization | Tranche waterfall, CPR/WAL | Built |
-| 20 | Project Finance | Construction drawdown, CFADS, DSCR | Built |
-| 21 | Fixed Income / Rates | Bond pricing, duration/convexity, yield curve | Built |
-| 22 | Quantitative / Systematic | Sharpe/Sortino, Kelly position sizing | Built |
-| 23 | Fintech / Payments | Unit economics, LTV/CAC, cohort retention | Built |
-| 24 | Distressed / Restructuring | Recovery waterfall, fulcrum security | Built |
+| 01 | Investment Banking | 3-statement, DCF, comps | **M2** |
+| 02 | Corporate Finance | 3-statement and capital structure | **M2** |
+| 03 | Private Equity | LBO sources/uses, debt schedule, returns | **M2** |
+| 04 | Merchant Banking | Principal-investing LBO variant | **M2** |
+| 05 | Private Credit | Five-year CFADS, debt/cash schedule, covenants, yield/OID, recovery/LGD | **M2** |
+| 06 | Debt Finance | Capital structure, maturity ladder, refinancing, rate risk, recovery | **M2** |
+| 07 | Public Finance | Sovereign DSA, operating forecast, debt service, reserves and coverage | **M2** |
+| 08 | Asset Management | NAV, fees, carry, attribution | **M1** |
+| 09 | Risk Management | VaR and stress framework | **M1** |
+| 10 | Trade Finance | Cash conversion, LC, factoring | **M1** |
+| 11 | Microfinance | PAR, loss, OSS/FSS | **M1** |
+| 12 | Equity Finance | BASE model with equity lens | **M1** |
+| 13 | Venture Capital | Cap table, SAFE, waterfall | **M2** |
+| 14 | Options / Derivatives | Black-Scholes, Greeks, payoffs | **M2** |
+| 15 | Commodities | Curves, carry, roll yield, hedging | **M1** |
+| 16 | Crypto / Digital Assets | Token supply, staking, multiples | **M1** |
+| 17 | Real Estate / REIT | Property pro forma and FFO/AFFO | **M1** |
+| 18 | Insurance / Actuarial | Loss ratio, triangle, embedded value | **M1** |
+| 19 | Structured Finance | Tranche waterfall, CPR, WAL | **M1** |
+| 20 | Project Finance | Construction, CFADS, DSCR | **M1** |
+| 21 | Fixed Income / Rates | Bond price, duration, curve | **M2** |
+| 22 | Quantitative / Systematic | Performance and sizing framework | **M1** |
+| 23 | Fintech / Payments | Unit economics and cohorts | **M1** |
+| 24 | Distressed / Restructuring | Recovery and fulcrum waterfall | **M1** |
 
-**Non-model frameworks** (writeups, not spreadsheets): Personal Finance, Behavioral Finance, Social Finance. See `25_Frameworks_NonModel/`.
+Non-model research frameworks live under `25_Frameworks_NonModel/`.
 
-## Repo layout
+## Reconciled credit and public-finance systems
 
-```
+Three domains now have distinct canonical decisions, builders, workbooks, tests, and inventory records:
+
+- **Private Credit** asks whether and on what terms a lender should underwrite, hold, amend, or restructure an exposure.
+- **Debt Finance** asks how an issuer or arranger should size, structure, price, sequence, and refinance debt instruments.
+- **Public Finance** combines sovereign debt sustainability with municipal operating, reserve, liquidity, pension, and revenue-bond coverage analysis without collapsing the two lenses.
+
+The exact XLSX release artifacts are generated inside GitHub from their canonical builders by `.github/workflows/reconcile-model-artifacts.yml`. Promotion is atomic: generated workbooks, structural contracts, independent tests, and inventory changes must pass together.
+
+## Depth program
+
+The next phase is not “add a few tabs to every workbook.” It is to build reference-grade flagships and reusable shared engines:
+
+1. Private Equity / Merchant Banking;
+2. Options / Fixed Income / Rates;
+3. Project Finance / Infrastructure;
+4. Structured Finance / Insurance;
+5. Quantitative / Systematic / Risk;
+6. Investment Banking / Corporate Finance.
+
+Private Credit, Debt Finance, and Public Finance have completed M2 reconciliation. Their next gate is M3 evidence and stakeholder depth: model cards, independent validation, source snapshots, effective challenge, and maintained reference/adversarial instances.
+
+The complete target mechanics are defined in `docs/INSTITUTIONAL_DEPTH_BLUEPRINT.md` and machine-readable in `standards/model_inventory.json`.
+
+## Public instance program
+
+Blank templates cannot prove maintainability. Each flagship must eventually include at least two public, reproducible instances:
+
+- one conventional reference case;
+- one adversarial or stressed case.
+
+An M4 instance requires a source register, frozen as-of date, model card, validation record, at least three material refreshes, and at least one outcome comparison. See `docs/PUBLIC_INSTANCE_PROGRAM.md`.
+
+## Repository layout
+
+```text
 <domain>/
-  _template_<ARCHETYPE>.xlsx   <- copy this to start a new instance
-  <instances>/                 <- companies/deals/funds/etc.
-  README.md                    <- what this domain covers
+  _template_<ARCHETYPE>.xlsx
+  README.md
+  model_card.md
+  validation.md
+  sources/
+    source_register.csv
+    snapshots/
+  releases/
+    CHANGELOG.md
+  instances/
+
+standards/
+  model_inventory.json
+  templates/
 
 tools/
-  scaffold_repo.py             <- regenerates the folder skeleton (does NOT touch instance data)
-  weekly_refresh_check.py      <- staleness/error/drift scanner
-  recalc.py                    <- headless recalculation + formula error check
-  template_helpers.py          <- shared openpyxl styling
-  builders/                    <- source scripts that generated each _template
+  builders/
+  recalc.py
+  verify_reference_calcs.py
+  reference_engines.py
+  reconciled_reference_engines.py
+  test_reference_engines.py
+  test_reconciled_reference_engines.py
+  validate_model_inventory.py
+  validate_reconciled_models.py
+  reconcile_model_inventory.py
+  weekly_refresh_check.py
+  scaffold_model_evidence.py
 ```
 
 ## Quickstart
 
 ```bash
-# Add a new company to, say, Investment Banking:
-cp 01_Investment_Banking/_template_BASE.xlsx 01_Investment_Banking/companies/AAPL.xlsx
-# fill in Cover tab + blue cells, then:
-python3 tools/recalc.py 01_Investment_Banking/companies/AAPL.xlsx
+# Verify independent code engines
+python tools/test_reference_engines.py
+PYTHONPATH=tools python tools/test_reconciled_reference_engines.py
 
-# Run the weekly check across everything:
-python3 tools/weekly_refresh_check.py .
+# Rebuild and validate the reconciled decision models in a temporary directory
+python tools/validate_reconciled_models.py --report reconciled-model-report.json
+
+# Recalculate and check a workbook
+python tools/recalc.py 14_Options_Derivatives/_template_OPTIONS.xlsx
+
+# Validate the complete inventory and maturity claims
+python tools/validate_model_inventory.py --report model-governance-report.json
+
+# Scan freshness and structural drift
+python tools/weekly_refresh_check.py .
+
+# Create the evidence pack for a domain
+python tools/scaffold_model_evidence.py 05_Private_Credit
 ```
 
-## Verification standard
+## Collaboration
 
-Every archetype was checked against a known reference before being marked "Built" — e.g. Black-Scholes checked against put-call parity, bond pricing hand-verified against the annuity/PV formula (10yr 5% semi-annual bond @ 5.5% YTM: 25×15.225 + 1000×0.5813 = 961.9, matches spreadsheet exactly). See `CONTRIBUTING.md` for the full checklist new models must pass.
+Claude Code and ChatGPT/Codex work in independent branches. Integration occurs component by component through a draft synthesis PR. A newer branch does not win automatically, and tests are never weakened to make a merge pass.
+
+The Claude branch is fully retained in the synthesis history. The earlier institutional prototype branch has been reconciled: stronger mechanics were rebuilt and promoted, while obsolete binaries and workflows were rejected.
+
+See:
+
+- `docs/COLLABORATION_PROTOCOL.md`;
+- `docs/INTEGRATION_LEDGER.md`;
+- Issue #4, the institutional-depth implementation program.
+
+## Public references
+
+- ICAEW Financial Modelling Code and spreadsheet-review guidance;
+- FAST Standard;
+- U.S. Federal Reserve SR 26-2, Revised Guidance on Model Risk Management, April 17, 2026;
+- IFC / DFI Enhanced Blended Concessional Finance Principles;
+- Rosenbaum & Pearl, Damodaran, McKinsey Valuation, and Benninga;
+- Hull and Haug for derivatives;
+- Tuckman & Serrat and Fabozzi for fixed income and structured finance;
+- public modeling lectures and open-source examples, used for discipline rather than copied files.
+
+All workbook and builder implementations in this repository are original. Do not commit proprietary models, confidential deal data, or restricted datasets.
 
 ## License
 
-MIT — see `LICENSE`. Not financial, legal, or tax advice; see disclaimer there.
+MIT. Not financial, legal, tax, accounting, actuarial, or investment advice.

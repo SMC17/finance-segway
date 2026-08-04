@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "merchant-adversarial-holdco",
+  "as_of": "2026-08-03",
+  "manifest": "standards/benchmark_cases/merchant-adversarial-holdco.json",
+  "template": "04_Merchant_Banking/_template_LBO.xlsx",
+  "output": "04_Merchant_Banking/instances/benchmark_adversarial_holdco.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "previous": -0.02,
+      "value": -0.03,
+      "source_url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D20",
+      "previous": 0.105,
+      "value": 0.145,
+      "source_url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D24",
+      "previous": 0.05,
+      "value": 0.08,
+      "source_url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D28",
+      "previous": 8,
+      "value": 6.5,
+      "source_url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+      "source_as_of": "2026-08-03"
+    }
+  ],
+  "workbook_sha256": "a79e8f935a2cc206827fb09686d04d70aa91ab05de9a8402b87eb0edce2068e4",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

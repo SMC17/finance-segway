@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.1",
+  "id": "rates-adversarial-bear-steepener",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false,
+  "template": "21_Fixed_Income_Rates/_template_FIXED_INCOME.xlsx",
+  "output": "21_Fixed_Income_Rates/instances/benchmark_adversarial_bear_steepener.xlsx",
+  "as_of": "2026-08-03",
+  "scenario": "Downside",
+  "cover": {
+    "Portfolio / security:": "Adversarial Bear-Steepener Portfolio"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": 0.085,
+      "source": {
+        "name": "Finance-Segway benchmark fixture rates-adversarial-bear-steepener",
+        "url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 0.025,
+      "source": {
+        "name": "Finance-Segway benchmark fixture rates-adversarial-bear-steepener",
+        "url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Zero Curve",
+      "cell": "D10",
+      "value": 0.08,
+      "source": {
+        "name": "Finance-Segway benchmark fixture rates-adversarial-bear-steepener",
+        "url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Zero Curve",
+      "cell": "D14",
+      "value": 0.09,
+      "source": {
+        "name": "Finance-Segway benchmark fixture rates-adversarial-bear-steepener",
+        "url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finance-Segway benchmark fixture rates-adversarial-bear-steepener",
+      "url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+      "as_of": "2026-08-03",
+      "notes": "Synthetic engineering fixture; not investment evidence"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-03",
+    "trigger": "Synthetic benchmark generation",
+    "source_snapshot": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+    "what_changed": "Generated rates-adversarial-bear-steepener from canonical release template",
+    "reviewer_notes": "Engineering fixture only; not public underwriting or M4 evidence",
+    "next_check": "On builder, formula, or contract change"
+  }
+}

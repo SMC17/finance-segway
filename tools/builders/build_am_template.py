@@ -109,7 +109,60 @@ ws.cell(row=total_r, column=3, value="=SUM(C5:C11)").font = BOLD
 ws.cell(row=total_r, column=3).number_format = CUR
 ws.sheet_view.showGridLines = False
 
+# ---------------- FUND PERFORMANCE (TVPI / DPI / NET IRR) ----------------
+ws = wb.create_sheet("Fund Performance")
+set_col_widths(ws, [4, 30, 14, 14, 14, 14, 40])
+ws["B2"] = "Fund Performance — LP Reporting Metrics"; ws["B2"].font = TITLE
+ws["B4"] = "Uses the period cash flows and ending NAV from the Fund NAV tab."
+ws["B4"].font = ITALIC_GRAY
+
+for i, h in enumerate(["", "", "Period 0", "Period 1", "Period 2", "Period 3"], start=1):
+    ws.cell(row=6, column=i, value=h)
+style_header_row(ws, 6, 4, start_col=3)
+ws["B7"] = "LP net cash flow (distributions - contributions)"
+for col in range(3, 7):
+    letter = get_column_letter(col)
+    ws.cell(row=7, column=col, value=f"='Fund NAV'!{letter}9-'Fund NAV'!{letter}6")
+    ws.cell(row=7, column=col).number_format = CUR
+    ws.cell(row=7, column=col).border = BORDER
+ws["B8"] = "  + terminal NAV added to final period"
+ws["C8"] = "='Fund NAV'!F10"; ws["C8"].font = GREEN; ws["C8"].number_format = CUR
+ws["C8"].border = BORDER
+ws["B9"] = "LP cash flow incl. terminal value (for IRR)"
+for col in range(3, 6):
+    letter = get_column_letter(col)
+    ws.cell(row=9, column=col, value=f"={letter}7")
+    ws.cell(row=9, column=col).number_format = CUR
+    ws.cell(row=9, column=col).border = BORDER
+ws.cell(row=9, column=6, value="=F7+C8")
+ws.cell(row=9, column=6).number_format = CUR
+ws.cell(row=9, column=6).border = BORDER
+
+ws["B12"] = "Outputs"; ws["B12"].font = BOLD; ws["B12"].fill = GRAY_FILL
+ws["B13"] = "Cumulative capital called"
+ws["C13"] = "=SUM('Fund NAV'!C6:F6)"; ws["C13"].font = GREEN; ws["C13"].number_format = CUR
+ws["B14"] = "Cumulative distributions"
+ws["C14"] = "=SUM('Fund NAV'!C9:F9)"; ws["C14"].font = GREEN; ws["C14"].number_format = CUR
+ws["B15"] = "Current NAV (residual value)"
+ws["C15"] = "='Fund NAV'!F10"; ws["C15"].font = GREEN; ws["C15"].number_format = CUR
+ws["B16"] = "DPI (Distributions to Paid-In)"
+ws["C16"] = "=IFERROR(C14/C13,\"-\")"; ws["C16"].font = BOLD; ws["C16"].number_format = MULT
+ws["B17"] = "RVPI (Residual Value to Paid-In)"
+ws["C17"] = "=IFERROR(C15/C13,\"-\")"; ws["C17"].font = BOLD; ws["C17"].number_format = MULT
+ws["B18"] = "TVPI (Total Value to Paid-In = DPI + RVPI)"
+ws["C18"] = "=IFERROR(C16+C17,\"-\")"; ws["C18"].font = BOLD; ws["C18"].number_format = MULT
+ws["D18"] = "Headline LP metric — total value (realized + unrealized) per dollar called"
+ws["D18"].font = ITALIC_GRAY
+ws["B19"] = "Net IRR to LPs (periodic, undated)"
+ws["C19"] = "=IFERROR(IRR(C9:F9),\"-\")"; ws["C19"].font = BOLD; ws["C19"].number_format = PCT
+ws["C19"].fill = YELLOW_FILL
+ws["D19"] = "Treats each period as evenly spaced — use XIRR with real dates for called capital at irregular intervals"
+ws["D19"].font = ITALIC_GRAY
+for r2 in (13, 14, 15, 16, 17, 18, 19):
+    ws.cell(row=r2, column=3).border = BORDER
+ws.sheet_view.showGridLines = False
+
 add_refresh_log(wb)
-out_path = "/home/claude/model_shop/AM_template.xlsx"
+out_path = "AM_template.xlsx"
 wb.save(out_path)
 print("saved", out_path)

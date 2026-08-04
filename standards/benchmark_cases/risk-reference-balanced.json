@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.1",
+  "id": "risk-reference-balanced",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false,
+  "template": "09_Risk_Management/_template_RISK.xlsx",
+  "output": "09_Risk_Management/instances/benchmark_reference_balanced.xlsx",
+  "as_of": "2026-08-03",
+  "scenario": "Base",
+  "cover": {
+    "Portfolio / desk:": "Reference Multi-Asset Book"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 0.99,
+      "source": {
+        "name": "Finance-Segway benchmark fixture risk-reference-balanced",
+        "url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C12",
+      "value": 12.0,
+      "source": {
+        "name": "Finance-Segway benchmark fixture risk-reference-balanced",
+        "url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C18",
+      "value": 300.0,
+      "source": {
+        "name": "Finance-Segway benchmark fixture risk-reference-balanced",
+        "url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Positions",
+      "cell": "D5",
+      "value": 50.0,
+      "source": {
+        "name": "Finance-Segway benchmark fixture risk-reference-balanced",
+        "url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Positions",
+      "cell": "E5",
+      "value": 140.0,
+      "source": {
+        "name": "Finance-Segway benchmark fixture risk-reference-balanced",
+        "url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finance-Segway benchmark fixture risk-reference-balanced",
+      "url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+      "as_of": "2026-08-03",
+      "notes": "Synthetic engineering fixture; not investment evidence"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-03",
+    "trigger": "Synthetic benchmark generation",
+    "source_snapshot": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+    "what_changed": "Generated risk-reference-balanced from canonical release template",
+    "reviewer_notes": "Engineering fixture only; not public underwriting or M4 evidence",
+    "next_check": "On builder, formula, or contract change"
+  }
+}

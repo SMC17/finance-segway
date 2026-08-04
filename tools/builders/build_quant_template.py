@@ -13,17 +13,29 @@ add_cover(wb, "[STRATEGY] — Quantitative / Systematic Model", [
 
 # ---------------- RETURNS & SHARPE ----------------
 ws = wb.create_sheet("Returns & Sharpe")
-set_col_widths(ws, [4, 30, 16, 40])
+set_col_widths(ws, [4, 30, 16, 40, 14, 14, 14, 14])
 ws["B2"] = "Risk-Adjusted Return Statistics"; ws["B2"].font = TITLE
 ws["B4"] = "Monthly return series (enter below, extend as needed)"
 ws["B4"].font = ITALIC_GRAY
 ws["B5"] = "Month"; ws["C5"] = "Return %"
+ws["E5"] = "Benchmark %"; ws["F5"] = "Wealth idx"; ws["G5"] = "Peak"; ws["H5"] = "Drawdown"
 style_header_row(ws, 5, 2, start_col=2)
+style_header_row(ws, 5, 4, start_col=5)
 r = 6
 for m in range(1, 25):
     ws.cell(row=r, column=2, value=f"M{m}")
     c = ws.cell(row=r, column=3, value=0.0)
     c.font = BLUE; c.number_format = PCT2; c.border = BORDER
+    e = ws.cell(row=r, column=5, value=0.0)
+    e.font = BLUE; e.number_format = PCT2; e.border = BORDER
+
+    f = ws.cell(row=r, column=6,
+                value=f"=1*(1+C{r})" if r == 6 else f"=F{r-1}*(1+C{r})")
+    f.number_format = '0.0000'; f.border = BORDER
+    g = ws.cell(row=r, column=7, value=f"=MAX($F$6:F{r})")
+    g.number_format = '0.0000'; g.border = BORDER
+    h = ws.cell(row=r, column=8, value=f"=IFERROR(F{r}/G{r}-1,\"-\")")
+    h.number_format = PCT; h.border = BORDER
     r += 1
 last_data_row = r - 1
 
@@ -47,11 +59,32 @@ ws["C40"].number_format = PCT
 ws["B41"] = "Sortino ratio"
 ws["C41"] = "=IFERROR((C37-C32)/C40,\"-\")"; ws["C41"].font = BOLD; ws["C41"].number_format = '0.00'
 ws["B42"] = "Max drawdown"
-ws["C42"] = "[compute from cumulative return series — add running max & drawdown columns for live use]"
-ws["C42"].font = ITALIC_GRAY
-for r2 in range(35, 42):
+ws["C42"] = f"=MIN(H6:H{last_data_row})"
+ws["C42"].font = BOLD; ws["C42"].number_format = PCT
+ws["D42"] = "Trough of the wealth-index drawdown series (columns F-H) — worst peak-to-trough decline in the sample"
+ws["D42"].font = ITALIC_GRAY
+for r2 in range(35, 43):
     ws.cell(row=r2, column=3).border = BORDER
 ws.sheet_view.showGridLines = False
+
+# ---------------- BENCHMARK & FACTOR EXPOSURE ----------------
+ws2 = wb["Returns & Sharpe"]
+ws2["B44"] = "Benchmark & Factor Exposure (single-factor / CAPM)"; ws2["B44"].font = BOLD; ws2["B44"].fill = GRAY_FILL
+ws2["B45"] = "Avg monthly benchmark return"
+ws2["C45"] = f"=AVERAGE(E6:E{last_data_row})"; ws2["C45"].number_format = PCT2
+ws2["B46"] = "Annualized benchmark return"
+ws2["C46"] = "=(1+C45)^12-1"; ws2["C46"].number_format = PCT
+ws2["B47"] = "Beta (vs benchmark)"
+ws2["C47"] = f"=IFERROR(SLOPE(C6:C{last_data_row},E6:E{last_data_row}),\"-\")"
+ws2["C47"].font = BOLD; ws2["C47"].number_format = '0.00'
+ws2["B48"] = "R-squared"
+ws2["C48"] = f"=IFERROR(RSQ(C6:C{last_data_row},E6:E{last_data_row}),\"-\")"; ws2["C48"].number_format = PCT
+ws2["B49"] = "Jensen's alpha (annualized) = Rp - [Rf + Beta x (Rm - Rf)]"
+ws2["C49"] = "=IFERROR(C37-(C32+C47*(C46-C32)),\"-\")"; ws2["C49"].font = BOLD; ws2["C49"].number_format = PCT
+ws2["D49"] = "Positive = generating return beyond what beta exposure to the benchmark would explain"
+ws2["D49"].font = ITALIC_GRAY
+for r2 in range(45, 50):
+    ws2.cell(row=r2, column=3).border = BORDER
 
 # ---------------- POSITION SIZING ----------------
 ws = wb.create_sheet("Position Sizing")
@@ -82,6 +115,6 @@ for r2 in (10, 11, 12):
 ws.sheet_view.showGridLines = False
 
 add_refresh_log(wb)
-out_path = "/home/claude/model_shop/QUANT_template.xlsx"
+out_path = "QUANT_template.xlsx"
 wb.save(out_path)
 print("saved", out_path)

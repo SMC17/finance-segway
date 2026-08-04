@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "options-reference-atm",
+  "as_of": "2026-08-03",
+  "manifest": "standards/benchmark_cases/options-reference-atm.json",
+  "template": "14_Options_Derivatives/_template_OPTIONS.xlsx",
+  "output": "14_Options_Derivatives/instances/benchmark_reference_atm.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "previous": 100,
+      "value": 100.0,
+      "source_url": "repo://standards/benchmark_cases/options-reference-atm.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "previous": 100,
+      "value": 100.0,
+      "source_url": "repo://standards/benchmark_cases/options-reference-atm.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "previous": 0.5,
+      "value": 0.5,
+      "source_url": "repo://standards/benchmark_cases/options-reference-atm.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C10",
+      "previous": 0.25,
+      "value": 0.25,
+      "source_url": "repo://standards/benchmark_cases/options-reference-atm.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "previous": 8.25,
+      "value": 8.25,
+      "source_url": "repo://standards/benchmark_cases/options-reference-atm.json",
+      "source_as_of": "2026-08-03"
+    }
+  ],
+  "workbook_sha256": "eab61504985ac4a9366f0918b738080e62fa49c01abc98267c91cf515a7eb719",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

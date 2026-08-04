@@ -97,28 +97,93 @@ ws.sheet_view.showGridLines = False
 
 # ---------------- EXIT WATERFALL ----------------
 ws = wb.create_sheet("Exit Waterfall")
-set_col_widths(ws, [4, 24, 14, 14, 14, 14])
+set_col_widths(ws, [4, 26, 14, 14, 14, 14, 16, 16])
 ws["B2"] = "Exit Proceeds Waterfall (1x non-participating pref)"; ws["B2"].font = TITLE
-for i, h in enumerate(["", "Class", "Invested $", "Liq. pref (1x)", "As-converted %", "Proceeds"], start=1):
+headers = ["", "Class", "Invested $", "Liq. pref (1x)", "As-converted %",
+           "Pref-stack scenario", "As-converted scenario", "Actual proceeds"]
+for i, h in enumerate(headers, start=1):
     ws.cell(row=4, column=i, value=h)
-style_header_row(ws, 4, 5)
-ws["B10"] = "Total exit proceeds"; ws["C10"] = 0; ws["C10"].font = BLUE; ws["C10"].fill = YELLOW_FILL
-ws["C10"].number_format = CUR
+style_header_row(ws, 4, 7)
+ws["B15"] = "Total exit proceeds"; ws["C15"] = 0; ws["C15"].font = BLUE; ws["C15"].fill = YELLOW_FILL
+ws["C15"].number_format = CUR
 
-classes = ["Series B preferred", "Series A preferred", "Seed preferred", "Common (founders + pool)"]
+# Cap Table rows: 5 Founders, 6 Employee pool, 7 SAFE, 8 Seed pref, 9 Series A pref, 10 Series B pref.
+# Exit Waterfall is seniority order (most senior first) — map each class to ITS OWN row, not by
+# list position (an earlier version of this tab mapped by index and pulled the wrong rows entirely).
+class_rows = [
+    ("Series B preferred", "='Cap Table'!F10", "=IFERROR('Cap Table'!D10,\"-\")"),
+    ("Series A preferred", "='Cap Table'!F9", "=IFERROR('Cap Table'!D9,\"-\")"),
+    ("Seed preferred", "='Cap Table'!F8", "=IFERROR('Cap Table'!D8,\"-\")"),
+    ("Common (founders + pool)", "='Cap Table'!F5+'Cap Table'!F6",
+     "=IFERROR('Cap Table'!D5+'Cap Table'!D6,\"-\")"),
+]
 r = 5
-for cls in classes:
+for cls, invested_formula, pct_formula in class_rows:
     ws.cell(row=r, column=2, value=cls).font = BLACK
-    ws.cell(row=r, column=3, value=f"='Cap Table'!F{5+classes.index(cls)}" if classes.index(cls) < 3 else 0).number_format = CUR
+    ws.cell(row=r, column=3, value=invested_formula).font = GREEN
+    ws.cell(row=r, column=3).number_format = CUR
     ws.cell(row=r, column=4, value=f"=C{r}").number_format = CUR  # 1x pref = invested amount
-    ws.cell(row=r, column=5, value=0).font = BLUE
+    ws.cell(row=r, column=5, value=pct_formula).font = GREEN
     ws.cell(row=r, column=5).number_format = PCT
-    ws.cell(row=r, column=5).fill = YELLOW_FILL
     for c in range(3, 6):
         ws.cell(row=r, column=c).border = BORDER
     r += 1
-ws["B9"] = "Note: fill as-converted % once waterfall logic (pref vs. convert) is finalized per deal terms."
-ws["B9"].font = ITALIC_GRAY
+
+# Pref-stack scenario: senior-to-junior cascade, same cascading MIN/MAX as a
+# recovery waterfall. Common has no liquidation preference — it gets whatever
+# preferred didn't claim, which is what keeps this scenario self-consistent
+# (rows 5-8 always sum to exactly total proceeds, by construction).
+ws["F5"] = "=MIN($C$15,D5)"
+ws["F6"] = "=MIN(MAX($C$15-F5,0),D6)"
+ws["F7"] = "=MIN(MAX($C$15-F5-F6,0),D7)"
+ws["F8"] = "=MAX(0,$C$15-F5-F6-F7)"
+for r2 in (5, 6, 7, 8):
+    ws.cell(row=r2, column=6).number_format = CUR
+    ws.cell(row=r2, column=6).border = BORDER
+
+# As-converted scenario: pro-rata by fully-diluted %, for all four rows —
+# also self-consistent (the %s sum to ~100%, so this sums to total proceeds).
+# Guarded: E-column % can be text ("-") on a blank cap table, and text*number
+# throws #VALUE! rather than quietly returning zero.
+for r2 in range(5, 9):
+    ws.cell(row=r2, column=7, value=f"=IFERROR($C$15*E{r2},\"-\")")
+    ws.cell(row=r2, column=7).number_format = CUR
+    ws.cell(row=r2, column=7).border = BORDER
+
+# Actual: pick ONE scenario for the WHOLE table based on a single global
+# test, rather than letting each class independently choose MAX(its own
+# scenario values) -- that looks tempting but breaks conservation. Proof by
+# example: if Series B and A both take their full pref (consuming all of a
+# small exit) while Seed independently "converts" into what its fully-diluted
+# % implies from the *original* total, Seed's slice was already spoken for by
+# B and A -- the three payouts sum to MORE than total proceeds. Neither
+# per-class scenario has that problem on its own (each is a self-contained,
+# fully-allocated cap table split), so switching between them wholesale for
+# every class keeps the total exact. The real-world outcome is often a mix
+# (junior classes convert while senior ones hold pref) — this simplification
+# picks the safer of the two extremes rather than guessing the exact mix.
+ws["B10"] = "Regime: as-converted pays more fund-wide than the full pref stack?"
+ws["C10"] = "=IF($C$15>SUM(D5:D7),\"YES — use as-converted\",\"NO — use pref-stack\")"
+ws["C10"].font = BOLD
+for r2 in range(5, 9):
+    ws.cell(row=r2, column=8, value=f"=IF($C$15>SUM($D$5:$D$7),G{r2},F{r2})")
+    ws.cell(row=r2, column=8).font = BOLD
+    ws.cell(row=r2, column=8).number_format = CUR
+    ws.cell(row=r2, column=8).border = BORDER
+
+ws["B11"] = "Total distributed (check — should equal total exit proceeds)"
+ws["C11"] = "=SUM(H5:H8)"; ws["C11"].font = BOLD; ws["C11"].number_format = CUR
+ws["C11"].border = BORDER
+
+ws["B13"] = ("Simplification: switches the WHOLE cap table between the pref-stack and as-converted "
+             "scenario based on one global test (total proceeds vs. sum of all preferences), rather "
+             "than letting each class elect independently. Real waterfalls often have junior classes "
+             "convert while senior ones keep their pref, in the middle range between these two "
+             "extremes — that requires testing conversion elections class by class (a small solver, "
+             "not a single formula). This always ties to total proceeds and is exactly right at both "
+             "extremes; treat the boundary/middle range as a case for a proper waterfall tool or "
+             "counsel, not this template.")
+ws["B13"].font = ITALIC_GRAY
 ws.sheet_view.showGridLines = False
 
 # ---------------- COMPARABLE FINANCINGS ----------------
@@ -139,6 +204,6 @@ ws.sheet_view.showGridLines = False
 
 add_refresh_log(wb)
 
-out_path = "/home/claude/model_shop/VC_template.xlsx"
+out_path = "VC_template.xlsx"
 wb.save(out_path)
 print("saved", out_path)

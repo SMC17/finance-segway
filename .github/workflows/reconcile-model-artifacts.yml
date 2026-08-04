@@ -1,0 +1,63 @@
+name: Reconcile Model Artifacts
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout synthesis branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/synthesize-finance-model-library-v2
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile and test reconciled sources
+        run: |
+          python -m py_compile tools/builders/institutional_helpers.py tools/builders/build_credit_template.py tools/builders/build_private_credit_template.py tools/builders/build_debt_finance_template.py tools/builders/build_public_finance_template.py tools/reconciled_reference_engines.py tools/test_reconciled_reference_engines.py tools/validate_reconciled_models.py tools/reconcile_model_inventory.py
+          PYTHONPATH=tools python tools/test_reconciled_reference_engines.py
+
+      - name: Generate and validate release candidates
+        run: |
+          python tools/builders/build_private_credit_template.py --output 05_Private_Credit/_template_CREDIT.xlsx
+          python tools/builders/build_debt_finance_template.py --output 06_Debt_Finance/_template_CREDIT.xlsx
+          python tools/builders/build_public_finance_template.py --output 07_Public_Finance/_template_PUBLIC_FINANCE.xlsx
+          python tools/reconcile_model_inventory.py
+          python tools/validate_reconciled_models.py --committed
+          python tools/validate_model_inventory.py --report model-governance-report.json
+
+      - name: Commit explicit release artifacts
+        run: |
+          git config user.name "finance-segway-model-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add standards/model_inventory.json 05_Private_Credit/_template_CREDIT.xlsx 06_Debt_Finance/_template_CREDIT.xlsx 07_Public_Finance/_template_PUBLIC_FINANCE.xlsx
+          if git diff --staged --quiet; then
+            echo "Artifacts and inventory already match canonical builders."
+          else
+            git commit -m "Reconcile credit debt and public finance models"
+            git push origin HEAD:agent/synthesize-finance-model-library-v2
+          fi
+
+      - name: Upload reconciliation reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reconciled-model-report
+          path: |
+            reconciled-model-report.json
+            model-governance-report.json
+          if-no-files-found: warn
+          retention-days: 30

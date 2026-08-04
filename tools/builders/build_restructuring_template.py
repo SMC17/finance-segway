@@ -44,10 +44,25 @@ for i in range(len(tranches)):
     ws.cell(row=r, column=6, value=f"=IFERROR(E{r}/C{r},\"-\")")
     ws.cell(row=r, column=6).number_format = PCT
     ws.cell(row=r, column=6).border = BORDER
+    # Fulcrum = the first tranche (top-down) whose recovery drops below 100%,
+    # given the tranche immediately senior to it was paid in full. Guarded on
+    # ISNUMBER so a blank template (all "-") never falsely flags a fulcrum.
+    if i == 0:
+        fulcrum_formula = f'=IF(AND(ISNUMBER(F{r}),F{r}<1),"FULCRUM","")'
+    else:
+        fulcrum_formula = (f'=IF(AND(ISNUMBER(F{r}),F{r}<1,ISNUMBER(F{r-1}),F{r-1}>=1),'
+                            f'"FULCRUM","")')
+    ws.cell(row=r, column=7, value=fulcrum_formula)
+    ws.cell(row=r, column=7).font = BOLD
+    ws.cell(row=r, column=7).border = BORDER
     r += 1
 ws["B20"] = ("Fulcrum security = the tranche where recovery % first drops below 100% "
              "— that class controls the reorg (converts to new equity)")
 ws["B20"].font = ITALIC_GRAY
+ws["B21"] = "Fulcrum security"
+ws["C21"] = (f'=IFERROR(INDEX(B5:B{last_tranche_row},'
+             f'MATCH("FULCRUM",G5:G{last_tranche_row},0)),"-")')
+ws["C21"].font = BOLD; ws["C21"].border = BORDER
 ws.sheet_view.showGridLines = False
 
 # ---------------- LIQUIDATION VS REORG ----------------
@@ -87,6 +102,6 @@ for r2 in range(5, 13):
 ws.sheet_view.showGridLines = False
 
 add_refresh_log(wb)
-out_path = "/home/claude/model_shop/RESTRUCTURING_template.xlsx"
+out_path = "RESTRUCTURING_template.xlsx"
 wb.save(out_path)
 print("saved", out_path)

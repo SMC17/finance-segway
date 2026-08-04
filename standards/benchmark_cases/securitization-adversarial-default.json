@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.1",
+  "id": "securitization-adversarial-default",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false,
+  "template": "19_Structured_Finance_Securitization/_template_SECURITIZATION.xlsx",
+  "output": "19_Structured_Finance_Securitization/instances/benchmark_adversarial_default.xlsx",
+  "as_of": "2026-08-03",
+  "scenario": "Downside",
+  "cover": {
+    "Transaction / collateral:": "Adversarial High-Default Slow-Recovery Pool"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": 0.03,
+      "source": {
+        "name": "Finance-Segway benchmark fixture securitization-adversarial-default",
+        "url": "repo://standards/benchmark_cases/securitization-adversarial-default.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "value": 0.15,
+      "source": {
+        "name": "Finance-Segway benchmark fixture securitization-adversarial-default",
+        "url": "repo://standards/benchmark_cases/securitization-adversarial-default.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "value": 0.15,
+      "source": {
+        "name": "Finance-Segway benchmark fixture securitization-adversarial-default",
+        "url": "repo://standards/benchmark_cases/securitization-adversarial-default.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 9,
+      "source": {
+        "name": "Finance-Segway benchmark fixture securitization-adversarial-default",
+        "url": "repo://standards/benchmark_cases/securitization-adversarial-default.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finance-Segway benchmark fixture securitization-adversarial-default",
+      "url": "repo://standards/benchmark_cases/securitization-adversarial-default.json",
+      "as_of": "2026-08-03",
+      "notes": "Synthetic engineering fixture; not investment evidence"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-03",
+    "trigger": "Synthetic benchmark generation",
+    "source_snapshot": "repo://standards/benchmark_cases/securitization-adversarial-default.json",
+    "what_changed": "Generated securitization-adversarial-default from canonical release template",
+    "reviewer_notes": "Engineering fixture only; not public underwriting or M4 evidence",
+    "next_check": "On builder, formula, or contract change"
+  }
+}

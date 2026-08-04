@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "options-adversarial-skew",
+  "as_of": "2026-08-03",
+  "manifest": "standards/benchmark_cases/options-adversarial-skew.json",
+  "template": "14_Options_Derivatives/_template_OPTIONS.xlsx",
+  "output": "14_Options_Derivatives/instances/benchmark_adversarial_skew.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "previous": 80,
+      "value": 72.0,
+      "source_url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "previous": 0.45,
+      "value": 0.6,
+      "source_url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "previous": 15,
+      "value": 30.0,
+      "source_url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D14",
+      "previous": -0.3,
+      "value": -0.5,
+      "source_url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
+      "source_as_of": "2026-08-03"
+    }
+  ],
+  "workbook_sha256": "de705f6fa3d05f494451ad098f05a21341b7d441c5e0b9631137780c02c964af",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}
