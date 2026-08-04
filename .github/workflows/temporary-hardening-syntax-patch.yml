@@ -1,0 +1,64 @@
+name: Temporary Hardening Syntax Patch
+
+on:
+  push:
+    branches:
+      - agent/harden-m1-domain-engines
+    paths:
+      - ".github/workflows/temporary-hardening-syntax-patch.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout hardening branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/harden-m1-domain-engines
+          fetch-depth: 0
+
+      - name: Replace three malformed formula literals
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          replacements = {
+              "tools/builders/build_trade_finance_release.py": (
+                  "Documentary-control exceptions",
+                  r'''        (12, "Documentary-control exceptions", '=COUNTIF(\'Documentary Controls\'!D5:D12,"<>PASS")', '=IF(C12=0,"PASS","REVIEW")', "No financing-cost comparison overrides unresolved documentary or sanctions controls."),''',
+              ),
+              "tools/builders/build_microfinance_release.py": (
+                  "Conduct-control exceptions",
+                  r'''        (13, "Conduct-control exceptions", '=COUNTIF(\'Client & Conduct\'!D5:D10,"<>PASS")', '=IF(C13=0,"PASS","REVIEW")', "Growth and sustainability do not override affordability or conduct failures."),''',
+              ),
+              "tools/builders/build_crypto_release.py": (
+                  "Custody / liquidity exceptions",
+                  r'''        (12, "Custody / liquidity exceptions", '=COUNTIF(\'Custody & Liquidity\'!D5:D12,"<>PASS")', '=IF(C12=0,"PASS","REVIEW")', "Valuation and tokenomics do not override unresolved key, venue, bridge, or incident risk."),''',
+              ),
+          }
+
+          for file_name, (needle, replacement) in replacements.items():
+              path = Path(file_name)
+              lines = path.read_text(encoding="utf-8").splitlines()
+              matches = [index for index, line in enumerate(lines) if needle in line]
+              if len(matches) != 1:
+                  raise SystemExit(f"{file_name}: expected one {needle!r} row, found {len(matches)}")
+              lines[matches[0]] = replacement
+              path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+          PY
+
+      - name: Compile patched wrappers
+        run: python -m compileall -q tools/builders
+
+      - name: Commit syntax repair
+        run: |
+          git config user.name "finance-segway-release-bot"
+          git config user.email "finance-segway-release-bot@users.noreply.github.com"
+          git add tools/builders/build_trade_finance_release.py \
+                  tools/builders/build_microfinance_release.py \
+                  tools/builders/build_crypto_release.py
+          git commit -m "Fix hardening exception-count formulas"
+          git push origin HEAD:agent/harden-m1-domain-engines
