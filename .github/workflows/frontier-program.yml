@@ -1,0 +1,73 @@
+name: All-Domain Frontier Program
+
+on:
+  pull_request:
+    paths:
+      - "standards/frontier/**"
+      - "tools/cross_domain_oracles.py"
+      - "tools/validate_frontier_program.py"
+      - "tests/test_frontier_program.py"
+      - ".github/workflows/frontier-program.yml"
+  push:
+    branches:
+      - agent/all-domain-m3-evidence-network-risk
+    paths:
+      - "standards/frontier/**"
+      - "tools/cross_domain_oracles.py"
+      - "tools/validate_frontier_program.py"
+      - "tests/test_frontier_program.py"
+      - ".github/workflows/frontier-program.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: all-domain-frontier-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout frontier head
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile frontier source
+        run: python -m compileall -q tools tests
+
+      - name: Run frontier tests
+        run: PYTHONPATH=. python -m unittest tests.test_frontier_program -v
+
+      - name: Validate cohorts, taxonomy, provenance, and network identities
+        run: |
+          PYTHONPATH=. python tools/validate_frontier_program.py \
+            --report frontier-program-report.json
+
+      - name: Revalidate underlying M2 and M3 evidence systems
+        run: |
+          PYTHONPATH=. python tools/validate_domain_hardening.py \
+            --report frontier-domain-hardening-report.json
+          PYTHONPATH=.:tools python tools/m3_evidence.py \
+            --validate --require-instances
+
+      - name: Upload frontier evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: all-domain-frontier-${{ github.event_name }}
+          path: |
+            frontier-program-report.json
+            frontier-domain-hardening-report.json
+            m3-evidence-report.json
+          if-no-files-found: warn
+          retention-days: 30
