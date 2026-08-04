@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "debt-public-carnival-2020-stress",
+  "as_of": "2020-11-30",
+  "manifest": "standards/public_cases/debt-public-carnival-2020-stress.json",
+  "template": "06_Debt_Finance/_template_CREDIT.xlsx",
+  "output": "06_Debt_Finance/instances/public_carnival_2020_stress.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D6",
+      "previous": 300,
+      "value": 5750.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/815097/000081509721000012/ccl-20201130.htm",
+      "source_as_of": "2020-11-30"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D13",
+      "previous": 50,
+      "value": 9500.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/815097/000081509721000012/ccl-20201130.htm",
+      "source_as_of": "2020-11-30"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D15",
+      "previous": 500,
+      "value": 4000.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/815097/000081509721000012/ccl-20201130.htm",
+      "source_as_of": "2020-11-30"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D17",
+      "previous": 250,
+      "value": 1750.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/815097/000081509721000012/ccl-20201130.htm",
+      "source_as_of": "2020-11-30"
+    }
+  ],
+  "workbook_sha256": "638dd50e85bdb83bcd206ba1db70e0633ed0421a212fc8ad2e03efc59b218041",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false
+}

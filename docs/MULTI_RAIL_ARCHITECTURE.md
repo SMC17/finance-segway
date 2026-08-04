@@ -1,88 +1,52 @@
 # Multi-Rail Architecture Decision Record
 
-**Status**: Accepted  
-**Date**: 2026-08-04  
-**Owner**: Finance-Segway core maintainers
+**Status:** Accepted  
+**Date:** 2026-08-04  
+**Owner:** Finance-Segway core maintainers
 
-## Context
+Finance-Segway separates governed decision models from optional analytics and
+research capabilities. The separation is architectural, not a license to lower
+evidence standards.
 
-Finance-Segway began as a governed multi-domain spreadsheet library with strong model-risk discipline (M0–M4 maturity scale, independent reference engines, evidence packs, atomic promotion). The Postgres layer was added as a thin, read-only query surface over populated instances.
-
-As the project expands, three additional capabilities are required:
-
-1. A versioned, testable semantic/analytics layer over the growing instance library (dbt).
-2. A high-velocity time-series research rail for market data, signals, and empirical regimes (kdb+/q).
-3. High-performance in-memory risk and portfolio models capable of scaling from small universes toward large equity and derivatives universes ("RAM" models).
-
-These capabilities must not compromise the core governance design.
-
-## Decision
-
-Finance-Segway adopts a **multi-rail architecture**:
-
-```text
-┌────────────────────────────────────────────────────────────────────┐
-│  GOVERNANCE & DECISION RAIL (core – immutable contract)            │
-│  • Excel archetypes + Python builders                              │
-│  • Pure-Python reference / reconciled engines                      │
-│  • standards/model_inventory.json + maturity gates                 │
-│  • Model cards, validation records, source registers, RefreshLog   │
-│  • Postgres instance library (Excel remains source of truth)       │
-└───────────────────────────────┬────────────────────────────────────┘
-                                │ versioned, aggregated contracts only
-┌───────────────────────────────▼────────────────────────────────────┐
-│  ANALYTICS RAIL (dbt)                                              │
-│  • Staging → intermediate → marts over Postgres (and future        │
-│    warehouses)                                                     │
-│  • Tested, documented semantic models for risk, performance,       │
-│    covenant, recovery, and portfolio views                         │
-└───────────────────────────────┬────────────────────────────────────┘
-                                │
-┌───────────────────────────────▼────────────────────────────────────┐
-│  RESEARCH / HIGH-VELOCITY RAIL (kdb+/q)                            │
-│  • Tick / quote / daily time-series storage and vectorized query   │
-│  • Signal research, regime statistics, empirical recovery paths    │
-│  • Realized outcome monitoring feeds                               │
-└───────────────────────────────┬────────────────────────────────────┘
-                                │
-┌───────────────────────────────▼────────────────────────────────────┐
-│  RAM RISK RAIL (in-memory portfolio & risk models)                 │
-│  • High-performance covariance, factor, and stress engines         │
-│  • Starts at tiny universes; scales only after validation gates    │
-│  • May be accelerated in Zig, pure Python, or q as appropriate     │
-└────────────────────────────────────────────────────────────────────┘
-```
+| Rail | Responsibility | Authoritative source |
+|---|---|---|
+| Governance and decisions | Excel archetypes, builders, oracles, maturity gates | Committed workbooks and `standards/` |
+| Analytics | Tested semantic views over extracted workbook outputs | Postgres tables loaded from public cases |
+| Time-series research | Public market observations and controlled empirical exports | Dated, checksummed source snapshots |
+| RAM risk | Hand-rolled covariance, factor, stress, and allocation engines | Versioned code plus independent tests |
 
 ## Non-negotiable contracts
 
-1. **Excel remains the calculation engine and source of truth for every decision model.** No rail may re-implement underwriting formulas or claim to supersede a governed archetype.
-2. **M-maturity claims are owned exclusively by the core inventory and validators.** Research rails never inherit or inflate M2/M3/M4 status.
-3. **Data flowing from research rails into decision models must be registered** as dated sources with snapshots (or checksums) in the domain’s `sources/` tree.
-4. **Outcome monitoring is bidirectional but controlled**: realized statistics may be summarized back into evidence packs; live research data never silently mutates a frozen instance.
-5. **Scaling criteria are explicit**. A risk model does not “support the S&P 500” until it has passed defined numerical, performance, and governance gates on intermediate universes.
+1. Excel remains the calculation engine and evidence record for decision models.
+2. Only core inventory validators can assign M0–M4 maturity.
+3. Research inputs crossing into a decision model require a source URL, as-of
+   date, methodology, checksum, and source-register entry.
+4. No live feed silently mutates a frozen public case.
+5. Business evidence must be real and source-addressed. Synthetic datasets,
+   generated business cases, and synthetic evidence exports are prohibited.
+6. Small deterministic numerical vectors are allowed only inside unit or oracle
+   tests; they are never evidence and never count toward maturity.
+7. Scaling claims require measured, reviewed stage gates.
 
-## Phased scaling policy for RAM models
+## RAM scaling gates
 
-| Stage | Universe size | Required gates before promotion |
-|-------|---------------|---------------------------------|
-| 0 | ≤ 10 names | Pure reference implementation, unit tests, conservation identities |
-| 1 | ≤ 50 names | Performance baseline, factor exposure checks, stress monotonicity |
-| 2 | S&P 100 | Memory & runtime budgets, cross-sectional consistency, independent benchmark |
-| 3 | S&P 500 | Full documentation, outcome monitoring hooks, effective challenge |
-| 4 | Nasdaq / selected CME | Domain-specific contracts + separate evidence packs |
+| Stage | Maximum universe | Promotion boundary |
+|---|---:|---|
+| 0 | 10 | Pure implementation, identities, and numerical tests |
+| 1 | 50 | Public observations, performance baseline, factor checks |
+| 2 | S&P 100 | Independent benchmark and resource budgets |
+| 3 | S&P 500 | Full evidence pack and outcome monitoring |
+| 4 | Selected Nasdaq/CME scope | Separate domain contracts and review |
 
-No stage may be skipped.
+No stage may be skipped. Passing numerical tests establishes an engine
+skeleton; it does not establish empirical fitness or a promotion claim.
 
-## Consequences
+## Governance
 
-- New directories `analytics/`, `research/kdb/`, and `research/ram/` are first-class citizens of the repository but sit outside the core domain folders `01_`–`24_`.
-- CI for the core library continues to ignore or only lightly touch the research rails until their own test suites are mature.
-- The Integration Ledger and model inventory remain the single sources of truth for what is governed.
+- Rail contracts and policy code are CODEOWNED.
+- Analytics and research outputs remain outside the 24-domain maturity inventory
+  until explicitly admitted through the normal evidence gate.
+- Issue #7 remains the human effective-challenge and sign-off boundary.
 
-## Related documents
-
-- `docs/MODEL_GOVERNANCE_STANDARD.md`
-- `docs/INSTITUTIONAL_DEPTH_BLUEPRINT.md`
-- `db/README.md`
-- `research/kdb/INTEGRATION_CONTRACTS.md`
-- `research/ram/README.md`
+Related documents: `docs/MODEL_GOVERNANCE_STANDARD.md`, `db/README.md`,
+`research/kdb/INTEGRATION_CONTRACTS.md`, and `research/ram/STAGE_GATES.md`.

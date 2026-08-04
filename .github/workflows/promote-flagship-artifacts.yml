@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -17,4 +17,5 @@ jobs:
       - name: Promotion gate
         run: |
           echo "Automatic artifact promotion is paused."
-          echo "Re-enable only after Flagship Validation is green on the canonical PR head."
+          echo "Release artifacts must be proposed in a reviewed pull request."
+

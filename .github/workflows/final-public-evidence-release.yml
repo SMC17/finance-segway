@@ -11,10 +11,10 @@ on:
       - "tools/m3_evidence.py"
       - "tools/model_instance_release.py"
       - "tools/evidence_receipt_integrity.py"
-      - "standards/benchmark_cases/**"
+      - "standards/public_cases/**"
   push:
     branches:
-      - agent/all-domain-m3-evidence-network-risk
+      - main
     paths:
       - "tools/final_public_evidence_registry.py"
       - "tools/final_public_evidence.py"
@@ -24,27 +24,26 @@ on:
       - "tools/m3_evidence.py"
       - "tools/model_instance_release.py"
       - "tools/evidence_receipt_integrity.py"
-      - "standards/benchmark_cases/**"
+      - "standards/public_cases/**"
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: final-public-evidence-${{ github.event_name }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   evidence:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout immutable frontier head
+      - name: Checkout triggering revision
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
-
-      - name: Capture immutable source head
-        run: git rev-parse HEAD > .final-evidence-start-sha
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -60,7 +59,12 @@ jobs:
           python -m compileall -q tools tests
           PYTHONPATH=. python -m unittest tests.test_final_public_evidence -v
           PYTHONPATH=. python -m unittest tests.test_m3_evidence -v
-          PYTHONPATH=. python -m unittest tests.test_committed_frontier_release -v
+          PYTHONPATH=. python -m unittest tests.test_model_instances -v
+
+      - name: Validate committed all-domain evidence before generation
+        run: |
+          PYTHONPATH=.:tools python tools/final_public_evidence.py \
+            --validate --require-instances
 
       - name: Materialize final six evidence packs and twelve public instances
         run: |
@@ -236,52 +240,17 @@ jobs:
               raise SystemExit(errors)
           PY
 
-      - name: Validate all-domain evidence, frontier controls, and committed release
+      - name: Validate all-domain evidence and frontier controls
         run: |
           PYTHONPATH=.:tools python tools/final_public_evidence.py \
             --validate --require-instances
           PYTHONPATH=. python tools/validate_frontier_program.py \
             --report final-public-frontier-report.json
-          PYTHONPATH=.:tools python tools/validate_committed_frontier_release.py \
-            --report final-public-committed-release-report.json
           PYTHONPATH=.:tools python tools/validate_model_inventory.py \
             --report final-public-inventory-report.json
           PYTHONPATH=.:tools python tools/build_all_models.py \
             --report final-public-builder-parity-report.json \
             --require-parity
-
-      - name: Reject stale final evidence release
-        if: github.event_name == 'push'
-        run: |
-          git fetch origin agent/all-domain-m3-evidence-network-risk
-          START_SHA=$(cat .final-evidence-start-sha)
-          REMOTE_SHA=$(git rev-parse origin/agent/all-domain-m3-evidence-network-risk)
-          echo "final evidence source: $START_SHA"
-          echo "remote source:         $REMOTE_SHA"
-          test "$START_SHA" = "$REMOTE_SHA"
-
-      - name: Commit atomic all-domain public evidence release
-        if: github.event_name == 'push'
-        run: |
-          git config user.name "finance-segway-all-domain-evidence-bot"
-          git config user.email "actions@users.noreply.github.com"
-          git add \
-            standards/m3_evidence/final_six_registry.json \
-            standards/public_cases \
-            01_Investment_Banking/model_card.md 01_Investment_Banking/validation.md 01_Investment_Banking/sources 01_Investment_Banking/governance 01_Investment_Banking/outcomes 01_Investment_Banking/releases 01_Investment_Banking/instances/public_* \
-            02_Corporate_Finance/model_card.md 02_Corporate_Finance/validation.md 02_Corporate_Finance/sources 02_Corporate_Finance/governance 02_Corporate_Finance/outcomes 02_Corporate_Finance/releases 02_Corporate_Finance/instances/public_* \
-            05_Private_Credit/model_card.md 05_Private_Credit/validation.md 05_Private_Credit/sources 05_Private_Credit/governance 05_Private_Credit/outcomes 05_Private_Credit/releases 05_Private_Credit/instances/public_* \
-            06_Debt_Finance/model_card.md 06_Debt_Finance/validation.md 06_Debt_Finance/sources 06_Debt_Finance/governance 06_Debt_Finance/outcomes 06_Debt_Finance/releases 06_Debt_Finance/instances/public_* \
-            07_Public_Finance/model_card.md 07_Public_Finance/validation.md 07_Public_Finance/sources 07_Public_Finance/governance 07_Public_Finance/outcomes 07_Public_Finance/releases 07_Public_Finance/instances/public_* \
-            13_Venture_Capital/model_card.md 13_Venture_Capital/validation.md 13_Venture_Capital/sources 13_Venture_Capital/governance 13_Venture_Capital/outcomes 13_Venture_Capital/releases 13_Venture_Capital/instances/public_* \
-            */instances/public_*.receipt.json \
-            final-public-evidence-report.json all-domain-public-evidence-report.json
-          if git diff --staged --quiet; then
-            echo "All-domain public evidence release is already current."
-          else
-            git commit -m "Complete public historical evidence for all 24 domains"
-            git push origin HEAD:agent/all-domain-m3-evidence-network-risk
-          fi
 
       - name: Upload final public evidence reports
         if: always()
@@ -296,7 +265,6 @@ jobs:
             final-public-evidence-report.json
             all-domain-public-evidence-report.json
             final-public-frontier-report.json
-            final-public-committed-release-report.json
             final-public-inventory-report.json
             final-public-builder-parity-report.json
             standards/public_cases/index.json

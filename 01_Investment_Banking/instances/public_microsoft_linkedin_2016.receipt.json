@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "ib-public-microsoft-linkedin-2016",
+  "as_of": "2016-12-08",
+  "manifest": "standards/public_cases/ib-public-microsoft-linkedin-2016.json",
+  "template": "01_Investment_Banking/_template_BASE.xlsx",
+  "output": "01_Investment_Banking/instances/public_microsoft_linkedin_2016.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C5",
+      "previous": 1000,
+      "value": 26200.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+      "source_as_of": "2016-12-08"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C8",
+      "previous": 100,
+      "value": 133.673469,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+      "source_as_of": "2016-12-08"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C9",
+      "previous": 9.5,
+      "value": 196.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+      "source_as_of": "2016-12-08"
+    }
+  ],
+  "workbook_sha256": "9f36eb60ac0cc5ef86b7a889f3e1ade7f968cbc4bbca4aad6c8658e13c0001a9",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false
+}

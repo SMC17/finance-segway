@@ -52,28 +52,6 @@ def materialized_registry() -> dict[str, Any]:
     return payload
 
 
-def _normalize_empty_benchmark_covers(
-    evidence_registry: dict[str, Any],
-) -> dict[Path, bytes]:
-    backups: dict[Path, bytes] = {}
-    for model in evidence_registry["flagships"]:
-        for case in model["cases"]:
-            path = ROOT / case["based_on"]
-            raw = path.read_bytes()
-            payload = json.loads(raw.decode("utf-8"))
-            if payload.get("cover"):
-                continue
-            backups[path] = raw
-            payload["cover"] = {"Subject:": ""}
-            write_json(path, payload)
-    return backups
-
-
-def _restore(backups: dict[Path, bytes]) -> None:
-    for path, raw in backups.items():
-        path.write_bytes(raw)
-
-
 def _merge_indexes(
     baseline: dict[str, Any], final_index: dict[str, Any]
 ) -> dict[str, Any]:
@@ -98,8 +76,74 @@ def _merge_indexes(
     }
 
 
+def _case_registry() -> dict[str, tuple[dict[str, Any], dict[str, Any]]]:
+    result: dict[str, tuple[dict[str, Any], dict[str, Any]]] = {}
+    for path in (ORIGINAL_REGISTRY, FRONTIER_REGISTRY):
+        for model in read_json(path)["flagships"]:
+            for case in model["cases"]:
+                if case["id"] in result:
+                    raise ValueError(f"duplicate registry case id {case['id']}")
+                result[case["id"]] = (model, case)
+    return result
+
+
+def _remove_synthetic_lineage(manifest: dict[str, Any]) -> int:
+    """Remove benchmark-derived inputs from an existing public manifest."""
+    before = len(manifest.get("inputs", []))
+    manifest["inputs"] = [
+        item
+        for item in manifest.get("inputs", [])
+        if not str((item.get("source") or {}).get("url", "")).startswith(
+            "repo://standards/benchmark_cases/"
+        )
+    ]
+    return before - len(manifest["inputs"])
+
+
+def _sanitize_baseline(
+    baseline: dict[str, Any], generate_instances: bool
+) -> dict[str, Any]:
+    registry = _case_registry()
+    inventory = {
+        model["id"]: model
+        for model in read_json(m3_evidence.INVENTORY_PATH)["models"]
+    }
+    for item in baseline.get("cases", []):
+        case_id = item["case_id"]
+        if case_id not in registry:
+            raise ValueError(f"baseline case {case_id} is absent from evidence registries")
+        model, case = registry[case_id]
+        manifest_path = ROOT / item["manifest"]
+        manifest = read_json(manifest_path)
+        _remove_synthetic_lineage(manifest)
+        if not manifest.get("inputs"):
+            raise ValueError(f"{case_id}: no real or explicitly derived inputs remain")
+        manifest.update(
+            {
+                "classification": "external_historical_case",
+                "counts_toward_M4": False,
+                "template": inventory[model["model_id"]]["workbook"],
+                "scenario": case.get(
+                    "scenario",
+                    "Base" if case["type"] == "conventional" else "Downside",
+                ),
+                "cover": {"Subject:": case["subject"]},
+                "outcome": case["outcome"],
+                "lineage": {
+                    "source_snapshot": f"repo://{item['snapshot']}",
+                    "synthetic_benchmark_inputs_allowed": False,
+                },
+            }
+        )
+        write_json(manifest_path, manifest)
+        item["outcome"] = case["outcome"]
+        if generate_instances:
+            item["receipt"] = m3_evidence.apply_manifest(manifest_path, ROOT)
+    return baseline
+
+
 def materialize(generate_instances: bool) -> dict[str, Any]:
-    evidence_registry = materialized_registry()
+    materialized_registry()
     baseline = read_json(PUBLIC_INDEX)
     if baseline.get("case_count") != 36:
         raise ValueError(
@@ -109,14 +153,13 @@ def materialize(generate_instances: bool) -> dict[str, Any]:
         raise ValueError(
             f"final evidence release must start from 18 evidenced models, found {baseline.get('evidence_models')}"
         )
-    backups = _normalize_empty_benchmark_covers(evidence_registry)
+    baseline = _sanitize_baseline(baseline, generate_instances)
     original_registry_path = m3_evidence.REGISTRY_PATH
     try:
         m3_evidence.REGISTRY_PATH = FINAL_REGISTRY
         final_index = m3_evidence.materialize(generate_instances)
     finally:
         m3_evidence.REGISTRY_PATH = original_registry_path
-        _restore(backups)
     combined = _merge_indexes(baseline, final_index)
     if combined["case_count"] != 48:
         raise ValueError(
@@ -130,11 +173,15 @@ def materialize(generate_instances: bool) -> dict[str, Any]:
     return combined
 
 
-def _validate_registry(path: Path, require_instances: bool) -> dict[str, Any]:
+def _validate_registry(
+    path: Path, require_instances: bool, *, expected_flagships: int
+) -> dict[str, Any]:
     previous = m3_evidence.REGISTRY_PATH
     try:
         m3_evidence.REGISTRY_PATH = path
-        return m3_evidence.validate(require_instances)
+        return m3_evidence.validate(
+            require_instances, expected_flagships=expected_flagships
+        )
     finally:
         m3_evidence.REGISTRY_PATH = previous
 
@@ -172,8 +219,17 @@ def _validate_combined_index(require_instances: bool) -> dict[str, Any]:
         kinds = Counter(
             input_item.get("input_kind") for input_item in manifest.get("inputs", [])
         )
+        if any(
+            str((input_item.get("source") or {}).get("url", "")).startswith(
+                "repo://standards/benchmark_cases/"
+            )
+            for input_item in manifest.get("inputs", [])
+        ):
+            errors.append(
+                f"{case_id}: public manifest inherits synthetic benchmark inputs"
+            )
         external_inputs[model_id] += kinds["observed"] + kinds["derived"]
-        outcome = manifest.get("outcome") or {}
+        outcome = item.get("outcome") or manifest.get("outcome") or {}
         if outcome.get("status") == "recorded":
             recorded_outcomes[model_id] += 1
         if not snapshot_path.exists():
@@ -253,9 +309,15 @@ def _validate_combined_index(require_instances: bool) -> dict[str, Any]:
 
 def validate(require_instances: bool) -> dict[str, Any]:
     materialized_registry()
-    original_report = _validate_registry(ORIGINAL_REGISTRY, require_instances)
-    frontier_report = _validate_registry(FRONTIER_REGISTRY, require_instances)
-    final_report = _validate_registry(FINAL_REGISTRY, require_instances)
+    original_report = _validate_registry(
+        ORIGINAL_REGISTRY, require_instances, expected_flagships=9
+    )
+    frontier_report = _validate_registry(
+        FRONTIER_REGISTRY, require_instances, expected_flagships=9
+    )
+    final_report = _validate_registry(
+        FINAL_REGISTRY, require_instances, expected_flagships=6
+    )
     combined = _validate_combined_index(require_instances)
     errors = [
         *[f"original: {item}" for item in original_report["errors"]],
@@ -283,7 +345,7 @@ def validate(require_instances: bool) -> dict[str, Any]:
             *frontier_report["warnings"],
             *final_report["warnings"],
             "Named stakeholder approval remains pending for all evidence packs.",
-            "Historical cases and synthetic benchmarks do not count toward M4 without maintained operating history.",
+            "Historical cases do not count toward M4 without maintained operating history.",
         ],
         "statement": (
             "All 24 governed M2 domains have conventional and adversarial public historical "

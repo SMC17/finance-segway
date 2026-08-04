@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "model_id": "13",
+  "domain": "Venture Capital",
+  "case_id": "vc-public-snowflake-2020",
+  "case_type": "conventional",
+  "as_of": "2020-09-16",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Snowflake 2020 final IPO prospectus",
+      "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+      "publisher": "U.S. SEC / Snowflake",
+      "captured_values": {
+        "ipo_shares_mm": 28.0,
+        "ipo_price_per_share_usd": 120.0,
+        "gross_primary_proceeds_usd_mm": 3360.0,
+        "derived_pre_money_value_usd_mm": 30000.0,
+        "derived_existing_shares_mm": 250.0,
+        "ipo_completed": 1
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C5",
+      "value": 30000.0,
+      "kind": "derived",
+      "source": "Snowflake 2020 final IPO prospectus"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C6",
+      "value": 3360.0,
+      "kind": "derived",
+      "source": "Snowflake 2020 final IPO prospectus"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C7",
+      "value": 250.0,
+      "kind": "derived",
+      "source": "Snowflake 2020 final IPO prospectus"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C8",
+      "value": 28.0,
+      "kind": "observed",
+      "source": "Snowflake 2020 final IPO prospectus"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "ipo_completed",
+    "forecast": 1.0,
+    "realized": 1.0,
+    "realized_source": "Snowflake 2020 final IPO prospectus",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "40b14977f0e0d815b3a83b7f3bfe2eb31e6a540b10fbbc40453ffbddce553f2b"
+}

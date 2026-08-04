@@ -16,26 +16,10 @@
     },
     {
       "sheet": "Assumptions",
-      "cell": "D8",
-      "previous": 0.008,
-      "value": 0.015,
-      "source_url": "repo://standards/benchmark_cases/quant-adversarial-capacity.json",
-      "source_as_of": "2024-12-31"
-    },
-    {
-      "sheet": "Assumptions",
       "cell": "D9",
       "previous": 150,
       "value": 250.0,
       "source_url": "repo://22_Quantitative_Systematic/sources/snapshots/quant-sp500-2020-2024-capacity.json",
-      "source_as_of": "2024-12-31"
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D10",
-      "previous": 250,
-      "value": 100.0,
-      "source_url": "repo://standards/benchmark_cases/quant-adversarial-capacity.json",
       "source_as_of": "2024-12-31"
     },
     {
@@ -519,10 +503,9 @@
       "source_as_of": "2024-12-31"
     }
   ],
-  "workbook_sha256": "7037e74004d8cea310dd647698918d29e6af4b723a823a5971ac8926372a6d0d",
+  "workbook_sha256": "9095e4eaea8d522a9b5a2f46a533aa3030fc5c81a488a155c754427bd4cfa906",
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
-  "hash_refreshed_on": "2026-08-04",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }

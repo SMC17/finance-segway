@@ -10,7 +10,7 @@ library on `main`. PR #5 is the institutional operating-system tranche.
 |---|---|
 | Claude Code | Complete 24-domain baseline, workbook breadth, original builders, broad formula hardening, and the independent spreadsheet regression suite |
 | Earlier ChatGPT/Codex prototypes | Selected financial identities and credit mechanics; obsolete shared workbooks, binaries, and writers rejected |
-| Engineered synthesis | Canonical financial engines, domain contracts, semantic parity, recalculation, benchmark instances, receipts, and atomic artifact release |
+| Engineered synthesis | Canonical financial engines, domain contracts, semantic parity, recalculation, public instances, receipts, and atomic artifact release |
 | Institutional tranche | Domain operating profiles, decision surfaces, challenge logs, lineage maps, control plane, and profile-bound release evidence |
 
 Components are combined according to economic identity and test evidence, not
@@ -20,12 +20,13 @@ according to which agent or branch created them.
 
 - Inventory version: **2.1.0**
 - **24** core archetypes
-- **15 M2 Decision Models** and **9 M1 Correct Skeletons**
+- **24 M2 Decision Models** and **0 M1 Correct Skeletons**
 - **24** domain-specific institutional profiles
 - **24** canonical workbooks with `Institutional Surface`, `Challenge Log`, and `Lineage Map`
-- **18** source-addressed synthetic reference/adversarial benchmark instances
+- **48** source-addressed public historical/adversarial cases
+- **0** synthetic manifests, workbooks, or receipts
 - A nine-sheet institutional control plane under `00_Control_Plane/`
-- **0 M3** and **0 M4** claims without the required external evidence
+- **0 M3** and **0 M4** claims without named human challenge and maintained operation
 
 ## Standardized operating envelope
 
@@ -76,7 +77,7 @@ financially distinct.
 6. Every canonical workbook receives and validates its domain-specific operating surface.
 7. Each builder reproduces each model-specific committed workbook semantically.
 8. External links and literal Excel errors are absent.
-9. All 18 reference/adversarial instances regenerate and recalculate cleanly.
+9. All 48 public historical/adversarial instances validate and bind to current receipts.
 10. Release evidence hashes builders, workbooks, and the institutional profile registry.
 11. The institutional control plane rebuilds from inventory, profiles, instances, and evidence.
 12. Any source-head movement aborts rather than rebasing stale binaries.

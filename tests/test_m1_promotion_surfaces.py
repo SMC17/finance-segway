@@ -3,7 +3,8 @@ from __future__ import annotations
 import unittest
 
 from tools import apply_m1_promotion_surfaces
-from tools.release_m1_domain_promotions import EXPECTED_IDS
+
+EXPECTED_IDS = apply_m1_promotion_surfaces.EXPECTED_IDS
 
 
 class M1PromotionSurfaceTests(unittest.TestCase):

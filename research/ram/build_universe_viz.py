@@ -1,239 +1,176 @@
-\"\"\"Build a research visualization workbook for the Stage-0 universe.
+"""Render a receipt-verified real-market RAM research workbook."""
 
-Prefers real data (research/ram/data/cov_real_10.json + regime CSV) when present.
-Falls back to a small synthetic example only if real data has not been fetched.
-
-Output: research/ram/visualizations/_universe_viz_stage0.xlsx
-
-RESEARCH VISUALIZATION ONLY — not a governed decision model.
-\"\"\"
 from __future__ import annotations
 
+import argparse
 import csv
+import hashlib
 import json
 import math
+from datetime import date
 from pathlib import Path
+from typing import Any
 
 from openpyxl import Workbook
-from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
+from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
-from simple_covariance import (
-    equal_weight_risk,
-    inverse_vol_weights,
-    is_positive_semidefinite,
-    portfolio_variance,
-)
+try:
+    from research.ram.simple_covariance import (
+        equal_weight_risk,
+        inverse_vol_weights,
+        is_positive_semidefinite,
+        portfolio_variance,
+    )
+except ModuleNotFoundError:  # direct execution from research/ram
+    from simple_covariance import (
+        equal_weight_risk,
+        inverse_vol_weights,
+        is_positive_semidefinite,
+        portfolio_variance,
+    )
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
+
+ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = Path(__file__).resolve().parent / "data"
-EXPORT_DIR = REPO_ROOT / "research" / "kdb" / "exports"
-OUT_DIR = Path(__file__).resolve().parent / "visualizations"
-OUT_DIR.mkdir(parents=True, exist_ok=True)
-OUT_PATH = OUT_DIR / "_universe_viz_stage0.xlsx"
 
 
-def load_universe():
-    cov_path = DATA_DIR / "cov_real_10.json"
-    meta_path = DATA_DIR / "universe_real_10.json"
-    if cov_path.exists() and meta_path.exists():
-        cov = json.loads(cov_path.read_text())
-        meta = json.loads(meta_path.read_text())
-        return cov, meta, "real"
-    # synthetic fallback
-    names = [f"SYN{i:02d}" for i in range(1, 11)]
-    n = len(names)
-    cov = [[0.0] * n for _ in range(n)]
-    for i in range(n):
-        cov[i][i] = 0.04 + 0.008 * (i % 5)
-        for j in range(i):
-            cov[i][j] = cov[j][i] = 0.006 + 0.001 * ((i + j) % 3)
-    vols = [math.sqrt(cov[i][i]) for i in range(n)]
-    meta = {
-        "as_of": "synthetic",
-        "tickers": names,
-        "n_days": 0,
-        "vols": vols,
-        "avg_pairwise_corr": 0.35,
-        "source": "synthetic fallback",
-        "methodology": "diagonal-dominant synthetic",
-    }
-    return cov, meta, "synthetic"
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1 << 20), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
-def load_regime(as_of: str):
-    if as_of == "synthetic":
-        return [
-            {"as_of_date": "synthetic", "universe": "synthetic_10", "metric": "realized_vol_1y_avg",
-             "value": 0.22, "methodology": "synthetic"},
-            {"as_of_date": "synthetic", "universe": "synthetic_10", "metric": "realized_vol_1y_p50",
-             "value": 0.21, "methodology": "synthetic"},
-            {"as_of_date": "synthetic", "universe": "synthetic_10", "metric": "avg_pairwise_corr",
-             "value": 0.35, "methodology": "synthetic"},
-        ]
-    path = EXPORT_DIR / f"regime_summary_{as_of.replace('-', '')}.csv"
-    if not path.exists():
-        return []
-    with path.open() as f:
-        return list(csv.DictReader(f))
+def load_release(as_of: date) -> tuple[dict[str, Any], list[list[float]], list[dict[str, str]], dict[str, Any]]:
+    stamp = as_of.isoformat()
+    receipt_path = DATA_DIR / f"receipt_{stamp}.json"
+    if not receipt_path.is_file():
+        raise FileNotFoundError(f"missing source receipt: {receipt_path}")
+    receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+    if receipt.get("classification") != "external_historical_market_observation":
+        raise ValueError("receipt is not a real historical market observation")
+    if receipt.get("as_of") != stamp or not receipt.get("sources"):
+        raise ValueError("receipt as-of or source list is invalid")
+    artifacts = receipt.get("artifacts", {})
+    if len(artifacts) < 4:
+        raise ValueError("receipt does not cover the complete release")
+    for relative, expected in artifacts.items():
+        path = (ROOT / relative).resolve()
+        if not path.is_relative_to(ROOT) or not path.is_file():
+            raise FileNotFoundError(f"receipted artifact is missing: {relative}")
+        actual = sha256_file(path)
+        if actual != expected:
+            raise ValueError(f"artifact hash mismatch: {relative}")
+
+    metadata_path = DATA_DIR / f"universe_{stamp}.json"
+    covariance_path = DATA_DIR / f"covariance_{stamp}.json"
+    regime_path = ROOT / f"research/kdb/exports/regime_summary_{stamp.replace('-', '')}.csv"
+    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+    covariance = json.loads(covariance_path.read_text(encoding="utf-8"))
+    with regime_path.open(newline="", encoding="utf-8") as handle:
+        regimes = list(csv.DictReader(handle))
+    if not regimes:
+        raise ValueError("regime export is empty")
+    return metadata, covariance, regimes, receipt
 
 
-def style_header(cell):
+def header(cell) -> None:
     cell.font = Font(bold=True, color="FFFFFF")
     cell.fill = PatternFill("solid", fgColor="1F4E79")
     cell.alignment = Alignment(horizontal="center", wrap_text=True)
 
 
-def style_calc(cell):
-    cell.font = Font(color="000000")
+def build(as_of: date, output: Path) -> None:
+    metadata, covariance, regimes, receipt = load_release(as_of)
+    tickers = metadata["tickers"]
+    volatilities = metadata["volatilities"]
+    if len(tickers) != len(covariance) or not is_positive_semidefinite(covariance):
+        raise ValueError("receipted covariance is not dimensionally valid PSD data")
+    equal = equal_weight_risk(covariance)
+    inverse_weights = inverse_vol_weights(volatilities)
+    inverse_variance = portfolio_variance(inverse_weights, covariance)
+
+    workbook = Workbook()
+    cover = workbook.active
+    cover.title = "Cover"
+    cover["B2"] = "Finance-Segway — receipt-verified RAM research view"
+    cover["B2"].font = Font(bold=True, size=14)
+    rows = (
+        ("Status", "RESEARCH ONLY — not a governed decision model"),
+        ("As of", metadata["as_of"]),
+        ("Universe", ", ".join(tickers)),
+        ("Observations", metadata["n_returns"]),
+        ("Methodology", metadata["methodology"]),
+        ("Source count", len(receipt["sources"])),
+        ("Receipt status", receipt["evidence_status"]),
+        ("Maturity contribution", "None"),
+    )
+    for index, (label, value) in enumerate(rows, start=4):
+        cover.cell(index, 2, label).font = Font(bold=True)
+        cover.cell(index, 3, value)
+    cover.column_dimensions["B"].width = 24
+    cover.column_dimensions["C"].width = 100
+
+    universe = workbook.create_sheet("Universe")
+    for column, label in enumerate(("Ticker", "Annualized vol", "Equal weight", "Inverse-vol weight"), start=2):
+        header(universe.cell(4, column, label))
+    for row, ticker in enumerate(tickers, start=5):
+        index = row - 5
+        universe.cell(row, 2, ticker)
+        universe.cell(row, 3, volatilities[index])
+        universe.cell(row, 4, equal.weights[index])
+        universe.cell(row, 5, inverse_weights[index])
+    for column in range(2, 6):
+        universe.column_dimensions[get_column_letter(column)].width = 22
+
+    matrix = workbook.create_sheet("Covariance")
+    matrix["B2"] = "Annualized covariance — receipt verified"
+    matrix["B3"] = "PSD"
+    matrix["C3"] = "PASS"
+    for column, ticker in enumerate(tickers, start=3):
+        header(matrix.cell(5, column, ticker))
+    for row, ticker in enumerate(tickers, start=6):
+        header(matrix.cell(row, 2, ticker))
+        for column, value in enumerate(covariance[row - 6], start=3):
+            matrix.cell(row, column, value)
+
+    risk = workbook.create_sheet("Risk Summary")
+    for column, label in enumerate(("Metric", "Equal weight", "Inverse volatility"), start=2):
+        header(risk.cell(4, column, label))
+    for row, values in enumerate(
+        (
+            ("Variance", equal.variance, inverse_variance),
+            ("Volatility", equal.volatility, math.sqrt(inverse_variance)),
+            ("Weight sum", sum(equal.weights), sum(inverse_weights)),
+        ),
+        start=5,
+    ):
+        for column, value in enumerate(values, start=2):
+            risk.cell(row, column, value)
+
+    regime = workbook.create_sheet("Regime Summary")
+    fields = list(regimes[0])
+    for column, field in enumerate(fields, start=2):
+        header(regime.cell(4, column, field))
+    for row, observation in enumerate(regimes, start=5):
+        for column, field in enumerate(fields, start=2):
+            regime.cell(row, column, observation[field])
+
+    output.parent.mkdir(parents=True, exist_ok=True)
+    workbook.save(output)
 
 
-def thin_border():
-    s = Side(style="thin", color="B0B0B0")
-    return Border(left=s, right=s, top=s, bottom=s)
-
-
-def build() -> None:
-    cov, meta, mode = load_universe()
-    tickers = meta["tickers"]
-    vols = meta["vols"]
-    N = len(tickers)
-    as_of = meta["as_of"]
-    assert is_positive_semidefinite(cov), "covariance must be PSD"
-
-    eq = equal_weight_risk(cov)
-    inv_w = inverse_vol_weights(vols)
-    inv_var = portfolio_variance(inv_w, cov)
-    inv_vol = math.sqrt(max(inv_var, 0.0))
-    regime_rows = load_regime(as_of)
-
-    wb = Workbook()
-
-    # Cover
-    ws = wb.active
-    ws.title = "Cover"
-    title = "REAL DATA" if mode == "real" else "SYNTHETIC FALLBACK"
-    ws["B2"] = f"Finance-Segway — Research Universe Visualization (Stage 0, {title})"
-    ws["B2"].font = Font(bold=True, size=14)
-    ws["B4"] = "Purpose"
-    ws["C4"] = "Visualize the Stage-0 universe with realized (or synthetic) covariance, RAM risk numbers, and Contract-1 regime metrics."
-    ws["B5"] = "Status"
-    ws["C5"] = "RESEARCH VISUALIZATION ONLY — not a governed decision model"
-    ws["B6"] = "Maturity"
-    ws["C6"] = "None (outside standards/model_inventory.json)"
-    ws["B7"] = "Universe"
-    ws["C7"] = f"{N} names: {', '.join(tickers)}"
-    ws["B8"] = "As-of / window"
-    ws["C8"] = f"{as_of}  |  {meta.get('n_days', 0)} daily log-return observations"
-    ws["B9"] = "Data source"
-    ws["C9"] = f"{meta.get('source', '')}  |  {meta.get('methodology', '')}"
-    ws["B10"] = "Generated by"
-    ws["C10"] = "research/ram/build_universe_viz.py"
-    ws["B12"] = "Limitations"
-    ws["C12"] = "Research only. No claim of production risk system. Do not use for capital decisions."
-    ws["B14"] = "Proof point"
-    ws["C14"] = "Stage-0 pure-Python RAM functions executed on this covariance (PSD, equal-weight, inverse-vol)."
-    for col in ("B", "C"):
-        ws.column_dimensions[col].width = 18 if col == "B" else 95
-
-    # Universe
-    ws = wb.create_sheet("Universe")
-    ws["B2"] = "Universe"
-    ws["B2"].font = Font(bold=True, size=12)
-    for col, h in enumerate(["Name", "Ann. Vol", "Inv-Vol Weight", "Equal Weight"], start=2):
-        style_header(ws.cell(row=4, column=col, value=h))
-    for i, name in enumerate(tickers):
-        r = 5 + i
-        ws.cell(row=r, column=2, value=name)
-        style_calc(ws.cell(row=r, column=3, value=round(vols[i], 6)))
-        style_calc(ws.cell(row=r, column=4, value=round(inv_w[i], 6)))
-        style_calc(ws.cell(row=r, column=5, value=round(1.0 / N, 6)))
-    for col, w in zip("BCDE", (12, 14, 16, 14)):
-        ws.column_dimensions[col].width = w
-
-    # Covariance
-    ws = wb.create_sheet("Covariance")
-    ws["B2"] = "Annualised Covariance Matrix"
-    ws["B2"].font = Font(bold=True, size=12)
-    ws["B3"] = "PSD check (Cholesky)"
-    ws["C3"] = "PASS"
-    ws["C3"].font = Font(bold=True, color="006600")
-    for j, name in enumerate(tickers):
-        style_header(ws.cell(row=5, column=3 + j, value=name))
-    for i, name in enumerate(tickers):
-        style_header(ws.cell(row=6 + i, column=2, value=name))
-        for j in range(N):
-            cell = ws.cell(row=6 + i, column=3 + j, value=round(cov[i][j], 6))
-            style_calc(cell)
-            cell.border = thin_border()
-            if i == j:
-                cell.fill = PatternFill("solid", fgColor="D6EAF8")
-    ws.column_dimensions["B"].width = 10
-    for j in range(N):
-        ws.column_dimensions[get_column_letter(3 + j)].width = 10
-
-    # Risk Summary
-    ws = wb.create_sheet("Risk Summary")
-    ws["B2"] = "Portfolio Risk Summary — Stage-0 RAM"
-    ws["B2"].font = Font(bold=True, size=12)
-    for col, h in enumerate(["Metric", "Equal-Weight", "Inverse-Vol"], start=2):
-        style_header(ws.cell(row=4, column=col, value=h))
-    rows = [
-        ("Variance", round(eq.variance, 8), round(inv_var, 8)),
-        ("Volatility (ann.)", round(eq.volatility, 6), round(inv_vol, 6)),
-        ("Sum of weights", 1.0, round(sum(inv_w), 8)),
-    ]
-    for i, (metric, eq_v, inv_v) in enumerate(rows):
-        r = 5 + i
-        ws.cell(row=r, column=2, value=metric)
-        style_calc(ws.cell(row=r, column=3, value=eq_v))
-        style_calc(ws.cell(row=r, column=4, value=inv_v))
-    ws["B9"] = "Notes"
-    ws["C9"] = "Risk figures from pure-Python Stage-0 skeleton (simple_covariance.py). NumPy used only for data prep when real data is loaded."
-    ws.column_dimensions["B"].width = 22
-    ws.column_dimensions["C"].width = 16
-    ws.column_dimensions["D"].width = 14
-
-    # Regime Summary
-    ws = wb.create_sheet("Regime Summary")
-    ws["B2"] = "Regime Summary — Contract 1"
-    ws["B2"].font = Font(bold=True, size=12)
-    ws["B3"] = "Source contract"
-    ws["C3"] = "research/kdb/INTEGRATION_CONTRACTS.md — Contract 1"
-    headers = ["as_of_date", "universe", "metric", "value", "methodology"]
-    for col, h in enumerate(headers, start=2):
-        style_header(ws.cell(row=5, column=col, value=h))
-    for i, row in enumerate(regime_rows):
-        for col, key in enumerate(headers, start=2):
-            val = row.get(key)
-            if key == "value":
-                try:
-                    val = float(val)
-                except (TypeError, ValueError):
-                    pass
-            style_calc(ws.cell(row=6 + i, column=col, value=val))
-    for col in range(2, 7):
-        ws.column_dimensions[get_column_letter(col)].width = 28 if col > 3 else 14
-
-    # Notes
-    ws = wb.create_sheet("Notes")
-    ws["B2"] = "Re-fetch real data"
-    ws["C2"] = "python research/ram/fetch_real_universe.py"
-    ws["B4"] = "Re-benchmark"
-    ws["C4"] = "python research/ram/bench_stage0.py"
-    ws["B6"] = "Stage gates"
-    ws["C6"] = "research/ram/STAGE_GATES.md"
-    ws["B8"] = "Evidence"
-    ws["C8"] = "research/ram/evidence/"
-    ws["B10"] = "Core governance"
-    ws["C10"] = "This workbook lives outside 01_–24_ domains and outside the model inventory. It cannot receive an M-maturity rating."
-    ws.column_dimensions["B"].width = 22
-    ws.column_dimensions["C"].width = 90
-
-    wb.save(OUT_PATH)
-    print(f"Wrote {OUT_PATH}  (mode={mode})")
-    print(f"Equal-weight vol={eq.volatility:.4f}  Inv-vol vol={inv_vol:.4f}")
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--as-of", type=date.fromisoformat, required=True)
+    parser.add_argument("--output", type=Path)
+    args = parser.parse_args()
+    output = args.output or Path(__file__).resolve().parent / "visualizations" / f"universe_{args.as_of}.xlsx"
+    build(args.as_of, output)
+    print(output)
 
 
 if __name__ == "__main__":
-    build()
+    main()

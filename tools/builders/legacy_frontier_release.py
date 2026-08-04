@@ -8,6 +8,7 @@ from openpyxl.utils import get_column_letter
 
 try:
     from tools.builders.legacy_release_adapter import build_release
+    from tools.builders.vc_election_solver import add_holder_election_solver
     from tools.builders.template_helpers import (
         BLUE,
         BOLD,
@@ -26,6 +27,7 @@ try:
     )
 except ModuleNotFoundError:
     from legacy_release_adapter import build_release
+    from vc_election_solver import add_holder_election_solver
     from template_helpers import (
         BLUE,
         BOLD,
@@ -661,7 +663,7 @@ def enrich_venture_capital(workbook) -> None:
         "Exit Waterfall",
         "Exit Proceeds, Investor MOIC, and Return Thresholds",
         ["Metric", "Base", "Adversarial", "Units / control"],
-        [4, 42, 18, 18, 46],
+        [4, 42, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 14, 14, 16, 18],
     )
     waterfall_inputs = [
         ("Exit equity value", 500.0, 80.0, CUR),
@@ -682,94 +684,12 @@ def enrich_venture_capital(workbook) -> None:
     _formula(waterfall["C13"], "=IFERROR(C12/C6,0)", MULT)
     _formula(waterfall["D13"], "=IFERROR(D12/D6,0)", MULT)
 
-    # ---- Full cap-table liquidation-preference waterfall ----
-    # The section above answers "what does ONE new investor's slice return."
-    # It says nothing about liquidation preferences, seniority, or what
-    # happens to the REST of the cap table at exit -- which is the actual
-    # "waterfall" a VC cap table needs (1x non-participating pref, senior
-    # to junior, with a convert-to-common test), driven off Cap Table's
-    # real share/price data rather than a single fully-diluted percentage.
-    # Reuses C5/D5 (Exit equity value) above as total exit proceeds for
-    # both scenarios -- no separate/redundant total-proceeds input.
-    waterfall["B16"] = "Liquidation Preference Waterfall (Full Cap Table, 1x Non-Participating)"
-    waterfall["B16"].font = BOLD
-    waterfall["B16"].fill = GRAY_FILL
-    waterfall["B17"] = (
-        "Seniority order Series B > Series A > Seed > common (founders + option pool); each class "
-        "takes the greater of its 1x liquidation preference (cascaded senior-to-junior against total "
-        "exit proceeds) or its as-converted pro-rata share, decided by a single fund-wide test (does "
-        "converting the WHOLE cap table pay more than the full preference stack) rather than each "
-        "class electing independently -- switching class-by-class can pay out more than total proceeds "
-        "exist (see tools/builders/build_vc_template.py for the derivation). SAFE holders pre-conversion "
-        "are excluded from this cascade -- their claim depends on deal-specific conversion mechanics at "
-        "exit, which this waterfall does not model."
+    election_layout = add_holder_election_solver(
+        waterfall,
+        base_exit_ref="$C$5",
+        adverse_exit_ref="$D$5",
+        start_row=16,
     )
-    waterfall["B17"].font = ITALIC_GRAY
-    set_col_widths(waterfall, [4, 42, 16, 16, 14, 14, 14, 14, 14, 14, 14])
-
-    cascade_headers = ["Class", "Invested $", "Liq. pref (1x)", "As-conv. %",
-                        "Pref-stack: Base", "Pref-stack: Adv.", "As-conv.: Base",
-                        "As-conv.: Adv.", "Actual: Base", "Actual: Adv."]
-    for column, value in enumerate(cascade_headers, start=2):
-        waterfall.cell(19, column, value)
-    style_header_row(waterfall, 19, len(cascade_headers), start_col=2)
-
-    class_rows = [
-        ("Series B preferred", "='Cap Table'!F10", "=IFERROR('Cap Table'!D10,\"-\")"),
-        ("Series A preferred", "='Cap Table'!F9", "=IFERROR('Cap Table'!D9,\"-\")"),
-        ("Seed preferred", "='Cap Table'!F8", "=IFERROR('Cap Table'!D8,\"-\")"),
-        ("Common (founders + pool)", "='Cap Table'!F5+'Cap Table'!F6",
-         "=IFERROR('Cap Table'!D5+'Cap Table'!D6,\"-\")"),
-    ]
-    first_class_row = 20
-    for offset, (cls, invested_formula, pct_formula) in enumerate(class_rows):
-        row = first_class_row + offset
-        waterfall.cell(row, 2, cls)
-        _formula(waterfall.cell(row, 3), invested_formula, CUR)
-        _formula(waterfall.cell(row, 4), f"=C{row}", CUR)  # 1x pref = invested amount
-        _formula(waterfall.cell(row, 5), pct_formula, PCT)
-    last_class_row = first_class_row + len(class_rows) - 1  # 23
-
-    # Pref-stack cascade: senior-to-junior, common has no preference (gets
-    # the residual) -- self-consistent by construction, rows always sum to
-    # exactly the scenario's total proceeds.
-    b, a1, seed, common = (first_class_row, first_class_row + 1, first_class_row + 2, first_class_row + 3)
-    for col, total_cell in ((6, "$C$5"), (7, "$D$5")):  # F=Base, G=Adversarial
-        L = get_column_letter(col)
-        _formula(waterfall.cell(b, col), f"=MIN({total_cell},D{b})", CUR)
-        _formula(waterfall.cell(a1, col), f"=MIN(MAX({total_cell}-{L}{b},0),D{a1})", CUR)
-        _formula(waterfall.cell(seed, col), f"=MIN(MAX({total_cell}-{L}{b}-{L}{a1},0),D{seed})", CUR)
-        _formula(waterfall.cell(common, col), f"=MAX(0,{total_cell}-{L}{b}-{L}{a1}-{L}{seed})", CUR)
-
-    # As-converted: pro-rata by fully-diluted %, guarded against the
-    # blank-template "-" text placeholder on column E.
-    for row in range(first_class_row, last_class_row + 1):
-        _formula(waterfall.cell(row, 8), f"=IFERROR($C$5*E{row},\"-\")", CUR)   # H = Base
-        _formula(waterfall.cell(row, 9), f"=IFERROR($D$5*E{row},\"-\")", CUR)   # I = Adversarial
-
-    regime_row = last_class_row + 1  # 24
-    waterfall.cell(regime_row, 2, "Regime: as-converted pays more fund-wide than the full pref stack?")
-    _formula(waterfall.cell(regime_row, 3),
-             f'=IF($C$5>SUM(D{first_class_row}:D{last_class_row - 1}),"YES","NO")', "General")
-    _formula(waterfall.cell(regime_row, 4),
-             f'=IF($D$5>SUM(D{first_class_row}:D{last_class_row - 1}),"YES","NO")', "General")
-
-    # Actual: switch the WHOLE table between scenarios based on one global
-    # test (see the note above row 19) rather than a per-class election.
-    for row in range(first_class_row, last_class_row + 1):
-        _formula(waterfall.cell(row, 10),
-                 f'=IFERROR(IF($C$5>SUM($D${first_class_row}:$D${last_class_row - 1}),H{row},F{row}),"-")', CUR)
-        _formula(waterfall.cell(row, 11),
-                 f'=IFERROR(IF($D$5>SUM($D${first_class_row}:$D${last_class_row - 1}),I{row},G{row}),"-")', CUR)
-        waterfall.cell(row, 10).font = BOLD
-        waterfall.cell(row, 11).font = BOLD
-
-    total_base_row = regime_row + 2   # 26
-    total_adv_row = total_base_row + 1  # 27
-    waterfall.cell(total_base_row, 2, "Total distributed, Base (check -- should equal total exit proceeds)")
-    _formula(waterfall.cell(total_base_row, 3), f"=SUM(J{first_class_row}:J{last_class_row})", CUR)
-    waterfall.cell(total_adv_row, 2, "Total distributed, Adversarial (check -- should equal total exit proceeds)")
-    _formula(waterfall.cell(total_adv_row, 3), f"=SUM(K{first_class_row}:K{last_class_row})", CUR)
 
     _decision_sheet(
         workbook,
@@ -782,8 +702,11 @@ def enrich_venture_capital(workbook) -> None:
             ("Option-pool dilution", "='Ownership & Dilution'!D19", '=IF(C9<=\'Ownership & Dilution\'!D11,"PASS","BREACH")', "Pool expansion must remain within the approved dilution boundary."),
             ("Round pricing", "='Ownership & Dilution'!D20-'Ownership & Dilution'!D21", '=IF(C10>=0,"PASS","BREACH")', "A negative price delta indicates a down round."),
             ("Gross MOIC", "='Exit Waterfall'!D13", '=IF(C11>=\'Exit Waterfall\'!D7,"PASS","BREACH")', "Exit proceeds must clear the approved return threshold."),
-            ("Liquidation waterfall conservation, Base", f"='Exit Waterfall'!C{total_base_row}-'Exit Waterfall'!C5", '=IF(ABS(C12)<0.01,"PASS","FAIL")', "Total distributed across the full cap table must equal total exit proceeds."),
-            ("Liquidation waterfall conservation, Adversarial", f"='Exit Waterfall'!C{total_adv_row}-'Exit Waterfall'!D5", '=IF(ABS(C13)<0.01,"PASS","FAIL")', "Total distributed across the full cap table must equal total exit proceeds."),
+            ("Liquidation terms supported", f"='Exit Waterfall'!{election_layout.support_cell}", '=IF(C12="SUPPORTED","PASS","REVIEW")', "Participating preferred, caps, duplicate seniority, or incomplete conversion terms require a dedicated legal waterfall."),
+            ("Base holder-election equilibrium", f"='Exit Waterfall'!{election_layout.base_equilibrium_cell}", '=IF(C13="NONE","FAIL","PASS")', "The selected base election must admit no profitable unilateral conversion change."),
+            ("Adverse holder-election equilibrium", f"='Exit Waterfall'!{election_layout.adverse_equilibrium_cell}", '=IF(C14="NONE","FAIL","PASS")', "The selected adverse election must admit no profitable unilateral conversion change."),
+            ("Base liquidation conservation", f"='Exit Waterfall'!{election_layout.base_residual_cell}", '=IF(ABS(C15)<0.01,"PASS","FAIL")', "Base preferred and common payouts must equal total exit proceeds."),
+            ("Adverse liquidation conservation", f"='Exit Waterfall'!{election_layout.adverse_residual_cell}", '=IF(ABS(C16)<0.01,"PASS","FAIL")', "Adverse preferred and common payouts must equal total exit proceeds."),
         ],
     )
 

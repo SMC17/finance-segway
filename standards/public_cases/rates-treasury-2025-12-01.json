@@ -8,21 +8,9 @@
   "as_of": "2025-12-01",
   "scenario": "Base",
   "cover": {
-    "Portfolio / security:": "U.S. Treasury curve snapshot"
+    "Subject:": "U.S. Treasury curve snapshot"
   },
   "inputs": [
-    {
-      "sheet": "Assumptions",
-      "cell": "C6",
-      "value": 0.05,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from rates-reference-curve.json",
-        "url": "repo://standards/benchmark_cases/rates-reference-curve.json",
-        "as_of": "2025-12-01",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
     {
       "sheet": "Assumptions",
       "cell": "C7",
@@ -33,30 +21,6 @@
         "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202512&type=daily_treasury_yield_curve",
         "as_of": "2025-12-01",
         "notes": "U.S. Department of the Treasury; frozen curated observation as of case date"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C8",
-      "value": 10.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from rates-reference-curve.json",
-        "url": "repo://standards/benchmark_cases/rates-reference-curve.json",
-        "as_of": "2025-12-01",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C14",
-      "value": 75.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from rates-reference-curve.json",
-        "url": "repo://standards/benchmark_cases/rates-reference-curve.json",
-        "as_of": "2025-12-01",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
       }
     }
   ],
@@ -81,5 +45,16 @@
     "what_changed": "Generated public case rates-treasury-2025-12-01 from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "one_month_ten_year_yield_change_bps",
+    "forecast": 0.0,
+    "realized": -12.0,
+    "realized_source": "Daily Treasury Par Yield Curve Rates",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://21_Fixed_Income_Rates/sources/snapshots/rates-treasury-2025-12-01.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

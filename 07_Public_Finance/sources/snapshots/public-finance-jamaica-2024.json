@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "model_id": "07",
+  "domain": "Public Finance",
+  "case_id": "public-finance-jamaica-2024",
+  "case_type": "conventional",
+  "as_of": "2024-03-08",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "IMF Jamaica 2024 Article IV Consultation and second reviews",
+      "url": "https://www.imf.org/en/publications/cr/issues/2024/03/08/jamaica-2024-article-iv-consultation-and-second-reviews-under-the-arrangement-under-the-545715",
+      "publisher": "International Monetary Fund",
+      "captured_values": {
+        "public_debt_to_gdp": 0.75,
+        "primary_surplus_to_gdp": 0.057,
+        "nominal_growth_assumption": 0.08,
+        "nominal_interest_assumption": 0.07,
+        "review_completed": 1
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C5",
+      "value": 0.75,
+      "kind": "observed",
+      "source": "IMF Jamaica 2024 Article IV Consultation and second reviews"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C6",
+      "value": 0.07,
+      "kind": "derived",
+      "source": "IMF Jamaica 2024 Article IV Consultation and second reviews"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C7",
+      "value": 0.08,
+      "kind": "derived",
+      "source": "IMF Jamaica 2024 Article IV Consultation and second reviews"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C8",
+      "value": 0.057,
+      "kind": "observed",
+      "source": "IMF Jamaica 2024 Article IV Consultation and second reviews"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "imf_review_completed",
+    "forecast": 1.0,
+    "realized": 1.0,
+    "realized_source": "IMF Jamaica 2024 Article IV Consultation and second reviews",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "380ad2b9e1870ac67010f3b4cff4323e059e7c3dc8cecccfe522d0d59848e446"
+}

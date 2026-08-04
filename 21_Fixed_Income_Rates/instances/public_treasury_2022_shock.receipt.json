@@ -15,22 +15,6 @@
       "source_as_of": "2022-10-21"
     },
     {
-      "sheet": "Assumptions",
-      "cell": "D10",
-      "previous": 0.02,
-      "value": 0.025,
-      "source_url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
-      "source_as_of": "2022-10-21"
-    },
-    {
-      "sheet": "Zero Curve",
-      "cell": "D10",
-      "previous": 0.055,
-      "value": 0.08,
-      "source_url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
-      "source_as_of": "2022-10-21"
-    },
-    {
       "sheet": "Zero Curve",
       "cell": "D14",
       "previous": 0.062,
@@ -39,10 +23,9 @@
       "source_as_of": "2022-10-21"
     }
   ],
-  "workbook_sha256": "6d3c805ae3f92d84438278b785e51abd00a960e1817c8da7b35a29c4f312ab59",
+  "workbook_sha256": "4e1819257b26ea79dd83f42fb9c00bae9df789e5be8554e8fbcc3de3463dccb0",
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
-  "hash_refreshed_on": "2026-08-04",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }

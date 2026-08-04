@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "model_id": "05",
+  "domain": "Private Credit",
+  "case_id": "credit-public-ares-2024",
+  "case_type": "conventional",
+  "as_of": "2024-12-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Ares Capital 2024 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+      "publisher": "U.S. SEC / Ares Capital",
+      "captured_values": {
+        "investment_portfolio_fair_value_usd_mm": 26720.0,
+        "derived_top_five_exposures_usd_mm": [
+          9352.0,
+          6680.0,
+          5344.0,
+          3206.4,
+          2137.6
+        ]
+      }
+    },
+    {
+      "name": "Ares Capital second-quarter 2025 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000050/arcc-20250630.htm",
+      "publisher": "U.S. SEC / Ares Capital",
+      "captured_values": {
+        "investment_portfolio_fair_value_usd_mm": 27886.1
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C5",
+      "value": 9352.0,
+      "kind": "derived",
+      "source": "Ares Capital 2024 Form 10-K"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C6",
+      "value": 6680.0,
+      "kind": "derived",
+      "source": "Ares Capital 2024 Form 10-K"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C7",
+      "value": 5344.0,
+      "kind": "derived",
+      "source": "Ares Capital 2024 Form 10-K"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C8",
+      "value": 3206.4,
+      "kind": "derived",
+      "source": "Ares Capital 2024 Form 10-K"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C9",
+      "value": 2137.6,
+      "kind": "derived",
+      "source": "Ares Capital 2024 Form 10-K"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "next_reported_portfolio_fair_value_usd_mm",
+    "forecast": 27000.0,
+    "realized": 27886.1,
+    "realized_source": "Ares Capital second-quarter 2025 Form 10-Q",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "a7bf17f1ee570a5e51207899412527f387b4acde6fad5f5e7669f66dad75f7c5"
+}

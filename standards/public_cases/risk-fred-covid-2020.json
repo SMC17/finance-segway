@@ -8,7 +8,7 @@
   "as_of": "2020-03-16",
   "scenario": "Downside",
   "cover": {
-    "Portfolio / desk:": "March 2020 public-market shock"
+    "Subject:": "March 2020 public-market shock"
   },
   "inputs": [
     {
@@ -21,54 +21,6 @@
         "url": "https://fred.stlouisfed.org/series/VIXCLS",
         "as_of": "2020-03-16",
         "notes": "Federal Reserve Bank of St. Louis / CBOE; frozen curated observation as of case date"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D12",
-      "value": 8.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from risk-adversarial-crowding.json",
-        "url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
-        "as_of": "2020-03-16",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D13",
-      "value": 22.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from risk-adversarial-crowding.json",
-        "url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
-        "as_of": "2020-03-16",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Positions",
-      "cell": "E6",
-      "value": 90.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from risk-adversarial-crowding.json",
-        "url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
-        "as_of": "2020-03-16",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Positions",
-      "cell": "M14",
-      "value": 35.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from risk-adversarial-crowding.json",
-        "url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
-        "as_of": "2020-03-16",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
       }
     },
     {
@@ -111,5 +63,16 @@
     "what_changed": "Generated public case risk-fred-covid-2020 from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "peak_to_trough_sp500_drawdown",
+    "forecast": -0.3,
+    "realized": -0.339,
+    "realized_source": "S&P 500 via FRED",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://09_Risk_Management/sources/snapshots/risk-fred-covid-2020.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

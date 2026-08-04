@@ -8,7 +8,7 @@
   "as_of": "2024-07-01",
   "scenario": "Base",
   "cover": {
-    "Project / concession:": "Utility-scale solar benchmark project"
+    "Subject:": "Utility-scale solar benchmark project"
   },
   "inputs": [
     {
@@ -21,30 +21,6 @@
         "url": "https://atb.nrel.gov/electricity/2024/utility-scale_pv",
         "as_of": "2024-07-01",
         "notes": "U.S. National Renewable Energy Laboratory; frozen curated observation as of case date"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C11",
-      "value": 205.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from project-reference-contracted.json",
-        "url": "repo://standards/benchmark_cases/project-reference-contracted.json",
-        "as_of": "2024-07-01",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C16",
-      "value": 1.4,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from project-reference-contracted.json",
-        "url": "repo://standards/benchmark_cases/project-reference-contracted.json",
-        "as_of": "2024-07-01",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
       }
     },
     {
@@ -81,5 +57,16 @@
     "what_changed": "Generated public case project-nrel-solar-2024 from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "first_operating_year_availability",
+    "forecast": 0.98,
+    "realized": null,
+    "realized_source": null,
+    "status": "future_test_defined"
+  },
+  "lineage": {
+    "source_snapshot": "repo://20_Project_Finance/sources/snapshots/project-nrel-solar-2024.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

@@ -8,14 +8,6 @@
   "applied_inputs": [
     {
       "sheet": "Assumptions",
-      "cell": "C5",
-      "previous": 1000,
-      "value": 1200.0,
-      "source_url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
-      "source_as_of": "2024-01-01"
-    },
-    {
-      "sheet": "Assumptions",
       "cell": "C7",
       "previous": 0.12,
       "value": 0.14,
@@ -29,20 +21,11 @@
       "value": 0.0189,
       "source_url": "https://fred.stlouisfed.org/series/DRSFRMACBS",
       "source_as_of": "2024-01-01"
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C9",
-      "previous": 0.45,
-      "value": 0.5,
-      "source_url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
-      "source_as_of": "2024-01-01"
     }
   ],
-  "workbook_sha256": "f511d4953025e611b7c64fd1a7f36fbf39f87f6a7cb6f752db2d67da5a10b4c0",
+  "workbook_sha256": "2c60fa52489f25e2842388ed94db4602de228847a0332c7ce1b08872e59b914c",
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
-  "hash_refreshed_on": "2026-08-04",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }

@@ -16,22 +16,6 @@
     },
     {
       "sheet": "Assumptions",
-      "cell": "D8",
-      "previous": 0.075,
-      "value": 0.12,
-      "source_url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
-      "source_as_of": "2009-03-02"
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D10",
-      "previous": 0.15,
-      "value": 0.22,
-      "source_url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
-      "source_as_of": "2009-03-02"
-    },
-    {
-      "sheet": "Assumptions",
       "cell": "D17",
       "previous": 0.14,
       "value": 0.2,
@@ -39,10 +23,9 @@
       "source_as_of": "2009-03-02"
     }
   ],
-  "workbook_sha256": "e1b278a2c6377877cdbe627e28fda349bb4dba6ae87817141ebaefbd42b30fc7",
+  "workbook_sha256": "b2cfbe98636dfb7e150384138ca2f15708eac0d4ed563890a13cee574f8d1112",
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
-  "hash_refreshed_on": "2026-08-04",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }

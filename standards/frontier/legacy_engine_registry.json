@@ -6,8 +6,8 @@
     "declared_maturity": "M2",
     "m3_promoted": 0,
     "m4_promoted": 0,
-    "synthetic_cases_count_toward_m4": false,
-    "statement": "Independent oracles and synthetic benchmarks establish engineering depth only. Public evidence, effective challenge, named stakeholder approval, and maintained release history remain separate gates."
+    "engineering_test_vectors_count_toward_m4": false,
+    "statement": "Independent oracles and mathematical test vectors establish engineering depth only. Public evidence, effective challenge, named stakeholder approval, and maintained release history remain separate gates."
   },
   "models": [
     {

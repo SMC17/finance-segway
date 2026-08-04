@@ -1,30 +1,25 @@
-# RAM Risk Rail — In-Memory Portfolio & Risk Models
+# RAM risk rail
 
-High-performance risk and portfolio engines that start small and scale only after explicit validation gates.
+RAM means Risk & Asset Management: hand-rolled in-memory covariance, factor,
+stress, and allocation engines. Scaling is allowed only after explicit gates in
+`STAGE_GATES.md`.
 
-## Naming
+## Current state
 
-“RAM” here means **Risk & Asset Management** models that are designed to live primarily in memory for speed (covariance, factor models, stress engines, portfolio optimizers). Implementation language may be pure Python initially, later Zig, q, or hybrid.
+- `simple_covariance.py` is a Stage-0 numerical engine skeleton capped at ten
+  names.
+- `test_simple_covariance.py` uses small deterministic mathematical vectors to
+  test identities and failure modes.
+- No empirical universe, dataset, benchmark result, or visualization is claimed.
+- No RAM artifact has M-maturity or operational evidence status.
 
-## Scaling policy (binding)
+The next step is not generated data. It is a source-addressed public historical
+sample with a frozen snapshot, checksum, methodology, and reviewable outcome.
 
-See `docs/MULTI_RAIL_ARCHITECTURE.md`. Stages cannot be skipped.
+## Boundaries
 
-| Stage | Max universe | Gate |
-|-------|--------------|------|
-| 0 | 10 names | Reference implementation + unit tests + conservation |
-| 1 | 50 names | Runtime & memory baseline + factor checks |
-| 2 | S&P 100 | Independent benchmark + documentation |
-| 3 | S&P 500 | Full evidence pack + outcome hooks |
-| 4 | Nasdaq / CME slices | Separate domain contracts |
-
-## Current status (Stage 0)
-
-- `simple_covariance.py` — pure-Python equal-weighted and inverse-volatility portfolio risk on a synthetic 10-name universe.
-- Explicit numerical tests for positive-semidefiniteness and portfolio variance identity.
-
-## Non-goals at this stage
-
-- No claim of production S&P 500 coverage.
-- No replacement of the governed Risk Management archetype (`09_Risk_Management`).
-- No live market-data dependency in the Stage-0 skeleton.
+- Numerical test vectors are tests only, never business evidence.
+- No replacement of `09_Risk_Management`.
+- No S&P 100/500 or performance claim before the corresponding gate passes.
+- No external acceleration dependency until the pure implementation is the
+  verified reference.

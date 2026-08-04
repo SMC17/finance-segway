@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "vc-public-instacart-2023-down-round",
+  "as_of": "2023-09-18",
+  "manifest": "standards/public_cases/vc-public-instacart-2023-down-round.json",
+  "template": "13_Venture_Capital/_template_VC.xlsx",
+  "output": "13_Venture_Capital/instances/public_instacart_2023_down_round.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D5",
+      "previous": 100,
+      "value": 39000.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+      "source_as_of": "2023-09-18"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D6",
+      "previous": 20,
+      "value": 423.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+      "source_as_of": "2023-09-18"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D7",
+      "previous": 10,
+      "value": 285.9,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+      "source_as_of": "2023-09-18"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D8",
+      "previous": 4,
+      "value": 14.1,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+      "source_as_of": "2023-09-18"
+    }
+  ],
+  "workbook_sha256": "f832f7b5ea74e47c927b3632d89283e60baf4a8354a44c499b5c5e492653532e",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false
+}

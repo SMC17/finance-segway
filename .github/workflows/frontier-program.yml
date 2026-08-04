@@ -10,7 +10,7 @@ on:
       - ".github/workflows/frontier-program.yml"
   push:
     branches:
-      - agent/all-domain-m3-evidence-network-risk
+      - main
     paths:
       - "standards/frontier/**"
       - "tools/cross_domain_oracles.py"
@@ -23,7 +23,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: all-domain-frontier-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -32,6 +32,9 @@ jobs:
     steps:
       - name: Checkout frontier head
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5

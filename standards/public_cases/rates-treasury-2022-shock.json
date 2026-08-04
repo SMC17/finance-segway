@@ -8,7 +8,7 @@
   "as_of": "2022-10-21",
   "scenario": "Downside",
   "cover": {
-    "Portfolio / security:": "2022 Treasury bear-market stress"
+    "Subject:": "2022 Treasury bear-market stress"
   },
   "inputs": [
     {
@@ -21,30 +21,6 @@
         "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates",
         "as_of": "2022-10-21",
         "notes": "U.S. Department of the Treasury; frozen curated observation as of case date"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D10",
-      "value": 0.025,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from rates-adversarial-bear-steepener.json",
-        "url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
-        "as_of": "2022-10-21",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Zero Curve",
-      "cell": "D10",
-      "value": 0.08,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from rates-adversarial-bear-steepener.json",
-        "url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
-        "as_of": "2022-10-21",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
       }
     },
     {
@@ -81,5 +57,16 @@
     "what_changed": "Generated public case rates-treasury-2022-shock from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "year_end_ten_year_yield",
+    "forecast": 0.0423,
+    "realized": 0.0388,
+    "realized_source": "Daily Treasury Par Yield Curve Rates",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://21_Fixed_Income_Rates/sources/snapshots/rates-treasury-2022-shock.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

@@ -22,6 +22,20 @@ def _sha256(path: Path) -> str:
 
 def apply_manifest(manifest_path: Path, root: Path) -> dict[str, Any]:
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("classification") == "external_historical_case":
+        benchmark_prefix = "repo://standards/benchmark_cases/"
+        contaminated = [
+            f"{item.get('sheet')}!{item.get('cell')}"
+            for item in manifest.get("inputs", [])
+            if str((item.get("source") or {}).get("url", "")).startswith(
+                benchmark_prefix
+            )
+        ]
+        if contaminated:
+            raise ValueError(
+                "public manifest contains synthetic benchmark lineage: "
+                + ", ".join(contaminated)
+            )
     receipt = apply_base_manifest(manifest_path, root)
     output = (root / manifest["output"]).resolve()
     workbook = load_workbook(output, data_only=False, keep_links=True)
@@ -44,7 +58,7 @@ def apply_manifest(manifest_path: Path, root: Path) -> dict[str, Any]:
             "trigger": entry.get("trigger", "Manifest generation"),
             "source snapshot": entry.get(
                 "source_snapshot",
-                f"repo://standards/benchmark_cases/{manifest['id']}.json",
+                f"repo://standards/public_cases/{manifest['id']}.json",
             ),
             "what changed": entry.get(
                 "what_changed", f"Applied manifest {manifest['id']}"
@@ -76,6 +90,10 @@ def apply_manifest(manifest_path: Path, root: Path) -> dict[str, Any]:
     receipt_path = output.with_suffix(".receipt.json")
     receipt["workbook_sha256"] = _sha256(output)
     receipt["refresh_schema"] = "source-addressed-v2"
+    receipt["classification"] = manifest.get("classification")
+    receipt["counts_toward_M4"] = manifest.get("counts_toward_M4")
+    if receipt["counts_toward_M4"] is not False:
+        raise ValueError("released public evidence must explicitly exclude M4 credit")
     receipt_path.write_text(
         json.dumps(receipt, indent=2, default=str) + "\n",
         encoding="utf-8",

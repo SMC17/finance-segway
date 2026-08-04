@@ -3,7 +3,6 @@ version: 1.0.0
 config-version: 2
 
 profile: finance_segway
-
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
@@ -21,5 +20,4 @@ models:
       +materialized: table
 
 vars:
-  # Only real_public instances should appear in evidence-oriented marts
   evidence_classifications: ['real_public']
