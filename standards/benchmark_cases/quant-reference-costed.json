@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.1",
+  "id": "quant-reference-costed",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false,
+  "template": "22_Quantitative_Systematic/_template_QUANT.xlsx",
+  "output": "22_Quantitative_Systematic/instances/benchmark_reference_costed.xlsx",
+  "as_of": "2026-08-03",
+  "scenario": "Base",
+  "cover": {
+    "Strategy / universe:": "Reference Costed Systematic Strategy"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 10.0,
+      "source": {
+        "name": "Finance-Segway benchmark fixture quant-reference-costed",
+        "url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "value": 0.003,
+      "source": {
+        "name": "Finance-Segway benchmark fixture quant-reference-costed",
+        "url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "value": 60.0,
+      "source": {
+        "name": "Finance-Segway benchmark fixture quant-reference-costed",
+        "url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C18",
+      "value": 1,
+      "source": {
+        "name": "Finance-Segway benchmark fixture quant-reference-costed",
+        "url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C19",
+      "value": 1,
+      "source": {
+        "name": "Finance-Segway benchmark fixture quant-reference-costed",
+        "url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finance-Segway benchmark fixture quant-reference-costed",
+      "url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+      "as_of": "2026-08-03",
+      "notes": "Synthetic engineering fixture; not investment evidence"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-03",
+    "trigger": "Synthetic benchmark generation",
+    "source_snapshot": "repo://standards/benchmark_cases/quant-reference-costed.json",
+    "what_changed": "Generated quant-reference-costed from canonical release template",
+    "reviewer_notes": "Engineering fixture only; not public underwriting or M4 evidence",
+    "next_check": "On builder, formula, or contract change"
+  }
+}

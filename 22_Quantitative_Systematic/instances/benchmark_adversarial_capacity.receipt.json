@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "quant-adversarial-capacity",
+  "as_of": "2026-08-03",
+  "manifest": "standards/benchmark_cases/quant-adversarial-capacity.json",
+  "template": "22_Quantitative_Systematic/_template_QUANT.xlsx",
+  "output": "22_Quantitative_Systematic/instances/benchmark_adversarial_capacity.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "previous": 15,
+      "value": 25.0,
+      "source_url": "repo://standards/benchmark_cases/quant-adversarial-capacity.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "previous": 0.008,
+      "value": 0.015,
+      "source_url": "repo://standards/benchmark_cases/quant-adversarial-capacity.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "previous": 150,
+      "value": 300.0,
+      "source_url": "repo://standards/benchmark_cases/quant-adversarial-capacity.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "previous": 250,
+      "value": 100.0,
+      "source_url": "repo://standards/benchmark_cases/quant-adversarial-capacity.json",
+      "source_as_of": "2026-08-03"
+    }
+  ],
+  "workbook_sha256": "1cd6893a7f8caf925cf523089bc91deace0f99c051ea9bcda6009a8d81618c70",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

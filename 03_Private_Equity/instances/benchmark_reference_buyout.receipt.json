@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "pe-reference-buyout",
+  "as_of": "2026-08-03",
+  "manifest": "standards/benchmark_cases/pe-reference-buyout.json",
+  "template": "03_Private_Equity/_template_LBO.xlsx",
+  "output": "03_Private_Equity/instances/benchmark_reference_buyout.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "previous": 600,
+      "value": 650.0,
+      "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "previous": 0.2,
+      "value": 0.22,
+      "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "previous": 0.06,
+      "value": 0.055,
+      "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C13",
+      "previous": 10,
+      "value": 10.5,
+      "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C19",
+      "previous": 4,
+      "value": 4.25,
+      "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C22",
+      "previous": 1.5,
+      "value": 1.25,
+      "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C28",
+      "previous": 10,
+      "value": 10.0,
+      "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+      "source_as_of": "2026-08-03"
+    }
+  ],
+  "workbook_sha256": "7927f6b666c8c754b962ab42aa5b48f57157e386d2ac661d191e237492c08233",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.1",
+  "id": "project-reference-contracted",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false,
+  "template": "20_Project_Finance/_template_PROJECT_FINANCE.xlsx",
+  "output": "20_Project_Finance/instances/benchmark_reference_contracted.xlsx",
+  "as_of": "2026-08-03",
+  "scenario": "Base",
+  "cover": {
+    "Project / concession:": "Reference Contracted Infrastructure Project"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 900.0,
+      "source": {
+        "name": "Finance-Segway benchmark fixture project-reference-contracted",
+        "url": "repo://standards/benchmark_cases/project-reference-contracted.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "value": 205.0,
+      "source": {
+        "name": "Finance-Segway benchmark fixture project-reference-contracted",
+        "url": "repo://standards/benchmark_cases/project-reference-contracted.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C16",
+      "value": 1.4,
+      "source": {
+        "name": "Finance-Segway benchmark fixture project-reference-contracted",
+        "url": "repo://standards/benchmark_cases/project-reference-contracted.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C23",
+      "value": 0.98,
+      "source": {
+        "name": "Finance-Segway benchmark fixture project-reference-contracted",
+        "url": "repo://standards/benchmark_cases/project-reference-contracted.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finance-Segway benchmark fixture project-reference-contracted",
+      "url": "repo://standards/benchmark_cases/project-reference-contracted.json",
+      "as_of": "2026-08-03",
+      "notes": "Synthetic engineering fixture; not investment evidence"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-03",
+    "trigger": "Synthetic benchmark generation",
+    "source_snapshot": "repo://standards/benchmark_cases/project-reference-contracted.json",
+    "what_changed": "Generated project-reference-contracted from canonical release template",
+    "reviewer_notes": "Engineering fixture only; not public underwriting or M4 evidence",
+    "next_check": "On builder, formula, or contract change"
+  }
+}

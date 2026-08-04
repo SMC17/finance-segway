@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "insurance-reference-book",
+  "as_of": "2026-08-03",
+  "manifest": "standards/benchmark_cases/insurance-reference-book.json",
+  "template": "18_Insurance_Actuarial/_template_INSURANCE.xlsx",
+  "output": "18_Insurance_Actuarial/instances/benchmark_reference_book.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "previous": 0.62,
+      "value": 0.6,
+      "source_url": "repo://standards/benchmark_cases/insurance-reference-book.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "previous": 0.28,
+      "value": 0.27,
+      "source_url": "repo://standards/benchmark_cases/insurance-reference-book.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "previous": 500,
+      "value": 550.0,
+      "source_url": "repo://standards/benchmark_cases/insurance-reference-book.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C14",
+      "previous": 350,
+      "value": 375.0,
+      "source_url": "repo://standards/benchmark_cases/insurance-reference-book.json",
+      "source_as_of": "2026-08-03"
+    }
+  ],
+  "workbook_sha256": "efe89a653294cd2459d95c88e91efea40b20367b8e7f983b1b2ff7c62a4583ef",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}
