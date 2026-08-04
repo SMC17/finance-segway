@@ -3,6 +3,7 @@ version: 2
 sources:
   - name: finance_segway
     description: "Raw tables loaded by tools/postgres_etl.py from governed Excel instances."
+    schema: public
     tables:
       - name: deals
         description: "One row per LBO/PE deal instance."
@@ -26,6 +27,18 @@ sources:
           - name: metric
             tests:
               - not_null
+      - name: deal_debt_schedule
+        description: "Long-format debt schedule metrics by period."
+        columns:
+          - name: deal_id
+            tests:
+              - not_null
+          - name: period
+            tests:
+              - not_null
+          - name: metric
+            tests:
+              - not_null
 
 models:
   - name: stg_deals
@@ -43,6 +56,13 @@ models:
         tests:
           - not_null
 
+  - name: stg_deal_debt_schedule
+    description: "Clean staging view of deal_debt_schedule (EAV)."
+    columns:
+      - name: deal_id
+        tests:
+          - not_null
+
   - name: mart_selected_exit_returns
     description: "Analyst-facing mart of selected-exit headline returns. Restricted to evidence classifications by default."
     columns:
@@ -54,3 +74,20 @@ models:
         tests:
           - accepted_values:
               values: ['real_public']
+      - name: sponsor_moic
+        description: "Sponsor MOIC at the selected exit. Must be positive for real_public deals."
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "> 0"
+              # Fallback if dbt_utils is not installed: use a singular test instead.
+              # The expression test below is the preferred form once packages are added.
+
+  - name: mart_leverage_path
+    description: "Deleveraging trajectory (total debt, net debt, ending cash) by period."
+    columns:
+      - name: deal_id
+        tests:
+          - not_null
+      - name: period
+        tests:
+          - not_null

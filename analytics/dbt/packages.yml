@@ -1,0 +1,4 @@
+packages: []
+# Add dbt-utils or other packages here when needed, e.g.:
+# - package: dbt-labs/dbt_utils
+#   version: 1.1.1
