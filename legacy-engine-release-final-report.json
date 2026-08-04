@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "phase": "finalize",
+  "status": "PASS",
+  "canonical_models": 6,
+  "benchmark_instances_added": 12,
+  "benchmark_instances_total": 48,
+  "released_models": [
+    "01",
+    "02",
+    "05",
+    "06",
+    "07",
+    "13"
+  ],
+  "benchmark_counts": {
+    "07": 2,
+    "05": 2,
+    "06": 2,
+    "01": 2,
+    "13": 2,
+    "02": 2
+  },
+  "m3_promoted": 0,
+  "m4_promoted": 0,
+  "errors": [],
+  "statement": "The six legacy engines have release builders, independent oracle checks, and synthetic benchmark pairs. They remain M2; synthetic cases do not count toward M4."
+}
