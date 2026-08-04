@@ -18,7 +18,8 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-from workbook_engineering import audit_workbook, compare_workbooks
+from workbook_engineering import audit_workbook
+from workbook_parity import compare_workbooks
 
 
 def load_inventory(root: Path) -> dict[str, Any]:
@@ -113,8 +114,10 @@ def build_and_compare(root: Path, build_root: Path) -> dict[str, Any]:
     return {
         "models": len(models),
         "unique_builders": len(by_builder),
-        "parity_passed": sum(1 for item in results if item["parity"]),
-        "parity_failed": sum(1 for item in results if not item["parity"]),
+        "parity_passed": sum(1 for item in results if item["semantic_parity"]),
+        "parity_failed": sum(1 for item in results if not item["semantic_parity"]),
+        "presentation_parity_passed": sum(1 for item in results if item["presentation_parity"]),
+        "presentation_parity_failed": sum(1 for item in results if not item["presentation_parity"]),
         "builder_errors": errors,
         "results": results,
     }
@@ -137,6 +140,7 @@ def main(argv: list[str] | None = None) -> int:
     args.report.write_text(json.dumps(report, indent=2), encoding="utf-8")
     print(json.dumps({key: report[key] for key in (
         "models", "unique_builders", "parity_passed", "parity_failed",
+        "presentation_parity_passed", "presentation_parity_failed",
     )}, indent=2))
     if report["builder_errors"]:
         return 1
