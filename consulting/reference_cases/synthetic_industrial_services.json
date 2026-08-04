@@ -1,0 +1,46 @@
+{
+  "case_id": "synthetic-industrial-services-v1",
+  "synthetic": true,
+  "as_of": "2026-08-04",
+  "company": "Synthetic Industrial Services Company",
+  "activities": [
+    {"activity_id": "acquire", "name": "Acquire customers", "function": "marketing_geo", "pnl_driver": "revenue_growth", "annual_volume": 5000, "capacity_units": 6000, "minutes_per_unit": 8, "loaded_cost_per_hour": 55, "contribution_per_unit": 0, "error_rate": 0.02, "cost_per_error": 25},
+    {"activity_id": "quote", "name": "Quote and contract", "function": "sales_pricing", "pnl_driver": "gross_margin", "predecessors": ["acquire"], "annual_volume": 1800, "capacity_units": 1500, "minutes_per_unit": 45, "loaded_cost_per_hour": 70, "contribution_per_unit": 240, "error_rate": 0.06, "cost_per_error": 300},
+    {"activity_id": "schedule", "name": "Schedule and dispatch", "function": "operations_delivery", "pnl_driver": "utilization", "predecessors": ["quote"], "annual_volume": 1400, "capacity_units": 1250, "minutes_per_unit": 30, "loaded_cost_per_hour": 60, "contribution_per_unit": 180, "error_rate": 0.04, "cost_per_error": 200},
+    {"activity_id": "deliver", "name": "Deliver service", "function": "operations_delivery", "pnl_driver": "gross_margin", "predecessors": ["schedule"], "annual_volume": 1250, "capacity_units": 1300, "minutes_per_unit": 240, "loaded_cost_per_hour": 48, "contribution_per_unit": 300, "error_rate": 0.03, "cost_per_error": 450},
+    {"activity_id": "quality", "name": "Quality and compliance", "function": "quality_compliance", "pnl_driver": "loss_avoidance", "predecessors": ["deliver"], "annual_volume": 1250, "capacity_units": 1400, "minutes_per_unit": 20, "loaded_cost_per_hour": 65, "contribution_per_unit": 0, "error_rate": 0.01, "cost_per_error": 1000},
+    {"activity_id": "renew", "name": "Retain and grow", "function": "customer_service_success", "pnl_driver": "retention", "predecessors": ["quality"], "annual_volume": 500, "capacity_units": 500, "minutes_per_unit": 60, "loaded_cost_per_hour": 75, "contribution_per_unit": 500, "error_rate": 0.05, "cost_per_error": 600},
+    {"activity_id": "collect", "name": "Bill and collect", "function": "finance_treasury", "pnl_driver": "cash_conversion", "predecessors": ["quality"], "annual_volume": 1250, "capacity_units": 1400, "minutes_per_unit": 20, "loaded_cost_per_hour": 55, "contribution_per_unit": 0, "error_rate": 0.03, "cost_per_error": 150}
+  ],
+  "automation_cases": [
+    {"case_id": "knowledge-foundation", "activity_id": "acquire", "function": "knowledge_meetings", "implementation_cost": 50000, "recurring_annual_cost": 10000, "annual_labor_savings": 25000, "annual_loss_avoided": 10000, "feasibility": 0.9, "adoption_probability": 0.8, "evidence_confidence": 0.8, "delivery_months": 2, "risk_tier": "MODERATE"},
+    {"case_id": "quote-control", "activity_id": "quote", "function": "sales_pricing", "implementation_cost": 80000, "recurring_annual_cost": 15000, "annual_labor_savings": 45000, "annual_revenue_gain": 60000, "annual_loss_avoided": 25000, "feasibility": 0.85, "adoption_probability": 0.8, "evidence_confidence": 0.75, "delivery_months": 3, "risk_tier": "HIGH", "dependencies": ["knowledge-foundation"]},
+    {"case_id": "dispatch-control", "activity_id": "schedule", "function": "operations_delivery", "implementation_cost": 70000, "recurring_annual_cost": 12000, "annual_labor_savings": 30000, "annual_revenue_gain": 50000, "annual_loss_avoided": 15000, "feasibility": 0.8, "adoption_probability": 0.75, "evidence_confidence": 0.7, "delivery_months": 4, "risk_tier": "HIGH", "dependencies": ["knowledge-foundation"]},
+    {"case_id": "collections-control", "activity_id": "collect", "function": "finance_treasury", "implementation_cost": 40000, "recurring_annual_cost": 8000, "annual_labor_savings": 18000, "annual_loss_avoided": 22000, "working_capital_release": 75000, "feasibility": 0.9, "adoption_probability": 0.85, "evidence_confidence": 0.8, "delivery_months": 2, "risk_tier": "HIGH"}
+  ],
+  "portfolio_policy": {"budget": 200000, "max_high_risk": 2, "hurdle_rate": 0.12, "life_years": 3},
+  "quote": {
+    "products": [
+      {"sku": "FIELD-BASE", "list_price": "500.00", "unit_cost": "325.00", "available_units": 25},
+      {"sku": "FIELD-PREMIUM", "list_price": "900.00", "unit_cost": "540.00", "available_units": 10}
+    ],
+    "request": {"quote_id": "Q-DEMO-001", "quantities": {"FIELD-BASE": 12, "FIELD-PREMIUM": 4}, "requested_discount": 0.08},
+    "policy": {"max_discount": 0.10, "min_gross_margin": 0.25, "material_quote_value": "7500.00"}
+  },
+  "knowledge": {
+    "roles": ["sales"],
+    "query": "maximum discount margin approval",
+    "documents": [
+      {"document_id": "pricing-policy", "title": "Pricing Policy", "text": "Standard discounts may not exceed ten percent. Draft quotes below the gross-margin floor require pricing approval.", "citation": "policy://pricing/v1", "as_of": "2026-08-04", "allowed_roles": ["sales", "finance"]},
+      {"document_id": "security-policy", "title": "Security Policy", "text": "Administrative access requires security approval and expires after the approved window.", "citation": "policy://security/v1", "as_of": "2026-08-04", "allowed_roles": ["security"]}
+    ]
+  },
+  "refounding": {
+    "implementation_cost": 100000,
+    "annual_platform_cost": 30000,
+    "processes": [
+      {"activity_id": "quote", "annual_volume": 1800, "revenue_per_unit": 800, "other_variable_cost_per_unit": 420, "baseline_minutes_per_unit": 45, "redesigned_minutes_per_unit": 15, "loaded_labor_cost_per_hour": 70, "baseline_error_rate": 0.06, "redesigned_error_rate": 0.02, "loss_per_error": 300},
+      {"activity_id": "schedule", "annual_volume": 1400, "revenue_per_unit": 0, "other_variable_cost_per_unit": 0, "baseline_minutes_per_unit": 30, "redesigned_minutes_per_unit": 12, "loaded_labor_cost_per_hour": 60, "baseline_error_rate": 0.04, "redesigned_error_rate": 0.015, "loss_per_error": 200}
+    ]
+  }
+}
