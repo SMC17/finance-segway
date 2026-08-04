@@ -46,8 +46,8 @@ class WorkbookEngineeringTests(unittest.TestCase):
         with TemporaryDirectory() as directory:
             left = Path(directory) / "left.xlsx"
             right = Path(directory) / "right.xlsx"
-            self.create_book(left, "='VaR'!B1+9E99")
-            self.create_book(right, "=VaR!B1+9E+099")
+            self.create_book(left, "='Model'!B1+9E99+FALSE()")
+            self.create_book(right, "=Model!B1+9E+099+FALSE")
             self.assertTrue(compare_workbooks(left, right)["semantic_parity"])
 
     def test_presentation_drift_does_not_fail_semantics(self):
