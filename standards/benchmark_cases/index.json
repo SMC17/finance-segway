@@ -1,9 +1,9 @@
 {
-  "schema_version": "1.1",
-  "as_of": "2026-08-03",
+  "schema_version": "1.2",
+  "as_of": "2026-08-04",
   "classification": "synthetic_engineering_benchmarks",
   "counts_toward_M4": false,
-  "instance_count": 18,
+  "instance_count": 36,
   "instances": [
     {
       "schema_version": "1.0",
@@ -894,6 +894,3650 @@
       "workbook_sha256": "134bfe1e654f6ddb448654df83755ee6c21b3e3b4a6c7f0f5bbf1a3599a04a9f",
       "generated_on": "2026-08-04",
       "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "am-adversarial-liquidity",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/am-adversarial-liquidity.json",
+      "template": "08_Asset_Management/_template_AM.xlsx",
+      "output": "08_Asset_Management/instances/benchmark_adversarial_liquidity.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Fund NAV",
+          "cell": "C5",
+          "previous": 0,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "C6",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "C7",
+          "previous": 0,
+          "value": -20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "C8",
+          "previous": 0,
+          "value": 3.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "C9",
+          "previous": 0,
+          "value": 35.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "D6",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "D7",
+          "previous": 0,
+          "value": -10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "D8",
+          "previous": 0,
+          "value": 3.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "D9",
+          "previous": 0,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "E6",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "E7",
+          "previous": 0,
+          "value": -5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "E8",
+          "previous": 0,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "E9",
+          "previous": 0,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "F6",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "F7",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "F8",
+          "previous": 0,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "F9",
+          "previous": 0,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fee Waterfall",
+          "cell": "C5",
+          "previous": 0,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fee Waterfall",
+          "cell": "C6",
+          "previous": 0.02,
+          "value": 80.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fee Waterfall",
+          "cell": "C7",
+          "previous": 0.08,
+          "value": 0.08,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fee Waterfall",
+          "cell": "C8",
+          "previous": 0.2,
+          "value": 0.2,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fee Waterfall",
+          "cell": "C9",
+          "previous": 1,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fee Waterfall",
+          "cell": "C10",
+          "previous": 0,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Return Measurement",
+          "cell": "C14",
+          "previous": 0,
+          "value": -0.05,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "D5",
+          "previous": 180,
+          "value": 180.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "D6",
+          "previous": 100,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "D8",
+          "previous": 55,
+          "value": 55.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "D9",
+          "previous": 35,
+          "value": 35.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "D10",
+          "previous": 40,
+          "value": 40.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "D11",
+          "previous": 20,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "D12",
+          "previous": 15,
+          "value": 15.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "D13",
+          "previous": 0.4,
+          "value": 0.4,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "D14",
+          "previous": 0.25,
+          "value": 0.25,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "D15",
+          "previous": 1.2,
+          "value": 1.2,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "9ae86016ea936b28f2be940a96541715171bb163744714123b7baa17c46e3abf",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "08",
+      "domain": "Asset Management",
+      "case_type": "adversarial",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "am-reference-fund",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/am-reference-fund.json",
+      "template": "08_Asset_Management/_template_AM.xlsx",
+      "output": "08_Asset_Management/instances/benchmark_reference_fund.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Fund NAV",
+          "cell": "C5",
+          "previous": 0,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "C6",
+          "previous": 0,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "C7",
+          "previous": 0,
+          "value": 15.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "C8",
+          "previous": 0,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "C9",
+          "previous": 0,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "D6",
+          "previous": 0,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "D7",
+          "previous": 0,
+          "value": 7.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "D8",
+          "previous": 0,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "D9",
+          "previous": 0,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "E6",
+          "previous": 0,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "E7",
+          "previous": 0,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "E8",
+          "previous": 0,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "E9",
+          "previous": 0,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "F6",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "F7",
+          "previous": 0,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "F8",
+          "previous": 0,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fund NAV",
+          "cell": "F9",
+          "previous": 0,
+          "value": 6.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fee Waterfall",
+          "cell": "C5",
+          "previous": 0,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fee Waterfall",
+          "cell": "C6",
+          "previous": 0.02,
+          "value": 80.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fee Waterfall",
+          "cell": "C7",
+          "previous": 0.08,
+          "value": 0.08,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fee Waterfall",
+          "cell": "C8",
+          "previous": 0.2,
+          "value": 0.2,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fee Waterfall",
+          "cell": "C9",
+          "previous": 1,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fee Waterfall",
+          "cell": "C10",
+          "previous": 0,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Return Measurement",
+          "cell": "C14",
+          "previous": 0,
+          "value": 0.08,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "C5",
+          "previous": 150,
+          "value": 150.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "C6",
+          "previous": 60,
+          "value": 60.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "C8",
+          "previous": 35,
+          "value": 35.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "C9",
+          "previous": 15,
+          "value": 15.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "C10",
+          "previous": 12,
+          "value": 12.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "C11",
+          "previous": 8,
+          "value": 8.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "C12",
+          "previous": 30,
+          "value": 30.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "C13",
+          "previous": 0.4,
+          "value": 0.4,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "C14",
+          "previous": 0.25,
+          "value": 0.25,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Exposure & Liquidity",
+          "cell": "C15",
+          "previous": 1.2,
+          "value": 1.2,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "8000834a6ae3b2e174c4bfe890bce7837df1fc378ffb1268e7fb586021ed4d17",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "08",
+      "domain": "Asset Management",
+      "case_type": "conventional",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "commodities-adversarial-storage-squeeze",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+      "template": "15_Commodities/_template_COMMODITIES.xlsx",
+      "output": "15_Commodities/instances/benchmark_adversarial_storage_squeeze.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Hedging",
+          "cell": "C5",
+          "previous": 0,
+          "value": 500.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Hedging",
+          "cell": "C6",
+          "previous": 1000,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Hedging",
+          "cell": "C7",
+          "previous": 0,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Hedging",
+          "cell": "C8",
+          "previous": 0,
+          "value": 40.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Hedging",
+          "cell": "C9",
+          "previous": 1,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Hedging",
+          "cell": "C10",
+          "previous": null,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "D7",
+          "previous": 0.07,
+          "value": 0.02,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "D8",
+          "previous": 0.2,
+          "value": 0.3,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "D9",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "D10",
+          "previous": 0.25,
+          "value": 0.25,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "D11",
+          "previous": 20,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "D12",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "D13",
+          "previous": 10,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "D14",
+          "previous": 25,
+          "value": 25.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "D15",
+          "previous": 5,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "D16",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "D17",
+          "previous": 5,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "D18",
+          "previous": 1.1,
+          "value": 1.1,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "13d139792db98e7b85928f5a1316fdf937e054b43c18dcd286be5c6b0601b642",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "15",
+      "domain": "Commodities",
+      "case_type": "adversarial",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "commodities-reference-hedge",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/commodities-reference-hedge.json",
+      "template": "15_Commodities/_template_COMMODITIES.xlsx",
+      "output": "15_Commodities/instances/benchmark_reference_hedge.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Hedging",
+          "cell": "C5",
+          "previous": 0,
+          "value": 1000.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Hedging",
+          "cell": "C6",
+          "previous": 1000,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Hedging",
+          "cell": "C7",
+          "previous": 0,
+          "value": 80.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Hedging",
+          "cell": "C8",
+          "previous": 0,
+          "value": 82.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Hedging",
+          "cell": "C9",
+          "previous": 1,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Hedging",
+          "cell": "C10",
+          "previous": null,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "C7",
+          "previous": 0.04,
+          "value": 0.04,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "C8",
+          "previous": 0.02,
+          "value": 0.02,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "C9",
+          "previous": 0.03,
+          "value": 0.03,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "C10",
+          "previous": 0.5,
+          "value": 0.5,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "C11",
+          "previous": 100,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "C12",
+          "previous": 50,
+          "value": 50.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "C13",
+          "previous": 20,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "C14",
+          "previous": 80,
+          "value": 80.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "C15",
+          "previous": 30,
+          "value": 30.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "C16",
+          "previous": 60,
+          "value": 60.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "C17",
+          "previous": 10,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Physical Balance & Carry",
+          "cell": "C18",
+          "previous": 1.25,
+          "value": 1.25,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "ae6db6a1c2254248d0132f83edfc91da40a09c3a61a2cc8d7433d3240d2b4931",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "15",
+      "domain": "Commodities",
+      "case_type": "conventional",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "crypto-adversarial-unlock-run",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/crypto-adversarial-unlock-run.json",
+      "template": "16_Crypto_Digital_Assets/_template_CRYPTO.xlsx",
+      "output": "16_Crypto_Digital_Assets/instances/benchmark_adversarial_unlock_run.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Tokenomics",
+          "cell": "C5",
+          "previous": 0,
+          "value": 250.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Tokenomics",
+          "cell": "C6",
+          "previous": 0,
+          "value": 250.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Tokenomics",
+          "cell": "C7",
+          "previous": 0,
+          "value": 250.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Tokenomics",
+          "cell": "C8",
+          "previous": 0,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Tokenomics",
+          "cell": "C9",
+          "previous": 0,
+          "value": 150.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Tokenomics",
+          "cell": "C12",
+          "previous": 0,
+          "value": 350.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Valuation",
+          "cell": "C5",
+          "previous": 0,
+          "value": 0.8,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Valuation",
+          "cell": "C6",
+          "previous": 0,
+          "value": 150.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Valuation",
+          "cell": "C7",
+          "previous": 0,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Valuation",
+          "cell": "C8",
+          "previous": 0,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Staking Yield",
+          "cell": "C5",
+          "previous": 0,
+          "value": 0.35,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Staking Yield",
+          "cell": "C6",
+          "previous": 0,
+          "value": 50.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Staking Yield",
+          "cell": "C7",
+          "previous": 0,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Staking Yield",
+          "cell": "C8",
+          "previous": 0,
+          "value": 0.8,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Supply Rollforward & Unlocks",
+          "cell": "C3",
+          "previous": "Base",
+          "value": "Downside",
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "065ce25182273073d91668092482717c58ed91485a322c48e5666fcc20f93c63",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "16",
+      "domain": "Crypto & Digital Assets",
+      "case_type": "adversarial",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "crypto-reference-network",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/crypto-reference-network.json",
+      "template": "16_Crypto_Digital_Assets/_template_CRYPTO.xlsx",
+      "output": "16_Crypto_Digital_Assets/instances/benchmark_reference_network.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Tokenomics",
+          "cell": "C5",
+          "previous": 0,
+          "value": 300.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Tokenomics",
+          "cell": "C6",
+          "previous": 0,
+          "value": 200.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Tokenomics",
+          "cell": "C7",
+          "previous": 0,
+          "value": 150.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Tokenomics",
+          "cell": "C8",
+          "previous": 0,
+          "value": 150.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Tokenomics",
+          "cell": "C9",
+          "previous": 0,
+          "value": 200.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Tokenomics",
+          "cell": "C12",
+          "previous": 0,
+          "value": 700.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Valuation",
+          "cell": "C5",
+          "previous": 0,
+          "value": 2.5,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Valuation",
+          "cell": "C6",
+          "previous": 0,
+          "value": 800.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Valuation",
+          "cell": "C7",
+          "previous": 0,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Valuation",
+          "cell": "C8",
+          "previous": 0,
+          "value": 25.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Staking Yield",
+          "cell": "C5",
+          "previous": 0,
+          "value": 0.6,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Staking Yield",
+          "cell": "C6",
+          "previous": 0,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Staking Yield",
+          "cell": "C7",
+          "previous": 0,
+          "value": 30.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Staking Yield",
+          "cell": "C8",
+          "previous": 0,
+          "value": 2.5,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Supply Rollforward & Unlocks",
+          "cell": "C3",
+          "previous": "Base",
+          "value": "Base",
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "f97e247f4369770aba6e4a4b1a501ee6c96c1993ee6184849abbea1cf410ec12",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "16",
+      "domain": "Crypto & Digital Assets",
+      "case_type": "conventional",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "distressed-adversarial-cramdown",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/distressed-adversarial-cramdown.json",
+      "template": "24_Distressed_Restructuring/_template_RESTRUCTURING.xlsx",
+      "output": "24_Distressed_Restructuring/instances/benchmark_adversarial_cramdown.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Recovery Waterfall",
+          "cell": "C5",
+          "previous": 0,
+          "value": 15.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Recovery Waterfall",
+          "cell": "C6",
+          "previous": 0,
+          "value": 80.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Recovery Waterfall",
+          "cell": "C7",
+          "previous": 0,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Recovery Waterfall",
+          "cell": "C8",
+          "previous": 0,
+          "value": 50.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Recovery Waterfall",
+          "cell": "C9",
+          "previous": 0,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Recovery Waterfall",
+          "cell": "C10",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Recovery Waterfall",
+          "cell": "C12",
+          "previous": 0,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Liquidation vs Reorg",
+          "cell": "C5",
+          "previous": 0,
+          "value": 140.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Liquidation vs Reorg",
+          "cell": "D5",
+          "previous": 0,
+          "value": 110.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Liquidation vs Reorg",
+          "cell": "C6",
+          "previous": 0,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Liquidation vs Reorg",
+          "cell": "C7",
+          "previous": 0,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Liquidation vs Reorg",
+          "cell": "D7",
+          "previous": 0,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Liquidation vs Reorg",
+          "cell": "C8",
+          "previous": 6,
+          "value": 6.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Liquidation vs Reorg",
+          "cell": "D8",
+          "previous": 18,
+          "value": 24.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Liquidation vs Reorg",
+          "cell": "C9",
+          "previous": 0.15,
+          "value": 0.2,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "C3",
+          "previous": 20,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "C4",
+          "previous": 5,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "D7",
+          "previous": 8,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "E7",
+          "previous": 7,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "F7",
+          "previous": 0.75,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "G7",
+          "previous": 0.5,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "H7",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "D8",
+          "previous": 8,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "E8",
+          "previous": 7,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "F8",
+          "previous": 0.75,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "G8",
+          "previous": 0.5,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "H8",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "D9",
+          "previous": 8,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "E9",
+          "previous": 7,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "F9",
+          "previous": 0.75,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "G9",
+          "previous": 0.5,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "H9",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "D10",
+          "previous": 8,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "E10",
+          "previous": 7,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "F10",
+          "previous": 0.75,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "G10",
+          "previous": 0.5,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "H10",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "D11",
+          "previous": 8,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "E11",
+          "previous": 7,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "F11",
+          "previous": 0.75,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "G11",
+          "previous": 0.5,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "H11",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "D12",
+          "previous": 8,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "E12",
+          "previous": 7,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "F12",
+          "previous": 0.75,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "G12",
+          "previous": 0.5,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "H12",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "D13",
+          "previous": 8,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "E13",
+          "previous": 7,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "F13",
+          "previous": 0.75,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "G13",
+          "previous": 0.5,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "H13",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "D14",
+          "previous": 8,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "E14",
+          "previous": 7,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "F14",
+          "previous": 0.75,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "G14",
+          "previous": 0.5,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "H14",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "D15",
+          "previous": 8,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "E15",
+          "previous": 7,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "F15",
+          "previous": 0.75,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "G15",
+          "previous": 0.5,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "H15",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "D16",
+          "previous": 8,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "E16",
+          "previous": 7,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "F16",
+          "previous": 0.75,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "G16",
+          "previous": 0.5,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "H16",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "D17",
+          "previous": 8,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "E17",
+          "previous": 7,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "F17",
+          "previous": 0.75,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "G17",
+          "previous": 0.5,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "H17",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "D18",
+          "previous": 8,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "E18",
+          "previous": 7,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "F18",
+          "previous": 0.75,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "G18",
+          "previous": 0.5,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "H18",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "D19",
+          "previous": 8,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "E19",
+          "previous": 7,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "F19",
+          "previous": 0.75,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "G19",
+          "previous": 0.5,
+          "value": 0.75,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "H19",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "New Money",
+          "cell": "C5",
+          "previous": 25,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "New Money",
+          "cell": "C7",
+          "previous": 0.02,
+          "value": 0.05,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "New Money",
+          "cell": "C8",
+          "previous": 0.12,
+          "value": 0.18,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "New Money",
+          "cell": "C9",
+          "previous": 1,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "New Money",
+          "cell": "C10",
+          "previous": 0.03,
+          "value": 0.1,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "New Money",
+          "cell": "C11",
+          "previous": 1,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "972c8558e3cfa2915747faa170d6afa8284ad8e01e2e4bfd11418d4ccb6fbbc4",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "24",
+      "domain": "Distressed & Restructuring",
+      "case_type": "adversarial",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "distressed-reference-reorganization",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/distressed-reference-reorganization.json",
+      "template": "24_Distressed_Restructuring/_template_RESTRUCTURING.xlsx",
+      "output": "24_Distressed_Restructuring/instances/benchmark_reference_reorganization.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Recovery Waterfall",
+          "cell": "C5",
+          "previous": 0,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Recovery Waterfall",
+          "cell": "C6",
+          "previous": 0,
+          "value": 80.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Recovery Waterfall",
+          "cell": "C7",
+          "previous": 0,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Recovery Waterfall",
+          "cell": "C8",
+          "previous": 0,
+          "value": 60.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Recovery Waterfall",
+          "cell": "C9",
+          "previous": 0,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Recovery Waterfall",
+          "cell": "C10",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Recovery Waterfall",
+          "cell": "C12",
+          "previous": 0,
+          "value": 200.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Liquidation vs Reorg",
+          "cell": "C5",
+          "previous": 0,
+          "value": 180.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Liquidation vs Reorg",
+          "cell": "D5",
+          "previous": 0,
+          "value": 220.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Liquidation vs Reorg",
+          "cell": "C6",
+          "previous": 0,
+          "value": 30.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Liquidation vs Reorg",
+          "cell": "C7",
+          "previous": 0,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Liquidation vs Reorg",
+          "cell": "D7",
+          "previous": 0,
+          "value": 15.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Liquidation vs Reorg",
+          "cell": "C8",
+          "previous": 6,
+          "value": 6.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Liquidation vs Reorg",
+          "cell": "D8",
+          "previous": 18,
+          "value": 18.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Liquidation vs Reorg",
+          "cell": "C9",
+          "previous": 0.15,
+          "value": 0.15,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "C3",
+          "previous": 20,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "13-Week Liquidity",
+          "cell": "C4",
+          "previous": 5,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "New Money",
+          "cell": "C5",
+          "previous": 25,
+          "value": 25.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "New Money",
+          "cell": "C7",
+          "previous": 0.02,
+          "value": 0.02,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "New Money",
+          "cell": "C8",
+          "previous": 0.12,
+          "value": 0.12,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "New Money",
+          "cell": "C9",
+          "previous": 1,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "New Money",
+          "cell": "C10",
+          "previous": 0.03,
+          "value": 0.03,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "New Money",
+          "cell": "C11",
+          "previous": 1,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "12162a7d8d922c5cc16a7dcb58c1e2b9df5c0d12f3a9aa1f0dfe75e4b5707c91",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "24",
+      "domain": "Distressed & Restructuring",
+      "case_type": "conventional",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "equity-adversarial-dilution",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/equity-adversarial-dilution.json",
+      "template": "12_Equity_Finance/_template_BASE.xlsx",
+      "output": "12_Equity_Finance/instances/benchmark_adversarial_dilution.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Cap Table & Dilution",
+          "cell": "C3",
+          "previous": "Base",
+          "value": "Adversarial",
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Rights Offering",
+          "cell": "D7",
+          "previous": 10,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Rights Offering",
+          "cell": "D8",
+          "previous": 3,
+          "value": 3.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Rights Offering",
+          "cell": "D9",
+          "previous": 0.45,
+          "value": 0.45,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Rights Offering",
+          "cell": "D10",
+          "previous": 0.08,
+          "value": 0.08,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Convertible Securities",
+          "cell": "D7",
+          "previous": 4,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Convertible Securities",
+          "cell": "D8",
+          "previous": 0.08,
+          "value": 0.08,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Convertible Securities",
+          "cell": "D9",
+          "previous": 1,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Convertible Securities",
+          "cell": "D10",
+          "previous": 0.15,
+          "value": 0.15,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Convertible Securities",
+          "cell": "D11",
+          "previous": 3.5,
+          "value": 3.5,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "f168b7ec8c39810fd7a5e01076a9f92779c6ac20835bbbd8c1dad7cd9646cac6",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "12",
+      "domain": "Equity Finance",
+      "case_type": "adversarial",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "equity-reference-rights",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/equity-reference-rights.json",
+      "template": "12_Equity_Finance/_template_BASE.xlsx",
+      "output": "12_Equity_Finance/instances/benchmark_reference_rights.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Cap Table & Dilution",
+          "cell": "C3",
+          "previous": "Base",
+          "value": "Base",
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Rights Offering",
+          "cell": "C7",
+          "previous": 12,
+          "value": 12.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Rights Offering",
+          "cell": "C8",
+          "previous": 9,
+          "value": 9.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Rights Offering",
+          "cell": "C9",
+          "previous": 0.9,
+          "value": 0.9,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Rights Offering",
+          "cell": "C10",
+          "previous": 0.02,
+          "value": 0.02,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Convertible Securities",
+          "cell": "C7",
+          "previous": 12,
+          "value": 12.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Convertible Securities",
+          "cell": "C8",
+          "previous": 0.04,
+          "value": 0.04,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Convertible Securities",
+          "cell": "C9",
+          "previous": 3,
+          "value": 3.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Convertible Securities",
+          "cell": "C10",
+          "previous": 0.05,
+          "value": 0.05,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Convertible Securities",
+          "cell": "C11",
+          "previous": 9.5,
+          "value": 9.5,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "8785409a0807e77960185ff44a29621eccb8c2738d2416349b031246e99f220f",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "12",
+      "domain": "Equity Finance",
+      "case_type": "conventional",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "fintech-adversarial-fraud-run",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/fintech-adversarial-fraud-run.json",
+      "template": "23_Fintech_Payments/_template_FINTECH.xlsx",
+      "output": "23_Fintech_Payments/instances/benchmark_adversarial_fraud_run.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Unit Economics",
+          "cell": "C5",
+          "previous": 0,
+          "value": 1000.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Unit Economics",
+          "cell": "C6",
+          "previous": 0.025,
+          "value": 0.015,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Unit Economics",
+          "cell": "C7",
+          "previous": 0.015,
+          "value": 0.01,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Unit Economics",
+          "cell": "C8",
+          "previous": 0,
+          "value": 8.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Unit Economics",
+          "cell": "C9",
+          "previous": 0,
+          "value": 6.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Unit Economics",
+          "cell": "C10",
+          "previous": 0.6,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Unit Economics",
+          "cell": "C11",
+          "previous": 0.03,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Unit Economics",
+          "cell": "C12",
+          "previous": null,
+          "value": 3.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Unit Economics",
+          "cell": "C13",
+          "previous": null,
+          "value": 0.2,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fraud & Risk",
+          "cell": "C5",
+          "previous": 0,
+          "value": 1000.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fraud & Risk",
+          "cell": "C6",
+          "previous": 8,
+          "value": 200.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fraud & Risk",
+          "cell": "C7",
+          "previous": 0,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fraud & Risk",
+          "cell": "C8",
+          "previous": 25,
+          "value": 50.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fraud & Risk",
+          "cell": "C9",
+          "previous": 0,
+          "value": 8.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fraud & Risk",
+          "cell": "C10",
+          "previous": 50,
+          "value": 50.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Network & Cohorts",
+          "cell": "C3",
+          "previous": "Base",
+          "value": "Downside",
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "d7ab421b40c680bc60ed4b72454fbfc6ad400c51ed9c31b92e3659424601c628",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "23",
+      "domain": "Fintech & Payments",
+      "case_type": "adversarial",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "fintech-reference-payments",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/fintech-reference-payments.json",
+      "template": "23_Fintech_Payments/_template_FINTECH.xlsx",
+      "output": "23_Fintech_Payments/instances/benchmark_reference_payments.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Unit Economics",
+          "cell": "C5",
+          "previous": 0,
+          "value": 1000.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Unit Economics",
+          "cell": "C6",
+          "previous": 0.025,
+          "value": 0.025,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Unit Economics",
+          "cell": "C7",
+          "previous": 0.015,
+          "value": 0.008,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Unit Economics",
+          "cell": "C8",
+          "previous": 0,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Unit Economics",
+          "cell": "C9",
+          "previous": 0,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Unit Economics",
+          "cell": "C10",
+          "previous": 0.6,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Unit Economics",
+          "cell": "C11",
+          "previous": 0.03,
+          "value": 30.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Unit Economics",
+          "cell": "C12",
+          "previous": null,
+          "value": 8.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Unit Economics",
+          "cell": "C13",
+          "previous": null,
+          "value": 0.6,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fraud & Risk",
+          "cell": "C5",
+          "previous": 0,
+          "value": 1000.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fraud & Risk",
+          "cell": "C6",
+          "previous": 8,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fraud & Risk",
+          "cell": "C7",
+          "previous": 0,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fraud & Risk",
+          "cell": "C8",
+          "previous": 25,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fraud & Risk",
+          "cell": "C9",
+          "previous": 0,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Fraud & Risk",
+          "cell": "C10",
+          "previous": 50,
+          "value": 50.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Network & Cohorts",
+          "cell": "C3",
+          "previous": "Base",
+          "value": "Base",
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "9f44d308011d5fe5c709e3a38b496f258095b3a2d44c58e1c2a89375f4e75b46",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "23",
+      "domain": "Fintech & Payments",
+      "case_type": "conventional",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "microfinance-adversarial-moratorium",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/microfinance-adversarial-moratorium.json",
+      "template": "11_Microfinance/_template_MICROFINANCE.xlsx",
+      "output": "11_Microfinance/instances/benchmark_adversarial_moratorium.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Loan Portfolio",
+          "cell": "C5",
+          "previous": 0,
+          "value": 82.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Loan Portfolio",
+          "cell": "C6",
+          "previous": 0,
+          "value": 4200.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Loan Portfolio",
+          "cell": "C7",
+          "previous": 0,
+          "value": 35.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Loan Portfolio",
+          "cell": "C8",
+          "previous": 0,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Loan Portfolio",
+          "cell": "C9",
+          "previous": 0,
+          "value": 8.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Loan Portfolio",
+          "cell": "C10",
+          "previous": 0,
+          "value": 0.0195,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Sustainability",
+          "cell": "C5",
+          "previous": 0,
+          "value": 8.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Sustainability",
+          "cell": "C6",
+          "previous": 0,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Sustainability",
+          "cell": "C7",
+          "previous": 0,
+          "value": 8.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Sustainability",
+          "cell": "C8",
+          "previous": 0,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Sustainability",
+          "cell": "C9",
+          "previous": 0,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Provisioning",
+          "cell": "C5",
+          "previous": 0,
+          "value": 40.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Provisioning",
+          "cell": "C6",
+          "previous": 0,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Provisioning",
+          "cell": "C7",
+          "previous": 0,
+          "value": 15.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Provisioning",
+          "cell": "C8",
+          "previous": 0,
+          "value": 7.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Provisioning",
+          "cell": "C12",
+          "previous": 0,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Portfolio Rollforward",
+          "cell": "C3",
+          "previous": "Base",
+          "value": "Downside",
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "a0f28fff65240093b51e07b75d44c4a2889cf8b49ccb01f1edbc37960498a459",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "11",
+      "domain": "Microfinance",
+      "case_type": "adversarial",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "microfinance-reference-book",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/microfinance-reference-book.json",
+      "template": "11_Microfinance/_template_MICROFINANCE.xlsx",
+      "output": "11_Microfinance/instances/benchmark_reference_book.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Loan Portfolio",
+          "cell": "C5",
+          "previous": 0,
+          "value": 103.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Loan Portfolio",
+          "cell": "C6",
+          "previous": 0,
+          "value": 5000.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Loan Portfolio",
+          "cell": "C7",
+          "previous": 0,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Loan Portfolio",
+          "cell": "C8",
+          "previous": 0,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Loan Portfolio",
+          "cell": "C9",
+          "previous": 0,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Loan Portfolio",
+          "cell": "C10",
+          "previous": 0,
+          "value": 0.0206,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Sustainability",
+          "cell": "C5",
+          "previous": 0,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Sustainability",
+          "cell": "C6",
+          "previous": 0,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Sustainability",
+          "cell": "C7",
+          "previous": 0,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Sustainability",
+          "cell": "C8",
+          "previous": 0,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Sustainability",
+          "cell": "C9",
+          "previous": 0,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Provisioning",
+          "cell": "C5",
+          "previous": 0,
+          "value": 95.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Provisioning",
+          "cell": "C6",
+          "previous": 0,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Provisioning",
+          "cell": "C7",
+          "previous": 0,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Provisioning",
+          "cell": "C8",
+          "previous": 0,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Provisioning",
+          "cell": "C12",
+          "previous": 0,
+          "value": 6.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Portfolio Rollforward",
+          "cell": "C3",
+          "previous": "Base",
+          "value": "Base",
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "a695374f34b3e274c23aabc422b8ac276b9fc0290611ed5e1c2a0935314e8013",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "11",
+      "domain": "Microfinance",
+      "case_type": "conventional",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "real-estate-adversarial-refinancing",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+      "template": "17_Real_Estate_REIT/_template_REAL_ESTATE.xlsx",
+      "output": "17_Real_Estate_REIT/instances/benchmark_adversarial_refinancing.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Property Pro Forma",
+          "cell": "C5",
+          "previous": 0,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Property Pro Forma",
+          "cell": "C6",
+          "previous": 0,
+          "value": 6.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Property Pro Forma",
+          "cell": "C8",
+          "previous": 0,
+          "value": 0.5,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Property Pro Forma",
+          "cell": "C10",
+          "previous": 0,
+          "value": 9.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Property Pro Forma",
+          "cell": "C12",
+          "previous": 0,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Cap Rate & Valuation",
+          "cell": "C5",
+          "previous": 0.06,
+          "value": 0.09,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Cap Rate & Valuation",
+          "cell": "C8",
+          "previous": 0,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Cap Rate & Valuation",
+          "cell": "C10",
+          "previous": 0,
+          "value": 85.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "REIT FFO-AFFO",
+          "cell": "C4",
+          "previous": 0,
+          "value": -3.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "REIT FFO-AFFO",
+          "cell": "C5",
+          "previous": 0,
+          "value": 2.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "REIT FFO-AFFO",
+          "cell": "C6",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "REIT FFO-AFFO",
+          "cell": "C9",
+          "previous": 0,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "REIT FFO-AFFO",
+          "cell": "C10",
+          "previous": 0,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "REIT FFO-AFFO",
+          "cell": "C13",
+          "previous": 1,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Debt Schedule",
+          "cell": "C3",
+          "previous": 0.06,
+          "value": 0.1,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Debt Schedule",
+          "cell": "C4",
+          "previous": 25,
+          "value": 15.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Debt Schedule",
+          "cell": "C5",
+          "previous": 1.25,
+          "value": 1.25,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "5-Year Hold & IRR",
+          "cell": "C5",
+          "previous": 0.02,
+          "value": -0.03,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "5-Year Hold & IRR",
+          "cell": "C6",
+          "previous": 0.065,
+          "value": 0.1,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "5-Year Hold & IRR",
+          "cell": "C7",
+          "previous": 0.02,
+          "value": 0.04,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "8486807adca9a652bd574269a79a58307e9dc3eda4d0615f2e9093443197a057",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "17",
+      "domain": "Real Estate & REIT",
+      "case_type": "adversarial",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "real-estate-reference-property",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/real-estate-reference-property.json",
+      "template": "17_Real_Estate_REIT/_template_REAL_ESTATE.xlsx",
+      "output": "17_Real_Estate_REIT/instances/benchmark_reference_property.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Property Pro Forma",
+          "cell": "C5",
+          "previous": 0,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Property Pro Forma",
+          "cell": "C6",
+          "previous": 0,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Property Pro Forma",
+          "cell": "C8",
+          "previous": 0,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Property Pro Forma",
+          "cell": "C10",
+          "previous": 0,
+          "value": 7.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Property Pro Forma",
+          "cell": "C12",
+          "previous": 0,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Cap Rate & Valuation",
+          "cell": "C5",
+          "previous": 0.06,
+          "value": 0.06,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Cap Rate & Valuation",
+          "cell": "C8",
+          "previous": 0,
+          "value": 200.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Cap Rate & Valuation",
+          "cell": "C10",
+          "previous": 0,
+          "value": 120.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "REIT FFO-AFFO",
+          "cell": "C4",
+          "previous": 0,
+          "value": 6.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "REIT FFO-AFFO",
+          "cell": "C5",
+          "previous": 0,
+          "value": 5.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "REIT FFO-AFFO",
+          "cell": "C6",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "REIT FFO-AFFO",
+          "cell": "C9",
+          "previous": 0,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "REIT FFO-AFFO",
+          "cell": "C10",
+          "previous": 0,
+          "value": 0.5,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "REIT FFO-AFFO",
+          "cell": "C13",
+          "previous": 1,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Debt Schedule",
+          "cell": "C3",
+          "previous": 0.06,
+          "value": 0.06,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Debt Schedule",
+          "cell": "C4",
+          "previous": 25,
+          "value": 25.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Debt Schedule",
+          "cell": "C5",
+          "previous": 1.25,
+          "value": 1.25,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "5-Year Hold & IRR",
+          "cell": "C5",
+          "previous": 0.02,
+          "value": 0.02,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "5-Year Hold & IRR",
+          "cell": "C6",
+          "previous": 0.065,
+          "value": 0.065,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "5-Year Hold & IRR",
+          "cell": "C7",
+          "previous": 0.02,
+          "value": 0.02,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "56d26e9e3cff8eba51def9820206a46751f52e207d43d5bf2088fa0bcf4270b3",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "17",
+      "domain": "Real Estate & REIT",
+      "case_type": "conventional",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "trade-adversarial-country-shock",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "template": "10_Trade_Finance/_template_TRADE_FINANCE.xlsx",
+      "output": "10_Trade_Finance/instances/benchmark_adversarial_country_shock.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Working Capital Cycle",
+          "cell": "C5",
+          "previous": 0,
+          "value": 400.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Working Capital Cycle",
+          "cell": "C6",
+          "previous": 0,
+          "value": 320.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Working Capital Cycle",
+          "cell": "C7",
+          "previous": 0,
+          "value": 160.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Working Capital Cycle",
+          "cell": "C8",
+          "previous": 0,
+          "value": 120.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Working Capital Cycle",
+          "cell": "C9",
+          "previous": 0,
+          "value": 20.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "LC & Factoring Cost",
+          "cell": "C5",
+          "previous": 0,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "LC & Factoring Cost",
+          "cell": "C6",
+          "previous": 0.015,
+          "value": 0.04,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "LC & Factoring Cost",
+          "cell": "C7",
+          "previous": 0.01,
+          "value": 0.03,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "LC & Factoring Cost",
+          "cell": "C8",
+          "previous": 90,
+          "value": 90.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "LC & Factoring Cost",
+          "cell": "C14",
+          "previous": 0,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "LC & Factoring Cost",
+          "cell": "C15",
+          "previous": 0.85,
+          "value": 0.7,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "LC & Factoring Cost",
+          "cell": "C16",
+          "previous": 0.02,
+          "value": 0.18,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "LC & Factoring Cost",
+          "cell": "C17",
+          "previous": 60,
+          "value": 45.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Credit & Facility",
+          "cell": "C3",
+          "previous": "Base",
+          "value": "Downside",
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Documentary Controls",
+          "cell": "C5",
+          "previous": 10,
+          "value": 30.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Documentary Controls",
+          "cell": "C6",
+          "previous": 0,
+          "value": 4.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Documentary Controls",
+          "cell": "C7",
+          "previous": 1,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Documentary Controls",
+          "cell": "C8",
+          "previous": 1,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Documentary Controls",
+          "cell": "C9",
+          "previous": 1,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Documentary Controls",
+          "cell": "C10",
+          "previous": 1,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Documentary Controls",
+          "cell": "C11",
+          "previous": 1,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Documentary Controls",
+          "cell": "C12",
+          "previous": 1,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "ca2ef91bce99d9f5d590d197f7aa0a2b8e009fcc4731fc99cd5f43020b1e7eb9",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "10",
+      "domain": "Trade Finance",
+      "case_type": "adversarial",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "trade-reference-exporter",
+      "as_of": "2026-08-04",
+      "manifest": "standards/benchmark_cases/trade-reference-exporter.json",
+      "template": "10_Trade_Finance/_template_TRADE_FINANCE.xlsx",
+      "output": "10_Trade_Finance/instances/benchmark_reference_exporter.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Working Capital Cycle",
+          "cell": "C5",
+          "previous": 0,
+          "value": 500.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Working Capital Cycle",
+          "cell": "C6",
+          "previous": 0,
+          "value": 350.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Working Capital Cycle",
+          "cell": "C7",
+          "previous": 0,
+          "value": 60.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Working Capital Cycle",
+          "cell": "C8",
+          "previous": 0,
+          "value": 50.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Working Capital Cycle",
+          "cell": "C9",
+          "previous": 0,
+          "value": 40.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "LC & Factoring Cost",
+          "cell": "C5",
+          "previous": 0,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "LC & Factoring Cost",
+          "cell": "C6",
+          "previous": 0.015,
+          "value": 0.015,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "LC & Factoring Cost",
+          "cell": "C7",
+          "previous": 0.01,
+          "value": 0.01,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "LC & Factoring Cost",
+          "cell": "C8",
+          "previous": 90,
+          "value": 180.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "LC & Factoring Cost",
+          "cell": "C14",
+          "previous": 0,
+          "value": 100.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "LC & Factoring Cost",
+          "cell": "C15",
+          "previous": 0.85,
+          "value": 0.85,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "LC & Factoring Cost",
+          "cell": "C16",
+          "previous": 0.02,
+          "value": 0.02,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "LC & Factoring Cost",
+          "cell": "C17",
+          "previous": 60,
+          "value": 60.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Credit & Facility",
+          "cell": "C3",
+          "previous": "Base",
+          "value": "Base",
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Documentary Controls",
+          "cell": "C5",
+          "previous": 10,
+          "value": 10.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Documentary Controls",
+          "cell": "C6",
+          "previous": 0,
+          "value": 0.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Documentary Controls",
+          "cell": "C7",
+          "previous": 1,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Documentary Controls",
+          "cell": "C8",
+          "previous": 1,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Documentary Controls",
+          "cell": "C9",
+          "previous": 1,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Documentary Controls",
+          "cell": "C10",
+          "previous": 1,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Documentary Controls",
+          "cell": "C11",
+          "previous": 1,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        },
+        {
+          "sheet": "Documentary Controls",
+          "cell": "C12",
+          "previous": 1,
+          "value": 1.0,
+          "source_url": "repo://standards/domain_hardening/m1_registry.json",
+          "source_as_of": "2026-08-04"
+        }
+      ],
+      "workbook_sha256": "3cb3af719d5b19f0f7b0737eae462bb654ca847804f5021d6a6e06669bbc087d",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2",
+      "model_id": "10",
+      "domain": "Trade Finance",
+      "case_type": "conventional",
+      "classification": "synthetic_engineering_benchmark",
+      "counts_toward_M4": false
     }
   ]
 }
