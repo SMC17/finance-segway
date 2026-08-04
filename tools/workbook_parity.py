@@ -3,17 +3,31 @@
 Semantic parity covers sheet order/state, formulas, hardcoded values, defined
 names, and external-link state. Presentation parity separately records number
 formats, styles, dimensions, merges, validations, conditional formatting, and
-calculation settings. This prevents LibreOffice normalization from hiding real
-formula drift or falsely failing an otherwise identical model.
+calculation settings. Harmless Excel/LibreOffice formula serialization variants
+are canonicalized before semantic comparison.
 """
 from __future__ import annotations
 
 import hashlib
 import json
+import re
 from pathlib import Path
 from typing import Any
 
 from openpyxl import load_workbook
+
+_SIMPLE_QUOTED_SHEET = re.compile(r"'([A-Za-z_][A-Za-z0-9_]*)'!")
+_BOOLEAN_CALL = re.compile(r"\b(TRUE|FALSE)\(\)", re.IGNORECASE)
+_SCIENTIFIC_ZERO_PADDING = re.compile(r"(?<![A-Z0-9_.])(\d+(?:\.\d+)?)[Ee]\+?0*(\d+)(?![A-Z0-9_.])")
+
+
+def normalize_formula(formula: str) -> str:
+    """Canonicalize equivalent formula serialization without changing logic."""
+    normalized = formula.strip()
+    normalized = _SIMPLE_QUOTED_SHEET.sub(r"\1!", normalized)
+    normalized = _BOOLEAN_CALL.sub(lambda match: match.group(1).upper(), normalized)
+    normalized = _SCIENTIFIC_ZERO_PADDING.sub(lambda match: f"{match.group(1)}E{int(match.group(2))}", normalized)
+    return normalized
 
 
 def _color(value: Any) -> str | None:
@@ -37,6 +51,7 @@ def _semantic_cell(cell: Any) -> dict[str, Any]:
     value = cell.value
     if isinstance(value, str) and value.startswith("="):
         kind = "formula"
+        value = normalize_formula(value)
     elif value is None:
         kind = "blank"
     else:
