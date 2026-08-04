@@ -13,7 +13,6 @@ from __future__ import annotations
 import csv
 import datetime as dt
 import math
-import os
 import random
 from pathlib import Path
 
@@ -26,13 +25,11 @@ AS_OF = dt.date(2026, 8, 4)
 SEED = 17
 random.seed(SEED)
 
-# Tiny synthetic price paths (10 names, 252 trading days)
 NAMES = [f"SYN{i:02d}" for i in range(1, 11)]
 N_DAYS = 252
 
 
 def generate_returns(n_days: int, n_names: int) -> list[list[float]]:
-    "\"\"Simple Gaussian returns with mild cross-sectional correlation.\"\"\"
     rets = []
     for _ in range(n_days):
         common = random.gauss(0.0003, 0.008)
@@ -46,23 +43,19 @@ def realized_vol(returns: list[float]) -> float:
         return 0.0
     mean = sum(returns) / len(returns)
     var = sum((r - mean) ** 2 for r in returns) / (len(returns) - 1)
-    return math.sqrt(var * 252)  # annualised
+    return math.sqrt(var * 252)
 
 
 def main() -> None:
     daily_rets = generate_returns(N_DAYS, len(NAMES))
 
-    # Per-name realised volatility
     name_vols = []
-    for j, name in enumerate(NAMES):
+    for j in range(len(NAMES)):
         series = [daily_rets[t][j] for t in range(N_DAYS)]
         name_vols.append(realized_vol(series))
 
     avg_vol = sum(name_vols) / len(name_vols)
     p50_vol = sorted(name_vols)[len(name_vols) // 2]
-
-    # Cross-sectional average pairwise correlation (rough)
-    # For Stage-0 we only need a deterministic summary metric.
     avg_corr = 0.35  # fixed for reproducibility of the example
 
     rows = [
