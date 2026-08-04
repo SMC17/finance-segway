@@ -165,6 +165,29 @@ def _compare_sheets(left: dict[str, Any], right: dict[str, Any], fields: tuple[s
     return differences
 
 
+def _cell_diff_details(left: dict[str, Any], right: dict[str, Any], limit: int = 100) -> list[dict[str, Any]]:
+    details: list[dict[str, Any]] = []
+    left_sheets = {item["title"]: item for item in left["sheets"]}
+    right_sheets = {item["title"]: item for item in right["sheets"]}
+    for sheet_name in sorted(set(left_sheets) & set(right_sheets)):
+        left_cells = {item["coordinate"]: item for item in left_sheets[sheet_name]["cells"]}
+        right_cells = {item["coordinate"]: item for item in right_sheets[sheet_name]["cells"]}
+        for coordinate in sorted(set(left_cells) | set(right_cells)):
+            generated = left_cells.get(coordinate)
+            committed = right_cells.get(coordinate)
+            if generated == committed:
+                continue
+            details.append({
+                "sheet": sheet_name,
+                "cell": coordinate,
+                "generated": generated,
+                "committed": committed,
+            })
+            if len(details) >= limit:
+                return details
+    return details
+
+
 def compare_workbooks(generated: Path, committed: Path) -> dict[str, Any]:
     generated_semantic, generated_presentation = workbook_fingerprints(generated)
     committed_semantic, committed_presentation = workbook_fingerprints(committed)
@@ -200,5 +223,6 @@ def compare_workbooks(generated: Path, committed: Path) -> dict[str, Any]:
         "presentation_parity": not presentation_differences,
         "differences": semantic_differences,
         "semantic_differences": semantic_differences,
+        "semantic_cell_differences": _cell_diff_details(generated_semantic, committed_semantic),
         "presentation_differences": presentation_differences,
     }
