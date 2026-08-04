@@ -6,7 +6,14 @@ on:
       - "standards/domain_hardening/**"
       - "tools/domain_hardening_oracles.py"
       - "tools/validate_domain_hardening.py"
+      - "tools/validate_hardened_workbooks.py"
+      - "tools/builders/legacy_release_adapter.py"
+      - "tools/builders/build_commodities_release.py"
+      - "tools/builders/build_real_estate_release.py"
+      - "tools/builders/build_fintech_release.py"
+      - "tools/builders/build_restructuring_release.py"
       - "tests/test_domain_hardening.py"
+      - "tests/test_hardened_workbooks.py"
       - ".github/workflows/m1-domain-hardening.yml"
       - "standards/model_inventory.json"
   push:
@@ -17,7 +24,14 @@ on:
       - "standards/domain_hardening/**"
       - "tools/domain_hardening_oracles.py"
       - "tools/validate_domain_hardening.py"
+      - "tools/validate_hardened_workbooks.py"
+      - "tools/builders/legacy_release_adapter.py"
+      - "tools/builders/build_commodities_release.py"
+      - "tools/builders/build_real_estate_release.py"
+      - "tools/builders/build_fintech_release.py"
+      - "tools/builders/build_restructuring_release.py"
       - "tests/test_domain_hardening.py"
+      - "tests/test_hardened_workbooks.py"
       - ".github/workflows/m1-domain-hardening.yml"
       - "standards/model_inventory.json"
   workflow_dispatch:
@@ -25,8 +39,12 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: m1-domain-hardening-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  independent-oracles:
+  independent-oracles-and-workbooks:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout hardening branch
@@ -44,15 +62,70 @@ jobs:
       - name: Compile hardening system
         run: python -m compileall -q tools tests
 
-      - name: Run domain hardening tests
-        run: PYTHONPATH=. python -m unittest tests.test_domain_hardening -v
+      - name: Run independent oracle and workbook tests
+        run: |
+          PYTHONPATH=. python -m unittest tests.test_domain_hardening -v
+          PYTHONPATH=. python -m unittest tests.test_hardened_workbooks -v
 
-      - name: Validate reference registry and cases
+      - name: Validate reference registry and adversarial cases
         run: PYTHONPATH=. python tools/validate_domain_hardening.py --report m1-domain-hardening-report.json
 
-      - name: Upload hardening report
+      - name: Build and validate hardened workbooks before recalculation
+        run: |
+          rm -rf .hardening-build
+          PYTHONPATH=.:tools python tools/validate_hardened_workbooks.py \
+            --build-dir .hardening-build \
+            --report hardened-workbook-pre-recalc-report.json
+
+      - name: Install LibreOffice
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice-calc
+
+      - name: Recalculate hardened workbooks and reject cached errors
+        run: |
+          PYTHONPATH=.:tools python - <<'PY'
+          import json
+          from pathlib import Path
+          from recalc import recalc
+
+          results = {}
+          failed = []
+          for path in sorted(Path('.hardening-build').glob('*.xlsx')):
+              result = recalc(path, timeout=90)
+              results[path.name] = result
+              if result.get('status') != 'success' or result.get('total_errors', 0) != 0:
+                  failed.append(path.name)
+          Path('hardened-workbook-recalc-report.json').write_text(
+              json.dumps(results, indent=2), encoding='utf-8'
+          )
+          if failed:
+              raise SystemExit(f"hardened workbook recalculation failures: {failed}")
+          PY
+
+      - name: Re-run workbook contracts after recalculation
+        run: |
+          PYTHONPATH=.:tools python tools/validate_hardened_workbooks.py \
+            --workbook-dir .hardening-build \
+            --report hardened-workbook-post-recalc-report.json
+
+      - name: Audit hardened workbook engineering
+        run: |
+          PYTHONPATH=.:tools python tools/workbook_engineering.py \
+            .hardening-build \
+            --report hardened-workbook-engineering-report.json
+
+      - name: Upload hardening workbooks and reports
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: m1-domain-hardening-${{ github.event_name }}
-          path: m1-domain-hardening-report.json
+          path: |
+            .hardening-build/*.xlsx
+            m1-domain-hardening-report.json
+            hardened-workbook-pre-recalc-report.json
+            hardened-workbook-recalc-report.json
+            hardened-workbook-post-recalc-report.json
+            hardened-workbook-engineering-report.json
+          if-no-files-found: warn
           retention-days: 30
