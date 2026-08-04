@@ -10,7 +10,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from workbook_engineering import audit_workbook
+try:  # Package import used by tests and module consumers.
+    from tools.workbook_engineering import audit_workbook
+except ModuleNotFoundError:  # Direct CLI execution: python tools/generate_release_evidence.py
+    from workbook_engineering import audit_workbook
 
 
 def sha256(path: Path) -> str:
