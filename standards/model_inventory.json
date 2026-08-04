@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "maturity_scale": {
     "M0": "Placeholder: path or concept only; no decision-useful model.",
     "M1": "Correct Skeleton: formula-driven archetype with basic controls and at least one verified core identity.",
@@ -41,9 +41,21 @@
       "builder": "tools/builders/build_template.py",
       "horizon": "corporate_5y",
       "declared_maturity": "M2",
-      "required_engines": ["three_statement", "dcf", "trading_comps", "precedent_transactions"],
-      "required_perspectives": ["owner", "board", "advisor"],
-      "reference_checks": ["three_statement_linkage", "balance_sheet_balance"],
+      "required_engines": [
+        "three_statement",
+        "dcf",
+        "trading_comps",
+        "precedent_transactions"
+      ],
+      "required_perspectives": [
+        "owner",
+        "board",
+        "advisor"
+      ],
+      "reference_checks": [
+        "three_statement_linkage",
+        "balance_sheet_balance"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -56,9 +68,21 @@
       "builder": "tools/builders/build_template.py",
       "horizon": "corporate_5y",
       "declared_maturity": "M2",
-      "required_engines": ["three_statement", "capital_structure", "liquidity", "cost_of_capital"],
-      "required_perspectives": ["treasury", "board", "rating_agency"],
-      "reference_checks": ["three_statement_linkage", "balance_sheet_balance"],
+      "required_engines": [
+        "three_statement",
+        "capital_structure",
+        "liquidity",
+        "cost_of_capital"
+      ],
+      "required_perspectives": [
+        "treasury",
+        "board",
+        "rating_agency"
+      ],
+      "reference_checks": [
+        "three_statement_linkage",
+        "balance_sheet_balance"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -71,9 +95,27 @@
       "builder": "tools/builders/build_lbo_template.py",
       "horizon": "corporate_5y",
       "declared_maturity": "M2",
-      "required_engines": ["operating_model", "sources_uses", "multi_tranche_debt", "tax", "working_capital", "cash_sweep", "management_equity", "exit_waterfall"],
-      "required_perspectives": ["sponsor", "lender", "management", "lp_ic"],
-      "reference_checks": ["sources_uses_balance", "debt_sweep_conservation", "returns_identity"],
+      "required_engines": [
+        "operating_model",
+        "sources_uses",
+        "multi_tranche_debt",
+        "tax",
+        "working_capital",
+        "cash_sweep",
+        "management_equity",
+        "exit_waterfall"
+      ],
+      "required_perspectives": [
+        "sponsor",
+        "lender",
+        "management",
+        "lp_ic"
+      ],
+      "reference_checks": [
+        "sources_uses_balance",
+        "debt_sweep_conservation",
+        "returns_identity"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -86,9 +128,27 @@
       "builder": "tools/builders/build_lbo_template.py",
       "horizon": "corporate_5y",
       "declared_maturity": "M2",
-      "required_engines": ["operating_model", "sources_uses", "multi_tranche_debt", "tax", "working_capital", "cash_sweep", "holdco_structuring", "exit_waterfall"],
-      "required_perspectives": ["principal", "lender", "management", "investment_committee"],
-      "reference_checks": ["sources_uses_balance", "debt_sweep_conservation", "returns_identity"],
+      "required_engines": [
+        "operating_model",
+        "sources_uses",
+        "multi_tranche_debt",
+        "tax",
+        "working_capital",
+        "cash_sweep",
+        "holdco_structuring",
+        "exit_waterfall"
+      ],
+      "required_perspectives": [
+        "principal",
+        "lender",
+        "management",
+        "investment_committee"
+      ],
+      "reference_checks": [
+        "sources_uses_balance",
+        "debt_sweep_conservation",
+        "returns_identity"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -98,12 +158,29 @@
       "folder": "05_Private_Credit",
       "archetype": "CREDIT",
       "workbook": "05_Private_Credit/_template_CREDIT.xlsx",
-      "builder": "tools/builders/build_credit_template.py",
+      "builder": "tools/builders/build_private_credit_template.py",
       "horizon": "corporate_5y",
-      "declared_maturity": "M1",
-      "required_engines": ["operating_case", "cfads", "debt_cash_schedule", "covenants", "yield_oid", "recovery_lgd", "downside_case"],
-      "required_perspectives": ["lender", "sponsor", "rating_agency", "restructuring"],
-      "reference_checks": [],
+      "declared_maturity": "M2",
+      "required_engines": [
+        "operating_case",
+        "cfads",
+        "debt_cash_schedule",
+        "covenants",
+        "yield_oid",
+        "recovery_lgd",
+        "downside_case"
+      ],
+      "required_perspectives": [
+        "lender",
+        "sponsor",
+        "rating_agency",
+        "restructuring"
+      ],
+      "reference_checks": [
+        "approximate_cash_ytm",
+        "recovery_lgd_bounds",
+        "debt_cash_schedule_conservation"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -113,12 +190,28 @@
       "folder": "06_Debt_Finance",
       "archetype": "CREDIT",
       "workbook": "06_Debt_Finance/_template_CREDIT.xlsx",
-      "builder": "tools/builders/build_credit_template.py",
+      "builder": "tools/builders/build_debt_finance_template.py",
       "horizon": "corporate_5y",
-      "declared_maturity": "M1",
-      "required_engines": ["issuance", "refinancing", "maturity_ladder", "interest_rate_risk", "covenants", "recovery_lgd"],
-      "required_perspectives": ["issuer", "arranger", "lender", "rating_agency"],
-      "reference_checks": [],
+      "declared_maturity": "M2",
+      "required_engines": [
+        "issuance",
+        "refinancing",
+        "maturity_ladder",
+        "interest_rate_risk",
+        "covenants",
+        "recovery_lgd"
+      ],
+      "required_perspectives": [
+        "issuer",
+        "arranger",
+        "lender",
+        "rating_agency"
+      ],
+      "reference_checks": [
+        "sources_uses_balance",
+        "maturity_concentration",
+        "recovery_lgd_bounds"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -130,10 +223,28 @@
       "workbook": "07_Public_Finance/_template_PUBLIC_FINANCE.xlsx",
       "builder": "tools/builders/build_public_finance_template.py",
       "horizon": "long_term_30y",
-      "declared_maturity": "M1",
-      "required_engines": ["sovereign_dsa", "revenue_expenditure", "debt_service", "reserves", "dscr", "pension_burden", "scenario_analysis"],
-      "required_perspectives": ["issuer", "investor", "rating_agency", "taxpayer", "dfi"],
-      "reference_checks": [],
+      "declared_maturity": "M2",
+      "required_engines": [
+        "sovereign_dsa",
+        "revenue_expenditure",
+        "debt_service",
+        "reserves",
+        "dscr",
+        "pension_burden",
+        "scenario_analysis"
+      ],
+      "required_perspectives": [
+        "issuer",
+        "investor",
+        "rating_agency",
+        "taxpayer",
+        "dfi"
+      ],
+      "reference_checks": [
+        "debt_stabilizing_primary_balance",
+        "projected_debt_ratio_identity",
+        "coverage_bounds"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -146,8 +257,20 @@
       "builder": "tools/builders/build_am_template.py",
       "horizon": "perpetual",
       "declared_maturity": "M1",
-      "required_engines": ["nav", "subscriptions_redemptions", "fee_waterfall", "carry", "attribution", "liquidity_budget"],
-      "required_perspectives": ["gp", "lp", "risk", "operations"],
+      "required_engines": [
+        "nav",
+        "subscriptions_redemptions",
+        "fee_waterfall",
+        "carry",
+        "attribution",
+        "liquidity_budget"
+      ],
+      "required_perspectives": [
+        "gp",
+        "lp",
+        "risk",
+        "operations"
+      ],
       "reference_checks": [],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -161,8 +284,21 @@
       "builder": "tools/builders/build_risk_template.py",
       "horizon": "trading_daily",
       "declared_maturity": "M1",
-      "required_engines": ["var", "expected_shortfall", "stress_testing", "factor_exposure", "liquidity_risk", "backtesting", "limit_monitoring"],
-      "required_perspectives": ["trader", "risk", "management", "regulator"],
+      "required_engines": [
+        "var",
+        "expected_shortfall",
+        "stress_testing",
+        "factor_exposure",
+        "liquidity_risk",
+        "backtesting",
+        "limit_monitoring"
+      ],
+      "required_perspectives": [
+        "trader",
+        "risk",
+        "management",
+        "regulator"
+      ],
       "reference_checks": [],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -176,8 +312,20 @@
       "builder": "tools/builders/build_trade_finance_template.py",
       "horizon": "short_term_1y",
       "declared_maturity": "M1",
-      "required_engines": ["cash_conversion", "facility_utilization", "lc_cost", "factoring", "counterparty_risk", "country_risk"],
-      "required_perspectives": ["bank", "borrower", "insurer", "dfi"],
+      "required_engines": [
+        "cash_conversion",
+        "facility_utilization",
+        "lc_cost",
+        "factoring",
+        "counterparty_risk",
+        "country_risk"
+      ],
+      "required_perspectives": [
+        "bank",
+        "borrower",
+        "insurer",
+        "dfi"
+      ],
       "reference_checks": [],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -191,8 +339,20 @@
       "builder": "tools/builders/build_microfinance_template.py",
       "horizon": "corporate_5y",
       "declared_maturity": "M1",
-      "required_engines": ["portfolio_rollforward", "par30_90", "vintage", "credit_loss", "oss_fss", "funding_liquidity"],
-      "required_perspectives": ["lender", "investor", "regulator", "dfi"],
+      "required_engines": [
+        "portfolio_rollforward",
+        "par30_90",
+        "vintage",
+        "credit_loss",
+        "oss_fss",
+        "funding_liquidity"
+      ],
+      "required_perspectives": [
+        "lender",
+        "investor",
+        "regulator",
+        "dfi"
+      ],
       "reference_checks": [],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -206,8 +366,19 @@
       "builder": "tools/builders/build_template.py",
       "horizon": "corporate_5y",
       "declared_maturity": "M1",
-      "required_engines": ["three_statement", "cap_table", "dilution", "rights_issuance", "convertibles", "valuation"],
-      "required_perspectives": ["issuer", "shareholder", "advisor"],
+      "required_engines": [
+        "three_statement",
+        "cap_table",
+        "dilution",
+        "rights_issuance",
+        "convertibles",
+        "valuation"
+      ],
+      "required_perspectives": [
+        "issuer",
+        "shareholder",
+        "advisor"
+      ],
       "reference_checks": [],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -221,9 +392,24 @@
       "builder": "tools/builders/build_vc_template.py",
       "horizon": "corporate_10y",
       "declared_maturity": "M2",
-      "required_engines": ["cap_table", "safe_conversion", "round_modeling", "liquidation_preferences", "pro_rata", "exit_waterfall", "portfolio_reserves"],
-      "required_perspectives": ["founder", "investor", "board", "lp_ic"],
-      "reference_checks": ["waterfall_conservation"],
+      "required_engines": [
+        "cap_table",
+        "safe_conversion",
+        "round_modeling",
+        "liquidation_preferences",
+        "pro_rata",
+        "exit_waterfall",
+        "portfolio_reserves"
+      ],
+      "required_perspectives": [
+        "founder",
+        "investor",
+        "board",
+        "lp_ic"
+      ],
+      "reference_checks": [
+        "waterfall_conservation"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -236,9 +422,25 @@
       "builder": "tools/builders/build_options_template.py",
       "horizon": "trading_intraday",
       "declared_maturity": "M2",
-      "required_engines": ["black_scholes", "greeks", "implied_volatility", "american_options", "vol_surface", "strategy_payoff", "scenario_pnl"],
-      "required_perspectives": ["trader", "market_maker", "risk", "clearing"],
-      "reference_checks": ["black_scholes_closed_form", "put_call_parity"],
+      "required_engines": [
+        "black_scholes",
+        "greeks",
+        "implied_volatility",
+        "american_options",
+        "vol_surface",
+        "strategy_payoff",
+        "scenario_pnl"
+      ],
+      "required_perspectives": [
+        "trader",
+        "market_maker",
+        "risk",
+        "clearing"
+      ],
+      "reference_checks": [
+        "black_scholes_closed_form",
+        "put_call_parity"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -251,8 +453,21 @@
       "builder": "tools/builders/build_commodities_template.py",
       "horizon": "trading_daily",
       "declared_maturity": "M1",
-      "required_engines": ["forward_curve", "carry_storage", "roll_yield", "physical_balance", "hedging", "basis_risk", "scenario_pnl"],
-      "required_perspectives": ["trader", "producer", "consumer", "risk"],
+      "required_engines": [
+        "forward_curve",
+        "carry_storage",
+        "roll_yield",
+        "physical_balance",
+        "hedging",
+        "basis_risk",
+        "scenario_pnl"
+      ],
+      "required_perspectives": [
+        "trader",
+        "producer",
+        "consumer",
+        "risk"
+      ],
       "reference_checks": [],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -266,8 +481,21 @@
       "builder": "tools/builders/build_crypto_template.py",
       "horizon": "perpetual",
       "declared_maturity": "M1",
-      "required_engines": ["token_supply", "unlock_schedule", "staking_dilution", "treasury_runway", "velocity", "onchain_multiples", "liquidity"],
-      "required_perspectives": ["protocol", "investor", "validator", "market_maker"],
+      "required_engines": [
+        "token_supply",
+        "unlock_schedule",
+        "staking_dilution",
+        "treasury_runway",
+        "velocity",
+        "onchain_multiples",
+        "liquidity"
+      ],
+      "required_perspectives": [
+        "protocol",
+        "investor",
+        "validator",
+        "market_maker"
+      ],
       "reference_checks": [],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -281,8 +509,21 @@
       "builder": "tools/builders/build_real_estate_template.py",
       "horizon": "long_term_10y",
       "declared_maturity": "M1",
-      "required_engines": ["property_proforma", "lease_roll", "capex", "debt", "cap_rate", "irr", "reit_ffo_affo"],
-      "required_perspectives": ["owner", "lender", "tenant", "appraiser"],
+      "required_engines": [
+        "property_proforma",
+        "lease_roll",
+        "capex",
+        "debt",
+        "cap_rate",
+        "irr",
+        "reit_ffo_affo"
+      ],
+      "required_perspectives": [
+        "owner",
+        "lender",
+        "tenant",
+        "appraiser"
+      ],
       "reference_checks": [],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -296,8 +537,21 @@
       "builder": "tools/builders/build_insurance_template.py",
       "horizon": "long_term_30y",
       "declared_maturity": "M1",
-      "required_engines": ["premium_loss", "loss_triangle", "chain_ladder", "bornhuetter_ferguson", "reserving", "capital", "embedded_value"],
-      "required_perspectives": ["insurer", "actuary", "reinsurer", "regulator"],
+      "required_engines": [
+        "premium_loss",
+        "loss_triangle",
+        "chain_ladder",
+        "bornhuetter_ferguson",
+        "reserving",
+        "capital",
+        "embedded_value"
+      ],
+      "required_perspectives": [
+        "insurer",
+        "actuary",
+        "reinsurer",
+        "regulator"
+      ],
       "reference_checks": [],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -311,8 +565,21 @@
       "builder": "tools/builders/build_securitization_template.py",
       "horizon": "long_term_30y",
       "declared_maturity": "M1",
-      "required_engines": ["collateral_cashflows", "cpr_cdr", "severity", "tranche_waterfall", "credit_enhancement", "wal", "trigger_tests"],
-      "required_perspectives": ["issuer", "investor", "rating_agency", "servicer"],
+      "required_engines": [
+        "collateral_cashflows",
+        "cpr_cdr",
+        "severity",
+        "tranche_waterfall",
+        "credit_enhancement",
+        "wal",
+        "trigger_tests"
+      ],
+      "required_perspectives": [
+        "issuer",
+        "investor",
+        "rating_agency",
+        "servicer"
+      ],
       "reference_checks": [],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -326,8 +593,24 @@
       "builder": "tools/builders/build_project_finance_template.py",
       "horizon": "long_term_40y",
       "declared_maturity": "M1",
-      "required_engines": ["construction_draw", "idc", "operating_cashflows", "cfads", "debt_sculpting", "dscr_llcr_plcr", "reserves", "risk_allocation", "blended_finance"],
-      "required_perspectives": ["sponsor", "lender", "offtaker", "government", "dfi"],
+      "required_engines": [
+        "construction_draw",
+        "idc",
+        "operating_cashflows",
+        "cfads",
+        "debt_sculpting",
+        "dscr_llcr_plcr",
+        "reserves",
+        "risk_allocation",
+        "blended_finance"
+      ],
+      "required_perspectives": [
+        "sponsor",
+        "lender",
+        "offtaker",
+        "government",
+        "dfi"
+      ],
       "reference_checks": [],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -341,9 +624,25 @@
       "builder": "tools/builders/build_fixed_income_template.py",
       "horizon": "trading_daily",
       "declared_maturity": "M2",
-      "required_engines": ["bond_pricing", "yield_curve", "duration_convexity", "key_rate_duration", "carry_roll", "credit_spread", "scenario_pnl"],
-      "required_perspectives": ["trader", "portfolio_manager", "risk", "treasury"],
-      "reference_checks": ["bond_price_closed_form", "duration_closed_form_crosscheck"],
+      "required_engines": [
+        "bond_pricing",
+        "yield_curve",
+        "duration_convexity",
+        "key_rate_duration",
+        "carry_roll",
+        "credit_spread",
+        "scenario_pnl"
+      ],
+      "required_perspectives": [
+        "trader",
+        "portfolio_manager",
+        "risk",
+        "treasury"
+      ],
+      "reference_checks": [
+        "bond_price_closed_form",
+        "duration_closed_form_crosscheck"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -356,8 +655,22 @@
       "builder": "tools/builders/build_quant_template.py",
       "horizon": "trading_daily",
       "declared_maturity": "M1",
-      "required_engines": ["data_integrity", "walk_forward", "transaction_costs", "slippage", "capacity", "risk_model", "backtesting", "regime_analysis"],
-      "required_perspectives": ["researcher", "portfolio_manager", "risk", "operations"],
+      "required_engines": [
+        "data_integrity",
+        "walk_forward",
+        "transaction_costs",
+        "slippage",
+        "capacity",
+        "risk_model",
+        "backtesting",
+        "regime_analysis"
+      ],
+      "required_perspectives": [
+        "researcher",
+        "portfolio_manager",
+        "risk",
+        "operations"
+      ],
       "reference_checks": [],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -371,8 +684,21 @@
       "builder": "tools/builders/build_fintech_template.py",
       "horizon": "corporate_10y",
       "declared_maturity": "M1",
-      "required_engines": ["volume_take_rate", "unit_economics", "cohorts", "ltv_cac", "losses_fraud", "network_effects", "capital_requirements"],
-      "required_perspectives": ["operator", "investor", "partner", "regulator"],
+      "required_engines": [
+        "volume_take_rate",
+        "unit_economics",
+        "cohorts",
+        "ltv_cac",
+        "losses_fraud",
+        "network_effects",
+        "capital_requirements"
+      ],
+      "required_perspectives": [
+        "operator",
+        "investor",
+        "partner",
+        "regulator"
+      ],
       "reference_checks": [],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -386,8 +712,21 @@
       "builder": "tools/builders/build_restructuring_template.py",
       "horizon": "corporate_5y",
       "declared_maturity": "M1",
-      "required_engines": ["capital_structure", "liquidity_13_week", "recovery_waterfall", "fulcrum_security", "reorg_value", "liquidation_value", "new_money"],
-      "required_perspectives": ["creditor", "debtor", "advisor", "court"],
+      "required_engines": [
+        "capital_structure",
+        "liquidity_13_week",
+        "recovery_waterfall",
+        "fulcrum_security",
+        "reorg_value",
+        "liquidation_value",
+        "new_money"
+      ],
+      "required_perspectives": [
+        "creditor",
+        "debtor",
+        "advisor",
+        "court"
+      ],
       "reference_checks": [],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
