@@ -14,6 +14,7 @@ except ModuleNotFoundError:
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "standards" / "frontier" / "frontier_registry.json"
+LEGACY_REGISTRY = ROOT / "standards" / "frontier" / "legacy_engine_registry.json"
 INVENTORY = ROOT / "standards" / "model_inventory.json"
 FLAGSHIPS = ROOT / "standards" / "m3_evidence" / "flagship_registry.json"
 BENCHMARK_INDEX = ROOT / "standards" / "benchmark_cases" / "index.json"
@@ -28,6 +29,8 @@ EXPECTED_ENGINE_IDS = {
     "regime_scenario",
 }
 EXPECTED_LEGACY_IDS = {"01", "02", "05", "06", "07", "13"}
+LEGACY_RELEASE_APPLIED = "applied_release_validated"
+LEGACY_RELEASE_STAGED = "release_staged"
 
 
 def _model_id_from_path(path: str) -> str:
@@ -41,6 +44,8 @@ def _load(path: Path) -> dict[str, Any]:
 
 def validate() -> dict[str, Any]:
     registry = _load(REGISTRY)
+    legacy_registry = _load(LEGACY_REGISTRY)
+    legacy_status = legacy_registry.get("status", "planned")
     inventory = _load(INVENTORY)
     flagships = _load(FLAGSHIPS)
     benchmark_index = _load(BENCHMARK_INDEX)
@@ -55,7 +60,9 @@ def validate() -> dict[str, Any]:
     if inventory_ids != {f"{value:02d}" for value in range(1, 25)}:
         errors.append("model inventory must contain the exact governed 01-24 domain set")
     if maturity != Counter({"M2": 24}):
-        errors.append(f"frontier program requires a conservative 24-model M2 base, found {dict(maturity)}")
+        errors.append(
+            f"frontier program requires a conservative 24-model M2 base, found {dict(maturity)}"
+        )
 
     flagship_ids = {item["model_id"] for item in flagships["flagships"]}
     cohorts = registry["cohorts"]
@@ -71,37 +78,72 @@ def validate() -> dict[str, Any]:
     if declared_existing & declared_expansion:
         errors.append("existing and expansion evidence cohorts must be disjoint")
     if len(declared_expansion) != 15:
-        errors.append(f"evidence expansion must contain 15 domains, found {len(declared_expansion)}")
+        errors.append(
+            f"evidence expansion must contain 15 domains, found {len(declared_expansion)}"
+        )
     if declared_legacy != EXPECTED_LEGACY_IDS:
         errors.append(
-            f"legacy hardening cohort {sorted(declared_legacy)} does not match {sorted(EXPECTED_LEGACY_IDS)}"
+            f"legacy hardening cohort {sorted(declared_legacy)} does not match "
+            f"{sorted(EXPECTED_LEGACY_IDS)}"
         )
     if declared_legacy | declared_recent != declared_expansion:
-        errors.append("legacy and recently hardened cohorts must partition the 15-domain expansion")
+        errors.append(
+            "legacy and recently hardened cohorts must partition the 15-domain expansion"
+        )
 
     benchmark_counts: Counter[str] = Counter()
     for item in benchmark_index.get("instances", []):
         model_id = item.get("model_id") or _model_id_from_path(item["template"])
         benchmark_counts[model_id] += 1
-    inferred_legacy = {model_id for model_id in declared_expansion if benchmark_counts[model_id] == 0}
-    if inferred_legacy != declared_legacy:
-        errors.append(
-            "legacy hardening cohort must be derived from zero synthetic benchmark coverage: "
-            f"inferred {sorted(inferred_legacy)}"
-        )
     for model_id in declared_recent:
         if benchmark_counts[model_id] != 2:
-            errors.append(f"{model_id}: recently hardened model must retain two benchmark instances")
+            errors.append(
+                f"{model_id}: recently hardened model must retain two benchmark instances"
+            )
+    if legacy_status == "planned":
+        inferred_legacy = {
+            model_id
+            for model_id in declared_expansion
+            if benchmark_counts[model_id] == 0
+        }
+        if inferred_legacy != declared_legacy:
+            errors.append(
+                "planned legacy cohort must be derived from zero benchmark coverage: "
+                f"inferred {sorted(inferred_legacy)}"
+            )
+    elif legacy_status == LEGACY_RELEASE_STAGED:
+        invalid = {
+            model_id: benchmark_counts[model_id]
+            for model_id in declared_legacy
+            if benchmark_counts[model_id] not in (0, 2)
+        }
+        if invalid:
+            errors.append(f"staged legacy release has partial benchmark coverage {invalid}")
+        warnings.append(
+            "The six-engine release is staged in a workflow tree; final index application remains pending."
+        )
+    elif legacy_status == LEGACY_RELEASE_APPLIED:
+        for model_id in declared_legacy:
+            if benchmark_counts[model_id] != 2:
+                errors.append(
+                    f"{model_id}: applied legacy release requires two benchmark instances"
+                )
+    else:
+        errors.append(f"unsupported legacy release status {legacy_status}")
 
     public_counts: Counter[str] = Counter(
         item["model_id"] for item in public_index.get("cases", [])
     )
     for model_id in declared_existing:
         if public_counts[model_id] != 2:
-            errors.append(f"{model_id}: existing evidence model must retain two public cases")
+            errors.append(
+                f"{model_id}: existing evidence model must retain two public cases"
+            )
     for model_id in declared_expansion:
         if public_counts[model_id] not in (0, 2):
-            errors.append(f"{model_id}: public evidence must be released atomically as a two-case pair")
+            errors.append(
+                f"{model_id}: public evidence must be released atomically as a two-case pair"
+            )
 
     claim = registry["claim_boundary"]
     if claim.get("declared_maturity") != "M2":
@@ -111,17 +153,34 @@ def validate() -> dict[str, Any]:
     if claim.get("synthetic_cases_count_toward_m4") is not False:
         errors.append("synthetic engineering fixtures must never count toward M4")
 
-    requested_taxonomy = {item["requested_domain"]: item for item in registry["taxonomy_decisions"]}
+    requested_taxonomy = {
+        item["requested_domain"]: item for item in registry["taxonomy_decisions"]
+    }
     if set(requested_taxonomy) != {"Commercial Banking", "FX"}:
-        errors.append("taxonomy decisions must explicitly resolve Commercial Banking and FX")
-    if requested_taxonomy.get("Commercial Banking", {}).get("current_mapping") != ["05", "06"]:
-        errors.append("Commercial Banking must map to Private Credit and Debt Finance until separately engineered")
-    if requested_taxonomy.get("FX", {}).get("current_mapping") != ["09", "21", "22"]:
-        errors.append("FX must map to Risk, Fixed Income & Rates, and Quantitative until separately engineered")
+        errors.append(
+            "taxonomy decisions must explicitly resolve Commercial Banking and FX"
+        )
+    if requested_taxonomy.get("Commercial Banking", {}).get("current_mapping") != [
+        "05",
+        "06",
+    ]:
+        errors.append(
+            "Commercial Banking must map to Private Credit and Debt Finance until separately engineered"
+        )
+    if requested_taxonomy.get("FX", {}).get("current_mapping") != [
+        "09",
+        "21",
+        "22",
+    ]:
+        errors.append(
+            "FX must map to Risk, Fixed Income & Rates, and Quantitative until separately engineered"
+        )
 
     references = registry["cross_domain"].get("references", [])
     if len(references) < 6:
-        errors.append("cross-domain program requires a primary or authoritative reference atlas")
+        errors.append(
+            "cross-domain program requires a primary or authoritative reference atlas"
+        )
     for reference in references:
         if not reference.get("url", "").startswith("https://"):
             errors.append(f"cross-domain reference must use HTTPS: {reference}")
@@ -131,7 +190,9 @@ def validate() -> dict[str, Any]:
     engines = registry["cross_domain"].get("engines", [])
     engine_ids = {item["id"] for item in engines}
     if engine_ids != EXPECTED_ENGINE_IDS:
-        errors.append(f"cross-domain engine ids {sorted(engine_ids)} do not match required set")
+        errors.append(
+            f"cross-domain engine ids {sorted(engine_ids)} do not match required set"
+        )
     if set(ORACLES) != EXPECTED_ENGINE_IDS:
         errors.append("oracle dispatch does not exactly cover the cross-domain engine set")
 
@@ -139,31 +200,43 @@ def validate() -> dict[str, Any]:
     for engine in engines:
         engine_id = engine["id"]
         cases = engine.get("cases", [])
-        if len(cases) != 2 or {case.get("type") for case in cases} != {"conventional", "adversarial"}:
-            errors.append(f"{engine_id}: requires exactly one conventional and one adversarial case")
+        if len(cases) != 2 or {case.get("type") for case in cases} != {
+            "conventional",
+            "adversarial",
+        }:
+            errors.append(
+                f"{engine_id}: requires exactly one conventional and one adversarial case"
+            )
         engine_result = {"engine": engine_id, "cases": []}
         for case in cases:
             case_ids.append(case["id"])
             try:
                 result = validate_case(engine_id, case["inputs"])
             except (KeyError, TypeError, ValueError, ZeroDivisionError) as exc:
-                errors.append(f"{engine_id}/{case['id']}: oracle execution failed: {exc}")
+                errors.append(
+                    f"{engine_id}/{case['id']}: oracle execution failed: {exc}"
+                )
                 continue
             expected_identities = set(engine.get("identities", []))
             if set(result["identity_checks"]) != expected_identities:
                 errors.append(
-                    f"{engine_id}/{case['id']}: identity set {sorted(result['identity_checks'])} "
-                    f"does not match registry {sorted(expected_identities)}"
+                    f"{engine_id}/{case['id']}: identity set "
+                    f"{sorted(result['identity_checks'])} does not match registry "
+                    f"{sorted(expected_identities)}"
                 )
             if result["identity_status"] != "PASS":
-                errors.append(f"{engine_id}/{case['id']}: financial identities failed")
+                errors.append(
+                    f"{engine_id}/{case['id']}: financial identities failed"
+                )
             if case["type"] == "conventional" and result["active_risk_flags"]:
                 errors.append(
                     f"{engine_id}/{case['id']}: conventional case unexpectedly flagged "
                     f"{result['active_risk_flags']}"
                 )
             if case["type"] == "adversarial" and not result["active_risk_flags"]:
-                errors.append(f"{engine_id}/{case['id']}: adversarial case triggered no failure state")
+                errors.append(
+                    f"{engine_id}/{case['id']}: adversarial case triggered no failure state"
+                )
             engine_result["cases"].append(
                 {
                     "id": case["id"],
@@ -177,18 +250,27 @@ def validate() -> dict[str, Any]:
     if len(case_ids) != len(set(case_ids)):
         errors.append("cross-domain case identifiers must be globally unique")
 
-    if any(public_counts[model_id] == 0 for model_id in declared_expansion):
+    missing_public = [
+        model_id for model_id in declared_expansion if public_counts[model_id] == 0
+    ]
+    if missing_public:
         warnings.append(
-            "The 15-domain public evidence release is incomplete; zero-case domains remain M2 and do not count toward M4."
+            f"Public evidence remains incomplete for {sorted(missing_public)}; these models "
+            "remain M2 and do not count toward M4."
         )
-    if declared_legacy:
+    if legacy_status != LEGACY_RELEASE_APPLIED:
         warnings.append(
-            "The six legacy engines require release builders and benchmark pairs before public evidence can be generated."
+            "The six legacy engines still require an applied release with benchmark pairs."
+        )
+    elif any(public_counts[model_id] == 0 for model_id in declared_legacy):
+        warnings.append(
+            "The six released legacy engines require public historical evidence packs before the all-domain evidence ledger is complete."
         )
 
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "status": "PASS" if not errors else "FAIL",
+        "legacy_release_status": legacy_status,
         "inventory_models": len(inventory_ids),
         "maturity_distribution": dict(maturity),
         "existing_m3_evidence_models": len(declared_existing),
@@ -219,6 +301,7 @@ def main() -> int:
                 key: report[key]
                 for key in (
                     "status",
+                    "legacy_release_status",
                     "inventory_models",
                     "existing_m3_evidence_models",
                     "evidence_expansion_models",
