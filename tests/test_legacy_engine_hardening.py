@@ -20,11 +20,19 @@ class LegacyEngineHardeningTests(unittest.TestCase):
         self.assertEqual(ids, validate_legacy_engine_hardening.EXPECTED_IDS)
         self.assertEqual(ids, set(legacy_engine_oracles.ORACLES))
 
-    def test_validator_passes_before_builder_release(self):
+    def test_validator_passes_for_current_release_phase(self):
         report = validate_legacy_engine_hardening.validate()
         self.assertEqual(report["status"], "PASS", msg=report["errors"])
         self.assertEqual(report["models"], 6)
         self.assertEqual(report["cases"], 12)
+        self.assertEqual(report["release_status"], self.registry.get("status", "planned"))
+        expected_count = (
+            2
+            if report["release_status"]
+            == validate_legacy_engine_hardening.RELEASE_APPLIED
+            else 0
+        )
+        self.assertEqual(set(report["benchmark_counts"].values()), {expected_count})
 
     def test_each_model_has_conventional_and_adversarial_case(self):
         for model in self.models:
@@ -76,6 +84,24 @@ class LegacyEngineHardeningTests(unittest.TestCase):
                 result["active_risk_flags"],
                 msg=f"{model['model_id']} {case['id']}",
             )
+
+    def test_inventory_builder_matches_release_phase(self):
+        inventory = json.loads(
+            validate_legacy_engine_hardening.INVENTORY.read_text(encoding="utf-8")
+        )
+        inventory_by_id = {item["id"]: item for item in inventory["models"]}
+        status = self.registry.get("status", "planned")
+        candidate_active = status in {
+            validate_legacy_engine_hardening.RELEASE_STAGED,
+            validate_legacy_engine_hardening.RELEASE_APPLIED,
+        }
+        for model in self.models:
+            expected = (
+                model["candidate_builder"]
+                if candidate_active
+                else model["current_builder"]
+            )
+            self.assertEqual(inventory_by_id[model["model_id"]]["builder"], expected)
 
     def test_release_builder_paths_are_distinct_and_unique(self):
         candidates = [item["candidate_builder"] for item in self.models]
