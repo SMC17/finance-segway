@@ -15,9 +15,16 @@ from typing import Any, Iterable
 TOLERANCE = 1e-9
 
 
-def _require_nonnegative(name: str, value: float) -> float:
+def _require_finite(name: str, value: float) -> float:
     value = float(value)
-    if not isfinite(value) or value < 0:
+    if not isfinite(value):
+        raise ValueError(f"{name} must be finite")
+    return value
+
+
+def _require_nonnegative(name: str, value: float) -> float:
+    value = _require_finite(name, value)
+    if value < 0:
         raise ValueError(f"{name} must be finite and nonnegative")
     return value
 
@@ -27,6 +34,81 @@ def _bounded(name: str, value: float, lower: float = 0.0, upper: float = 1.0) ->
     if not isfinite(value) or value < lower or value > upper:
         raise ValueError(f"{name} must be between {lower} and {upper}")
     return value
+
+
+def _simplex_maximize(
+    objective: list[float],
+    constraints: list[list[float]],
+    limits: list[float],
+) -> list[float]:
+    """Solve a bounded max linear program from a zero-feasible slack basis.
+
+    The implementation uses a primal simplex tableau and Bland's pivot rule.
+    Capital allocation only has nonnegative variables and ``<=`` constraints,
+    so a separate Phase I/artificial-variable pass is unnecessary.
+    """
+
+    variable_count = len(objective)
+    constraint_count = len(constraints)
+    if len(limits) != constraint_count:
+        raise ValueError("constraint and limit counts must match")
+    if any(len(row) != variable_count for row in constraints):
+        raise ValueError("constraint width must match the objective")
+    if any(not isfinite(value) for value in objective):
+        raise ValueError("objective coefficients must be finite")
+    if any(not isfinite(value) or value < 0 for value in limits):
+        raise ValueError("simplex limits must be finite and nonnegative")
+
+    width = variable_count + constraint_count + 1
+    tableau = [[0.0] * width for _ in range(constraint_count + 1)]
+    basis = [variable_count + row for row in range(constraint_count)]
+    for row_index, (coefficients, limit) in enumerate(zip(constraints, limits)):
+        tableau[row_index][:variable_count] = coefficients
+        tableau[row_index][variable_count + row_index] = 1.0
+        tableau[row_index][-1] = limit
+    tableau[-1][:variable_count] = [-value for value in objective]
+
+    max_pivots = max(1_000, 20 * max(1, width) * max(1, constraint_count))
+    for _ in range(max_pivots):
+        entering = next(
+            (column for column in range(width - 1) if tableau[-1][column] < -TOLERANCE),
+            None,
+        )
+        if entering is None:
+            break
+        candidates = []
+        for row_index in range(constraint_count):
+            coefficient = tableau[row_index][entering]
+            if coefficient > TOLERANCE:
+                ratio = max(0.0, tableau[row_index][-1]) / coefficient
+                candidates.append((ratio, basis[row_index], row_index))
+        if not candidates:
+            raise ValueError("capital allocation objective is unbounded")
+        minimum_ratio = min(item[0] for item in candidates)
+        _, _, leaving = min(
+            item for item in candidates if item[0] <= minimum_ratio + TOLERANCE
+        )
+        pivot = tableau[leaving][entering]
+        tableau[leaving] = [value / pivot for value in tableau[leaving]]
+        for row_index in range(constraint_count + 1):
+            if row_index == leaving:
+                continue
+            factor = tableau[row_index][entering]
+            if abs(factor) <= TOLERANCE:
+                continue
+            tableau[row_index] = [
+                value - factor * pivot_value
+                for value, pivot_value in zip(tableau[row_index], tableau[leaving])
+            ]
+        basis[leaving] = entering
+    else:
+        raise RuntimeError("capital allocation simplex did not converge")
+
+    solution = [0.0] * variable_count
+    for row_index, variable in enumerate(basis):
+        if variable < variable_count:
+            solution[variable] = max(0.0, tableau[row_index][-1])
+    return solution
 
 
 def capital_allocation(case: dict[str, Any]) -> dict[str, Any]:
@@ -41,9 +123,14 @@ def capital_allocation(case: dict[str, Any]) -> dict[str, Any]:
     available_capital = _require_nonnegative("available_capital", case["available_capital"])
     available_liquidity = _require_nonnegative("available_liquidity", case["available_liquidity"])
     units = []
+    names: set[str] = set()
     for raw in case["units"]:
+        name = str(raw["name"])
+        if not name or name in names:
+            raise ValueError("capital-allocation unit names must be nonempty and unique")
+        names.add(name)
         requested = _require_nonnegative("requested_capital", raw["requested_capital"])
-        expected_return = float(raw["expected_return"])
+        expected_return = _require_finite("expected_return", raw["expected_return"])
         expected_loss = _require_nonnegative("expected_loss", raw["expected_loss"])
         capital_charge = _require_nonnegative("capital_charge", raw["capital_charge"])
         liquidity_per_capital = _require_nonnegative(
@@ -53,7 +140,7 @@ def capital_allocation(case: dict[str, Any]) -> dict[str, Any]:
         score = risk_adjusted_value / requested if requested else 0.0
         units.append(
             {
-                "name": str(raw["name"]),
+                "name": name,
                 "requested": requested,
                 "liquidity_per_capital": liquidity_per_capital,
                 "risk_adjusted_value": risk_adjusted_value,
@@ -61,26 +148,27 @@ def capital_allocation(case: dict[str, Any]) -> dict[str, Any]:
             }
         )
 
-    allocations: dict[str, float] = {unit["name"]: 0.0 for unit in units}
-    remaining_capital = available_capital
-    remaining_liquidity = available_liquidity
-    for unit in sorted(units, key=lambda item: (item["score"], item["name"]), reverse=True):
-        if unit["score"] <= 0 or remaining_capital <= TOLERANCE:
-            continue
-        liquidity_limit = (
-            remaining_liquidity / unit["liquidity_per_capital"]
-            if unit["liquidity_per_capital"] > 0
-            else unit["requested"]
-        )
-        amount = min(unit["requested"], remaining_capital, liquidity_limit)
-        allocations[unit["name"]] = max(0.0, amount)
-        remaining_capital -= amount
-        remaining_liquidity -= amount * unit["liquidity_per_capital"]
+    objective = [unit["score"] for unit in units]
+    constraints = [
+        [1.0 for _ in units],
+        [unit["liquidity_per_capital"] for unit in units],
+    ]
+    limits = [available_capital, available_liquidity]
+    for index, unit in enumerate(units):
+        constraints.append([1.0 if item == index else 0.0 for item in range(len(units))])
+        limits.append(unit["requested"])
+    solution = _simplex_maximize(objective, constraints, limits)
+    allocations = {
+        unit["name"]: min(unit["requested"], max(0.0, solution[index]))
+        for index, unit in enumerate(units)
+    }
 
     allocated_capital = sum(allocations.values())
     used_liquidity = sum(
         allocations[unit["name"]] * unit["liquidity_per_capital"] for unit in units
     )
+    remaining_capital = max(0.0, available_capital - allocated_capital)
+    remaining_liquidity = max(0.0, available_liquidity - used_liquidity)
     value_created = sum(
         allocations[unit["name"]]
         * (unit["risk_adjusted_value"] / unit["requested"] if unit["requested"] else 0.0)
@@ -169,6 +257,7 @@ def liquidity_contagion(case: dict[str, Any]) -> dict[str, Any]:
     queue: deque[str] = deque(
         name for name in liquidity if liquidity[name] < minimum[name] - TOLERANCE
     )
+    initially_defaulted = set(queue)
     losses_by_lender: dict[str, float] = defaultdict(float)
     rounds = 0
     while queue:
@@ -209,16 +298,21 @@ def liquidity_contagion(case: dict[str, Any]) -> dict[str, Any]:
     flags = []
     if defaulted:
         flags.append("entity_default")
-    if len(defaulted) > len(shocked):
+    propagated_defaults = defaulted - initially_defaulted
+    if propagated_defaults:
         flags.append("contagion_propagated")
     if transmitted_losses > 0:
         flags.append("counterparty_loss")
     return {
         "ending_liquidity": liquidity,
+        "initially_defaulted_entities": sorted(initially_defaulted),
+        "propagated_defaulted_entities": sorted(propagated_defaults),
         "defaulted_entities": sorted(defaulted),
         "losses_by_lender": dict(sorted(losses_by_lender.items())),
         "metrics": {
             "rounds": rounds,
+            "initial_defaults": len(initially_defaulted),
+            "propagated_defaults": len(propagated_defaults),
             "initial_outflows": initial_outflows,
             "transmitted_losses": transmitted_losses,
             "ending_liquidity": ending_liquidity,
