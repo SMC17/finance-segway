@@ -6,14 +6,14 @@ A governed, multi-domain financial-modeling system: reproducible Excel archetype
 
 The repository is broad, formula-driven, and heavily checked. It is not yet a production-grade institutional model library.
 
-The machine-validated baseline after credit and public-finance reconciliation is:
+The machine-validated baseline on `main` is:
 
 - **24** core spreadsheet archetypes
-- **10 M2 Decision Models**
-- **14 M1 Correct Skeletons**
+- **15 M2 Decision Models**
+- **9 M1 Correct Skeletons**
 - **0 M3 Institutional Underwriting Models**
 - **0 M4 Maintained Production Systems**
-- **0 populated public instances**
+- **18 source-addressed public historical cases** across 9 domains
 
 That distinction is deliberate. “The workbook opens” and “the core formula is correct” are necessary but not sufficient evidence of underwriting depth.
 
@@ -206,7 +206,10 @@ python tools/scaffold_model_evidence.py 05_Private_Credit
 
 ## Collaboration
 
-Claude Code and ChatGPT/Codex work in independent branches. Integration occurs component by component through a draft synth
+Claude Code and ChatGPT/Codex work in independent branches. Integration occurs component by component through a draft synthesis PR. A newer branch does not win automatically, and tests are never weakened to make a merge pass.
+
+The Claude branch is fully retained in the synthesis history. The earlier institutional prototype branch has been reconciled: stronger mechanics were rebuilt and promoted, while obsolete binaries and workflows were rejected.
+
 See:
 
 - `docs/COLLABORATION_PROTOCOL.md`;

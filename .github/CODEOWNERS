@@ -1,0 +1,15 @@
+# Repository-wide fallback owner.
+* @SMC17
+
+# Changes to execution, maturity claims, independent oracles, and policy controls
+# require an explicit owner review in addition to the author-independent approval gate.
+/.github/workflows/ @SMC17
+/standards/model_inventory.json @SMC17
+/standards/m3_evidence/ @SMC17
+/standards/public_cases/ @SMC17
+/tools/*reference_engines.py @SMC17
+/tools/validate_model_inventory.py @SMC17
+/tools/validate_reconciled_models.py @SMC17
+/finance_segway/consulting/policy.py @SMC17
+/finance_segway/consulting/runtime.py @SMC17
+/finance_segway/consulting/orchestration.py @SMC17
