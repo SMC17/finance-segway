@@ -109,9 +109,9 @@ class FrontierProgramTests(unittest.TestCase):
         self.assertEqual(result["defaulted_entities"], ["Lender", "Originator"])
         self.assertIn("contagion_propagated", result["active_risk_flags"])
 
-    def test_synthetic_cases_never_count_toward_m4(self):
+    def test_engineering_vectors_never_count_toward_m4(self):
         claim = self.registry["claim_boundary"]
-        self.assertIs(claim["synthetic_cases_count_toward_m4"], False)
+        self.assertIs(claim["engineering_test_vectors_count_toward_m4"], False)
         self.assertEqual(claim["m3_promoted"], 0)
         self.assertEqual(claim["m4_promoted"], 0)
 

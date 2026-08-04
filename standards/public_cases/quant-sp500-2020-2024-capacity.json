@@ -8,7 +8,7 @@
   "as_of": "2024-12-31",
   "scenario": "Downside",
   "cover": {
-    "Strategy / universe:": "COVID shock and capacity-stress research series"
+    "Subject:": "COVID shock and capacity-stress research series"
   },
   "inputs": [
     {
@@ -25,18 +25,6 @@
     },
     {
       "sheet": "Assumptions",
-      "cell": "D8",
-      "value": 0.015,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from quant-adversarial-capacity.json",
-        "url": "repo://standards/benchmark_cases/quant-adversarial-capacity.json",
-        "as_of": "2024-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Assumptions",
       "cell": "D9",
       "value": 250.0,
       "input_kind": "modeler_assumption",
@@ -45,18 +33,6 @@
         "url": "repo://22_Quantitative_Systematic/sources/snapshots/quant-sp500-2020-2024-capacity.json",
         "as_of": "2024-12-31",
         "notes": "Modeler-owned assumption documented in frozen snapshot"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D10",
-      "value": 100.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from quant-adversarial-capacity.json",
-        "url": "repo://standards/benchmark_cases/quant-adversarial-capacity.json",
-        "as_of": "2024-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
       }
     },
     {
@@ -801,5 +777,16 @@
     "what_changed": "Generated public case quant-sp500-2020-2024-capacity from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "max_drawdown_2020_2024",
+    "forecast": -0.2,
+    "realized": -0.339,
+    "realized_source": "S&P 500 via FRED",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://22_Quantitative_Systematic/sources/snapshots/quant-sp500-2020-2024-capacity.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

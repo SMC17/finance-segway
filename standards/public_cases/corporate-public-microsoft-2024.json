@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0",
+  "id": "corporate-public-microsoft-2024",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "02_Corporate_Finance/_template_BASE.xlsx",
+  "output": "02_Corporate_Finance/instances/public_microsoft_2024.xlsx",
+  "as_of": "2024-06-30",
+  "scenario": "Base",
+  "cover": {
+    "Subject:": "Microsoft FY2024 treasury and capital allocation"
+  },
+  "inputs": [
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C6",
+      "value": 118548.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C7",
+      "value": 44477.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C8",
+      "value": 21771.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C9",
+      "value": 17254.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C10",
+      "value": 24395.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C11",
+      "value": 29070.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C12",
+      "value": 71802.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date"
+      }
+    }
+  ],
+  "outcome": {
+    "metric": "ending_cash_and_short_term_investments_usd_mm",
+    "forecast": 75000.0,
+    "realized": 75543.0,
+    "realized_source": "Microsoft 2024 Form 10-K",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+    "synthetic_benchmark_inputs_allowed": false
+  },
+  "sources": [
+    {
+      "name": "Microsoft 2024 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "as_of": "2024-06-30",
+      "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+      "as_of": "2024-06-30",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+    "what_changed": "Generated public case corporate-public-microsoft-2024 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

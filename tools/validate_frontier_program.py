@@ -17,7 +17,6 @@ REGISTRY = ROOT / "standards" / "frontier" / "frontier_registry.json"
 LEGACY_REGISTRY = ROOT / "standards" / "frontier" / "legacy_engine_registry.json"
 INVENTORY = ROOT / "standards" / "model_inventory.json"
 FLAGSHIPS = ROOT / "standards" / "m3_evidence" / "flagship_registry.json"
-BENCHMARK_INDEX = ROOT / "standards" / "benchmark_cases" / "index.json"
 PUBLIC_INDEX = ROOT / "standards" / "public_cases" / "index.json"
 EXPECTED_ENGINE_IDS = {
     "capital_allocation",
@@ -31,11 +30,6 @@ EXPECTED_ENGINE_IDS = {
 EXPECTED_LEGACY_IDS = {"01", "02", "05", "06", "07", "13"}
 LEGACY_RELEASE_APPLIED = "applied_release_validated"
 LEGACY_RELEASE_STAGED = "release_staged"
-
-
-def _model_id_from_path(path: str) -> str:
-    prefix = str(path).split("/", 1)[0]
-    return prefix.split("_", 1)[0]
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -67,7 +61,6 @@ def validate() -> dict[str, Any]:
     legacy_status = legacy_registry.get("status", "planned")
     inventory = _load(INVENTORY)
     flagships = _load(FLAGSHIPS)
-    benchmark_index = _load(BENCHMARK_INDEX)
     public_index = _load(PUBLIC_INDEX)
 
     errors: list[str] = []
@@ -110,67 +103,27 @@ def validate() -> dict[str, Any]:
             "legacy and recently hardened cohorts must partition the 15-domain expansion"
         )
 
-    benchmark_counts: Counter[str] = Counter()
-    for item in benchmark_index.get("instances", []):
-        model_id = item.get("model_id") or _model_id_from_path(item["template"])
-        benchmark_counts[model_id] += 1
-    for model_id in declared_recent:
-        if benchmark_counts[model_id] != 2:
-            errors.append(
-                f"{model_id}: recently hardened model must retain two benchmark instances"
-            )
-    if legacy_status == "planned":
-        inferred_legacy = {
-            model_id
-            for model_id in declared_expansion
-            if benchmark_counts[model_id] == 0
-        }
-        if inferred_legacy != declared_legacy:
-            errors.append(
-                "planned legacy cohort must be derived from zero benchmark coverage: "
-                f"inferred {sorted(inferred_legacy)}"
-            )
-    elif legacy_status == LEGACY_RELEASE_STAGED:
-        invalid = {
-            model_id: benchmark_counts[model_id]
-            for model_id in declared_legacy
-            if benchmark_counts[model_id] not in (0, 2)
-        }
-        if invalid:
-            errors.append(f"staged legacy release has partial benchmark coverage {invalid}")
+    if legacy_status == LEGACY_RELEASE_STAGED:
         warnings.append(
-            "The six-engine release is staged in a workflow tree; final index application remains pending."
+            "The six-engine release is staged; committed public evidence remains required."
         )
-    elif legacy_status == LEGACY_RELEASE_APPLIED:
-        for model_id in declared_legacy:
-            if benchmark_counts[model_id] != 2:
-                errors.append(
-                    f"{model_id}: applied legacy release requires two benchmark instances"
-                )
-    else:
+    elif legacy_status not in {"planned", LEGACY_RELEASE_APPLIED}:
         errors.append(f"unsupported legacy release status {legacy_status}")
 
     public_counts: Counter[str] = Counter(
         item["model_id"] for item in public_index.get("cases", [])
     )
-    for model_id in declared_existing:
+    for model_id in inventory_ids:
         if public_counts[model_id] != 2:
-            errors.append(
-                f"{model_id}: existing evidence model must retain two public cases"
-            )
-    for model_id in declared_expansion:
-        if public_counts[model_id] not in (0, 2):
-            errors.append(
-                f"{model_id}: public evidence must be released atomically as a two-case pair"
-            )
+            errors.append(f"{model_id}: requires exactly two public cases")
 
     claim = registry["claim_boundary"]
     if claim.get("declared_maturity") != "M2":
         errors.append("frontier program may not pre-claim M3")
     if claim.get("m3_promoted") != 0 or claim.get("m4_promoted") != 0:
         errors.append("frontier program may not manufacture M3 or M4 promotions")
-    if claim.get("synthetic_cases_count_toward_m4") is not False:
-        errors.append("synthetic engineering fixtures must never count toward M4")
+    if claim.get("engineering_test_vectors_count_toward_m4") is not False:
+        errors.append("mathematical test vectors must never count toward M4")
 
     requested_taxonomy = {
         item["requested_domain"]: item for item in registry["taxonomy_decisions"]
@@ -271,21 +224,9 @@ def validate() -> dict[str, Any]:
     if len(case_ids) != len(set(case_ids)):
         errors.append("cross-domain case identifiers must be globally unique")
 
-    missing_public = [
-        model_id for model_id in declared_expansion if public_counts[model_id] == 0
-    ]
-    if missing_public:
-        warnings.append(
-            f"Public evidence remains incomplete for {sorted(missing_public)}; these models "
-            "remain M2 and do not count toward M4."
-        )
     if legacy_status != LEGACY_RELEASE_APPLIED:
         warnings.append(
-            "The six legacy engines still require an applied release with benchmark pairs."
-        )
-    elif any(public_counts[model_id] == 0 for model_id in declared_legacy):
-        warnings.append(
-            "The six released legacy engines require public historical evidence packs before the all-domain evidence ledger is complete."
+            "The six legacy engines still require an applied release."
         )
 
     return {
@@ -299,7 +240,6 @@ def validate() -> dict[str, Any]:
         "legacy_engine_hardening_models": len(declared_legacy),
         "cross_domain_engines": len(engine_ids),
         "cross_domain_cases": len(case_ids),
-        "benchmark_counts": dict(sorted(benchmark_counts.items())),
         "public_case_counts": dict(sorted(public_counts.items())),
         "results": results,
         "errors": errors,

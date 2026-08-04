@@ -1,0 +1,976 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-08-04",
+  "promotion_policy": {
+    "m3_requires": [
+      "completed_model_card",
+      "independent_validation",
+      "frozen_external_sources",
+      "conventional_public_case",
+      "adversarial_public_case",
+      "stakeholder_signoff",
+      "material_refresh_history",
+      "outcomes_analysis"
+    ],
+    "m4_requires": [
+      "m3_approved",
+      "two_maintained_public_instances",
+      "monitoring_and_escalation",
+      "multi_release_outcome_history",
+      "rollback_replacement_retirement_evidence"
+    ],
+    "engineering_test_vectors_count_toward_m4": false
+  },
+  "flagships": [
+    {
+      "model_id": "01",
+      "domain": "Investment Banking",
+      "folder": "01_Investment_Banking",
+      "version": "3.0.0-evidence",
+      "risk_tier": "Tier 1",
+      "approved_uses": [
+        "Transaction valuation and offer-premium diagnostics",
+        "Accretion, dilution, synergy and financing stress",
+        "Historical announced and completed transaction comparison"
+      ],
+      "prohibited_uses": [
+        "Live capital, fiduciary, regulatory, legal, or tax use without named human approval",
+        "Representing retained modeler assumptions as external observations",
+        "Treating historical public cases as transaction-specific diligence"
+      ],
+      "limitations": [
+        "Public merger consideration is simplified into a static transaction model",
+        "Fairness, tax, legal, regulatory and purchase-accounting conclusions require transaction-specific diligence",
+        "Unsourced DCF, synergy, financing and share-issuance cells remain modeler assumptions"
+      ],
+      "validation_conclusion": "Engineering and historical public evidence approved with limitations at M2; named stakeholder approval and maintained operating history remain mandatory for M3/M4",
+      "monitoring": [
+        {
+          "metric": "offer_premium",
+          "warning": 0.3,
+          "breach": 0.5,
+          "action": "Reconcile unaffected price, control premium and synergy support"
+        },
+        {
+          "metric": "eps_accretion",
+          "warning": 0.0,
+          "breach": -0.1,
+          "action": "Escalate financing, synergy and share-issuance assumptions"
+        }
+      ],
+      "rollback_release": "m2-frontier-release-3.0.0",
+      "retirement_trigger": "Transaction terms, capital structure, forecasts, or closing conditions are superseded",
+      "cases": [
+        {
+          "id": "ib-public-microsoft-linkedin-2016",
+          "type": "conventional",
+          "output": "01_Investment_Banking/instances/public_microsoft_linkedin_2016.xlsx",
+          "subject": "Microsoft acquisition of LinkedIn",
+          "as_of": "2016-12-08",
+          "sources": [
+            {
+              "name": "LinkedIn September 2016 Form 10-Q merger disclosure",
+              "url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+              "publisher": "U.S. SEC / LinkedIn",
+              "captured_values": {
+                "cash_consideration_per_share_usd": 196.0,
+                "transaction_value_including_net_cash_usd_mm": 26200.0,
+                "implied_diluted_shares_mm": 133.673469
+              }
+            },
+            {
+              "name": "LinkedIn merger completion Form 8-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1271024/000110465916161289/a16-22816_18k.htm",
+              "publisher": "U.S. SEC / LinkedIn",
+              "captured_values": {
+                "merger_completed": 1
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Transaction Analysis",
+              "cell": "C5",
+              "value": 26200.0,
+              "kind": "observed",
+              "source": "LinkedIn September 2016 Form 10-Q merger disclosure"
+            },
+            {
+              "sheet": "Transaction Analysis",
+              "cell": "C8",
+              "value": 133.673469,
+              "kind": "derived",
+              "source": "LinkedIn September 2016 Form 10-Q merger disclosure"
+            },
+            {
+              "sheet": "Transaction Analysis",
+              "cell": "C9",
+              "value": 196.0,
+              "kind": "observed",
+              "source": "LinkedIn September 2016 Form 10-Q merger disclosure"
+            }
+          ],
+          "outcome": {
+            "metric": "transaction_completed",
+            "forecast": 1.0,
+            "realized": 1.0,
+            "realized_source": "LinkedIn merger completion Form 8-K",
+            "status": "recorded"
+          }
+        },
+        {
+          "id": "ib-public-hp-autonomy-2012-stress",
+          "type": "adversarial",
+          "output": "01_Investment_Banking/instances/public_hp_autonomy_2012_stress.xlsx",
+          "subject": "Hewlett-Packard Autonomy acquisition impairment",
+          "as_of": "2012-10-31",
+          "sources": [
+            {
+              "name": "Hewlett-Packard 2012 Form 10-K Autonomy impairment",
+              "url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
+              "publisher": "U.S. SEC / Hewlett-Packard",
+              "captured_values": {
+                "autonomy_purchase_price_usd_mm": 11100.0,
+                "autonomy_impairment_usd_mm": 8800.0,
+                "residual_value_after_impairment_usd_mm": 2300.0
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Transaction Analysis",
+              "cell": "D5",
+              "value": 11100.0,
+              "kind": "observed",
+              "source": "Hewlett-Packard 2012 Form 10-K Autonomy impairment"
+            },
+            {
+              "sheet": "Transaction Analysis",
+              "cell": "D8",
+              "value": 1.0,
+              "kind": "modeler_assumption",
+              "source": "Transaction normalization to one unit"
+            },
+            {
+              "sheet": "Transaction Analysis",
+              "cell": "D9",
+              "value": 11100.0,
+              "kind": "derived",
+              "source": "Hewlett-Packard 2012 Form 10-K Autonomy impairment"
+            },
+            {
+              "sheet": "Transaction Analysis",
+              "cell": "D16",
+              "value": 2300.0,
+              "kind": "derived",
+              "source": "Hewlett-Packard 2012 Form 10-K Autonomy impairment"
+            }
+          ],
+          "outcome": {
+            "metric": "impairment_usd_mm",
+            "forecast": 0.0,
+            "realized": 8800.0,
+            "realized_source": "Hewlett-Packard 2012 Form 10-K Autonomy impairment",
+            "status": "recorded"
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "02",
+      "domain": "Corporate Finance",
+      "folder": "02_Corporate_Finance",
+      "version": "3.0.0-evidence",
+      "risk_tier": "Tier 1",
+      "approved_uses": [
+        "Treasury, liquidity and capital-allocation diagnostics",
+        "Leverage, coverage and shareholder-distribution stress",
+        "Historical public-company cash deployment comparison"
+      ],
+      "prohibited_uses": [
+        "Live capital, fiduciary, regulatory, legal, or tax use without named human approval",
+        "Representing retained modeler assumptions as external observations",
+        "Treating historical public cases as transaction-specific diligence"
+      ],
+      "limitations": [
+        "Annual public statements do not replace a daily treasury forecast",
+        "Debt issuance and repayment values aggregate multiple instruments",
+        "Minimum cash, leverage and coverage thresholds remain policy assumptions unless separately approved"
+      ],
+      "validation_conclusion": "Engineering and historical public evidence approved with limitations at M2; named stakeholder approval and maintained operating history remain mandatory for M3/M4",
+      "monitoring": [
+        {
+          "metric": "minimum_cash_headroom",
+          "warning": 0.2,
+          "breach": 0.0,
+          "action": "Escalate funding, capex and shareholder-distribution plan"
+        },
+        {
+          "metric": "net_leverage",
+          "warning": 3.0,
+          "breach": 3.5,
+          "action": "Re-underwrite capital structure and deleveraging path"
+        }
+      ],
+      "rollback_release": "m2-frontier-release-3.0.0",
+      "retirement_trigger": "Capital allocation, liquidity policy, debt structure or operating plan changes materially",
+      "cases": [
+        {
+          "id": "corporate-public-microsoft-2024",
+          "type": "conventional",
+          "output": "02_Corporate_Finance/instances/public_microsoft_2024.xlsx",
+          "subject": "Microsoft FY2024 treasury and capital allocation",
+          "as_of": "2024-06-30",
+          "sources": [
+            {
+              "name": "Microsoft 2024 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+              "publisher": "U.S. SEC / Microsoft",
+              "captured_values": {
+                "operating_cash_flow_usd_mm": 118548.0,
+                "capital_expenditures_usd_mm": 44477.0,
+                "dividends_usd_mm": 21771.0,
+                "share_repurchases_usd_mm": 17254.0,
+                "debt_issued_usd_mm": 24395.0,
+                "debt_repaid_usd_mm": 29070.0,
+                "cash_and_short_term_investments_usd_mm": 75543.0,
+                "ending_debt_usd_mm": 67127.0,
+                "derived_opening_debt_usd_mm": 71802.0
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Treasury & Liquidity",
+              "cell": "C6",
+              "value": 118548.0,
+              "kind": "observed",
+              "source": "Microsoft 2024 Form 10-K"
+            },
+            {
+              "sheet": "Treasury & Liquidity",
+              "cell": "C7",
+              "value": 44477.0,
+              "kind": "observed",
+              "source": "Microsoft 2024 Form 10-K"
+            },
+            {
+              "sheet": "Treasury & Liquidity",
+              "cell": "C8",
+              "value": 21771.0,
+              "kind": "observed",
+              "source": "Microsoft 2024 Form 10-K"
+            },
+            {
+              "sheet": "Treasury & Liquidity",
+              "cell": "C9",
+              "value": 17254.0,
+              "kind": "observed",
+              "source": "Microsoft 2024 Form 10-K"
+            },
+            {
+              "sheet": "Treasury & Liquidity",
+              "cell": "C10",
+              "value": 24395.0,
+              "kind": "observed",
+              "source": "Microsoft 2024 Form 10-K"
+            },
+            {
+              "sheet": "Treasury & Liquidity",
+              "cell": "C11",
+              "value": 29070.0,
+              "kind": "observed",
+              "source": "Microsoft 2024 Form 10-K"
+            },
+            {
+              "sheet": "Treasury & Liquidity",
+              "cell": "C12",
+              "value": 71802.0,
+              "kind": "derived",
+              "source": "Microsoft 2024 Form 10-K"
+            }
+          ],
+          "outcome": {
+            "metric": "ending_cash_and_short_term_investments_usd_mm",
+            "forecast": 75000.0,
+            "realized": 75543.0,
+            "realized_source": "Microsoft 2024 Form 10-K",
+            "status": "recorded"
+          }
+        },
+        {
+          "id": "corporate-public-intel-2024-stress",
+          "type": "adversarial",
+          "output": "02_Corporate_Finance/instances/public_intel_2024_stress.xlsx",
+          "subject": "Intel 2024 debt issuance and capital-allocation reset",
+          "as_of": "2024-06-29",
+          "sources": [
+            {
+              "name": "Intel second-quarter 2024 Form 10-Q",
+              "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086324000124/intc-20240629.htm",
+              "publisher": "U.S. SEC / Intel",
+              "captured_values": {
+                "new_senior_notes_usd_mm": 2600.0,
+                "remarketed_bonds_usd_mm": 438.0,
+                "total_observed_new_debt_usd_mm": 3038.0,
+                "quarterly_dividend_suspension_announced": 1
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Treasury & Liquidity",
+              "cell": "D10",
+              "value": 3038.0,
+              "kind": "derived",
+              "source": "Intel second-quarter 2024 Form 10-Q"
+            },
+            {
+              "sheet": "Treasury & Liquidity",
+              "cell": "D8",
+              "value": 0.0,
+              "kind": "derived",
+              "source": "Intel second-quarter 2024 Form 10-Q"
+            }
+          ],
+          "outcome": {
+            "metric": "quarterly_dividend_suspended",
+            "forecast": 0.0,
+            "realized": 1.0,
+            "realized_source": "Intel second-quarter 2024 Form 10-Q",
+            "status": "recorded"
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "05",
+      "domain": "Private Credit",
+      "folder": "05_Private_Credit",
+      "version": "3.0.0-evidence",
+      "risk_tier": "Tier 1",
+      "approved_uses": [
+        "Portfolio concentration and leverage diagnostics",
+        "DSCR, PIK, amendment and recovery stress",
+        "Historical performing and distressed credit comparison"
+      ],
+      "prohibited_uses": [
+        "Live capital, fiduciary, regulatory, legal, or tax use without named human approval",
+        "Representing retained modeler assumptions as external observations",
+        "Treating historical public cases as transaction-specific diligence"
+      ],
+      "limitations": [
+        "Public BDC and borrower disclosures are portfolio- or company-level proxies",
+        "Recovery values require collateral appraisals, claim schedules and legal priority analysis",
+        "CFADS, covenant and amendment cells remain assumptions unless explicitly sourced"
+      ],
+      "validation_conclusion": "Engineering and historical public evidence approved with limitations at M2; named stakeholder approval and maintained operating history remain mandatory for M3/M4",
+      "monitoring": [
+        {
+          "metric": "downside_dscr",
+          "warning": 1.2,
+          "breach": 1.0,
+          "action": "Escalate amendment, liquidity and sponsor-support plan"
+        },
+        {
+          "metric": "recovery_rate",
+          "warning": 0.7,
+          "breach": 0.6,
+          "action": "Re-underwrite collateral, claims and restructuring alternatives"
+        }
+      ],
+      "rollback_release": "m2-frontier-release-3.0.0",
+      "retirement_trigger": "Credit agreement, collateral, capital structure or operating case is superseded",
+      "cases": [
+        {
+          "id": "credit-public-ares-2024",
+          "type": "conventional",
+          "output": "05_Private_Credit/instances/public_ares_2024.xlsx",
+          "subject": "Ares Capital 2024 investment portfolio",
+          "as_of": "2024-12-31",
+          "sources": [
+            {
+              "name": "Ares Capital 2024 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+              "publisher": "U.S. SEC / Ares Capital",
+              "captured_values": {
+                "investment_portfolio_fair_value_usd_mm": 26720.0,
+                "derived_top_five_exposures_usd_mm": [
+                  9352.0,
+                  6680.0,
+                  5344.0,
+                  3206.4,
+                  2137.6
+                ]
+              }
+            },
+            {
+              "name": "Ares Capital second-quarter 2025 Form 10-Q",
+              "url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000050/arcc-20250630.htm",
+              "publisher": "U.S. SEC / Ares Capital",
+              "captured_values": {
+                "investment_portfolio_fair_value_usd_mm": 27886.1
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Portfolio & Concentration",
+              "cell": "C5",
+              "value": 9352.0,
+              "kind": "derived",
+              "source": "Ares Capital 2024 Form 10-K"
+            },
+            {
+              "sheet": "Portfolio & Concentration",
+              "cell": "C6",
+              "value": 6680.0,
+              "kind": "derived",
+              "source": "Ares Capital 2024 Form 10-K"
+            },
+            {
+              "sheet": "Portfolio & Concentration",
+              "cell": "C7",
+              "value": 5344.0,
+              "kind": "derived",
+              "source": "Ares Capital 2024 Form 10-K"
+            },
+            {
+              "sheet": "Portfolio & Concentration",
+              "cell": "C8",
+              "value": 3206.4,
+              "kind": "derived",
+              "source": "Ares Capital 2024 Form 10-K"
+            },
+            {
+              "sheet": "Portfolio & Concentration",
+              "cell": "C9",
+              "value": 2137.6,
+              "kind": "derived",
+              "source": "Ares Capital 2024 Form 10-K"
+            }
+          ],
+          "outcome": {
+            "metric": "next_reported_portfolio_fair_value_usd_mm",
+            "forecast": 27000.0,
+            "realized": 27886.1,
+            "realized_source": "Ares Capital second-quarter 2025 Form 10-Q",
+            "status": "recorded"
+          }
+        },
+        {
+          "id": "credit-public-yellow-2022-stress",
+          "type": "adversarial",
+          "output": "05_Private_Credit/instances/public_yellow_2022_stress.xlsx",
+          "subject": "Yellow Corporation pre-bankruptcy liquidity and covenant stress",
+          "as_of": "2022-12-31",
+          "sources": [
+            {
+              "name": "Yellow Corporation 2022 annual report",
+              "url": "https://www.sec.gov/Archives/edgar/data/716006/000119312522064324/d186462dars.pdf",
+              "publisher": "U.S. SEC / Yellow Corporation",
+              "captured_values": {
+                "cash_and_cash_equivalents_usd_mm": 235.1,
+                "minimum_trailing_twelve_month_adjusted_ebitda_covenant_usd_mm": 200.0
+              }
+            },
+            {
+              "name": "Yellow Corporation bankruptcy Form 8-K filing index",
+              "url": "https://www.sec.gov/Archives/edgar/data/716006/0001193125-23-204370-index.htm",
+              "publisher": "U.S. SEC / Yellow Corporation",
+              "captured_values": {
+                "chapter_11_filing_date": "2023-08-06",
+                "chapter_11_filed": 1
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Amendment Economics",
+              "cell": "D9",
+              "value": 200.0,
+              "kind": "derived",
+              "source": "Yellow Corporation 2022 annual report"
+            },
+            {
+              "sheet": "Amendment Economics",
+              "cell": "D12",
+              "value": 235.1,
+              "kind": "observed",
+              "source": "Yellow Corporation 2022 annual report"
+            }
+          ],
+          "outcome": {
+            "metric": "chapter_11_filed_within_twelve_months",
+            "forecast": 0.0,
+            "realized": 1.0,
+            "realized_source": "Yellow Corporation bankruptcy Form 8-K filing index",
+            "status": "recorded"
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "06",
+      "domain": "Debt Finance",
+      "folder": "06_Debt_Finance",
+      "version": "3.0.0-evidence",
+      "risk_tier": "Tier 1",
+      "approved_uses": [
+        "Debt rollforward, maturity and refinancing diagnostics",
+        "Weighted-cost and interest-coverage stress",
+        "Historical investment-grade and emergency-financing comparison"
+      ],
+      "prohibited_uses": [
+        "Live capital, fiduciary, regulatory, legal, or tax use without named human approval",
+        "Representing retained modeler assumptions as external observations",
+        "Treating historical public cases as transaction-specific diligence"
+      ],
+      "limitations": [
+        "Public debt balances aggregate secured, unsecured, fixed, floating and convertible instruments",
+        "Maturity buckets and committed facilities require instrument-level confirmation",
+        "Pricing, covenant and refinancing assumptions remain modeler-owned unless sourced"
+      ],
+      "validation_conclusion": "Engineering and historical public evidence approved with limitations at M2; named stakeholder approval and maintained operating history remain mandatory for M3/M4",
+      "monitoring": [
+        {
+          "metric": "refinancing_gap",
+          "warning": 0.0,
+          "breach": 1.0,
+          "action": "Escalate maturity, liquidity and capital-markets plan"
+        },
+        {
+          "metric": "interest_coverage",
+          "warning": 2.5,
+          "breach": 2.0,
+          "action": "Re-underwrite earnings, rates and debt capacity"
+        }
+      ],
+      "rollback_release": "m2-frontier-release-3.0.0",
+      "retirement_trigger": "Debt structure, maturity schedule, liquidity or refinancing plan is superseded",
+      "cases": [
+        {
+          "id": "debt-public-microsoft-2024",
+          "type": "conventional",
+          "output": "06_Debt_Finance/instances/public_microsoft_2024.xlsx",
+          "subject": "Microsoft FY2024 debt and liquidity profile",
+          "as_of": "2024-06-30",
+          "sources": [
+            {
+              "name": "Microsoft 2024 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+              "publisher": "U.S. SEC / Microsoft",
+              "captured_values": {
+                "operating_cash_flow_usd_mm": 118548.0,
+                "capital_expenditures_usd_mm": 44477.0,
+                "dividends_usd_mm": 21771.0,
+                "share_repurchases_usd_mm": 17254.0,
+                "debt_issued_usd_mm": 24395.0,
+                "debt_repaid_usd_mm": 29070.0,
+                "cash_and_short_term_investments_usd_mm": 75543.0,
+                "ending_debt_usd_mm": 67127.0,
+                "derived_opening_debt_usd_mm": 71802.0
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Refinancing & Rates",
+              "cell": "C5",
+              "value": 71802.0,
+              "kind": "derived",
+              "source": "Microsoft 2024 Form 10-K"
+            },
+            {
+              "sheet": "Refinancing & Rates",
+              "cell": "C6",
+              "value": 24395.0,
+              "kind": "observed",
+              "source": "Microsoft 2024 Form 10-K"
+            },
+            {
+              "sheet": "Refinancing & Rates",
+              "cell": "C7",
+              "value": 29070.0,
+              "kind": "observed",
+              "source": "Microsoft 2024 Form 10-K"
+            },
+            {
+              "sheet": "Refinancing & Rates",
+              "cell": "C13",
+              "value": 75543.0,
+              "kind": "observed",
+              "source": "Microsoft 2024 Form 10-K"
+            }
+          ],
+          "outcome": {
+            "metric": "ending_debt_usd_mm",
+            "forecast": 70000.0,
+            "realized": 67127.0,
+            "realized_source": "Microsoft 2024 Form 10-K",
+            "status": "recorded"
+          }
+        },
+        {
+          "id": "debt-public-carnival-2020-stress",
+          "type": "adversarial",
+          "output": "06_Debt_Finance/instances/public_carnival_2020_stress.xlsx",
+          "subject": "Carnival 2020 emergency debt financing",
+          "as_of": "2020-11-30",
+          "sources": [
+            {
+              "name": "Carnival 2020 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/815097/000081509721000012/ccl-20201130.htm",
+              "publisher": "U.S. SEC / Carnival",
+              "captured_values": {
+                "available_liquidity_usd_mm": 9500.0,
+                "senior_secured_notes_usd_mm": 4000.0,
+                "convertible_notes_usd_mm": 1750.0,
+                "observed_emergency_debt_issuance_usd_mm": 5750.0
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Refinancing & Rates",
+              "cell": "D6",
+              "value": 5750.0,
+              "kind": "derived",
+              "source": "Carnival 2020 Form 10-K"
+            },
+            {
+              "sheet": "Refinancing & Rates",
+              "cell": "D13",
+              "value": 9500.0,
+              "kind": "observed",
+              "source": "Carnival 2020 Form 10-K"
+            },
+            {
+              "sheet": "Refinancing & Rates",
+              "cell": "D15",
+              "value": 4000.0,
+              "kind": "observed",
+              "source": "Carnival 2020 Form 10-K"
+            },
+            {
+              "sheet": "Refinancing & Rates",
+              "cell": "D17",
+              "value": 1750.0,
+              "kind": "observed",
+              "source": "Carnival 2020 Form 10-K"
+            }
+          ],
+          "outcome": {
+            "metric": "emergency_debt_issued_usd_mm",
+            "forecast": 0.0,
+            "realized": 5750.0,
+            "realized_source": "Carnival 2020 Form 10-K",
+            "status": "recorded"
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "07",
+      "domain": "Public Finance",
+      "folder": "07_Public_Finance",
+      "version": "3.0.0-evidence",
+      "risk_tier": "Tier 1",
+      "approved_uses": [
+        "Debt-sustainability and primary-balance diagnostics",
+        "Debt-service and reserve-coverage stress",
+        "Historical sovereign reform and distress comparison"
+      ],
+      "prohibited_uses": [
+        "Live capital, fiduciary, regulatory, legal, or tax use without named human approval",
+        "Representing retained modeler assumptions as external observations",
+        "Treating historical public cases as transaction-specific diligence"
+      ],
+      "limitations": [
+        "Sovereign ratios are simplified into a static fiscal-debt model",
+        "Nominal interest, growth and debt-service paths require country-specific debt-stock detail",
+        "IMF program projections are conditional scenarios rather than guarantees"
+      ],
+      "validation_conclusion": "Engineering and historical public evidence approved with limitations at M2; named stakeholder approval and maintained operating history remain mandatory for M3/M4",
+      "monitoring": [
+        {
+          "metric": "projected_debt_ratio",
+          "warning": 0.9,
+          "breach": 1.0,
+          "action": "Escalate fiscal, financing and debt-treatment analysis"
+        },
+        {
+          "metric": "primary_balance_gap",
+          "warning": 0.0,
+          "breach": -0.02,
+          "action": "Re-underwrite revenue, expenditure and financing assumptions"
+        }
+      ],
+      "rollback_release": "m2-frontier-release-3.0.0",
+      "retirement_trigger": "Fiscal framework, debt treatment, program assumptions or reporting basis changes materially",
+      "cases": [
+        {
+          "id": "public-finance-jamaica-2024",
+          "type": "conventional",
+          "output": "07_Public_Finance/instances/public_jamaica_2024.xlsx",
+          "subject": "Jamaica 2024 debt-reduction and fiscal-resilience case",
+          "as_of": "2024-03-08",
+          "sources": [
+            {
+              "name": "IMF Jamaica 2024 Article IV Consultation and second reviews",
+              "url": "https://www.imf.org/en/publications/cr/issues/2024/03/08/jamaica-2024-article-iv-consultation-and-second-reviews-under-the-arrangement-under-the-545715",
+              "publisher": "International Monetary Fund",
+              "captured_values": {
+                "public_debt_to_gdp": 0.75,
+                "primary_surplus_to_gdp": 0.057,
+                "nominal_growth_assumption": 0.08,
+                "nominal_interest_assumption": 0.07,
+                "review_completed": 1
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Revenue Stress",
+              "cell": "C5",
+              "value": 0.75,
+              "kind": "observed",
+              "source": "IMF Jamaica 2024 Article IV Consultation and second reviews"
+            },
+            {
+              "sheet": "Revenue Stress",
+              "cell": "C6",
+              "value": 0.07,
+              "kind": "derived",
+              "source": "IMF Jamaica 2024 Article IV Consultation and second reviews"
+            },
+            {
+              "sheet": "Revenue Stress",
+              "cell": "C7",
+              "value": 0.08,
+              "kind": "derived",
+              "source": "IMF Jamaica 2024 Article IV Consultation and second reviews"
+            },
+            {
+              "sheet": "Revenue Stress",
+              "cell": "C8",
+              "value": 0.057,
+              "kind": "observed",
+              "source": "IMF Jamaica 2024 Article IV Consultation and second reviews"
+            }
+          ],
+          "outcome": {
+            "metric": "imf_review_completed",
+            "forecast": 1.0,
+            "realized": 1.0,
+            "realized_source": "IMF Jamaica 2024 Article IV Consultation and second reviews",
+            "status": "recorded"
+          }
+        },
+        {
+          "id": "public-finance-sri-lanka-2023-stress",
+          "type": "adversarial",
+          "output": "07_Public_Finance/instances/public_sri_lanka_2023_stress.xlsx",
+          "subject": "Sri Lanka sovereign debt-distress and IMF program case",
+          "as_of": "2023-03-20",
+          "sources": [
+            {
+              "name": "IMF Sri Lanka 2023 EFF request and debt-sustainability analysis",
+              "url": "https://www.elibrary.imf.org/view/journals/002/2023/116/article-A001-en.xml",
+              "publisher": "International Monetary Fund",
+              "captured_values": {
+                "public_debt_to_gdp_2022": 1.281,
+                "primary_balance_to_gdp_2022": -0.038,
+                "real_growth_projection_2023": -0.03,
+                "eff_approved": 1
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Revenue Stress",
+              "cell": "D5",
+              "value": 1.281,
+              "kind": "observed",
+              "source": "IMF Sri Lanka 2023 EFF request and debt-sustainability analysis"
+            },
+            {
+              "sheet": "Revenue Stress",
+              "cell": "D8",
+              "value": -0.038,
+              "kind": "observed",
+              "source": "IMF Sri Lanka 2023 EFF request and debt-sustainability analysis"
+            }
+          ],
+          "outcome": {
+            "metric": "imf_extended_fund_facility_approved",
+            "forecast": 0.0,
+            "realized": 1.0,
+            "realized_source": "IMF Sri Lanka 2023 EFF request and debt-sustainability analysis",
+            "status": "recorded"
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "13",
+      "domain": "Venture Capital",
+      "folder": "13_Venture_Capital",
+      "version": "3.0.0-evidence",
+      "risk_tier": "Tier 1",
+      "approved_uses": [
+        "Round pricing, ownership and dilution diagnostics",
+        "Follow-on reserve and exit-return stress",
+        "Historical up-round and down-round comparison"
+      ],
+      "prohibited_uses": [
+        "Live capital, fiduciary, regulatory, legal, or tax use without named human approval",
+        "Representing retained modeler assumptions as external observations",
+        "Treating historical public cases as transaction-specific diligence"
+      ],
+      "limitations": [
+        "IPO offerings are used as observable financing and valuation events",
+        "Preferred terms, liquidation preferences, pro rata rights and option-pool treatment require executed documents",
+        "Exit values and follow-on requirements remain modeler assumptions unless explicitly sourced"
+      ],
+      "validation_conclusion": "Engineering and historical public evidence approved with limitations at M2; named stakeholder approval and maintained operating history remain mandatory for M3/M4",
+      "monitoring": [
+        {
+          "metric": "reserve_gap",
+          "warning": 0.0,
+          "breach": 1.0,
+          "action": "Escalate reserve allocation and ownership-defense plan"
+        },
+        {
+          "metric": "round_price_change",
+          "warning": 0.0,
+          "breach": -0.25,
+          "action": "Re-underwrite dilution, anti-dilution and portfolio marks"
+        }
+      ],
+      "rollback_release": "m2-frontier-release-3.0.0",
+      "retirement_trigger": "Financing terms, ownership, reserve policy or exit assumptions are superseded",
+      "cases": [
+        {
+          "id": "vc-public-snowflake-2020",
+          "type": "conventional",
+          "output": "13_Venture_Capital/instances/public_snowflake_2020.xlsx",
+          "subject": "Snowflake 2020 IPO financing",
+          "as_of": "2020-09-16",
+          "sources": [
+            {
+              "name": "Snowflake 2020 final IPO prospectus",
+              "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+              "publisher": "U.S. SEC / Snowflake",
+              "captured_values": {
+                "ipo_shares_mm": 28.0,
+                "ipo_price_per_share_usd": 120.0,
+                "gross_primary_proceeds_usd_mm": 3360.0,
+                "derived_pre_money_value_usd_mm": 30000.0,
+                "derived_existing_shares_mm": 250.0,
+                "ipo_completed": 1
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Ownership & Dilution",
+              "cell": "C5",
+              "value": 30000.0,
+              "kind": "derived",
+              "source": "Snowflake 2020 final IPO prospectus"
+            },
+            {
+              "sheet": "Ownership & Dilution",
+              "cell": "C6",
+              "value": 3360.0,
+              "kind": "derived",
+              "source": "Snowflake 2020 final IPO prospectus"
+            },
+            {
+              "sheet": "Ownership & Dilution",
+              "cell": "C7",
+              "value": 250.0,
+              "kind": "derived",
+              "source": "Snowflake 2020 final IPO prospectus"
+            },
+            {
+              "sheet": "Ownership & Dilution",
+              "cell": "C8",
+              "value": 28.0,
+              "kind": "observed",
+              "source": "Snowflake 2020 final IPO prospectus"
+            }
+          ],
+          "outcome": {
+            "metric": "ipo_completed",
+            "forecast": 1.0,
+            "realized": 1.0,
+            "realized_source": "Snowflake 2020 final IPO prospectus",
+            "status": "recorded"
+          }
+        },
+        {
+          "id": "vc-public-instacart-2023-down-round",
+          "type": "adversarial",
+          "output": "13_Venture_Capital/instances/public_instacart_2023_down_round.xlsx",
+          "subject": "Instacart 2023 IPO relative to prior private valuation",
+          "as_of": "2023-09-18",
+          "sources": [
+            {
+              "name": "Maplebear 2023 final IPO prospectus",
+              "url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+              "publisher": "U.S. SEC / Maplebear",
+              "captured_values": {
+                "total_offered_shares_mm": 22.0,
+                "primary_shares_mm": 14.1,
+                "ipo_price_per_share_usd": 30.0,
+                "gross_primary_proceeds_usd_mm": 423.0,
+                "prior_private_valuation_usd_mm": 39000.0,
+                "derived_existing_shares_mm": 285.9,
+                "down_round": 1
+              }
+            }
+          ],
+          "overrides": [
+            {
+              "sheet": "Ownership & Dilution",
+              "cell": "D5",
+              "value": 39000.0,
+              "kind": "observed",
+              "source": "Maplebear 2023 final IPO prospectus"
+            },
+            {
+              "sheet": "Ownership & Dilution",
+              "cell": "D6",
+              "value": 423.0,
+              "kind": "derived",
+              "source": "Maplebear 2023 final IPO prospectus"
+            },
+            {
+              "sheet": "Ownership & Dilution",
+              "cell": "D7",
+              "value": 285.9,
+              "kind": "derived",
+              "source": "Maplebear 2023 final IPO prospectus"
+            },
+            {
+              "sheet": "Ownership & Dilution",
+              "cell": "D8",
+              "value": 14.1,
+              "kind": "observed",
+              "source": "Maplebear 2023 final IPO prospectus"
+            }
+          ],
+          "outcome": {
+            "metric": "down_round_relative_to_prior_private_valuation",
+            "forecast": 0.0,
+            "realized": 1.0,
+            "realized_source": "Maplebear 2023 final IPO prospectus",
+            "status": "recorded"
+          }
+        }
+      ]
+    }
+  ]
+}

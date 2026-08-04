@@ -243,76 +243,181 @@ def check_lbo_sources_uses_and_debt_schedule():
 
 
 # ---------------------------------------------------------------------
-# VC waterfall conservation in preference and as-converted regimes.
+# VC ownership, round-pricing, and exit-proceeds identities.
 # ---------------------------------------------------------------------
 def check_vc_waterfall_conservation():
     path = os.path.join(REPO_ROOT, "13_Venture_Capital", "_template_VC.xlsx")
-    shares = {"founders": 6_000_000, "pool": 1_000_000, "seed": 1_000_000,
-              "a": 1_500_000, "b": 1_000_000}
-    invested = {"founders": 6_000_000 * 0.0001, "pool": 1_000_000 * 0.0001,
-                "seed": 1_000_000 * 1.00, "a": 1_500_000 * 2.00, "b": 1_000_000 * 5.00}
-    total_shares = sum(shares.values())
-    fd_pct = {k: v / total_shares for k, v in shares.items()}
-    base_proceeds, adv_proceeds = 8_000_000, 50_000_000
+
+    scenarios = (
+        ("base", 80.0, 20.0, 8.0, 2.0, 0.0, 500.0),
+        ("dilutive", 100.0, 20.0, 10.0, 4.0, 5.0, 80.0),
+    )
+
+    def populate(workbook, values):
+        pre_money, investment, existing, new, option_pool, exit_value = values
+        ownership = workbook["Ownership & Dilution"]
+        for cell, value in zip(
+            ("C5", "C6", "C7", "C8", "C9"),
+            (pre_money, investment, existing, new, option_pool),
+        ):
+            ownership[cell] = value
+        waterfall = workbook["Exit Waterfall"]
+        waterfall["C5"] = exit_value
+        waterfall["C6"] = investment
+
+    ok = True
+    details = []
+    for scenario, *values in scenarios:
+        pre_money, investment, existing, new, option_pool, exit_value = values
+        workbook = with_recalc(
+            path, lambda item, inputs=values: populate(item, inputs)
+        )
+        ownership = workbook["Ownership & Dilution"]
+        waterfall = workbook["Exit Waterfall"]
+        total_shares = existing + new + option_pool
+        expected_investor_ownership = new / total_shares
+        expected_founder_ownership = existing / total_shares
+        expected_pool_ownership = option_pool / total_shares
+        expected_proceeds = exit_value * expected_investor_ownership
+        expected_moic = expected_proceeds / investment
+        observed_ownerships = (
+            ownership["C17"].value,
+            ownership["C18"].value,
+            ownership["C19"].value,
+        )
+        scenario_ok = all(
+            (
+                close(ownership["C15"].value, pre_money + investment, tol=1e-8),
+                close(ownership["C16"].value, total_shares, tol=1e-8),
+                close(observed_ownerships[0], expected_investor_ownership, tol=1e-8),
+                close(observed_ownerships[1], expected_founder_ownership, tol=1e-8),
+                close(observed_ownerships[2], expected_pool_ownership, tol=1e-8),
+                close(sum(observed_ownerships), 1.0, tol=1e-8),
+                close(ownership["C20"].value, investment / new, tol=1e-8),
+                close(waterfall["C11"].value, expected_investor_ownership, tol=1e-8),
+                close(waterfall["C12"].value, expected_proceeds, tol=1e-8),
+                close(waterfall["C13"].value, expected_moic, tol=1e-8),
+                waterfall["C12"].value <= exit_value,
+            )
+        )
+        ok = ok and scenario_ok
+        details.append(
+            f"{scenario}: ownership={waterfall['C11'].value}, "
+            f"proceeds={waterfall['C12'].value}, exit={exit_value}, "
+            f"ownership_sum={sum(observed_ownerships)}"
+        )
+    return "VC: ownership, pricing, and exit-proceeds identities", ok, "; ".join(details)
+
+
+def check_vc_holder_election_waterfall():
+    """Re-derive the preferred-class election equilibrium independently."""
+
+    path = os.path.join(REPO_ROOT, "13_Venture_Capital", "_template_VC.xlsx")
+    class_names = ("Series B", "Series A", "Seed")
+    shares = (1_000_000.0, 1_500_000.0, 1_000_000.0)
+    preference_claims = (5_000_000.0, 3_000_000.0, 1_000_000.0)
+    common_shares = 7_000_000.0
+    base_exit = 20_000_000.0
+    adverse_exit = 50_000_000.0
 
     def populate(workbook):
         cap_table = workbook["Cap Table"]
-        cap_table["C5"], cap_table["E5"] = shares["founders"], 0.0001
-        cap_table["C6"], cap_table["E6"] = shares["pool"], 0.0001
-        cap_table["C8"], cap_table["E8"] = shares["seed"], 1.00
-        cap_table["C9"], cap_table["E9"] = shares["a"], 2.00
-        cap_table["C10"], cap_table["E10"] = shares["b"], 5.00
-        workbook["Exit Waterfall"]["C5"] = base_proceeds
-        workbook["Exit Waterfall"]["D5"] = adv_proceeds
+        cap_rows = {
+            5: (6_000_000.0, 0.0001, "Common", 0.0, "N/A", 0.0, 0, 1.0),
+            6: (1_000_000.0, 0.0001, "Common", 0.0, "N/A", 0.0, 0, 1.0),
+            7: (0.0, 0.0, "SAFE — deal-specific", 0.0, "Deal-specific", 0.0, 0, 0.0),
+            8: (1_000_000.0, 1.0, "Preferred", 1.0, "Non-participating", 0.0, 1, 1.0),
+            9: (1_500_000.0, 2.0, "Preferred", 1.0, "Non-participating", 0.0, 2, 1.0),
+            10: (1_000_000.0, 5.0, "Preferred", 1.0, "Non-participating", 0.0, 3, 1.0),
+        }
+        for row, values in cap_rows.items():
+            for column, value in zip((3, 5, 7, 8, 9, 10, 11, 12), values):
+                cap_table.cell(row, column, value)
+        waterfall = workbook["Exit Waterfall"]
+        waterfall["C5"] = base_exit
+        waterfall["D5"] = adverse_exit
+
+    def candidate(exit_proceeds, elections):
+        remaining = exit_proceeds
+        preference_payouts = []
+        for converts, claim in zip(elections, preference_claims):
+            payout = 0.0 if converts else min(remaining, claim)
+            preference_payouts.append(payout)
+            remaining = max(0.0, remaining - payout)
+        denominator = common_shares + sum(
+            share for share, converts in zip(shares, elections) if converts
+        )
+        payouts = [
+            remaining * share / denominator if converts else preference_payout
+            for share, converts, preference_payout in zip(
+                shares, elections, preference_payouts
+            )
+        ]
+        return payouts + [remaining * common_shares / denominator]
+
+    def equilibrium(exit_proceeds):
+        stable = []
+        for mask in range(8):
+            elections = ((mask >> 2) & 1, (mask >> 1) & 1, mask & 1)
+            payouts = candidate(exit_proceeds, elections)
+            if all(
+                payouts[index] + 1e-7
+                >= candidate(
+                    exit_proceeds,
+                    tuple(
+                        1 - election if other == index else election
+                        for other, election in enumerate(elections)
+                    ),
+                )[index]
+                for index in range(3)
+            ):
+                stable.append((mask, elections, payouts))
+        if not stable:
+            raise AssertionError("independent oracle found no stable election")
+        return stable[0]
 
     workbook = with_recalc(path, populate)
-    ws = workbook["Exit Waterfall"]
-
-    def ref_cascade(total_proceeds):
-        pref = {"b": invested["b"], "a": invested["a"], "seed": invested["seed"]}
-        b = min(total_proceeds, pref["b"])
-        a = min(max(total_proceeds - b, 0), pref["a"])
-        seed = min(max(total_proceeds - b - a, 0), pref["seed"])
-        common = max(0.0, total_proceeds - b - a - seed)
-        pref_stack = {"b": b, "a": a, "seed": seed, "common": common}
-        as_converted = {
-            "b": total_proceeds * fd_pct["b"], "a": total_proceeds * fd_pct["a"],
-            "seed": total_proceeds * fd_pct["seed"],
-            "common": total_proceeds * (fd_pct["founders"] + fd_pct["pool"]),
-        }
-        use_as_converted = total_proceeds > sum(pref.values())
-        return (as_converted if use_as_converted else pref_stack), use_as_converted
-
-    ref_base, base_as_converted = ref_cascade(base_proceeds)
-    ref_adv, adv_as_converted = ref_cascade(adv_proceeds)
-
-    sheet_class_rows = {"b": 20, "a": 21, "seed": 22, "common": 23}
+    waterfall = workbook["Exit Waterfall"]
+    expected_base = equilibrium(base_exit)
+    expected_adverse = equilibrium(adverse_exit)
+    observed_base = [waterfall.cell(row, 9).value for row in range(21, 25)]
+    observed_adverse = [waterfall.cell(row, 11).value for row in range(21, 25)]
+    observed_base_elections = [waterfall.cell(row, 8).value for row in range(21, 24)]
+    observed_adverse_elections = [waterfall.cell(row, 10).value for row in range(21, 24)]
+    expected_base_elections = [
+        "CONVERT" if value else "PREFERENCE" for value in expected_base[1]
+    ]
+    expected_adverse_elections = [
+        "CONVERT" if value else "PREFERENCE" for value in expected_adverse[1]
+    ]
     mismatches = []
-    for cls, row in sheet_class_rows.items():
-        sheet_base = ws.cell(row=row, column=10).value  # J = Actual: Base
-        sheet_adv = ws.cell(row=row, column=11).value    # K = Actual: Adversarial
-        if not close(sheet_base, ref_base[cls]):
-            mismatches.append(f"{cls} Base: sheet={sheet_base} ref={ref_base[cls]:.2f}")
-        if not close(sheet_adv, ref_adv[cls]):
-            mismatches.append(f"{cls} Adversarial: sheet={sheet_adv} ref={ref_adv[cls]:.2f}")
-
-    total_base = ws.cell(row=26, column=3).value
-    total_adv = ws.cell(row=27, column=3).value
-    ok = (
-        not mismatches
-        and close(total_base, base_proceeds, tol=1e-6)
-        and close(total_adv, adv_proceeds, tol=1e-6)
-        and not base_as_converted   # low exit value: preference stack should bind
-        and adv_as_converted        # high exit value: as-converted should bind
+    for scenario, observed, expected in (
+        ("Base", observed_base, expected_base[2]),
+        ("Adverse", observed_adverse, expected_adverse[2]),
+    ):
+        for name, actual, reference in zip((*class_names, "Common"), observed, expected):
+            if not close(actual, reference, tol=1e-8):
+                mismatches.append(
+                    f"{scenario} {name}: sheet={actual}, oracle={reference:.6f}"
+                )
+    ok = all(
+        (
+            waterfall["C17"].value == "SUPPORTED",
+            observed_base_elections == expected_base_elections,
+            observed_adverse_elections == expected_adverse_elections,
+            waterfall["I28"].value == expected_base[0],
+            waterfall["K28"].value == expected_adverse[0],
+            close(waterfall["I26"].value, base_exit, tol=1e-8),
+            close(waterfall["K26"].value, adverse_exit, tol=1e-8),
+            not mismatches,
+        )
     )
     detail = (
-        f"{len(mismatches)} class-payout mismatches"
-        + (f" (first: {mismatches[0]})" if mismatches else "")
-        + f" | Base (pref-stack expected): distributed={total_base}, proceeds={base_proceeds} | "
-        f"Adversarial (as-converted expected): distributed={total_adv}, proceeds={adv_proceeds} | "
-        f"regime Base=as-converted:{base_as_converted} Adv=as-converted:{adv_as_converted}"
+        f"Base mask={waterfall['I28'].value} elections={observed_base_elections}; "
+        f"Adverse mask={waterfall['K28'].value} elections={observed_adverse_elections}; "
+        f"payout mismatches={mismatches or 'none'}"
     )
-    return "VC: exit waterfall conservation (full cap-table liquidation preference cascade)", ok, detail
+    return "VC: holder-by-holder liquidation-preference equilibrium", ok, detail
 
 
 # ---------------------------------------------------------------------
@@ -389,6 +494,7 @@ CHECKS = [
     check_bond_duration,
     check_lbo_sources_uses_and_debt_schedule,
     check_vc_waterfall_conservation,
+    check_vc_holder_election_waterfall,
     check_base_archetype_integration,
 ]
 

@@ -8,8 +8,7 @@
   "as_of": "2022-02-24",
   "scenario": "Base",
   "cover": {
-    "Target / transaction:": "Alleghany pre-acquisition principal case",
-    "Sponsor / principal:": "Benchmark Merchant Bank"
+    "Subject:": "Alleghany pre-acquisition principal case"
   },
   "inputs": [
     {
@@ -47,42 +46,6 @@
         "as_of": "2022-02-24",
         "notes": "U.S. SEC; frozen curated observation as of case date"
       }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C19",
-      "value": 3.5,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from merchant-reference-principal.json",
-        "url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
-        "as_of": "2022-02-24",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C22",
-      "value": 0.75,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from merchant-reference-principal.json",
-        "url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
-        "as_of": "2022-02-24",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C29",
-      "value": 7,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from merchant-reference-principal.json",
-        "url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
-        "as_of": "2022-02-24",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
     }
   ],
   "sources": [
@@ -106,5 +69,16 @@
     "what_changed": "Generated public case merchant-alleghany-2021 from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "announced_transaction_equity_value_usd_mm",
+    "forecast": 11600.0,
+    "realized": 11600.0,
+    "realized_source": "Berkshire Hathaway transaction announcement",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://04_Merchant_Banking/sources/snapshots/merchant-alleghany-2021.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

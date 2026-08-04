@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "model_id": "05",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "downside_dscr",
+      "warning": 1.2,
+      "breach": 1.0,
+      "action": "Escalate amendment, liquidity and sponsor-support plan"
+    },
+    {
+      "metric": "recovery_rate",
+      "warning": 0.7,
+      "breach": 0.6,
+      "action": "Re-underwrite collateral, claims and restructuring alternatives"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

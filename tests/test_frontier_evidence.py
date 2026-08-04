@@ -2,8 +2,9 @@ from __future__ import annotations
 
 import unittest
 
-from tools import frontier_evidence
 from tools import frontier_evidence_registry
+
+EXPECTED_EXPANSION_IDS = {"08", "10", "11", "12", "15", "16", "17", "23", "24"}
 
 
 class FrontierEvidenceTests(unittest.TestCase):
@@ -16,7 +17,7 @@ class FrontierEvidenceTests(unittest.TestCase):
         self.assertEqual(len(self.models), 9)
         self.assertEqual(
             {model["model_id"] for model in self.models},
-            frontier_evidence.EXPECTED_EXPANSION_IDS,
+            EXPECTED_EXPANSION_IDS,
         )
 
     def test_exact_case_coverage(self):
@@ -55,18 +56,17 @@ class FrontierEvidenceTests(unittest.TestCase):
                         self.assertIn(item["source"], source_names)
             self.assertGreaterEqual(external_overrides, 2, msg=model["model_id"])
 
-    def test_base_manifests_and_outputs_are_unique(self):
+    def test_public_outputs_are_unique(self):
         cases = [case for model in self.models for case in model["cases"]]
         self.assertEqual(
             len({case["output"] for case in cases}), len(cases)
         )
         for case in cases:
-            self.assertTrue((frontier_evidence.ROOT / case["based_on"]).exists())
             self.assertTrue(case["output"].endswith(".xlsx"))
 
     def test_claim_boundary_remains_conservative(self):
         policy = self.registry["promotion_policy"]
-        self.assertIs(policy["synthetic_cases_count_toward_m4"], False)
+        self.assertIs(policy["engineering_test_vectors_count_toward_m4"], False)
         self.assertIn("stakeholder_signoff", policy["m3_requires"])
         self.assertIn("multi_release_outcome_history", policy["m4_requires"])
 

@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "model_id": "13",
+  "domain": "Venture Capital",
+  "case_id": "vc-public-instacart-2023-down-round",
+  "case_type": "adversarial",
+  "as_of": "2023-09-18",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Maplebear 2023 final IPO prospectus",
+      "url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+      "publisher": "U.S. SEC / Maplebear",
+      "captured_values": {
+        "total_offered_shares_mm": 22.0,
+        "primary_shares_mm": 14.1,
+        "ipo_price_per_share_usd": 30.0,
+        "gross_primary_proceeds_usd_mm": 423.0,
+        "prior_private_valuation_usd_mm": 39000.0,
+        "derived_existing_shares_mm": 285.9,
+        "down_round": 1
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D5",
+      "value": 39000.0,
+      "kind": "observed",
+      "source": "Maplebear 2023 final IPO prospectus"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D6",
+      "value": 423.0,
+      "kind": "derived",
+      "source": "Maplebear 2023 final IPO prospectus"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D7",
+      "value": 285.9,
+      "kind": "derived",
+      "source": "Maplebear 2023 final IPO prospectus"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D8",
+      "value": 14.1,
+      "kind": "observed",
+      "source": "Maplebear 2023 final IPO prospectus"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "down_round_relative_to_prior_private_valuation",
+    "forecast": 0.0,
+    "realized": 1.0,
+    "realized_source": "Maplebear 2023 final IPO prospectus",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "ef102545b1478ae458ad59d17e057abb116243e9ab4afc80a529ce6e2e13601a"
+}

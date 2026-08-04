@@ -16,38 +16,6 @@
     },
     {
       "sheet": "Assumptions",
-      "cell": "D12",
-      "previous": 10,
-      "value": 8.0,
-      "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
-      "source_as_of": "2020-03-16"
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D13",
-      "previous": 30,
-      "value": 22.0,
-      "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
-      "source_as_of": "2020-03-16"
-    },
-    {
-      "sheet": "Positions",
-      "cell": "E6",
-      "previous": 35,
-      "value": 90.0,
-      "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
-      "source_as_of": "2020-03-16"
-    },
-    {
-      "sheet": "Positions",
-      "cell": "M14",
-      "previous": 20,
-      "value": 35.0,
-      "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
-      "source_as_of": "2020-03-16"
-    },
-    {
-      "sheet": "Assumptions",
       "cell": "D11",
       "previous": 0.5,
       "value": 0.8269,
@@ -55,10 +23,9 @@
       "source_as_of": "2020-03-16"
     }
   ],
-  "workbook_sha256": "68d679ec3226837d79a10c0306a3708ba8aab37addd9eea3d6701072915e0db4",
+  "workbook_sha256": "c2e9bb34339c3b44f7d05b9b20203e5ac63868ad83283b23d3c7631d9d513453",
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
-  "hash_refreshed_on": "2026-08-04",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }

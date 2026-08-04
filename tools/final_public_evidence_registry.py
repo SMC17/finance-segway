@@ -1,8 +1,4 @@
-"""Public historical evidence registry for the final six governed M2 domains.
-
-Only sourceable workbook cells are replaced. All other populated cells remain
-explicit modeler assumptions inherited from the synthetic engineering fixtures.
-"""
+"""Public historical evidence registry for the final six governed M2 domains."""
 from __future__ import annotations
 
 from typing import Any
@@ -176,7 +172,6 @@ def registry() -> dict[str, Any]:
         case(
             "ib-public-microsoft-linkedin-2016",
             "conventional",
-            "standards/benchmark_cases/ib-reference-transaction.json",
             "01_Investment_Banking/instances/public_microsoft_linkedin_2016.xlsx",
             "Microsoft acquisition of LinkedIn",
             "2016-12-08",
@@ -194,7 +189,6 @@ def registry() -> dict[str, Any]:
         case(
             "ib-public-hp-autonomy-2012-stress",
             "adversarial",
-            "standards/benchmark_cases/ib-adversarial-overpay.json",
             "01_Investment_Banking/instances/public_hp_autonomy_2012_stress.xlsx",
             "Hewlett-Packard Autonomy acquisition impairment",
             "2012-10-31",
@@ -243,7 +237,6 @@ def registry() -> dict[str, Any]:
         case(
             "corporate-public-microsoft-2024",
             "conventional",
-            "standards/benchmark_cases/corp-reference-funded.json",
             "02_Corporate_Finance/instances/public_microsoft_2024.xlsx",
             "Microsoft FY2024 treasury and capital allocation",
             "2024-06-30",
@@ -265,7 +258,6 @@ def registry() -> dict[str, Any]:
         case(
             "corporate-public-intel-2024-stress",
             "adversarial",
-            "standards/benchmark_cases/corp-adversarial-liquidity.json",
             "02_Corporate_Finance/instances/public_intel_2024_stress.xlsx",
             "Intel 2024 debt issuance and capital-allocation reset",
             "2024-06-29",
@@ -315,7 +307,6 @@ def registry() -> dict[str, Any]:
         case(
             "credit-public-ares-2024",
             "conventional",
-            "standards/benchmark_cases/credit-reference-deleveraging.json",
             "05_Private_Credit/instances/public_ares_2024.xlsx",
             "Ares Capital 2024 investment portfolio",
             "2024-12-31",
@@ -335,7 +326,6 @@ def registry() -> dict[str, Any]:
         case(
             "credit-public-yellow-2022-stress",
             "adversarial",
-            "standards/benchmark_cases/credit-adversarial-pik-trap.json",
             "05_Private_Credit/instances/public_yellow_2022_stress.xlsx",
             "Yellow Corporation pre-bankruptcy liquidity and covenant stress",
             "2022-12-31",
@@ -366,7 +356,6 @@ def registry() -> dict[str, Any]:
         case(
             "debt-public-microsoft-2024",
             "conventional",
-            "standards/benchmark_cases/debt-reference-refinancing.json",
             "06_Debt_Finance/instances/public_microsoft_2024.xlsx",
             "Microsoft FY2024 debt and liquidity profile",
             "2024-06-30",
@@ -385,7 +374,6 @@ def registry() -> dict[str, Any]:
         case(
             "debt-public-carnival-2020-stress",
             "adversarial",
-            "standards/benchmark_cases/debt-adversarial-maturity-wall.json",
             "06_Debt_Finance/instances/public_carnival_2020_stress.xlsx",
             "Carnival 2020 emergency debt financing",
             "2020-11-30",
@@ -430,7 +418,6 @@ def registry() -> dict[str, Any]:
         case(
             "public-finance-jamaica-2024",
             "conventional",
-            "standards/benchmark_cases/public-reference-stable.json",
             "07_Public_Finance/instances/public_jamaica_2024.xlsx",
             "Jamaica 2024 debt-reduction and fiscal-resilience case",
             "2024-03-08",
@@ -449,7 +436,6 @@ def registry() -> dict[str, Any]:
         case(
             "public-finance-sri-lanka-2023-stress",
             "adversarial",
-            "standards/benchmark_cases/public-adversarial-debt-distress.json",
             "07_Public_Finance/instances/public_sri_lanka_2023_stress.xlsx",
             "Sri Lanka sovereign debt-distress and IMF program case",
             "2023-03-20",
@@ -496,7 +482,6 @@ def registry() -> dict[str, Any]:
         case(
             "vc-public-snowflake-2020",
             "conventional",
-            "standards/benchmark_cases/vc-reference-up-round.json",
             "13_Venture_Capital/instances/public_snowflake_2020.xlsx",
             "Snowflake 2020 IPO financing",
             "2020-09-16",
@@ -515,7 +500,6 @@ def registry() -> dict[str, Any]:
         case(
             "vc-public-instacart-2023-down-round",
             "adversarial",
-            "standards/benchmark_cases/vc-adversarial-down-round.json",
             "13_Venture_Capital/instances/public_instacart_2023_down_round.xlsx",
             "Instacart 2023 IPO relative to prior private valuation",
             "2023-09-18",
@@ -577,7 +561,7 @@ def registry() -> dict[str, Any]:
                 "multi_release_outcome_history",
                 "rollback_replacement_retirement_evidence",
             ],
-            "synthetic_cases_count_toward_m4": False,
+            "engineering_test_vectors_count_toward_m4": False,
         },
         "flagships": flagships,
     }

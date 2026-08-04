@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "model_id": "13",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "reserve_gap",
+      "warning": 0.0,
+      "breach": 1.0,
+      "action": "Escalate reserve allocation and ownership-defense plan"
+    },
+    {
+      "metric": "round_price_change",
+      "warning": 0.0,
+      "breach": -0.25,
+      "action": "Re-underwrite dilution, anti-dilution and portfolio marks"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

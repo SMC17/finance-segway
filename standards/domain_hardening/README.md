@@ -22,5 +22,5 @@ The program does not promote a workbook because it has more formulas, tabs, or v
 2. Define independent reference identities that do not reuse workbook formulas.
 3. Add adversarial boundary tests and monotonicity tests.
 4. Add workbook contracts for required sheets, outputs, checks, and failure states.
-5. Add one conventional and one adversarial benchmark instance.
+5. Add one conventional and one adversarial source-addressed public case.
 6. Promote to M2 only after all gates pass.

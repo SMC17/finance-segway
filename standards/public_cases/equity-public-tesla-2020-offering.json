@@ -12,18 +12,6 @@
   },
   "inputs": [
     {
-      "sheet": "Cap Table & Dilution",
-      "cell": "C3",
-      "value": "Base",
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from equity-reference-rights.json",
-        "url": "repo://standards/benchmark_cases/equity-reference-rights.json",
-        "as_of": "2020-02-14",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
       "sheet": "Rights Offering",
       "cell": "C7",
       "value": 767.0,
@@ -70,66 +58,6 @@
         "as_of": "2020-02-14",
         "notes": "U.S. SEC / Tesla; frozen curated observation as of case date"
       }
-    },
-    {
-      "sheet": "Convertible Securities",
-      "cell": "C7",
-      "value": 12.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from equity-reference-rights.json",
-        "url": "repo://standards/benchmark_cases/equity-reference-rights.json",
-        "as_of": "2020-02-14",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Convertible Securities",
-      "cell": "C8",
-      "value": 0.04,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from equity-reference-rights.json",
-        "url": "repo://standards/benchmark_cases/equity-reference-rights.json",
-        "as_of": "2020-02-14",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Convertible Securities",
-      "cell": "C9",
-      "value": 3.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from equity-reference-rights.json",
-        "url": "repo://standards/benchmark_cases/equity-reference-rights.json",
-        "as_of": "2020-02-14",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Convertible Securities",
-      "cell": "C10",
-      "value": 0.05,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from equity-reference-rights.json",
-        "url": "repo://standards/benchmark_cases/equity-reference-rights.json",
-        "as_of": "2020-02-14",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Convertible Securities",
-      "cell": "C11",
-      "value": 9.5,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from equity-reference-rights.json",
-        "url": "repo://standards/benchmark_cases/equity-reference-rights.json",
-        "as_of": "2020-02-14",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
     }
   ],
   "sources": [
@@ -153,5 +81,16 @@
     "what_changed": "Generated public case equity-public-tesla-2020-offering from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "net_proceeds_before_expenses_usd_mm",
+    "forecast": 2032.55,
+    "realized": 2008.65,
+    "realized_source": "Tesla February 2020 Final Prospectus",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

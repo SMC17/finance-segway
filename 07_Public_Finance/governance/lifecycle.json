@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "model_id": "07",
+  "active_release": "3.0.0-evidence",
+  "rollback_release": "m2-frontier-release-3.0.0",
+  "status": "active",
+  "replacement": null,
+  "retirement_trigger": "Fiscal framework, debt treatment, program assumptions or reporting basis changes materially",
+  "rollback_tested": false,
+  "retirement_exercised": false
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "credit-public-ares-2024",
+  "as_of": "2024-12-31",
+  "manifest": "standards/public_cases/credit-public-ares-2024.json",
+  "template": "05_Private_Credit/_template_CREDIT.xlsx",
+  "output": "05_Private_Credit/instances/public_ares_2024.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C5",
+      "previous": 35,
+      "value": 9352.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C6",
+      "previous": 25,
+      "value": 6680.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C7",
+      "previous": 20,
+      "value": 5344.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C8",
+      "previous": 12,
+      "value": 3206.4,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C9",
+      "previous": 8,
+      "value": 2137.6,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+      "source_as_of": "2024-12-31"
+    }
+  ],
+  "workbook_sha256": "d6b6557febfa6df264c5fd862131ebfd7f140f0ea14bf5ff7df08e4e892c9a01",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false
+}

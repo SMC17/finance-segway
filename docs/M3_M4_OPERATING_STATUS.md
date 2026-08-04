@@ -1,24 +1,20 @@
 # M3/M4 Operating Evidence Status
 
-As of August 4, 2026, all 24 domains carry the automatable M3 evidence
-tranche (`model_card.md`, `validation.md`, `governance/`, `outcomes/`,
-`releases/`, `sources/`) without being falsely promoted. This was
-originally scoped to nine "engineered flagship" domains; the #13 M1-to-M2
-promotion and #11 all-domain frontier merges extended the same evidence
-structure to the remaining fifteen, and 18 of the 24 currently carry
-source-addressed public cases (36 total: one conventional + one
-adversarial per domain; the remaining six gain theirs once #17 merges).
+As of August 4, 2026, all 24 domains have completed the automatable M3
+evidence tranche without being falsely promoted. Each has one conventional
+and one adversarial source-addressed public case; none relies on a synthetic
+workbook, manifest, or receipt.
 
 ## Implemented across all 24 domains
 
 - Completed approved-use, prohibited-use, and limitation model cards
 - Independent engineering validation records
-- One conventional external historical case (18 of 24 domains; the rest are staged in draft PR #17)
-- One adversarial external historical case (same 18 of 24)
+- One conventional external historical case
+- One adversarial external historical case
 - Frozen source snapshots with SHA-256 digests
 - Source registers and source-addressed workbook receipts
-- LibreOffice recalculation of all 36 public case workbooks
-- Recorded historical outcome evidence for at least one case per domain with a public case
+- LibreOffice recalculation of all 48 public case workbooks
+- Recorded historical outcome evidence for at least one case per domain
 - Monitoring warning and breach thresholds with escalation actions
 - Active release and rollback release records
 - Replacement and retirement triggers
@@ -26,7 +22,7 @@ adversarial per domain; the remaining six gain theirs once #17 merges).
 
 ## Deliberately not completed by automation
 
-Human stakeholder approval is pending for every flagship. The repository refuses to promote a model to M3 until named individuals fill the model-owner, domain-reviewer, and independent-validator roles and commit an approval conclusion.
+Human stakeholder approval is pending for every domain. The repository refuses to promote a model to M3 until named individuals fill the model-owner, domain-reviewer, and independent-validator roles and commit an approval conclusion.
 
 Issue #7 is the effective-challenge and sign-off gate.
 
@@ -35,11 +31,11 @@ Issue #7 is the effective-challenge and sign-off gate.
 - M3 promoted: **0**
 - M4 promoted: **0**
 
-All flagship inventory records remain at M2.
+All 24 inventory records remain at M2.
 
 ## M3 remaining gate
 
-Each flagship requires:
+Each domain requires:
 
 1. Named model owner
 2. Named domain reviewer
@@ -55,20 +51,21 @@ Each flagship requires:
 
 M4 requires evidence generated over time rather than documents generated in one release:
 
-- At least two maintained public instances per flagship across releases
+- At least two maintained public instances per domain across releases
 - Monitoring observations and exception escalation
 - Outcome evidence accumulated over multiple releases
 - Demonstrated rollback or replacement test
 - Demonstrated retirement discipline when a model is no longer fit for use
 
-Synthetic regression workbooks and one-time external historical cases never count as maintained M4 instances.
+One-time external historical cases and mathematical unit vectors never count as maintained M4 instances.
 
 ## Canonical evidence
 
+- `standards/m3_evidence/final_six_registry.json`
 - `standards/m3_evidence/flagship_registry.json`
 - `standards/public_cases/index.json`
 - Domain `model_card.md` and `validation.md` files
 - Domain `sources/`, `governance/`, `outcomes/`, and `releases/` directories
-- `m3-evidence-report.json`
-- `.github/workflows/m3-evidence-operations.yml`
+- `tools/m3_evidence.py`
+- `.github/workflows/final-public-evidence-release.yml`
 - GitHub issue #7

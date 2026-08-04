@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "id": "credit-public-yellow-2022-stress",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "05_Private_Credit/_template_CREDIT.xlsx",
+  "output": "05_Private_Credit/instances/public_yellow_2022_stress.xlsx",
+  "as_of": "2022-12-31",
+  "scenario": "Downside",
+  "cover": {
+    "Subject:": "Yellow Corporation pre-bankruptcy liquidity and covenant stress"
+  },
+  "inputs": [
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D9",
+      "value": 200.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Yellow Corporation 2022 annual report",
+        "url": "https://www.sec.gov/Archives/edgar/data/716006/000119312522064324/d186462dars.pdf",
+        "as_of": "2022-12-31",
+        "notes": "U.S. SEC / Yellow Corporation; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D12",
+      "value": 235.1,
+      "input_kind": "observed",
+      "source": {
+        "name": "Yellow Corporation 2022 annual report",
+        "url": "https://www.sec.gov/Archives/edgar/data/716006/000119312522064324/d186462dars.pdf",
+        "as_of": "2022-12-31",
+        "notes": "U.S. SEC / Yellow Corporation; frozen curated observation as of case date"
+      }
+    }
+  ],
+  "outcome": {
+    "metric": "chapter_11_filed_within_twelve_months",
+    "forecast": 0.0,
+    "realized": 1.0,
+    "realized_source": "Yellow Corporation bankruptcy Form 8-K filing index",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://05_Private_Credit/sources/snapshots/credit-public-yellow-2022-stress.json",
+    "synthetic_benchmark_inputs_allowed": false
+  },
+  "sources": [
+    {
+      "name": "Yellow Corporation 2022 annual report",
+      "url": "https://www.sec.gov/Archives/edgar/data/716006/000119312522064324/d186462dars.pdf",
+      "as_of": "2022-12-31",
+      "notes": "U.S. SEC / Yellow Corporation; frozen curated observation as of case date"
+    },
+    {
+      "name": "Yellow Corporation bankruptcy Form 8-K filing index",
+      "url": "https://www.sec.gov/Archives/edgar/data/716006/0001193125-23-204370-index.htm",
+      "as_of": "2022-12-31",
+      "notes": "U.S. SEC / Yellow Corporation; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://05_Private_Credit/sources/snapshots/credit-public-yellow-2022-stress.json",
+      "as_of": "2022-12-31",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://05_Private_Credit/sources/snapshots/credit-public-yellow-2022-stress.json",
+    "what_changed": "Generated public case credit-public-yellow-2022-stress from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

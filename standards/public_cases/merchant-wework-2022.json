@@ -8,8 +8,7 @@
   "as_of": "2023-03-29",
   "scenario": "Downside",
   "cover": {
-    "Target / transaction:": "WeWork pre-bankruptcy holdco stress",
-    "Sponsor / principal:": "Benchmark Merchant Bank"
+    "Subject:": "WeWork pre-bankruptcy holdco stress"
   },
   "inputs": [
     {
@@ -35,30 +34,6 @@
         "as_of": "2023-03-29",
         "notes": "Modeler-owned assumption documented in frozen snapshot"
       }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D24",
-      "value": 0.08,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from merchant-adversarial-holdco.json",
-        "url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
-        "as_of": "2023-03-29",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D28",
-      "value": 6.5,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from merchant-adversarial-holdco.json",
-        "url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
-        "as_of": "2023-03-29",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
     }
   ],
   "sources": [
@@ -82,5 +57,16 @@
     "what_changed": "Generated public case merchant-wework-2022 from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "bankruptcy_within_12_months",
+    "forecast": 1.0,
+    "realized": 1.0,
+    "realized_source": "WeWork Chapter 11 filing, November 2023",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://04_Merchant_Banking/sources/snapshots/merchant-wework-2022.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

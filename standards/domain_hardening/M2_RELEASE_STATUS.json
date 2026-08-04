@@ -6,8 +6,9 @@
   "release_date": "2026-08-04",
   "m2_promoted": ["08", "10", "11", "12", "15", "16", "17", "23", "24"],
   "canonical_templates": 9,
-  "benchmark_instances_added": 18,
-  "benchmark_instances_total": 36,
+  "public_instances_added": 18,
+  "public_instances_total": 48,
+  "retired_synthetic_instances": 48,
   "institutional_surface_artifacts": 27,
   "counts_toward_M4": false,
   "claim_boundary": "This release promotes the nine domains from M1 to M2 only. It does not support M3 or M4 promotion."

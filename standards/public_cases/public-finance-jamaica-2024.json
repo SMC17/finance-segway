@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "id": "public-finance-jamaica-2024",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "07_Public_Finance/_template_PUBLIC_FINANCE.xlsx",
+  "output": "07_Public_Finance/instances/public_jamaica_2024.xlsx",
+  "as_of": "2024-03-08",
+  "scenario": "Base",
+  "cover": {
+    "Subject:": "Jamaica 2024 debt-reduction and fiscal-resilience case"
+  },
+  "inputs": [
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C5",
+      "value": 0.75,
+      "input_kind": "observed",
+      "source": {
+        "name": "IMF Jamaica 2024 Article IV Consultation and second reviews",
+        "url": "https://www.imf.org/en/publications/cr/issues/2024/03/08/jamaica-2024-article-iv-consultation-and-second-reviews-under-the-arrangement-under-the-545715",
+        "as_of": "2024-03-08",
+        "notes": "International Monetary Fund; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C6",
+      "value": 0.07,
+      "input_kind": "derived",
+      "source": {
+        "name": "IMF Jamaica 2024 Article IV Consultation and second reviews",
+        "url": "https://www.imf.org/en/publications/cr/issues/2024/03/08/jamaica-2024-article-iv-consultation-and-second-reviews-under-the-arrangement-under-the-545715",
+        "as_of": "2024-03-08",
+        "notes": "International Monetary Fund; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C7",
+      "value": 0.08,
+      "input_kind": "derived",
+      "source": {
+        "name": "IMF Jamaica 2024 Article IV Consultation and second reviews",
+        "url": "https://www.imf.org/en/publications/cr/issues/2024/03/08/jamaica-2024-article-iv-consultation-and-second-reviews-under-the-arrangement-under-the-545715",
+        "as_of": "2024-03-08",
+        "notes": "International Monetary Fund; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C8",
+      "value": 0.057,
+      "input_kind": "observed",
+      "source": {
+        "name": "IMF Jamaica 2024 Article IV Consultation and second reviews",
+        "url": "https://www.imf.org/en/publications/cr/issues/2024/03/08/jamaica-2024-article-iv-consultation-and-second-reviews-under-the-arrangement-under-the-545715",
+        "as_of": "2024-03-08",
+        "notes": "International Monetary Fund; frozen curated observation as of case date"
+      }
+    }
+  ],
+  "outcome": {
+    "metric": "imf_review_completed",
+    "forecast": 1.0,
+    "realized": 1.0,
+    "realized_source": "IMF Jamaica 2024 Article IV Consultation and second reviews",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://07_Public_Finance/sources/snapshots/public-finance-jamaica-2024.json",
+    "synthetic_benchmark_inputs_allowed": false
+  },
+  "sources": [
+    {
+      "name": "IMF Jamaica 2024 Article IV Consultation and second reviews",
+      "url": "https://www.imf.org/en/publications/cr/issues/2024/03/08/jamaica-2024-article-iv-consultation-and-second-reviews-under-the-arrangement-under-the-545715",
+      "as_of": "2024-03-08",
+      "notes": "International Monetary Fund; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://07_Public_Finance/sources/snapshots/public-finance-jamaica-2024.json",
+      "as_of": "2024-03-08",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://07_Public_Finance/sources/snapshots/public-finance-jamaica-2024.json",
+    "what_changed": "Generated public case public-finance-jamaica-2024 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

@@ -16,22 +16,6 @@
     },
     {
       "sheet": "Assumptions",
-      "cell": "C11",
-      "previous": 180,
-      "value": 205.0,
-      "source_url": "repo://standards/benchmark_cases/project-reference-contracted.json",
-      "source_as_of": "2024-07-01"
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C16",
-      "previous": 1.35,
-      "value": 1.4,
-      "source_url": "repo://standards/benchmark_cases/project-reference-contracted.json",
-      "source_as_of": "2024-07-01"
-    },
-    {
-      "sheet": "Assumptions",
       "cell": "C23",
       "previous": 0.97,
       "value": 0.98,
@@ -39,10 +23,9 @@
       "source_as_of": "2024-07-01"
     }
   ],
-  "workbook_sha256": "e1689c94c04bce56673ae3550197739f6be7c4ef6b65d9bcda53d08e5d2b13a9",
+  "workbook_sha256": "aa548e60f2d2beabd3c4f1cdd3c1c45a09ef175dbb1c565cb210b03a29235860",
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
-  "hash_refreshed_on": "2026-08-04",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }

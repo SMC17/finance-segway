@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "id": "vc-public-snowflake-2020",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "13_Venture_Capital/_template_VC.xlsx",
+  "output": "13_Venture_Capital/instances/public_snowflake_2020.xlsx",
+  "as_of": "2020-09-16",
+  "scenario": "Base",
+  "cover": {
+    "Subject:": "Snowflake 2020 IPO financing"
+  },
+  "inputs": [
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C5",
+      "value": 30000.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Snowflake 2020 final IPO prospectus",
+        "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+        "as_of": "2020-09-16",
+        "notes": "U.S. SEC / Snowflake; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C6",
+      "value": 3360.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Snowflake 2020 final IPO prospectus",
+        "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+        "as_of": "2020-09-16",
+        "notes": "U.S. SEC / Snowflake; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C7",
+      "value": 250.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Snowflake 2020 final IPO prospectus",
+        "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+        "as_of": "2020-09-16",
+        "notes": "U.S. SEC / Snowflake; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C8",
+      "value": 28.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Snowflake 2020 final IPO prospectus",
+        "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+        "as_of": "2020-09-16",
+        "notes": "U.S. SEC / Snowflake; frozen curated observation as of case date"
+      }
+    }
+  ],
+  "outcome": {
+    "metric": "ipo_completed",
+    "forecast": 1.0,
+    "realized": 1.0,
+    "realized_source": "Snowflake 2020 final IPO prospectus",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://13_Venture_Capital/sources/snapshots/vc-public-snowflake-2020.json",
+    "synthetic_benchmark_inputs_allowed": false
+  },
+  "sources": [
+    {
+      "name": "Snowflake 2020 final IPO prospectus",
+      "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+      "as_of": "2020-09-16",
+      "notes": "U.S. SEC / Snowflake; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://13_Venture_Capital/sources/snapshots/vc-public-snowflake-2020.json",
+      "as_of": "2020-09-16",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://13_Venture_Capital/sources/snapshots/vc-public-snowflake-2020.json",
+    "what_changed": "Generated public case vc-public-snowflake-2020 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

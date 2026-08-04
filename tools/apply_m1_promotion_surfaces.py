@@ -1,11 +1,10 @@
-"""Apply institutional surfaces to every artifact in the M1-to-M2 promotion.
+"""Validate institutional surfaces for recently hardened real-data models.
 
 The domain release builders intentionally own only the financial mechanics.
 This pass applies the same profile-driven Institutional Surface, Challenge Log,
 Lineage Map, and defined-name layer used by full-library builder parity. It is
-run after the promotion prepare phase and before LibreOffice recalculation so
-canonical templates and populated benchmark instances share one governed
-artifact shape.
+Canonical templates and source-addressed public instances share one governed
+artifact shape. No synthetic workbook is created or required.
 """
 from __future__ import annotations
 
@@ -21,11 +20,7 @@ try:
         validate_profiles,
         validate_workbook_surface,
     )
-    from tools.release_m1_domain_promotions import (
-        EXPECTED_IDS,
-        INVENTORY_PATH,
-        case_specs,
-    )
+    from tools.frontier_evidence_registry import registry as evidence_registry
 except ModuleNotFoundError:
     from institutional_surface import (
         apply_surface,
@@ -33,9 +28,11 @@ except ModuleNotFoundError:
         validate_profiles,
         validate_workbook_surface,
     )
-    from release_m1_domain_promotions import EXPECTED_IDS, INVENTORY_PATH, case_specs
+    from frontier_evidence_registry import registry as evidence_registry
 
 ROOT = Path(__file__).resolve().parents[1]
+INVENTORY_PATH = ROOT / "standards" / "model_inventory.json"
+EXPECTED_IDS = {"08", "10", "11", "12", "15", "16", "17", "23", "24"}
 DEFAULT_REPORT = ROOT / "m1-promotion-surface-report.json"
 
 
@@ -56,15 +53,16 @@ def promotion_targets() -> list[dict[str, str]]:
                 "path": model["workbook"],
             }
         )
-    for spec in case_specs():
-        targets.append(
-            {
-                "model_id": spec["model_id"],
-                "kind": spec["case_type"],
-                "case_id": spec["id"],
-                "path": spec["output"],
-            }
-        )
+    for model in evidence_registry()["flagships"]:
+        for case in model["cases"]:
+            targets.append(
+                {
+                    "model_id": model["model_id"],
+                    "kind": case["type"],
+                    "case_id": case["id"],
+                    "path": case["output"],
+                }
+            )
     return targets
 
 
@@ -116,7 +114,7 @@ def apply_all() -> dict[str, Any]:
         "schema_version": "1.0",
         "artifacts": len(targets),
         "canonical_templates": canonical,
-        "benchmark_instances": instances,
+        "public_instances": instances,
         "institutional_profiles": len(profiles),
         "errors": errors,
         "results": results,
@@ -141,7 +139,7 @@ def main() -> int:
                 for key in (
                     "artifacts",
                     "canonical_templates",
-                    "benchmark_instances",
+                    "public_instances",
                     "status",
                     "errors",
                 )

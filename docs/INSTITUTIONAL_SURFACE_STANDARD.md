@@ -44,14 +44,14 @@ gaps, not implied completion.
 ## Institutional control plane
 
 `00_Control_Plane/Finance_Model_Control_Plane.xlsx` is generated from the
-inventory, profile registry, benchmark index, and release evidence. It exposes:
+inventory, profile registry, public-case index, and release evidence. It exposes:
 
 - maturity and release coverage;
 - engine, perspective, and reference-check saturation;
 - decision arenas and insider questions;
 - source and refresh requirements;
 - cross-domain scenario and challenge libraries;
-- benchmark instances and cryptographic receipts;
+- public instances and cryptographic receipts;
 - evidence-gated M1→M2→M3→M4 roadmap.
 
 ## Model-risk baseline

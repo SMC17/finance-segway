@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "vc-public-snowflake-2020",
+  "as_of": "2020-09-16",
+  "manifest": "standards/public_cases/vc-public-snowflake-2020.json",
+  "template": "13_Venture_Capital/_template_VC.xlsx",
+  "output": "13_Venture_Capital/instances/public_snowflake_2020.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C5",
+      "previous": 80,
+      "value": 30000.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+      "source_as_of": "2020-09-16"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C6",
+      "previous": 20,
+      "value": 3360.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+      "source_as_of": "2020-09-16"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C7",
+      "previous": 8,
+      "value": 250.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+      "source_as_of": "2020-09-16"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C8",
+      "previous": 2,
+      "value": 28.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+      "source_as_of": "2020-09-16"
+    }
+  ],
+  "workbook_sha256": "53a3ac5f61ff2a95373eda4a459bbe69a7897893ced7b0fe7c39c5e52735ab8e",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false
+}

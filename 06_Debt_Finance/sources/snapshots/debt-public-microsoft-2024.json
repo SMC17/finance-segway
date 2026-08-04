@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "model_id": "06",
+  "domain": "Debt Finance",
+  "case_id": "debt-public-microsoft-2024",
+  "case_type": "conventional",
+  "as_of": "2024-06-30",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Microsoft 2024 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "publisher": "U.S. SEC / Microsoft",
+      "captured_values": {
+        "operating_cash_flow_usd_mm": 118548.0,
+        "capital_expenditures_usd_mm": 44477.0,
+        "dividends_usd_mm": 21771.0,
+        "share_repurchases_usd_mm": 17254.0,
+        "debt_issued_usd_mm": 24395.0,
+        "debt_repaid_usd_mm": 29070.0,
+        "cash_and_short_term_investments_usd_mm": 75543.0,
+        "ending_debt_usd_mm": 67127.0,
+        "derived_opening_debt_usd_mm": 71802.0
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C5",
+      "value": 71802.0,
+      "kind": "derived",
+      "source": "Microsoft 2024 Form 10-K"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C6",
+      "value": 24395.0,
+      "kind": "observed",
+      "source": "Microsoft 2024 Form 10-K"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C7",
+      "value": 29070.0,
+      "kind": "observed",
+      "source": "Microsoft 2024 Form 10-K"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C13",
+      "value": 75543.0,
+      "kind": "observed",
+      "source": "Microsoft 2024 Form 10-K"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "ending_debt_usd_mm",
+    "forecast": 70000.0,
+    "realized": 67127.0,
+    "realized_source": "Microsoft 2024 Form 10-K",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "548eb1da596855a67530ae163dd530e1e77363cfba3770dda6837c2485e58817"
+}

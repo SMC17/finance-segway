@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "model_id": "02",
+  "domain": "Corporate Finance",
+  "case_id": "corporate-public-intel-2024-stress",
+  "case_type": "adversarial",
+  "as_of": "2024-06-29",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Intel second-quarter 2024 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086324000124/intc-20240629.htm",
+      "publisher": "U.S. SEC / Intel",
+      "captured_values": {
+        "new_senior_notes_usd_mm": 2600.0,
+        "remarketed_bonds_usd_mm": 438.0,
+        "total_observed_new_debt_usd_mm": 3038.0,
+        "quarterly_dividend_suspension_announced": 1
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D10",
+      "value": 3038.0,
+      "kind": "derived",
+      "source": "Intel second-quarter 2024 Form 10-Q"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D8",
+      "value": 0.0,
+      "kind": "derived",
+      "source": "Intel second-quarter 2024 Form 10-Q"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "quarterly_dividend_suspended",
+    "forecast": 0.0,
+    "realized": 1.0,
+    "realized_source": "Intel second-quarter 2024 Form 10-Q",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "654d4b05e0d48a8ac0e35e1e1ffde0329f6df681ac57ee0d50a03461a85a2e45"
+}

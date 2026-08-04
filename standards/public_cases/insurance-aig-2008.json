@@ -8,7 +8,7 @@
   "as_of": "2009-03-02",
   "scenario": "Downside",
   "cover": {
-    "Entity / line of business:": "AIG 2008 reserve and capital stress"
+    "Subject:": "AIG 2008 reserve and capital stress"
   },
   "inputs": [
     {
@@ -21,30 +21,6 @@
         "url": "https://www.sec.gov/Archives/edgar/data/5272/000095012309006583/y74787e10vk.htm",
         "as_of": "2009-03-02",
         "notes": "U.S. SEC; frozen curated observation as of case date"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D8",
-      "value": 0.12,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from insurance-adversarial-social-inflation.json",
-        "url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
-        "as_of": "2009-03-02",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D10",
-      "value": 0.22,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from insurance-adversarial-social-inflation.json",
-        "url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
-        "as_of": "2009-03-02",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
       }
     },
     {
@@ -81,5 +57,16 @@
     "what_changed": "Generated public case insurance-aig-2008 from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "government_support_required",
+    "forecast": 1.0,
+    "realized": 1.0,
+    "realized_source": "Federal Reserve and U.S. Treasury intervention records",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://18_Insurance_Actuarial/sources/snapshots/insurance-aig-2008.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

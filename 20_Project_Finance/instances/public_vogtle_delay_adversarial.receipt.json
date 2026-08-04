@@ -21,28 +21,11 @@
       "value": 10,
       "source_url": "https://psc.ga.gov/facilities-construction/project-overview/plant-vogtle-units-3-and-4/",
       "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D11",
-      "previous": 150,
-      "value": 135.0,
-      "source_url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D23",
-      "previous": 0.85,
-      "value": 0.72,
-      "source_url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
-      "source_as_of": "2023-12-31"
     }
   ],
-  "workbook_sha256": "2cbb9aaea4107568bba6140974d500f9fe4d1a882de22d6709ee7e0908a9eb01",
+  "workbook_sha256": "0e3c171bd7d42eae8c3bec104ef6f980a634334210cab42e0913801ba6688f70",
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
-  "hash_refreshed_on": "2026-08-04",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }
