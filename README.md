@@ -206,10 +206,7 @@ python tools/scaffold_model_evidence.py 05_Private_Credit
 
 ## Collaboration
 
-Claude Code and ChatGPT/Codex work in independent branches. Integration occurs component by component through a draft synthesis PR. A newer branch does not win automatically, and tests are never weakened to make a merge pass.
-
-The Claude branch is fully retained in the synthesis history. The earlier institutional prototype branch has been reconciled: stronger mechanics were rebuilt and promoted, while obsolete binaries and workflows were rejected.
-
+Claude Code and ChatGPT/Codex work in independent branches. Integration occurs component by component through a draft synth
 See:
 
 - `docs/COLLABORATION_PROTOCOL.md`;
