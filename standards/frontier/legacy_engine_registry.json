@@ -428,7 +428,7 @@
     {
       "model_id": "13",
       "domain": "Venture Capital",
-      "current_builder": "tools/builders/build_venture_capital_template.py",
+      "current_builder": "tools/builders/build_vc_template.py",
       "candidate_builder": "tools/builders/build_venture_capital_release.py",
       "required_new_sheets": [
         "Ownership & Dilution",
