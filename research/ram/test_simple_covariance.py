@@ -41,7 +41,6 @@ class TestSimpleCovariance(unittest.TestCase):
         self.assertTrue(is_positive_semidefinite(good))
 
     def test_psd_rejects_negative_eigen(self):
-        # Construct a matrix that is symmetric but not PSD
         bad = [
             [0.04, 0.10],
             [0.10, 0.04],
@@ -62,13 +61,45 @@ class TestSimpleCovariance(unittest.TestCase):
         ]
         w = (0.6, 0.4)
         var = portfolio_variance(w, cov)
-        # Manual expansion: 0.6^2*0.04 + 0.4^2*0.09 + 2*0.6*0.4*0.01
         expected = 0.36 * 0.04 + 0.16 * 0.09 + 2 * 0.6 * 0.4 * 0.01
         self.assertAlmostEqual(var, expected)
 
     def test_frobenius_norm_positive(self):
         cov = [[0.04, 0.01], [0.01, 0.09]]
         self.assertGreater(frobenius_norm(cov), 0.0)
+
+    def test_psd_identity_matrix(self):
+        ident = [[1.0 if i == j else 0.0 for j in range(5)] for i in range(5)]
+        self.assertTrue(is_positive_semidefinite(ident))
+
+    def test_psd_diagonal_dominant(self):
+        n = 8
+        cov = [[0.0] * n for _ in range(n)]
+        for i in range(n):
+            cov[i][i] = 1.0
+            for j in range(i):
+                cov[i][j] = cov[j][i] = 0.05
+        self.assertTrue(is_positive_semidefinite(cov))
+
+    def test_psd_zero_matrix_rejected(self):
+        # Zero matrix has zero pivots; treated as not strictly usable for risk.
+        zero = [[0.0] * 3 for _ in range(3)]
+        self.assertFalse(is_positive_semidefinite(zero))
+
+    def test_equal_weight_three_asset(self):
+        cov = [
+            [0.04, 0.01, 0.00],
+            [0.01, 0.09, 0.02],
+            [0.00, 0.02, 0.16],
+        ]
+        res = equal_weight_risk(cov)
+        # Manual: w = 1/3 each
+        w = 1.0 / 3.0
+        expected = (
+            w * w * 0.04 + w * w * 0.09 + w * w * 0.16
+            + 2 * w * w * 0.01 + 2 * w * w * 0.00 + 2 * w * w * 0.02
+        )
+        self.assertAlmostEqual(res.variance, expected, places=10)
 
 
 if __name__ == "__main__":
