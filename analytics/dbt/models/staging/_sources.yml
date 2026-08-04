@@ -1,0 +1,4 @@
+version: 2
+
+# Convenience file so `dbt source` commands discover the upstream tables.
+# The canonical source definitions live in models/schema.yml.
