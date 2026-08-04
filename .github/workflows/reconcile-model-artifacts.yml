@@ -1,0 +1,78 @@
+name: Reconcile Model Artifacts
+
+on:
+  push:
+    branches: [agent/synthesize-finance-model-library-v2]
+    paths:
+      - 'tools/builders/institutional_helpers.py'
+      - 'tools/builders/build_credit_template.py'
+      - 'tools/builders/build_private_credit_template.py'
+      - 'tools/builders/build_debt_finance_template.py'
+      - 'tools/builders/build_public_finance_template.py'
+      - 'tools/reconciled_reference_engines.py'
+      - 'tools/test_reconciled_reference_engines.py'
+      - 'tools/validate_reconciled_models.py'
+      - '.github/workflows/reconcile-model-artifacts.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reconcile:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout synthesis branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/synthesize-finance-model-library-v2
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile reconciled sources
+        run: python -m py_compile tools/builders/institutional_helpers.py tools/builders/build_credit_template.py tools/builders/build_private_credit_template.py tools/builders/build_debt_finance_template.py tools/builders/build_public_finance_template.py tools/reconciled_reference_engines.py tools/test_reconciled_reference_engines.py tools/validate_reconciled_models.py
+
+      - name: Test independent reconciled reference engines
+        run: PYTHONPATH=tools python tools/test_reconciled_reference_engines.py
+
+      - name: Validate builder outputs before promotion
+        run: python tools/validate_reconciled_models.py --report reconciled-model-report.json
+
+      - name: Generate reviewed release candidates
+        run: |
+          python tools/builders/build_private_credit_template.py --output 05_Private_Credit/_template_CREDIT.xlsx
+          python tools/builders/build_debt_finance_template.py --output 06_Debt_Finance/_template_CREDIT.xlsx
+          python tools/builders/build_public_finance_template.py --output 07_Public_Finance/_template_PUBLIC_FINANCE.xlsx
+
+      - name: Validate committed artifact paths
+        run: python tools/validate_reconciled_models.py --committed
+
+      - name: Commit reconciled workbook artifacts
+        run: |
+          git config user.name "finance-segway-model-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add 05_Private_Credit/_template_CREDIT.xlsx 06_Debt_Finance/_template_CREDIT.xlsx 07_Public_Finance/_template_PUBLIC_FINANCE.xlsx
+          if git diff --staged --quiet; then
+            echo "Workbook artifacts already match canonical builders."
+          else
+            git commit -m "Reconcile credit and public finance workbook artifacts"
+            git push origin HEAD:agent/synthesize-finance-model-library-v2
+          fi
+
+      - name: Upload reconciliation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reconciled-model-report
+          path: reconciled-model-report.json
+          if-no-files-found: warn
+          retention-days: 30
