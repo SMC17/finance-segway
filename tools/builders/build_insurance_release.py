@@ -19,6 +19,22 @@ def build(output: Path) -> None:
     # At ultimate development the cumulative development factor must be one.
     chain["L6"] = 1.0
     chain["L6"].number_format = "0.0000x"
+
+    # Excel can evaluate subtraction between two ranges inside MIN as an array,
+    # while LibreOffice returns #VALUE in this context. Expand the same
+    # cumulative-triangle monotonicity identity into scalar differences.
+    triangle_differences = []
+    for row in range(5, 15):
+        for column in range(4, 13):  # D:L compared with C:K
+            current = workbook["Paid Triangle"].cell(row, column).coordinate
+            previous = workbook["Paid Triangle"].cell(row, column - 1).coordinate
+            triangle_differences.append(
+                f"'Paid Triangle'!{current}-'Paid Triangle'!{previous}"
+            )
+    workbook["Checks"]["C5"] = (
+        '=IF(MIN(' + ','.join(triangle_differences) + ')>=0,"PASS","FAIL")'
+    )
+
     finalize(workbook, output)
 
 
