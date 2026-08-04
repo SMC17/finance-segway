@@ -1,0 +1,507 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-08-04",
+  "program": "Six legacy M2 engine hardening",
+  "claim_boundary": {
+    "declared_maturity": "M2",
+    "m3_promoted": 0,
+    "m4_promoted": 0,
+    "synthetic_cases_count_toward_m4": false,
+    "statement": "Independent oracles and synthetic benchmarks establish engineering depth only. Public evidence, effective challenge, named stakeholder approval, and maintained release history remain separate gates."
+  },
+  "models": [
+    {
+      "model_id": "01",
+      "domain": "Investment Banking",
+      "current_builder": "tools/builders/build_template.py",
+      "candidate_builder": "tools/builders/build_investment_banking_release.py",
+      "required_new_sheets": [
+        "Transaction Analysis",
+        "Accretion Dilution",
+        "Valuation Reconciliation",
+        "Decision & Checks"
+      ],
+      "reference_checks": [
+        "enterprise_to_equity_bridge",
+        "per_share_identity",
+        "deal_eps_identity",
+        "terminal_value_validity",
+        "valuation_dispersion",
+        "offer_premium",
+        "eps_accretion"
+      ],
+      "references": [
+        {
+          "authority": "U.S. Securities and Exchange Commission",
+          "title": "Regulation S-X",
+          "url": "https://www.ecfr.gov/current/title-17/chapter-II/part-210",
+          "use": "historical financial statements, pro forma financial information, and transaction disclosure inputs"
+        },
+        {
+          "authority": "U.S. Securities and Exchange Commission",
+          "title": "Regulation S-K and Regulation M-A disclosure requirements",
+          "url": "https://www.ecfr.gov/current/title-17/chapter-II/part-229",
+          "use": "transaction, valuation, risk-factor, fairness and pro forma disclosure boundaries"
+        },
+        {
+          "authority": "Financial Accounting Standards Board",
+          "title": "ASC Topic 820 Fair Value Measurement",
+          "url": "https://asc.fasb.org/topic&trid=2125633",
+          "use": "valuation hierarchy, market participant assumptions and fair-value measurement discipline"
+        }
+      ],
+      "cases": [
+        {
+          "id": "investment-banking-conventional-accretive",
+          "type": "conventional",
+          "inputs": {
+            "enterprise_value": 1000.0,
+            "debt": 200.0,
+            "cash": 100.0,
+            "shares": 100.0,
+            "discount_rate": 0.10,
+            "terminal_growth": 0.03,
+            "forecast_fcfs": [70.0, 75.0, 80.0, 85.0, 90.0],
+            "offer_price": 9.5,
+            "after_tax_synergies": 5.0,
+            "incremental_financing_cost": 3.0,
+            "target_earnings": 10.0,
+            "shares_issued": 10.0,
+            "buyer_earnings": 100.0,
+            "buyer_shares": 100.0,
+            "premium_warning": 0.30,
+            "minimum_accretion": 0.0,
+            "valuation_dispersion_warning": 0.50
+          }
+        },
+        {
+          "id": "investment-banking-adversarial-overpay",
+          "type": "adversarial",
+          "inputs": {
+            "enterprise_value": 1000.0,
+            "debt": 200.0,
+            "cash": 100.0,
+            "shares": 100.0,
+            "discount_rate": 0.05,
+            "terminal_growth": 0.06,
+            "forecast_fcfs": [70.0, 65.0, 60.0, 55.0, 50.0],
+            "offer_price": 15.0,
+            "after_tax_synergies": 0.0,
+            "incremental_financing_cost": 20.0,
+            "target_earnings": 5.0,
+            "shares_issued": 50.0,
+            "buyer_earnings": 100.0,
+            "buyer_shares": 100.0,
+            "premium_warning": 0.30,
+            "minimum_accretion": 0.0,
+            "valuation_dispersion_warning": 0.50
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "02",
+      "domain": "Corporate Finance",
+      "current_builder": "tools/builders/build_template.py",
+      "candidate_builder": "tools/builders/build_corporate_finance_release.py",
+      "required_new_sheets": [
+        "Treasury & Liquidity",
+        "Capital Allocation",
+        "Credit Metrics",
+        "Decision & Checks"
+      ],
+      "reference_checks": [
+        "cash_rollforward",
+        "debt_rollforward",
+        "net_debt_identity",
+        "minimum_cash",
+        "net_leverage",
+        "interest_coverage",
+        "distribution_funding"
+      ],
+      "references": [
+        {
+          "authority": "U.S. Securities and Exchange Commission",
+          "title": "Regulation S-X",
+          "url": "https://www.ecfr.gov/current/title-17/chapter-II/part-210",
+          "use": "integrated income statement, balance sheet and cash-flow statement inputs"
+        },
+        {
+          "authority": "U.S. Securities and Exchange Commission",
+          "title": "Management's Discussion and Analysis requirements under Regulation S-K",
+          "url": "https://www.ecfr.gov/current/title-17/chapter-II/part-229/section-229.303",
+          "use": "liquidity, capital resources, material cash requirements and trend disclosure"
+        },
+        {
+          "authority": "Financial Accounting Standards Board",
+          "title": "ASC Topic 230 Statement of Cash Flows",
+          "url": "https://asc.fasb.org/topic&trid=2125635",
+          "use": "cash-flow classification and reconciliation discipline"
+        }
+      ],
+      "cases": [
+        {
+          "id": "corporate-finance-conventional-funded",
+          "type": "conventional",
+          "inputs": {
+            "opening_cash": 100.0,
+            "operating_cash_flow": 150.0,
+            "capex": 50.0,
+            "dividends": 20.0,
+            "buybacks": 10.0,
+            "debt_issuance": 0.0,
+            "debt_repayment": 30.0,
+            "opening_debt": 200.0,
+            "ebitda": 120.0,
+            "interest": 10.0,
+            "minimum_cash": 50.0,
+            "maximum_net_leverage": 3.5,
+            "minimum_interest_coverage": 2.0
+          }
+        },
+        {
+          "id": "corporate-finance-adversarial-liquidity",
+          "type": "adversarial",
+          "inputs": {
+            "opening_cash": 50.0,
+            "operating_cash_flow": 30.0,
+            "capex": 60.0,
+            "dividends": 20.0,
+            "buybacks": 30.0,
+            "debt_issuance": 80.0,
+            "debt_repayment": 0.0,
+            "opening_debt": 300.0,
+            "ebitda": 60.0,
+            "interest": 40.0,
+            "minimum_cash": 80.0,
+            "maximum_net_leverage": 3.5,
+            "minimum_interest_coverage": 2.0
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "05",
+      "domain": "Private Credit",
+      "current_builder": "tools/builders/build_private_credit_template.py",
+      "candidate_builder": "tools/builders/build_private_credit_release.py",
+      "required_new_sheets": [
+        "Portfolio & Concentration",
+        "Amendment Economics",
+        "Decision & Checks"
+      ],
+      "reference_checks": [
+        "debt_rollforward",
+        "recovery_lgd_identity",
+        "recovery_claim_bound",
+        "dscr",
+        "leverage",
+        "recovery_rate",
+        "debt_compounding"
+      ],
+      "references": [
+        {
+          "authority": "Board of Governors of the Federal Reserve System",
+          "title": "Interagency Guidance on Leveraged Lending, SR 13-3",
+          "url": "https://www.federalreserve.gov/supervisionreg/srletters/sr1303.htm",
+          "use": "leveraged-lending definitions, repayment capacity, underwriting, stress and pipeline risk"
+        },
+        {
+          "authority": "Basel Committee on Banking Supervision",
+          "title": "Basel Framework",
+          "url": "https://www.bis.org/basel_framework/",
+          "use": "credit risk, exposure, capital, collateral and concentration conventions"
+        },
+        {
+          "authority": "Board of Governors of the Federal Reserve System",
+          "title": "Asset Quality Supervisory Policy and Guidance",
+          "url": "https://www.federalreserve.gov/supervisionreg/topics/asset_quality.htm",
+          "use": "credit classification, loan portfolio management and problem-asset controls"
+        }
+      ],
+      "cases": [
+        {
+          "id": "private-credit-conventional-deleveraging",
+          "type": "conventional",
+          "inputs": {
+            "opening_debt": 350.0,
+            "mandatory_amortization": 10.0,
+            "cash_sweep": 40.0,
+            "pik_interest": 0.0,
+            "cfads": 80.0,
+            "cash_interest": 25.0,
+            "ebitda": 100.0,
+            "recovery_ev": 500.0,
+            "senior_claims": 50.0,
+            "lender_claim": 300.0,
+            "minimum_dscr": 1.0,
+            "maximum_leverage": 6.0,
+            "minimum_recovery": 0.60
+          }
+        },
+        {
+          "id": "private-credit-adversarial-pik-trap",
+          "type": "adversarial",
+          "inputs": {
+            "opening_debt": 350.0,
+            "mandatory_amortization": 0.0,
+            "cash_sweep": 0.0,
+            "pik_interest": 30.0,
+            "cfads": 20.0,
+            "cash_interest": 40.0,
+            "ebitda": 50.0,
+            "recovery_ev": 180.0,
+            "senior_claims": 50.0,
+            "lender_claim": 380.0,
+            "minimum_dscr": 1.0,
+            "maximum_leverage": 6.0,
+            "minimum_recovery": 0.60
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "06",
+      "domain": "Debt Finance",
+      "current_builder": "tools/builders/build_debt_finance_template.py",
+      "candidate_builder": "tools/builders/build_debt_finance_release.py",
+      "required_new_sheets": [
+        "Maturity Ladder",
+        "Refinancing & Rates",
+        "Decision & Checks"
+      ],
+      "reference_checks": [
+        "debt_rollforward",
+        "weighted_cost_identity",
+        "refinancing_gap_identity",
+        "maturity_concentration",
+        "interest_coverage",
+        "refinancing_cost"
+      ],
+      "references": [
+        {
+          "authority": "Board of Governors of the Federal Reserve System",
+          "title": "Interagency Guidance on Leveraged Lending, SR 13-3",
+          "url": "https://www.federalreserve.gov/supervisionreg/srletters/sr1303.htm",
+          "use": "debt capacity, repayment, refinancing and stress expectations"
+        },
+        {
+          "authority": "Basel Committee on Banking Supervision",
+          "title": "Basel Framework",
+          "url": "https://www.bis.org/basel_framework/",
+          "use": "credit, maturity, market, liquidity and counterparty risk conventions"
+        },
+        {
+          "authority": "U.S. Securities and Exchange Commission",
+          "title": "Liquidity and capital resources disclosure under Regulation S-K",
+          "url": "https://www.ecfr.gov/current/title-17/chapter-II/part-229/section-229.303",
+          "use": "maturity, financing, liquidity and material cash-requirement disclosures"
+        }
+      ],
+      "cases": [
+        {
+          "id": "debt-finance-conventional-refinancing",
+          "type": "conventional",
+          "inputs": {
+            "opening_debt": 500.0,
+            "issuance": 100.0,
+            "repayments": 150.0,
+            "maturities": [50.0, 75.0, 100.0, 100.0, 125.0],
+            "liquidity": 100.0,
+            "committed_lines": 50.0,
+            "near_term_years": 2,
+            "tranches": [
+              {"amount": 300.0, "rate": 0.06},
+              {"amount": 150.0, "rate": 0.07}
+            ],
+            "ebitda": 150.0,
+            "maximum_maturity_concentration": 0.40,
+            "minimum_interest_coverage": 2.0,
+            "maximum_weighted_cost": 0.10
+          }
+        },
+        {
+          "id": "debt-finance-adversarial-maturity-wall",
+          "type": "adversarial",
+          "inputs": {
+            "opening_debt": 500.0,
+            "issuance": 300.0,
+            "repayments": 50.0,
+            "maturities": [300.0, 250.0, 100.0, 50.0, 50.0],
+            "liquidity": 50.0,
+            "committed_lines": 50.0,
+            "near_term_years": 2,
+            "tranches": [
+              {"amount": 500.0, "rate": 0.12},
+              {"amount": 250.0, "rate": 0.15}
+            ],
+            "ebitda": 80.0,
+            "maximum_maturity_concentration": 0.35,
+            "minimum_interest_coverage": 2.0,
+            "maximum_weighted_cost": 0.10
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "07",
+      "domain": "Public Finance",
+      "current_builder": "tools/builders/build_public_finance_template.py",
+      "candidate_builder": "tools/builders/build_public_finance_release.py",
+      "required_new_sheets": [
+        "Debt Sustainability",
+        "Revenue Stress",
+        "Decision & Checks"
+      ],
+      "reference_checks": [
+        "debt_ratio_identity",
+        "stabilizing_primary_balance_identity",
+        "coverage_nonnegative",
+        "debt_sustainability",
+        "primary_balance_gap",
+        "debt_service_coverage",
+        "reserve_coverage"
+      ],
+      "references": [
+        {
+          "authority": "International Monetary Fund and World Bank",
+          "title": "Debt Sustainability Framework for Low-Income Countries",
+          "url": "https://www.imf.org/external/pubs/ft/dsa/lic.htm",
+          "use": "debt-carrying capacity, projected debt burden and shock-based sustainability analysis"
+        },
+        {
+          "authority": "International Monetary Fund",
+          "title": "Debt Sustainability Analysis",
+          "url": "https://www.imf.org/external/pubs/ft/dsa/index.htm",
+          "use": "public and external debt-service capacity and crisis-prevention framework"
+        },
+        {
+          "authority": "Municipal Securities Rulemaking Board",
+          "title": "EMMA municipal market disclosures",
+          "url": "https://emma.msrb.org/",
+          "use": "issuer financial statements, continuing disclosures, debt service and offering documents"
+        },
+        {
+          "authority": "Governmental Accounting Standards Board",
+          "title": "GASB standards and guidance",
+          "url": "https://www.gasb.org/",
+          "use": "governmental financial reporting, pensions, liabilities and budgetary disclosure"
+        }
+      ],
+      "cases": [
+        {
+          "id": "public-finance-conventional-stable",
+          "type": "conventional",
+          "inputs": {
+            "opening_debt_ratio": 0.60,
+            "nominal_interest_rate": 0.05,
+            "nominal_growth_rate": 0.04,
+            "primary_balance_ratio": 0.015,
+            "pledged_revenue": 120.0,
+            "debt_service": 80.0,
+            "reserves": 20.0,
+            "operating_expenditure": 100.0,
+            "maximum_debt_ratio": 1.0,
+            "minimum_dscr": 1.20,
+            "minimum_reserve_coverage": 0.10
+          }
+        },
+        {
+          "id": "public-finance-adversarial-debt-distress",
+          "type": "adversarial",
+          "inputs": {
+            "opening_debt_ratio": 1.20,
+            "nominal_interest_rate": 0.10,
+            "nominal_growth_rate": 0.01,
+            "primary_balance_ratio": -0.03,
+            "pledged_revenue": 50.0,
+            "debt_service": 70.0,
+            "reserves": 5.0,
+            "operating_expenditure": 100.0,
+            "maximum_debt_ratio": 1.0,
+            "minimum_dscr": 1.20,
+            "minimum_reserve_coverage": 0.10
+          }
+        }
+      ]
+    },
+    {
+      "model_id": "13",
+      "domain": "Venture Capital",
+      "current_builder": "tools/builders/build_venture_capital_template.py",
+      "candidate_builder": "tools/builders/build_venture_capital_release.py",
+      "required_new_sheets": [
+        "Ownership & Dilution",
+        "Reserves & Follow-ons",
+        "Exit Waterfall",
+        "Decision & Checks"
+      ],
+      "reference_checks": [
+        "post_money_identity",
+        "ownership_conservation",
+        "exit_proceeds_identity",
+        "reserve_coverage",
+        "ownership_concentration",
+        "option_pool_dilution",
+        "down_round",
+        "gross_moic"
+      ],
+      "references": [
+        {
+          "authority": "U.S. Securities and Exchange Commission",
+          "title": "Regulation D definitions and private-offering framework",
+          "url": "https://www.ecfr.gov/current/title-17/chapter-II/part-230/section-230.501",
+          "use": "private securities issuance, accredited investors and offering structure"
+        },
+        {
+          "authority": "National Venture Capital Association",
+          "title": "NVCA Model Legal Documents",
+          "url": "https://nvca.org/model-legal-documents/",
+          "use": "preferred-stock financing, investor rights, voting, pro rata, option-pool and tranched-financing terms"
+        },
+        {
+          "authority": "U.S. Securities and Exchange Commission",
+          "title": "Private placements and exempt offerings",
+          "url": "https://www.sec.gov/resources-small-businesses/capital-raising-building-blocks/exempt-offerings",
+          "use": "offering exemptions, investor eligibility and capital-raising boundaries"
+        }
+      ],
+      "cases": [
+        {
+          "id": "venture-capital-conventional-up-round",
+          "type": "conventional",
+          "inputs": {
+            "pre_money": 80.0,
+            "investment": 20.0,
+            "existing_shares": 8.0,
+            "new_shares": 2.0,
+            "pool_expansion": 0.0,
+            "exit_value": 500.0,
+            "follow_on_required": 10.0,
+            "reserves": 15.0,
+            "maximum_investor_ownership": 0.40,
+            "maximum_pool_dilution": 0.20,
+            "minimum_gross_moic": 3.0
+          }
+        },
+        {
+          "id": "venture-capital-adversarial-down-round",
+          "type": "adversarial",
+          "inputs": {
+            "pre_money": 100.0,
+            "investment": 20.0,
+            "existing_shares": 10.0,
+            "new_shares": 4.0,
+            "pool_expansion": 5.0,
+            "exit_value": 80.0,
+            "follow_on_required": 30.0,
+            "reserves": 5.0,
+            "maximum_investor_ownership": 0.40,
+            "maximum_pool_dilution": 0.20,
+            "minimum_gross_moic": 3.0
+          }
+        }
+      ]
+    }
+  ]
+}
