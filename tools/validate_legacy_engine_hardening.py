@@ -1,4 +1,4 @@
-"""Validate the six-model legacy engine hardening program."""
+"""Validate the six-model legacy engine hardening and release state."""
 from __future__ import annotations
 
 import argparse
@@ -16,12 +16,10 @@ REGISTRY = ROOT / "standards" / "frontier" / "legacy_engine_registry.json"
 INVENTORY = ROOT / "standards" / "model_inventory.json"
 BENCHMARK_INDEX = ROOT / "standards" / "benchmark_cases" / "index.json"
 EXPECTED_IDS = {"01", "02", "05", "06", "07", "13"}
+RELEASE_STAGED = "release_staged"
+RELEASE_APPLIED = "applied_release_validated"
 EXPECTED_IDENTITIES = {
-    "01": {
-        "enterprise_to_equity_bridge",
-        "per_share_identity",
-        "deal_eps_identity",
-    },
+    "01": {"enterprise_to_equity_bridge", "per_share_identity", "deal_eps_identity"},
     "02": {"cash_rollforward", "debt_rollforward", "net_debt_identity"},
     "05": {"debt_rollforward", "recovery_lgd_identity", "recovery_claim_bound"},
     "06": {"debt_rollforward", "weighted_cost_identity", "refinancing_gap_identity"},
@@ -47,6 +45,9 @@ def validate() -> dict[str, Any]:
     inventory = _load(INVENTORY)
     benchmark_index = _load(BENCHMARK_INDEX)
     inventory_by_id = {item["id"]: item for item in inventory["models"]}
+    status = registry.get("status", "planned")
+    candidate_active = status in {RELEASE_STAGED, RELEASE_APPLIED}
+    expected_benchmark_count = 2 if status == RELEASE_APPLIED else 0
     errors: list[str] = []
     warnings: list[str] = []
     results: list[dict[str, Any]] = []
@@ -59,15 +60,23 @@ def validate() -> dict[str, Any]:
         )
     if set(ORACLES) != EXPECTED_IDS:
         errors.append("oracle dispatch does not exactly cover the six legacy models")
+    if status not in {"planned", RELEASE_STAGED, RELEASE_APPLIED}:
+        errors.append(f"unsupported legacy-engine release status {status}")
 
     benchmark_counts = {model_id: 0 for model_id in EXPECTED_IDS}
     for item in benchmark_index.get("instances", []):
         model_id = item.get("model_id") or _model_id_from_template(item["template"])
         if model_id in benchmark_counts:
             benchmark_counts[model_id] += 1
-    if any(benchmark_counts.values()):
+    for model_id, count in benchmark_counts.items():
+        if count != expected_benchmark_count:
+            errors.append(
+                f"{model_id}: release status {status} requires {expected_benchmark_count} "
+                f"benchmark instances, found {count}"
+            )
+    if status == RELEASE_STAGED:
         warnings.append(
-            "Legacy benchmark instances are already present; builder release must validate them atomically."
+            "Release is staged in a workflow tree; benchmark index finalization is still pending."
         )
 
     case_ids: list[str] = []
@@ -78,12 +87,19 @@ def validate() -> dict[str, Any]:
             errors.append(f"{model_id}: missing from model inventory")
             continue
         if inventory_model.get("declared_maturity") != "M2":
-            errors.append(f"{model_id}: hardening must start from conservative M2 maturity")
-        if inventory_model.get("builder") != item.get("current_builder"):
+            errors.append(f"{model_id}: release must preserve conservative M2 maturity")
+        expected_builder = (
+            item.get("candidate_builder") if candidate_active else item.get("current_builder")
+        )
+        if inventory_model.get("builder") != expected_builder:
             errors.append(
-                f"{model_id}: current builder mismatch: inventory={inventory_model.get('builder')} "
-                f"registry={item.get('current_builder')}"
+                f"{model_id}: status {status} requires builder {expected_builder}, "
+                f"found {inventory_model.get('builder')}"
             )
+        if candidate_active and inventory_model.get("reference_checks") != item.get(
+            "reference_checks"
+        ):
+            errors.append(f"{model_id}: released reference checks do not match registry")
         candidate_builder = item.get("candidate_builder", "")
         if not candidate_builder.startswith("tools/builders/build_") or not candidate_builder.endswith("_release.py"):
             errors.append(f"{model_id}: invalid candidate release-builder path")
@@ -113,8 +129,8 @@ def validate() -> dict[str, Any]:
         model_result = {
             "model_id": model_id,
             "domain": item["domain"],
-            "current_builder": item["current_builder"],
-            "candidate_builder": candidate_builder,
+            "release_status": status,
+            "expected_builder": expected_builder,
             "benchmark_instances": benchmark_counts[model_id],
             "cases": [],
         }
@@ -163,8 +179,9 @@ def validate() -> dict[str, Any]:
         errors.append("synthetic benchmark cases must never count toward M4")
 
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "status": "PASS" if not errors else "FAIL",
+        "release_status": status,
         "models": len(models),
         "cases": len(case_ids),
         "benchmark_counts": benchmark_counts,
@@ -189,6 +206,7 @@ def main() -> int:
                 key: report[key]
                 for key in (
                     "status",
+                    "release_status",
                     "models",
                     "cases",
                     "benchmark_counts",
