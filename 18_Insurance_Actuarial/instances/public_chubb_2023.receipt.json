@@ -39,7 +39,10 @@
       "source_as_of": "2024-02-23"
     }
   ],
-  "workbook_sha256": "fd8e6d405fb493ce64bd151184256659eacfb12d0a593e0e01cd1939a785d925",
+  "workbook_sha256": "c498f69939e896c8414d4face80eba39b31b3f894d2ceebfe6e5f90b16958a9a",
   "generated_on": "2026-08-04",
-  "refresh_schema": "source-addressed-v2"
+  "refresh_schema": "source-addressed-v2",
+  "hash_refreshed_on": "2026-08-04",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "counts_toward_M4": false
 }

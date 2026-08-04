@@ -69,7 +69,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -151,7 +152,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -209,7 +211,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -283,7 +286,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -577,9 +581,12 @@
             "source_as_of": "2022-12-31"
           }
         ],
-        "workbook_sha256": "b9f76ce341eda9952be368c573ef0693c13ceccefaca56d7869653d51bfbec62",
+        "workbook_sha256": "1489ba1b25f8d9ed2b8dfe39ecb9be8c287d5a1ddeb4f985cc256df282f3a09a",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -873,9 +880,12 @@
             "source_as_of": "2023-12-31"
           }
         ],
-        "workbook_sha256": "7e7b5f2d0193fec652b3ea141a485b8f24d384b1f90d73b44024cc12115a7ad6",
+        "workbook_sha256": "d5a00bdef7d92d2578ceb7c40ee8073291a9c48f2e4f513763effa225e6f688e",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -949,7 +959,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -1031,7 +1042,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -1229,9 +1241,12 @@
             "source_as_of": "2020-12-31"
           }
         ],
-        "workbook_sha256": "fa83d5c50255019f1eba9a9850ec48cebe6a7b966b4aba5dadcd7654b50e3797",
+        "workbook_sha256": "af7f3109f1c5f4f790b8995b3a0d6b7709fd495e32da119b225139b751c8eee2",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -1429,9 +1444,12 @@
             "source_as_of": "2019-12-31"
           }
         ],
-        "workbook_sha256": "a91488e0945fcf8f7827972647c1b430d87fe80470a66ad8e648041d219935fb",
+        "workbook_sha256": "338d5612222554fc2b5d299938aaba8fee2629771e7f80d101588bf19af1fae1",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -1589,9 +1607,12 @@
             "source_as_of": "2025-12-31"
           }
         ],
-        "workbook_sha256": "f313abfcb5806732c5715c0c3e43e103b330b91a260f900c44ec1a5dc51d7968",
+        "workbook_sha256": "6af3a1009434f22381fe9d1519cb06bbc4aa1d31e2884e0fb8b2b4bf4fea475e",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -1749,9 +1770,12 @@
             "source_as_of": "2025-12-31"
           }
         ],
-        "workbook_sha256": "e9de1d22ed4f87738bf532b8297bae7b1deb7aa1535033c63b97703c6addef8c",
+        "workbook_sha256": "7609fb762b7e494bc1cb2d986e2e2f9e957f21c9a51c1ac5943231052b7b450b",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -1853,9 +1877,12 @@
             "source_as_of": "2020-12-31"
           }
         ],
-        "workbook_sha256": "7f2c93b3f4d1ade2e8077177a060a87af849a4f0ce48b93bae441dd0fd7dc69a",
+        "workbook_sha256": "451e308e8f8ff1fe1abf0cbd088337460d6115fb36bed7c68b1b0475f69e63df",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -1957,9 +1984,12 @@
             "source_as_of": "2020-02-14"
           }
         ],
-        "workbook_sha256": "96c249cf54e4368dbba86e49dcf6a8499e024a7507f5daa783f54bae5a815c8d",
+        "workbook_sha256": "bc399a363a0ef133bdb56859026c53c0f2c52e4951a6307f1faabeba60314c95",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -2017,7 +2047,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -2091,7 +2122,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -2257,9 +2289,12 @@
             "source_as_of": "2020-04-20"
           }
         ],
-        "workbook_sha256": "bd8b7f8e76dcc0efb3af9d9b13e3efc6f7adf4493f0261a627e0961c32070112",
+        "workbook_sha256": "21d08a70cd3c44494f93c8257244bc4f22d84b08086b9274e5a7a3535b3ad27b",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -2425,9 +2460,12 @@
             "source_as_of": "2023-12-31"
           }
         ],
-        "workbook_sha256": "c0dd446ced4e757565e336201ba1de087ee89806c4e705707675eace388c798b",
+        "workbook_sha256": "1d2fc4c8d531d8ad08f77040d7276b38c61f61e51a388c805535aece8dfe6e16",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -2569,9 +2607,12 @@
             "source_as_of": "2022-12-31"
           }
         ],
-        "workbook_sha256": "1210f66edfd5a0e190d90731016af5d102fdd8f8de2c274ccc0b7457ba849dea",
+        "workbook_sha256": "543f5ed073bec79e39a963c48e5208cc34df0ff1885e3b74181b60523cfbb9a5",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -2713,9 +2754,12 @@
             "source_as_of": "2023-12-31"
           }
         ],
-        "workbook_sha256": "39b77cc986c48cf9c4026cdefd2ecccb97e1c23409ef742f7c5b800a33f4b94f",
+        "workbook_sha256": "acdda60efddcf7a5aa24dc89b12e78e2129833b49c5a9be0d495ae2846c539d1",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -2897,9 +2941,12 @@
             "source_as_of": "2022-12-31"
           }
         ],
-        "workbook_sha256": "305c9becceb278fdd868e02b82370770e43145a7f7ff810726e81c18d678d120",
+        "workbook_sha256": "878b2aa7e9ee53363b3b7a4cfb9184270a59c9a63b84d5f661075713a7b48b6a",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -3081,9 +3128,12 @@
             "source_as_of": "2023-12-31"
           }
         ],
-        "workbook_sha256": "cf7203aa5a1b5f971f6bc6dab269fe62083d0f43ea2b6d441c5b3cd6012c6074",
+        "workbook_sha256": "4121c84f6b249bafdc98ff4aa1ac06b838c36f27ac3c5f1657dc5fa2ee9a2a76",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -3141,7 +3191,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -3199,7 +3250,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -3257,7 +3309,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -3315,7 +3368,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -3373,7 +3427,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -3431,7 +3486,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -3489,7 +3545,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -3547,7 +3604,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -4085,7 +4143,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -4631,7 +4690,8 @@
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
         "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind receipt to the committed post-LibreOffice workbook from the verified flagship evidence release"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -4797,9 +4857,12 @@
             "source_as_of": "2023-12-31"
           }
         ],
-        "workbook_sha256": "99eb48f3d69c815d44299d9a792fba41f58accc4f53e40cc2f749be9759e8cbc",
+        "workbook_sha256": "86df46a9505195b0d8a8fd94e612252e2056ba6299887ff183cf5d0bd9c9a70f",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -4973,9 +5036,12 @@
             "source_as_of": "2023-09-30"
           }
         ],
-        "workbook_sha256": "0712827c45ef1cc6501889b5ee634c3fe28d46b93540e3cc69cb743dac24709f",
+        "workbook_sha256": "6c16ac805f941f55aa803a9d1b282ada6f3db954331ee69954910fa5d087dad3",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -5701,9 +5767,12 @@
             "source_as_of": "2022-08-27"
           }
         ],
-        "workbook_sha256": "0779b607c97f5143c9d0b05757d55aaca0611a054a0d25ea846743d8629c8ee7",
+        "workbook_sha256": "630f60f4cca5f4acba5bb00dc1e6277438c9f67dd4f6983a4f521d98797bb699",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     },
     {
@@ -5909,9 +5978,12 @@
             "source_as_of": "2021-06-30"
           }
         ],
-        "workbook_sha256": "2a1f7fb1159121424ff506b01aff96e90d116129d49b6af7139f4e7ac451f6d3",
+        "workbook_sha256": "81e0beb87230cc9bef4de33fe077496fc47c537102b054b8f281b362667f8ceb",
         "generated_on": "2026-08-04",
-        "refresh_schema": "source-addressed-v2"
+        "refresh_schema": "source-addressed-v2",
+        "recalculated_on": "2026-08-04",
+        "recalculation_engine": "LibreOffice Calc",
+        "counts_toward_M4": false
       }
     }
   ]
