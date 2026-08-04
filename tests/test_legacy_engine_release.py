@@ -55,25 +55,35 @@ class LegacyEngineReleaseTests(unittest.TestCase):
                     source.get("url"),
                     "repo://standards/frontier/legacy_engine_registry.json",
                 )
-                self.assertIn("Synthetic engineering fixture", source.get("notes", ""))
+                self.assertIn(
+                    "Synthetic engineering fixture", source.get("notes", "")
+                )
 
     def test_canonical_paths_and_candidate_builders_align(self):
         inventory_by_id = {item["id"]: item for item in self.inventory["models"]}
-        registry_by_id = {item["model_id"]: item for item in self.registry["models"]}
-        self.assertEqual(set(registry_by_id), release_legacy_engine_promotions.EXPECTED_IDS)
+        registry_by_id = {
+            item["model_id"]: item for item in self.registry["models"]
+        }
+        self.assertEqual(
+            set(registry_by_id), release_legacy_engine_promotions.EXPECTED_IDS
+        )
+        for model_id, candidate in registry_by_id.items():
+            canonical = release_legacy_engine_promotions.CANONICAL_PATHS[model_id]
+            self.assertEqual(inventory_by_id[model_id]["workbook"], canonical)
+            self.assertEqual(inventory_by_id[model_id]["declared_maturity"], "M2")
+            builder_path = (
+                release_legacy_engine_promotions.ROOT
+                / candidate["candidate_builder"]
+            )
+            self.assertTrue(builder_path.exists(), msg=str(builder_path))
+            self.assertNotEqual(
+                candidate["candidate_builder"], candidate["current_builder"]
+            )
         for spec in self.specs:
-            model_id = spec["model_id"]
             self.assertEqual(
                 spec["template"],
-                release_legacy_engine_promotions.CANONICAL_PATHS[model_id],
+                release_legacy_engine_promotions.CANONICAL_PATHS[spec["model_id"]],
             )
-            self.assertEqual(
-                registry_by_id[model_id]["candidate_builder"],
-                f"tools/builders/build_{registry_by_id[model_id]['domain'].lower().replace(' ', '_')}_release.py"
-                if model_id not in {"01", "02", "05", "06", "07", "13"}
-                else registry_by_id[model_id]["candidate_builder"],
-            )
-            self.assertEqual(inventory_by_id[model_id]["declared_maturity"], "M2")
 
     def test_all_instances_are_synthetic_and_never_m4(self):
         for spec in self.specs:
