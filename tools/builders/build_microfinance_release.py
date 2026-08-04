@@ -173,7 +173,7 @@ def enrich(workbook) -> None:
         (10, "Operational self-sufficiency", "='Sustainability'!C12", '=IF(NOT(ISNUMBER(C10)),"REVIEW",IF(C10>=1,"PASS","BREACH"))', "OSS below 100% indicates operating dependence on subsidy or capital support."),
         (11, "Financial self-sufficiency", "='Sustainability'!C13", '=IF(NOT(ISNUMBER(C11)),"REVIEW",IF(C11>=1,"PASS","BREACH"))', "FSS also adjusts for subsidized funding and capital costs."),
         (12, "Downside funding gap", "='Funding & Liquidity'!D15", '=IF(C12>=0,"PASS","BREACH")', "A negative 30-day gap requires committed funding, slower disbursement, or contingency liquidity."),
-        (13, "Conduct-control exceptions", "=COUNTIF('Client & Conduct'!D5:D10,"<>PASS")", '=IF(C13=0,"PASS","REVIEW")', "Growth and sustainability do not override affordability or conduct failures."),
+        (13, "Conduct-control exceptions", '=COUNTIF(\'Client & Conduct\'!D5:D10,"<>PASS")', '=IF(C13=0,"PASS","REVIEW")', "Growth and sustainability do not override affordability or conduct failures."),
     ]
     for row, label, formula, status, action in rows:
         checks.cell(row, 2, label)
