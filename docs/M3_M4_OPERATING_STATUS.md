@@ -1,17 +1,24 @@
 # M3/M4 Operating Evidence Status
 
-As of August 4, 2026, the nine engineered flagships have completed the automatable M3 evidence tranche without being falsely promoted.
+As of August 4, 2026, all 24 domains carry the automatable M3 evidence
+tranche (`model_card.md`, `validation.md`, `governance/`, `outcomes/`,
+`releases/`, `sources/`) without being falsely promoted. This was
+originally scoped to nine "engineered flagship" domains; the #13 M1-to-M2
+promotion and #11 all-domain frontier merges extended the same evidence
+structure to the remaining fifteen, and 18 of the 24 currently carry
+source-addressed public cases (36 total: one conventional + one
+adversarial per domain; the remaining six gain theirs once #17 merges).
 
-## Implemented across all nine flagships
+## Implemented across all 24 domains
 
 - Completed approved-use, prohibited-use, and limitation model cards
 - Independent engineering validation records
-- One conventional external historical case
-- One adversarial external historical case
+- One conventional external historical case (18 of 24 domains; the rest are staged in draft PR #17)
+- One adversarial external historical case (same 18 of 24)
 - Frozen source snapshots with SHA-256 digests
 - Source registers and source-addressed workbook receipts
-- LibreOffice recalculation of all 18 public case workbooks
-- Recorded historical outcome evidence for at least one case per flagship
+- LibreOffice recalculation of all 36 public case workbooks
+- Recorded historical outcome evidence for at least one case per domain with a public case
 - Monitoring warning and breach thresholds with escalation actions
 - Active release and rollback release records
 - Replacement and retirement triggers

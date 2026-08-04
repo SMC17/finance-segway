@@ -3,7 +3,7 @@ name: Required Builder Parity
 on:
   pull_request:
   push:
-    branches: [main, agent/synthesize-finance-model-library-v2]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
