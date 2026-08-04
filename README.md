@@ -9,10 +9,11 @@ The repository is broad, formula-driven, and heavily checked. It is not yet a pr
 The machine-validated baseline after credit and public-finance reconciliation is:
 
 - **24** core spreadsheet archetypes
-- **10 M2 Decision Models**
-- **14 M1 Correct Skeletons**
+- **15 M2 Decision Models**
+- **9 M1 Correct Skeletons**
 - **0 M3 Institutional Underwriting Models**
 - **0 M4 Maintained Production Systems**
+- **18 synthetic engineering benchmark instances**
 - **0 populated public instances**
 
 That distinction is deliberate. “The workbook opens” and “the core formula is correct” are necessary but not sufficient evidence of underwriting depth.
@@ -44,6 +45,42 @@ Every archetype is expected to have:
 - independent benchmark tests for material math;
 - a declared use, horizon, owner, limitations, and maturity;
 - a path from blank archetype to maintained public instances.
+
+## Consulting operating system
+
+The repository now also contains a governed consulting core for redesigning and
+testing functional work across a company. It hand-rolls the decision and control
+layer represented by modern functional AI products without depending on their
+external workflows or tooling.
+
+The core includes:
+
+- a P&L-linked operating graph and bottleneck economics;
+- evidence-backed executive diagnostics and semantic metrics;
+- deterministic functional kernels across engineering, data, knowledge,
+  marketing/GEO, sales/pricing, customer, finance, procurement, people,
+  operations, quality, legal, IT/security, and creative production;
+- a local agent harness with skills, scopes, autonomy, approval gates,
+  idempotency, and hash-chained execution receipts;
+- observed-process discovery with variants, rework, handoffs, conformance, and
+  delay economics;
+- default-deny policy-as-code, expiring scoped approvals, deny overrides, and
+  segregation of duties;
+- replayable decision workflows with typed bindings, budgets, retries,
+  compensating actions, and deterministic fingerprints;
+- adversarial and metamorphic evaluation plus machine-enforced A2 promotion;
+- confidence-adjusted portfolios, seeded Monte Carlo underwriting, service
+  queue simulation, frozen outcome baselines, and explicit attribution limits;
+- an EBITDA/net-debt/enterprise-value/MOIC/IRR bridge and evidence-gated
+  100-day plan for portfolio-company value creation;
+- quote-to-cash and procure-to-pay A2 synthetic benchmarks, plus the original
+  integrated reference case, all with no external system access.
+
+See `docs/CONSULTING_OPERATING_SYSTEM.md` and
+`standards/consulting/capability_catalog.json`. The initial functional catalog is
+**A1 Deterministic Core**. Six cross-functional control-plane components have
+reproducible **A2 Integrated Benchmark** evidence; value-realization attribution
+remains A1. Nothing is production or client-validated maturity.
 
 ## Core conventions
 
@@ -164,7 +201,16 @@ An M4 instance requires a source register, frozen as-of date, model card, valida
 
 standards/
   model_inventory.json
+  consulting/
+    capability_catalog.json
   templates/
+
+consulting/
+  README.md
+  reference_cases/
+
+finance_segway/
+  consulting/
 
 tools/
   builders/
@@ -202,6 +248,10 @@ python tools/weekly_refresh_check.py .
 
 # Create the evidence pack for a domain
 python tools/scaffold_model_evidence.py 05_Private_Credit
+
+# Validate and run the hand-rolled consulting core
+PYTHONPATH=. python tools/validate_consulting_catalog.py
+PYTHONPATH=. python tools/run_consulting_reference_case.py
 ```
 
 ## Collaboration
