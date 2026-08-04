@@ -1,0 +1,228 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "corp-adversarial-liquidity",
+  "as_of": "2026-08-04",
+  "manifest": "standards/benchmark_cases/corp-adversarial-liquidity.json",
+  "template": "02_Corporate_Finance/_template_BASE.xlsx",
+  "output": "02_Corporate_Finance/instances/benchmark_adversarial_liquidity.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C5",
+      "previous": 100,
+      "value": 50.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D5",
+      "previous": 50,
+      "value": 50.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C6",
+      "previous": 150,
+      "value": 30.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D6",
+      "previous": 30,
+      "value": 30.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C7",
+      "previous": 50,
+      "value": 60.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D7",
+      "previous": 60,
+      "value": 60.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C8",
+      "previous": 20,
+      "value": 20.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D8",
+      "previous": 20,
+      "value": 20.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C9",
+      "previous": 10,
+      "value": 30.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D9",
+      "previous": 30,
+      "value": 30.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C10",
+      "previous": 0,
+      "value": 80.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D10",
+      "previous": 80,
+      "value": 80.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C11",
+      "previous": 30,
+      "value": 0.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D11",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C12",
+      "previous": 200,
+      "value": 300.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D12",
+      "previous": 300,
+      "value": 300.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C13",
+      "previous": 120,
+      "value": 60.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D13",
+      "previous": 60,
+      "value": 60.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C14",
+      "previous": 10,
+      "value": 40.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D14",
+      "previous": 40,
+      "value": 40.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C15",
+      "previous": 50,
+      "value": 80.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D15",
+      "previous": 80,
+      "value": 80.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C16",
+      "previous": 3.5,
+      "value": 3.5,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D16",
+      "previous": 3.5,
+      "value": 3.5,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C17",
+      "previous": 2,
+      "value": 2.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D17",
+      "previous": 2,
+      "value": 2.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    }
+  ],
+  "workbook_sha256": "6f88add9a2369d7d6539909f22ad080f6d07639940858fdacffd17b9b3777af1",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "recalculated_on": "2026-08-04",
+  "recalculation_engine": "LibreOffice Calc",
+  "model_id": "02",
+  "domain": "Corporate Finance",
+  "case_type": "adversarial",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false
+}

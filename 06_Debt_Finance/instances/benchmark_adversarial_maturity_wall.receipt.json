@@ -1,0 +1,308 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "debt-adversarial-maturity-wall",
+  "as_of": "2026-08-04",
+  "manifest": "standards/benchmark_cases/debt-adversarial-maturity-wall.json",
+  "template": "06_Debt_Finance/_template_CREDIT.xlsx",
+  "output": "06_Debt_Finance/instances/benchmark_adversarial_maturity_wall.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C5",
+      "previous": 500,
+      "value": 500.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D5",
+      "previous": 500,
+      "value": 500.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C6",
+      "previous": 100,
+      "value": 300.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D6",
+      "previous": 300,
+      "value": 300.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C7",
+      "previous": 150,
+      "value": 50.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D7",
+      "previous": 50,
+      "value": 50.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C13",
+      "previous": 100,
+      "value": 50.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D13",
+      "previous": 50,
+      "value": 50.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C14",
+      "previous": 50,
+      "value": 50.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D14",
+      "previous": 50,
+      "value": 50.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C19",
+      "previous": 150,
+      "value": 80.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D19",
+      "previous": 80,
+      "value": 80.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C20",
+      "previous": 0.4,
+      "value": 0.35,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D20",
+      "previous": 0.35,
+      "value": 0.35,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C21",
+      "previous": 2,
+      "value": 2.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D21",
+      "previous": 2,
+      "value": 2.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C22",
+      "previous": 0.1,
+      "value": 0.1,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D22",
+      "previous": 0.1,
+      "value": 0.1,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C8",
+      "previous": 50,
+      "value": 300.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D8",
+      "previous": 300,
+      "value": 300.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C9",
+      "previous": 75,
+      "value": 250.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D9",
+      "previous": 250,
+      "value": 250.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C10",
+      "previous": 100,
+      "value": 100.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D10",
+      "previous": 100,
+      "value": 100.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C11",
+      "previous": 100,
+      "value": 50.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D11",
+      "previous": 50,
+      "value": 50.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C12",
+      "previous": 125,
+      "value": 50.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D12",
+      "previous": 50,
+      "value": 50.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C15",
+      "previous": 300,
+      "value": 500.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D15",
+      "previous": 500,
+      "value": 500.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C16",
+      "previous": 0.06,
+      "value": 0.12,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D16",
+      "previous": 0.12,
+      "value": 0.12,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C17",
+      "previous": 150,
+      "value": 250.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D17",
+      "previous": 250,
+      "value": 250.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C18",
+      "previous": 0.07,
+      "value": 0.15,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D18",
+      "previous": 0.15,
+      "value": 0.15,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    }
+  ],
+  "workbook_sha256": "02b325b7f29f943d45aaec8ce83af1b8977012f6b1cd8bcf19f28ddbbf8606bb",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "recalculated_on": "2026-08-04",
+  "recalculation_engine": "LibreOffice Calc",
+  "model_id": "06",
+  "domain": "Debt Finance",
+  "case_type": "adversarial",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false
+}

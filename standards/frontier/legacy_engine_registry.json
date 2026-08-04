@@ -59,9 +59,15 @@
             "debt": 200.0,
             "cash": 100.0,
             "shares": 100.0,
-            "discount_rate": 0.10,
+            "discount_rate": 0.1,
             "terminal_growth": 0.03,
-            "forecast_fcfs": [70.0, 75.0, 80.0, 85.0, 90.0],
+            "forecast_fcfs": [
+              70.0,
+              75.0,
+              80.0,
+              85.0,
+              90.0
+            ],
             "offer_price": 9.5,
             "after_tax_synergies": 5.0,
             "incremental_financing_cost": 3.0,
@@ -69,9 +75,9 @@
             "shares_issued": 10.0,
             "buyer_earnings": 100.0,
             "buyer_shares": 100.0,
-            "premium_warning": 0.30,
+            "premium_warning": 0.3,
             "minimum_accretion": 0.0,
-            "valuation_dispersion_warning": 0.50
+            "valuation_dispersion_warning": 0.5
           }
         },
         {
@@ -84,7 +90,13 @@
             "shares": 100.0,
             "discount_rate": 0.05,
             "terminal_growth": 0.06,
-            "forecast_fcfs": [70.0, 65.0, 60.0, 55.0, 50.0],
+            "forecast_fcfs": [
+              70.0,
+              65.0,
+              60.0,
+              55.0,
+              50.0
+            ],
             "offer_price": 15.0,
             "after_tax_synergies": 0.0,
             "incremental_financing_cost": 20.0,
@@ -92,9 +104,9 @@
             "shares_issued": 50.0,
             "buyer_earnings": 100.0,
             "buyer_shares": 100.0,
-            "premium_warning": 0.30,
+            "premium_warning": 0.3,
             "minimum_accretion": 0.0,
-            "valuation_dispersion_warning": 0.50
+            "valuation_dispersion_warning": 0.5
           }
         }
       ]
@@ -236,7 +248,7 @@
             "lender_claim": 300.0,
             "minimum_dscr": 1.0,
             "maximum_leverage": 6.0,
-            "minimum_recovery": 0.60
+            "minimum_recovery": 0.6
           }
         },
         {
@@ -255,7 +267,7 @@
             "lender_claim": 380.0,
             "minimum_dscr": 1.0,
             "maximum_leverage": 6.0,
-            "minimum_recovery": 0.60
+            "minimum_recovery": 0.6
           }
         }
       ]
@@ -306,18 +318,30 @@
             "opening_debt": 500.0,
             "issuance": 100.0,
             "repayments": 150.0,
-            "maturities": [50.0, 75.0, 100.0, 100.0, 125.0],
+            "maturities": [
+              50.0,
+              75.0,
+              100.0,
+              100.0,
+              125.0
+            ],
             "liquidity": 100.0,
             "committed_lines": 50.0,
             "near_term_years": 2,
             "tranches": [
-              {"amount": 300.0, "rate": 0.06},
-              {"amount": 150.0, "rate": 0.07}
+              {
+                "amount": 300.0,
+                "rate": 0.06
+              },
+              {
+                "amount": 150.0,
+                "rate": 0.07
+              }
             ],
             "ebitda": 150.0,
-            "maximum_maturity_concentration": 0.40,
+            "maximum_maturity_concentration": 0.4,
             "minimum_interest_coverage": 2.0,
-            "maximum_weighted_cost": 0.10
+            "maximum_weighted_cost": 0.1
           }
         },
         {
@@ -327,18 +351,30 @@
             "opening_debt": 500.0,
             "issuance": 300.0,
             "repayments": 50.0,
-            "maturities": [300.0, 250.0, 100.0, 50.0, 50.0],
+            "maturities": [
+              300.0,
+              250.0,
+              100.0,
+              50.0,
+              50.0
+            ],
             "liquidity": 50.0,
             "committed_lines": 50.0,
             "near_term_years": 2,
             "tranches": [
-              {"amount": 500.0, "rate": 0.12},
-              {"amount": 250.0, "rate": 0.15}
+              {
+                "amount": 500.0,
+                "rate": 0.12
+              },
+              {
+                "amount": 250.0,
+                "rate": 0.15
+              }
             ],
             "ebitda": 80.0,
             "maximum_maturity_concentration": 0.35,
             "minimum_interest_coverage": 2.0,
-            "maximum_weighted_cost": 0.10
+            "maximum_weighted_cost": 0.1
           }
         }
       ]
@@ -393,7 +429,7 @@
           "id": "public-finance-conventional-stable",
           "type": "conventional",
           "inputs": {
-            "opening_debt_ratio": 0.60,
+            "opening_debt_ratio": 0.6,
             "nominal_interest_rate": 0.05,
             "nominal_growth_rate": 0.04,
             "primary_balance_ratio": 0.015,
@@ -402,16 +438,16 @@
             "reserves": 20.0,
             "operating_expenditure": 100.0,
             "maximum_debt_ratio": 1.0,
-            "minimum_dscr": 1.20,
-            "minimum_reserve_coverage": 0.10
+            "minimum_dscr": 1.2,
+            "minimum_reserve_coverage": 0.1
           }
         },
         {
           "id": "public-finance-adversarial-debt-distress",
           "type": "adversarial",
           "inputs": {
-            "opening_debt_ratio": 1.20,
-            "nominal_interest_rate": 0.10,
+            "opening_debt_ratio": 1.2,
+            "nominal_interest_rate": 0.1,
             "nominal_growth_rate": 0.01,
             "primary_balance_ratio": -0.03,
             "pledged_revenue": 50.0,
@@ -419,8 +455,8 @@
             "reserves": 5.0,
             "operating_expenditure": 100.0,
             "maximum_debt_ratio": 1.0,
-            "minimum_dscr": 1.20,
-            "minimum_reserve_coverage": 0.10
+            "minimum_dscr": 1.2,
+            "minimum_reserve_coverage": 0.1
           }
         }
       ]
@@ -479,8 +515,8 @@
             "exit_value": 500.0,
             "follow_on_required": 10.0,
             "reserves": 15.0,
-            "maximum_investor_ownership": 0.40,
-            "maximum_pool_dilution": 0.20,
+            "maximum_investor_ownership": 0.4,
+            "maximum_pool_dilution": 0.2,
             "minimum_gross_moic": 3.0
           }
         },
@@ -496,12 +532,14 @@
             "exit_value": 80.0,
             "follow_on_required": 30.0,
             "reserves": 5.0,
-            "maximum_investor_ownership": 0.40,
-            "maximum_pool_dilution": 0.20,
+            "maximum_investor_ownership": 0.4,
+            "maximum_pool_dilution": 0.2,
             "minimum_gross_moic": 3.0
           }
         }
       ]
     }
-  ]
+  ],
+  "status": "applied_release_validated",
+  "released_on": "2026-08-04"
 }

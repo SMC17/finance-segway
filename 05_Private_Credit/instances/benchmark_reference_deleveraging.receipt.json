@@ -1,0 +1,404 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "credit-reference-deleveraging",
+  "as_of": "2026-08-04",
+  "manifest": "standards/benchmark_cases/credit-reference-deleveraging.json",
+  "template": "05_Private_Credit/_template_CREDIT.xlsx",
+  "output": "05_Private_Credit/instances/benchmark_reference_deleveraging.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Amendment Economics",
+      "cell": "C5",
+      "previous": 350,
+      "value": 350.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D5",
+      "previous": 350,
+      "value": 350.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "C6",
+      "previous": 10,
+      "value": 10.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D6",
+      "previous": 0,
+      "value": 10.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "C7",
+      "previous": 40,
+      "value": 40.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D7",
+      "previous": 0,
+      "value": 40.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "C8",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D8",
+      "previous": 30,
+      "value": 0.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "C9",
+      "previous": 80,
+      "value": 80.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D9",
+      "previous": 20,
+      "value": 80.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "C10",
+      "previous": 25,
+      "value": 25.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D10",
+      "previous": 40,
+      "value": 25.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "C11",
+      "previous": 100,
+      "value": 100.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D11",
+      "previous": 50,
+      "value": 100.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "C12",
+      "previous": 500,
+      "value": 500.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D12",
+      "previous": 180,
+      "value": 500.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "C13",
+      "previous": 50,
+      "value": 50.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D13",
+      "previous": 50,
+      "value": 50.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "C14",
+      "previous": 300,
+      "value": 300.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D14",
+      "previous": 380,
+      "value": 300.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "C15",
+      "previous": 1,
+      "value": 1.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D15",
+      "previous": 1,
+      "value": 1.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "C16",
+      "previous": 6,
+      "value": 6.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D16",
+      "previous": 6,
+      "value": 6.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "C17",
+      "previous": 0.6,
+      "value": 0.6,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D17",
+      "previous": 0.6,
+      "value": 0.6,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C5",
+      "previous": 35,
+      "value": 35.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "D5",
+      "previous": 45,
+      "value": 35.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "E5",
+      "previous": 4,
+      "value": 4.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "F5",
+      "previous": 7,
+      "value": 4.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C6",
+      "previous": 25,
+      "value": 25.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "D6",
+      "previous": 30,
+      "value": 25.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "E6",
+      "previous": 4.5,
+      "value": 4.5,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "F6",
+      "previous": 6.5,
+      "value": 4.5,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C7",
+      "previous": 20,
+      "value": 20.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "D7",
+      "previous": 15,
+      "value": 20.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "E7",
+      "previous": 3.5,
+      "value": 3.5,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "F7",
+      "previous": 5,
+      "value": 3.5,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C8",
+      "previous": 12,
+      "value": 12.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "D8",
+      "previous": 7,
+      "value": 12.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "E8",
+      "previous": 3,
+      "value": 3.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "F8",
+      "previous": 4,
+      "value": 3.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C9",
+      "previous": 8,
+      "value": 8.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "D9",
+      "previous": 3,
+      "value": 8.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "E9",
+      "previous": 2.5,
+      "value": 2.5,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "F9",
+      "previous": 3.5,
+      "value": 2.5,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C15",
+      "previous": 0.4,
+      "value": 0.4,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "D15",
+      "previous": 0.4,
+      "value": 0.4,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    }
+  ],
+  "workbook_sha256": "b7f25f6c18cad54aa5c881840a4d89dece4a28cbc9ce67b9ac275560c35c87ca",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "recalculated_on": "2026-08-04",
+  "recalculation_engine": "LibreOffice Calc",
+  "model_id": "05",
+  "domain": "Private Credit",
+  "case_type": "conventional",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false
+}
