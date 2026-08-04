@@ -34,14 +34,14 @@ jobs:
           python -m compileall -q finance_segway tools tests
           PYTHONPATH=. python -m unittest discover -s tests -v
 
-      - name: Generate eight institutional flagships
+      - name: Generate eight canonical release flagships
         run: |
           mkdir -p .flagship-build
-          PYTHONPATH=.:tools python tools/builders/build_options_institutional.py --output .flagship-build/OPTIONS.xlsx
-          PYTHONPATH=.:tools python tools/builders/build_project_finance_institutional.py --output .flagship-build/PROJECT_FINANCE.xlsx
+          PYTHONPATH=.:tools python tools/builders/build_options_release.py --output .flagship-build/OPTIONS.xlsx
+          PYTHONPATH=.:tools python tools/builders/build_project_finance_release.py --output .flagship-build/PROJECT_FINANCE.xlsx
           PYTHONPATH=.:tools python tools/builders/build_securitization_institutional.py --output .flagship-build/SECURITIZATION.xlsx
           PYTHONPATH=.:tools python tools/builders/build_insurance_release.py --output .flagship-build/INSURANCE.xlsx
-          PYTHONPATH=.:tools python tools/builders/build_quant_institutional.py --output .flagship-build/QUANT.xlsx
+          PYTHONPATH=.:tools python tools/builders/build_quant_release.py --output .flagship-build/QUANT.xlsx
           PYTHONPATH=.:tools python tools/builders/build_risk_release.py --output .flagship-build/RISK.xlsx
           PYTHONPATH=.:tools python tools/builders/build_fixed_income_release.py --output .flagship-build/FIXED_INCOME.xlsx
           PYTHONPATH=.:tools python tools/builders/build_lbo_release.py --output .flagship-build/LBO.xlsx
