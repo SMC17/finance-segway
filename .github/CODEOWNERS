@@ -3,13 +3,19 @@
 
 # Changes to execution, maturity claims, independent oracles, and policy controls
 # require an explicit owner review in addition to the author-independent approval gate.
+/.github/CODEOWNERS @SMC17
 /.github/workflows/ @SMC17
-/standards/model_inventory.json @SMC17
-/standards/m3_evidence/ @SMC17
-/standards/public_cases/ @SMC17
-/tools/*reference_engines.py @SMC17
-/tools/validate_model_inventory.py @SMC17
-/tools/validate_reconciled_models.py @SMC17
+/standards/ @SMC17
+/tools/*inventory*.py @SMC17
+/tools/*oracle*.py @SMC17
+/tools/*reference_engine*.py @SMC17
+/tools/validate_*.py @SMC17
+/tools/postgres_etl.py @SMC17
+/tools/verify_postgres_etl.py @SMC17
+/db/ @SMC17
+/analytics/dbt/ @SMC17
+/research/kdb/INTEGRATION_CONTRACTS.md @SMC17
+/research/ram/STAGE_GATES.md @SMC17
 /finance_segway/consulting/policy.py @SMC17
 /finance_segway/consulting/runtime.py @SMC17
 /finance_segway/consulting/orchestration.py @SMC17

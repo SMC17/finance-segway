@@ -16,58 +16,10 @@
     },
     {
       "sheet": "Property Pro Forma",
-      "cell": "C6",
-      "previous": 0,
-      "value": 6.0,
-      "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Property Pro Forma",
-      "cell": "C8",
-      "previous": 0,
-      "value": 0.5,
-      "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Property Pro Forma",
       "cell": "C10",
       "previous": 0,
       "value": 5354.25,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1813756/000181375623000016/we-20221231.htm",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Property Pro Forma",
-      "cell": "C12",
-      "previous": 0,
-      "value": 4.0,
-      "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Cap Rate & Valuation",
-      "cell": "C5",
-      "previous": 0.06,
-      "value": 0.09,
-      "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Cap Rate & Valuation",
-      "cell": "C8",
-      "previous": 0,
-      "value": 100.0,
-      "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Cap Rate & Valuation",
-      "cell": "C10",
-      "previous": 0,
-      "value": 85.0,
-      "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
       "source_as_of": "2022-12-31"
     },
     {
@@ -93,84 +45,11 @@
       "value": 0.0,
       "source_url": "repo://17_Real_Estate_REIT/sources/snapshots/real-estate-public-wework-2022-stress.json",
       "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "REIT FFO-AFFO",
-      "cell": "C9",
-      "previous": 0,
-      "value": 4.0,
-      "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "REIT FFO-AFFO",
-      "cell": "C10",
-      "previous": 0,
-      "value": 1.0,
-      "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "REIT FFO-AFFO",
-      "cell": "C13",
-      "previous": 1,
-      "value": 10.0,
-      "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Debt Schedule",
-      "cell": "C3",
-      "previous": 0.06,
-      "value": 0.1,
-      "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Debt Schedule",
-      "cell": "C4",
-      "previous": 25,
-      "value": 15.0,
-      "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Debt Schedule",
-      "cell": "C5",
-      "previous": 1.25,
-      "value": 1.25,
-      "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "5-Year Hold & IRR",
-      "cell": "C5",
-      "previous": 0.02,
-      "value": -0.03,
-      "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "5-Year Hold & IRR",
-      "cell": "C6",
-      "previous": 0.065,
-      "value": 0.1,
-      "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "5-Year Hold & IRR",
-      "cell": "C7",
-      "previous": 0.02,
-      "value": 0.04,
-      "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-      "source_as_of": "2022-12-31"
     }
   ],
-  "workbook_sha256": "878b2aa7e9ee53363b3b7a4cfb9184270a59c9a63b84d5f661075713a7b48b6a",
+  "workbook_sha256": "3f4ffd280cdbd6c7089cc96fc1599ae15e828ab39339a9e896c037a21299db4d",
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
-  "recalculated_on": "2026-08-04",
-  "recalculation_engine": "LibreOffice Calc",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }

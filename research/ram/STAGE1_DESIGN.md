@@ -1,72 +1,49 @@
-# Stage-1 Design Skeleton (≤50 names)
+# Stage-1 design (maximum 50 assets)
 
-**Status**: Design only. Hard universe cap remains **10** until the Stage-0 evidence checklist in `STAGE_GATES.md` is complete and reviewed.
+**Status:** Design only. The hard cap remains ten until Stage-0 real-data,
+performance, and independent-review gates are complete.
 
-## Goals for Stage 1
+## Stable API
 
-- Support universes up to 50 names with the same pure-Python risk primitives (or a carefully profiled acceleration).
-- Keep numerical identities and PSD guarantees.
-- Record performance and memory against the budgets in `STAGE_GATES.md`.
-- Continue to feed Contract-1 regime exports and the Excel visualization path.
+- `portfolio_variance(weights, covariance)`
+- `equal_weight_risk(covariance)`
+- `inverse_vol_weights(volatilities)`
+- `is_positive_semidefinite(covariance)`
 
-## Planned structure (do not implement until Stage-0 gates pass)
+The Stage-0 pure-Python implementation remains the reference even if a later
+implementation adds acceleration.
+
+## Real-data boundary
+
+Stage 1 requires a fixed, reviewable universe and observation window. A data
+release must include raw observations where redistribution permits, exact source
+URLs, an as-of date, a SHA-256 receipt, corporate-action and missing-value
+policies, derived covariance, and a realized-risk comparison. There is no
+generated-data or offline fallback.
+
+The initial design target is a liquid public US equity universe with at least
+250 common daily observations. The exact constituents are fixed only in the
+promotion PR; no S&P 100/500 coverage is implied.
+
+## Planned structure
 
 ```text
 research/ram/
-  simple_covariance.py          # Stage 0 (cap 10) — remains the reference
+  simple_covariance.py
   stage1/
-    __init__.py
-    covariance.py               # same API, cap raised to 50 after evidence
-    data.py                     # loaders for 50-name real universes
+    covariance.py
+    data.py
     bench_stage1.py
   evidence/
-    stage0_results_*.md         # must be complete first
-    stage1_results_*.md         # created only after promotion
+    stage0_results_<as-of>.md
 ```
-
-## API stability
-
-Stage 1 will preserve:
-
-- `portfolio_variance(weights, cov) -> float`
-- `equal_weight_risk(cov) -> RiskResult`
-- `inverse_vol_weights(vols) -> tuple[float, ...]`
-- `is_positive_semidefinite(cov) -> bool`
-
-Optional additions (behind explicit flags):
-
-- Leading-eigenvalue or factor-adjusted covariance cleaning
-- Simple long-only risk-parity solver
-- Batch evaluation helpers for visualization
-
-## Data
-
-Stage 1 will continue to use the Yahoo chart API (or a later vendor) and will write:
-
-- `universe_real_50.json`
-- `cov_real_50.json`
-- matching Contract-1 regime CSV under `research/kdb/exports/`
-
-Universe selection criteria (to be fixed at promotion time):
-
-- Liquid US large-cap names
-- Sufficient common history (≥ 250 daily observations)
-- Explicit exclusion list for corporate actions / thin trading if needed
-
-## Non-goals for Stage 1
-
-- No S&P 500 claim
-- No options or futures
-- No replacement of the governed `09_Risk_Management` archetype
-- No M-maturity rating for research artifacts
 
 ## Promotion trigger
 
-Only after:
+1. All Stage-0 numerical tests pass.
+2. A source-addressed Stage-0 public dataset and receipt are reviewed.
+3. Performance and peak memory are measured on documented hardware.
+4. Bias, corporate-action, and missing-value policies are accepted.
+5. An independent reviewer approves the evidence delta.
 
-1. Stage-0 unit tests green
-2. Measured Stage-0 benchmark numbers recorded in evidence
-3. PSD corpus and conservation tests reviewed
-4. This design note accepted
-
-Then the hard cap in code may be raised and `stage1/` implementation may begin.
+Only then may code raise the universe cap.

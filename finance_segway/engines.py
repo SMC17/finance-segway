@@ -7,3 +7,4 @@ from .portfolio import *  # noqa: F401,F403
 from .project_finance import *  # noqa: F401,F403
 from .risk import *  # noqa: F401,F403
 from .structured import *  # noqa: F401,F403
+from .venture_capital import *  # noqa: F401,F403

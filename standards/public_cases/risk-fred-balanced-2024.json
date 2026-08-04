@@ -8,69 +8,9 @@
   "as_of": "2024-01-02",
   "scenario": "Base",
   "cover": {
-    "Portfolio / desk:": "Balanced public-market risk regime"
+    "Subject:": "Balanced public-market risk regime"
   },
   "inputs": [
-    {
-      "sheet": "Assumptions",
-      "cell": "C5",
-      "value": 0.99,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from risk-reference-balanced.json",
-        "url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
-        "as_of": "2024-01-02",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C12",
-      "value": 12.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from risk-reference-balanced.json",
-        "url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
-        "as_of": "2024-01-02",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C18",
-      "value": 300.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from risk-reference-balanced.json",
-        "url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
-        "as_of": "2024-01-02",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Positions",
-      "cell": "D5",
-      "value": 50.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from risk-reference-balanced.json",
-        "url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
-        "as_of": "2024-01-02",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Positions",
-      "cell": "E5",
-      "value": 140.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from risk-reference-balanced.json",
-        "url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
-        "as_of": "2024-01-02",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
     {
       "sheet": "Assumptions",
       "cell": "C7",
@@ -123,5 +63,16 @@
     "what_changed": "Generated public case risk-fred-balanced-2024 from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "subsequent_60d_max_drawdown",
+    "forecast": -0.08,
+    "realized": -0.052,
+    "realized_source": "S&P 500 via FRED",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://09_Risk_Management/sources/snapshots/risk-fred-balanced-2024.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

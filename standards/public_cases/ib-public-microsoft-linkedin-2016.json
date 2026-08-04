@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "id": "ib-public-microsoft-linkedin-2016",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "01_Investment_Banking/_template_BASE.xlsx",
+  "output": "01_Investment_Banking/instances/public_microsoft_linkedin_2016.xlsx",
+  "as_of": "2016-12-08",
+  "scenario": "Base",
+  "cover": {
+    "Subject:": "Microsoft acquisition of LinkedIn"
+  },
+  "inputs": [
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C5",
+      "value": 26200.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "LinkedIn September 2016 Form 10-Q merger disclosure",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+        "as_of": "2016-12-08",
+        "notes": "U.S. SEC / LinkedIn; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C8",
+      "value": 133.673469,
+      "input_kind": "derived",
+      "source": {
+        "name": "LinkedIn September 2016 Form 10-Q merger disclosure",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+        "as_of": "2016-12-08",
+        "notes": "U.S. SEC / LinkedIn; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C9",
+      "value": 196.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "LinkedIn September 2016 Form 10-Q merger disclosure",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+        "as_of": "2016-12-08",
+        "notes": "U.S. SEC / LinkedIn; frozen curated observation as of case date"
+      }
+    }
+  ],
+  "outcome": {
+    "metric": "transaction_completed",
+    "forecast": 1.0,
+    "realized": 1.0,
+    "realized_source": "LinkedIn merger completion Form 8-K",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://01_Investment_Banking/sources/snapshots/ib-public-microsoft-linkedin-2016.json",
+    "synthetic_benchmark_inputs_allowed": false
+  },
+  "sources": [
+    {
+      "name": "LinkedIn September 2016 Form 10-Q merger disclosure",
+      "url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+      "as_of": "2016-12-08",
+      "notes": "U.S. SEC / LinkedIn; frozen curated observation as of case date"
+    },
+    {
+      "name": "LinkedIn merger completion Form 8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1271024/000110465916161289/a16-22816_18k.htm",
+      "as_of": "2016-12-08",
+      "notes": "U.S. SEC / LinkedIn; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://01_Investment_Banking/sources/snapshots/ib-public-microsoft-linkedin-2016.json",
+      "as_of": "2016-12-08",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://01_Investment_Banking/sources/snapshots/ib-public-microsoft-linkedin-2016.json",
+    "what_changed": "Generated public case ib-public-microsoft-linkedin-2016 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

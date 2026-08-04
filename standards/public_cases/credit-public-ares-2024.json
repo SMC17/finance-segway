@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0",
+  "id": "credit-public-ares-2024",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "05_Private_Credit/_template_CREDIT.xlsx",
+  "output": "05_Private_Credit/instances/public_ares_2024.xlsx",
+  "as_of": "2024-12-31",
+  "scenario": "Base",
+  "cover": {
+    "Subject:": "Ares Capital 2024 investment portfolio"
+  },
+  "inputs": [
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C5",
+      "value": 9352.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Ares Capital 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+        "as_of": "2024-12-31",
+        "notes": "U.S. SEC / Ares Capital; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C6",
+      "value": 6680.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Ares Capital 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+        "as_of": "2024-12-31",
+        "notes": "U.S. SEC / Ares Capital; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C7",
+      "value": 5344.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Ares Capital 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+        "as_of": "2024-12-31",
+        "notes": "U.S. SEC / Ares Capital; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C8",
+      "value": 3206.4,
+      "input_kind": "derived",
+      "source": {
+        "name": "Ares Capital 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+        "as_of": "2024-12-31",
+        "notes": "U.S. SEC / Ares Capital; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Portfolio & Concentration",
+      "cell": "C9",
+      "value": 2137.6,
+      "input_kind": "derived",
+      "source": {
+        "name": "Ares Capital 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+        "as_of": "2024-12-31",
+        "notes": "U.S. SEC / Ares Capital; frozen curated observation as of case date"
+      }
+    }
+  ],
+  "outcome": {
+    "metric": "next_reported_portfolio_fair_value_usd_mm",
+    "forecast": 27000.0,
+    "realized": 27886.1,
+    "realized_source": "Ares Capital second-quarter 2025 Form 10-Q",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://05_Private_Credit/sources/snapshots/credit-public-ares-2024.json",
+    "synthetic_benchmark_inputs_allowed": false
+  },
+  "sources": [
+    {
+      "name": "Ares Capital 2024 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+      "as_of": "2024-12-31",
+      "notes": "U.S. SEC / Ares Capital; frozen curated observation as of case date"
+    },
+    {
+      "name": "Ares Capital second-quarter 2025 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000050/arcc-20250630.htm",
+      "as_of": "2024-12-31",
+      "notes": "U.S. SEC / Ares Capital; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://05_Private_Credit/sources/snapshots/credit-public-ares-2024.json",
+      "as_of": "2024-12-31",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://05_Private_Credit/sources/snapshots/credit-public-ares-2024.json",
+    "what_changed": "Generated public case credit-public-ares-2024 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

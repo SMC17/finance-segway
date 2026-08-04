@@ -19,7 +19,7 @@
       "multi_release_outcome_history",
       "rollback_replacement_retirement_evidence"
     ],
-    "synthetic_cases_count_toward_m4": false
+    "engineering_test_vectors_count_toward_m4": false
   },
   "flagships": [
     {
@@ -43,7 +43,6 @@
         {
           "id": "pe-public-home-depot-2023",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/pe-reference-buyout.json",
           "output": "03_Private_Equity/instances/public_home_depot_2023.xlsx",
           "subject": "The Home Depot FY2023 public-company operating case",
           "as_of": "2024-03-13",
@@ -60,7 +59,6 @@
         {
           "id": "pe-public-macys-2020",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/pe-adversarial-contraction.json",
           "output": "03_Private_Equity/instances/public_macys_2020_adversarial.xlsx",
           "subject": "Macy's FY2020 pandemic contraction",
           "as_of": "2021-03-30",
@@ -96,7 +94,6 @@
         {
           "id": "merchant-alleghany-2021",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/merchant-reference-principal.json",
           "output": "04_Merchant_Banking/instances/public_alleghany_2021.xlsx",
           "subject": "Alleghany pre-acquisition principal case",
           "as_of": "2022-02-24",
@@ -113,7 +110,6 @@
         {
           "id": "merchant-wework-2022",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/merchant-adversarial-holdco.json",
           "output": "04_Merchant_Banking/instances/public_wework_2022_adversarial.xlsx",
           "subject": "WeWork pre-bankruptcy holdco stress",
           "as_of": "2023-03-29",
@@ -149,7 +145,6 @@
         {
           "id": "risk-fred-balanced-2024",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/risk-reference-balanced.json",
           "output": "09_Risk_Management/instances/public_fred_balanced_2024.xlsx",
           "subject": "Balanced public-market risk regime",
           "as_of": "2024-01-02",
@@ -166,7 +161,6 @@
         {
           "id": "risk-fred-covid-2020",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/risk-adversarial-crowding.json",
           "output": "09_Risk_Management/instances/public_fred_covid_2020_adversarial.xlsx",
           "subject": "March 2020 public-market shock",
           "as_of": "2020-03-16",
@@ -203,7 +197,6 @@
         {
           "id": "options-spx-2024-01-02",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/options-reference-atm.json",
           "output": "14_Options_Derivatives/instances/public_spx_2024_01_02.xlsx",
           "subject": "SPX near-ATM public-market snapshot",
           "as_of": "2024-01-02",
@@ -223,7 +216,6 @@
         {
           "id": "options-spx-2020-03-16",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/options-adversarial-skew.json",
           "output": "14_Options_Derivatives/instances/public_spx_2020_03_16_adversarial.xlsx",
           "subject": "SPX March 2020 gap-and-volatility shock",
           "as_of": "2020-03-16",
@@ -261,7 +253,6 @@
         {
           "id": "insurance-chubb-2023",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/insurance-reference-book.json",
           "output": "18_Insurance_Actuarial/instances/public_chubb_2023.xlsx",
           "subject": "Chubb 2023 underwriting and reserve profile",
           "as_of": "2024-02-23",
@@ -279,7 +270,6 @@
         {
           "id": "insurance-aig-2008",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/insurance-adversarial-social-inflation.json",
           "output": "18_Insurance_Actuarial/instances/public_aig_2008_adversarial.xlsx",
           "subject": "AIG 2008 reserve and capital stress",
           "as_of": "2009-03-02",
@@ -315,7 +305,6 @@
         {
           "id": "securitization-fed-mortgage-2024",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/securitization-reference-pool.json",
           "output": "19_Structured_Finance_Securitization/instances/public_fed_mortgage_2024.xlsx",
           "subject": "U.S. mortgage delinquency-calibrated pool",
           "as_of": "2024-01-01",
@@ -331,7 +320,6 @@
         {
           "id": "securitization-fed-mortgage-2009",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/securitization-adversarial-default.json",
           "output": "19_Structured_Finance_Securitization/instances/public_fed_mortgage_2009_adversarial.xlsx",
           "subject": "U.S. mortgage-crisis delinquency stress",
           "as_of": "2009-10-01",
@@ -368,7 +356,6 @@
         {
           "id": "project-nrel-solar-2024",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/project-reference-contracted.json",
           "output": "20_Project_Finance/instances/public_nrel_solar_2024.xlsx",
           "subject": "Utility-scale solar benchmark project",
           "as_of": "2024-07-01",
@@ -384,7 +371,6 @@
         {
           "id": "project-vogtle-delay",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/project-adversarial-delay.json",
           "output": "20_Project_Finance/instances/public_vogtle_delay_adversarial.xlsx",
           "subject": "Vogtle-style construction delay and cost-overrun stress",
           "as_of": "2023-12-31",
@@ -420,7 +406,6 @@
         {
           "id": "rates-treasury-2025-12-01",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/rates-reference-curve.json",
           "output": "21_Fixed_Income_Rates/instances/public_treasury_2025_12_01.xlsx",
           "subject": "U.S. Treasury curve snapshot",
           "as_of": "2025-12-01",
@@ -435,7 +420,6 @@
         {
           "id": "rates-treasury-2022-shock",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/rates-adversarial-bear-steepener.json",
           "output": "21_Fixed_Income_Rates/instances/public_treasury_2022_shock.xlsx",
           "subject": "2022 Treasury bear-market stress",
           "as_of": "2022-10-21",
@@ -471,7 +455,6 @@
         {
           "id": "quant-sp500-2019-2023",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/quant-reference-costed.json",
           "output": "22_Quantitative_Systematic/instances/public_sp500_2019_2023.xlsx",
           "subject": "Monthly S&P 500 public-index research series",
           "as_of": "2023-12-29",
@@ -487,7 +470,6 @@
         {
           "id": "quant-sp500-2020-2024-capacity",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/quant-adversarial-capacity.json",
           "output": "22_Quantitative_Systematic/instances/public_sp500_2020_2024_capacity.xlsx",
           "subject": "COVID shock and capacity-stress research series",
           "as_of": "2024-12-31",

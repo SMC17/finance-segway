@@ -26,13 +26,7 @@ class LegacyEngineHardeningTests(unittest.TestCase):
         self.assertEqual(report["models"], 6)
         self.assertEqual(report["cases"], 12)
         self.assertEqual(report["release_status"], self.registry.get("status", "planned"))
-        expected_count = (
-            2
-            if report["release_status"]
-            == validate_legacy_engine_hardening.RELEASE_APPLIED
-            else 0
-        )
-        self.assertEqual(set(report["benchmark_counts"].values()), {expected_count})
+        self.assertEqual(set(report["public_case_counts"].values()), {2})
 
     def test_each_model_has_conventional_and_adversarial_case(self):
         for model in self.models:
@@ -118,7 +112,7 @@ class LegacyEngineHardeningTests(unittest.TestCase):
         self.assertEqual(claim["declared_maturity"], "M2")
         self.assertEqual(claim["m3_promoted"], 0)
         self.assertEqual(claim["m4_promoted"], 0)
-        self.assertIs(claim["synthetic_cases_count_toward_m4"], False)
+        self.assertIs(claim["engineering_test_vectors_count_toward_m4"], False)
 
 
 if __name__ == "__main__":

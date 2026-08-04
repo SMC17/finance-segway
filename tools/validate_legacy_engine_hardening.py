@@ -14,7 +14,7 @@ except ModuleNotFoundError:
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "standards" / "frontier" / "legacy_engine_registry.json"
 INVENTORY = ROOT / "standards" / "model_inventory.json"
-BENCHMARK_INDEX = ROOT / "standards" / "benchmark_cases" / "index.json"
+PUBLIC_INDEX = ROOT / "standards" / "public_cases" / "index.json"
 EXPECTED_IDS = {"01", "02", "05", "06", "07", "13"}
 RELEASE_STAGED = "release_staged"
 RELEASE_APPLIED = "applied_release_validated"
@@ -36,18 +36,13 @@ def _load(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def _model_id_from_template(path: str) -> str:
-    return path.split("/", 1)[0].split("_", 1)[0]
-
-
 def validate() -> dict[str, Any]:
     registry = _load(REGISTRY)
     inventory = _load(INVENTORY)
-    benchmark_index = _load(BENCHMARK_INDEX)
+    public_index = _load(PUBLIC_INDEX)
     inventory_by_id = {item["id"]: item for item in inventory["models"]}
     status = registry.get("status", "planned")
     candidate_active = status in {RELEASE_STAGED, RELEASE_APPLIED}
-    expected_benchmark_count = 2 if candidate_active else 0
     errors: list[str] = []
     warnings: list[str] = []
     results: list[dict[str, Any]] = []
@@ -63,20 +58,19 @@ def validate() -> dict[str, Any]:
     if status not in {"planned", RELEASE_STAGED, RELEASE_APPLIED}:
         errors.append(f"unsupported legacy-engine release status {status}")
 
-    benchmark_counts = {model_id: 0 for model_id in EXPECTED_IDS}
-    for item in benchmark_index.get("instances", []):
-        model_id = item.get("model_id") or _model_id_from_template(item["template"])
-        if model_id in benchmark_counts:
-            benchmark_counts[model_id] += 1
-    for model_id, count in benchmark_counts.items():
-        if count != expected_benchmark_count:
+    public_case_counts = {model_id: 0 for model_id in EXPECTED_IDS}
+    for item in public_index.get("cases", []):
+        model_id = item.get("model_id")
+        if model_id in public_case_counts:
+            public_case_counts[model_id] += 1
+    for model_id, count in public_case_counts.items():
+        if count != 2:
             errors.append(
-                f"{model_id}: release status {status} requires {expected_benchmark_count} "
-                f"benchmark instances, found {count}"
+                f"{model_id}: requires two source-addressed public cases, found {count}"
             )
     if status == RELEASE_STAGED:
         warnings.append(
-            "Release is staged in a workflow tree with complete benchmark pairs; receipt finalization and commit remain pending."
+            "Release is staged; committed public receipts and human review remain pending."
         )
 
     case_ids: list[str] = []
@@ -131,8 +125,8 @@ def validate() -> dict[str, Any]:
             "domain": item["domain"],
             "release_status": status,
             "expected_builder": expected_builder,
-            "benchmark_instances": benchmark_counts[model_id],
-            "cases": [],
+            "public_cases": public_case_counts[model_id],
+            "test_vectors": [],
         }
         for case in cases:
             case_ids.append(case["id"])
@@ -157,7 +151,7 @@ def validate() -> dict[str, Any]:
                 errors.append(
                     f"{model_id}/{case['id']}: adversarial case triggered no failure state"
                 )
-            model_result["cases"].append(
+            model_result["test_vectors"].append(
                 {
                     "id": case["id"],
                     "type": case["type"],
@@ -175,8 +169,8 @@ def validate() -> dict[str, Any]:
         errors.append("legacy engine program may not pre-claim M3")
     if claim.get("m3_promoted") != 0 or claim.get("m4_promoted") != 0:
         errors.append("legacy engine program may not manufacture M3 or M4 promotions")
-    if claim.get("synthetic_cases_count_toward_m4") is not False:
-        errors.append("synthetic benchmark cases must never count toward M4")
+    if claim.get("engineering_test_vectors_count_toward_m4") is not False:
+        errors.append("mathematical test vectors must never count toward M4")
 
     return {
         "schema_version": "1.1",
@@ -184,7 +178,7 @@ def validate() -> dict[str, Any]:
         "release_status": status,
         "models": len(models),
         "cases": len(case_ids),
-        "benchmark_counts": benchmark_counts,
+        "public_case_counts": public_case_counts,
         "results": results,
         "errors": errors,
         "warnings": warnings,
@@ -209,7 +203,7 @@ def main() -> int:
                     "release_status",
                     "models",
                     "cases",
-                    "benchmark_counts",
+                    "public_case_counts",
                     "errors",
                     "warnings",
                 )

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "debt-public-microsoft-2024",
+  "as_of": "2024-06-30",
+  "manifest": "standards/public_cases/debt-public-microsoft-2024.json",
+  "template": "06_Debt_Finance/_template_CREDIT.xlsx",
+  "output": "06_Debt_Finance/instances/public_microsoft_2024.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C5",
+      "previous": 500,
+      "value": 71802.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C6",
+      "previous": 100,
+      "value": 24395.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C7",
+      "previous": 150,
+      "value": 29070.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C13",
+      "previous": 100,
+      "value": 75543.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    }
+  ],
+  "workbook_sha256": "fa1c16b2ac301a05b272efd059e51fe0811baf1104a3b18d8eaa6052a0760a68",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false
+}

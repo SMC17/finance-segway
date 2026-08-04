@@ -49,30 +49,6 @@
     },
     {
       "sheet": "Loan Portfolio",
-      "cell": "C8",
-      "value": 20.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from microfinance-adversarial-moratorium.json",
-        "url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-        "as_of": "2025-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Loan Portfolio",
-      "cell": "C9",
-      "value": 8.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from microfinance-adversarial-moratorium.json",
-        "url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-        "as_of": "2025-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Loan Portfolio",
       "cell": "C10",
       "value": 0.214286,
       "input_kind": "derived",
@@ -81,138 +57,6 @@
         "url": "https://zambia.asa-international.com/",
         "as_of": "2025-12-31",
         "notes": "ASA International Zambia; frozen curated observation as of case date"
-      }
-    },
-    {
-      "sheet": "Sustainability",
-      "cell": "C5",
-      "value": 8.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from microfinance-adversarial-moratorium.json",
-        "url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-        "as_of": "2025-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Sustainability",
-      "cell": "C6",
-      "value": 5.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from microfinance-adversarial-moratorium.json",
-        "url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-        "as_of": "2025-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Sustainability",
-      "cell": "C7",
-      "value": 8.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from microfinance-adversarial-moratorium.json",
-        "url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-        "as_of": "2025-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Sustainability",
-      "cell": "C8",
-      "value": 10.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from microfinance-adversarial-moratorium.json",
-        "url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-        "as_of": "2025-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Sustainability",
-      "cell": "C9",
-      "value": 2.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from microfinance-adversarial-moratorium.json",
-        "url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-        "as_of": "2025-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Provisioning",
-      "cell": "C5",
-      "value": 40.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from microfinance-adversarial-moratorium.json",
-        "url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-        "as_of": "2025-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Provisioning",
-      "cell": "C6",
-      "value": 20.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from microfinance-adversarial-moratorium.json",
-        "url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-        "as_of": "2025-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Provisioning",
-      "cell": "C7",
-      "value": 15.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from microfinance-adversarial-moratorium.json",
-        "url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-        "as_of": "2025-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Provisioning",
-      "cell": "C8",
-      "value": 7.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from microfinance-adversarial-moratorium.json",
-        "url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-        "as_of": "2025-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Provisioning",
-      "cell": "C12",
-      "value": 10.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from microfinance-adversarial-moratorium.json",
-        "url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-        "as_of": "2025-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Portfolio Rollforward",
-      "cell": "C3",
-      "value": "Downside",
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from microfinance-adversarial-moratorium.json",
-        "url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-        "as_of": "2025-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
       }
     }
   ],
@@ -237,5 +81,16 @@
     "what_changed": "Generated public case microfinance-public-asa-zambia-stress from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "next_reporting_period_par30",
+    "forecast": 0.08,
+    "realized": null,
+    "realized_source": "Pending next maintained evidence refresh",
+    "status": "pending"
+  },
+  "lineage": {
+    "source_snapshot": "repo://11_Microfinance/sources/snapshots/microfinance-public-asa-zambia-stress.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

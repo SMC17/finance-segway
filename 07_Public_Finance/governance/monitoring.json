@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "model_id": "07",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "projected_debt_ratio",
+      "warning": 0.9,
+      "breach": 1.0,
+      "action": "Escalate fiscal, financing and debt-treatment analysis"
+    },
+    {
+      "metric": "primary_balance_gap",
+      "warning": 0.0,
+      "breach": -0.02,
+      "action": "Re-underwrite revenue, expenditure and financing assumptions"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

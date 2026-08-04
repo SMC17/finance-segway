@@ -6,17 +6,17 @@ A governed, multi-domain financial-modeling system: reproducible Excel archetype
 
 The repository is broad, formula-driven, and heavily checked. It is not yet a production-grade institutional model library.
 
-The machine-validated baseline on `main` is:
+The machine-validated recovered baseline is:
 
 - **24** core spreadsheet archetypes
 - **24 M2 Decision Models**
 - **0 M1 Correct Skeletons**
 - **0 M3 Institutional Underwriting Models**
 - **0 M4 Maintained Production Systems**
-- **36 source-addressed public historical cases** across 18 domains
-- **48 synthetic engineering benchmark instances** (regression fixtures — never count toward M3/M4 evidence; see `docs/MODEL_STATUS.md`)
+- **48 source-addressed public historical cases** across all 24 domains
+- **0 synthetic manifests, workbooks, or receipts**
 
-That distinction is deliberate. “The workbook opens” and “the core formula is correct” are necessary but not sufficient evidence of underwriting depth. Draft PR #17 (tracked in issue #4) will delete the synthetic-instance corpus entirely in favor of real-only evidence, raising public case coverage to 48 across all 24 domains — this section will be updated again once that merges.
+That distinction is deliberate. “The workbook opens” and “the core formula is correct” are necessary but not sufficient evidence of underwriting depth.
 
 The canonical inventory is `standards/model_inventory.json`. CI validates every maturity claim with `tools/validate_model_inventory.py`, validates the three reconciled builders with `tools/validate_reconciled_models.py`, and publishes governance evidence on each pull request.
 
@@ -186,18 +186,17 @@ tools/
 db/
   schema.sql
   README.md
+
+requirements-postgres.txt
 ```
 
 ## Excel or SQL — analyst's choice
 
-Excel stays the source of truth and calculation engine for every model.
-`db/` adds an optional Postgres layer for domains with enough populated
-instances to make cross-portfolio SQL queries useful, fed entirely by
-values already committed and recalculated in the workbooks -- no formula
-re-implemented in SQL, and nothing in the database mutates or re-runs the
-source workbook. Piloted on Private Equity / LBO (`03_Private_Equity/instances/`)
-since it currently has the deepest instance coverage; see `db/README.md`
-for setup and example queries.
+Excel remains the source of truth and calculation engine. The optional
+Postgres portfolio layer reads only committed, recalculated,
+source-addressed public workbooks; it never re-implements workbook formulas
+or mutates evidence. The current Private Equity pilot contains the two real
+public cases only. See `db/README.md`.
 
 ## Quickstart
 

@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "model_id": "01",
+  "active_release": "3.0.0-evidence",
+  "rollback_release": "m2-frontier-release-3.0.0",
+  "status": "active",
+  "replacement": null,
+  "retirement_trigger": "Transaction terms, capital structure, forecasts, or closing conditions are superseded",
+  "rollback_tested": false,
+  "retirement_exercised": false
+}

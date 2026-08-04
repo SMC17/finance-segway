@@ -24,186 +24,6 @@
       }
     },
     {
-      "sheet": "Unit Economics",
-      "cell": "C6",
-      "value": 0.025,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from fintech-reference-payments.json",
-        "url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-        "as_of": "2023-09-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Unit Economics",
-      "cell": "C7",
-      "value": 0.008,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from fintech-reference-payments.json",
-        "url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-        "as_of": "2023-09-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Unit Economics",
-      "cell": "C8",
-      "value": 4.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from fintech-reference-payments.json",
-        "url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-        "as_of": "2023-09-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Unit Economics",
-      "cell": "C9",
-      "value": 2.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from fintech-reference-payments.json",
-        "url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-        "as_of": "2023-09-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Unit Economics",
-      "cell": "C10",
-      "value": 20.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from fintech-reference-payments.json",
-        "url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-        "as_of": "2023-09-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Unit Economics",
-      "cell": "C11",
-      "value": 30.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from fintech-reference-payments.json",
-        "url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-        "as_of": "2023-09-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Unit Economics",
-      "cell": "C12",
-      "value": 8.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from fintech-reference-payments.json",
-        "url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-        "as_of": "2023-09-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Unit Economics",
-      "cell": "C13",
-      "value": 0.6,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from fintech-reference-payments.json",
-        "url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-        "as_of": "2023-09-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Fraud & Risk",
-      "cell": "C5",
-      "value": 1000.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from fintech-reference-payments.json",
-        "url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-        "as_of": "2023-09-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Fraud & Risk",
-      "cell": "C6",
-      "value": 10.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from fintech-reference-payments.json",
-        "url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-        "as_of": "2023-09-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Fraud & Risk",
-      "cell": "C7",
-      "value": 5.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from fintech-reference-payments.json",
-        "url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-        "as_of": "2023-09-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Fraud & Risk",
-      "cell": "C8",
-      "value": 2.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from fintech-reference-payments.json",
-        "url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-        "as_of": "2023-09-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Fraud & Risk",
-      "cell": "C9",
-      "value": 1.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from fintech-reference-payments.json",
-        "url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-        "as_of": "2023-09-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Fraud & Risk",
-      "cell": "C10",
-      "value": 50.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from fintech-reference-payments.json",
-        "url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-        "as_of": "2023-09-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Network & Cohorts",
-      "cell": "C3",
-      "value": "Base",
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from fintech-reference-payments.json",
-        "url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-        "as_of": "2023-09-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
       "sheet": "Network & Cohorts",
       "cell": "C5",
       "value": 4300.0,
@@ -267,5 +87,16 @@
     "what_changed": "Generated public case fintech-public-visa-2023 from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "next_year_payments_and_cash_volume_usd_bn",
+    "forecast": 16000.0,
+    "realized": 16000.0,
+    "realized_source": "Visa 2024 Form 10-K",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://23_Fintech_Payments/sources/snapshots/fintech-public-visa-2023.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

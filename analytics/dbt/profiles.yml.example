@@ -3,10 +3,10 @@ finance_segway:
   outputs:
     dev:
       type: postgres
-      host: localhost
+      host: "{{ env_var('PGHOST', 'localhost') }}"
       user: "{{ env_var('PGUSER', 'postgres') }}"
       password: "{{ env_var('PGPASSWORD', '') }}"
-      port: 5432
-      dbname: finance_segway
+      port: "{{ env_var('PGPORT', '5432') | int }}"
+      dbname: "{{ env_var('PGDATABASE', 'finance_segway') }}"
       schema: analytics
       threads: 4
