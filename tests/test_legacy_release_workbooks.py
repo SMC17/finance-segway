@@ -40,7 +40,7 @@ class LegacyReleaseWorkbookTests(unittest.TestCase):
             result = validate_legacy_release_workbooks.validate_workbook(model_id, path)
             self.assertEqual(result["status"], "PASS", msg=result["errors"])
 
-    def test_inventory_is_not_implicitly_promoted_to_candidate_builders(self):
+    def test_inventory_builder_matches_release_phase(self):
         inventory = json.loads(
             (validate_legacy_release_workbooks.ROOT / "standards/model_inventory.json").read_text(
                 encoding="utf-8"
@@ -53,14 +53,21 @@ class LegacyReleaseWorkbookTests(unittest.TestCase):
                 / "standards/frontier/legacy_engine_registry.json"
             ).read_text(encoding="utf-8")
         )
+        candidate_active = registry.get("status") in {
+            "release_staged",
+            "applied_release_validated",
+        }
         for model in registry["models"]:
-            self.assertEqual(
-                inventory_by_id[model["model_id"]]["builder"],
-                model["current_builder"],
+            expected = (
+                model["candidate_builder"]
+                if candidate_active
+                else model["current_builder"]
             )
-            self.assertNotEqual(
-                inventory_by_id[model["model_id"]]["builder"],
-                model["candidate_builder"],
+            self.assertEqual(
+                inventory_by_id[model["model_id"]]["builder"], expected
+            )
+            self.assertEqual(
+                inventory_by_id[model["model_id"]]["declared_maturity"], "M2"
             )
 
 
