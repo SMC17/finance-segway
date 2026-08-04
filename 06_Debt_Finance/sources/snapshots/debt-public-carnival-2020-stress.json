@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "model_id": "06",
+  "domain": "Debt Finance",
+  "case_id": "debt-public-carnival-2020-stress",
+  "case_type": "adversarial",
+  "as_of": "2020-11-30",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Carnival 2020 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/815097/000081509721000012/ccl-20201130.htm",
+      "publisher": "U.S. SEC / Carnival",
+      "captured_values": {
+        "available_liquidity_usd_mm": 9500.0,
+        "senior_secured_notes_usd_mm": 4000.0,
+        "convertible_notes_usd_mm": 1750.0,
+        "observed_emergency_debt_issuance_usd_mm": 5750.0
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D6",
+      "value": 5750.0,
+      "kind": "derived",
+      "source": "Carnival 2020 Form 10-K"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D13",
+      "value": 9500.0,
+      "kind": "observed",
+      "source": "Carnival 2020 Form 10-K"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D15",
+      "value": 4000.0,
+      "kind": "observed",
+      "source": "Carnival 2020 Form 10-K"
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D17",
+      "value": 1750.0,
+      "kind": "observed",
+      "source": "Carnival 2020 Form 10-K"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "emergency_debt_issued_usd_mm",
+    "forecast": 0.0,
+    "realized": 5750.0,
+    "realized_source": "Carnival 2020 Form 10-K",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "3f8b093c28202271d030edeb75048ebb52b29f39b39227ea42fe1ce6458ce89a"
+}

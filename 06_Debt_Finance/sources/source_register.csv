@@ -1,0 +1,3 @@
+case_id,source_name,publisher,url,as_of,snapshot,snapshot_sha256,status
+debt-public-microsoft-2024,Microsoft 2024 Form 10-K,U.S. SEC / Microsoft,https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm,2024-06-30,06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json,548eb1da596855a67530ae163dd530e1e77363cfba3770dda6837c2485e58817,frozen
+debt-public-carnival-2020-stress,Carnival 2020 Form 10-K,U.S. SEC / Carnival,https://www.sec.gov/Archives/edgar/data/815097/000081509721000012/ccl-20201130.htm,2020-11-30,06_Debt_Finance/sources/snapshots/debt-public-carnival-2020-stress.json,3f8b093c28202271d030edeb75048ebb52b29f39b39227ea42fe1ce6458ce89a,frozen

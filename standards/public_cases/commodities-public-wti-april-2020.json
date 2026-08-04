@@ -13,30 +13,6 @@
   "inputs": [
     {
       "sheet": "Hedging",
-      "cell": "C5",
-      "value": 500.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-adversarial-storage-squeeze.json",
-        "url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-        "as_of": "2020-04-20",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Hedging",
-      "cell": "C6",
-      "value": 100.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-adversarial-storage-squeeze.json",
-        "url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-        "as_of": "2020-04-20",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Hedging",
       "cell": "C7",
       "value": -37.63,
       "input_kind": "observed",
@@ -60,114 +36,6 @@
       }
     },
     {
-      "sheet": "Hedging",
-      "cell": "C9",
-      "value": 0.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-adversarial-storage-squeeze.json",
-        "url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-        "as_of": "2020-04-20",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Hedging",
-      "cell": "C10",
-      "value": 2.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-adversarial-storage-squeeze.json",
-        "url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-        "as_of": "2020-04-20",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "D7",
-      "value": 0.02,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-adversarial-storage-squeeze.json",
-        "url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-        "as_of": "2020-04-20",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "D8",
-      "value": 0.3,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-adversarial-storage-squeeze.json",
-        "url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-        "as_of": "2020-04-20",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "D9",
-      "value": 0.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-adversarial-storage-squeeze.json",
-        "url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-        "as_of": "2020-04-20",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "D10",
-      "value": 0.25,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-adversarial-storage-squeeze.json",
-        "url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-        "as_of": "2020-04-20",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "D11",
-      "value": 20.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-adversarial-storage-squeeze.json",
-        "url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-        "as_of": "2020-04-20",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "D12",
-      "value": 0.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-adversarial-storage-squeeze.json",
-        "url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-        "as_of": "2020-04-20",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "D13",
-      "value": 10.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-adversarial-storage-squeeze.json",
-        "url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-        "as_of": "2020-04-20",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
       "sheet": "Physical Balance & Carry",
       "cell": "D14",
       "value": 60.0,
@@ -177,42 +45,6 @@
         "url": "https://www.eia.gov/todayinenergy/detail.php?id=43495",
         "as_of": "2020-04-20",
         "notes": "U.S. Energy Information Administration; frozen curated observation as of case date"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "D15",
-      "value": 5.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-adversarial-storage-squeeze.json",
-        "url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-        "as_of": "2020-04-20",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "D16",
-      "value": 0.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-adversarial-storage-squeeze.json",
-        "url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-        "as_of": "2020-04-20",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "D17",
-      "value": 5.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-adversarial-storage-squeeze.json",
-        "url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-        "as_of": "2020-04-20",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
       }
     },
     {
@@ -255,5 +87,16 @@
     "what_changed": "Generated public case commodities-public-wti-april-2020 from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "wti_price_by_2020_07_01_usd_per_bbl",
+    "forecast": 0.0,
+    "realized": 40.0,
+    "realized_source": "EIA July 2020 oil-price recovery",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://15_Commodities/sources/snapshots/commodities-public-wti-april-2020.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

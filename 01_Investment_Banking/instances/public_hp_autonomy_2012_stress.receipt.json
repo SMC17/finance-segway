@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "ib-public-hp-autonomy-2012-stress",
+  "as_of": "2012-10-31",
+  "manifest": "standards/public_cases/ib-public-hp-autonomy-2012-stress.json",
+  "template": "01_Investment_Banking/_template_BASE.xlsx",
+  "output": "01_Investment_Banking/instances/public_hp_autonomy_2012_stress.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D5",
+      "previous": 1000,
+      "value": 11100.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
+      "source_as_of": "2012-10-31"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D8",
+      "previous": 100,
+      "value": 1.0,
+      "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
+      "source_as_of": "2012-10-31"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D9",
+      "previous": 15,
+      "value": 11100.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
+      "source_as_of": "2012-10-31"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D16",
+      "previous": 50,
+      "value": 2300.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
+      "source_as_of": "2012-10-31"
+    }
+  ],
+  "workbook_sha256": "51433b1f9a71ce49f607f6a8e90e9d41bb2bd92110c18e47fb34297821a8cc37",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false
+}

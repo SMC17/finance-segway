@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "model_id": "07",
+  "domain": "Public Finance",
+  "case_id": "public-finance-sri-lanka-2023-stress",
+  "case_type": "adversarial",
+  "as_of": "2023-03-20",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "IMF Sri Lanka 2023 EFF request and debt-sustainability analysis",
+      "url": "https://www.elibrary.imf.org/view/journals/002/2023/116/article-A001-en.xml",
+      "publisher": "International Monetary Fund",
+      "captured_values": {
+        "public_debt_to_gdp_2022": 1.281,
+        "primary_balance_to_gdp_2022": -0.038,
+        "real_growth_projection_2023": -0.03,
+        "eff_approved": 1
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D5",
+      "value": 1.281,
+      "kind": "observed",
+      "source": "IMF Sri Lanka 2023 EFF request and debt-sustainability analysis"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D8",
+      "value": -0.038,
+      "kind": "observed",
+      "source": "IMF Sri Lanka 2023 EFF request and debt-sustainability analysis"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "imf_extended_fund_facility_approved",
+    "forecast": 0.0,
+    "realized": 1.0,
+    "realized_source": "IMF Sri Lanka 2023 EFF request and debt-sustainability analysis",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "dfb9053c2bf4529b28a42a291daf5cc9e12b902bc0a55e74a801b1e728c42a5d"
+}

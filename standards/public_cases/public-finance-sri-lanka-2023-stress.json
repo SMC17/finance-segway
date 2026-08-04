@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "id": "public-finance-sri-lanka-2023-stress",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "07_Public_Finance/_template_PUBLIC_FINANCE.xlsx",
+  "output": "07_Public_Finance/instances/public_sri_lanka_2023_stress.xlsx",
+  "as_of": "2023-03-20",
+  "scenario": "Downside",
+  "cover": {
+    "Subject:": "Sri Lanka sovereign debt-distress and IMF program case"
+  },
+  "inputs": [
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D5",
+      "value": 1.281,
+      "input_kind": "observed",
+      "source": {
+        "name": "IMF Sri Lanka 2023 EFF request and debt-sustainability analysis",
+        "url": "https://www.elibrary.imf.org/view/journals/002/2023/116/article-A001-en.xml",
+        "as_of": "2023-03-20",
+        "notes": "International Monetary Fund; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D8",
+      "value": -0.038,
+      "input_kind": "observed",
+      "source": {
+        "name": "IMF Sri Lanka 2023 EFF request and debt-sustainability analysis",
+        "url": "https://www.elibrary.imf.org/view/journals/002/2023/116/article-A001-en.xml",
+        "as_of": "2023-03-20",
+        "notes": "International Monetary Fund; frozen curated observation as of case date"
+      }
+    }
+  ],
+  "outcome": {
+    "metric": "imf_extended_fund_facility_approved",
+    "forecast": 0.0,
+    "realized": 1.0,
+    "realized_source": "IMF Sri Lanka 2023 EFF request and debt-sustainability analysis",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://07_Public_Finance/sources/snapshots/public-finance-sri-lanka-2023-stress.json",
+    "synthetic_benchmark_inputs_allowed": false
+  },
+  "sources": [
+    {
+      "name": "IMF Sri Lanka 2023 EFF request and debt-sustainability analysis",
+      "url": "https://www.elibrary.imf.org/view/journals/002/2023/116/article-A001-en.xml",
+      "as_of": "2023-03-20",
+      "notes": "International Monetary Fund; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://07_Public_Finance/sources/snapshots/public-finance-sri-lanka-2023-stress.json",
+      "as_of": "2023-03-20",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://07_Public_Finance/sources/snapshots/public-finance-sri-lanka-2023-stress.json",
+    "what_changed": "Generated public case public-finance-sri-lanka-2023-stress from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

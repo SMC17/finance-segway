@@ -24,14 +24,6 @@
     },
     {
       "sheet": "Assumptions",
-      "cell": "D11",
-      "previous": 15,
-      "value": 30.0,
-      "source_url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
-      "source_as_of": "2020-03-16"
-    },
-    {
-      "sheet": "Assumptions",
       "cell": "D14",
       "previous": -0.3,
       "value": -0.339,
@@ -39,10 +31,9 @@
       "source_as_of": "2020-03-16"
     }
   ],
-  "workbook_sha256": "dae1d5e00df1b2965d4661af42f3250c937b313fc981af3cc6c94576aea6b534",
+  "workbook_sha256": "67b3726181739664c0daae301a48cb4c6eefde650716122d7ac993a09b533e7a",
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
-  "hash_refreshed_on": "2026-08-04",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }

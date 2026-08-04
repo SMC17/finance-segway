@@ -243,29 +243,70 @@ def check_lbo_sources_uses_and_debt_schedule():
 
 
 # ---------------------------------------------------------------------
-# VC waterfall conservation in preference and as-converted regimes.
+# VC ownership, round-pricing, and exit-proceeds identities.
 # ---------------------------------------------------------------------
 def check_vc_waterfall_conservation():
     path = os.path.join(REPO_ROOT, "13_Venture_Capital", "_template_VC.xlsx")
 
-    def populate(workbook, total_proceeds):
-        cap_table = workbook["Cap Table"]
-        cap_table["C5"], cap_table["E5"] = 6_000_000, 0.0001
-        cap_table["C6"], cap_table["E6"] = 1_000_000, 0.0001
-        cap_table["C8"], cap_table["E8"] = 1_000_000, 1.00
-        cap_table["C9"], cap_table["E9"] = 1_500_000, 2.00
-        cap_table["C10"], cap_table["E10"] = 1_000_000, 5.00
-        workbook["Exit Waterfall"]["C15"] = total_proceeds
+    scenarios = (
+        ("base", 80.0, 20.0, 8.0, 2.0, 0.0, 500.0),
+        ("dilutive", 100.0, 20.0, 10.0, 4.0, 5.0, 80.0),
+    )
+
+    def populate(workbook, values):
+        pre_money, investment, existing, new, option_pool, exit_value = values
+        ownership = workbook["Ownership & Dilution"]
+        for cell, value in zip(
+            ("C5", "C6", "C7", "C8", "C9"),
+            (pre_money, investment, existing, new, option_pool),
+        ):
+            ownership[cell] = value
+        waterfall = workbook["Exit Waterfall"]
+        waterfall["C5"] = exit_value
+        waterfall["C6"] = investment
 
     ok = True
     details = []
-    for scenario, proceeds in (("preference stack", 8_000_000), ("as converted", 50_000_000)):
-        workbook = with_recalc(path, lambda item, value=proceeds: populate(item, value))
-        distributed = workbook["Exit Waterfall"]["C11"].value
-        scenario_ok = close(distributed, proceeds, tol=1e-6)
+    for scenario, *values in scenarios:
+        pre_money, investment, existing, new, option_pool, exit_value = values
+        workbook = with_recalc(
+            path, lambda item, inputs=values: populate(item, inputs)
+        )
+        ownership = workbook["Ownership & Dilution"]
+        waterfall = workbook["Exit Waterfall"]
+        total_shares = existing + new + option_pool
+        expected_investor_ownership = new / total_shares
+        expected_founder_ownership = existing / total_shares
+        expected_pool_ownership = option_pool / total_shares
+        expected_proceeds = exit_value * expected_investor_ownership
+        expected_moic = expected_proceeds / investment
+        observed_ownerships = (
+            ownership["C17"].value,
+            ownership["C18"].value,
+            ownership["C19"].value,
+        )
+        scenario_ok = all(
+            (
+                close(ownership["C15"].value, pre_money + investment, tol=1e-8),
+                close(ownership["C16"].value, total_shares, tol=1e-8),
+                close(observed_ownerships[0], expected_investor_ownership, tol=1e-8),
+                close(observed_ownerships[1], expected_founder_ownership, tol=1e-8),
+                close(observed_ownerships[2], expected_pool_ownership, tol=1e-8),
+                close(sum(observed_ownerships), 1.0, tol=1e-8),
+                close(ownership["C20"].value, investment / new, tol=1e-8),
+                close(waterfall["C11"].value, expected_investor_ownership, tol=1e-8),
+                close(waterfall["C12"].value, expected_proceeds, tol=1e-8),
+                close(waterfall["C13"].value, expected_moic, tol=1e-8),
+                waterfall["C12"].value <= exit_value,
+            )
+        )
         ok = ok and scenario_ok
-        details.append(f"{scenario}: distributed={distributed}, proceeds={proceeds}")
-    return "VC: exit waterfall conservation", ok, "; ".join(details)
+        details.append(
+            f"{scenario}: ownership={waterfall['C11'].value}, "
+            f"proceeds={waterfall['C12'].value}, exit={exit_value}, "
+            f"ownership_sum={sum(observed_ownerships)}"
+        )
+    return "VC: ownership, pricing, and exit-proceeds identities", ok, "; ".join(details)
 
 
 # ---------------------------------------------------------------------

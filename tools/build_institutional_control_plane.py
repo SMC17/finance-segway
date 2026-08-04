@@ -62,7 +62,9 @@ def build(root: Path, output: Path) -> dict[str, Any]:
     profiles = {item["id"]: item for item in profile_payload["profiles"]}
     release = _read_optional(root / "standards/releases/flagship-2.1.0.json", {"models": [], "status": "MISSING"})
     release_by_id = {item["model_id"]: item for item in release.get("models", [])}
-    benchmarks = _read_optional(root / "standards/benchmark_cases/index.json", {"instances": [], "instance_count": 0})
+    public = _read_optional(
+        root / "standards/public_cases/index.json", {"cases": [], "case_count": 0}
+    )
 
     workbook = Workbook()
     workbook.remove(workbook.active)
@@ -82,7 +84,7 @@ def build(root: Path, output: Path) -> dict[str, Any]:
         ("M2 models", sum(m["declared_maturity"] == "M2" for m in inventory["models"]), "Integrated decision models"),
         ("M1 models", sum(m["declared_maturity"] == "M1" for m in inventory["models"]), "Correct skeletons awaiting deeper mechanics"),
         ("Institutional profiles", len(profiles), "Domain-specific decision, diligence and challenge profiles"),
-        ("Benchmark instances", benchmarks.get("instance_count", len(benchmarks.get("instances", []))), "Synthetic reference and adversarial cases"),
+        ("Public evidence cases", public.get("case_count", len(public.get("cases", []))), "Source-addressed historical and adversarial cases"),
         ("Release-evidenced models", len(release_by_id), "Models with SHA-256 release evidence"),
         ("Required engines", sum(len(m["required_engines"]) for m in inventory["models"]), "Declared financial-engine requirements"),
         ("Stakeholder perspectives", sum(len(m["required_perspectives"]) for m in inventory["models"]), "Declared stakeholder views"),
@@ -176,17 +178,18 @@ def build(root: Path, output: Path) -> dict[str, Any]:
     _body(scenario_sheet, 5, row - 1, 2, 8)
     _widths(scenario_sheet, {"A": 3, "B": 10, "C": 28, "D": 18, "E": 60, "F": 36, "G": 20, "H": 14})
 
-    benchmark_sheet = workbook.create_sheet("Benchmark Cases")
-    _title(benchmark_sheet, "Reference and Adversarial Benchmark Instances", 10)
-    _header(benchmark_sheet, 4, ["Instance ID", "Model", "As of", "Template", "Output", "Manifest", "Applied inputs", "Workbook SHA-256", "M4 credit"])
+    benchmark_sheet = workbook.create_sheet("Public Cases")
+    _title(benchmark_sheet, "Source-Addressed Public Evidence Cases", 10)
+    _header(benchmark_sheet, 4, ["Case ID", "Model", "As of", "Template", "Output", "Manifest", "Applied inputs", "Workbook SHA-256", "M4 credit"])
     row = 5
-    for item in benchmarks.get("instances", []):
-        values = [item.get("instance_id"), Path(item.get("template", "")).parts[0] if item.get("template") else "", item.get("as_of"), item.get("template"), item.get("output"), item.get("manifest"), len(item.get("applied_inputs", [])), item.get("workbook_sha256"), "NO — SYNTHETIC"]
+    for item in public.get("cases", []):
+        receipt = item.get("receipt") or {}
+        values = [item.get("case_id"), item.get("model_id"), receipt.get("as_of"), receipt.get("template"), item.get("output"), item.get("manifest"), len(receipt.get("applied_inputs", [])), receipt.get("workbook_sha256"), "NO — HISTORICAL EVIDENCE"]
         for column, value in enumerate(values, 2):
             benchmark_sheet.cell(row, column, value)
         row += 1
     if row == 5:
-        benchmark_sheet["B5"] = "No committed benchmark index found."
+        benchmark_sheet["B5"] = "No committed public-case index found."
     benchmark_sheet.freeze_panes = "B5"
     _body(benchmark_sheet, 5, max(5, row - 1), 2, 10)
     _widths(benchmark_sheet, {"A": 3, "B": 32, "C": 24, "D": 14, "E": 48, "F": 48, "G": 48, "H": 14, "I": 68, "J": 18})
@@ -225,7 +228,7 @@ def build(root: Path, output: Path) -> dict[str, Any]:
     workbook.calculation.fullCalcOnLoad = True
     workbook.calculation.forceFullCalc = True
     workbook.save(output)
-    return {"output": str(output), "models": len(inventory["models"]), "profiles": len(profiles), "benchmark_instances": benchmarks.get("instance_count", 0), "release_models": len(release_by_id), "sheets": workbook.sheetnames}
+    return {"output": str(output), "models": len(inventory["models"]), "profiles": len(profiles), "public_instances": public.get("case_count", 0), "release_models": len(release_by_id), "sheets": workbook.sheetnames}
 
 
 def main() -> int:

@@ -8,8 +8,7 @@
   "as_of": "2021-03-30",
   "scenario": "Downside",
   "cover": {
-    "Target / transaction:": "Macy's FY2020 pandemic contraction",
-    "Sponsor / principal:": "Benchmark Sponsor"
+    "Subject:": "Macy's FY2020 pandemic contraction"
   },
   "inputs": [
     {
@@ -35,42 +34,6 @@
         "as_of": "2021-03-30",
         "notes": "U.S. SEC; frozen curated observation as of case date"
       }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D8",
-      "value": -0.008,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from pe-adversarial-contraction.json",
-        "url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
-        "as_of": "2021-03-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D24",
-      "value": 0.07,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from pe-adversarial-contraction.json",
-        "url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
-        "as_of": "2021-03-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D28",
-      "value": 7.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from pe-adversarial-contraction.json",
-        "url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
-        "as_of": "2021-03-30",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
     }
   ],
   "sources": [
@@ -94,5 +57,16 @@
     "what_changed": "Generated public case pe-public-macys-2020 from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "next_fiscal_year_revenue_usd_mm",
+    "forecast": 12300.0,
+    "realized": 24460.0,
+    "realized_source": "Macy's 2021 Form 10-K",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://03_Private_Equity/sources/snapshots/pe-public-macys-2020.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

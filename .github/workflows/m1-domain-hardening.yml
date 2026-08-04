@@ -36,7 +36,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: m1-domain-hardening-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -45,6 +45,9 @@ jobs:
     steps:
       - name: Checkout hardening branch
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5

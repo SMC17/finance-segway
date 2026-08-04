@@ -54,7 +54,7 @@ M4 requires evidence generated over time rather than documents generated in one 
 - Demonstrated rollback or replacement test
 - Demonstrated retirement discipline when a model is no longer fit for use
 
-Synthetic regression workbooks and one-time external historical cases never count as maintained M4 instances.
+One-time external historical cases and mathematical unit vectors never count as maintained M4 instances.
 
 ## Canonical evidence
 

@@ -88,7 +88,7 @@ def render_validation(model: dict[str, Any], inventory: dict[str, Any]) -> str:
         for case in model["cases"]
     )
     limitations = "\n".join(f"- {item}" for item in model["limitations"])
-    return f"""# Independent Validation: {model['domain']}\n\n## Validation identity\n\n- Model ID and version: {model['model_id']} / {model['version']}\n- Validation date: {date.today().isoformat()}\n- Validator: Finance-Segway independent validation system\n- Independence statement: validation uses separate pure-Python oracles, domain contracts, semantic parity, public evidence, and LibreOffice execution rather than trusting workbook formulas alone. Human effective challenge remains a separate unsigned gate.\n- Risk tier: {model['risk_tier']}\n\n## Executive conclusion\n\n- Engineering conclusion: **{model['validation_conclusion']}**\n- Declared M2 maturity supported: Yes\n- M3 promotion supported: **No — stakeholder approval and repeated operating history remain outstanding**\n- Required compensating control: no capital, fiduciary, regulatory, or live-risk use without named human owner and approver.\n\n## 1. Conceptual soundness\n\nRequired engines: {', '.join(inventory['required_engines'])}.\nRequired perspectives: {', '.join(inventory['required_perspectives'])}.\nThe model is accepted only for the approved uses in `model_card.md`; prohibited uses remain out of scope.\n\n## 2. Data and source validation\n\n- Public cases use frozen JSON source snapshots and a CSV source register.\n- Inputs are typed as observed, derived, or modeler-owned.\n- Snapshot hashes are checked before case generation.\n- Synthetic regression cases are excluded from M4 evidence.\n\n## 3. Implementation verification\n\n- Reproducible builder: `{inventory['builder']}`\n- Canonical workbook: `{inventory['workbook']}`\n- Semantic builder parity: required\n- LibreOffice recalculation: required\n- External links and literal errors: prohibited\n\n## 4. Public-case benchmarking\n\n| Case | Type | As-of | Outcome status |\n|---|---|---|---|\n{cases}\n\n## 5. Sensitivity and stress behavior\n\nThe conventional and adversarial public cases are retained separately. Modeler-owned assumptions are not represented as observations and must remain inside sensitivity or stress ranges.\n\n## 6. Outcomes analysis\n\nRecorded outcomes are stored in `{model['folder']}/outcomes/outcome_log.csv`. A future test is permitted only when no realized observation yet exists and must name the preservation method and trigger.\n\n## 7. Use and governance\n\n- Approved and prohibited uses are explicit.\n- Monitoring thresholds and escalation actions are machine-readable.\n- Rollback and retirement records are present.\n- Human stakeholder sign-off remains pending and blocks M3.\n\n## 8. Unresolved limitations\n\n{limitations}\n\n## Sign-off\n\n- Developer response: implemented evidence, public cases, monitoring, outcomes, and lifecycle controls.\n- Validator conclusion: approved with limitations at M2; M3 not yet approved.\n- Owner decision: **PENDING**\n- Approval date: **PENDING**\n- Revalidation trigger: methodology change, structural change, threshold breach, source-definition change, or adverse outcome.\n"""
+    return f"""# Independent Validation: {model['domain']}\n\n## Validation identity\n\n- Model ID and version: {model['model_id']} / {model['version']}\n- Validation date: {date.today().isoformat()}\n- Validator: Finance-Segway independent validation system\n- Independence statement: validation uses separate pure-Python oracles, domain contracts, semantic parity, public evidence, and LibreOffice execution rather than trusting workbook formulas alone. Human effective challenge remains a separate unsigned gate.\n- Risk tier: {model['risk_tier']}\n\n## Executive conclusion\n\n- Engineering conclusion: **{model['validation_conclusion']}**\n- Declared M2 maturity supported: Yes\n- M3 promotion supported: **No — stakeholder approval and repeated operating history remain outstanding**\n- Required compensating control: no capital, fiduciary, regulatory, or live-risk use without named human owner and approver.\n\n## 1. Conceptual soundness\n\nRequired engines: {', '.join(inventory['required_engines'])}.\nRequired perspectives: {', '.join(inventory['required_perspectives'])}.\nThe model is accepted only for the approved uses in `model_card.md`; prohibited uses remain out of scope.\n\n## 2. Data and source validation\n\n- Public cases use frozen JSON source snapshots and a CSV source register.\n- Inputs are typed as observed, derived, or modeler-owned.\n- Snapshot hashes are checked before case generation.\n- Mathematical unit vectors are tests only and are excluded from maturity evidence.\n\n## 3. Implementation verification\n\n- Reproducible builder: `{inventory['builder']}`\n- Canonical workbook: `{inventory['workbook']}`\n- Semantic builder parity: required\n- LibreOffice recalculation: required\n- External links and literal errors: prohibited\n\n## 4. Public-case benchmarking\n\n| Case | Type | As-of | Outcome status |\n|---|---|---|---|\n{cases}\n\n## 5. Sensitivity and stress behavior\n\nThe conventional and adversarial public cases are retained separately. Modeler-owned assumptions are not represented as observations and must remain inside sensitivity or stress ranges.\n\n## 6. Outcomes analysis\n\nRecorded outcomes are stored in `{model['folder']}/outcomes/outcome_log.csv`. A future test is permitted only when no realized observation yet exists and must name the preservation method and trigger.\n\n## 7. Use and governance\n\n- Approved and prohibited uses are explicit.\n- Monitoring thresholds and escalation actions are machine-readable.\n- Rollback and retirement records are present.\n- Human stakeholder sign-off remains pending and blocks M3.\n\n## 8. Unresolved limitations\n\n{limitations}\n\n## Sign-off\n\n- Developer response: implemented evidence, public cases, monitoring, outcomes, and lifecycle controls.\n- Validator conclusion: approved with limitations at M2; M3 not yet approved.\n- Owner decision: **PENDING**\n- Approval date: **PENDING**\n- Revalidation trigger: methodology change, structural change, threshold breach, source-definition change, or adverse outcome.\n"""
 
 
 def fetch_fred_monthly_returns(start: str, end: str) -> list[float]:
@@ -132,64 +132,47 @@ def source_snapshot(model: dict[str, Any], case: dict[str, Any]) -> dict[str, An
     return snapshot
 
 
-def build_case_manifest(model: dict[str, Any], case: dict[str, Any], snapshot_path: Path) -> dict[str, Any]:
-    base = json.loads((ROOT / case["based_on"]).read_text(encoding="utf-8"))
+def build_case_manifest(
+    model: dict[str, Any],
+    case: dict[str, Any],
+    snapshot_path: Path,
+    template_path: str,
+) -> dict[str, Any]:
+    """Build a public manifest without inheriting synthetic benchmark inputs."""
     inputs = []
-    override_by_key = {
-        (item["sheet"], item["cell"]): item for item in case.get("overrides", [])
-    }
-    seen: set[tuple[str, str]] = set()
     source_by_name = _source_map(case)
-    for item in base.get("inputs", []):
-        key = (item["sheet"], item["cell"])
-        override = override_by_key.get(key)
-        if override:
-            source = source_by_name.get(override["source"])
-            inputs.append({
-                "sheet": item["sheet"],
-                "cell": item["cell"],
+    for override in case.get("overrides", []):
+        source = source_by_name.get(override["source"])
+        if override["kind"] == "observed" and source is None:
+            raise ValueError(
+                f"{case['id']}: {override['kind']} input {override['sheet']}!"
+                f"{override['cell']} has no external source named "
+                f"{override['source']!r}"
+            )
+        inputs.append(
+            {
+                "sheet": override["sheet"],
+                "cell": override["cell"],
                 "value": override["value"],
                 "input_kind": override["kind"],
                 "source": {
                     "name": override["source"],
-                    "url": source["url"] if source else f"repo://{snapshot_path.relative_to(ROOT)}",
+                    "url": (
+                        source["url"]
+                        if source
+                        else f"repo://{snapshot_path.relative_to(ROOT)}"
+                    ),
                     "as_of": case["as_of"],
-                    "notes": _source_note(source) if source else "Modeler-owned assumption documented in frozen snapshot",
+                    "notes": (
+                        _source_note(source)
+                        if source
+                        else "Derivation or modeler-owned assumption documented in frozen snapshot"
+                    ),
                 },
-            })
-            seen.add(key)
-        else:
-            inputs.append({
-                "sheet": item["sheet"],
-                "cell": item["cell"],
-                "value": item["value"],
-                "input_kind": "modeler_assumption",
-                "source": {
-                    "name": f"Retained modeler assumption from {Path(case['based_on']).name}",
-                    "url": f"repo://{case['based_on']}",
-                    "as_of": case["as_of"],
-                    "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness",
-                },
-            })
-    for key, override in override_by_key.items():
-        if key in seen:
-            continue
-        source = source_by_name.get(override["source"])
-        inputs.append({
-            "sheet": override["sheet"],
-            "cell": override["cell"],
-            "value": override["value"],
-            "input_kind": override["kind"],
-            "source": {
-                "name": override["source"],
-                "url": source["url"] if source else f"repo://{snapshot_path.relative_to(ROOT)}",
-                "as_of": case["as_of"],
-                "notes": _source_note(source) if source else "Modeler-owned assumption documented in frozen snapshot",
-            },
-        })
+            }
+        )
     if case.get("series"):
         series = case["series"]
-        start = next(iter(case["sources"]))["captured_values"]["series_start"] if False else None
         captured = case["sources"][0]["captured_values"]
         returns = fetch_fred_monthly_returns(captured["series_start"], captured["series_end"])
         for index, value in enumerate(returns):
@@ -210,12 +193,19 @@ def build_case_manifest(model: dict[str, Any], case: dict[str, Any], snapshot_pa
         "id": case["id"],
         "classification": "external_historical_case",
         "counts_toward_M4": False,
-        "template": base["template"],
+        "template": template_path,
         "output": case["output"],
         "as_of": case["as_of"],
-        "scenario": base.get("scenario", "Base"),
-        "cover": {**base.get("cover", {}), next(iter(base.get("cover", {"Subject:": ""}))): case["subject"]},
+        "scenario": case.get(
+            "scenario", "Base" if case["type"] == "conventional" else "Downside"
+        ),
+        "cover": {"Subject:": case["subject"]},
         "inputs": inputs,
+        "outcome": case["outcome"],
+        "lineage": {
+            "source_snapshot": f"repo://{snapshot_path.relative_to(ROOT)}",
+            "synthetic_benchmark_inputs_allowed": False,
+        },
         "sources": [
             {
                 "name": source["name"],
@@ -312,7 +302,9 @@ def materialize(generate_instances: bool) -> dict[str, Any]:
                 "realized_source": outcome["realized_source"],
                 "status": outcome["status"],
             })
-            manifest = build_case_manifest(model, case, snapshot_path)
+            manifest = build_case_manifest(
+                model, case, snapshot_path, inv["workbook"]
+            )
             manifest_path = PUBLIC_CASES / f"{case['id']}.json"
             write_json(manifest_path, manifest)
             receipt = None
@@ -328,15 +320,20 @@ def materialize(generate_instances: bool) -> dict[str, Any]:
                 "snapshot": str(snapshot_path.relative_to(ROOT)),
                 "snapshot_sha256": snapshot["snapshot_sha256"],
                 "counts_toward_m4": False,
+                "outcome": outcome,
                 "receipt": receipt,
             })
 
         with (folder / "sources" / "source_register.csv").open("w", newline="", encoding="utf-8") as handle:
-            writer = csv.DictWriter(handle, fieldnames=list(source_rows[0]))
+            writer = csv.DictWriter(
+                handle, fieldnames=list(source_rows[0]), lineterminator="\n"
+            )
             writer.writeheader()
             writer.writerows(source_rows)
         with (folder / "outcomes" / "outcome_log.csv").open("w", newline="", encoding="utf-8") as handle:
-            writer = csv.DictWriter(handle, fieldnames=list(outcome_rows[0]))
+            writer = csv.DictWriter(
+                handle, fieldnames=list(outcome_rows[0]), lineterminator="\n"
+            )
             writer.writeheader()
             writer.writerows(outcome_rows)
         (folder / "releases" / "CHANGELOG.md").write_text(
@@ -361,14 +358,19 @@ def materialize(generate_instances: bool) -> dict[str, Any]:
     return index
 
 
-def validate(require_instances: bool) -> dict[str, Any]:
+def validate(
+    require_instances: bool, *, expected_flagships: int = 9
+) -> dict[str, Any]:
     registry, inventory = load()
     inventory_by_id = {model["id"]: model for model in inventory["models"]}
     errors: list[str] = []
     warnings: list[str] = []
     results = []
-    if len(registry["flagships"]) != 9:
-        errors.append(f"expected 9 flagships, found {len(registry['flagships'])}")
+    if len(registry["flagships"]) != expected_flagships:
+        errors.append(
+            f"expected {expected_flagships} flagships, "
+            f"found {len(registry['flagships'])}"
+        )
     for model in registry["flagships"]:
         model_id = model["model_id"]
         folder = ROOT / model["folder"]

@@ -23,7 +23,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: legacy-engine-hardening-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -32,6 +32,9 @@ jobs:
     steps:
       - name: Checkout frontier head
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -53,11 +56,11 @@ jobs:
           PYTHONPATH=. python tools/validate_legacy_engine_hardening.py \
             --report legacy-engine-hardening-report.json
 
-      - name: Revalidate frontier and committed evidence systems
+      - name: Revalidate frontier and public evidence systems
         run: |
           PYTHONPATH=. python tools/validate_frontier_program.py \
             --report legacy-frontier-program-report.json
-          PYTHONPATH=.:tools python tools/frontier_evidence.py \
+          PYTHONPATH=.:tools python tools/final_public_evidence.py \
             --validate --require-instances
 
       - name: Upload hardening evidence
@@ -68,7 +71,7 @@ jobs:
           path: |
             legacy-engine-hardening-report.json
             legacy-frontier-program-report.json
-            all-domain-evidence-report.json
-            frontier-evidence-report.json
+            all-domain-public-evidence-report.json
+            final-public-evidence-report.json
           if-no-files-found: warn
           retention-days: 30

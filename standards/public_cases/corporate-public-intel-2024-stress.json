@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "id": "corporate-public-intel-2024-stress",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "02_Corporate_Finance/_template_BASE.xlsx",
+  "output": "02_Corporate_Finance/instances/public_intel_2024_stress.xlsx",
+  "as_of": "2024-06-29",
+  "scenario": "Downside",
+  "cover": {
+    "Subject:": "Intel 2024 debt issuance and capital-allocation reset"
+  },
+  "inputs": [
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D10",
+      "value": 3038.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Intel second-quarter 2024 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086324000124/intc-20240629.htm",
+        "as_of": "2024-06-29",
+        "notes": "U.S. SEC / Intel; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D8",
+      "value": 0.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Intel second-quarter 2024 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086324000124/intc-20240629.htm",
+        "as_of": "2024-06-29",
+        "notes": "U.S. SEC / Intel; frozen curated observation as of case date"
+      }
+    }
+  ],
+  "outcome": {
+    "metric": "quarterly_dividend_suspended",
+    "forecast": 0.0,
+    "realized": 1.0,
+    "realized_source": "Intel second-quarter 2024 Form 10-Q",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-intel-2024-stress.json",
+    "synthetic_benchmark_inputs_allowed": false
+  },
+  "sources": [
+    {
+      "name": "Intel second-quarter 2024 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086324000124/intc-20240629.htm",
+      "as_of": "2024-06-29",
+      "notes": "U.S. SEC / Intel; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-intel-2024-stress.json",
+      "as_of": "2024-06-29",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-intel-2024-stress.json",
+    "what_changed": "Generated public case corporate-public-intel-2024-stress from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

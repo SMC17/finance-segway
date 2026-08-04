@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -17,7 +17,8 @@ jobs:
       - name: Checkout triggering revision
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -39,8 +40,16 @@ jobs:
           python tools/builders/build_debt_finance_template.py --output 06_Debt_Finance/_template_CREDIT.xlsx
           python tools/builders/build_public_finance_template.py --output 07_Public_Finance/_template_PUBLIC_FINANCE.xlsx
           python tools/reconcile_model_inventory.py
-          python tools/validate_reconciled_models.py --committed --report reconciled-model-report.json
+          python tools/validate_reconciled_models.py --committed
           python tools/validate_model_inventory.py --report model-governance-report.json
+
+      - name: Reject uncommitted release drift
+        run: |
+          git diff --exit-code -- \
+            standards/model_inventory.json \
+            05_Private_Credit/_template_CREDIT.xlsx \
+            06_Debt_Finance/_template_CREDIT.xlsx \
+            07_Public_Finance/_template_PUBLIC_FINANCE.xlsx
 
       - name: Upload reconciliation reports
         if: always()
@@ -52,3 +61,4 @@ jobs:
             model-governance-report.json
           if-no-files-found: warn
           retention-days: 30
+

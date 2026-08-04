@@ -21,36 +21,11 @@
       "value": -0.291,
       "source_url": "https://www.sec.gov/Archives/edgar/data/794367/000079436721000038/m-20210130.htm",
       "source_as_of": "2021-03-30"
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D8",
-      "previous": -0.003,
-      "value": -0.008,
-      "source_url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
-      "source_as_of": "2021-03-30"
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D24",
-      "previous": 0.05,
-      "value": 0.07,
-      "source_url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
-      "source_as_of": "2021-03-30"
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D28",
-      "previous": 8,
-      "value": 7.0,
-      "source_url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
-      "source_as_of": "2021-03-30"
     }
   ],
-  "workbook_sha256": "87808e6f28783f45736e3b3bc6bdbb26d9c8f59e9c44bc7af8766658dbf39f5e",
+  "workbook_sha256": "bbdca4760c8b5672b9b9ffb20169425cd766862ef16a746d284de4353f60f6a1",
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
-  "hash_refreshed_on": "2026-08-04",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }

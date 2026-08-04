@@ -6,14 +6,15 @@ A governed, multi-domain financial-modeling system: reproducible Excel archetype
 
 The repository is broad, formula-driven, and heavily checked. It is not yet a production-grade institutional model library.
 
-The machine-validated baseline on `main` is:
+The machine-validated recovered baseline is:
 
 - **24** core spreadsheet archetypes
-- **15 M2 Decision Models**
-- **9 M1 Correct Skeletons**
+- **24 M2 Decision Models**
+- **0 M1 Correct Skeletons**
 - **0 M3 Institutional Underwriting Models**
 - **0 M4 Maintained Production Systems**
-- **18 source-addressed public historical cases** across 9 domains
+- **48 source-addressed public historical cases** across all 24 domains
+- **0 synthetic manifests, workbooks, or receipts**
 
 That distinction is deliberate. “The workbook opens” and “the core formula is correct” are necessary but not sufficient evidence of underwriting depth.
 
@@ -93,23 +94,23 @@ The design is informed by—but does not claim certification or formal complianc
 | 05 | Private Credit | Five-year CFADS, debt/cash schedule, covenants, yield/OID, recovery/LGD | **M2** |
 | 06 | Debt Finance | Capital structure, maturity ladder, refinancing, rate risk, recovery | **M2** |
 | 07 | Public Finance | Sovereign DSA, operating forecast, debt service, reserves and coverage | **M2** |
-| 08 | Asset Management | NAV, fees, carry, attribution | **M1** |
-| 09 | Risk Management | VaR and stress framework | **M1** |
-| 10 | Trade Finance | Cash conversion, LC, factoring | **M1** |
-| 11 | Microfinance | PAR, loss, OSS/FSS | **M1** |
-| 12 | Equity Finance | BASE model with equity lens | **M1** |
+| 08 | Asset Management | NAV, fees, carry, attribution | **M2** |
+| 09 | Risk Management | VaR and stress framework | **M2** |
+| 10 | Trade Finance | Cash conversion, LC, factoring | **M2** |
+| 11 | Microfinance | PAR, loss, OSS/FSS | **M2** |
+| 12 | Equity Finance | BASE model with equity lens | **M2** |
 | 13 | Venture Capital | Cap table, SAFE, waterfall | **M2** |
 | 14 | Options / Derivatives | Black-Scholes, Greeks, payoffs | **M2** |
-| 15 | Commodities | Curves, carry, roll yield, hedging | **M1** |
-| 16 | Crypto / Digital Assets | Token supply, staking, multiples | **M1** |
-| 17 | Real Estate / REIT | Property pro forma and FFO/AFFO | **M1** |
-| 18 | Insurance / Actuarial | Loss ratio, triangle, embedded value | **M1** |
-| 19 | Structured Finance | Tranche waterfall, CPR, WAL | **M1** |
-| 20 | Project Finance | Construction, CFADS, DSCR | **M1** |
+| 15 | Commodities | Curves, carry, roll yield, hedging | **M2** |
+| 16 | Crypto / Digital Assets | Token supply, staking, multiples | **M2** |
+| 17 | Real Estate / REIT | Property pro forma and FFO/AFFO | **M2** |
+| 18 | Insurance / Actuarial | Loss ratio, triangle, embedded value | **M2** |
+| 19 | Structured Finance | Tranche waterfall, CPR, WAL | **M2** |
+| 20 | Project Finance | Construction, CFADS, DSCR | **M2** |
 | 21 | Fixed Income / Rates | Bond price, duration, curve | **M2** |
-| 22 | Quantitative / Systematic | Performance and sizing framework | **M1** |
-| 23 | Fintech / Payments | Unit economics and cohorts | **M1** |
-| 24 | Distressed / Restructuring | Recovery and fulcrum waterfall | **M1** |
+| 22 | Quantitative / Systematic | Performance and sizing framework | **M2** |
+| 23 | Fintech / Payments | Unit economics and cohorts | **M2** |
+| 24 | Distressed / Restructuring | Recovery and fulcrum waterfall | **M2** |
 
 Non-model research frameworks live under `25_Frameworks_NonModel/`.
 
@@ -232,3 +233,4 @@ All workbook and builder implementations in this repository are original. Do not
 ## License
 
 MIT. Not financial, legal, tax, accounting, actuarial, or investment advice.
+

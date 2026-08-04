@@ -2,24 +2,24 @@
 
 This file is the human-readable projection of the machine contracts in
 `standards/model_inventory.json`, the artifact evidence in
-`standards/releases/flagship-2.1.0.json`, and the synthetic benchmark index in
-`standards/benchmark_cases/index.json`.
+`standards/releases/flagship-2.1.0.json`, and the source-addressed case ledger in
+`standards/public_cases/index.json`.
 
 ## Current release
 
 - Inventory version: **2.1.0**
 - Core archetypes: **24**
-- M2 Decision Models: **15**
-- M1 Correct Skeletons: **9**
+- M2 Decision Models: **24**
+- M1 Correct Skeletons: **0**
 - M3 Institutional Underwriting Models: **0**
 - M4 Maintained Production Systems: **0**
-- Synthetic engineering benchmark instances: **18**
+- Source-addressed public historical cases: **48**
+- Synthetic data artifacts: **0**
 - Public maintained instances that count toward M4: **0**
 
-The benchmark instances are deliberately excluded from M4. They prove builder,
-scenario, source-register, RefreshLog, recalculation, receipt, and adversarial-case
-plumbing. They do not substitute for public source snapshots, independent review,
-and realized outcome monitoring.
+The public cases prove source-register, RefreshLog, recalculation, receipt, and
+historical/adversarial-case plumbing. They remain excluded from M4 until named
+human review, maintained operation, and outcome monitoring satisfy the M4 gate.
 
 ## Engineered flagship release
 
@@ -52,7 +52,7 @@ The engineered release is accepted only when all of the following pass:
 7. Semantic builder-to-artifact parity for every inventory model.
 8. Whole-library external-link and structural audit.
 9. Cryptographic SHA-256 evidence for each workbook and builder.
-10. Recalculation of all 18 reference/adversarial benchmark instances.
+10. Recalculation and receipt verification for all 48 public cases.
 
 Permanent CI enforcement lives in:
 

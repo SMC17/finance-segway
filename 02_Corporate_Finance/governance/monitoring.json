@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "model_id": "02",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "minimum_cash_headroom",
+      "warning": 0.2,
+      "breach": 0.0,
+      "action": "Escalate funding, capex and shareholder-distribution plan"
+    },
+    {
+      "metric": "net_leverage",
+      "warning": 3.0,
+      "breach": 3.5,
+      "action": "Re-underwrite capital structure and deleveraging path"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

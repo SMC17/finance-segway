@@ -8,21 +8,9 @@
   "as_of": "2024-01-01",
   "scenario": "Base",
   "cover": {
-    "Transaction / collateral:": "U.S. mortgage delinquency-calibrated pool"
+    "Subject:": "U.S. mortgage delinquency-calibrated pool"
   },
   "inputs": [
-    {
-      "sheet": "Assumptions",
-      "cell": "C5",
-      "value": 1200.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from securitization-reference-pool.json",
-        "url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
-        "as_of": "2024-01-01",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
     {
       "sheet": "Assumptions",
       "cell": "C7",
@@ -45,18 +33,6 @@
         "url": "https://fred.stlouisfed.org/series/DRSFRMACBS",
         "as_of": "2024-01-01",
         "notes": "Federal Reserve Board / FRED; frozen curated observation as of case date"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C9",
-      "value": 0.5,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from securitization-reference-pool.json",
-        "url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
-        "as_of": "2024-01-01",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
       }
     }
   ],
@@ -81,5 +57,16 @@
     "what_changed": "Generated public case securitization-fed-mortgage-2024 from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "next_year_delinquency_rate",
+    "forecast": 0.0189,
+    "realized": 0.0179,
+    "realized_source": "Mortgage delinquency rate via FRED",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://19_Structured_Finance_Securitization/sources/snapshots/securitization-fed-mortgage-2024.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

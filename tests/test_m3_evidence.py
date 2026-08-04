@@ -67,7 +67,7 @@ class M3EvidenceTests(unittest.TestCase):
                     if override["kind"] == "observed":
                         self.assertIn(override["source"], source_names)
 
-    def test_public_manifest_reclassifies_synthetic_mapping(self):
+    def test_public_manifest_does_not_inherit_synthetic_mapping(self):
         model = next(
             item for item in self.registry["flagships"] if item["model_id"] == "03"
         )
@@ -79,13 +79,27 @@ class M3EvidenceTests(unittest.TestCase):
             / f"{case['id']}.json"
         )
         manifest = m3_evidence.build_case_manifest(
-            model, case, m3_evidence.ROOT / snapshot_path
+            model,
+            case,
+            m3_evidence.ROOT / snapshot_path,
+            self.inventory_by_id[model["model_id"]]["workbook"],
         )
         self.assertEqual(manifest["classification"], "external_historical_case")
         self.assertFalse(manifest["counts_toward_M4"])
-        kinds = {item["input_kind"] for item in manifest["inputs"]}
-        self.assertIn("observed", kinds)
-        self.assertIn("modeler_assumption", kinds)
+        self.assertEqual(len(manifest["inputs"]), len(case["overrides"]))
+        self.assertEqual(manifest["outcome"], case["outcome"])
+        self.assertEqual(
+            manifest["template"],
+            self.inventory_by_id[model["model_id"]]["workbook"],
+        )
+        self.assertFalse(
+            any(
+                str((item.get("source") or {}).get("url", "")).startswith(
+                    "repo://standards/benchmark_cases/"
+                )
+                for item in manifest["inputs"]
+            )
+        )
 
     @patch(
         "tools.m3_evidence.fetch_fred_monthly_returns",
@@ -103,7 +117,12 @@ class M3EvidenceTests(unittest.TestCase):
             / "snapshots"
             / f"{case['id']}.json"
         )
-        manifest = m3_evidence.build_case_manifest(model, case, snapshot_path)
+        manifest = m3_evidence.build_case_manifest(
+            model,
+            case,
+            snapshot_path,
+            self.inventory_by_id[model["model_id"]]["workbook"],
+        )
         series_inputs = [
             item
             for item in manifest["inputs"]

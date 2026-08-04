@@ -70,210 +70,6 @@
         "as_of": "2019-12-31",
         "notes": "U.S. SEC / Boeing; frozen curated observation as of case date"
       }
-    },
-    {
-      "sheet": "LC & Factoring Cost",
-      "cell": "C5",
-      "value": 100.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "LC & Factoring Cost",
-      "cell": "C6",
-      "value": 0.015,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "LC & Factoring Cost",
-      "cell": "C7",
-      "value": 0.01,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "LC & Factoring Cost",
-      "cell": "C8",
-      "value": 180.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "LC & Factoring Cost",
-      "cell": "C14",
-      "value": 100.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "LC & Factoring Cost",
-      "cell": "C15",
-      "value": 0.85,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "LC & Factoring Cost",
-      "cell": "C16",
-      "value": 0.02,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "LC & Factoring Cost",
-      "cell": "C17",
-      "value": 60.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Credit & Facility",
-      "cell": "C3",
-      "value": "Base",
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Documentary Controls",
-      "cell": "C5",
-      "value": 10.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Documentary Controls",
-      "cell": "C6",
-      "value": 0.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Documentary Controls",
-      "cell": "C7",
-      "value": 1.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Documentary Controls",
-      "cell": "C8",
-      "value": 1.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Documentary Controls",
-      "cell": "C9",
-      "value": 1.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Documentary Controls",
-      "cell": "C10",
-      "value": 1.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Documentary Controls",
-      "cell": "C11",
-      "value": 1.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Documentary Controls",
-      "cell": "C12",
-      "value": 1.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from trade-reference-exporter.json",
-        "url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-        "as_of": "2019-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
     }
   ],
   "sources": [
@@ -297,5 +93,16 @@
     "what_changed": "Generated public case trade-public-boeing-2019 from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "next_year_revenue_usd_mm",
+    "forecast": 75000.0,
+    "realized": 58158.0,
+    "realized_source": "Boeing 2020 Form 10-K",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://10_Trade_Finance/sources/snapshots/trade-public-boeing-2019.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }
