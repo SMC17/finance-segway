@@ -1,10 +1,10 @@
-\"\"\"Rolling vol / correlation visualization builder (research rail only).
+"""Rolling vol / correlation visualization builder (research rail only).
 
 Produces research/ram/visualizations/_universe_viz_rolling.xlsx when real
 returns are available under research/ram/data/rets_real_10.json.
 
 Not a governed decision model.
-\"\"\"
+"""
 from __future__ import annotations
 
 import json

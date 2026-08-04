@@ -1,4 +1,4 @@
-\"\"\"Thin L3 tool stub: private_credit_underwrite
+"""Thin L3 tool stub: private_credit_underwrite
 
 Fail-closed agent-facing interface for the 05 Private Credit flagship.
 Does not invent math. Does not claim M3. Invokes (or simulates invocation of)
@@ -9,7 +9,7 @@ Usage (CLI):
   python tools/agents/private_credit_underwrite.py --inputs path/to/inputs.json
 
 Contract: docs/AGENT_TOOL_CONTRACT.md
-\"\"\"
+"""
 from __future__ import annotations
 
 import argparse
@@ -74,7 +74,7 @@ def validate_provenance(inp: ToolInput) -> list[str]:
 
 
 def run(inp: ToolInput) -> ToolOutput:
-    "\"\"\"Execute the tool. Builder integration is stubbed until instance path is live.\"\"\"
+    """"Execute the tool. Builder integration is stubbed until instance path is live."""
     errors = validate_provenance(inp)
     if errors:
         return ToolOutput(

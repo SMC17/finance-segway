@@ -1,4 +1,4 @@
-\"\"\"L2 seed: pull SEC company facts (XBRL) and write provenance rows.
+"""L2 seed: pull SEC company facts (XBRL) and write provenance rows.
 
 Uses the public SEC companyfacts API. Output is structured facts + a
 source_register-compatible CSV fragment that IB / PE / Credit instances
@@ -8,7 +8,7 @@ Example:
   python tools/data_fabric/edgar_company_facts.py --ticker AAPL --cik 0000320193
 
 Note: SEC requires a descriptive User-Agent. Respect rate limits.
-\"\"\"
+"""
 from __future__ import annotations
 
 import argparse
@@ -35,7 +35,7 @@ def fetch_company_facts(cik: str) -> dict:
 
 
 def extract_selected(facts: dict) -> list[dict]:
-    "\"\"Pull a small set of commonly needed US-GAAP facts (latest).\"\"\"
+    """Pull a small set of commonly needed US-GAAP facts (latest)."""
     usgaap = facts.get("facts", {}).get("us-gaap", {})
     wanted = [
         "Assets",
