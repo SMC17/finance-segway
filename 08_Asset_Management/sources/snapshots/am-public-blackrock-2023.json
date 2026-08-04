@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "model_id": "08",
+  "domain": "Asset Management",
+  "case_id": "am-public-blackrock-2023",
+  "case_type": "conventional",
+  "as_of": "2023-12-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "BlackRock 2023 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+      "publisher": "U.S. SEC / BlackRock",
+      "captured_values": {
+        "beginning_aum_usd_bn": 8594.485,
+        "net_inflows_usd_bn": 288.695,
+        "market_fx_acquisition_change_usd_bn": 1125.815,
+        "ending_aum_usd_bn": 10008.995
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Fund NAV",
+      "cell": "C5",
+      "value": 8594.485,
+      "kind": "observed",
+      "source": "BlackRock 2023 Form 10-K"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C6",
+      "value": 288.695,
+      "kind": "observed",
+      "source": "BlackRock 2023 Form 10-K"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C7",
+      "value": 1125.815,
+      "kind": "derived",
+      "source": "BlackRock 2023 Form 10-K"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C8",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "AUM rollforward normalization"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C9",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "AUM rollforward normalization"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "ending_aum_usd_bn",
+    "forecast": 10500.0,
+    "realized": null,
+    "realized_source": "Pending next maintained evidence refresh",
+    "status": "pending"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "c7510ff7369f25edb138fe1a3f09c349ccd84c80c1abf33c52311e854d9a0304"
+}

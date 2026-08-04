@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "model_id": "16",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "unlock_to_liquidity_ratio",
+      "warning": 0.25,
+      "breach": 0.5,
+      "action": "Escalate unlock concentration and market-depth plan"
+    },
+    {
+      "metric": "custody_counterparty_concentration",
+      "warning": 0.25,
+      "breach": 0.5,
+      "action": "Re-underwrite custody, venue and key-management concentration"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

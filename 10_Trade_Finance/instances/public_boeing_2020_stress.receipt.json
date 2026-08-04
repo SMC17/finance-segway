@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "trade-public-boeing-2020-stress",
+  "as_of": "2020-12-31",
+  "manifest": "standards/public_cases/trade-public-boeing-2020-stress.json",
+  "template": "10_Trade_Finance/_template_TRADE_FINANCE.xlsx",
+  "output": "10_Trade_Finance/instances/public_boeing_2020_stress.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C5",
+      "previous": 0,
+      "value": 58158.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292721000011/ba-20201231.htm",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C6",
+      "previous": 0,
+      "value": 63843.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292721000011/ba-20201231.htm",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C7",
+      "previous": 0,
+      "value": 1955.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292721000011/ba-20201231.htm",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C8",
+      "previous": 0,
+      "value": 81715.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292721000011/ba-20201231.htm",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C9",
+      "previous": 0,
+      "value": 12928.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292721000011/ba-20201231.htm",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C5",
+      "previous": 0,
+      "value": 100.0,
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C6",
+      "previous": 0.015,
+      "value": 0.04,
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C7",
+      "previous": 0.01,
+      "value": 0.03,
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C8",
+      "previous": 90,
+      "value": 90.0,
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C14",
+      "previous": 0,
+      "value": 100.0,
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C15",
+      "previous": 0.85,
+      "value": 0.7,
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C16",
+      "previous": 0.02,
+      "value": 0.18,
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C17",
+      "previous": 60,
+      "value": 45.0,
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Credit & Facility",
+      "cell": "C3",
+      "previous": "Base",
+      "value": "Downside",
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C5",
+      "previous": 10,
+      "value": 30.0,
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C6",
+      "previous": 0,
+      "value": 4.0,
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C7",
+      "previous": 1,
+      "value": 0.0,
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C8",
+      "previous": 1,
+      "value": 0.0,
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C9",
+      "previous": 1,
+      "value": 0.0,
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C10",
+      "previous": 1,
+      "value": 0.0,
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C11",
+      "previous": 1,
+      "value": 0.0,
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C12",
+      "previous": 1,
+      "value": 0.0,
+      "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
+      "source_as_of": "2020-12-31"
+    }
+  ],
+  "workbook_sha256": "af7f3109f1c5f4f790b8995b3a0d6b7709fd495e32da119b225139b751c8eee2",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "recalculated_on": "2026-08-04",
+  "recalculation_engine": "LibreOffice Calc"
+}

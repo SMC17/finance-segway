@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "model_id": "16",
+  "domain": "Crypto & Digital Assets",
+  "case_id": "crypto-public-coinbase-2022-stress",
+  "case_type": "adversarial",
+  "as_of": "2022-12-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Coinbase 2023 Form 10-K comparative 2022 custody data",
+      "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+      "publisher": "U.S. SEC / Coinbase",
+      "captured_values": {
+        "total_customer_assets_usd_bn": 80.454,
+        "customer_custodial_funds_usd_bn": 5.041,
+        "safeguarded_crypto_usd_bn": 75.413
+      }
+    },
+    {
+      "name": "Coinbase 2023 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+      "publisher": "U.S. SEC / Coinbase",
+      "captured_values": {
+        "total_customer_assets_usd_bn": 197.154,
+        "customer_custodial_funds_usd_bn": 4.571,
+        "consumer_and_institutional_staking_usd_bn": 16.8
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Valuation",
+      "cell": "C6",
+      "value": 80.454,
+      "kind": "observed",
+      "source": "Coinbase 2023 Form 10-K comparative 2022 custody data"
+    },
+    {
+      "sheet": "Valuation",
+      "cell": "C7",
+      "value": 5.041,
+      "kind": "observed",
+      "source": "Coinbase 2023 Form 10-K comparative 2022 custody data"
+    },
+    {
+      "sheet": "Valuation",
+      "cell": "C8",
+      "value": 75.413,
+      "kind": "observed",
+      "source": "Coinbase 2023 Form 10-K comparative 2022 custody data"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "next_year_total_customer_assets_usd_bn",
+    "forecast": 100.0,
+    "realized": 197.154,
+    "realized_source": "Coinbase 2023 Form 10-K",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "03e993ee51724f568a8cd92692f76c57949a25912404787b1b3d18c740588688"
+}

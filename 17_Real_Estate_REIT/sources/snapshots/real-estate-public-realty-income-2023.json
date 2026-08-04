@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "model_id": "17",
+  "domain": "Real Estate & REIT",
+  "case_id": "real-estate-public-realty-income-2023",
+  "case_type": "conventional",
+  "as_of": "2023-12-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Realty Income 2023 FFO reconciliation",
+      "url": "https://www.sec.gov/Archives/edgar/data/726728/000072672825000080/o-20250326.htm",
+      "publisher": "U.S. SEC / Realty Income",
+      "captured_values": {
+        "net_income_common_usd_mm": 872.309,
+        "depreciation_amortization_usd_mm": 1895.177,
+        "gain_on_sales_usd_mm": 25.667,
+        "net_income_2024_usd_mm": 847.893
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "REIT FFO-AFFO",
+      "cell": "C4",
+      "value": 872.309,
+      "kind": "observed",
+      "source": "Realty Income 2023 FFO reconciliation"
+    },
+    {
+      "sheet": "REIT FFO-AFFO",
+      "cell": "C5",
+      "value": 1895.177,
+      "kind": "observed",
+      "source": "Realty Income 2023 FFO reconciliation"
+    },
+    {
+      "sheet": "REIT FFO-AFFO",
+      "cell": "C6",
+      "value": 25.667,
+      "kind": "observed",
+      "source": "Realty Income 2023 FFO reconciliation"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "next_year_net_income_common_usd_mm",
+    "forecast": 900.0,
+    "realized": 847.893,
+    "realized_source": "Realty Income 2024 public reconciliation",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "9b403f151570a1f4a2b6354dd969745e1e85825692f1665a365982af647f680e"
+}

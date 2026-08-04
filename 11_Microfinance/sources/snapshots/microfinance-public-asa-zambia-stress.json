@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "model_id": "11",
+  "domain": "Microfinance",
+  "case_id": "microfinance-public-asa-zambia-stress",
+  "case_type": "adversarial",
+  "as_of": "2025-12-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "ASA Zambia operating disclosure",
+      "url": "https://zambia.asa-international.com/",
+      "publisher": "ASA International Zambia",
+      "captured_values": {
+        "clients_thousand": 35.0,
+        "gross_olp_usd_mm": 7.5,
+        "par30": 0.092
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C5",
+      "value": 7.5,
+      "kind": "observed",
+      "source": "ASA Zambia operating disclosure"
+    },
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C6",
+      "value": 35.0,
+      "kind": "observed",
+      "source": "ASA Zambia operating disclosure"
+    },
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C7",
+      "value": 0.69,
+      "kind": "derived",
+      "source": "ASA Zambia operating disclosure"
+    },
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C10",
+      "value": 0.214286,
+      "kind": "derived",
+      "source": "ASA Zambia operating disclosure"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "next_reporting_period_par30",
+    "forecast": 0.08,
+    "realized": null,
+    "realized_source": "Pending next maintained evidence refresh",
+    "status": "pending"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "c3168a762535b8f26069c1f29185710c6354405f9205134ea4d61bece8a05893"
+}

@@ -1,0 +1,445 @@
+{
+  "schema_version": "1.0",
+  "id": "am-public-blackrock-2023",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "08_Asset_Management/_template_AM.xlsx",
+  "output": "08_Asset_Management/instances/public_blackrock_2023.xlsx",
+  "as_of": "2023-12-31",
+  "scenario": "Base",
+  "cover": {
+    "Subject:": "BlackRock 2023 AUM rollforward"
+  },
+  "inputs": [
+    {
+      "sheet": "Fund NAV",
+      "cell": "C5",
+      "value": 8594.485,
+      "input_kind": "observed",
+      "source": {
+        "name": "BlackRock 2023 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "U.S. SEC / BlackRock; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C6",
+      "value": 288.695,
+      "input_kind": "observed",
+      "source": {
+        "name": "BlackRock 2023 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "U.S. SEC / BlackRock; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C7",
+      "value": 1125.815,
+      "input_kind": "derived",
+      "source": {
+        "name": "BlackRock 2023 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "U.S. SEC / BlackRock; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C8",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "AUM rollforward normalization",
+        "url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+        "as_of": "2023-12-31",
+        "notes": "Modeler-owned assumption documented in frozen snapshot"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C9",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "AUM rollforward normalization",
+        "url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+        "as_of": "2023-12-31",
+        "notes": "Modeler-owned assumption documented in frozen snapshot"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "D6",
+      "value": 10.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "D7",
+      "value": 7.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "D8",
+      "value": 2.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "D9",
+      "value": 4.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "E6",
+      "value": 5.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "E7",
+      "value": 5.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "E8",
+      "value": 2.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "E9",
+      "value": 4.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "F6",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "F7",
+      "value": 4.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "F8",
+      "value": 2.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "F9",
+      "value": 6.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C5",
+      "value": 100.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C6",
+      "value": 80.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C7",
+      "value": 0.08,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C8",
+      "value": 0.2,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C9",
+      "value": 1.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C10",
+      "value": 100.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Return Measurement",
+      "cell": "C14",
+      "value": 0.08,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C5",
+      "value": 150.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C6",
+      "value": 60.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C8",
+      "value": 35.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C9",
+      "value": 15.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C10",
+      "value": 12.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C11",
+      "value": 8.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C12",
+      "value": 30.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C13",
+      "value": 0.4,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C14",
+      "value": 0.25,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C15",
+      "value": 1.2,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from am-reference-fund.json",
+        "url": "repo://standards/benchmark_cases/am-reference-fund.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "BlackRock 2023 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+      "as_of": "2023-12-31",
+      "notes": "U.S. SEC / BlackRock; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+      "as_of": "2023-12-31",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+    "what_changed": "Generated public case am-public-blackrock-2023 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

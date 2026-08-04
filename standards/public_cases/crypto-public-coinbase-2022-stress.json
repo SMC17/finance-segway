@@ -1,0 +1,223 @@
+{
+  "schema_version": "1.0",
+  "id": "crypto-public-coinbase-2022-stress",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "16_Crypto_Digital_Assets/_template_CRYPTO.xlsx",
+  "output": "16_Crypto_Digital_Assets/instances/public_coinbase_2022_stress.xlsx",
+  "as_of": "2022-12-31",
+  "scenario": "Downside",
+  "cover": {
+    "Subject:": "Coinbase 2022 crypto-winter custody contraction"
+  },
+  "inputs": [
+    {
+      "sheet": "Tokenomics",
+      "cell": "C5",
+      "value": 250.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-adversarial-unlock-run.json",
+        "url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Tokenomics",
+      "cell": "C6",
+      "value": 250.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-adversarial-unlock-run.json",
+        "url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Tokenomics",
+      "cell": "C7",
+      "value": 250.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-adversarial-unlock-run.json",
+        "url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Tokenomics",
+      "cell": "C8",
+      "value": 100.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-adversarial-unlock-run.json",
+        "url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Tokenomics",
+      "cell": "C9",
+      "value": 150.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-adversarial-unlock-run.json",
+        "url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Tokenomics",
+      "cell": "C12",
+      "value": 350.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-adversarial-unlock-run.json",
+        "url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Valuation",
+      "cell": "C5",
+      "value": 0.8,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-adversarial-unlock-run.json",
+        "url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Valuation",
+      "cell": "C6",
+      "value": 80.454,
+      "input_kind": "observed",
+      "source": {
+        "name": "Coinbase 2023 Form 10-K comparative 2022 custody data",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+        "as_of": "2022-12-31",
+        "notes": "U.S. SEC / Coinbase; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Valuation",
+      "cell": "C7",
+      "value": 5.041,
+      "input_kind": "observed",
+      "source": {
+        "name": "Coinbase 2023 Form 10-K comparative 2022 custody data",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+        "as_of": "2022-12-31",
+        "notes": "U.S. SEC / Coinbase; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Valuation",
+      "cell": "C8",
+      "value": 75.413,
+      "input_kind": "observed",
+      "source": {
+        "name": "Coinbase 2023 Form 10-K comparative 2022 custody data",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+        "as_of": "2022-12-31",
+        "notes": "U.S. SEC / Coinbase; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Staking Yield",
+      "cell": "C5",
+      "value": 0.35,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-adversarial-unlock-run.json",
+        "url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Staking Yield",
+      "cell": "C6",
+      "value": 50.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-adversarial-unlock-run.json",
+        "url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Staking Yield",
+      "cell": "C7",
+      "value": 2.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-adversarial-unlock-run.json",
+        "url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Staking Yield",
+      "cell": "C8",
+      "value": 0.8,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-adversarial-unlock-run.json",
+        "url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Supply Rollforward & Unlocks",
+      "cell": "C3",
+      "value": "Downside",
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from crypto-adversarial-unlock-run.json",
+        "url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Coinbase 2023 Form 10-K comparative 2022 custody data",
+      "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+      "as_of": "2022-12-31",
+      "notes": "U.S. SEC / Coinbase; frozen curated observation as of case date"
+    },
+    {
+      "name": "Coinbase 2023 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+      "as_of": "2022-12-31",
+      "notes": "U.S. SEC / Coinbase; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://16_Crypto_Digital_Assets/sources/snapshots/crypto-public-coinbase-2022-stress.json",
+      "as_of": "2022-12-31",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://16_Crypto_Digital_Assets/sources/snapshots/crypto-public-coinbase-2022-stress.json",
+    "what_changed": "Generated public case crypto-public-coinbase-2022-stress from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "model_id": "16",
+  "domain": "Crypto & Digital Assets",
+  "case_id": "crypto-public-coinbase-2023",
+  "case_type": "conventional",
+  "as_of": "2023-12-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Coinbase 2023 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+      "publisher": "U.S. SEC / Coinbase",
+      "captured_values": {
+        "total_customer_assets_usd_bn": 197.154,
+        "customer_custodial_funds_usd_bn": 4.571,
+        "consumer_and_institutional_staking_usd_bn": 16.8
+      }
+    },
+    {
+      "name": "Coinbase Q1 2024 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000089/coin-20240331.htm",
+      "publisher": "U.S. SEC / Coinbase",
+      "captured_values": {
+        "total_customer_assets_usd_bn": 334.708
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Valuation",
+      "cell": "C6",
+      "value": 197.154,
+      "kind": "observed",
+      "source": "Coinbase 2023 Form 10-K"
+    },
+    {
+      "sheet": "Valuation",
+      "cell": "C7",
+      "value": 4.571,
+      "kind": "observed",
+      "source": "Coinbase 2023 Form 10-K"
+    },
+    {
+      "sheet": "Valuation",
+      "cell": "C8",
+      "value": 16.8,
+      "kind": "derived",
+      "source": "Coinbase 2023 Form 10-K"
+    },
+    {
+      "sheet": "Staking Yield",
+      "cell": "C6",
+      "value": 16.8,
+      "kind": "derived",
+      "source": "Coinbase 2023 Form 10-K"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "next_quarter_total_customer_assets_usd_bn",
+    "forecast": 220.0,
+    "realized": 334.708,
+    "realized_source": "Coinbase Q1 2024 Form 10-Q",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "2593f63b911a718c57492fbbdaffa081bed4fc10dfca03dd0fdb920cecad7e10"
+}

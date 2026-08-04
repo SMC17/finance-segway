@@ -1,0 +1,3 @@
+case_id,case_type,metric,forecast,realized,error,realized_source,status
+commodities-public-wti-2023,conventional,next_year_wti_average_usd_per_bbl,75.0,,,Pending maintained annual EIA evidence refresh,pending
+commodities-public-wti-april-2020,adversarial,wti_price_by_2020_07_01_usd_per_bbl,0.0,40.0,40.0,EIA July 2020 oil-price recovery,recorded

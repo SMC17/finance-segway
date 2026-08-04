@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "model_id": "08",
+  "active_release": "2.2.0-evidence",
+  "rollback_release": "m2-release-2.2.0",
+  "status": "active",
+  "replacement": null,
+  "retirement_trigger": "Performance methodology, fee structure, or liquidity architecture is superseded",
+  "rollback_tested": false,
+  "retirement_exercised": false
+}

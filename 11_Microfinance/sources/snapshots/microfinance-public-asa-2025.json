@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "model_id": "11",
+  "domain": "Microfinance",
+  "case_id": "microfinance-public-asa-2025",
+  "case_type": "conventional",
+  "as_of": "2025-12-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "ASA International 2025 Annual Report",
+      "url": "https://www.asa-international.com/investors/annual-report-2025/",
+      "publisher": "ASA International",
+      "captured_values": {
+        "clients_m": 2.8,
+        "gross_olp_usd_mm": 611.0,
+        "par30": 0.018,
+        "net_profit_usd_mm": 56.5
+      }
+    },
+    {
+      "name": "ASA International Q1 2026 Business Update",
+      "url": "https://www.asa-international.com/media/featured-news/2026-business-update/",
+      "publisher": "ASA International",
+      "captured_values": {
+        "clients_m": 2.7,
+        "gross_olp_usd_mm": 583.2,
+        "portfolio_quality": 0.02
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C5",
+      "value": 611.0,
+      "kind": "observed",
+      "source": "ASA International 2025 Annual Report"
+    },
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C6",
+      "value": 2800.0,
+      "kind": "observed",
+      "source": "ASA International 2025 Annual Report"
+    },
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C7",
+      "value": 10.998,
+      "kind": "derived",
+      "source": "ASA International 2025 Annual Report"
+    },
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C10",
+      "value": 0.218214,
+      "kind": "derived",
+      "source": "ASA International 2025 Annual Report"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "next_quarter_gross_olp_usd_mm",
+    "forecast": 625.0,
+    "realized": 583.2,
+    "realized_source": "ASA International Q1 2026 Business Update",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "f17576293084dc201f7f6a8b57aadebc9081bd346dfbad4cd5b88a85f75481ce"
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "equity-public-amc-2020-dilution",
+  "as_of": "2020-12-31",
+  "manifest": "standards/public_cases/equity-public-amc-2020-dilution.json",
+  "template": "12_Equity_Finance/_template_BASE.xlsx",
+  "output": "12_Equity_Finance/instances/public_amc_2020_dilution.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "C3",
+      "previous": "Base",
+      "value": "Adversarial",
+      "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Rights Offering",
+      "cell": "D7",
+      "previous": 10,
+      "value": 10.0,
+      "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Rights Offering",
+      "cell": "D8",
+      "previous": 3,
+      "value": 3.0,
+      "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Rights Offering",
+      "cell": "D9",
+      "previous": 0.45,
+      "value": 0.196,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1411579/000141157921000006/amc-20201231x10k.htm",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Rights Offering",
+      "cell": "D10",
+      "previous": 0.08,
+      "value": 0.08,
+      "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Convertible Securities",
+      "cell": "D7",
+      "previous": 4,
+      "value": 4.0,
+      "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Convertible Securities",
+      "cell": "D8",
+      "previous": 0.08,
+      "value": 0.08,
+      "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Convertible Securities",
+      "cell": "D9",
+      "previous": 1,
+      "value": 1.0,
+      "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Convertible Securities",
+      "cell": "D10",
+      "previous": 0.15,
+      "value": 0.15,
+      "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Convertible Securities",
+      "cell": "D11",
+      "previous": 3.5,
+      "value": 3.5,
+      "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+      "source_as_of": "2020-12-31"
+    }
+  ],
+  "workbook_sha256": "451e308e8f8ff1fe1abf0cbd088337460d6115fb36bed7c68b1b0475f69e63df",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "recalculated_on": "2026-08-04",
+  "recalculation_engine": "LibreOffice Calc"
+}

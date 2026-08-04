@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "model_id": "12",
+  "domain": "Equity Finance",
+  "case_id": "equity-public-tesla-2020-offering",
+  "case_type": "conventional",
+  "as_of": "2020-02-14",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Tesla February 2020 Final Prospectus",
+      "url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+      "publisher": "U.S. SEC / Tesla",
+      "captured_values": {
+        "shares": 2650000,
+        "offering_price": 767.0,
+        "gross_proceeds_usd_mm": 2032.55,
+        "underwriting_discount_usd_mm": 23.9,
+        "net_before_expenses_usd_mm": 2008.65
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Rights Offering",
+      "cell": "C7",
+      "value": 767.0,
+      "kind": "observed",
+      "source": "Tesla February 2020 Final Prospectus"
+    },
+    {
+      "sheet": "Rights Offering",
+      "cell": "C8",
+      "value": 767.0,
+      "kind": "observed",
+      "source": "Tesla February 2020 Final Prospectus"
+    },
+    {
+      "sheet": "Rights Offering",
+      "cell": "C9",
+      "value": 1.0,
+      "kind": "derived",
+      "source": "Tesla February 2020 Final Prospectus"
+    },
+    {
+      "sheet": "Rights Offering",
+      "cell": "C10",
+      "value": 0.01176,
+      "kind": "derived",
+      "source": "Tesla February 2020 Final Prospectus"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "net_proceeds_before_expenses_usd_mm",
+    "forecast": 2032.55,
+    "realized": 2008.65,
+    "realized_source": "Tesla February 2020 Final Prospectus",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "b62e89b30083ddbf1178187034378dac0cfd5b60e9212cd3aa2bb2f9b923791e"
+}

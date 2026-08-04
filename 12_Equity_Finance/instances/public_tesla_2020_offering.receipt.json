@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "equity-public-tesla-2020-offering",
+  "as_of": "2020-02-14",
+  "manifest": "standards/public_cases/equity-public-tesla-2020-offering.json",
+  "template": "12_Equity_Finance/_template_BASE.xlsx",
+  "output": "12_Equity_Finance/instances/public_tesla_2020_offering.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "C3",
+      "previous": "Base",
+      "value": "Base",
+      "source_url": "repo://standards/benchmark_cases/equity-reference-rights.json",
+      "source_as_of": "2020-02-14"
+    },
+    {
+      "sheet": "Rights Offering",
+      "cell": "C7",
+      "previous": 12,
+      "value": 767.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+      "source_as_of": "2020-02-14"
+    },
+    {
+      "sheet": "Rights Offering",
+      "cell": "C8",
+      "previous": 9,
+      "value": 767.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+      "source_as_of": "2020-02-14"
+    },
+    {
+      "sheet": "Rights Offering",
+      "cell": "C9",
+      "previous": 0.9,
+      "value": 1.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+      "source_as_of": "2020-02-14"
+    },
+    {
+      "sheet": "Rights Offering",
+      "cell": "C10",
+      "previous": 0.02,
+      "value": 0.01176,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+      "source_as_of": "2020-02-14"
+    },
+    {
+      "sheet": "Convertible Securities",
+      "cell": "C7",
+      "previous": 12,
+      "value": 12.0,
+      "source_url": "repo://standards/benchmark_cases/equity-reference-rights.json",
+      "source_as_of": "2020-02-14"
+    },
+    {
+      "sheet": "Convertible Securities",
+      "cell": "C8",
+      "previous": 0.04,
+      "value": 0.04,
+      "source_url": "repo://standards/benchmark_cases/equity-reference-rights.json",
+      "source_as_of": "2020-02-14"
+    },
+    {
+      "sheet": "Convertible Securities",
+      "cell": "C9",
+      "previous": 3,
+      "value": 3.0,
+      "source_url": "repo://standards/benchmark_cases/equity-reference-rights.json",
+      "source_as_of": "2020-02-14"
+    },
+    {
+      "sheet": "Convertible Securities",
+      "cell": "C10",
+      "previous": 0.05,
+      "value": 0.05,
+      "source_url": "repo://standards/benchmark_cases/equity-reference-rights.json",
+      "source_as_of": "2020-02-14"
+    },
+    {
+      "sheet": "Convertible Securities",
+      "cell": "C11",
+      "previous": 9.5,
+      "value": 9.5,
+      "source_url": "repo://standards/benchmark_cases/equity-reference-rights.json",
+      "source_as_of": "2020-02-14"
+    }
+  ],
+  "workbook_sha256": "bc399a363a0ef133bdb56859026c53c0f2c52e4951a6307f1faabeba60314c95",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "recalculated_on": "2026-08-04",
+  "recalculation_engine": "LibreOffice Calc"
+}
