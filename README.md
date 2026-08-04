@@ -46,6 +46,42 @@ Every archetype is expected to have:
 - a declared use, horizon, owner, limitations, and maturity;
 - a path from blank archetype to maintained public instances.
 
+## Consulting operating system
+
+The repository now also contains a governed consulting core for redesigning and
+testing functional work across a company. It hand-rolls the decision and control
+layer represented by modern functional AI products without depending on their
+external workflows or tooling.
+
+The core includes:
+
+- a P&L-linked operating graph and bottleneck economics;
+- evidence-backed executive diagnostics and semantic metrics;
+- deterministic functional kernels across engineering, data, knowledge,
+  marketing/GEO, sales/pricing, customer, finance, procurement, people,
+  operations, quality, legal, IT/security, and creative production;
+- a local agent harness with skills, scopes, autonomy, approval gates,
+  idempotency, and hash-chained execution receipts;
+- observed-process discovery with variants, rework, handoffs, conformance, and
+  delay economics;
+- default-deny policy-as-code, expiring scoped approvals, deny overrides, and
+  segregation of duties;
+- replayable decision workflows with typed bindings, budgets, retries,
+  compensating actions, and deterministic fingerprints;
+- adversarial and metamorphic evaluation plus a fail-closed real-case A2 gate;
+- confidence-adjusted portfolios, seeded Monte Carlo underwriting, service
+  queue simulation, frozen outcome baselines, and explicit attribution limits;
+- an EBITDA/net-debt/enterprise-value/MOIC/IRR bridge and evidence-gated
+  100-day plan for portfolio-company value creation;
+- repository-level controls that prohibit fabricated business evidence while
+  preserving deterministic mathematical and control tests.
+
+See `docs/CONSULTING_OPERATING_SYSTEM.md` and
+`standards/consulting/capability_catalog.json`. The initial functional catalog is
+**A1 Deterministic Core** across every platform component. No component claims
+A2 until source-addressed real-case integration and independent review exist.
+Nothing is production or client-validated maturity.
+
 ## Core conventions
 
 | Convention | Meaning |
@@ -165,7 +201,15 @@ An M4 instance requires a source register, frozen as-of date, model card, valida
 
 standards/
   model_inventory.json
+  consulting/
+    capability_catalog.json
   templates/
+
+consulting/
+  README.md
+
+finance_segway/
+  consulting/
 
 tools/
   builders/
@@ -203,6 +247,10 @@ python tools/weekly_refresh_check.py .
 
 # Create the evidence pack for a domain
 python tools/scaffold_model_evidence.py 05_Private_Credit
+
+# Validate the hand-rolled consulting core and real-data-only policy
+PYTHONPATH=. python tools/validate_consulting_catalog.py
+PYTHONPATH=. python -m unittest tests.test_consulting_real_data_policy -v
 ```
 
 ## Collaboration
