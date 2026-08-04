@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "2.1.0",
   "maturity_scale": {
     "M0": "Placeholder: path or concept only; no decision-useful model.",
     "M1": "Correct Skeleton: formula-driven archetype with basic controls and at least one verified core identity.",
@@ -92,18 +92,22 @@
       "folder": "03_Private_Equity",
       "archetype": "LBO",
       "workbook": "03_Private_Equity/_template_LBO.xlsx",
-      "builder": "tools/builders/build_lbo_template.py",
+      "builder": "tools/builders/build_lbo_release.py",
       "horizon": "corporate_5y",
       "declared_maturity": "M2",
       "required_engines": [
         "operating_model",
         "sources_uses",
-        "multi_tranche_debt",
-        "tax",
         "working_capital",
+        "tax",
+        "revolver",
+        "multi_tranche_debt",
+        "pik",
         "cash_sweep",
+        "covenants",
         "management_equity",
-        "exit_waterfall"
+        "exit_waterfall",
+        "sensitivity"
       ],
       "required_perspectives": [
         "sponsor",
@@ -113,7 +117,10 @@
       ],
       "reference_checks": [
         "sources_uses_balance",
-        "debt_sweep_conservation",
+        "debt_schedule_conservation",
+        "cash_minimum",
+        "covenant_headroom",
+        "waterfall_conservation",
         "returns_identity"
       ],
       "target_maturity": "M3",
@@ -125,18 +132,22 @@
       "folder": "04_Merchant_Banking",
       "archetype": "LBO",
       "workbook": "04_Merchant_Banking/_template_LBO.xlsx",
-      "builder": "tools/builders/build_lbo_template.py",
+      "builder": "tools/builders/build_lbo_release.py",
       "horizon": "corporate_5y",
       "declared_maturity": "M2",
       "required_engines": [
         "operating_model",
         "sources_uses",
-        "multi_tranche_debt",
-        "tax",
         "working_capital",
+        "tax",
+        "revolver",
+        "multi_tranche_debt",
+        "pik",
         "cash_sweep",
-        "holdco_structuring",
-        "exit_waterfall"
+        "covenants",
+        "management_equity",
+        "exit_waterfall",
+        "sensitivity"
       ],
       "required_perspectives": [
         "principal",
@@ -146,7 +157,10 @@
       ],
       "reference_checks": [
         "sources_uses_balance",
-        "debt_sweep_conservation",
+        "debt_schedule_conservation",
+        "cash_minimum",
+        "covenant_headroom",
+        "waterfall_conservation",
         "returns_identity"
       ],
       "target_maturity": "M3",
@@ -281,16 +295,19 @@
       "folder": "09_Risk_Management",
       "archetype": "RISK",
       "workbook": "09_Risk_Management/_template_RISK.xlsx",
-      "builder": "tools/builders/build_risk_template.py",
+      "builder": "tools/builders/build_risk_release.py",
       "horizon": "trading_daily",
-      "declared_maturity": "M1",
+      "declared_maturity": "M2",
       "required_engines": [
+        "position_inventory",
+        "factor_covariance",
+        "factor_euler_var",
+        "position_component_var",
         "var",
         "expected_shortfall",
         "stress_testing",
-        "factor_exposure",
         "liquidity_risk",
-        "backtesting",
+        "pnl_explain",
         "limit_monitoring"
       ],
       "required_perspectives": [
@@ -299,7 +316,13 @@
         "management",
         "regulator"
       ],
-      "reference_checks": [],
+      "reference_checks": [
+        "covariance_bounds",
+        "variance_nonnegative",
+        "expected_shortfall_var_order",
+        "component_var_reconciliation",
+        "limit_headroom"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -419,27 +442,30 @@
       "folder": "14_Options_Derivatives",
       "archetype": "OPTIONS",
       "workbook": "14_Options_Derivatives/_template_OPTIONS.xlsx",
-      "builder": "tools/builders/build_options_template.py",
+      "builder": "tools/builders/build_options_release.py",
       "horizon": "trading_intraday",
       "declared_maturity": "M2",
       "required_engines": [
         "black_scholes",
-        "greeks",
         "implied_volatility",
-        "american_options",
-        "vol_surface",
-        "strategy_payoff",
-        "scenario_pnl"
+        "american_option",
+        "volatility_surface",
+        "portfolio_greeks",
+        "scenario_pnl",
+        "strategy_payoff"
       ],
       "required_perspectives": [
         "trader",
         "market_maker",
         "risk",
-        "clearing"
+        "portfolio_manager"
       ],
       "reference_checks": [
-        "black_scholes_closed_form",
-        "put_call_parity"
+        "put_call_parity",
+        "implied_volatility_convergence",
+        "option_price_bounds",
+        "greek_signs",
+        "american_european_bound"
       ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -534,25 +560,31 @@
       "folder": "18_Insurance_Actuarial",
       "archetype": "INSURANCE",
       "workbook": "18_Insurance_Actuarial/_template_INSURANCE.xlsx",
-      "builder": "tools/builders/build_insurance_template.py",
+      "builder": "tools/builders/build_insurance_release.py",
       "horizon": "long_term_30y",
-      "declared_maturity": "M1",
+      "declared_maturity": "M2",
       "required_engines": [
-        "premium_loss",
-        "loss_triangle",
+        "paid_triangle",
         "chain_ladder",
         "bornhuetter_ferguson",
-        "reserving",
-        "capital",
-        "embedded_value"
+        "underwriting",
+        "embedded_value",
+        "capital_requirement",
+        "stress_testing"
       ],
       "required_perspectives": [
-        "insurer",
         "actuary",
-        "reinsurer",
-        "regulator"
+        "underwriter",
+        "management",
+        "regulator",
+        "rating_agency"
       ],
-      "reference_checks": [],
+      "reference_checks": [
+        "triangle_monotonicity",
+        "development_factor_bounds",
+        "reserve_nonnegative",
+        "capital_coverage"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -562,25 +594,32 @@
       "folder": "19_Structured_Finance_Securitization",
       "archetype": "SECURITIZATION",
       "workbook": "19_Structured_Finance_Securitization/_template_SECURITIZATION.xlsx",
-      "builder": "tools/builders/build_securitization_template.py",
+      "builder": "tools/builders/build_securitization_institutional.py",
       "horizon": "long_term_30y",
-      "declared_maturity": "M1",
+      "declared_maturity": "M2",
       "required_engines": [
-        "collateral_cashflows",
+        "collateral_rollforward",
         "cpr_cdr",
-        "severity",
-        "tranche_waterfall",
-        "credit_enhancement",
+        "recovery_lag",
+        "interest_waterfall",
+        "principal_waterfall",
+        "oc_ic_triggers",
         "wal",
-        "trigger_tests"
+        "sensitivity"
       ],
       "required_perspectives": [
         "issuer",
         "investor",
-        "rating_agency",
-        "servicer"
+        "servicer",
+        "trustee",
+        "rating_agency"
       ],
-      "reference_checks": [],
+      "reference_checks": [
+        "collateral_conservation",
+        "waterfall_conservation",
+        "tranche_balance_nonnegative",
+        "wal_bounds"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -590,28 +629,35 @@
       "folder": "20_Project_Finance",
       "archetype": "PROJECT_FINANCE",
       "workbook": "20_Project_Finance/_template_PROJECT_FINANCE.xlsx",
-      "builder": "tools/builders/build_project_finance_template.py",
+      "builder": "tools/builders/build_project_finance_release.py",
       "horizon": "long_term_40y",
-      "declared_maturity": "M1",
+      "declared_maturity": "M2",
       "required_engines": [
         "construction_draw",
-        "idc",
-        "operating_cashflows",
-        "cfads",
+        "interest_during_construction",
+        "sources_uses",
+        "operating_cfads",
         "debt_sculpting",
-        "dscr_llcr_plcr",
-        "reserves",
-        "risk_allocation",
-        "blended_finance"
+        "dsra",
+        "dscr",
+        "llcr",
+        "plcr",
+        "sensitivity"
       ],
       "required_perspectives": [
         "sponsor",
         "lender",
+        "independent_engineer",
         "offtaker",
-        "government",
         "dfi"
       ],
-      "reference_checks": [],
+      "reference_checks": [
+        "sources_uses_balance",
+        "construction_draw_conservation",
+        "debt_schedule_conservation",
+        "dscr_identity",
+        "llcr_identity"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -621,17 +667,18 @@
       "folder": "21_Fixed_Income_Rates",
       "archetype": "FIXED_INCOME",
       "workbook": "21_Fixed_Income_Rates/_template_FIXED_INCOME.xlsx",
-      "builder": "tools/builders/build_fixed_income_template.py",
+      "builder": "tools/builders/build_fixed_income_release.py",
       "horizon": "trading_daily",
       "declared_maturity": "M2",
       "required_engines": [
+        "zero_curve",
         "bond_pricing",
-        "yield_curve",
-        "duration_convexity",
-        "key_rate_duration",
+        "duration",
+        "convexity",
+        "key_rate_dv01",
         "carry_roll",
-        "credit_spread",
-        "scenario_pnl"
+        "curve_scenarios",
+        "pnl_explain"
       ],
       "required_perspectives": [
         "trader",
@@ -640,8 +687,11 @@
         "treasury"
       ],
       "reference_checks": [
-        "bond_price_closed_form",
-        "duration_closed_form_crosscheck"
+        "price_yield_monotonicity",
+        "duration_positive",
+        "convexity_positive",
+        "key_rate_reconciliation",
+        "discount_factor_monotonicity"
       ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
@@ -652,26 +702,32 @@
       "folder": "22_Quantitative_Systematic",
       "archetype": "QUANT",
       "workbook": "22_Quantitative_Systematic/_template_QUANT.xlsx",
-      "builder": "tools/builders/build_quant_template.py",
+      "builder": "tools/builders/build_quant_release.py",
       "horizon": "trading_daily",
-      "declared_maturity": "M1",
+      "declared_maturity": "M2",
       "required_engines": [
-        "data_integrity",
+        "point_in_time_backtest",
         "walk_forward",
         "transaction_costs",
-        "slippage",
         "capacity",
-        "risk_model",
-        "backtesting",
-        "regime_analysis"
+        "performance",
+        "var_es",
+        "stress_testing",
+        "backtest_live_controls"
       ],
       "required_perspectives": [
         "researcher",
         "portfolio_manager",
         "risk",
-        "operations"
+        "execution"
       ],
-      "reference_checks": [],
+      "reference_checks": [
+        "gross_net_order",
+        "max_drawdown_identity",
+        "var_es_order",
+        "walk_forward_partition",
+        "cost_monotonicity"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
