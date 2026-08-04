@@ -75,12 +75,7 @@ models:
           - accepted_values:
               values: ['real_public']
       - name: sponsor_moic
-        description: "Sponsor MOIC at the selected exit. Must be positive for real_public deals."
-        tests:
-          - dbt_utils.expression_is_true:
-              expression: "> 0"
-              # Fallback if dbt_utils is not installed: use a singular test instead.
-              # The expression test below is the preferred form once packages are added.
+        description: "Sponsor MOIC at the selected exit. Positivity is enforced by the singular test assert_selected_exit_moic_positive."
 
   - name: mart_leverage_path
     description: "Deleveraging trajectory (total debt, net debt, ending cash) by period."
