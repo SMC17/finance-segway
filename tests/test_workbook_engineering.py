@@ -43,12 +43,46 @@ class WorkbookEngineeringTests(unittest.TestCase):
 
     def test_equivalent_formula_serialization(self):
         self.assertEqual(normalize_formula("='VaR'!C5*FALSE()*9E+099"), "=VaR!C5*FALSE*9E99")
+        self.assertEqual(
+            normalize_formula('=MAX(0,MIN(0.60,A1+0.10))+"keep 0.60"'),
+            '=MAX(0,MIN(0.6,A1+0.1))+"keep 0.60"',
+        )
         with TemporaryDirectory() as directory:
             left = Path(directory) / "left.xlsx"
             right = Path(directory) / "right.xlsx"
-            self.create_book(left, "='Model'!B1+9E99+FALSE()")
-            self.create_book(right, "=Model!B1+9E+099+FALSE")
+            self.create_book(left, "='Model'!B1+9E99+FALSE()+0.60")
+            self.create_book(right, "=Model!B1+9E+099+FALSE+0.6")
             self.assertTrue(compare_workbooks(left, right)["semantic_parity"])
+
+    def test_float_round_trip_noise_is_not_semantic_drift(self):
+        with TemporaryDirectory() as directory:
+            left = Path(directory) / "left.xlsx"
+            right = Path(directory) / "right.xlsx"
+            self.create_book(left)
+            self.create_book(right)
+            left_book = load_workbook(left)
+            right_book = load_workbook(right)
+            left_book["Model"]["E1"] = 0.05499999999999999
+            right_book["Model"]["E1"] = 0.055
+            left_book.save(left)
+            right_book.save(right)
+            self.assertTrue(compare_workbooks(left, right)["semantic_parity"])
+
+    def test_material_hardcode_drift_still_fails(self):
+        with TemporaryDirectory() as directory:
+            left = Path(directory) / "left.xlsx"
+            right = Path(directory) / "right.xlsx"
+            self.create_book(left)
+            self.create_book(right)
+            left_book = load_workbook(left)
+            right_book = load_workbook(right)
+            left_book["Model"]["E1"] = 0.055
+            right_book["Model"]["E1"] = 0.056
+            left_book.save(left)
+            right_book.save(right)
+            result = compare_workbooks(left, right)
+            self.assertFalse(result["semantic_parity"])
+            self.assertEqual(result["semantic_cell_differences"][0]["cell"], "E1")
 
     def test_presentation_drift_does_not_fail_semantics(self):
         with TemporaryDirectory() as directory:
