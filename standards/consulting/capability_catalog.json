@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "purpose": "Machine-readable boundary for the hand-rolled consulting operating system. Vendor integrations and external actions are out of scope.",
   "maturity_scale": {
     "A0": "Specified: decision, owner, metrics, risks, and evidence requirements are declared.",
@@ -17,6 +17,78 @@
     "foundation-model training or inference",
     "audio transcription",
     "image, video, or voice generation"
+  ],
+  "platform_capabilities": [
+    {
+      "id": "observed-process-intelligence",
+      "purpose": "Discover variants, handoffs, rework, cycle time, bottlenecks, and conformance from normalized event logs.",
+      "core_engines": ["finance_segway.consulting.process_mining:ProcessMiner"],
+      "decision_rights": "Analysis only; observed sequence does not establish policy correctness or causal impact.",
+      "risk_tier": "MODERATE",
+      "maturity": "A2",
+      "test_path": "tests/test_consulting_frontier.py",
+      "benchmark_paths": ["standards/consulting/benchmarks/quote_to_cash.json", "standards/consulting/benchmarks/procure_to_pay.json"]
+    },
+    {
+      "id": "policy-decision-authority",
+      "purpose": "Evaluate default-deny, deny-override, attribute, obligation, scoped approval, expiry, and segregation-of-duties rules.",
+      "core_engines": ["finance_segway.consulting.policy:PolicyEngine"],
+      "decision_rights": "The engine evaluates declared policy; it does not create authority or approve its own request.",
+      "risk_tier": "CRITICAL",
+      "maturity": "A2",
+      "test_path": "tests/test_consulting_frontier.py",
+      "benchmark_paths": ["standards/consulting/benchmarks/quote_to_cash.json", "standards/consulting/benchmarks/procure_to_pay.json"]
+    },
+    {
+      "id": "replayable-workflow-control",
+      "purpose": "Run typed decision DAGs with bindings, budgets, retries, policy gates, compensation, receipts, and replay fingerprints.",
+      "core_engines": ["finance_segway.consulting.orchestration:WorkflowExecutor"],
+      "decision_rights": "Only registered local skills execute; the workflow cannot exceed the agent, context, policy, or approval authority supplied to it.",
+      "risk_tier": "HIGH",
+      "maturity": "A2",
+      "test_path": "tests/test_consulting_frontier.py",
+      "benchmark_paths": ["standards/consulting/benchmarks/quote_to_cash.json", "standards/consulting/benchmarks/procure_to_pay.json"]
+    },
+    {
+      "id": "evaluation-and-promotion",
+      "purpose": "Run reference, boundary, adversarial, and metamorphic cases and enforce an evidence-based A2 promotion gate.",
+      "core_engines": ["finance_segway.consulting.evaluation:evaluate_suite", "finance_segway.consulting.evaluation:assess_a2_promotion"],
+      "decision_rights": "The gate can establish synthetic A2 evidence only; it cannot promote a capability to controlled client or production maturity.",
+      "risk_tier": "HIGH",
+      "maturity": "A2",
+      "test_path": "tests/test_consulting_benchmarks.py",
+      "benchmark_paths": ["standards/consulting/benchmarks/quote_to_cash.json", "standards/consulting/benchmarks/procure_to_pay.json"]
+    },
+    {
+      "id": "uncertainty-and-capacity-simulation",
+      "purpose": "Underwrite initiative NPV distributions and simulate service-stage queues, capacity, waits, and rework with seeded reproducibility.",
+      "core_engines": ["finance_segway.consulting.simulation:simulate_initiative", "finance_segway.consulting.simulation:simulate_service_pipeline"],
+      "decision_rights": "Simulation outputs are scenario evidence, not forecasts or commitments; distribution assumptions remain named inputs.",
+      "risk_tier": "MODERATE",
+      "maturity": "A2",
+      "test_path": "tests/test_consulting_frontier.py",
+      "benchmark_paths": ["standards/consulting/benchmarks/quote_to_cash.json"]
+    },
+    {
+      "id": "value-realization-attribution",
+      "purpose": "Freeze evidenced baselines, enforce outcome guardrails, bridge forecast to actual, and separate descriptive comparisons from controlled estimates.",
+      "core_engines": ["finance_segway.consulting.value_realization:measure_realization", "finance_segway.consulting.value_realization:difference_in_differences"],
+      "decision_rights": "Arithmetic never creates a causal claim; validated design assumptions and accountable review remain mandatory.",
+      "risk_tier": "HIGH",
+      "maturity": "A1",
+      "test_path": "tests/test_consulting_frontier.py",
+      "benchmark_paths": []
+    },
+    {
+      "id": "portfolio-value-creation",
+      "purpose": "Bridge operating initiatives into EBITDA, net debt, enterprise value, equity value, MOIC, IRR, and an evidence-gated 100-day plan.",
+      "core_engines": ["finance_segway.consulting.value_creation:build_value_creation_bridge", "finance_segway.consulting.value_creation:schedule_100_day_plan"],
+      "decision_rights": "The bridge is scenario analysis; transaction underwriting and investment approval remain separately governed decisions.",
+      "risk_tier": "HIGH",
+      "maturity": "A2",
+      "test_path": "tests/test_consulting_benchmarks.py",
+      "benchmark_paths": ["standards/consulting/benchmarks/quote_to_cash.json"]
+    }
   ],
   "capabilities": [
     {

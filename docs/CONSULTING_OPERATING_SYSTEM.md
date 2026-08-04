@@ -11,21 +11,31 @@ providers, cloud runtimes, media generators, or external agent platforms.
 
 ## Architecture
 
-The system has six layers.
+The system has nine layers.
 
-1. **Operating graph** — maps acquisition, pricing, delivery, quality,
-   retention, billing, capacity, procurement, and talent dependencies.
+1. **Operating and observed-process graph** — maps the expected value chain and
+   discovers actual variants, handoffs, rework, cycle time, conformance, and
+   delay from normalized event logs.
 2. **Metric and evidence layer** — defines metric ownership, lineage, dated
    observations, diagnostic questions, and hash-chained evidence.
 3. **Functional kernels** — deterministic reference implementations for the
    highest-value decisions within each business function.
-4. **Agent control plane** — declares skills, autonomy, read/write scopes,
-   required evidence, approvals, and limitations before execution.
-5. **Value and portfolio layer** — converts operating interventions into
+4. **Decision-authority layer** — evaluates default-deny policy, deny
+   overrides, obligations, expiring request-scoped approvals, and segregation
+   of duties.
+5. **Agent and workflow control plane** — declares skills, autonomy,
+   read/write scopes, required evidence, typed DAG bindings, budgets, retries,
+   failure policy, compensation, and replay semantics before execution.
+6. **Value and portfolio layer** — converts operating interventions into
    confidence-adjusted NPV, payback, risk penalties, dependencies, and a
    budget-constrained sequence.
-6. **Validation and monitoring** — tests capability claims, runs a synthetic
-   integrated benchmark, and preserves receipts without claiming client proof.
+7. **Uncertainty and capacity layer** — runs seeded initiative Monte Carlo and
+   service-stage queue simulations with explicit distribution assumptions.
+8. **Evaluation and promotion layer** — runs reference, boundary, adversarial,
+   regression, and metamorphic cases and enforces the A2 evidence gate.
+9. **Outcome and value-creation layer** — freezes baselines, guards outcome
+   measurement, labels attribution limits, and bridges EBITDA and net debt into
+   enterprise value, equity value, MOIC, IRR, and a 100-day plan.
 
 ## Functional coverage
 
@@ -50,6 +60,22 @@ The system has six layers.
 inventory. `tools/validate_consulting_catalog.py` rejects unsupported maturity,
 missing functions, missing tests, and broken implementation references.
 
+## Cross-functional platform depth
+
+| Platform component | Hand-rolled core | Current evidence |
+|---|---|---|
+| Observed process intelligence | Trace discovery, variants, transitions, cycle tails, rework, handoffs, conformance, cost of delay | A2 synthetic |
+| Decision authority | Attribute conditions, default deny, deny override, obligations, scoped expiry, distinct approvers, segregation of duties | A2 synthetic |
+| Workflow control | Typed DAG, bindings, budgets, retries, halt/continue/rollback, compensation, receipts, replay fingerprint | A2 synthetic |
+| Evaluation | Weighted assertions, critical cases, adversarial cases, metamorphic relations, evidence coverage, promotion gate | A2 synthetic |
+| Uncertainty and capacity | Triangular Monte Carlo, feasibility/adoption/ramp, NPV distribution, payback, sensitivity, queue and rework simulation | A2 synthetic |
+| Value realization | Frozen baseline, guardrails, forecast-to-actual bridge, descriptive versus controlled difference-in-differences | A1 deterministic |
+| Portfolio-company value creation | EBITDA, net debt, EV, equity value, MOIC, IRR, dependencies, critical path, 100-day gates | A2 synthetic |
+
+See `docs/CONSULTING_CONTROL_PLANE_STANDARD.md` and
+`docs/CONSULTING_VALUE_CREATION_STANDARD.md` for the execution and financial
+standards behind these claims.
+
 ## Agent control plane
 
 `finance_segway.consulting.runtime.AgentRuntime` is intentionally local and
@@ -69,6 +95,13 @@ status, actor, and approval reference.
 
 This is not a security sandbox and does not create external authority. It is the
 policy and evidence kernel to place inside a sandbox later.
+
+`WorkflowExecutor` sits above that kernel. It resolves declared bindings only
+after dependencies complete, evaluates step policy against the exact request
+hash, enforces step/attempt/cost budgets, retries only failed handlers, and can
+run declared compensating skills in reverse completion order. Replay compares
+the definition, input, statuses, reasons, and outputs while deliberately
+ignoring timing and receipt hashes.
 
 ## P&L and refounding work
 
@@ -91,6 +124,26 @@ evidence confidence, risk tier, dependencies, delivery time, budget, and hurdle
 rate. This prevents an attractive demo from being treated as an investable
 business case without evidence.
 
+`simulate_initiative` exposes the distribution hidden behind point estimates:
+downside and upside NPV, probability of positive NPV, payback probability,
+expected shortfall, and rank sensitivity to each assumption. The seeded sample
+checksum makes the run reproducible. `simulate_service_pipeline` separately
+tests whether redesigned capacity can handle the proposed flow without simply
+moving the queue downstream.
+
+`build_value_creation_bridge` connects initiatives to exit EBITDA, net debt,
+enterprise value, equity value, MOIC, and IRR. One-time cost and capex consume
+cash; working-capital release reduces net debt; recurring cost reduces EBITDA.
+This explicit bridge makes double counting challengeable. `schedule_100_day_plan`
+then computes dependency timing, the critical path, unresolved evidence gates,
+and whether the sequence fits the first 100 days.
+
+Outcome evidence remains deliberately more conservative. `RealizationPlan`
+freezes a baseline and guardrails before measurement. Difference-in-differences
+is labeled descriptive unless the caller records a reviewed design and its
+identification assumptions; even then the result remains subject to those
+assumptions.
+
 ## Consulting engagement sequence
 
 1. Map the client's activity graph and P&L drivers.
@@ -98,9 +151,12 @@ business case without evidence.
 3. Establish the baseline before proposing an agent or redesigned process.
 4. Build and independently test only the relevant deterministic kernels.
 5. Run reference and adversarial cases within declared read/write scopes.
-6. Quantify a confidence- and risk-adjusted initiative portfolio.
-7. Deliver a decision record, limitations, acceptance record, and monitoring plan.
-8. Measure realized outcomes against the frozen baseline and retire failed uses.
+6. Encode decision rights, obligations, approval scope, and segregation of duties.
+7. Reproduce the controlled workflow, compensation, and replay evidence locally.
+8. Quantify a confidence-, risk-, and uncertainty-adjusted initiative portfolio.
+9. Bridge the sequence into EBITDA, cash, enterprise value, and a 100-day plan.
+10. Deliver decision records, limitations, acceptance criteria, and monitoring plan.
+11. Measure realized outcomes against the frozen baseline and retire failed uses.
 
 Client system integrations and confidential engagement repositories remain
 outside this public core.
@@ -115,10 +171,17 @@ outside this public core.
 | A3 | Controlled client use, validation, effective challenge, and sign-off exist |
 | A4 | Maintained live use, outcomes, thresholds, rollback, and retirement exist |
 
-The initial functional catalog is A1. The synthetic industrial-services case
+The 14-function catalog remains A1. The synthetic industrial-services case
 integrates the operating graph, initiative portfolio, quote control, scoped
 knowledge retrieval, agent runtime, evidence ledger, and refounding economics.
-It is engineering evidence only and does not promote any capability to A3 or A4.
+
+The committed quote-to-cash and procure-to-pay manifests add reproducible A2
+evidence for six control-plane components: observed process intelligence,
+policy authority, workflow control, evaluation/promotion, uncertainty/capacity,
+and portfolio-company value creation. Value-realization attribution remains A1
+until an integrated outcome benchmark exists. All of this is engineering
+evidence only and does not promote any functional capability or platform
+component to A3 or A4.
 
 ## Explicit exclusions
 

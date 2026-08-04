@@ -7,6 +7,7 @@ consulting operating system implemented under `finance_segway/consulting/`.
 
 ```bash
 PYTHONPATH=. python tools/run_consulting_reference_case.py
+PYTHONPATH=. python tools/run_consulting_benchmarks.py
 ```
 
 The benchmark uses only committed synthetic inputs. It demonstrates:
@@ -18,13 +19,21 @@ The benchmark uses only committed synthetic inputs. It demonstrates:
 - hash-chained execution receipts;
 - baseline-versus-redesigned service-business economics.
 
+The two A2 control-plane manifests under `standards/consulting/benchmarks/`
+go deeper. They reproduce quote-to-cash and procure-to-pay decision workflows
+with observed-process conformance, default-deny policy, distinct approvals,
+deny overrides, workflow replay, adversarial cases, uncertainty underwriting,
+and an exit-value bridge. They stage and project local records only; they do not
+send a quote, dispatch work, place an order, release payment, or contact anyone.
+
 Validate all declared functional capabilities with:
 
 ```bash
 PYTHONPATH=. python tools/validate_consulting_catalog.py
 PYTHONPATH=. python -m unittest tests.test_consulting_core \
   tests.test_consulting_functions tests.test_consulting_catalog \
-  tests.test_consulting_reference_case -v
+  tests.test_consulting_reference_case tests.test_consulting_frontier \
+  tests.test_consulting_benchmarks -v
 ```
 
 No client data or external integration configuration belongs here. See

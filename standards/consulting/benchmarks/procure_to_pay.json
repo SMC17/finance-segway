@@ -1,0 +1,128 @@
+{
+  "benchmark_id": "synthetic-procure-to-pay-a2",
+  "flow": "procure_to_pay",
+  "synthetic": true,
+  "as_of": "2026-08-04T12:00:00+00:00",
+  "reference_scenario_id": "approved-material-invoice",
+  "policy": {
+    "material_threshold": "10000.00",
+    "required_roles": ["procurement", "finance"],
+    "approvers": {
+      "procurement": "synthetic-procurement-director",
+      "finance": "synthetic-finance-controller"
+    }
+  },
+  "spend": {
+    "request_id": "PR-A2-001",
+    "category": "field-supplies",
+    "amount": "25000.00",
+    "requester": "synthetic-operations-manager",
+    "vendor_id": "V-100",
+    "budget_remaining": "40000.00",
+    "contract_id": "C-100",
+    "policy": {
+      "category_limits": {"field-supplies": "50000.00"},
+      "approval_threshold": "10000.00",
+      "contract_required_threshold": "5000.00",
+      "blocked_vendors": []
+    }
+  },
+  "invoice": {
+    "invoice_id": "INV-A2-001",
+    "po_id": "PO-A2-001",
+    "contract_id": "C-100",
+    "contract_prices": {"KIT": "100.00"},
+    "ordered_quantities": {"KIT": 100},
+    "invoiced_quantities": {"KIT": 100},
+    "invoice_prices": {"KIT": "101.00"},
+    "subtotal": "10100.00",
+    "tax": "505.00",
+    "discount_taken": "0.00",
+    "quantity_tolerance": 0,
+    "tax_rate": 0.05,
+    "early_payment_discount": 0.02
+  },
+  "scenarios": [
+    {
+      "scenario_id": "approved-material-invoice",
+      "category": "reference",
+      "severity": 4,
+      "vendor_status": "active",
+      "approval_roles": ["procurement", "finance"],
+      "replay": true,
+      "expected": {
+        "workflow_status": "completed",
+        "completed_step_count": 3,
+        "step_statuses": {"screen": "completed", "audit": "completed", "cash": "completed"}
+      }
+    },
+    {
+      "scenario_id": "missing-finance-approval",
+      "category": "adversarial",
+      "severity": 4,
+      "vendor_status": "active",
+      "approval_roles": ["procurement"],
+      "expected": {
+        "workflow_status": "approval_required",
+        "completed_step_count": 1,
+        "step_statuses": {"screen": "completed", "audit": "approval_required"}
+      }
+    },
+    {
+      "scenario_id": "blocked-vendor",
+      "category": "adversarial",
+      "severity": 4,
+      "vendor_status": "blocked",
+      "approval_roles": ["procurement", "finance"],
+      "expected": {
+        "workflow_status": "policy_denied",
+        "completed_step_count": 1,
+        "step_statuses": {"screen": "completed", "audit": "policy_denied"}
+      }
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "missing-approval-reduces-completion",
+      "base_case_id": "approved-material-invoice",
+      "variant_case_id": "missing-finance-approval",
+      "path": "completed_step_count",
+      "operator": "decreases"
+    },
+    {
+      "relation_id": "deny-override-reduces-completion",
+      "base_case_id": "approved-material-invoice",
+      "variant_case_id": "blocked-vendor",
+      "path": "completed_step_count",
+      "operator": "decreases"
+    }
+  ],
+  "process_log": {
+    "allowed_transitions": [["request", "approve"], ["approve", "order"], ["order", "receive"], ["receive", "invoice"], ["invoice", "audit"], ["audit", "project_payment"]],
+    "required_activities": ["request", "approve", "order", "receive", "invoice", "audit", "project_payment"],
+    "allowed_starts": ["request"],
+    "allowed_ends": ["project_payment"],
+    "events": [
+      {"event_id": "P1-1", "case_id": "P1", "activity_id": "request", "occurred_at": "2026-07-01T09:00:00+00:00", "actor": "operations"},
+      {"event_id": "P1-2", "case_id": "P1", "activity_id": "approve", "occurred_at": "2026-07-01T13:00:00+00:00", "actor": "procurement"},
+      {"event_id": "P1-3", "case_id": "P1", "activity_id": "order", "occurred_at": "2026-07-02T09:00:00+00:00", "actor": "buyer"},
+      {"event_id": "P1-4", "case_id": "P1", "activity_id": "receive", "occurred_at": "2026-07-08T09:00:00+00:00", "actor": "warehouse"},
+      {"event_id": "P1-5", "case_id": "P1", "activity_id": "invoice", "occurred_at": "2026-07-09T09:00:00+00:00", "actor": "ap"},
+      {"event_id": "P1-6", "case_id": "P1", "activity_id": "audit", "occurred_at": "2026-07-10T12:00:00+00:00", "actor": "controller"},
+      {"event_id": "P1-7", "case_id": "P1", "activity_id": "project_payment", "occurred_at": "2026-07-10T14:00:00+00:00", "actor": "treasury"},
+      {"event_id": "P2-1", "case_id": "P2", "activity_id": "request", "occurred_at": "2026-07-02T09:00:00+00:00", "actor": "operations"},
+      {"event_id": "P2-2", "case_id": "P2", "activity_id": "approve", "occurred_at": "2026-07-03T13:00:00+00:00", "actor": "procurement"},
+      {"event_id": "P2-3", "case_id": "P2", "activity_id": "order", "occurred_at": "2026-07-04T09:00:00+00:00", "actor": "buyer"},
+      {"event_id": "P2-4", "case_id": "P2", "activity_id": "receive", "occurred_at": "2026-07-15T09:00:00+00:00", "actor": "warehouse"},
+      {"event_id": "P2-5", "case_id": "P2", "activity_id": "invoice", "occurred_at": "2026-07-16T09:00:00+00:00", "actor": "ap"},
+      {"event_id": "P2-6", "case_id": "P2", "activity_id": "audit", "occurred_at": "2026-07-18T12:00:00+00:00", "actor": "controller"},
+      {"event_id": "P2-7", "case_id": "P2", "activity_id": "project_payment", "occurred_at": "2026-07-18T14:00:00+00:00", "actor": "treasury"},
+      {"event_id": "P3-1", "case_id": "P3", "activity_id": "request", "occurred_at": "2026-07-03T09:00:00+00:00", "actor": "operations"},
+      {"event_id": "P3-2", "case_id": "P3", "activity_id": "order", "occurred_at": "2026-07-03T10:00:00+00:00", "actor": "buyer"},
+      {"event_id": "P3-3", "case_id": "P3", "activity_id": "receive", "occurred_at": "2026-07-04T10:00:00+00:00", "actor": "warehouse"},
+      {"event_id": "P3-4", "case_id": "P3", "activity_id": "invoice", "occurred_at": "2026-07-05T10:00:00+00:00", "actor": "ap"},
+      {"event_id": "P3-5", "case_id": "P3", "activity_id": "audit", "occurred_at": "2026-07-06T10:00:00+00:00", "actor": "controller"},
+      {"event_id": "P3-6", "case_id": "P3", "activity_id": "project_payment", "occurred_at": "2026-07-06T12:00:00+00:00", "actor": "treasury"}
+    ]
+  }
+}

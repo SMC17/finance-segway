@@ -1,0 +1,178 @@
+{
+  "benchmark_id": "synthetic-quote-to-cash-a2",
+  "flow": "quote_to_cash",
+  "synthetic": true,
+  "as_of": "2026-08-04T12:00:00+00:00",
+  "reference_scenario_id": "approved-material-quote",
+  "policy": {
+    "material_threshold": "7500.00",
+    "required_roles": ["sales_manager", "finance"],
+    "approvers": {
+      "sales_manager": "synthetic-sales-director",
+      "finance": "synthetic-finance-controller"
+    }
+  },
+  "quote": {
+    "products": [
+      {"sku": "FIELD-BASE", "list_price": "500.00", "unit_cost": "325.00", "available_units": 25},
+      {"sku": "FIELD-PREMIUM", "list_price": "900.00", "unit_cost": "540.00", "available_units": 10}
+    ],
+    "request": {
+      "quote_id": "Q-A2-001",
+      "quantities": {"FIELD-BASE": 12, "FIELD-PREMIUM": 4},
+      "requested_discount": 0.08
+    },
+    "policy": {
+      "max_discount": 0.10,
+      "min_gross_margin": 0.25,
+      "material_quote_value": "7500.00"
+    }
+  },
+  "scenarios": [
+    {
+      "scenario_id": "approved-material-quote",
+      "category": "reference",
+      "severity": 4,
+      "customer_status": "active",
+      "approval_roles": ["sales_manager", "finance"],
+      "replay": true,
+      "expected": {
+        "workflow_status": "completed",
+        "completed_step_count": 3,
+        "step_statuses": {"quote": "completed", "stage": "completed", "cash": "completed"}
+      }
+    },
+    {
+      "scenario_id": "missing-finance-approval",
+      "category": "adversarial",
+      "severity": 4,
+      "customer_status": "active",
+      "approval_roles": ["sales_manager"],
+      "expected": {
+        "workflow_status": "approval_required",
+        "completed_step_count": 1,
+        "step_statuses": {"quote": "completed", "stage": "approval_required"}
+      }
+    },
+    {
+      "scenario_id": "blocked-customer",
+      "category": "adversarial",
+      "severity": 4,
+      "customer_status": "blocked",
+      "approval_roles": ["sales_manager", "finance"],
+      "expected": {
+        "workflow_status": "policy_denied",
+        "completed_step_count": 1,
+        "step_statuses": {"quote": "completed", "stage": "policy_denied"}
+      }
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "missing-approval-reduces-completion",
+      "base_case_id": "approved-material-quote",
+      "variant_case_id": "missing-finance-approval",
+      "path": "completed_step_count",
+      "operator": "decreases"
+    },
+    {
+      "relation_id": "deny-override-reduces-completion",
+      "base_case_id": "approved-material-quote",
+      "variant_case_id": "blocked-customer",
+      "path": "completed_step_count",
+      "operator": "decreases"
+    }
+  ],
+  "process_log": {
+    "allowed_transitions": [["lead", "quote"], ["quote", "approve"], ["approve", "schedule"], ["schedule", "deliver"], ["deliver", "invoice"], ["invoice", "collect"]],
+    "required_activities": ["lead", "quote", "approve", "schedule", "deliver", "invoice", "collect"],
+    "allowed_starts": ["lead"],
+    "allowed_ends": ["collect"],
+    "events": [
+      {"event_id": "Q1-1", "case_id": "Q1", "activity_id": "lead", "occurred_at": "2026-07-01T09:00:00+00:00", "actor": "marketing"},
+      {"event_id": "Q1-2", "case_id": "Q1", "activity_id": "quote", "occurred_at": "2026-07-01T11:00:00+00:00", "actor": "sales"},
+      {"event_id": "Q1-3", "case_id": "Q1", "activity_id": "approve", "occurred_at": "2026-07-01T15:00:00+00:00", "actor": "finance"},
+      {"event_id": "Q1-4", "case_id": "Q1", "activity_id": "schedule", "occurred_at": "2026-07-02T09:00:00+00:00", "actor": "operations"},
+      {"event_id": "Q1-5", "case_id": "Q1", "activity_id": "deliver", "occurred_at": "2026-07-04T17:00:00+00:00", "actor": "field"},
+      {"event_id": "Q1-6", "case_id": "Q1", "activity_id": "invoice", "occurred_at": "2026-07-05T12:00:00+00:00", "actor": "billing"},
+      {"event_id": "Q1-7", "case_id": "Q1", "activity_id": "collect", "occurred_at": "2026-07-25T12:00:00+00:00", "actor": "treasury"},
+      {"event_id": "Q2-1", "case_id": "Q2", "activity_id": "lead", "occurred_at": "2026-07-02T09:00:00+00:00", "actor": "marketing"},
+      {"event_id": "Q2-2", "case_id": "Q2", "activity_id": "quote", "occurred_at": "2026-07-02T14:00:00+00:00", "actor": "sales"},
+      {"event_id": "Q2-3", "case_id": "Q2", "activity_id": "approve", "occurred_at": "2026-07-03T11:00:00+00:00", "actor": "finance"},
+      {"event_id": "Q2-4", "case_id": "Q2", "activity_id": "schedule", "occurred_at": "2026-07-03T15:00:00+00:00", "actor": "operations"},
+      {"event_id": "Q2-5", "case_id": "Q2", "activity_id": "deliver", "occurred_at": "2026-07-08T17:00:00+00:00", "actor": "field"},
+      {"event_id": "Q2-6", "case_id": "Q2", "activity_id": "invoice", "occurred_at": "2026-07-10T12:00:00+00:00", "actor": "billing"},
+      {"event_id": "Q2-7", "case_id": "Q2", "activity_id": "collect", "occurred_at": "2026-08-02T12:00:00+00:00", "actor": "treasury"},
+      {"event_id": "Q3-1", "case_id": "Q3", "activity_id": "lead", "occurred_at": "2026-07-03T09:00:00+00:00", "actor": "marketing"},
+      {"event_id": "Q3-2", "case_id": "Q3", "activity_id": "quote", "occurred_at": "2026-07-03T10:00:00+00:00", "actor": "sales"},
+      {"event_id": "Q3-3", "case_id": "Q3", "activity_id": "schedule", "occurred_at": "2026-07-03T12:00:00+00:00", "actor": "operations"},
+      {"event_id": "Q3-4", "case_id": "Q3", "activity_id": "deliver", "occurred_at": "2026-07-04T12:00:00+00:00", "actor": "field"},
+      {"event_id": "Q3-5", "case_id": "Q3", "activity_id": "invoice", "occurred_at": "2026-07-05T12:00:00+00:00", "actor": "billing"},
+      {"event_id": "Q3-6", "case_id": "Q3", "activity_id": "collect", "occurred_at": "2026-07-30T12:00:00+00:00", "actor": "treasury"}
+    ]
+  },
+  "simulation": {
+    "simulation_id": "quote-control-underwriting",
+    "implementation_cost": [80000, 100000, 130000],
+    "annual_gross_value": [90000, 140000, 190000],
+    "annual_recurring_cost": [12000, 18000, 26000],
+    "adoption_fraction": [0.55, 0.78, 0.95],
+    "delivery_months": [2, 4, 7],
+    "working_capital_release": [20000, 50000, 80000],
+    "feasibility_probability": 0.88,
+    "life_years": 3,
+    "discount_rate": 0.12,
+    "ramp_months": 6,
+    "iterations": 1500,
+    "seed": 41
+  },
+  "capacity_simulation": {
+    "item_count": 250,
+    "interarrival_minutes": 18,
+    "seed": 41,
+    "stages": [
+      {"stage_id": "quote-review", "servers": 2, "service_minutes": [18, 25, 45], "rework_probability": 0.08},
+      {"stage_id": "schedule", "servers": 2, "service_minutes": [12, 20, 35], "rework_probability": 0.04},
+      {"stage_id": "billing-control", "servers": 1, "service_minutes": [8, 12, 20], "rework_probability": 0.03}
+    ]
+  },
+  "value_creation": {
+    "baseline": {
+      "entry_equity": 100000000,
+      "exit_years": 5,
+      "baseline_exit_ebitda": 30000000,
+      "baseline_exit_net_debt": 50000000,
+      "exit_multiple": 10
+    },
+    "initiatives": [
+      {
+        "initiative_id": "quote-control",
+        "owner": "CRO",
+        "annual_revenue_uplift": 8000000,
+        "incremental_gross_margin": 0.55,
+        "annual_labor_savings": 750000,
+        "annual_recurring_cost": 300000,
+        "one_time_cost": 1200000,
+        "realization_fraction_at_exit": 0.8,
+        "evidence_ids": ["synthetic-case:quote-control"]
+      },
+      {
+        "initiative_id": "collections-control",
+        "owner": "CFO",
+        "annual_other_savings": 500000,
+        "annual_recurring_cost": 150000,
+        "working_capital_release": 6000000,
+        "one_time_cost": 500000,
+        "dependencies": ["quote-control"],
+        "evidence_ids": ["synthetic-case:collections-control"]
+      }
+    ],
+    "available_evidence_ids": ["baseline-scorecard", "pilot-scorecard"],
+    "workstreams": [
+      {"workstream_id": "baseline", "initiative_id": "quote-control", "owner": "CFO", "duration_days": 15},
+      {"workstream_id": "pilot", "initiative_id": "quote-control", "owner": "CRO", "duration_days": 30, "dependencies": ["baseline"], "decision_gate": "pilot acceptance", "required_evidence": ["pilot-scorecard"]},
+      {"workstream_id": "collections", "initiative_id": "collections-control", "owner": "CFO", "duration_days": 25, "dependencies": ["baseline"]},
+      {"workstream_id": "scale", "initiative_id": "quote-control", "owner": "COO", "duration_days": 40, "dependencies": ["pilot", "collections"]}
+    ]
+  }
+}

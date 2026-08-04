@@ -15,6 +15,12 @@ class ConsultingCatalogTests(unittest.TestCase):
         functions = {entry["function"] for entry in catalog["capabilities"]}
         self.assertEqual(functions, {item.value for item in BusinessFunction})
         self.assertTrue(all(entry["maturity"] == "A1" for entry in catalog["capabilities"]))
+        platform = {entry["id"]: entry["maturity"] for entry in catalog["platform_capabilities"]}
+        self.assertEqual(platform["value-realization-attribution"], "A1")
+        self.assertEqual(
+            {maturity for capability, maturity in platform.items() if capability != "value-realization-attribution"},
+            {"A2"},
+        )
 
 
 if __name__ == "__main__":

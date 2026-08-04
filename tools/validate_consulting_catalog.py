@@ -63,6 +63,49 @@ def validate_catalog(root: Path, catalog_path: Path | None = None) -> list[str]:
                         errors.append(f"{entry_id}:not_callable:{reference}")
                 except (ValueError, ImportError, AttributeError) as exc:
                     errors.append(f"{entry_id}:invalid_engine:{reference}:{type(exc).__name__}")
+    platform_entries = catalog.get("platform_capabilities", [])
+    platform_ids = [entry.get("id") for entry in platform_entries]
+    if not platform_entries:
+        errors.append("missing_platform_capabilities")
+    if len(platform_ids) != len(set(platform_ids)):
+        errors.append("duplicate_platform_capability_id")
+    for entry in platform_entries:
+        entry_id = entry.get("id") or "<missing-platform>"
+        for field in ("purpose", "decision_rights", "maturity", "risk_tier"):
+            if not entry.get(field):
+                errors.append(f"{entry_id}:missing:{field}")
+        if not entry.get("core_engines"):
+            errors.append(f"{entry_id}:missing:core_engines")
+        if entry.get("maturity") not in maturities:
+            errors.append(f"{entry_id}:invalid_maturity")
+        if entry.get("risk_tier") not in valid_risks:
+            errors.append(f"{entry_id}:invalid_risk_tier")
+        test_path = root / str(entry.get("test_path", ""))
+        if not test_path.is_file():
+            errors.append(f"{entry_id}:missing_test_path")
+        for reference in entry.get("core_engines", []):
+            try:
+                module_name, object_name = reference.split(":", 1)
+                module = importlib.import_module(module_name)
+                engine = getattr(module, object_name)
+                if not callable(engine):
+                    errors.append(f"{entry_id}:not_callable:{reference}")
+            except (ValueError, ImportError, AttributeError) as exc:
+                errors.append(f"{entry_id}:invalid_engine:{reference}:{type(exc).__name__}")
+        benchmark_paths = entry.get("benchmark_paths", [])
+        if entry.get("maturity") in {"A2", "A3", "A4"} and not benchmark_paths:
+            errors.append(f"{entry_id}:missing_benchmark_paths")
+        for benchmark_path in benchmark_paths:
+            full_path = root / str(benchmark_path)
+            if not full_path.is_file():
+                errors.append(f"{entry_id}:missing_benchmark:{benchmark_path}")
+                continue
+            try:
+                benchmark = json.loads(full_path.read_text(encoding="utf-8"))
+                if not benchmark.get("synthetic"):
+                    errors.append(f"{entry_id}:benchmark_not_synthetic:{benchmark_path}")
+            except json.JSONDecodeError:
+                errors.append(f"{entry_id}:invalid_benchmark_json:{benchmark_path}")
     return errors
 
 

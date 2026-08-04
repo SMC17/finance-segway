@@ -62,13 +62,25 @@ The core includes:
   operations, quality, legal, IT/security, and creative production;
 - a local agent harness with skills, scopes, autonomy, approval gates,
   idempotency, and hash-chained execution receipts;
-- confidence-adjusted business cases, constrained initiative selection, value
-  realization, and service-business refounding economics;
-- a fully synthetic integrated reference case with no external system access.
+- observed-process discovery with variants, rework, handoffs, conformance, and
+  delay economics;
+- default-deny policy-as-code, expiring scoped approvals, deny overrides, and
+  segregation of duties;
+- replayable decision workflows with typed bindings, budgets, retries,
+  compensating actions, and deterministic fingerprints;
+- adversarial and metamorphic evaluation plus machine-enforced A2 promotion;
+- confidence-adjusted portfolios, seeded Monte Carlo underwriting, service
+  queue simulation, frozen outcome baselines, and explicit attribution limits;
+- an EBITDA/net-debt/enterprise-value/MOIC/IRR bridge and evidence-gated
+  100-day plan for portfolio-company value creation;
+- quote-to-cash and procure-to-pay A2 synthetic benchmarks, plus the original
+  integrated reference case, all with no external system access.
 
 See `docs/CONSULTING_OPERATING_SYSTEM.md` and
 `standards/consulting/capability_catalog.json`. The initial functional catalog is
-**A1 Deterministic Core**, not production or client-validated maturity.
+**A1 Deterministic Core**. Six cross-functional control-plane components have
+reproducible **A2 Integrated Benchmark** evidence; value-realization attribution
+remains A1. Nothing is production or client-validated maturity.
 
 ## Core conventions
 
