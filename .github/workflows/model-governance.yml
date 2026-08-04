@@ -30,6 +30,7 @@ jobs:
           python -m py_compile tools/validate_model_inventory.py
           python -m py_compile tools/reference_engines.py
           python -m py_compile tools/test_reference_engines.py
+          python -m py_compile tools/scaffold_model_evidence.py
 
       - name: Test independent reference engines
         run: python tools/test_reference_engines.py
