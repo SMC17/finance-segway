@@ -1,0 +1,277 @@
+{
+  "schema_version": "1.0",
+  "id": "real-estate-public-wework-2022-stress",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "17_Real_Estate_REIT/_template_REAL_ESTATE.xlsx",
+  "output": "17_Real_Estate_REIT/instances/public_wework_2022_stress.xlsx",
+  "as_of": "2022-12-31",
+  "scenario": "Downside",
+  "cover": {
+    "Subject:": "WeWork 2022 occupancy-economics and refinancing stress proxy"
+  },
+  "inputs": [
+    {
+      "sheet": "Property Pro Forma",
+      "cell": "C5",
+      "value": 3245.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "WeWork 2022 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1813756/000181375623000016/we-20221231.htm",
+        "as_of": "2022-12-31",
+        "notes": "U.S. SEC / WeWork; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Property Pro Forma",
+      "cell": "C6",
+      "value": 6.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from real-estate-adversarial-refinancing.json",
+        "url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Property Pro Forma",
+      "cell": "C8",
+      "value": 0.5,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from real-estate-adversarial-refinancing.json",
+        "url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Property Pro Forma",
+      "cell": "C10",
+      "value": 5354.25,
+      "input_kind": "derived",
+      "source": {
+        "name": "WeWork 2022 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1813756/000181375623000016/we-20221231.htm",
+        "as_of": "2022-12-31",
+        "notes": "U.S. SEC / WeWork; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Property Pro Forma",
+      "cell": "C12",
+      "value": 4.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from real-estate-adversarial-refinancing.json",
+        "url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Cap Rate & Valuation",
+      "cell": "C5",
+      "value": 0.09,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from real-estate-adversarial-refinancing.json",
+        "url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Cap Rate & Valuation",
+      "cell": "C8",
+      "value": 100.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from real-estate-adversarial-refinancing.json",
+        "url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Cap Rate & Valuation",
+      "cell": "C10",
+      "value": 85.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from real-estate-adversarial-refinancing.json",
+        "url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "REIT FFO-AFFO",
+      "cell": "C4",
+      "value": -2034.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "WeWork 2022 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1813756/000181375623000016/we-20221231.htm",
+        "as_of": "2022-12-31",
+        "notes": "U.S. SEC / WeWork; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "REIT FFO-AFFO",
+      "cell": "C5",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Flexible-office FFO proxy normalization",
+        "url": "repo://17_Real_Estate_REIT/sources/snapshots/real-estate-public-wework-2022-stress.json",
+        "as_of": "2022-12-31",
+        "notes": "Modeler-owned assumption documented in frozen snapshot"
+      }
+    },
+    {
+      "sheet": "REIT FFO-AFFO",
+      "cell": "C6",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Flexible-office FFO proxy normalization",
+        "url": "repo://17_Real_Estate_REIT/sources/snapshots/real-estate-public-wework-2022-stress.json",
+        "as_of": "2022-12-31",
+        "notes": "Modeler-owned assumption documented in frozen snapshot"
+      }
+    },
+    {
+      "sheet": "REIT FFO-AFFO",
+      "cell": "C9",
+      "value": 4.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from real-estate-adversarial-refinancing.json",
+        "url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "REIT FFO-AFFO",
+      "cell": "C10",
+      "value": 1.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from real-estate-adversarial-refinancing.json",
+        "url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "REIT FFO-AFFO",
+      "cell": "C13",
+      "value": 10.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from real-estate-adversarial-refinancing.json",
+        "url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Debt Schedule",
+      "cell": "C3",
+      "value": 0.1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from real-estate-adversarial-refinancing.json",
+        "url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Debt Schedule",
+      "cell": "C4",
+      "value": 15.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from real-estate-adversarial-refinancing.json",
+        "url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Debt Schedule",
+      "cell": "C5",
+      "value": 1.25,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from real-estate-adversarial-refinancing.json",
+        "url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "5-Year Hold & IRR",
+      "cell": "C5",
+      "value": -0.03,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from real-estate-adversarial-refinancing.json",
+        "url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "5-Year Hold & IRR",
+      "cell": "C6",
+      "value": 0.1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from real-estate-adversarial-refinancing.json",
+        "url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "5-Year Hold & IRR",
+      "cell": "C7",
+      "value": 0.04,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from real-estate-adversarial-refinancing.json",
+        "url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
+        "as_of": "2022-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "WeWork 2022 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1813756/000181375623000016/we-20221231.htm",
+      "as_of": "2022-12-31",
+      "notes": "U.S. SEC / WeWork; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://17_Real_Estate_REIT/sources/snapshots/real-estate-public-wework-2022-stress.json",
+      "as_of": "2022-12-31",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://17_Real_Estate_REIT/sources/snapshots/real-estate-public-wework-2022-stress.json",
+    "what_changed": "Generated public case real-estate-public-wework-2022-stress from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

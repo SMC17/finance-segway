@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "model_id": "15",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "basis_move",
+      "warning": 10.0,
+      "breach": 25.0,
+      "action": "Reconcile location, quality, timing and liquidity basis"
+    },
+    {
+      "metric": "storage_utilization",
+      "warning": 0.75,
+      "breach": 0.9,
+      "action": "Escalate logistics, financing and hedge-roll plan"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

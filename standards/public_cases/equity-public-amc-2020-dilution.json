@@ -1,0 +1,157 @@
+{
+  "schema_version": "1.0",
+  "id": "equity-public-amc-2020-dilution",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "12_Equity_Finance/_template_BASE.xlsx",
+  "output": "12_Equity_Finance/instances/public_amc_2020_dilution.xlsx",
+  "as_of": "2020-12-31",
+  "scenario": "Adversarial",
+  "cover": {
+    "Subject:": "AMC 2020 emergency equity and debt financing"
+  },
+  "inputs": [
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "C3",
+      "value": "Adversarial",
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from equity-adversarial-dilution.json",
+        "url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Rights Offering",
+      "cell": "D7",
+      "value": 10.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from equity-adversarial-dilution.json",
+        "url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Rights Offering",
+      "cell": "D8",
+      "value": 3.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from equity-adversarial-dilution.json",
+        "url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Rights Offering",
+      "cell": "D9",
+      "value": 0.196,
+      "input_kind": "derived",
+      "source": {
+        "name": "AMC Entertainment 2020 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1411579/000141157921000006/amc-20201231x10k.htm",
+        "as_of": "2020-12-31",
+        "notes": "U.S. SEC / AMC Entertainment; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Rights Offering",
+      "cell": "D10",
+      "value": 0.08,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from equity-adversarial-dilution.json",
+        "url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Convertible Securities",
+      "cell": "D7",
+      "value": 4.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from equity-adversarial-dilution.json",
+        "url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Convertible Securities",
+      "cell": "D8",
+      "value": 0.08,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from equity-adversarial-dilution.json",
+        "url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Convertible Securities",
+      "cell": "D9",
+      "value": 1.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from equity-adversarial-dilution.json",
+        "url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Convertible Securities",
+      "cell": "D10",
+      "value": 0.15,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from equity-adversarial-dilution.json",
+        "url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Convertible Securities",
+      "cell": "D11",
+      "value": 3.5,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from equity-adversarial-dilution.json",
+        "url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
+        "as_of": "2020-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "AMC Entertainment 2020 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1411579/000141157921000006/amc-20201231x10k.htm",
+      "as_of": "2020-12-31",
+      "notes": "U.S. SEC / AMC Entertainment; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-amc-2020-dilution.json",
+      "as_of": "2020-12-31",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://12_Equity_Finance/sources/snapshots/equity-public-amc-2020-dilution.json",
+    "what_changed": "Generated public case equity-public-amc-2020-dilution from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

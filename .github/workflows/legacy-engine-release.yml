@@ -1,0 +1,145 @@
+name: Legacy Engine Release Workbooks
+
+on:
+  pull_request:
+    paths:
+      - "tools/builders/legacy_frontier_release.py"
+      - "tools/builders/build_investment_banking_release.py"
+      - "tools/builders/build_corporate_finance_release.py"
+      - "tools/builders/build_private_credit_release.py"
+      - "tools/builders/build_debt_finance_release.py"
+      - "tools/builders/build_public_finance_release.py"
+      - "tools/builders/build_venture_capital_release.py"
+      - "tools/validate_legacy_release_workbooks.py"
+      - "tests/test_legacy_release_workbooks.py"
+      - ".github/workflows/legacy-engine-release.yml"
+  push:
+    branches:
+      - agent/all-domain-m3-evidence-network-risk
+    paths:
+      - "tools/builders/legacy_frontier_release.py"
+      - "tools/builders/build_investment_banking_release.py"
+      - "tools/builders/build_corporate_finance_release.py"
+      - "tools/builders/build_private_credit_release.py"
+      - "tools/builders/build_debt_finance_release.py"
+      - "tools/builders/build_public_finance_release.py"
+      - "tools/builders/build_venture_capital_release.py"
+      - "tools/validate_legacy_release_workbooks.py"
+      - "tests/test_legacy_release_workbooks.py"
+      - ".github/workflows/legacy-engine-release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: legacy-engine-release-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  release-workbooks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout frontier head
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile release source
+        run: python -m compileall -q tools tests
+
+      - name: Run release workbook tests
+        run: PYTHONPATH=. python -m unittest tests.test_legacy_release_workbooks -v
+
+      - name: Build and validate six clean release workbooks
+        run: |
+          rm -rf .legacy-release-build
+          mkdir -p .legacy-release-build
+          PYTHONPATH=.:tools python tools/validate_legacy_release_workbooks.py \
+            --output-dir .legacy-release-build \
+            --report legacy-release-pre-recalc-report.json
+
+      - name: Install LibreOffice
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice-calc
+
+      - name: Recalculate six release workbooks and reject cached errors
+        run: |
+          PYTHONPATH=.:tools python - <<'PY'
+          import json
+          from pathlib import Path
+
+          from recalc import recalc
+          from tools.validate_legacy_release_workbooks import SPECS
+
+          report = {}
+          failed = []
+          for model_id, spec in SPECS.items():
+              path = Path('.legacy-release-build') / spec['filename']
+              result = recalc(path, timeout=120)
+              report[model_id] = {'path': str(path), **result}
+              if result.get('status') != 'success' or result.get('total_errors', 0) != 0:
+                  failed.append(model_id)
+          Path('legacy-release-recalc-report.json').write_text(
+              json.dumps(report, indent=2) + '\n', encoding='utf-8'
+          )
+          if failed:
+              raise SystemExit(f'LibreOffice recalculation failed for {failed}')
+          PY
+
+      - name: Enforce post-recalculation contracts and engineering audit
+        run: |
+          PYTHONPATH=.:tools python - <<'PY'
+          import json
+          from pathlib import Path
+
+          from tools.validate_legacy_release_workbooks import SPECS, validate_workbook
+
+          results = []
+          errors = []
+          for model_id, spec in SPECS.items():
+              path = Path('.legacy-release-build') / spec['filename']
+              result = validate_workbook(model_id, path)
+              results.append(result)
+              errors.extend(f'{model_id}: {item}' for item in result['errors'])
+          report = {
+              'status': 'PASS' if not errors else 'FAIL',
+              'results': results,
+              'errors': errors,
+          }
+          Path('legacy-release-post-recalc-report.json').write_text(
+              json.dumps(report, indent=2) + '\n', encoding='utf-8'
+          )
+          if errors:
+              raise SystemExit(errors)
+          PY
+
+      - name: Revalidate independent oracles and frontier controls
+        run: |
+          PYTHONPATH=. python tools/validate_legacy_engine_hardening.py \
+            --report legacy-engine-hardening-report.json
+          PYTHONPATH=. python tools/validate_frontier_program.py \
+            --report legacy-release-frontier-report.json
+
+      - name: Upload executable release evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: legacy-release-workbooks-${{ github.event_name }}
+          path: |
+            .legacy-release-build/*.xlsx
+            legacy-release-pre-recalc-report.json
+            legacy-release-recalc-report.json
+            legacy-release-post-recalc-report.json
+            legacy-engine-hardening-report.json
+            legacy-release-frontier-report.json
+          if-no-files-found: warn
+          retention-days: 30

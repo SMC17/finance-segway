@@ -1,0 +1,91 @@
+name: Evidence Receipt Integrity
+
+on:
+  pull_request:
+    paths:
+      - "tools/evidence_receipt_integrity.py"
+      - ".github/workflows/evidence-receipt-integrity.yml"
+      - "standards/public_cases/index.json"
+      - "*/instances/public_*.xlsx"
+      - "*/instances/public_*.receipt.json"
+  push:
+    branches:
+      - agent/all-domain-m3-evidence-network-risk
+    paths:
+      - "tools/evidence_receipt_integrity.py"
+      - ".github/workflows/evidence-receipt-integrity.yml"
+      - "standards/public_cases/index.json"
+      - "*/instances/public_*.xlsx"
+      - "*/instances/public_*.receipt.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: evidence-receipts-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  receipts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout immutable evidence head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Capture source head
+        run: git rev-parse HEAD > .receipt-integrity-start-sha
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install repository dependencies
+        run: pip install -r requirements.txt
+
+      - name: Refresh all public evidence receipts and index entries
+        run: |
+          PYTHONPATH=. python tools/evidence_receipt_integrity.py \
+            --refresh --check --report evidence-receipt-integrity-report.json
+
+      - name: Validate combined evidence after receipt refresh
+        run: |
+          PYTHONPATH=.:tools python tools/frontier_evidence.py \
+            --validate --require-instances
+
+      - name: Reject stale receipt transaction
+        if: github.event_name == 'push'
+        run: |
+          git fetch origin agent/all-domain-m3-evidence-network-risk
+          START_SHA=$(cat .receipt-integrity-start-sha)
+          REMOTE_SHA=$(git rev-parse origin/agent/all-domain-m3-evidence-network-risk)
+          test "$START_SHA" = "$REMOTE_SHA"
+
+      - name: Commit refreshed receipt ledger
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "finance-segway-evidence-integrity-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add standards/public_cases/index.json */instances/public_*.receipt.json
+          if git diff --staged --quiet; then
+            echo "All public evidence receipt hashes are current."
+          else
+            git commit -m "Bind all public evidence receipts to committed workbooks"
+            git push origin HEAD:agent/all-domain-m3-evidence-network-risk
+          fi
+
+      - name: Upload receipt integrity report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidence-receipt-integrity-${{ github.event_name }}
+          path: |
+            evidence-receipt-integrity-report.json
+            all-domain-evidence-report.json
+            frontier-evidence-report.json
+          if-no-files-found: warn
+          retention-days: 30

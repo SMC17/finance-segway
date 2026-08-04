@@ -1,0 +1,212 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "vc-reference-up-round",
+  "as_of": "2026-08-04",
+  "manifest": "standards/benchmark_cases/vc-reference-up-round.json",
+  "template": "13_Venture_Capital/_template_VC.xlsx",
+  "output": "13_Venture_Capital/instances/benchmark_reference_up_round.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C5",
+      "previous": 80,
+      "value": 80.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D5",
+      "previous": 100,
+      "value": 80.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C6",
+      "previous": 20,
+      "value": 20.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D6",
+      "previous": 20,
+      "value": 20.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C7",
+      "previous": 8,
+      "value": 8.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D7",
+      "previous": 10,
+      "value": 8.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C8",
+      "previous": 2,
+      "value": 2.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D8",
+      "previous": 4,
+      "value": 2.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C9",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D9",
+      "previous": 5,
+      "value": 0.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C10",
+      "previous": 0.4,
+      "value": 0.4,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D10",
+      "previous": 0.4,
+      "value": 0.4,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C11",
+      "previous": 0.2,
+      "value": 0.2,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D11",
+      "previous": 0.2,
+      "value": 0.2,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Reserves & Follow-ons",
+      "cell": "C5",
+      "previous": 10,
+      "value": 10.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Reserves & Follow-ons",
+      "cell": "D5",
+      "previous": 30,
+      "value": 10.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Reserves & Follow-ons",
+      "cell": "C6",
+      "previous": 15,
+      "value": 15.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Reserves & Follow-ons",
+      "cell": "D6",
+      "previous": 5,
+      "value": 15.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Exit Waterfall",
+      "cell": "C5",
+      "previous": 500,
+      "value": 500.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Exit Waterfall",
+      "cell": "D5",
+      "previous": 80,
+      "value": 500.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Exit Waterfall",
+      "cell": "C6",
+      "previous": 20,
+      "value": 20.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Exit Waterfall",
+      "cell": "D6",
+      "previous": 20,
+      "value": 20.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Exit Waterfall",
+      "cell": "C7",
+      "previous": 3,
+      "value": 3.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Exit Waterfall",
+      "cell": "D7",
+      "previous": 3,
+      "value": 3.0,
+      "source_url": "repo://standards/frontier/legacy_engine_registry.json",
+      "source_as_of": "2026-08-04"
+    }
+  ],
+  "workbook_sha256": "d6906c8e38af5d17b916fc8599f0e4064b6b0a28f35ac6bb2b1ad60b80ecf2c1",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "recalculated_on": "2026-08-04",
+  "recalculation_engine": "LibreOffice Calc",
+  "model_id": "13",
+  "domain": "Venture Capital",
+  "case_type": "conventional",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false
+}

@@ -1,0 +1,176 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "real-estate-public-realty-income-2023",
+  "as_of": "2023-12-31",
+  "manifest": "standards/public_cases/real-estate-public-realty-income-2023.json",
+  "template": "17_Real_Estate_REIT/_template_REAL_ESTATE.xlsx",
+  "output": "17_Real_Estate_REIT/instances/public_realty_income_2023.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Property Pro Forma",
+      "cell": "C5",
+      "previous": 0,
+      "value": 20.0,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Property Pro Forma",
+      "cell": "C6",
+      "previous": 0,
+      "value": 1.0,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Property Pro Forma",
+      "cell": "C8",
+      "previous": 0,
+      "value": 1.0,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Property Pro Forma",
+      "cell": "C10",
+      "previous": 0,
+      "value": 7.0,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Property Pro Forma",
+      "cell": "C12",
+      "previous": 0,
+      "value": 1.0,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Cap Rate & Valuation",
+      "cell": "C5",
+      "previous": 0.06,
+      "value": 0.06,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Cap Rate & Valuation",
+      "cell": "C8",
+      "previous": 0,
+      "value": 200.0,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Cap Rate & Valuation",
+      "cell": "C10",
+      "previous": 0,
+      "value": 120.0,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "REIT FFO-AFFO",
+      "cell": "C4",
+      "previous": 0,
+      "value": 872.309,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/726728/000072672825000080/o-20250326.htm",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "REIT FFO-AFFO",
+      "cell": "C5",
+      "previous": 0,
+      "value": 1895.177,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/726728/000072672825000080/o-20250326.htm",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "REIT FFO-AFFO",
+      "cell": "C6",
+      "previous": 0,
+      "value": 25.667,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/726728/000072672825000080/o-20250326.htm",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "REIT FFO-AFFO",
+      "cell": "C9",
+      "previous": 0,
+      "value": 1.0,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "REIT FFO-AFFO",
+      "cell": "C10",
+      "previous": 0,
+      "value": 0.5,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "REIT FFO-AFFO",
+      "cell": "C13",
+      "previous": 1,
+      "value": 10.0,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Debt Schedule",
+      "cell": "C3",
+      "previous": 0.06,
+      "value": 0.06,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Debt Schedule",
+      "cell": "C4",
+      "previous": 25,
+      "value": 25.0,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Debt Schedule",
+      "cell": "C5",
+      "previous": 1.25,
+      "value": 1.25,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "5-Year Hold & IRR",
+      "cell": "C5",
+      "previous": 0.02,
+      "value": 0.02,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "5-Year Hold & IRR",
+      "cell": "C6",
+      "previous": 0.065,
+      "value": 0.065,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "5-Year Hold & IRR",
+      "cell": "C7",
+      "previous": 0.02,
+      "value": 0.02,
+      "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
+      "source_as_of": "2023-12-31"
+    }
+  ],
+  "workbook_sha256": "4121c84f6b249bafdc98ff4aa1ac06b838c36f27ac3c5f1657dc5fa2ee9a2a76",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "recalculated_on": "2026-08-04",
+  "recalculation_engine": "LibreOffice Calc",
+  "counts_toward_M4": false
+}

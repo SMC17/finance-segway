@@ -1,0 +1,266 @@
+{
+  "schema_version": "1.1",
+  "id": "public-reference-stable",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false,
+  "domain": "Public Finance",
+  "model_id": "07",
+  "case_type": "conventional",
+  "template": "07_Public_Finance/_template_PUBLIC_FINANCE.xlsx",
+  "output": "07_Public_Finance/instances/benchmark_reference_stable.xlsx",
+  "as_of": "2026-08-04",
+  "scenario": "Base",
+  "cover": {},
+  "inputs": [
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C5",
+      "value": 0.6,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D5",
+      "value": 0.6,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C6",
+      "value": 0.05,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D6",
+      "value": 0.05,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C7",
+      "value": 0.04,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D7",
+      "value": 0.04,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C8",
+      "value": 0.015,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D8",
+      "value": 0.015,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C9",
+      "value": 120.0,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D9",
+      "value": 120.0,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C10",
+      "value": 80.0,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D10",
+      "value": 80.0,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C11",
+      "value": 20.0,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D11",
+      "value": 20.0,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C12",
+      "value": 100.0,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D12",
+      "value": 100.0,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C13",
+      "value": 1.0,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D13",
+      "value": 1.0,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C14",
+      "value": 1.2,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D14",
+      "value": 1.2,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C15",
+      "value": 0.1,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D15",
+      "value": 0.1,
+      "source": {
+        "name": "Finance-Segway six-engine fixture public-reference-stable",
+        "url": "repo://standards/frontier/legacy_engine_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the independent legacy-engine oracle registry; not investment evidence and not M4 evidence"
+      }
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "Six-engine frontier release",
+    "source_snapshot": "repo://standards/frontier/legacy_engine_registry.json",
+    "what_changed": "Applied conventional fixture public-reference-stable",
+    "reviewer_notes": "Synthetic engineering benchmark; not M4 evidence",
+    "next_check": "On builder, source, contract, or threshold change"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "model_id": "24",
+  "domain": "Distressed & Restructuring",
+  "case_id": "distressed-public-bbby-2022-liquidity",
+  "case_type": "adversarial",
+  "as_of": "2022-08-27",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Bed Bath & Beyond Q2 2022 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "publisher": "U.S. SEC / Bed Bath & Beyond",
+      "captured_values": {
+        "cash_usd_mm": 166.7,
+        "six_month_operating_cash_use_usd_mm": 582.4,
+        "post_facility_borrowing_availability_usd_mm": 690.0
+      }
+    },
+    {
+      "name": "Bed Bath & Beyond 2022 Form 10-K and Chapter 11 disclosure",
+      "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615823000059/bbby-20230225.htm",
+      "publisher": "U.S. SEC / Bed Bath & Beyond",
+      "captured_values": {
+        "chapter_11_filing_date": "2023-04-23"
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "C3",
+      "value": 166.7,
+      "kind": "observed",
+      "source": "Bed Bath & Beyond Q2 2022 Form 10-Q"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C5",
+      "value": 690.0,
+      "kind": "observed",
+      "source": "Bed Bath & Beyond Q2 2022 Form 10-Q"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "chapter_11_filing_within_12_months",
+    "forecast": 1.0,
+    "realized": 1.0,
+    "realized_source": "Bed Bath & Beyond Chapter 11 filing, April 23, 2023",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "27f118532e350a338e29b5e59fe7323165bb0fb321865af5b8a6aebabf69b048"
+}

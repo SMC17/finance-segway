@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "model_id": "15",
+  "domain": "Commodities",
+  "case_id": "commodities-public-wti-april-2020",
+  "case_type": "adversarial",
+  "as_of": "2020-04-20",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "EIA April 2020 negative WTI and storage analysis",
+      "url": "https://www.eia.gov/todayinenergy/detail.php?id=43495",
+      "publisher": "U.S. Energy Information Administration",
+      "captured_values": {
+        "may_contract_settlement_usd_per_bbl": -37.63,
+        "june_contract_price_usd_per_bbl": 20.43,
+        "cushing_stocks_mm_bbl": 60.0,
+        "storage_utilization": 0.76
+      }
+    },
+    {
+      "name": "EIA July 2020 oil-price recovery",
+      "url": "https://www.eia.gov/todayinenergy/detail.php?id=46336",
+      "publisher": "U.S. Energy Information Administration",
+      "captured_values": {
+        "wti_price_2020_07_01_usd_per_bbl": 40.0
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Hedging",
+      "cell": "C7",
+      "value": -37.63,
+      "kind": "observed",
+      "source": "EIA April 2020 negative WTI and storage analysis"
+    },
+    {
+      "sheet": "Hedging",
+      "cell": "C8",
+      "value": 20.43,
+      "kind": "observed",
+      "source": "EIA April 2020 negative WTI and storage analysis"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D14",
+      "value": 60.0,
+      "kind": "observed",
+      "source": "EIA April 2020 negative WTI and storage analysis"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D18",
+      "value": 0.76,
+      "kind": "observed",
+      "source": "EIA April 2020 negative WTI and storage analysis"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "wti_price_by_2020_07_01_usd_per_bbl",
+    "forecast": 0.0,
+    "realized": 40.0,
+    "realized_source": "EIA July 2020 oil-price recovery",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "da94912a719b505a4e1c78b5365171eafa25931568e27c6288bd4d71becbb24e"
+}
