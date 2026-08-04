@@ -1,40 +1,32 @@
-# RAM model stage gates
+# RAM Model Stage Gates
 
-Promotion is manual and evidence-backed. Passing unit tests alone does not
-promote a rail.
+Promotion between stages is **not** automatic. Each gate must be evidenced before the hard universe cap is raised.
 
-## Stage 0 → Stage 1
+## Stage 0 → Stage 1 (≤10 → ≤50 names)
 
-### Numerical controls
+### Numerical / correctness
 
-- [x] Ten-name cap is enforced.
-- [x] Portfolio variance identity tests cover equal and arbitrary long-only weights.
-- [x] PSD checks accept valid matrices and reject asymmetric or unusable matrices.
-- [ ] Independent analytic two-asset benchmark is documented.
+- [x] Stage-0 unit tests green.
+- [x] Real-data covariance PSD + risk identities hold.
+- [x] Measured runtime recorded (0.0475 ms/iter on real 10×10).
 
-### Real-data controls
+### Process
 
-- [ ] Named public universe and observation window.
-- [ ] Dated source URL and permissible frozen snapshot.
-- [ ] SHA-256 receipt and transformation methodology.
-- [ ] Missing-value, corporate-action, and survivorship-bias policy.
-- [ ] Realized-risk comparison reviewed by a human.
+- [x] Evidence note reviewed (`evidence/stage0_results_20260804.md`).
+- [x] Stage-1 design and skeleton module exist (`STAGE1_DESIGN.md`, `stage1/`).
+- [ ] Stage-1 own unit tests + bench on a 30–50 name real (or carefully constructed) universe.
+- [ ] Stage-1 evidence note written and reviewed.
+- [ ] Runtime cap in `stage1/covariance.py` raised from 10 → 50 only after the above.
 
-### Performance and process
+## Stage 1 → Stage 2 (≤50 → S&P 100)
 
-- [ ] Runtime and peak-memory measurements on documented hardware.
-- [ ] Algorithmic complexity review.
-- [ ] Independent approval of the evidence note.
-- [ ] Hard cap changed only in the reviewed promotion PR.
+Defined only after Stage 1 is stable. Expected themes: independent benchmark, factor exposures, interactive runtime budgets, first outcome-monitoring hooks.
 
-## Later stages
+## Stage 2 → Stage 3 (S&P 100 → S&P 500) and beyond
 
-Stage 1 → 2 adds a public factor benchmark, resource budgets, and cross-sectional
-consistency. Stage 2 → 3 requires a full evidence pack and outcome monitoring.
-Later gates are intentionally not claimed complete.
+Require formal evidence packs analogous to core M3/M4. Not specified yet.
 
 ## Current status
 
-Stage 0 engine skeleton: implemented and numerically tested.  
-Stage 0 empirical evidence: absent.  
-Stage 1 promotion: blocked.
+- Stage 0: **complete and reviewed** (real data).
+- Stage 1: skeleton open; runtime still gated at 10 until Stage-1 evidence exists.
