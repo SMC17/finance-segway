@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: finance_segway
+    description: "Raw tables loaded by tools/postgres_etl.py from governed Excel instances."
+    tables:
+      - name: deals
+        description: "One row per LBO/PE deal instance."
+        columns:
+          - name: deal_id
+            description: "Primary key matching the workbook stem."
+            tests:
+              - unique
+              - not_null
+          - name: classification
+            description: "real_public or synthetic_benchmark."
+            tests:
+              - accepted_values:
+                  values: ['real_public', 'synthetic_benchmark']
+      - name: deal_returns
+        description: "Long-format returns and exit metrics."
+        columns:
+          - name: deal_id
+            tests:
+              - not_null
+          - name: metric
+            tests:
+              - not_null
+
+models:
+  - name: stg_deals
+    description: "Clean staging view of the deals table."
+    columns:
+      - name: deal_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_deal_returns
+    description: "Clean staging view of deal_returns (EAV)."
+    columns:
+      - name: deal_id
+        tests:
+          - not_null
+
+  - name: mart_selected_exit_returns
+    description: "Analyst-facing mart of selected-exit headline returns. Restricted to evidence classifications by default."
+    columns:
+      - name: deal_id
+        tests:
+          - unique
+          - not_null
+      - name: classification
+        tests:
+          - accepted_values:
+              values: ['real_public']

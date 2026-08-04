@@ -67,22 +67,46 @@ def inverse_vol_weights(vols: Sequence[float]) -> tuple[float, ...]:
 
 
 def is_positive_semidefinite(cov: Sequence[Sequence[float]], tol: float = 1e-9) -> bool:
-    "\"\"\"Very small Stage-0 check via leading principal minors (Sylvester).\"\"\"
+    "\"\"\"Stage-0 PSD check via Cholesky attempt (no external libs).
+
+    For n <= 10 a simple Cholesky decomposition is sufficient and keeps the
+    dependency surface zero. Returns False on any failure or negative pivot.
+    \"\"\"
     n = len(cov)
     _validate_universe(n)
-    # For n <= 10 we can afford a simple implementation; replace later.
-    # This is a placeholder that only checks diagonal non-negativity and symmetry.
+    if any(len(row) != n for row in cov):
+        return False
+
+    # Symmetry check
     for i in range(n):
-        if cov[i][i] < -tol:
-            return False
         for j in range(i + 1, n):
             if abs(cov[i][j] - cov[j][i]) > tol:
                 return False
+
+    # Cholesky (in-place on a copy)
+    L = [[0.0] * n for _ in range(n)]
+    for i in range(n):
+        for j in range(i + 1):
+            s = sum(L[i][k] * L[j][k] for k in range(j))
+            if i == j:
+                val = cov[i][i] - s
+                if val <= tol:
+                    return False
+                L[i][j] = math.sqrt(val)
+            else:
+                if abs(L[j][j]) < tol:
+                    return False
+                L[i][j] = (cov[i][j] - s) / L[j][j]
     return True
 
 
+def frobenius_norm(cov: Sequence[Sequence[float]]) -> float:
+    n = len(cov)
+    _validate_universe(n)
+    return math.sqrt(sum(cov[i][j] ** 2 for i in range(n) for j in range(n)))
+
+
 if __name__ == "__main__":
-    # Tiny synthetic example (3 names) to keep the module executable.
     example_cov = [
         [0.04, 0.01, 0.00],
         [0.01, 0.09, 0.02],
@@ -91,3 +115,4 @@ if __name__ == "__main__":
     res = equal_weight_risk(example_cov)
     print(f"Equal-weight variance={res.variance:.6f} vol={res.volatility:.6f}")
     print(f"Weights={res.weights}")
+    print(f"PSD={is_positive_semidefinite(example_cov)}")

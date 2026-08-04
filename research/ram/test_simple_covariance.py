@@ -7,6 +7,7 @@ import unittest
 from simple_covariance import (
     MAX_STAGE0_UNIVERSE,
     equal_weight_risk,
+    frobenius_norm,
     inverse_vol_weights,
     is_positive_semidefinite,
     portfolio_variance,
@@ -31,11 +32,43 @@ class TestSimpleCovariance(unittest.TestCase):
         self.assertGreater(w[0], w[1])
         self.assertGreater(w[1], w[2])
 
-    def test_psd_symmetry_and_diagonal(self):
-        good = [[0.04, 0.01], [0.01, 0.09]]
+    def test_psd_cholesky_good(self):
+        good = [
+            [0.04, 0.01, 0.00],
+            [0.01, 0.09, 0.02],
+            [0.00, 0.02, 0.16],
+        ]
         self.assertTrue(is_positive_semidefinite(good))
-        bad_diag = [[-0.01, 0.0], [0.0, 0.04]]
-        self.assertFalse(is_positive_semidefinite(bad_diag))
+
+    def test_psd_rejects_negative_eigen(self):
+        # Construct a matrix that is symmetric but not PSD
+        bad = [
+            [0.04, 0.10],
+            [0.10, 0.04],
+        ]
+        self.assertFalse(is_positive_semidefinite(bad))
+
+    def test_psd_rejects_asymmetric(self):
+        asym = [
+            [0.04, 0.02],
+            [0.01, 0.09],
+        ]
+        self.assertFalse(is_positive_semidefinite(asym))
+
+    def test_portfolio_variance_conservation(self):
+        cov = [
+            [0.04, 0.01],
+            [0.01, 0.09],
+        ]
+        w = (0.6, 0.4)
+        var = portfolio_variance(w, cov)
+        # Manual expansion: 0.6^2*0.04 + 0.4^2*0.09 + 2*0.6*0.4*0.01
+        expected = 0.36 * 0.04 + 0.16 * 0.09 + 2 * 0.6 * 0.4 * 0.01
+        self.assertAlmostEqual(var, expected)
+
+    def test_frobenius_norm_positive(self):
+        cov = [[0.04, 0.01], [0.01, 0.09]]
+        self.assertGreater(frobenius_norm(cov), 0.0)
 
 
 if __name__ == "__main__":
