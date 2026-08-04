@@ -1,1 +1,5 @@
 openpyxl>=3.1.0
+
+# Optional: only needed for the Postgres portfolio layer (tools/postgres_etl.py,
+# tools/verify_postgres_etl.py). See db/README.md.
+psycopg2-binary>=2.9.0
