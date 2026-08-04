@@ -1,0 +1,51 @@
+name: Library Engineering
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - agent/synthesize-finance-model-library-v2
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  engineer-library:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile Python sources
+        run: python -m compileall -q finance_segway tools tests
+
+      - name: Run engine and workbook engineering tests
+        run: PYTHONPATH=. python -m unittest discover -s tests -v
+
+      - name: Audit all committed workbooks
+        run: PYTHONPATH=.:tools python tools/workbook_engineering.py . --report workbook-engineering-report.json
+
+      - name: Regenerate every builder and measure parity
+        run: PYTHONPATH=.:tools python tools/build_all_models.py --report builder-parity-report.json
+
+      - name: Upload engineering reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: library-engineering-reports
+          path: |
+            workbook-engineering-report.json
+            builder-parity-report.json
+          if-no-files-found: error
+          retention-days: 30
