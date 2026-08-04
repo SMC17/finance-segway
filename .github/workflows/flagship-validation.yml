@@ -42,7 +42,7 @@ jobs:
           PYTHONPATH=.:tools python tools/builders/build_securitization_institutional.py --output .flagship-build/SECURITIZATION.xlsx
           PYTHONPATH=.:tools python tools/builders/build_insurance_release.py --output .flagship-build/INSURANCE.xlsx
           PYTHONPATH=.:tools python tools/builders/build_quant_institutional.py --output .flagship-build/QUANT.xlsx
-          PYTHONPATH=.:tools python tools/builders/build_risk_institutional.py --output .flagship-build/RISK.xlsx
+          PYTHONPATH=.:tools python tools/builders/build_risk_release.py --output .flagship-build/RISK.xlsx
           PYTHONPATH=.:tools python tools/builders/build_fixed_income_release.py --output .flagship-build/FIXED_INCOME.xlsx
           PYTHONPATH=.:tools python tools/builders/build_lbo_release.py --output .flagship-build/LBO.xlsx
 
