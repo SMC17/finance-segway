@@ -272,7 +272,7 @@ def registry() -> dict[str, Any]:
             [intel_2024],
             [
                 override("Treasury & Liquidity", "D10", 3038.0, "derived", intel_2024["name"]),
-                override("Capital Allocation", "D8", 0.0, "derived", intel_2024["name"]),
+                override("Treasury & Liquidity", "D8", 0.0, "derived", intel_2024["name"]),
             ],
             "quarterly_dividend_suspended",
             0.0,
