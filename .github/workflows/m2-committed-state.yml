@@ -144,8 +144,8 @@ jobs:
               errors.append('promotion report does not confirm current receipt hashes')
           if candidates.get('status') != 'applied_release_validated':
               errors.append('candidate transaction is not applied_release_validated')
-          if benchmark_index.get('instance_count') != 36:
-              errors.append(f"benchmark index count is {benchmark_index.get('instance_count')}, expected 36")
+          if benchmark_index.get('instance_count') != 48:
+              errors.append(f"benchmark index count is {benchmark_index.get('instance_count')}, expected 48")
           if benchmark_index.get('counts_toward_M4') is not False:
               errors.append('benchmark index incorrectly counts toward M4')
 

@@ -220,8 +220,8 @@ jobs:
           errors = []
           if candidates.get('status') != 'applied_release_validated':
               errors.append('promotion candidate transaction is not validated')
-          if index.get('instance_count') != 36:
-              errors.append(f"expected benchmark index count 36, found {index.get('instance_count')}")
+          if index.get('instance_count') != 48:
+              errors.append(f"expected benchmark index count 48, found {index.get('instance_count')}")
           for model_id in EXPECTED_IDS:
               if models[model_id]['declared_maturity'] != 'M2':
                   errors.append(f"{model_id}: not declared M2")

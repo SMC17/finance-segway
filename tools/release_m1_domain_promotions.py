@@ -910,8 +910,8 @@ def rebuild_benchmark_index(new_receipts: list[dict[str, Any]]) -> dict[str, Any
         "instance_count": len(instances),
         "instances": instances,
     }
-    if len(instances) != 36:
-        raise ValueError(f"expected 36 total benchmark instances, found {len(instances)}")
+    if len(instances) != 48:
+        raise ValueError(f"expected 48 total benchmark instances, found {len(instances)}")
     write_json(BENCHMARK_INDEX_PATH, index)
     return index
 
