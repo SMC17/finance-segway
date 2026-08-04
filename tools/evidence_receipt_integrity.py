@@ -25,6 +25,12 @@ def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def _receipt_m4_value(receipt: dict[str, Any]) -> Any:
+    if "counts_toward_M4" in receipt:
+        return receipt["counts_toward_M4"]
+    return receipt.get("counts_toward_m4")
+
+
 def refresh() -> dict[str, Any]:
     index = _load(INDEX)
     errors: list[str] = []
@@ -42,12 +48,18 @@ def refresh() -> dict[str, Any]:
             continue
         digest = _sha256(output)
         receipt = _load(receipt_path)
+        changed = False
         if receipt.get("workbook_sha256") != digest:
             receipt["workbook_sha256"] = digest
             receipt["hash_refreshed_on"] = date.today().isoformat()
             receipt["hash_refresh_reason"] = (
                 "Bind the public-evidence receipt to the exact committed workbook bytes"
             )
+            changed = True
+        if _receipt_m4_value(receipt) is not False or "counts_toward_M4" not in receipt:
+            receipt["counts_toward_M4"] = False
+            changed = True
+        if changed:
             _write(receipt_path, receipt)
             changed_receipts.append(str(receipt_path.relative_to(ROOT)))
         item["receipt"] = receipt
@@ -90,7 +102,7 @@ def check() -> dict[str, Any]:
             errors.append(f"{case_id}: index receipt hash does not match workbook")
         if receipt.get("instance_id") != case_id:
             errors.append(f"{case_id}: receipt instance id mismatch")
-        if receipt.get("counts_toward_M4") is not False:
+        if _receipt_m4_value(receipt) is not False:
             errors.append(f"{case_id}: receipt may not count toward M4")
         if item.get("counts_toward_m4") is not False:
             errors.append(f"{case_id}: index case may not count toward M4")
@@ -123,7 +135,7 @@ def main() -> int:
         *([] if check_report is None else check_report["errors"]),
     ]
     report = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "status": "PASS" if not errors else "FAIL",
         "refresh": refresh_report,
         "check": check_report,
