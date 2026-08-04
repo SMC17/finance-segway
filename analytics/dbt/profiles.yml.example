@@ -1,0 +1,12 @@
+finance_segway:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: "{{ env_var('PGUSER', 'postgres') }}"
+      password: "{{ env_var('PGPASSWORD', '') }}"
+      port: 5432
+      dbname: finance_segway
+      schema: analytics
+      threads: 4
