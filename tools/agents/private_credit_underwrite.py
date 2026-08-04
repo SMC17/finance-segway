@@ -1,4 +1,4 @@
-\"\"\"L3 tool: private_credit_underwrite
+"""L3 tool: private_credit_underwrite
 
 Fail-closed agent interface for 05 Private Credit.
 - Requires provenance on every material fact
@@ -10,7 +10,7 @@ Usage:
   python tools/agents/private_credit_underwrite.py --demo
   python tools/agents/private_credit_underwrite.py --inputs inputs.json
   python tools/agents/private_credit_underwrite.py --instance public_ares_capital_2024 --use-ares-fixture
-\"\"\"
+"""
 from __future__ import annotations
 
 import argparse
@@ -116,7 +116,7 @@ def _write_source_register(instance_dir: Path, inp: ToolInput) -> list[dict[str,
 
 
 def _invoke_builder(workbook_path: Path) -> str:
-    "\"\"Build release-grade credit workbook into workbook_path.\"\"\"
+    """Build release-grade credit workbook into workbook_path."""
     try:
         from tools.builders.build_private_credit_release import build as pc_build
 
@@ -213,7 +213,7 @@ def run(inp: ToolInput) -> ToolOutput:
 
 
 def ares_fixture() -> ToolInput:
-    "\"\"Public BDC reference case using Ares Capital sourced facts (see domain source_register).\"\"\"
+    """Public BDC reference case using Ares Capital sourced facts (see domain source_register)."""
     today = date.today().isoformat()
     # Portfolio-level proxy metrics from public ARCC disclosures / EDGAR facts —
     # labeled as modeler mapping, not a single-borrower commitment letter.
