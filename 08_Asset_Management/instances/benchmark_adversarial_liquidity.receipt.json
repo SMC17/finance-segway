@@ -1,0 +1,290 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "am-adversarial-liquidity",
+  "as_of": "2026-08-04",
+  "manifest": "standards/benchmark_cases/am-adversarial-liquidity.json",
+  "template": "08_Asset_Management/_template_AM.xlsx",
+  "output": "08_Asset_Management/instances/benchmark_adversarial_liquidity.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Fund NAV",
+      "cell": "C5",
+      "previous": 0,
+      "value": 100.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C6",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C7",
+      "previous": 0,
+      "value": -20.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C8",
+      "previous": 0,
+      "value": 3.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C9",
+      "previous": 0,
+      "value": 35.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "D6",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "D7",
+      "previous": 0,
+      "value": -10.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "D8",
+      "previous": 0,
+      "value": 3.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "D9",
+      "previous": 0,
+      "value": 20.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "E6",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "E7",
+      "previous": 0,
+      "value": -5.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "E8",
+      "previous": 0,
+      "value": 2.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "E9",
+      "previous": 0,
+      "value": 10.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "F6",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "F7",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "F8",
+      "previous": 0,
+      "value": 2.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "F9",
+      "previous": 0,
+      "value": 5.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C5",
+      "previous": 0,
+      "value": 100.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C6",
+      "previous": 0.02,
+      "value": 80.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C7",
+      "previous": 0.08,
+      "value": 0.08,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C8",
+      "previous": 0.2,
+      "value": 0.2,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C9",
+      "previous": 1,
+      "value": 1.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C10",
+      "previous": 0,
+      "value": 5.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Return Measurement",
+      "cell": "C14",
+      "previous": 0,
+      "value": -0.05,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D5",
+      "previous": 180,
+      "value": 180.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D6",
+      "previous": 100,
+      "value": 100.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D8",
+      "previous": 55,
+      "value": 55.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D9",
+      "previous": 35,
+      "value": 35.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D10",
+      "previous": 40,
+      "value": 40.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D11",
+      "previous": 20,
+      "value": 20.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D12",
+      "previous": 15,
+      "value": 15.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D13",
+      "previous": 0.4,
+      "value": 0.4,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D14",
+      "previous": 0.25,
+      "value": 0.25,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D15",
+      "previous": 1.2,
+      "value": 1.2,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    }
+  ],
+  "workbook_sha256": "9ae86016ea936b28f2be940a96541715171bb163744714123b7baa17c46e3abf",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "model_id": "08",
+  "domain": "Asset Management",
+  "case_type": "adversarial",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false
+}

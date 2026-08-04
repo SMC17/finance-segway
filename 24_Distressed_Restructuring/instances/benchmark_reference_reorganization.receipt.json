@@ -1,0 +1,202 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "distressed-reference-reorganization",
+  "as_of": "2026-08-04",
+  "manifest": "standards/benchmark_cases/distressed-reference-reorganization.json",
+  "template": "24_Distressed_Restructuring/_template_RESTRUCTURING.xlsx",
+  "output": "24_Distressed_Restructuring/instances/benchmark_reference_reorganization.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C5",
+      "previous": 0,
+      "value": 10.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C6",
+      "previous": 0,
+      "value": 80.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C7",
+      "previous": 0,
+      "value": 20.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C8",
+      "previous": 0,
+      "value": 60.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C9",
+      "previous": 0,
+      "value": 20.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C10",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C12",
+      "previous": 0,
+      "value": 200.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C5",
+      "previous": 0,
+      "value": 180.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D5",
+      "previous": 0,
+      "value": 220.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C6",
+      "previous": 0,
+      "value": 30.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C7",
+      "previous": 0,
+      "value": 10.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D7",
+      "previous": 0,
+      "value": 15.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C8",
+      "previous": 6,
+      "value": 6.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D8",
+      "previous": 18,
+      "value": 18.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C9",
+      "previous": 0.15,
+      "value": 0.15,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "C3",
+      "previous": 20,
+      "value": 20.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "C4",
+      "previous": 5,
+      "value": 5.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C5",
+      "previous": 25,
+      "value": 25.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C7",
+      "previous": 0.02,
+      "value": 0.02,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C8",
+      "previous": 0.12,
+      "value": 0.12,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C9",
+      "previous": 1,
+      "value": 1.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C10",
+      "previous": 0.03,
+      "value": 0.03,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C11",
+      "previous": 1,
+      "value": 1.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    }
+  ],
+  "workbook_sha256": "12162a7d8d922c5cc16a7dcb58c1e2b9df5c0d12f3a9aa1f0dfe75e4b5707c91",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "model_id": "24",
+  "domain": "Distressed & Restructuring",
+  "case_type": "conventional",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false
+}

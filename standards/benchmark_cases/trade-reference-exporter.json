@@ -1,0 +1,274 @@
+{
+  "schema_version": "1.1",
+  "id": "trade-reference-exporter",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false,
+  "domain": "Trade Finance",
+  "model_id": "10",
+  "case_type": "conventional",
+  "template": "10_Trade_Finance/_template_TRADE_FINANCE.xlsx",
+  "output": "10_Trade_Finance/instances/benchmark_reference_exporter.xlsx",
+  "as_of": "2026-08-04",
+  "scenario": "Base",
+  "cover": {},
+  "inputs": [
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C5",
+      "value": 500.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C6",
+      "value": 350.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C7",
+      "value": 60.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C8",
+      "value": 50.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C9",
+      "value": 40.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C5",
+      "value": 100.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C6",
+      "value": 0.015,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C7",
+      "value": 0.01,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C8",
+      "value": 180.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C14",
+      "value": 100.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C15",
+      "value": 0.85,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C16",
+      "value": 0.02,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C17",
+      "value": 60.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Credit & Facility",
+      "cell": "C3",
+      "value": "Base",
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C5",
+      "value": 10.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C6",
+      "value": 0.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C7",
+      "value": 1.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C8",
+      "value": 1.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C9",
+      "value": 1.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C10",
+      "value": 1.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C11",
+      "value": 1.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C12",
+      "value": 1.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finance-Segway domain-hardening fixture trade-reference-exporter",
+      "url": "repo://standards/domain_hardening/m1_registry.json",
+      "as_of": "2026-08-04",
+      "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "M1-to-M2 domain hardening benchmark",
+    "source_snapshot": "repo://standards/domain_hardening/m1_registry.json",
+    "what_changed": "Generated conventional benchmark trade-reference-exporter from the canonical hardened release template",
+    "reviewer_notes": "Synthetic engineering fixture only; does not count toward M4 or live approval",
+    "next_check": "On builder, reference-check, formula, or contract change"
+  }
+}
