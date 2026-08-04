@@ -61,13 +61,23 @@ def formulas_and_labels(wb: openpyxl.Workbook) -> tuple[list[str], set[str], lis
     return formulas, labels, errors
 
 
+def validate_sheet_contract(sheetnames: list[str], required_sheets: tuple[str, ...]) -> list[str]:
+    """Require every canonical sheet in canonical order while permitting governed extensions."""
+    missing = [name for name in required_sheets if name not in sheetnames]
+    if missing:
+        return [f"missing required sheet(s): {missing}"]
+    observed = tuple(name for name in sheetnames if name in required_sheets)
+    if observed != required_sheets:
+        return [f"required sheet order mismatch: {observed}"]
+    return []
+
+
 def validate(path: Path, contract: Contract) -> dict[str, object]:
     wb = openpyxl.load_workbook(path, data_only=False, keep_links=True)
     formulas, labels, errors = formulas_and_labels(wb)
     if wb._external_links:
         errors.append(f"{len(wb._external_links)} external workbook link(s)")
-    if tuple(wb.sheetnames) != contract.required_sheets:
-        errors.append(f"sheet contract mismatch: {wb.sheetnames}")
+    errors.extend(validate_sheet_contract(wb.sheetnames, contract.required_sheets))
     if len(formulas) < contract.minimum_formulas:
         errors.append(f"formula depth {len(formulas)} < {contract.minimum_formulas}")
     for label in contract.required_labels:
