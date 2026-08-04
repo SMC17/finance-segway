@@ -1,0 +1,25 @@
+name: finance_segway_analytics
+version: 1.0.0
+config-version: 2
+
+profile: finance_segway
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  finance_segway_analytics:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table
+
+vars:
+  # Only real_public instances should appear in evidence-oriented marts
+  evidence_classifications: ['real_public']
