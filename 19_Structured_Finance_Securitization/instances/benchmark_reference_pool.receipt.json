@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "securitization-reference-pool",
+  "as_of": "2026-08-03",
+  "manifest": "standards/benchmark_cases/securitization-reference-pool.json",
+  "template": "19_Structured_Finance_Securitization/_template_SECURITIZATION.xlsx",
+  "output": "19_Structured_Finance_Securitization/instances/benchmark_reference_pool.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "previous": 1000,
+      "value": 1200.0,
+      "source_url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "previous": 0.12,
+      "value": 0.14,
+      "source_url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "previous": 0.025,
+      "value": 0.025,
+      "source_url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "previous": 0.45,
+      "value": 0.5,
+      "source_url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
+      "source_as_of": "2026-08-03"
+    }
+  ],
+  "workbook_sha256": "6d0380005616779a9bb5799def487edfecfcfc03653a6a1b8020c5aea1a278bd",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.1",
+  "id": "merchant-adversarial-holdco",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false,
+  "template": "04_Merchant_Banking/_template_LBO.xlsx",
+  "output": "04_Merchant_Banking/instances/benchmark_adversarial_holdco.xlsx",
+  "as_of": "2026-08-03",
+  "scenario": "Downside",
+  "cover": {
+    "Target / transaction:": "Adversarial Holdco Leverage",
+    "Sponsor / principal:": "Benchmark Merchant Bank"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": -0.03,
+      "source": {
+        "name": "Finance-Segway benchmark fixture merchant-adversarial-holdco",
+        "url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D20",
+      "value": 0.145,
+      "source": {
+        "name": "Finance-Segway benchmark fixture merchant-adversarial-holdco",
+        "url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D24",
+      "value": 0.08,
+      "source": {
+        "name": "Finance-Segway benchmark fixture merchant-adversarial-holdco",
+        "url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D28",
+      "value": 6.5,
+      "source": {
+        "name": "Finance-Segway benchmark fixture merchant-adversarial-holdco",
+        "url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finance-Segway benchmark fixture merchant-adversarial-holdco",
+      "url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+      "as_of": "2026-08-03",
+      "notes": "Synthetic engineering fixture; not investment evidence"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-03",
+    "trigger": "Synthetic benchmark generation",
+    "source_snapshot": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+    "what_changed": "Generated merchant-adversarial-holdco from canonical release template",
+    "reviewer_notes": "Engineering fixture only; not public underwriting or M4 evidence",
+    "next_check": "On builder, formula, or contract change"
+  }
+}

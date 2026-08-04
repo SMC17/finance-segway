@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "rates-adversarial-bear-steepener",
+  "as_of": "2026-08-03",
+  "manifest": "standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+  "template": "21_Fixed_Income_Rates/_template_FIXED_INCOME.xlsx",
+  "output": "21_Fixed_Income_Rates/instances/benchmark_adversarial_bear_steepener.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "previous": 0.07,
+      "value": 0.085,
+      "source_url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "previous": 0.02,
+      "value": 0.025,
+      "source_url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Zero Curve",
+      "cell": "D10",
+      "previous": 0.055,
+      "value": 0.08,
+      "source_url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Zero Curve",
+      "cell": "D14",
+      "previous": 0.062,
+      "value": 0.09,
+      "source_url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+      "source_as_of": "2026-08-03"
+    }
+  ],
+  "workbook_sha256": "3604a82a1e8fc0e600ab22a178035b3de67e377b33fbfcf594646ff510592bff",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

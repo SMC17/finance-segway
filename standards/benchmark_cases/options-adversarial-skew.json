@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.1",
+  "id": "options-adversarial-skew",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false,
+  "template": "14_Options_Derivatives/_template_OPTIONS.xlsx",
+  "output": "14_Options_Derivatives/instances/benchmark_adversarial_skew.xlsx",
+  "as_of": "2026-08-03",
+  "scenario": "Downside",
+  "cover": {
+    "Underlying:": "Adversarial Gap-and-Skew Option Book"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "value": 72.0,
+      "source": {
+        "name": "Finance-Segway benchmark fixture options-adversarial-skew",
+        "url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 0.6,
+      "source": {
+        "name": "Finance-Segway benchmark fixture options-adversarial-skew",
+        "url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "value": 30.0,
+      "source": {
+        "name": "Finance-Segway benchmark fixture options-adversarial-skew",
+        "url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D14",
+      "value": -0.5,
+      "source": {
+        "name": "Finance-Segway benchmark fixture options-adversarial-skew",
+        "url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finance-Segway benchmark fixture options-adversarial-skew",
+      "url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
+      "as_of": "2026-08-03",
+      "notes": "Synthetic engineering fixture; not investment evidence"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-03",
+    "trigger": "Synthetic benchmark generation",
+    "source_snapshot": "repo://standards/benchmark_cases/options-adversarial-skew.json",
+    "what_changed": "Generated options-adversarial-skew from canonical release template",
+    "reviewer_notes": "Engineering fixture only; not public underwriting or M4 evidence",
+    "next_check": "On builder, formula, or contract change"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.1",
+  "id": "securitization-reference-pool",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false,
+  "template": "19_Structured_Finance_Securitization/_template_SECURITIZATION.xlsx",
+  "output": "19_Structured_Finance_Securitization/instances/benchmark_reference_pool.xlsx",
+  "as_of": "2026-08-03",
+  "scenario": "Base",
+  "cover": {
+    "Transaction / collateral:": "Reference Amortizing Consumer Pool"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 1200.0,
+      "source": {
+        "name": "Finance-Segway benchmark fixture securitization-reference-pool",
+        "url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.14,
+      "source": {
+        "name": "Finance-Segway benchmark fixture securitization-reference-pool",
+        "url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "value": 0.025,
+      "source": {
+        "name": "Finance-Segway benchmark fixture securitization-reference-pool",
+        "url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "value": 0.5,
+      "source": {
+        "name": "Finance-Segway benchmark fixture securitization-reference-pool",
+        "url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finance-Segway benchmark fixture securitization-reference-pool",
+      "url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
+      "as_of": "2026-08-03",
+      "notes": "Synthetic engineering fixture; not investment evidence"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-03",
+    "trigger": "Synthetic benchmark generation",
+    "source_snapshot": "repo://standards/benchmark_cases/securitization-reference-pool.json",
+    "what_changed": "Generated securitization-reference-pool from canonical release template",
+    "reviewer_notes": "Engineering fixture only; not public underwriting or M4 evidence",
+    "next_check": "On builder, formula, or contract change"
+  }
+}
