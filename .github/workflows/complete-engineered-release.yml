@@ -5,11 +5,16 @@ on:
     branches: [agent/synthesize-finance-model-library-v2]
     paths:
       - '.github/workflows/complete-engineered-release.yml'
+      - '.github/workflows/flagship-validation.yml'
+      - '.github/workflows/library-parity-required.yml'
       - 'finance_segway/**'
       - 'tools/builders/build_*_release.py'
       - 'tools/builders/build_securitization_institutional.py'
       - 'tools/builders/formula_compatibility.py'
       - 'tools/validate_*_model.py'
+      - 'tools/build_all_models.py'
+      - 'tools/workbook_engineering.py'
+      - 'tools/workbook_parity.py'
       - 'tools/promote_engineered_flagships.py'
       - 'tools/generate_release_evidence.py'
       - 'tools/model_instances.py'
@@ -186,8 +191,12 @@ jobs:
             21_Fixed_Income_Rates/_template_FIXED_INCOME.xlsx 21_Fixed_Income_Rates/instances \
             22_Quantitative_Systematic/_template_QUANT.xlsx 22_Quantitative_Systematic/instances \
             standards/model_inventory.json standards/benchmark_cases standards/releases/flagship-2.1.0.json
-          git commit -m 'Complete engineered flagship release'
-          git push origin HEAD:agent/synthesize-finance-model-library-v2
+          if git diff --staged --quiet; then
+            echo 'Canonical release is already current.'
+          else
+            git commit -m 'Complete engineered flagship release'
+            git push origin HEAD:agent/synthesize-finance-model-library-v2
+          fi
 
       - name: Upload complete release evidence
         if: always()
