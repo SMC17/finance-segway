@@ -1,0 +1,138 @@
+name: M3 Evidence Operations
+
+on:
+  pull_request:
+  push:
+    branches: [agent/m3-evidence-operations]
+    paths:
+      - '.github/workflows/m3-evidence-operations.yml'
+      - 'standards/m3_evidence/**'
+      - 'standards/benchmark_cases/**'
+      - 'tools/m3_evidence.py'
+      - 'tools/model_instances.py'
+      - 'tools/model_instance_release.py'
+      - 'tools/workbook_engineering.py'
+      - 'tests/test_m3_evidence.py'
+      - '0[349]_*/_template_*.xlsx'
+      - '1[489]_*/_template_*.xlsx'
+      - '2[012]_*/_template_*.xlsx'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: m3-evidence-${{ github.event_name }}
+  cancel-in-progress: true
+
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout evidence branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Capture immutable source head
+        run: git rev-parse HEAD > .m3-start-sha
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile and run evidence tests
+        run: |
+          python -m compileall -q tools tests
+          PYTHONPATH=. python -m unittest tests.test_m3_evidence -v
+
+      - name: Materialize evidence packs and public cases
+        run: |
+          PYTHONPATH=.:tools python tools/m3_evidence.py \
+            --materialize --generate-instances --validate --require-instances
+
+      - name: Install LibreOffice
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice-calc
+
+      - name: Recalculate all public historical cases
+        run: |
+          PYTHONPATH=.:tools python - <<'PY'
+          import json
+          from pathlib import Path
+          from recalc import recalc
+
+          paths = sorted(Path('.').glob('0[349]_*/instances/public_*.xlsx'))
+          paths += sorted(Path('.').glob('1[489]_*/instances/public_*.xlsx'))
+          paths += sorted(Path('.').glob('2[012]_*/instances/public_*.xlsx'))
+          if len(paths) != 18:
+              raise SystemExit(f'expected 18 public cases, found {len(paths)}')
+          report = {}
+          failed = []
+          for path in paths:
+              result = recalc(path, timeout=120)
+              report[str(path)] = result
+              if result.get('status') != 'success' or result.get('total_errors', 0) != 0:
+                  failed.append(str(path))
+          Path('m3-public-recalc-report.json').write_text(json.dumps(report, indent=2))
+          if failed:
+              raise SystemExit(f'public-case recalculation failed: {failed}')
+          PY
+
+      - name: Audit public cases and revalidate evidence
+        run: |
+          PYTHONPATH=.:tools python tools/workbook_engineering.py . --report m3-public-workbook-report.json
+          PYTHONPATH=.:tools python tools/m3_evidence.py --validate --require-instances
+
+      - name: Reject stale evidence release
+        if: github.event_name == 'push'
+        run: |
+          git fetch origin agent/m3-evidence-operations
+          START_SHA=$(cat .m3-start-sha)
+          REMOTE_SHA=$(git rev-parse origin/agent/m3-evidence-operations)
+          echo "evidence source: $START_SHA"
+          echo "remote source:   $REMOTE_SHA"
+          test "$START_SHA" = "$REMOTE_SHA"
+
+      - name: Commit complete M3 evidence release
+        if: github.event_name == 'push'
+        run: |
+          git config user.name 'finance-segway-evidence-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add \
+            standards/public_cases \
+            03_Private_Equity/model_card.md 03_Private_Equity/validation.md 03_Private_Equity/sources 03_Private_Equity/governance 03_Private_Equity/outcomes 03_Private_Equity/releases 03_Private_Equity/instances/public_* \
+            04_Merchant_Banking/model_card.md 04_Merchant_Banking/validation.md 04_Merchant_Banking/sources 04_Merchant_Banking/governance 04_Merchant_Banking/outcomes 04_Merchant_Banking/releases 04_Merchant_Banking/instances/public_* \
+            09_Risk_Management/model_card.md 09_Risk_Management/validation.md 09_Risk_Management/sources 09_Risk_Management/governance 09_Risk_Management/outcomes 09_Risk_Management/releases 09_Risk_Management/instances/public_* \
+            14_Options_Derivatives/model_card.md 14_Options_Derivatives/validation.md 14_Options_Derivatives/sources 14_Options_Derivatives/governance 14_Options_Derivatives/outcomes 14_Options_Derivatives/releases 14_Options_Derivatives/instances/public_* \
+            18_Insurance_Actuarial/model_card.md 18_Insurance_Actuarial/validation.md 18_Insurance_Actuarial/sources 18_Insurance_Actuarial/governance 18_Insurance_Actuarial/outcomes 18_Insurance_Actuarial/releases 18_Insurance_Actuarial/instances/public_* \
+            19_Structured_Finance_Securitization/model_card.md 19_Structured_Finance_Securitization/validation.md 19_Structured_Finance_Securitization/sources 19_Structured_Finance_Securitization/governance 19_Structured_Finance_Securitization/outcomes 19_Structured_Finance_Securitization/releases 19_Structured_Finance_Securitization/instances/public_* \
+            20_Project_Finance/model_card.md 20_Project_Finance/validation.md 20_Project_Finance/sources 20_Project_Finance/governance 20_Project_Finance/outcomes 20_Project_Finance/releases 20_Project_Finance/instances/public_* \
+            21_Fixed_Income_Rates/model_card.md 21_Fixed_Income_Rates/validation.md 21_Fixed_Income_Rates/sources 21_Fixed_Income_Rates/governance 21_Fixed_Income_Rates/outcomes 21_Fixed_Income_Rates/releases 21_Fixed_Income_Rates/instances/public_* \
+            22_Quantitative_Systematic/model_card.md 22_Quantitative_Systematic/validation.md 22_Quantitative_Systematic/sources 22_Quantitative_Systematic/governance 22_Quantitative_Systematic/outcomes 22_Quantitative_Systematic/releases 22_Quantitative_Systematic/instances/public_* \
+            m3-evidence-report.json
+          if git diff --staged --quiet; then
+            echo 'M3 evidence release is already current.'
+          else
+            git commit -m 'Materialize public evidence and operating controls'
+            git push origin HEAD:agent/m3-evidence-operations
+          fi
+
+      - name: Upload evidence reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m3-evidence-operations-${{ github.event_name }}
+          path: |
+            m3-evidence-report.json
+            m3-public-recalc-report.json
+            m3-public-workbook-report.json
+            standards/public_cases/index.json
+          if-no-files-found: warn
+          retention-days: 30
