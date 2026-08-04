@@ -163,5 +163,6 @@
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
   "recalculated_on": "2026-08-04",
-  "recalculation_engine": "LibreOffice Calc"
+  "recalculation_engine": "LibreOffice Calc",
+  "counts_toward_M4": false
 }
