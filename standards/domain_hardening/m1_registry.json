@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0",
+  "program": "M1 domain hardening",
+  "promotion_policy": "Independent identities and adversarial cases are necessary but not sufficient for M2; workbook integration and decision-surface contracts must also pass.",
+  "domains": [
+    {
+      "model_id": "08",
+      "domain": "Asset Management",
+      "oracle": "asset_management",
+      "reference_checks": ["nav_rollforward", "tvpi_identity", "waterfall_conservation", "carry_rate_bounds"],
+      "references": [
+        {"authority": "CFA Institute", "title": "Global Investment Performance Standards", "url": "https://rpc.cfainstitute.org/gips-standards", "use": "performance calculation, fair representation, disclosure, and verification"}
+      ],
+      "cases": [
+        {"id": "am-conventional-fund", "type": "conventional", "inputs": {"beginning_nav": 100.0, "contributions": 20.0, "gains": 15.0, "fees": 2.0, "distributions": 5.0, "paid_in": 80.0, "cumulative_distributions": 20.0, "residual_value": 60.0, "gross_profit": 100.0, "invested_basis": 80.0, "carry_rate": 0.20, "hurdle_rate": 0.08, "catch_up_rate": 1.0}},
+        {"id": "am-adversarial-liquidity", "type": "adversarial", "inputs": {"beginning_nav": 50.0, "contributions": 0.0, "gains": -20.0, "fees": 3.0, "distributions": 35.0, "paid_in": 100.0, "cumulative_distributions": 10.0, "residual_value": 0.0, "gross_profit": 5.0, "invested_basis": 50.0, "carry_rate": 0.20, "hurdle_rate": 0.08, "catch_up_rate": 1.0}}
+      ]
+    },
+    {
+      "model_id": "10",
+      "domain": "Trade Finance",
+      "oracle": "trade_finance",
+      "reference_checks": ["cash_conversion_cycle", "facility_utilization", "lc_annualized_cost", "factoring_effective_apr", "expected_loss_identity"],
+      "references": [
+        {"authority": "International Chamber of Commerce", "title": "UCP 600", "url": "https://academy.iccwbo.org/trade-finance/e-books/ucp-600/", "use": "documentary-credit conventions and refusal mechanics"},
+        {"authority": "International Chamber of Commerce", "title": "International Standard Banking Practice", "url": "https://academy.iccwbo.org/trade-finance/e-books/international-standard-banking-practice-isbp/", "use": "document examination and banking practice under UCP 600"}
+      ],
+      "cases": [
+        {"id": "trade-conventional-exporter", "type": "conventional", "inputs": {"inventory_days": 35.0, "receivable_days": 45.0, "payable_days": 30.0, "drawn_amount": 60.0, "facility_limit": 100.0, "lc_fee": 0.6, "lc_face": 100.0, "lc_tenor_days": 180.0, "invoice_face": 100.0, "factoring_discount": 2.0, "factoring_days": 60.0, "ead": 60.0, "pd": 0.02, "lgd": 0.40, "gross_margin": 8.0, "country_risk_cost": 0.5, "cash_cycle_warning_days": 120.0}},
+        {"id": "trade-adversarial-country-shock", "type": "adversarial", "inputs": {"inventory_days": 90.0, "receivable_days": 150.0, "payable_days": 20.0, "drawn_amount": 120.0, "facility_limit": 100.0, "lc_fee": 4.0, "lc_face": 100.0, "lc_tenor_days": 90.0, "invoice_face": 100.0, "factoring_discount": 18.0, "factoring_days": 45.0, "ead": 120.0, "pd": 0.20, "lgd": 0.70, "gross_margin": 10.0, "country_risk_cost": 5.0, "cash_cycle_warning_days": 120.0}}
+      ]
+    },
+    {
+      "model_id": "11",
+      "domain": "Microfinance",
+      "oracle": "microfinance",
+      "reference_checks": ["portfolio_rollforward", "par30_90_order", "oss", "fss", "funding_gap"],
+      "references": [
+        {"authority": "CGAP", "title": "Financial Terms, Ratios, and Adjustments for Microfinance", "url": "https://www.cgap.org/research/publication/financial-terms-ratios-and-adjustments-for-microfinance", "use": "standard MFI financial terms and ratio definitions"},
+        {"authority": "CGAP", "title": "Disclosure Guidelines for Financial Reporting by MFIs", "url": "https://www.cgap.org/research/publication/disclosure-guidelines-for-financial-reporting-mfis", "use": "minimum portfolio and sustainability disclosure"}
+      ],
+      "cases": [
+        {"id": "microfinance-conventional-book", "type": "conventional", "inputs": {"beginning_portfolio": 100.0, "disbursements": 50.0, "collections": 45.0, "writeoffs": 2.0, "overdue_30_balance": 5.0, "overdue_90_balance": 2.0, "average_portfolio": 101.5, "restructured_balance": 1.0, "operating_revenue": 20.0, "financial_expense": 4.0, "loan_loss_provision": 2.0, "operating_expense": 10.0, "adjusted_operating_revenue": 19.0, "adjusted_total_cost": 17.0, "liquid_assets": 12.0, "committed_funding": 8.0, "thirty_day_outflows": 15.0, "credit_risk_warning": 0.15}},
+        {"id": "microfinance-adversarial-moratorium", "type": "adversarial", "inputs": {"beginning_portfolio": 100.0, "disbursements": 10.0, "collections": 20.0, "writeoffs": 8.0, "overdue_30_balance": 35.0, "overdue_90_balance": 20.0, "average_portfolio": 91.0, "restructured_balance": 15.0, "operating_revenue": 8.0, "financial_expense": 5.0, "loan_loss_provision": 8.0, "operating_expense": 10.0, "adjusted_operating_revenue": 7.0, "adjusted_total_cost": 25.0, "liquid_assets": 4.0, "committed_funding": 2.0, "thirty_day_outflows": 18.0, "credit_risk_warning": 0.15}}
+      ]
+    },
+    {
+      "model_id": "12",
+      "domain": "Equity Finance",
+      "oracle": "equity_finance",
+      "reference_checks": ["share_conservation", "ownership_bounds", "dilution_identity", "theoretical_ex_rights_price"],
+      "references": [
+        {"authority": "U.S. Securities and Exchange Commission", "title": "Consolidated Corporation Finance Interpretations", "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations-cfis/consolidated-corporation-finance-interpretations", "use": "rights offerings and convertible-security registration conventions"},
+        {"authority": "U.S. Securities and Exchange Commission", "title": "Securities Act Rules Interpretations", "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/securities-act-rules", "use": "anti-dilution and convertible share registration"}
+      ],
+      "cases": [
+        {"id": "equity-conventional-rights", "type": "conventional", "inputs": {"existing_shares": 100.0, "primary_shares": 20.0, "rights_shares": 25.0, "convertible_principal": 100.0, "conversion_price": 10.0, "cum_rights_price": 12.0, "rights_subscription_price": 9.0, "valuation_per_share": 11.0}},
+        {"id": "equity-adversarial-dilution", "type": "adversarial", "inputs": {"existing_shares": 100.0, "primary_shares": 150.0, "rights_shares": 100.0, "convertible_principal": 500.0, "conversion_price": 5.0, "cum_rights_price": 10.0, "rights_subscription_price": 3.0, "valuation_per_share": 4.0}}
+      ]
+    },
+    {
+      "model_id": "15",
+      "domain": "Commodities",
+      "oracle": "commodities",
+      "reference_checks": ["cost_of_carry_identity", "physical_balance", "basis", "roll_yield", "hedge_ratio"],
+      "references": [
+        {"authority": "Commodity Futures Trading Commission", "title": "Economic Purpose of Futures Markets and How They Work", "url": "https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/economicpurpose.html", "use": "commercial hedging and price-risk transfer"},
+        {"authority": "Commodity Futures Trading Commission", "title": "Futures Glossary", "url": "https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/CFTCGlossary/index.htm", "use": "basis, basis risk, hedge ratio, contango, and backwardation"},
+        {"authority": "U.S. Energy Information Administration", "title": "Contract Alignment, Contango, and Backwardation", "url": "https://www.eia.gov/todayinenergy/detail.php?id=24692", "use": "delivery-month alignment and curve interpretation"}
+      ],
+      "cases": [
+        {"id": "commodities-conventional-hedge", "type": "conventional", "inputs": {"spot_price": 80.0, "futures_price": 82.0, "near_futures": 81.0, "far_futures": 80.0, "risk_free_rate": 0.04, "storage_rate": 0.02, "convenience_yield": 0.03, "time_years": 0.5, "physical_quantity": 1000.0, "entry_spot": 80.0, "exit_spot": 75.0, "futures_contracts": -10.0, "contract_size": 100.0, "entry_futures": 82.0, "exit_futures": 76.0, "beginning_inventory": 100.0, "production": 50.0, "purchases": 20.0, "sales": 80.0, "consumption": 30.0, "reported_ending_inventory": 60.0, "basis_warning": 10.0}},
+        {"id": "commodities-adversarial-storage-squeeze", "type": "adversarial", "inputs": {"spot_price": 20.0, "futures_price": 40.0, "near_futures": 20.0, "far_futures": 45.0, "risk_free_rate": 0.02, "storage_rate": 0.30, "convenience_yield": 0.00, "time_years": 0.25, "physical_quantity": 500.0, "entry_spot": 20.0, "exit_spot": 5.0, "futures_contracts": -10.0, "contract_size": 100.0, "entry_futures": 40.0, "exit_futures": 10.0, "beginning_inventory": 20.0, "production": 0.0, "purchases": 10.0, "sales": 25.0, "consumption": 5.0, "reported_ending_inventory": 0.0, "basis_warning": 5.0}}
+      ]
+    },
+    {
+      "model_id": "16",
+      "domain": "Crypto & Digital Assets",
+      "oracle": "crypto",
+      "reference_checks": ["supply_conservation", "locked_supply_bound", "unlock_rate", "staking_dilution", "treasury_runway", "liquidity_coverage"],
+      "references": [
+        {"authority": "U.S. Securities and Exchange Commission", "title": "Statement on Custody of Crypto Asset Securities by Broker-Dealers", "url": "https://www.sec.gov/newsroom/speeches-statements/trading-markets-121725-statement-custody-crypto-asset-securities-broker-dealers", "use": "private-key controls, custody, and customer-asset safeguarding"},
+        {"authority": "Commodity Futures Trading Commission", "title": "Understand the Risks of Virtual Currency Trading", "url": "https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/understand_risks_of_virtual_currency.html", "use": "market, custody, leverage, and liquidity risk"}
+      ],
+      "cases": [
+        {"id": "crypto-conventional-network", "type": "conventional", "inputs": {"beginning_supply": 1000.0, "issuance": 20.0, "unlocks": 30.0, "staking_rewards": 10.0, "burns": 5.0, "locked_supply": 300.0, "treasury_value": 120.0, "monthly_burn": 5.0, "annual_transaction_value": 5000.0, "average_market_cap": 2500.0, "liquid_treasury": 40.0, "thirty_day_obligations": 20.0, "unlock_warning": 0.10, "runway_warning_months": 18.0}},
+        {"id": "crypto-adversarial-unlock-run", "type": "adversarial", "inputs": {"beginning_supply": 1000.0, "issuance": 50.0, "unlocks": 250.0, "staking_rewards": 40.0, "burns": 0.0, "locked_supply": 100.0, "treasury_value": 30.0, "monthly_burn": 5.0, "annual_transaction_value": 800.0, "average_market_cap": 2000.0, "liquid_treasury": 5.0, "thirty_day_obligations": 20.0, "unlock_warning": 0.10, "runway_warning_months": 18.0}}
+      ]
+    },
+    {
+      "model_id": "17",
+      "domain": "Real Estate & REIT",
+      "oracle": "real_estate",
+      "reference_checks": ["noi_identity", "dscr", "ltv", "ffo_bridge", "affo_bridge"],
+      "references": [
+        {"authority": "Nareit", "title": "Funds From Operations", "url": "https://www.reit.com/glossary/funds-operation-ffo", "use": "FFO definition and reconciliation from GAAP net income"},
+        {"authority": "Nareit", "title": "Adjusted Funds From Operations", "url": "https://www.reit.com/glossary/adjusted-funds-operations-affo", "use": "AFFO treatment of recurring capex and straight-line rent"},
+        {"authority": "U.S. Securities and Exchange Commission", "title": "Non-GAAP Financial Measures Interpretations", "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures", "use": "permitted presentation and labeling of FFO and adjusted FFO"}
+      ],
+      "cases": [
+        {"id": "real-estate-conventional-property", "type": "conventional", "inputs": {"potential_gross_income": 20.0, "vacancy_credit_loss": 1.0, "other_income": 1.0, "operating_expenses": 7.0, "property_value": 200.0, "interest_expense": 4.0, "scheduled_principal": 2.0, "recurring_capex": 1.0, "net_income": 6.0, "real_estate_depreciation": 5.0, "gain_on_sale": 0.0, "straight_line_rent_adjustment": 0.5, "debt_balance": 120.0, "ltv_warning": 0.75}},
+        {"id": "real-estate-adversarial-refinancing", "type": "adversarial", "inputs": {"potential_gross_income": 20.0, "vacancy_credit_loss": 6.0, "other_income": 0.5, "operating_expenses": 9.0, "property_value": 100.0, "interest_expense": 6.0, "scheduled_principal": 3.0, "recurring_capex": 4.0, "net_income": -3.0, "real_estate_depreciation": 2.0, "gain_on_sale": 0.0, "straight_line_rent_adjustment": 1.0, "debt_balance": 85.0, "ltv_warning": 0.75}}
+      ]
+    },
+    {
+      "model_id": "23",
+      "domain": "Fintech & Payments",
+      "oracle": "fintech",
+      "reference_checks": ["volume_take_rate_identity", "cohort_rollforward", "ltv_cac", "fraud_loss_rate", "capital_coverage"],
+      "references": [
+        {"authority": "Bank for International Settlements / CPMI", "title": "Reducing the Risk of Wholesale Payments Fraud Related to Endpoint Security", "url": "https://www.bis.org/cpmi/publ/d178.htm", "use": "fraud prevention, detection, response, ownership, and system-wide resilience"},
+        {"authority": "Bank for International Settlements / CPMI", "title": "Endpoint Security Toolkit", "url": "https://www.bis.org/cpmi/publ/d188.htm", "use": "monitoring outcomes and examples of effective control practices"}
+      ],
+      "cases": [
+        {"id": "fintech-conventional-payments", "type": "conventional", "inputs": {"payment_volume": 1000.0, "take_rate": 0.025, "fraud_loss_rate": 0.001, "network_cost_rate": 0.008, "servicing_cost": 4.0, "starting_users": 100.0, "retention_rate": 0.90, "new_users": 20.0, "monthly_arpu": 8.0, "gross_margin_rate": 0.60, "expected_life_months": 24.0, "cac": 30.0, "available_capital": 20.0, "required_capital": 10.0, "transactions": 1000.0, "fraud_warning": 0.005}},
+        {"id": "fintech-adversarial-fraud-run", "type": "adversarial", "inputs": {"payment_volume": 1000.0, "take_rate": 0.015, "fraud_loss_rate": 0.020, "network_cost_rate": 0.010, "servicing_cost": 8.0, "starting_users": 100.0, "retention_rate": 0.50, "new_users": 5.0, "monthly_arpu": 3.0, "gross_margin_rate": 0.20, "expected_life_months": 6.0, "cac": 20.0, "available_capital": 5.0, "required_capital": 20.0, "transactions": 200.0, "fraud_warning": 0.005}}
+      ]
+    },
+    {
+      "model_id": "24",
+      "domain": "Distressed & Restructuring",
+      "oracle": "distressed",
+      "reference_checks": ["thirteen_week_liquidity", "waterfall_conservation", "priority_order", "recovery_bounds", "fulcrum_security"],
+      "references": [
+        {"authority": "Administrative Office of the U.S. Courts", "title": "Chapter 11 Bankruptcy Basics", "url": "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-11-bankruptcy-basics", "use": "claim classification, impairment, voting, feasibility, and confirmation"}
+      ],
+      "cases": [
+        {"id": "distressed-conventional-reorganization", "type": "conventional", "inputs": {"beginning_liquidity": 20.0, "cash_receipts": 40.0, "new_money": 10.0, "operating_disbursements": 35.0, "interest": 5.0, "professional_fees": 3.0, "reorganization_value": 200.0, "administrative_claims": 10.0, "new_money_claim": 10.0, "secured_claims": 80.0, "priority_claims": 20.0, "unsecured_claims": 60.0, "liquidation_value": 150.0, "minimum_liquidity": 5.0}},
+        {"id": "distressed-adversarial-cramdown", "type": "adversarial", "inputs": {"beginning_liquidity": 5.0, "cash_receipts": 20.0, "new_money": 5.0, "operating_disbursements": 25.0, "interest": 4.0, "professional_fees": 4.0, "reorganization_value": 100.0, "administrative_claims": 10.0, "new_money_claim": 15.0, "secured_claims": 80.0, "priority_claims": 20.0, "unsecured_claims": 50.0, "liquidation_value": 110.0, "minimum_liquidity": 5.0}}
+      ]
+    }
+  ]
+}
