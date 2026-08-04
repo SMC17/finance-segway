@@ -87,11 +87,17 @@ for m in range(1, 7):
         ws.cell(row=r, column=c).number_format = CUR
         ws.cell(row=r, column=c).border = BORDER
     r += 1
-ws["B14"] = "WAL = sum(period x principal paid) / total principal — compute once full schedule is built"
-ws["B14"].font = ITALIC_GRAY
+ws["B13"] = "Total principal paid (sample months)"
+ws["C13"] = "=SUM(D6:E11)"; ws["C13"].number_format = CUR; ws["C13"].border = BORDER
+ws["B14"] = "WAL (years) = sum(month x principal paid that month) / total principal / 12"
+ws["C14"] = "=IFERROR(SUMPRODUCT(B6:B11,D6:D11+E6:E11)/C13/12,\"-\")"
+ws["C14"].font = BOLD; ws["C14"].number_format = '0.00'; ws["C14"].border = BORDER
+ws["D14"] = ("Computed on this 6-month sample schedule only — extend rows 6-11 to the deal's actual "
+             "WAM for a real WAL, not just a demo of the mechanics")
+ws["D14"].font = ITALIC_GRAY
 ws.sheet_view.showGridLines = False
 
 add_refresh_log(wb)
-out_path = "/home/claude/model_shop/SECURITIZATION_template.xlsx"
+out_path = "SECURITIZATION_template.xlsx"
 wb.save(out_path)
 print("saved", out_path)

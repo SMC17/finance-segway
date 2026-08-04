@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "quant-reference-costed",
+  "as_of": "2026-08-03",
+  "manifest": "standards/benchmark_cases/quant-reference-costed.json",
+  "template": "22_Quantitative_Systematic/_template_QUANT.xlsx",
+  "output": "22_Quantitative_Systematic/instances/benchmark_reference_costed.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "previous": 8,
+      "value": 10.0,
+      "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "previous": 0.002,
+      "value": 0.003,
+      "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "previous": 50,
+      "value": 60.0,
+      "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C18",
+      "previous": 1,
+      "value": 1,
+      "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C19",
+      "previous": 1,
+      "value": 1,
+      "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+      "source_as_of": "2026-08-03"
+    }
+  ],
+  "workbook_sha256": "07c5e2738e8f4bf192948d5ee9639de3942cb228d6c04982055a2b332f72abed",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

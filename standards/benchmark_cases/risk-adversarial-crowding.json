@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.1",
+  "id": "risk-adversarial-crowding",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false,
+  "template": "09_Risk_Management/_template_RISK.xlsx",
+  "output": "09_Risk_Management/instances/benchmark_adversarial_crowding.xlsx",
+  "as_of": "2026-08-03",
+  "scenario": "Downside",
+  "cover": {
+    "Portfolio / desk:": "Adversarial Crowded Levered Book"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": 0.45,
+      "source": {
+        "name": "Finance-Segway benchmark fixture risk-adversarial-crowding",
+        "url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D12",
+      "value": 8.0,
+      "source": {
+        "name": "Finance-Segway benchmark fixture risk-adversarial-crowding",
+        "url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D13",
+      "value": 22.0,
+      "source": {
+        "name": "Finance-Segway benchmark fixture risk-adversarial-crowding",
+        "url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Positions",
+      "cell": "E6",
+      "value": 90.0,
+      "source": {
+        "name": "Finance-Segway benchmark fixture risk-adversarial-crowding",
+        "url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Positions",
+      "cell": "M14",
+      "value": 35.0,
+      "source": {
+        "name": "Finance-Segway benchmark fixture risk-adversarial-crowding",
+        "url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finance-Segway benchmark fixture risk-adversarial-crowding",
+      "url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
+      "as_of": "2026-08-03",
+      "notes": "Synthetic engineering fixture; not investment evidence"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-03",
+    "trigger": "Synthetic benchmark generation",
+    "source_snapshot": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
+    "what_changed": "Generated risk-adversarial-crowding from canonical release template",
+    "reviewer_notes": "Engineering fixture only; not public underwriting or M4 evidence",
+    "next_check": "On builder, formula, or contract change"
+  }
+}

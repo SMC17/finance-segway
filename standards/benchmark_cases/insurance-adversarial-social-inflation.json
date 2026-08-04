@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.1",
+  "id": "insurance-adversarial-social-inflation",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false,
+  "template": "18_Insurance_Actuarial/_template_INSURANCE.xlsx",
+  "output": "18_Insurance_Actuarial/instances/benchmark_adversarial_social_inflation.xlsx",
+  "as_of": "2026-08-03",
+  "scenario": "Downside",
+  "cover": {
+    "Entity / line of business:": "Adversarial Social-Inflation Book"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "value": 0.88,
+      "source": {
+        "name": "Finance-Segway benchmark fixture insurance-adversarial-social-inflation",
+        "url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "value": 0.12,
+      "source": {
+        "name": "Finance-Segway benchmark fixture insurance-adversarial-social-inflation",
+        "url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 0.22,
+      "source": {
+        "name": "Finance-Segway benchmark fixture insurance-adversarial-social-inflation",
+        "url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D17",
+      "value": 0.2,
+      "source": {
+        "name": "Finance-Segway benchmark fixture insurance-adversarial-social-inflation",
+        "url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
+        "as_of": "2026-08-03",
+        "notes": "Synthetic engineering fixture; not investment evidence"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finance-Segway benchmark fixture insurance-adversarial-social-inflation",
+      "url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
+      "as_of": "2026-08-03",
+      "notes": "Synthetic engineering fixture; not investment evidence"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-03",
+    "trigger": "Synthetic benchmark generation",
+    "source_snapshot": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
+    "what_changed": "Generated insurance-adversarial-social-inflation from canonical release template",
+    "reviewer_notes": "Engineering fixture only; not public underwriting or M4 evidence",
+    "next_check": "On builder, formula, or contract change"
+  }
+}

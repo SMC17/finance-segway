@@ -31,8 +31,15 @@ for m in months:
     r += 1
 last_row = r - 1
 for rr in range(first_row, last_row + 1):
+    # Standard cost-of-carry annualization uses the GAP between the two
+    # contracts' expiries (D{rr} - D{front}), not this contract's own
+    # days-to-expiry from today — those are different periods. Using the
+    # latter understates the annualized rate for every month past the
+    # front (e.g. $70 front/10d vs $71/40d: correct annualization is
+    # 17.4%, using the contract's own day count alone gives only 13.0%).
     ws.cell(row=rr, column=5,
-            value=f"=IFERROR((C{rr}/$C${first_row}-1)*(365/D{rr}),\"-\")").number_format = PCT
+            value=f"=IFERROR((C{rr}/$C${first_row}-1)*(365/(D{rr}-$D${first_row})),\"-\")")
+    ws.cell(row=rr, column=5).number_format = PCT
     ws.cell(row=rr, column=5).border = BORDER
     ws.cell(row=rr, column=6,
             value=f"=IFERROR(C{rr}/$C${first_row}-1,\"-\")").number_format = PCT
@@ -105,6 +112,6 @@ ws.sheet_view.showGridLines = False
 
 add_refresh_log(wb)
 
-out_path = "/home/claude/model_shop/COMMODITIES_template.xlsx"
+out_path = "COMMODITIES_template.xlsx"
 wb.save(out_path)
 print("saved", out_path)

@@ -1,0 +1,16 @@
+name: Promote Flagship Artifacts
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  paused:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Promotion gate
+        run: |
+          echo "Automatic artifact promotion is paused."
+          echo "Re-enable only after Flagship Validation is green on the canonical PR head."

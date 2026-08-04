@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "project-adversarial-delay",
+  "as_of": "2026-08-03",
+  "manifest": "standards/benchmark_cases/project-adversarial-delay.json",
+  "template": "20_Project_Finance/_template_PROJECT_FINANCE.xlsx",
+  "output": "20_Project_Finance/instances/benchmark_adversarial_delay.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "previous": 880,
+      "value": 1100.0,
+      "source_url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "previous": 10,
+      "value": 10,
+      "source_url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "previous": 150,
+      "value": 135.0,
+      "source_url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
+      "source_as_of": "2026-08-03"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D23",
+      "previous": 0.85,
+      "value": 0.72,
+      "source_url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
+      "source_as_of": "2026-08-03"
+    }
+  ],
+  "workbook_sha256": "d46ffbdf4d52984eaeec4903232e56ac7162a679c1d65cdfaa6baa99b6c3e8f0",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

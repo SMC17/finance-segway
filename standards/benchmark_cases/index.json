@@ -1,0 +1,899 @@
+{
+  "schema_version": "1.1",
+  "as_of": "2026-08-03",
+  "classification": "synthetic_engineering_benchmarks",
+  "counts_toward_M4": false,
+  "instance_count": 18,
+  "instances": [
+    {
+      "schema_version": "1.0",
+      "instance_id": "pe-reference-buyout",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/pe-reference-buyout.json",
+      "template": "03_Private_Equity/_template_LBO.xlsx",
+      "output": "03_Private_Equity/instances/benchmark_reference_buyout.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "C5",
+          "previous": 600,
+          "value": 650.0,
+          "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C6",
+          "previous": 0.2,
+          "value": 0.22,
+          "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C7",
+          "previous": 0.06,
+          "value": 0.055,
+          "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C13",
+          "previous": 10,
+          "value": 10.5,
+          "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C19",
+          "previous": 4,
+          "value": 4.25,
+          "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C22",
+          "previous": 1.5,
+          "value": 1.25,
+          "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C28",
+          "previous": 10,
+          "value": 10.0,
+          "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "7927f6b666c8c754b962ab42aa5b48f57157e386d2ac661d191e237492c08233",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "pe-adversarial-contraction",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/pe-adversarial-contraction.json",
+      "template": "03_Private_Equity/_template_LBO.xlsx",
+      "output": "03_Private_Equity/instances/benchmark_adversarial_contraction.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "D6",
+          "previous": 0.17,
+          "value": 0.145,
+          "source_url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D7",
+          "previous": -0.02,
+          "value": -0.06,
+          "source_url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D8",
+          "previous": -0.003,
+          "value": -0.008,
+          "source_url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D24",
+          "previous": 0.05,
+          "value": 0.07,
+          "source_url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D28",
+          "previous": 8,
+          "value": 7.0,
+          "source_url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "87db62f941332a82f3b059d619245e37c70a6013d87b3c75bc0ebcfe6acfeb6a",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "merchant-reference-principal",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/merchant-reference-principal.json",
+      "template": "04_Merchant_Banking/_template_LBO.xlsx",
+      "output": "04_Merchant_Banking/instances/benchmark_reference_principal.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "C5",
+          "previous": 600,
+          "value": 900.0,
+          "source_url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C6",
+          "previous": 0.2,
+          "value": 0.18,
+          "source_url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C7",
+          "previous": 0.06,
+          "value": 0.045,
+          "source_url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C19",
+          "previous": 4,
+          "value": 3.5,
+          "source_url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C22",
+          "previous": 1.5,
+          "value": 0.75,
+          "source_url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C29",
+          "previous": 5,
+          "value": 7,
+          "source_url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "aee1a2b791af876a21662d206ebbcc7d8788c22b2d9e7e50615293fd015ff8b0",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "merchant-adversarial-holdco",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/merchant-adversarial-holdco.json",
+      "template": "04_Merchant_Banking/_template_LBO.xlsx",
+      "output": "04_Merchant_Banking/instances/benchmark_adversarial_holdco.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "D7",
+          "previous": -0.02,
+          "value": -0.03,
+          "source_url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D20",
+          "previous": 0.105,
+          "value": 0.145,
+          "source_url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D24",
+          "previous": 0.05,
+          "value": 0.08,
+          "source_url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D28",
+          "previous": 8,
+          "value": 6.5,
+          "source_url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "a79e8f935a2cc206827fb09686d04d70aa91ab05de9a8402b87eb0edce2068e4",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "risk-reference-balanced",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/risk-reference-balanced.json",
+      "template": "09_Risk_Management/_template_RISK.xlsx",
+      "output": "09_Risk_Management/instances/benchmark_reference_balanced.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "C5",
+          "previous": 0.99,
+          "value": 0.99,
+          "source_url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C12",
+          "previous": 12,
+          "value": 12.0,
+          "source_url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C18",
+          "previous": 250,
+          "value": 300.0,
+          "source_url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Positions",
+          "cell": "D5",
+          "previous": 45,
+          "value": 50.0,
+          "source_url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Positions",
+          "cell": "E5",
+          "previous": 120,
+          "value": 140.0,
+          "source_url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "9a838b78cb7c967818145e98e0c51eb8d2071c69938b09f957235cad4fc2c2a8",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "risk-adversarial-crowding",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/risk-adversarial-crowding.json",
+      "template": "09_Risk_Management/_template_RISK.xlsx",
+      "output": "09_Risk_Management/instances/benchmark_adversarial_crowding.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "D7",
+          "previous": 0.35,
+          "value": 0.45,
+          "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D12",
+          "previous": 10,
+          "value": 8.0,
+          "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D13",
+          "previous": 30,
+          "value": 22.0,
+          "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Positions",
+          "cell": "E6",
+          "previous": 35,
+          "value": 90.0,
+          "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Positions",
+          "cell": "M14",
+          "previous": 20,
+          "value": 35.0,
+          "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "abe287e952bf3e91902e36fe74370874aa0978bd3f2555140d7083f697887d49",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "options-reference-atm",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/options-reference-atm.json",
+      "template": "14_Options_Derivatives/_template_OPTIONS.xlsx",
+      "output": "14_Options_Derivatives/instances/benchmark_reference_atm.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "C5",
+          "previous": 100,
+          "value": 100.0,
+          "source_url": "repo://standards/benchmark_cases/options-reference-atm.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C6",
+          "previous": 100,
+          "value": 100.0,
+          "source_url": "repo://standards/benchmark_cases/options-reference-atm.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C7",
+          "previous": 0.5,
+          "value": 0.5,
+          "source_url": "repo://standards/benchmark_cases/options-reference-atm.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C10",
+          "previous": 0.25,
+          "value": 0.25,
+          "source_url": "repo://standards/benchmark_cases/options-reference-atm.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C11",
+          "previous": 8.25,
+          "value": 8.25,
+          "source_url": "repo://standards/benchmark_cases/options-reference-atm.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "eab61504985ac4a9366f0918b738080e62fa49c01abc98267c91cf515a7eb719",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "options-adversarial-skew",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/options-adversarial-skew.json",
+      "template": "14_Options_Derivatives/_template_OPTIONS.xlsx",
+      "output": "14_Options_Derivatives/instances/benchmark_adversarial_skew.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "D5",
+          "previous": 80,
+          "value": 72.0,
+          "source_url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D10",
+          "previous": 0.45,
+          "value": 0.6,
+          "source_url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D11",
+          "previous": 15,
+          "value": 30.0,
+          "source_url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D14",
+          "previous": -0.3,
+          "value": -0.5,
+          "source_url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "de705f6fa3d05f494451ad098f05a21341b7d441c5e0b9631137780c02c964af",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "insurance-reference-book",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/insurance-reference-book.json",
+      "template": "18_Insurance_Actuarial/_template_INSURANCE.xlsx",
+      "output": "18_Insurance_Actuarial/instances/benchmark_reference_book.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "C5",
+          "previous": 0.62,
+          "value": 0.6,
+          "source_url": "repo://standards/benchmark_cases/insurance-reference-book.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C6",
+          "previous": 0.28,
+          "value": 0.27,
+          "source_url": "repo://standards/benchmark_cases/insurance-reference-book.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C11",
+          "previous": 500,
+          "value": 550.0,
+          "source_url": "repo://standards/benchmark_cases/insurance-reference-book.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C14",
+          "previous": 350,
+          "value": 375.0,
+          "source_url": "repo://standards/benchmark_cases/insurance-reference-book.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "efe89a653294cd2459d95c88e91efea40b20367b8e7f983b1b2ff7c62a4583ef",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "insurance-adversarial-social-inflation",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/insurance-adversarial-social-inflation.json",
+      "template": "18_Insurance_Actuarial/_template_INSURANCE.xlsx",
+      "output": "18_Insurance_Actuarial/instances/benchmark_adversarial_social_inflation.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "D5",
+          "previous": 0.78,
+          "value": 0.88,
+          "source_url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D8",
+          "previous": 0.075,
+          "value": 0.12,
+          "source_url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D10",
+          "previous": 0.15,
+          "value": 0.22,
+          "source_url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D17",
+          "previous": 0.14,
+          "value": 0.2,
+          "source_url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "e277e3c525ddc74e42ee23336d1c0ecdda11e0731543bdbdbd4bb712b1aea68b",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "securitization-reference-pool",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/securitization-reference-pool.json",
+      "template": "19_Structured_Finance_Securitization/_template_SECURITIZATION.xlsx",
+      "output": "19_Structured_Finance_Securitization/instances/benchmark_reference_pool.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "C5",
+          "previous": 1000,
+          "value": 1200.0,
+          "source_url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C7",
+          "previous": 0.12,
+          "value": 0.14,
+          "source_url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C8",
+          "previous": 0.025,
+          "value": 0.025,
+          "source_url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C9",
+          "previous": 0.45,
+          "value": 0.5,
+          "source_url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "6d0380005616779a9bb5799def487edfecfcfc03653a6a1b8020c5aea1a278bd",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "securitization-adversarial-default",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/securitization-adversarial-default.json",
+      "template": "19_Structured_Finance_Securitization/_template_SECURITIZATION.xlsx",
+      "output": "19_Structured_Finance_Securitization/instances/benchmark_adversarial_default.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "D7",
+          "previous": 0.06,
+          "value": 0.03,
+          "source_url": "repo://standards/benchmark_cases/securitization-adversarial-default.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D8",
+          "previous": 0.08,
+          "value": 0.15,
+          "source_url": "repo://standards/benchmark_cases/securitization-adversarial-default.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D9",
+          "previous": 0.25,
+          "value": 0.15,
+          "source_url": "repo://standards/benchmark_cases/securitization-adversarial-default.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D10",
+          "previous": 6,
+          "value": 9,
+          "source_url": "repo://standards/benchmark_cases/securitization-adversarial-default.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "e353e25cb68edbfa4891370050965e2b91b3444c1cc39f5d90b91c39c2fbd2cb",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "project-reference-contracted",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/project-reference-contracted.json",
+      "template": "20_Project_Finance/_template_PROJECT_FINANCE.xlsx",
+      "output": "20_Project_Finance/instances/benchmark_reference_contracted.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "C5",
+          "previous": 800,
+          "value": 900.0,
+          "source_url": "repo://standards/benchmark_cases/project-reference-contracted.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C11",
+          "previous": 180,
+          "value": 205.0,
+          "source_url": "repo://standards/benchmark_cases/project-reference-contracted.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C16",
+          "previous": 1.35,
+          "value": 1.4,
+          "source_url": "repo://standards/benchmark_cases/project-reference-contracted.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C23",
+          "previous": 0.97,
+          "value": 0.98,
+          "source_url": "repo://standards/benchmark_cases/project-reference-contracted.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "c320124b4b6554fba493dbe8a14d5772dcbaefac7ff5f7c56ecf4ab074d433ca",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "project-adversarial-delay",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/project-adversarial-delay.json",
+      "template": "20_Project_Finance/_template_PROJECT_FINANCE.xlsx",
+      "output": "20_Project_Finance/instances/benchmark_adversarial_delay.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "D5",
+          "previous": 880,
+          "value": 1100.0,
+          "source_url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D9",
+          "previous": 10,
+          "value": 10,
+          "source_url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D11",
+          "previous": 150,
+          "value": 135.0,
+          "source_url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D23",
+          "previous": 0.85,
+          "value": 0.72,
+          "source_url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "d46ffbdf4d52984eaeec4903232e56ac7162a679c1d65cdfaa6baa99b6c3e8f0",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "rates-reference-curve",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/rates-reference-curve.json",
+      "template": "21_Fixed_Income_Rates/_template_FIXED_INCOME.xlsx",
+      "output": "21_Fixed_Income_Rates/instances/benchmark_reference_curve.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "C6",
+          "previous": 0.05,
+          "value": 0.05,
+          "source_url": "repo://standards/benchmark_cases/rates-reference-curve.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C7",
+          "previous": 0.055,
+          "value": 0.055,
+          "source_url": "repo://standards/benchmark_cases/rates-reference-curve.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C8",
+          "previous": 10,
+          "value": 10.0,
+          "source_url": "repo://standards/benchmark_cases/rates-reference-curve.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C14",
+          "previous": 50,
+          "value": 75.0,
+          "source_url": "repo://standards/benchmark_cases/rates-reference-curve.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "862cedc47c3695b8b90e00e9d069ab5d3b00690add2dac8c0ad6b53912893330",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "rates-adversarial-bear-steepener",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+      "template": "21_Fixed_Income_Rates/_template_FIXED_INCOME.xlsx",
+      "output": "21_Fixed_Income_Rates/instances/benchmark_adversarial_bear_steepener.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "D7",
+          "previous": 0.07,
+          "value": 0.085,
+          "source_url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D10",
+          "previous": 0.02,
+          "value": 0.025,
+          "source_url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Zero Curve",
+          "cell": "D10",
+          "previous": 0.055,
+          "value": 0.08,
+          "source_url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Zero Curve",
+          "cell": "D14",
+          "previous": 0.062,
+          "value": 0.09,
+          "source_url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "3604a82a1e8fc0e600ab22a178035b3de67e377b33fbfcf594646ff510592bff",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "quant-reference-costed",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/quant-reference-costed.json",
+      "template": "22_Quantitative_Systematic/_template_QUANT.xlsx",
+      "output": "22_Quantitative_Systematic/instances/benchmark_reference_costed.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "C7",
+          "previous": 8,
+          "value": 10.0,
+          "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C8",
+          "previous": 0.002,
+          "value": 0.003,
+          "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C9",
+          "previous": 50,
+          "value": 60.0,
+          "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C18",
+          "previous": 1,
+          "value": 1,
+          "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "C19",
+          "previous": 1,
+          "value": 1,
+          "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "07c5e2738e8f4bf192948d5ee9639de3942cb228d6c04982055a2b332f72abed",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    },
+    {
+      "schema_version": "1.0",
+      "instance_id": "quant-adversarial-capacity",
+      "as_of": "2026-08-03",
+      "manifest": "standards/benchmark_cases/quant-adversarial-capacity.json",
+      "template": "22_Quantitative_Systematic/_template_QUANT.xlsx",
+      "output": "22_Quantitative_Systematic/instances/benchmark_adversarial_capacity.xlsx",
+      "applied_inputs": [
+        {
+          "sheet": "Assumptions",
+          "cell": "D7",
+          "previous": 15,
+          "value": 25.0,
+          "source_url": "repo://standards/benchmark_cases/quant-adversarial-capacity.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D8",
+          "previous": 0.008,
+          "value": 0.015,
+          "source_url": "repo://standards/benchmark_cases/quant-adversarial-capacity.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D9",
+          "previous": 150,
+          "value": 300.0,
+          "source_url": "repo://standards/benchmark_cases/quant-adversarial-capacity.json",
+          "source_as_of": "2026-08-03"
+        },
+        {
+          "sheet": "Assumptions",
+          "cell": "D10",
+          "previous": 250,
+          "value": 100.0,
+          "source_url": "repo://standards/benchmark_cases/quant-adversarial-capacity.json",
+          "source_as_of": "2026-08-03"
+        }
+      ],
+      "workbook_sha256": "1cd6893a7f8caf925cf523089bc91deace0f99c051ea9bcda6009a8d81618c70",
+      "generated_on": "2026-08-04",
+      "refresh_schema": "source-addressed-v2"
+    }
+  ]
+}

@@ -87,7 +87,48 @@ ws["D11"] = "Negative = inverted curve"
 ws["D11"].font = ITALIC_GRAY
 ws.sheet_view.showGridLines = False
 
+# ---------------- TOTAL RETURN SCENARIOS ----------------
+ws = wb.create_sheet("Total Return Scenarios")
+set_col_widths(ws, [4, 26] + [12]*7 + [40])
+ws["B2"] = "1-Year Total Return Under Rate Shocks"; ws["B2"].font = TITLE
+ws["B4"] = "Uses duration/convexity from the Duration & Convexity tab plus current yield as the income component — same approximation as that tab's single 100bp estimate, extended across a scenario grid."
+ws["B4"].font = ITALIC_GRAY
+
+shocks = [-100, -50, -25, 0, 25, 50, 100]
+ws["B6"] = "Parallel shift (bp)"
+for i, s in enumerate(shocks, start=3):
+    c = ws.cell(row=6, column=i, value=s); c.font = BOLD; c.fill = HEADER_FILL
+    c.font = BOLD_WHITE; c.alignment = Alignment(horizontal="center")
+    c.number_format = '+0;-0'
+
+ws["B7"] = "Price return (duration + convexity)"
+for i, s in enumerate(shocks, start=3):
+    letter = get_column_letter(i)
+    ws.cell(row=7, column=i,
+            value=f"=IFERROR(-'Duration & Convexity'!$C$8*({letter}6/10000)"
+                  f"+0.5*'Duration & Convexity'!$C$9*({letter}6/10000)^2,\"-\")")
+    ws.cell(row=7, column=i).number_format = PCT2
+    ws.cell(row=7, column=i).border = BORDER
+
+ws["B8"] = "Income return (current yield)"
+for i, s in enumerate(shocks, start=3):
+    letter = get_column_letter(i)
+    ws.cell(row=8, column=i, value="='Bond Pricing'!$C$13")
+    ws.cell(row=8, column=i).font = GREEN
+    ws.cell(row=8, column=i).number_format = PCT2
+    ws.cell(row=8, column=i).border = BORDER
+
+ws["B9"] = "Total return"; ws["B9"].font = BOLD
+for i, s in enumerate(shocks, start=3):
+    letter = get_column_letter(i)
+    ws.cell(row=9, column=i, value=f"={letter}7+{letter}8")
+    ws.cell(row=9, column=i).font = BOLD
+    ws.cell(row=9, column=i).number_format = PCT2
+    ws.cell(row=9, column=i).border = BORDER
+    ws.cell(row=9, column=i).fill = YELLOW_FILL
+ws.sheet_view.showGridLines = False
+
 add_refresh_log(wb)
-out_path = "/home/claude/model_shop/FIXED_INCOME_template.xlsx"
+out_path = "FIXED_INCOME_template.xlsx"
 wb.save(out_path)
 print("saved", out_path)
