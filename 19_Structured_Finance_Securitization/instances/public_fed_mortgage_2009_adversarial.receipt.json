@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "securitization-fed-mortgage-2009",
+  "as_of": "2009-10-01",
+  "manifest": "standards/public_cases/securitization-fed-mortgage-2009.json",
+  "template": "19_Structured_Finance_Securitization/_template_SECURITIZATION.xlsx",
+  "output": "19_Structured_Finance_Securitization/instances/public_fed_mortgage_2009_adversarial.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "previous": 0.06,
+      "value": 0.03,
+      "source_url": "repo://standards/benchmark_cases/securitization-adversarial-default.json",
+      "source_as_of": "2009-10-01"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "previous": 0.08,
+      "value": 0.1014,
+      "source_url": "https://fred.stlouisfed.org/series/DRSFRMACBS",
+      "source_as_of": "2009-10-01"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "previous": 0.25,
+      "value": 0.15,
+      "source_url": "repo://19_Structured_Finance_Securitization/sources/snapshots/securitization-fed-mortgage-2009.json",
+      "source_as_of": "2009-10-01"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "previous": 6,
+      "value": 9,
+      "source_url": "repo://19_Structured_Finance_Securitization/sources/snapshots/securitization-fed-mortgage-2009.json",
+      "source_as_of": "2009-10-01"
+    }
+  ],
+  "workbook_sha256": "a3cd2b81e172c8e9692dfff06a312c95292cacd2847182259231e538b1536089",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

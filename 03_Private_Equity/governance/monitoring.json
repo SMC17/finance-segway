@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "model_id": "03",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "revenue_forecast_error",
+      "warning": 0.1,
+      "breach": 0.2,
+      "action": "Re-underwrite operating case and valuation"
+    },
+    {
+      "metric": "ebitda_margin_error_bps",
+      "warning": 200,
+      "breach": 400,
+      "action": "Revalidate cost structure and covenant headroom"
+    },
+    {
+      "metric": "net_leverage_headroom",
+      "warning": 0.5,
+      "breach": 0.0,
+      "action": "Escalate to IC and lender-remediation case"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

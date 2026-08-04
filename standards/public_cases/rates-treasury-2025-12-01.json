@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "id": "rates-treasury-2025-12-01",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "21_Fixed_Income_Rates/_template_FIXED_INCOME.xlsx",
+  "output": "21_Fixed_Income_Rates/instances/public_treasury_2025_12_01.xlsx",
+  "as_of": "2025-12-01",
+  "scenario": "Base",
+  "cover": {
+    "Portfolio / security:": "U.S. Treasury curve snapshot"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 0.05,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from rates-reference-curve.json",
+        "url": "repo://standards/benchmark_cases/rates-reference-curve.json",
+        "as_of": "2025-12-01",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.0409,
+      "input_kind": "observed",
+      "source": {
+        "name": "Daily Treasury Par Yield Curve Rates",
+        "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202512&type=daily_treasury_yield_curve",
+        "as_of": "2025-12-01",
+        "notes": "U.S. Department of the Treasury; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "value": 10.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from rates-reference-curve.json",
+        "url": "repo://standards/benchmark_cases/rates-reference-curve.json",
+        "as_of": "2025-12-01",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C14",
+      "value": 75.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from rates-reference-curve.json",
+        "url": "repo://standards/benchmark_cases/rates-reference-curve.json",
+        "as_of": "2025-12-01",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Daily Treasury Par Yield Curve Rates",
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202512&type=daily_treasury_yield_curve",
+      "as_of": "2025-12-01",
+      "notes": "U.S. Department of the Treasury; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://21_Fixed_Income_Rates/sources/snapshots/rates-treasury-2025-12-01.json",
+      "as_of": "2025-12-01",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://21_Fixed_Income_Rates/sources/snapshots/rates-treasury-2025-12-01.json",
+    "what_changed": "Generated public case rates-treasury-2025-12-01 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

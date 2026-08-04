@@ -1,0 +1,3 @@
+case_id,case_type,metric,forecast,realized,error,realized_source,status
+rates-treasury-2025-12-01,conventional,one_month_ten_year_yield_change_bps,0.0,-12.0,-12.0,Daily Treasury Par Yield Curve Rates,recorded
+rates-treasury-2022-shock,adversarial,year_end_ten_year_yield,0.0423,0.0388,-0.003499999999999996,Daily Treasury Par Yield Curve Rates,recorded

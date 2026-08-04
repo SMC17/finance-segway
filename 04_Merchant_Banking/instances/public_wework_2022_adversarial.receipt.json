@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "merchant-wework-2022",
+  "as_of": "2023-03-29",
+  "manifest": "standards/public_cases/merchant-wework-2022.json",
+  "template": "04_Merchant_Banking/_template_LBO.xlsx",
+  "output": "04_Merchant_Banking/instances/public_wework_2022_adversarial.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "previous": -0.02,
+      "value": -0.25,
+      "source_url": "repo://04_Merchant_Banking/sources/snapshots/merchant-wework-2022.json",
+      "source_as_of": "2023-03-29"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D20",
+      "previous": 0.105,
+      "value": 0.145,
+      "source_url": "repo://04_Merchant_Banking/sources/snapshots/merchant-wework-2022.json",
+      "source_as_of": "2023-03-29"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D24",
+      "previous": 0.05,
+      "value": 0.08,
+      "source_url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+      "source_as_of": "2023-03-29"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D28",
+      "previous": 8,
+      "value": 6.5,
+      "source_url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
+      "source_as_of": "2023-03-29"
+    }
+  ],
+  "workbook_sha256": "7d0132896cb454600467a12e00af517e3fa50e19d29f3fce5cc96d896b304c6e",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

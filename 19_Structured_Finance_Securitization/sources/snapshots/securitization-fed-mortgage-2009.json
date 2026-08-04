@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "model_id": "19",
+  "domain": "Structured Finance & Securitization",
+  "case_id": "securitization-fed-mortgage-2009",
+  "case_type": "adversarial",
+  "as_of": "2009-10-01",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Mortgage delinquency rate via FRED",
+      "url": "https://fred.stlouisfed.org/series/DRSFRMACBS",
+      "publisher": "Federal Reserve Board / FRED",
+      "captured_values": {
+        "delinquency_rate": 0.1014
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "value": 0.1014,
+      "kind": "observed",
+      "source": "Mortgage delinquency rate via FRED"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "value": 0.15,
+      "kind": "modeler_assumption",
+      "source": "Stressed recovery assumption"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 9,
+      "kind": "modeler_assumption",
+      "source": "Stressed recovery lag"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "next_year_delinquency_rate",
+    "forecast": 0.1014,
+    "realized": 0.1044,
+    "realized_source": "Mortgage delinquency rate via FRED",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "2606a1adc9244310ac46c3f53516ba28c5d6006bb24821a69093d688af6eaf19"
+}

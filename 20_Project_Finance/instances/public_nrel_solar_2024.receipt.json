@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "project-nrel-solar-2024",
+  "as_of": "2024-07-01",
+  "manifest": "standards/public_cases/project-nrel-solar-2024.json",
+  "template": "20_Project_Finance/_template_PROJECT_FINANCE.xlsx",
+  "output": "20_Project_Finance/instances/public_nrel_solar_2024.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "previous": 800,
+      "value": 900.0,
+      "source_url": "https://atb.nrel.gov/electricity/2024/utility-scale_pv",
+      "source_as_of": "2024-07-01"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "previous": 180,
+      "value": 205.0,
+      "source_url": "repo://standards/benchmark_cases/project-reference-contracted.json",
+      "source_as_of": "2024-07-01"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C16",
+      "previous": 1.35,
+      "value": 1.4,
+      "source_url": "repo://standards/benchmark_cases/project-reference-contracted.json",
+      "source_as_of": "2024-07-01"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C23",
+      "previous": 0.97,
+      "value": 0.98,
+      "source_url": "repo://20_Project_Finance/sources/snapshots/project-nrel-solar-2024.json",
+      "source_as_of": "2024-07-01"
+    }
+  ],
+  "workbook_sha256": "3362cb5b138dc1bcff7950b39e5e31a355f5844d6a517f87bdaa2403613866a8",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

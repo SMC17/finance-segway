@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "model_id": "20",
+  "status": "pending_stakeholder_review",
+  "required_roles": [
+    "model_owner",
+    "domain_reviewer",
+    "independent_validator"
+  ],
+  "approvals": [],
+  "promotion_blocked": true,
+  "statement": "No agent may approve on behalf of a human stakeholder."
+}

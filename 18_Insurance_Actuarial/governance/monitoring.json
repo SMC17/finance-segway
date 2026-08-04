@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "model_id": "18",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "reserve_development_pct",
+      "warning": 0.05,
+      "breach": 0.1,
+      "action": "Re-estimate development factors and BF prior"
+    },
+    {
+      "metric": "combined_ratio",
+      "warning": 0.98,
+      "breach": 1.05,
+      "action": "Escalate underwriting and pricing remediation"
+    },
+    {
+      "metric": "capital_coverage_ratio",
+      "warning": 1.5,
+      "breach": 1.2,
+      "action": "Escalate capital plan and dividend constraints"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

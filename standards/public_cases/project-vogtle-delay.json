@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "id": "project-vogtle-delay",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "20_Project_Finance/_template_PROJECT_FINANCE.xlsx",
+  "output": "20_Project_Finance/instances/public_vogtle_delay_adversarial.xlsx",
+  "as_of": "2023-12-31",
+  "scenario": "Downside",
+  "cover": {
+    "Project / concession:": "Vogtle-style construction delay and cost-overrun stress"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "value": 1100.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Georgia PSC Vogtle monitoring reports",
+        "url": "https://psc.ga.gov/facilities-construction/project-overview/plant-vogtle-units-3-and-4/",
+        "as_of": "2023-12-31",
+        "notes": "Georgia Public Service Commission; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "value": 10,
+      "input_kind": "observed",
+      "source": {
+        "name": "Georgia PSC Vogtle monitoring reports",
+        "url": "https://psc.ga.gov/facilities-construction/project-overview/plant-vogtle-units-3-and-4/",
+        "as_of": "2023-12-31",
+        "notes": "Georgia Public Service Commission; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "value": 135.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from project-adversarial-delay.json",
+        "url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D23",
+      "value": 0.72,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from project-adversarial-delay.json",
+        "url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
+        "as_of": "2023-12-31",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Georgia PSC Vogtle monitoring reports",
+      "url": "https://psc.ga.gov/facilities-construction/project-overview/plant-vogtle-units-3-and-4/",
+      "as_of": "2023-12-31",
+      "notes": "Georgia Public Service Commission; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://20_Project_Finance/sources/snapshots/project-vogtle-delay.json",
+      "as_of": "2023-12-31",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://20_Project_Finance/sources/snapshots/project-vogtle-delay.json",
+    "what_changed": "Generated public case project-vogtle-delay from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

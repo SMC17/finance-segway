@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "model_id": "19",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "collateral_loss_pct",
+      "warning": 0.05,
+      "breach": 0.1,
+      "action": "Re-run tranche waterfall and rating stresses"
+    },
+    {
+      "metric": "oc_headroom_pct",
+      "warning": 0.02,
+      "breach": 0.0,
+      "action": "Escalate diversion and payment-priority case"
+    },
+    {
+      "metric": "wal_extension_years",
+      "warning": 1.0,
+      "breach": 2.0,
+      "action": "Reassess liquidity, price, and hedge"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

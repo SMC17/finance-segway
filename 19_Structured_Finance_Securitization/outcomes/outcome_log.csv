@@ -1,0 +1,3 @@
+case_id,case_type,metric,forecast,realized,error,realized_source,status
+securitization-fed-mortgage-2024,conventional,next_year_delinquency_rate,0.0189,0.0179,-0.0010000000000000009,Mortgage delinquency rate via FRED,recorded
+securitization-fed-mortgage-2009,adversarial,next_year_delinquency_rate,0.1014,0.1044,0.0030000000000000027,Mortgage delinquency rate via FRED,recorded

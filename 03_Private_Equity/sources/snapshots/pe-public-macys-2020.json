@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "model_id": "03",
+  "domain": "Private Equity",
+  "case_id": "pe-public-macys-2020",
+  "case_type": "adversarial",
+  "as_of": "2021-03-30",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Macy's 2020 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/794367/000079436721000038/m-20210130.htm",
+      "publisher": "U.S. SEC",
+      "captured_values": {
+        "revenue_usd_mm": 17346.0,
+        "revenue_growth": -0.291,
+        "downside_margin": 0.02
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D6",
+      "value": 0.02,
+      "kind": "derived",
+      "source": "Macy's 2020 Form 10-K"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": -0.291,
+      "kind": "observed",
+      "source": "Macy's 2020 Form 10-K"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "next_fiscal_year_revenue_usd_mm",
+    "forecast": 12300.0,
+    "realized": 24460.0,
+    "realized_source": "Macy's 2021 Form 10-K",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "32627220501a0f739cacd5ca2d37f0117cb2ff7eaa671a336964c24e702844df"
+}

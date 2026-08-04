@@ -1,0 +1,5 @@
+case_id,source_name,publisher,url,as_of,snapshot,snapshot_sha256,status
+risk-fred-balanced-2024,CBOE VIX via FRED,Federal Reserve Bank of St. Louis / CBOE,https://fred.stlouisfed.org/series/VIXCLS,2024-01-02,09_Risk_Management/sources/snapshots/risk-fred-balanced-2024.json,b0fd93e131fdd0a731070a5ee604298288f1ecee546a65efc539a65de662898e,frozen
+risk-fred-balanced-2024,S&P 500 via FRED,Federal Reserve Bank of St. Louis / S&P,https://fred.stlouisfed.org/series/SP500,2024-01-02,09_Risk_Management/sources/snapshots/risk-fred-balanced-2024.json,b0fd93e131fdd0a731070a5ee604298288f1ecee546a65efc539a65de662898e,frozen
+risk-fred-covid-2020,CBOE VIX via FRED,Federal Reserve Bank of St. Louis / CBOE,https://fred.stlouisfed.org/series/VIXCLS,2020-03-16,09_Risk_Management/sources/snapshots/risk-fred-covid-2020.json,259dfcc91c5fe37891d51d47b9b17aac704d179ada664dc03821b275f0fa9672,frozen
+risk-fred-covid-2020,S&P 500 via FRED,Federal Reserve Bank of St. Louis / S&P,https://fred.stlouisfed.org/series/SP500,2020-03-16,09_Risk_Management/sources/snapshots/risk-fred-covid-2020.json,259dfcc91c5fe37891d51d47b9b17aac704d179ada664dc03821b275f0fa9672,frozen

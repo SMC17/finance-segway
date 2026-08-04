@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "options-spx-2024-01-02",
+  "as_of": "2024-01-02",
+  "manifest": "standards/public_cases/options-spx-2024-01-02.json",
+  "template": "14_Options_Derivatives/_template_OPTIONS.xlsx",
+  "output": "14_Options_Derivatives/instances/public_spx_2024_01_02.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "previous": 100,
+      "value": 4742.83,
+      "source_url": "https://fred.stlouisfed.org/series/SP500",
+      "source_as_of": "2024-01-02"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "previous": 100,
+      "value": 4750.0,
+      "source_url": "repo://14_Options_Derivatives/sources/snapshots/options-spx-2024-01-02.json",
+      "source_as_of": "2024-01-02"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "previous": 0.5,
+      "value": 0.5,
+      "source_url": "repo://standards/benchmark_cases/options-reference-atm.json",
+      "source_as_of": "2024-01-02"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C10",
+      "previous": 0.25,
+      "value": 0.132,
+      "source_url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "source_as_of": "2024-01-02"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "previous": 8.25,
+      "value": 8.25,
+      "source_url": "repo://standards/benchmark_cases/options-reference-atm.json",
+      "source_as_of": "2024-01-02"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "previous": 0.04,
+      "value": 0.0524,
+      "source_url": "https://fred.stlouisfed.org/series/DGS6MO",
+      "source_as_of": "2024-01-02"
+    }
+  ],
+  "workbook_sha256": "cacb100ad087865c8c5f736136c01961496a85428cbd7112f4ce285b53aae2a4",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}

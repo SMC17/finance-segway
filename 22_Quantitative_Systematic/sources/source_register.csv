@@ -1,0 +1,3 @@
+case_id,source_name,publisher,url,as_of,snapshot,snapshot_sha256,status
+quant-sp500-2019-2023,S&P 500 via FRED,Federal Reserve Bank of St. Louis / S&P,https://fred.stlouisfed.org/series/SP500,2023-12-29,22_Quantitative_Systematic/sources/snapshots/quant-sp500-2019-2023.json,3d37b34ca60601613c218cc2b0943edde03bd01e5e190d291a90911164c45a6f,frozen
+quant-sp500-2020-2024-capacity,S&P 500 via FRED,Federal Reserve Bank of St. Louis / S&P,https://fred.stlouisfed.org/series/SP500,2024-12-31,22_Quantitative_Systematic/sources/snapshots/quant-sp500-2020-2024-capacity.json,5fe3bdc30c026460b8ce38da47595b0a959f0501b7748048f3bdf46ae31e7a1f,frozen

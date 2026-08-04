@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "model_id": "04",
+  "domain": "Merchant Banking",
+  "case_id": "merchant-wework-2022",
+  "case_type": "adversarial",
+  "as_of": "2023-03-29",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "WeWork 2022 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1813756/000181375623000019/we-20221231.htm",
+      "publisher": "U.S. SEC",
+      "captured_values": {
+        "revenue_usd_mm": 3245.0,
+        "operating_margin": -0.65,
+        "liquidity_stress": true
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": -0.25,
+      "kind": "modeler_assumption",
+      "source": "WeWork 2022 downside calibrated to public filing"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D20",
+      "value": 0.145,
+      "kind": "modeler_assumption",
+      "source": "Distressed holdco financing assumption"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "bankruptcy_within_12_months",
+    "forecast": 1.0,
+    "realized": 1.0,
+    "realized_source": "WeWork Chapter 11 filing, November 2023",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "7451e34f8d4135c37ccd0f921b029ce5573e2010346fae060524cd47684e2a38"
+}

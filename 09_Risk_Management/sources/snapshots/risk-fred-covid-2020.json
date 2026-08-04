@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "model_id": "09",
+  "domain": "Risk Management",
+  "case_id": "risk-fred-covid-2020",
+  "case_type": "adversarial",
+  "as_of": "2020-03-16",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "CBOE VIX via FRED",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "publisher": "Federal Reserve Bank of St. Louis / CBOE",
+      "captured_values": {
+        "vix_close": 82.69
+      }
+    },
+    {
+      "name": "S&P 500 via FRED",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "publisher": "Federal Reserve Bank of St. Louis / S&P",
+      "captured_values": {
+        "sp500_close": 2386.13
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": 0.8269,
+      "kind": "observed",
+      "source": "CBOE VIX via FRED"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "value": 0.8269,
+      "kind": "observed",
+      "source": "CBOE VIX via FRED"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "peak_to_trough_sp500_drawdown",
+    "forecast": -0.3,
+    "realized": -0.339,
+    "realized_source": "S&P 500 via FRED",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "259dfcc91c5fe37891d51d47b9b17aac704d179ada664dc03821b275f0fa9672"
+}

@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0",
+  "id": "risk-fred-balanced-2024",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "09_Risk_Management/_template_RISK.xlsx",
+  "output": "09_Risk_Management/instances/public_fred_balanced_2024.xlsx",
+  "as_of": "2024-01-02",
+  "scenario": "Base",
+  "cover": {
+    "Portfolio / desk:": "Balanced public-market risk regime"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 0.99,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from risk-reference-balanced.json",
+        "url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+        "as_of": "2024-01-02",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C12",
+      "value": 12.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from risk-reference-balanced.json",
+        "url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+        "as_of": "2024-01-02",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C18",
+      "value": 300.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from risk-reference-balanced.json",
+        "url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+        "as_of": "2024-01-02",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Positions",
+      "cell": "D5",
+      "value": 50.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from risk-reference-balanced.json",
+        "url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+        "as_of": "2024-01-02",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Positions",
+      "cell": "E5",
+      "value": 140.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Retained modeler assumption from risk-reference-balanced.json",
+        "url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
+        "as_of": "2024-01-02",
+        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.132,
+      "input_kind": "derived",
+      "source": {
+        "name": "CBOE VIX via FRED",
+        "url": "https://fred.stlouisfed.org/series/VIXCLS",
+        "as_of": "2024-01-02",
+        "notes": "Federal Reserve Bank of St. Louis / CBOE; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "value": 0.132,
+      "input_kind": "observed",
+      "source": {
+        "name": "CBOE VIX via FRED",
+        "url": "https://fred.stlouisfed.org/series/VIXCLS",
+        "as_of": "2024-01-02",
+        "notes": "Federal Reserve Bank of St. Louis / CBOE; frozen curated observation as of case date"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "CBOE VIX via FRED",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "as_of": "2024-01-02",
+      "notes": "Federal Reserve Bank of St. Louis / CBOE; frozen curated observation as of case date"
+    },
+    {
+      "name": "S&P 500 via FRED",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "as_of": "2024-01-02",
+      "notes": "Federal Reserve Bank of St. Louis / S&P; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://09_Risk_Management/sources/snapshots/risk-fred-balanced-2024.json",
+      "as_of": "2024-01-02",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://09_Risk_Management/sources/snapshots/risk-fred-balanced-2024.json",
+    "what_changed": "Generated public case risk-fred-balanced-2024 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

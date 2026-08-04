@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "securitization-fed-mortgage-2024",
+  "as_of": "2024-01-01",
+  "manifest": "standards/public_cases/securitization-fed-mortgage-2024.json",
+  "template": "19_Structured_Finance_Securitization/_template_SECURITIZATION.xlsx",
+  "output": "19_Structured_Finance_Securitization/instances/public_fed_mortgage_2024.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "previous": 1000,
+      "value": 1200.0,
+      "source_url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
+      "source_as_of": "2024-01-01"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "previous": 0.12,
+      "value": 0.14,
+      "source_url": "repo://19_Structured_Finance_Securitization/sources/snapshots/securitization-fed-mortgage-2024.json",
+      "source_as_of": "2024-01-01"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "previous": 0.025,
+      "value": 0.0189,
+      "source_url": "https://fred.stlouisfed.org/series/DRSFRMACBS",
+      "source_as_of": "2024-01-01"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "previous": 0.45,
+      "value": 0.5,
+      "source_url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
+      "source_as_of": "2024-01-01"
+    }
+  ],
+  "workbook_sha256": "3a27995d78521e52e8c4818b502dfea76fcdb8ec2d2642e057e730766129ca9e",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2"
+}
