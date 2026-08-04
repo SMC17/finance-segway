@@ -1,0 +1,53 @@
+{
+  "instance_slug": "public_ares_capital_2024",
+  "as_of": "2026-03-31",
+  "scenario": "Base",
+  "facts": {
+    "borrower_name": "Ares Capital Corporation (public BDC portfolio proxy)",
+    "facility_size": 15848000000,
+    "pricing_spread_bps": 0,
+    "cfads_base": 0,
+    "senior_debt": 15848000000,
+    "total_assets": 30679000000,
+    "stockholders_equity": 14065000000,
+    "interest_expense_q": 213000000,
+    "cash": 505000000
+  },
+  "provenance": {
+    "borrower_name": {
+      "source_name": "SEC EDGAR / Ares Capital identity",
+      "as_of_date": "2026-03-31",
+      "retrieval_date": "2026-08-04",
+      "transformation": "public company name",
+      "snapshot": "05_Private_Credit/sources/snapshots/credit-public-ares-2024.json"
+    },
+    "facility_size": {
+      "source_name": "SEC companyfacts LongTermDebt",
+      "as_of_date": "2026-03-31",
+      "retrieval_date": "2026-08-04",
+      "transformation": "latest USD LongTermDebt from 10-Q",
+      "snapshot": "tools/data_fabric/out/ARCC_facts_selected.json"
+    },
+    "pricing_spread_bps": {
+      "source_name": "modeler_assumption",
+      "as_of_date": "2026-03-31",
+      "retrieval_date": "2026-08-04",
+      "transformation": "portfolio blended spread not a single facility — set 0 pending underwriting",
+      "snapshot": ""
+    },
+    "cfads_base": {
+      "source_name": "modeler_assumption",
+      "as_of_date": "2026-03-31",
+      "retrieval_date": "2026-08-04",
+      "transformation": "placeholder 0 — construct CFADS from portfolio company data before decision use",
+      "snapshot": ""
+    },
+    "senior_debt": {
+      "source_name": "SEC companyfacts LongTermDebt",
+      "as_of_date": "2026-03-31",
+      "retrieval_date": "2026-08-04",
+      "transformation": "latest USD LongTermDebt from 10-Q",
+      "snapshot": "tools/data_fabric/out/ARCC_facts_selected.json"
+    }
+  }
+}

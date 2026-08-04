@@ -1,0 +1,6 @@
+source_name,document_or_dataset,publication_date,as_of_date,retrieval_date,unit_currency,transformation,workbook_destination,license_or_restriction,checksum_or_snapshot
+SEC EDGAR companyfacts API,HD Assets (10-Q),2026-05-27,2026-05-03,2026-08-04,USD,latest USD fact by end date,Assumptions / historicals (PE LBO),Public SEC data,tools/data_fabric/out/HD_facts_selected.json
+SEC EDGAR companyfacts API,HD LongTermDebt (10-K),2026-03-20,2026-02-01,2026-08-04,USD,latest USD fact by end date,Debt Schedule / Sources & Uses,Public SEC data,tools/data_fabric/out/HD_facts_selected.json
+SEC EDGAR companyfacts API,HD NetIncomeLoss (10-Q),2026-05-27,2026-05-03,2026-08-04,USD,latest USD fact by end date,Operating Model,Public SEC data,tools/data_fabric/out/HD_facts_selected.json
+SEC EDGAR companyfacts API,HD StockholdersEquity (10-Q),2026-05-27,2026-05-03,2026-08-04,USD,latest USD fact by end date,Equity bridge,Public SEC data,tools/data_fabric/out/HD_facts_selected.json
+SEC EDGAR companyfacts API,HD CashAndCashEquivalentsAtCarryingValue (10-Q),2026-05-27,2026-05-03,2026-08-04,USD,latest USD fact by end date,Liquidity,Public SEC data,tools/data_fabric/out/HD_facts_selected.json
