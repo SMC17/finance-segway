@@ -9,7 +9,13 @@ on:
       - '.github/workflows/release-engineered-flagships.yml'
       - '.github/workflows/flagship-validation.yml'
       - '.github/workflows/library-parity-required.yml'
+      - '00_Control_Plane/**'
+      - 'docs/INSTITUTIONAL_SURFACE_STANDARD.md'
       - 'finance_segway/**'
+      - 'standards/domain_profiles/**'
+      - 'tools/institutional_surface.py'
+      - 'tools/promote_institutional_surface.py'
+      - 'tools/build_institutional_control_plane.py'
       - 'tools/builders/build_*_release.py'
       - 'tools/builders/build_securitization_institutional.py'
       - 'tools/builders/formula_compatibility.py'
@@ -106,8 +112,7 @@ jobs:
               Path('21_Fixed_Income_Rates/_template_FIXED_INCOME.xlsx'),
               Path('22_Quantitative_Systematic/_template_QUANT.xlsx'),
           ]
-          report = {}
-          failed = []
+          report, failed = {}, []
           for path in paths:
               result = recalc(path, timeout=120)
               report[str(path)] = result
@@ -130,10 +135,14 @@ jobs:
           PYTHONPATH=.:tools python tools/validate_fixed_income_model.py 21_Fixed_Income_Rates/_template_FIXED_INCOME.xlsx
           PYTHONPATH=.:tools python tools/validate_quant_model.py 22_Quantitative_Systematic/_template_QUANT.xlsx
 
-      - name: Promote inventory and enforce 24-model parity
+      - name: Promote inventory and institutional surfaces
         run: |
           python tools/promote_engineered_flagships.py --version 2.1.0
+          PYTHONPATH=.:tools python tools/promote_institutional_surface.py --report institutional-surface-report.json
           PYTHONPATH=.:tools python tools/validate_model_inventory.py --report model-governance-report.json
+
+      - name: Enforce full-library semantic parity and audit
+        run: |
           PYTHONPATH=.:tools python tools/build_all_models.py --report builder-parity-report.json --require-parity
           PYTHONPATH=.:tools python tools/workbook_engineering.py . --report workbook-engineering-report.json
 
@@ -150,8 +159,7 @@ jobs:
           paths = sorted(Path('.').glob('0[349]_*/instances/benchmark_*.xlsx'))
           paths += sorted(Path('.').glob('1[489]_*/instances/benchmark_*.xlsx'))
           paths += sorted(Path('.').glob('2[012]_*/instances/benchmark_*.xlsx'))
-          report = {}
-          failed = []
+          report, failed = {}, []
           for path in paths:
               result = recalc(path, timeout=120)
               report[str(path)] = result
@@ -164,10 +172,12 @@ jobs:
               raise SystemExit(f'benchmark recalculation failed: {failed}')
           PY
 
-      - name: Audit templates and benchmark instances
+      - name: Generate release evidence and institutional control plane
         run: |
+          PYTHONPATH=.:tools python tools/workbook_engineering.py . --report pre-control-plane-engineering-report.json
+          PYTHONPATH=.:tools python tools/generate_release_evidence.py --release-id flagship-2.1.0 --output standards/releases/flagship-2.1.0.json
+          PYTHONPATH=.:tools python tools/build_institutional_control_plane.py --report control-plane-report.json
           PYTHONPATH=.:tools python tools/workbook_engineering.py . --report complete-workbook-engineering-report.json
-          python tools/generate_release_evidence.py --release-id flagship-2.1.0 --output standards/releases/flagship-2.1.0.json
 
       - name: Reject stale release
         if: github.event_name == 'push'
@@ -179,26 +189,24 @@ jobs:
           echo "remote source:  $REMOTE_SHA"
           test "$START_SHA" = "$REMOTE_SHA"
 
-      - name: Commit complete engineered release
+      - name: Commit complete institutional release
         if: github.event_name == 'push'
         run: |
           git config user.name 'finance-segway-model-bot'
           git config user.email 'actions@users.noreply.github.com'
           git add \
-            03_Private_Equity/_template_LBO.xlsx 03_Private_Equity/instances \
-            04_Merchant_Banking/_template_LBO.xlsx 04_Merchant_Banking/instances \
-            09_Risk_Management/_template_RISK.xlsx 09_Risk_Management/instances \
-            14_Options_Derivatives/_template_OPTIONS.xlsx 14_Options_Derivatives/instances \
-            18_Insurance_Actuarial/_template_INSURANCE.xlsx 18_Insurance_Actuarial/instances \
-            19_Structured_Finance_Securitization/_template_SECURITIZATION.xlsx 19_Structured_Finance_Securitization/instances \
-            20_Project_Finance/_template_PROJECT_FINANCE.xlsx 20_Project_Finance/instances \
-            21_Fixed_Income_Rates/_template_FIXED_INCOME.xlsx 21_Fixed_Income_Rates/instances \
-            22_Quantitative_Systematic/_template_QUANT.xlsx 22_Quantitative_Systematic/instances \
+            00_Control_Plane/Finance_Model_Control_Plane.xlsx \
+            0[1-9]_*/_template_*.xlsx 1[0-9]_*/_template_*.xlsx 2[0-4]_*/_template_*.xlsx \
+            03_Private_Equity/instances 04_Merchant_Banking/instances \
+            09_Risk_Management/instances 14_Options_Derivatives/instances \
+            18_Insurance_Actuarial/instances 19_Structured_Finance_Securitization/instances \
+            20_Project_Finance/instances 21_Fixed_Income_Rates/instances \
+            22_Quantitative_Systematic/instances \
             standards/model_inventory.json standards/benchmark_cases standards/releases/flagship-2.1.0.json
           if git diff --staged --quiet; then
-            echo 'Canonical release is already current.'
+            echo 'Canonical institutional release is already current.'
           else
-            git commit -m 'Complete engineered flagship release'
+            git commit -m 'Complete institutional finance model release'
             git push origin HEAD:agent/synthesize-finance-model-library-v2
           fi
 
@@ -211,8 +219,11 @@ jobs:
             engineered-template-recalc-report.json
             benchmark-instance-recalc-report.json
             builder-parity-report.json
+            institutional-surface-report.json
+            control-plane-report.json
             model-governance-report.json
             workbook-engineering-report.json
+            pre-control-plane-engineering-report.json
             complete-workbook-engineering-report.json
             standards/releases/flagship-2.1.0.json
           if-no-files-found: warn

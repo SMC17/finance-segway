@@ -1,23 +1,27 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "release_id": "flagship-2.1.0",
   "inventory_version": "2.1.0",
-  "git_commit": "d4505f793518c3a4e233bef0432014323da2ce57",
-  "generated_at": "2026-08-04T02:37:09.393029+00:00",
-  "github_run_id": "30872264518",
+  "profile_registry_sha256": "93f80e01f0008af14d3af8252c67e63649a6b5ca961ffc66c9c960612bdf4b65",
+  "git_commit": "850049380d93d2d59edfd0ca9d0be09ebc9b0227",
+  "generated_at": "2026-08-04T03:49:15.413171+00:00",
+  "github_run_id": "30875744097",
   "models": [
     {
       "model_id": "03",
       "domain": "Private Equity",
       "maturity": "M2",
       "workbook": "03_Private_Equity/_template_LBO.xlsx",
-      "workbook_sha256": "ec57540d5cd7a67f2ebac9689254b099baab3773e42527ac707bcfbb869b5283",
+      "workbook_sha256": "e78e596372c981e4c8b6fe9e4f932eb3eeafce2cc6c023a075dc2b8a0e49d316",
       "builder": "tools/builders/build_lbo_release.py",
       "builder_sha256": "85fe56ee18ea3d420ac3dff1fe5f9307c15b64dadf7f58876e8deab9035d0d86",
       "formula_count": 519,
-      "sheet_count": 12,
+      "sheet_count": 15,
       "sheet_names": [
         "Cover",
+        "Institutional Surface",
+        "Challenge Log",
+        "Lineage Map",
         "Assumptions",
         "Sources & Uses",
         "Operating Model",
@@ -64,20 +68,31 @@
         "covenant_headroom",
         "waterfall_conservation",
         "returns_identity"
-      ]
+      ],
+      "institutional_surface": {
+        "required": true,
+        "status": "PASS",
+        "profile_sha256": "d4d0ad5b1db54162fe7876509db6394300ec4229a279dc80648aa05704147461",
+        "decision_arena": "deal team, operating partner, financing team, investment committee and LPAC",
+        "committee_artifact": "investment committee underwriting memo",
+        "surface_errors": []
+      }
     },
     {
       "model_id": "04",
       "domain": "Merchant Banking",
       "maturity": "M2",
       "workbook": "04_Merchant_Banking/_template_LBO.xlsx",
-      "workbook_sha256": "e54e87315717c139b1e57da6a63a0906fbf075c8e5f2a6d9a84d50374dc23300",
+      "workbook_sha256": "d1016a9c3b0fa541237c45165111779971c407acfbacd1057e3df4dd73c9bfb3",
       "builder": "tools/builders/build_lbo_release.py",
       "builder_sha256": "85fe56ee18ea3d420ac3dff1fe5f9307c15b64dadf7f58876e8deab9035d0d86",
       "formula_count": 519,
-      "sheet_count": 12,
+      "sheet_count": 15,
       "sheet_names": [
         "Cover",
+        "Institutional Surface",
+        "Challenge Log",
+        "Lineage Map",
         "Assumptions",
         "Sources & Uses",
         "Operating Model",
@@ -124,20 +139,31 @@
         "covenant_headroom",
         "waterfall_conservation",
         "returns_identity"
-      ]
+      ],
+      "institutional_surface": {
+        "required": true,
+        "status": "PASS",
+        "profile_sha256": "1af5e19a1515fd4681d351f6ccbc1f1f5701caf0306134bb446c19a9b45ba6d1",
+        "decision_arena": "principal investing committee, client coverage, financing partners and risk committee",
+        "committee_artifact": "principal-and-advisory conflicts pack",
+        "surface_errors": []
+      }
     },
     {
       "model_id": "09",
       "domain": "Risk Management",
       "maturity": "M2",
       "workbook": "09_Risk_Management/_template_RISK.xlsx",
-      "workbook_sha256": "64038d7fe7961a419ad207ee78f008118f9d5a36f86a70be86b4d461fe11ce14",
+      "workbook_sha256": "7ab72fd16fc92e2123fda78615e101a37753d8f8e99118610458a04639f4a43e",
       "builder": "tools/builders/build_risk_release.py",
       "builder_sha256": "ae87b00daec15bed4535f6357b65b7147f99c461e558753b93d908171b8f633e",
       "formula_count": 313,
-      "sheet_count": 13,
+      "sheet_count": 16,
       "sheet_names": [
         "Cover",
+        "Institutional Surface",
+        "Challenge Log",
+        "Lineage Map",
         "Assumptions",
         "Positions",
         "Factors",
@@ -182,20 +208,31 @@
         "expected_shortfall_var_order",
         "component_var_reconciliation",
         "limit_headroom"
-      ]
+      ],
+      "institutional_surface": {
+        "required": true,
+        "status": "PASS",
+        "profile_sha256": "af6138a17ebbae1c7fb5194e8274d71b7ef93defe5b9a663bcde8585e9ca9d4f",
+        "decision_arena": "trading desk, independent risk, model validation, senior risk committee and regulator",
+        "committee_artifact": "daily risk and limit pack",
+        "surface_errors": []
+      }
     },
     {
       "model_id": "14",
       "domain": "Options & Derivatives",
       "maturity": "M2",
       "workbook": "14_Options_Derivatives/_template_OPTIONS.xlsx",
-      "workbook_sha256": "cea95ef7f8ec5878222ed5d58191321dd9db9e657e291700daf91ee361ca28a6",
+      "workbook_sha256": "f8da494504d83837a1ca747a70205ceae8be26b62ccc9d95cb3ca0933ddbdd50",
       "builder": "tools/builders/build_options_release.py",
       "builder_sha256": "7713cbb5770a01117e1c86af8ca7240e8237ef2993705ddc2ddf953395855d82",
       "formula_count": 162,
-      "sheet_count": 11,
+      "sheet_count": 14,
       "sheet_names": [
         "Cover",
+        "Institutional Surface",
+        "Challenge Log",
+        "Lineage Map",
         "Assumptions",
         "European Pricer",
         "Implied Vol",
@@ -235,20 +272,31 @@
         "option_price_bounds",
         "greek_signs",
         "american_european_bound"
-      ]
+      ],
+      "institutional_surface": {
+        "required": true,
+        "status": "PASS",
+        "profile_sha256": "c11e6010fda5519ad6d23d0c87d108b449f65cbc5236b8c86a79b424eb74272f",
+        "decision_arena": "trading desk, market making, independent risk and model validation",
+        "committee_artifact": "volatility and Greeks risk pack",
+        "surface_errors": []
+      }
     },
     {
       "model_id": "18",
       "domain": "Insurance & Actuarial",
       "maturity": "M2",
       "workbook": "18_Insurance_Actuarial/_template_INSURANCE.xlsx",
-      "workbook_sha256": "461fd9d68f41dd63a4b5e69e351caa9319c2eceb752e3ea74306d5a743101fc3",
+      "workbook_sha256": "c39874788dafabf1145ad343385317f2858d88b9b4306d608ebf2c3f03b90641",
       "builder": "tools/builders/build_insurance_release.py",
       "builder_sha256": "023a59a1d1198ade9cc9b2e6654b318749830379d417809f45e94fba3c90d0d7",
       "formula_count": 317,
-      "sheet_count": 12,
+      "sheet_count": 15,
       "sheet_names": [
         "Cover",
+        "Institutional Surface",
+        "Challenge Log",
+        "Lineage Map",
         "Assumptions",
         "Paid Triangle",
         "Chain Ladder",
@@ -289,20 +337,31 @@
         "development_factor_bounds",
         "reserve_nonnegative",
         "capital_coverage"
-      ]
+      ],
+      "institutional_surface": {
+        "required": true,
+        "status": "PASS",
+        "profile_sha256": "e41c74f1db7772a19372acf73e75f7360deb909e3474f354a955b0876cd78d99",
+        "decision_arena": "actuarial, underwriting, finance, capital committee and regulator",
+        "committee_artifact": "reserve, profitability and capital pack",
+        "surface_errors": []
+      }
     },
     {
       "model_id": "19",
       "domain": "Structured Finance & Securitization",
       "maturity": "M2",
       "workbook": "19_Structured_Finance_Securitization/_template_SECURITIZATION.xlsx",
-      "workbook_sha256": "0cbde53e4318bfeb87bf9aea062cf15992702a8534f56974c2c1bf7afebfb5f0",
+      "workbook_sha256": "caee19f5f8eb165c9062b4452ebdec09908a74e6a036ab5bbfffe80258b4a052",
       "builder": "tools/builders/build_securitization_institutional.py",
       "builder_sha256": "d2d798a4c7c3432ee4a7f9096aac7ffd98fbe2044203c5655345c87aed379d08",
       "formula_count": 956,
-      "sheet_count": 11,
+      "sheet_count": 14,
       "sheet_names": [
         "Cover",
+        "Institutional Surface",
+        "Challenge Log",
+        "Lineage Map",
         "Assumptions",
         "Collateral",
         "Loss Curves",
@@ -343,20 +402,31 @@
         "waterfall_conservation",
         "tranche_balance_nonnegative",
         "wal_bounds"
-      ]
+      ],
+      "institutional_surface": {
+        "required": true,
+        "status": "PASS",
+        "profile_sha256": "f43d7636db1534884d421744df6b1a176a0f89a58574d72e685eee4f97fa9250",
+        "decision_arena": "structuring, collateral, servicing, trustee, rating agency and investor",
+        "committee_artifact": "cash-flow, trigger and tranche-loss pack",
+        "surface_errors": []
+      }
     },
     {
       "model_id": "20",
       "domain": "Project Finance",
       "maturity": "M2",
       "workbook": "20_Project_Finance/_template_PROJECT_FINANCE.xlsx",
-      "workbook_sha256": "93187dd11e0224d114e75a7d6e0a260f29bacab8e9f02e223bc75a66352cacc2",
+      "workbook_sha256": "1dc3591346f2a72bb77ffcbd14ce0ba1fd0dc8edf722fffd5fe7bff64a62a6c8",
       "builder": "tools/builders/build_project_finance_release.py",
       "builder_sha256": "c8b5001ff56063463ec87bcec0a2931519215440e06b3c4020ee9ef778758093",
       "formula_count": 503,
-      "sheet_count": 12,
+      "sheet_count": 15,
       "sheet_names": [
         "Cover",
+        "Institutional Surface",
+        "Challenge Log",
+        "Lineage Map",
         "Assumptions",
         "Construction",
         "Sources & Uses",
@@ -401,20 +471,31 @@
         "debt_schedule_conservation",
         "dscr_identity",
         "llcr_identity"
-      ]
+      ],
+      "institutional_surface": {
+        "required": true,
+        "status": "PASS",
+        "profile_sha256": "4e8f98971d5948f781ac9623d064e8545d00f7951e5fd78f799595cff4c8c58a",
+        "decision_arena": "sponsor, lender, technical adviser, offtaker, insurer and investment committee",
+        "committee_artifact": "bank case, downside case and financing base-case pack",
+        "surface_errors": []
+      }
     },
     {
       "model_id": "21",
       "domain": "Fixed Income & Rates",
       "maturity": "M2",
       "workbook": "21_Fixed_Income_Rates/_template_FIXED_INCOME.xlsx",
-      "workbook_sha256": "e9f1980c885c9910f74ab2365b66e291e9dbc776e4f85ee9f5c5282170710392",
+      "workbook_sha256": "dde5d818eadc04baaa6c7a48eeb90ed3286aee8859f68e815397045b1ff37ce2",
       "builder": "tools/builders/build_fixed_income_release.py",
       "builder_sha256": "8113d51d70a3ce436c043eb9ac04929e03c3720b5bbe2226e786fd362542e23a",
       "formula_count": 195,
-      "sheet_count": 12,
+      "sheet_count": 15,
       "sheet_names": [
         "Cover",
+        "Institutional Surface",
+        "Challenge Log",
+        "Lineage Map",
         "Assumptions",
         "Zero Curve",
         "Bond Analytics",
@@ -456,20 +537,31 @@
         "convexity_positive",
         "key_rate_reconciliation",
         "discount_factor_monotonicity"
-      ]
+      ],
+      "institutional_surface": {
+        "required": true,
+        "status": "PASS",
+        "profile_sha256": "e3ff3eaefb093cd807b884379accdebd5715d15b65118be926c60861f69a2855",
+        "decision_arena": "trading desk, portfolio management, treasury, ALCO and independent risk",
+        "committee_artifact": "curve, carry and risk pack",
+        "surface_errors": []
+      }
     },
     {
       "model_id": "22",
       "domain": "Quantitative & Systematic",
       "maturity": "M2",
       "workbook": "22_Quantitative_Systematic/_template_QUANT.xlsx",
-      "workbook_sha256": "d2f230af2a978c9563b17ab2f268397f70df80b6bf3589310a3bc9dbb1a45578",
+      "workbook_sha256": "e1b479a5e3bc8a05f6741eb0ddcb33fa0dad850fc1f9ea9542adb7d75250ff06",
       "builder": "tools/builders/build_quant_release.py",
       "builder_sha256": "a8548fb6dc975802910322ea8108f67fb51ed13395283570883132576a8c6e11",
       "formula_count": 591,
-      "sheet_count": 11,
+      "sheet_count": 14,
       "sheet_names": [
         "Cover",
+        "Institutional Surface",
+        "Challenge Log",
+        "Lineage Map",
         "Assumptions",
         "Backtest",
         "Performance",
@@ -510,7 +602,15 @@
         "var_es_order",
         "walk_forward_partition",
         "cost_monotonicity"
-      ]
+      ],
+      "institutional_surface": {
+        "required": true,
+        "status": "PASS",
+        "profile_sha256": "be32a29bacc902049f67104d129182103be9540d6f2167d7cc76d978726ff943",
+        "decision_arena": "research, portfolio construction, execution, risk and model validation",
+        "committee_artifact": "research approval and live-monitoring pack",
+        "surface_errors": []
+      }
     }
   ],
   "errors": [],
