@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.1",
+  "id": "microfinance-adversarial-moratorium",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false,
+  "domain": "Microfinance",
+  "model_id": "11",
+  "case_type": "adversarial",
+  "template": "11_Microfinance/_template_MICROFINANCE.xlsx",
+  "output": "11_Microfinance/instances/benchmark_adversarial_moratorium.xlsx",
+  "as_of": "2026-08-04",
+  "scenario": "Downside",
+  "cover": {},
+  "inputs": [
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C5",
+      "value": 82.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C6",
+      "value": 4200.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C7",
+      "value": 35.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C8",
+      "value": 20.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C9",
+      "value": 8.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Loan Portfolio",
+      "cell": "C10",
+      "value": 0.0195,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C5",
+      "value": 8.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C6",
+      "value": 5.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C7",
+      "value": 8.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C8",
+      "value": 10.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C9",
+      "value": 2.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C5",
+      "value": 40.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C6",
+      "value": 20.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C7",
+      "value": 15.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C8",
+      "value": 7.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C12",
+      "value": 10.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Portfolio Rollforward",
+      "cell": "C3",
+      "value": "Downside",
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finance-Segway domain-hardening fixture microfinance-adversarial-moratorium",
+      "url": "repo://standards/domain_hardening/m1_registry.json",
+      "as_of": "2026-08-04",
+      "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "M1-to-M2 domain hardening benchmark",
+    "source_snapshot": "repo://standards/domain_hardening/m1_registry.json",
+    "what_changed": "Generated adversarial benchmark microfinance-adversarial-moratorium from the canonical hardened release template",
+    "reviewer_notes": "Synthetic engineering fixture only; does not count toward M4 or live approval",
+    "next_check": "On builder, reference-check, formula, or contract change"
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "trade-adversarial-country-shock",
+  "as_of": "2026-08-04",
+  "manifest": "standards/benchmark_cases/trade-adversarial-country-shock.json",
+  "template": "10_Trade_Finance/_template_TRADE_FINANCE.xlsx",
+  "output": "10_Trade_Finance/instances/benchmark_adversarial_country_shock.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C5",
+      "previous": 0,
+      "value": 400.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C6",
+      "previous": 0,
+      "value": 320.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C7",
+      "previous": 0,
+      "value": 160.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C8",
+      "previous": 0,
+      "value": 120.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Working Capital Cycle",
+      "cell": "C9",
+      "previous": 0,
+      "value": 20.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C5",
+      "previous": 0,
+      "value": 100.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C6",
+      "previous": 0.015,
+      "value": 0.04,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C7",
+      "previous": 0.01,
+      "value": 0.03,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C8",
+      "previous": 90,
+      "value": 90.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C14",
+      "previous": 0,
+      "value": 100.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C15",
+      "previous": 0.85,
+      "value": 0.7,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C16",
+      "previous": 0.02,
+      "value": 0.18,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "LC & Factoring Cost",
+      "cell": "C17",
+      "previous": 60,
+      "value": 45.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Credit & Facility",
+      "cell": "C3",
+      "previous": "Base",
+      "value": "Downside",
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C5",
+      "previous": 10,
+      "value": 30.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C6",
+      "previous": 0,
+      "value": 4.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C7",
+      "previous": 1,
+      "value": 0.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C8",
+      "previous": 1,
+      "value": 0.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C9",
+      "previous": 1,
+      "value": 0.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C10",
+      "previous": 1,
+      "value": 0.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C11",
+      "previous": 1,
+      "value": 0.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Documentary Controls",
+      "cell": "C12",
+      "previous": 1,
+      "value": 0.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    }
+  ],
+  "workbook_sha256": "ca2ef91bce99d9f5d590d197f7aa0a2b8e009fcc4731fc99cd5f43020b1e7eb9",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "model_id": "10",
+  "domain": "Trade Finance",
+  "case_type": "adversarial",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false
+}

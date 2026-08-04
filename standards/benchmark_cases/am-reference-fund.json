@@ -1,0 +1,406 @@
+{
+  "schema_version": "1.1",
+  "id": "am-reference-fund",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false,
+  "domain": "Asset Management",
+  "model_id": "08",
+  "case_type": "conventional",
+  "template": "08_Asset_Management/_template_AM.xlsx",
+  "output": "08_Asset_Management/instances/benchmark_reference_fund.xlsx",
+  "as_of": "2026-08-04",
+  "scenario": "Base",
+  "cover": {},
+  "inputs": [
+    {
+      "sheet": "Fund NAV",
+      "cell": "C5",
+      "value": 100.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C6",
+      "value": 20.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C7",
+      "value": 15.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C8",
+      "value": 2.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "C9",
+      "value": 5.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "D6",
+      "value": 10.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "D7",
+      "value": 7.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "D8",
+      "value": 2.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "D9",
+      "value": 4.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "E6",
+      "value": 5.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "E7",
+      "value": 5.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "E8",
+      "value": 2.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "E9",
+      "value": 4.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "F6",
+      "value": 0.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "F7",
+      "value": 4.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "F8",
+      "value": 2.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fund NAV",
+      "cell": "F9",
+      "value": 6.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C5",
+      "value": 100.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C6",
+      "value": 80.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C7",
+      "value": 0.08,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C8",
+      "value": 0.2,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C9",
+      "value": 1.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Fee Waterfall",
+      "cell": "C10",
+      "value": 100.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Return Measurement",
+      "cell": "C14",
+      "value": 0.08,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C5",
+      "value": 150.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C6",
+      "value": 60.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C8",
+      "value": 35.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C9",
+      "value": 15.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C10",
+      "value": 12.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C11",
+      "value": 8.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C12",
+      "value": 30.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C13",
+      "value": 0.4,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C14",
+      "value": 0.25,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C15",
+      "value": 1.2,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finance-Segway domain-hardening fixture am-reference-fund",
+      "url": "repo://standards/domain_hardening/m1_registry.json",
+      "as_of": "2026-08-04",
+      "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "M1-to-M2 domain hardening benchmark",
+    "source_snapshot": "repo://standards/domain_hardening/m1_registry.json",
+    "what_changed": "Generated conventional benchmark am-reference-fund from the canonical hardened release template",
+    "reviewer_notes": "Synthetic engineering fixture only; does not count toward M4 or live approval",
+    "next_check": "On builder, reference-check, formula, or contract change"
+  }
+}
