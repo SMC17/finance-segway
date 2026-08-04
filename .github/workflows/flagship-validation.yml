@@ -9,6 +9,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: flagship-validation-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate-flagships:
     runs-on: ubuntu-latest
@@ -22,11 +26,8 @@ jobs:
           python-version: '3.11'
           cache: pip
 
-      - name: Install LibreOffice and Python dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libreoffice-calc
-          pip install -r requirements.txt
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
 
       - name: Compile sources and run engine tests
         run: |
@@ -55,6 +56,11 @@ jobs:
           PYTHONPATH=.:tools python tools/validate_risk_model.py .flagship-build/RISK.xlsx
           PYTHONPATH=.:tools python tools/validate_fixed_income_model.py .flagship-build/FIXED_INCOME.xlsx
           PYTHONPATH=.:tools python tools/validate_lbo_model.py .flagship-build/LBO.xlsx
+
+      - name: Install LibreOffice
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice-calc
 
       - name: Recalculate every flagship and reject cached Excel errors
         run: |
