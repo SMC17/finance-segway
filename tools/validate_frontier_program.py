@@ -42,6 +42,25 @@ def _load(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _expected_mismatches(actual: Any, expected: Any, path: str = "result") -> list[str]:
+    """Compare a declared regression subset without freezing unrelated output fields."""
+    if isinstance(expected, dict):
+        if not isinstance(actual, dict):
+            return [f"{path}: expected mapping, found {type(actual).__name__}"]
+        errors = []
+        for key, value in expected.items():
+            if key not in actual:
+                errors.append(f"{path}.{key}: missing")
+            else:
+                errors.extend(_expected_mismatches(actual[key], value, f"{path}.{key}"))
+        return errors
+    if isinstance(expected, (int, float)) and isinstance(actual, (int, float)):
+        return [] if abs(float(actual) - float(expected)) <= 1e-7 else [
+            f"{path}: expected {expected}, found {actual}"
+        ]
+    return [] if actual == expected else [f"{path}: expected {expected!r}, found {actual!r}"]
+
+
 def validate() -> dict[str, Any]:
     registry = _load(REGISTRY)
     legacy_registry = _load(LEGACY_REGISTRY)
@@ -237,6 +256,8 @@ def validate() -> dict[str, Any]:
                 errors.append(
                     f"{engine_id}/{case['id']}: adversarial case triggered no failure state"
                 )
+            for mismatch in _expected_mismatches(result, case.get("expected", {})):
+                errors.append(f"{engine_id}/{case['id']}: {mismatch}")
             engine_result["cases"].append(
                 {
                     "id": case["id"],

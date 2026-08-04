@@ -105,16 +105,20 @@
             }
           },
           {
-            "id": "capital-adversarial-scarcity",
+            "id": "capital-adversarial-two-constraint-optimum",
             "type": "adversarial",
             "inputs": {
-              "available_capital": 60.0,
-              "available_liquidity": 15.0,
+              "available_capital": 10.0,
+              "available_liquidity": 10.0,
               "units": [
-                {"name": "private_credit", "requested_capital": 50.0, "expected_return": 9.0, "expected_loss": 2.0, "capital_charge": 2.0, "liquidity_per_capital": 0.50},
-                {"name": "commodities", "requested_capital": 40.0, "expected_return": 7.0, "expected_loss": 1.0, "capital_charge": 2.0, "liquidity_per_capital": 0.40},
-                {"name": "legacy_project", "requested_capital": 20.0, "expected_return": 1.0, "expected_loss": 2.0, "capital_charge": 1.0, "liquidity_per_capital": 0.20}
+                {"name": "liquidity_hog", "requested_capital": 10.0, "expected_return": 100.0, "expected_loss": 0.0, "capital_charge": 0.0, "liquidity_per_capital": 10.0},
+                {"name": "liquidity_efficient", "requested_capital": 10.0, "expected_return": 90.0, "expected_loss": 0.0, "capital_charge": 0.0, "liquidity_per_capital": 1.0}
               ]
+            },
+            "expected": {
+              "allocations": {"liquidity_hog": 0.0, "liquidity_efficient": 10.0},
+              "metrics": {"risk_adjusted_value_created": 90.0},
+              "active_risk_flags": ["liquidity_binding", "capital_binding"]
             }
           }
         ]
@@ -137,16 +141,21 @@
             }
           },
           {
-            "id": "liquidity-adversarial-cascade",
+            "id": "liquidity-adversarial-membership-cascade",
             "type": "adversarial",
             "inputs": {
-              "liquidity": {"Holdco": 30.0, "Fund": 25.0, "Broker": 20.0},
-              "minimum_liquidity": {"Holdco": 20.0, "Fund": 20.0, "Broker": 20.0},
-              "initial_outflows": {"Broker": 5.0},
+              "liquidity": {"Originator": 11.0, "UnaffectedShock": 100.0, "Lender": 15.0},
+              "minimum_liquidity": {"Originator": 10.0, "UnaffectedShock": 10.0, "Lender": 10.0},
+              "initial_outflows": {"Originator": 2.0, "UnaffectedShock": 1.0},
               "exposures": [
-                {"lender": "Fund", "borrower": "Broker", "amount": 20.0, "recovery": 0.0, "collateral": 0.0},
-                {"lender": "Holdco", "borrower": "Fund", "amount": 20.0, "recovery": 0.0, "collateral": 0.0}
+                {"lender": "Lender", "borrower": "Originator", "amount": 10.0, "recovery": 0.0, "collateral": 0.0}
               ]
+            },
+            "expected": {
+              "initially_defaulted_entities": ["Originator"],
+              "propagated_defaulted_entities": ["Lender"],
+              "defaulted_entities": ["Lender", "Originator"],
+              "active_risk_flags": ["entity_default", "contagion_propagated", "counterparty_loss"]
             }
           }
         ]

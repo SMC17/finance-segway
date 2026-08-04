@@ -82,6 +82,33 @@ class FrontierProgramTests(unittest.TestCase):
                 result["active_risk_flags"], msg=f"{engine['id']} {case['id']}"
             )
 
+    def test_capital_allocator_solves_the_two_constraint_global_optimum(self):
+        case = next(
+            case
+            for engine in self.engines
+            if engine["id"] == "capital_allocation"
+            for case in engine["cases"]
+            if case["type"] == "adversarial"
+        )
+        result = cross_domain_oracles.capital_allocation(case["inputs"])
+        self.assertAlmostEqual(result["allocations"]["liquidity_efficient"], 10.0)
+        self.assertAlmostEqual(result["allocations"]["liquidity_hog"], 0.0)
+        self.assertAlmostEqual(result["metrics"]["risk_adjusted_value_created"], 90.0)
+
+    def test_contagion_flag_tracks_membership_not_shock_cardinality(self):
+        case = next(
+            case
+            for engine in self.engines
+            if engine["id"] == "liquidity_contagion"
+            for case in engine["cases"]
+            if case["type"] == "adversarial"
+        )
+        result = cross_domain_oracles.liquidity_contagion(case["inputs"])
+        self.assertEqual(result["initially_defaulted_entities"], ["Originator"])
+        self.assertEqual(result["propagated_defaulted_entities"], ["Lender"])
+        self.assertEqual(result["defaulted_entities"], ["Lender", "Originator"])
+        self.assertIn("contagion_propagated", result["active_risk_flags"])
+
     def test_synthetic_cases_never_count_toward_m4(self):
         claim = self.registry["claim_boundary"]
         self.assertIs(claim["synthetic_cases_count_toward_m4"], False)
