@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "id": "debt-public-carnival-2020-stress",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "06_Debt_Finance/_template_CREDIT.xlsx",
+  "output": "06_Debt_Finance/instances/public_carnival_2020_stress.xlsx",
+  "as_of": "2020-11-30",
+  "scenario": "Downside",
+  "cover": {
+    "Subject:": "Carnival 2020 emergency debt financing"
+  },
+  "inputs": [
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D6",
+      "value": 5750.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Carnival 2020 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/815097/000081509721000012/ccl-20201130.htm",
+        "as_of": "2020-11-30",
+        "notes": "U.S. SEC / Carnival; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D13",
+      "value": 9500.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Carnival 2020 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/815097/000081509721000012/ccl-20201130.htm",
+        "as_of": "2020-11-30",
+        "notes": "U.S. SEC / Carnival; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D15",
+      "value": 4000.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Carnival 2020 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/815097/000081509721000012/ccl-20201130.htm",
+        "as_of": "2020-11-30",
+        "notes": "U.S. SEC / Carnival; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D17",
+      "value": 1750.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Carnival 2020 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/815097/000081509721000012/ccl-20201130.htm",
+        "as_of": "2020-11-30",
+        "notes": "U.S. SEC / Carnival; frozen curated observation as of case date"
+      }
+    }
+  ],
+  "outcome": {
+    "metric": "emergency_debt_issued_usd_mm",
+    "forecast": 0.0,
+    "realized": 5750.0,
+    "realized_source": "Carnival 2020 Form 10-K",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://06_Debt_Finance/sources/snapshots/debt-public-carnival-2020-stress.json",
+    "synthetic_benchmark_inputs_allowed": false
+  },
+  "sources": [
+    {
+      "name": "Carnival 2020 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/815097/000081509721000012/ccl-20201130.htm",
+      "as_of": "2020-11-30",
+      "notes": "U.S. SEC / Carnival; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-carnival-2020-stress.json",
+      "as_of": "2020-11-30",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://06_Debt_Finance/sources/snapshots/debt-public-carnival-2020-stress.json",
+    "what_changed": "Generated public case debt-public-carnival-2020-stress from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

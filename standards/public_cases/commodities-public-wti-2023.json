@@ -13,30 +13,6 @@
   "inputs": [
     {
       "sheet": "Hedging",
-      "cell": "C5",
-      "value": 1000.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-reference-hedge.json",
-        "url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Hedging",
-      "cell": "C6",
-      "value": 100.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-reference-hedge.json",
-        "url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Hedging",
       "cell": "C7",
       "value": 77.58,
       "input_kind": "observed",
@@ -45,126 +21,6 @@
         "url": "https://www.eia.gov/dnav/pet/PET_PRI_SPT_S1_A.htm",
         "as_of": "2023-12-31",
         "notes": "U.S. Energy Information Administration; frozen curated observation as of case date"
-      }
-    },
-    {
-      "sheet": "Hedging",
-      "cell": "C8",
-      "value": 82.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-reference-hedge.json",
-        "url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Hedging",
-      "cell": "C9",
-      "value": 0.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-reference-hedge.json",
-        "url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Hedging",
-      "cell": "C10",
-      "value": 1.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-reference-hedge.json",
-        "url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C7",
-      "value": 0.04,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-reference-hedge.json",
-        "url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C8",
-      "value": 0.02,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-reference-hedge.json",
-        "url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C9",
-      "value": 0.03,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-reference-hedge.json",
-        "url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C10",
-      "value": 0.5,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-reference-hedge.json",
-        "url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C11",
-      "value": 100.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-reference-hedge.json",
-        "url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C12",
-      "value": 50.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-reference-hedge.json",
-        "url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C13",
-      "value": 20.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-reference-hedge.json",
-        "url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
       }
     },
     {
@@ -177,54 +33,6 @@
         "url": "https://www.eia.gov/dnav/pet/PET_PRI_SPT_S1_A.htm",
         "as_of": "2023-12-31",
         "notes": "U.S. Energy Information Administration; frozen curated observation as of case date"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C15",
-      "value": 30.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-reference-hedge.json",
-        "url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C16",
-      "value": 60.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-reference-hedge.json",
-        "url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C17",
-      "value": 10.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-reference-hedge.json",
-        "url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C18",
-      "value": 1.25,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from commodities-reference-hedge.json",
-        "url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
       }
     }
   ],
@@ -249,5 +57,16 @@
     "what_changed": "Generated public case commodities-public-wti-2023 from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "next_year_wti_average_usd_per_bbl",
+    "forecast": 75.0,
+    "realized": null,
+    "realized_source": "Pending maintained annual EIA evidence refresh",
+    "status": "pending"
+  },
+  "lineage": {
+    "source_snapshot": "repo://15_Commodities/sources/snapshots/commodities-public-wti-2023.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

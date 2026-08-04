@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "public-finance-jamaica-2024",
+  "as_of": "2024-03-08",
+  "manifest": "standards/public_cases/public-finance-jamaica-2024.json",
+  "template": "07_Public_Finance/_template_PUBLIC_FINANCE.xlsx",
+  "output": "07_Public_Finance/instances/public_jamaica_2024.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C5",
+      "previous": 0.6,
+      "value": 0.75,
+      "source_url": "https://www.imf.org/en/publications/cr/issues/2024/03/08/jamaica-2024-article-iv-consultation-and-second-reviews-under-the-arrangement-under-the-545715",
+      "source_as_of": "2024-03-08"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C6",
+      "previous": 0.05,
+      "value": 0.07,
+      "source_url": "https://www.imf.org/en/publications/cr/issues/2024/03/08/jamaica-2024-article-iv-consultation-and-second-reviews-under-the-arrangement-under-the-545715",
+      "source_as_of": "2024-03-08"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C7",
+      "previous": 0.04,
+      "value": 0.08,
+      "source_url": "https://www.imf.org/en/publications/cr/issues/2024/03/08/jamaica-2024-article-iv-consultation-and-second-reviews-under-the-arrangement-under-the-545715",
+      "source_as_of": "2024-03-08"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "C8",
+      "previous": 0.015,
+      "value": 0.057,
+      "source_url": "https://www.imf.org/en/publications/cr/issues/2024/03/08/jamaica-2024-article-iv-consultation-and-second-reviews-under-the-arrangement-under-the-545715",
+      "source_as_of": "2024-03-08"
+    }
+  ],
+  "workbook_sha256": "63adeca13163277dbad831a232bbeb0b8c036f42a6674349aa8861cd6a4f8b9a",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false
+}

@@ -1,5 +1,6 @@
 import openpyxl
 from template_helpers import *
+from vc_election_solver import add_holder_election_solver
 
 wb = openpyxl.Workbook()
 wb.remove(wb.active)
@@ -14,22 +15,43 @@ add_cover(wb, "[COMPANY] — Venture Capital Model", [
 
 # ---------------- CAP TABLE ----------------
 ws = wb.create_sheet("Cap Table")
-set_col_widths(ws, [4, 20, 14, 14, 14, 14, 14])
+set_col_widths(ws, [4, 28, 14, 14, 14, 14, 18, 14, 20, 16, 12, 16, 18])
 ws["B2"] = "Capitalization Table"; ws["B2"].font = TITLE
-headers = ["", "Holder / Class", "Shares", "% Fully Diluted", "Price paid/sh", "Invested $", "Class"]
+headers = [
+    "", "Holder / Class", "Shares", "% Fully Diluted", "Price paid/sh",
+    "Invested $", "Security type", "Liq. pref (x)", "Participation",
+    "Participation cap (x)", "Seniority", "Conversion ratio",
+    "As-converted shares",
+]
 for i, h in enumerate(headers, start=1):
     ws.cell(row=4, column=i, value=h)
 style_header_row(ws, 4, len(headers))
 
-rows = ["Founders (common)", "Employee option pool", "SAFE holders (pre-conversion)",
-        "Seed preferred", "Series A preferred", "Series B preferred"]
+rows = [
+    ("Founders (common)", "Common", 0.0, "N/A", 0.0, 0, 1.0),
+    ("Employee option pool", "Common", 0.0, "N/A", 0.0, 0, 1.0),
+    ("SAFE holders (pre-conversion)", "SAFE — deal-specific", 0.0, "Deal-specific", 0.0, 0, 0.0),
+    ("Seed preferred", "Preferred", 1.0, "Non-participating", 0.0, 1, 1.0),
+    ("Series A preferred", "Preferred", 1.0, "Non-participating", 0.0, 2, 1.0),
+    ("Series B preferred", "Preferred", 1.0, "Non-participating", 0.0, 3, 1.0),
+]
 r = 5
-for label in rows:
+for label, security_type, preference, participation, cap, seniority, conversion in rows:
     ws.cell(row=r, column=2, value=label).font = BLACK
     c_sh = ws.cell(row=r, column=3, value=0); c_sh.font = BLUE; c_sh.number_format = NUM; c_sh.border = BORDER
     c_price = ws.cell(row=r, column=5, value=0); c_price.font = BLUE; c_price.number_format = CUR2; c_price.border = BORDER
     c_inv = ws.cell(row=r, column=6, value=f"=C{r}*E{r}"); c_inv.number_format = CUR; c_inv.border = BORDER
-    ws.cell(row=r, column=7, value="Common/Pref").font = BLUE
+    term_values = (security_type, preference, participation, cap, seniority, conversion)
+    for column, value in enumerate(term_values, start=7):
+        cell = ws.cell(row=r, column=column, value=value)
+        cell.font = BLUE
+        cell.fill = YELLOW_FILL
+        cell.border = BORDER
+    ws.cell(row=r, column=8).number_format = MULT
+    ws.cell(row=r, column=10).number_format = MULT
+    ws.cell(row=r, column=12).number_format = "0.000x"
+    ws.cell(row=r, column=13, value=f"=C{r}*L{r}").number_format = NUM
+    ws.cell(row=r, column=13).border = BORDER
     r += 1
 total_row = r
 ws.cell(row=total_row, column=2, value="Total").font = BOLD
@@ -37,8 +59,10 @@ ws.cell(row=total_row, column=3, value=f"=SUM(C5:C{total_row-1})").font = BOLD
 ws.cell(row=total_row, column=3).number_format = NUM
 ws.cell(row=total_row, column=6, value=f"=SUM(F5:F{total_row-1})").font = BOLD
 ws.cell(row=total_row, column=6).number_format = CUR
+ws.cell(row=total_row, column=13, value=f"=SUM(M5:M{total_row-1})").font = BOLD
+ws.cell(row=total_row, column=13).number_format = NUM
 for r2 in range(5, total_row):
-    cell = ws.cell(row=r2, column=4, value=f"=IFERROR(C{r2}/$C${total_row},\"-\")")
+    cell = ws.cell(row=r2, column=4, value=f"=IFERROR(M{r2}/$M${total_row},\"-\")")
     cell.number_format = PCT
 ws.sheet_view.showGridLines = False
 
@@ -97,93 +121,24 @@ ws.sheet_view.showGridLines = False
 
 # ---------------- EXIT WATERFALL ----------------
 ws = wb.create_sheet("Exit Waterfall")
-set_col_widths(ws, [4, 26, 14, 14, 14, 14, 16, 16])
-ws["B2"] = "Exit Proceeds Waterfall (1x non-participating pref)"; ws["B2"].font = TITLE
-headers = ["", "Class", "Invested $", "Liq. pref (1x)", "As-converted %",
-           "Pref-stack scenario", "As-converted scenario", "Actual proceeds"]
-for i, h in enumerate(headers, start=1):
-    ws.cell(row=4, column=i, value=h)
-style_header_row(ws, 4, 7)
-ws["B15"] = "Total exit proceeds"; ws["C15"] = 0; ws["C15"].font = BLUE; ws["C15"].fill = YELLOW_FILL
-ws["C15"].number_format = CUR
-
-# Cap Table rows: 5 Founders, 6 Employee pool, 7 SAFE, 8 Seed pref, 9 Series A pref, 10 Series B pref.
-# Exit Waterfall is seniority order (most senior first) — map each class to ITS OWN row, not by
-# list position (an earlier version of this tab mapped by index and pulled the wrong rows entirely).
-class_rows = [
-    ("Series B preferred", "='Cap Table'!F10", "=IFERROR('Cap Table'!D10,\"-\")"),
-    ("Series A preferred", "='Cap Table'!F9", "=IFERROR('Cap Table'!D9,\"-\")"),
-    ("Seed preferred", "='Cap Table'!F8", "=IFERROR('Cap Table'!D8,\"-\")"),
-    ("Common (founders + pool)", "='Cap Table'!F5+'Cap Table'!F6",
-     "=IFERROR('Cap Table'!D5+'Cap Table'!D6,\"-\")"),
-]
-r = 5
-for cls, invested_formula, pct_formula in class_rows:
-    ws.cell(row=r, column=2, value=cls).font = BLACK
-    ws.cell(row=r, column=3, value=invested_formula).font = GREEN
-    ws.cell(row=r, column=3).number_format = CUR
-    ws.cell(row=r, column=4, value=f"=C{r}").number_format = CUR  # 1x pref = invested amount
-    ws.cell(row=r, column=5, value=pct_formula).font = GREEN
-    ws.cell(row=r, column=5).number_format = PCT
-    for c in range(3, 6):
-        ws.cell(row=r, column=c).border = BORDER
-    r += 1
-
-# Pref-stack scenario: senior-to-junior cascade, same cascading MIN/MAX as a
-# recovery waterfall. Common has no liquidation preference — it gets whatever
-# preferred didn't claim, which is what keeps this scenario self-consistent
-# (rows 5-8 always sum to exactly total proceeds, by construction).
-ws["F5"] = "=MIN($C$15,D5)"
-ws["F6"] = "=MIN(MAX($C$15-F5,0),D6)"
-ws["F7"] = "=MIN(MAX($C$15-F5-F6,0),D7)"
-ws["F8"] = "=MAX(0,$C$15-F5-F6-F7)"
-for r2 in (5, 6, 7, 8):
-    ws.cell(row=r2, column=6).number_format = CUR
-    ws.cell(row=r2, column=6).border = BORDER
-
-# As-converted scenario: pro-rata by fully-diluted %, for all four rows —
-# also self-consistent (the %s sum to ~100%, so this sums to total proceeds).
-# Guarded: E-column % can be text ("-") on a blank cap table, and text*number
-# throws #VALUE! rather than quietly returning zero.
-for r2 in range(5, 9):
-    ws.cell(row=r2, column=7, value=f"=IFERROR($C$15*E{r2},\"-\")")
-    ws.cell(row=r2, column=7).number_format = CUR
-    ws.cell(row=r2, column=7).border = BORDER
-
-# Actual: pick ONE scenario for the WHOLE table based on a single global
-# test, rather than letting each class independently choose MAX(its own
-# scenario values) -- that looks tempting but breaks conservation. Proof by
-# example: if Series B and A both take their full pref (consuming all of a
-# small exit) while Seed independently "converts" into what its fully-diluted
-# % implies from the *original* total, Seed's slice was already spoken for by
-# B and A -- the three payouts sum to MORE than total proceeds. Neither
-# per-class scenario has that problem on its own (each is a self-contained,
-# fully-allocated cap table split), so switching between them wholesale for
-# every class keeps the total exact. The real-world outcome is often a mix
-# (junior classes convert while senior ones hold pref) — this simplification
-# picks the safer of the two extremes rather than guessing the exact mix.
-ws["B10"] = "Regime: as-converted pays more fund-wide than the full pref stack?"
-ws["C10"] = "=IF($C$15>SUM(D5:D7),\"YES — use as-converted\",\"NO — use pref-stack\")"
-ws["C10"].font = BOLD
-for r2 in range(5, 9):
-    ws.cell(row=r2, column=8, value=f"=IF($C$15>SUM($D$5:$D$7),G{r2},F{r2})")
-    ws.cell(row=r2, column=8).font = BOLD
-    ws.cell(row=r2, column=8).number_format = CUR
-    ws.cell(row=r2, column=8).border = BORDER
-
-ws["B11"] = "Total distributed (check — should equal total exit proceeds)"
-ws["C11"] = "=SUM(H5:H8)"; ws["C11"].font = BOLD; ws["C11"].number_format = CUR
-ws["C11"].border = BORDER
-
-ws["B13"] = ("Simplification: switches the WHOLE cap table between the pref-stack and as-converted "
-             "scenario based on one global test (total proceeds vs. sum of all preferences), rather "
-             "than letting each class elect independently. Real waterfalls often have junior classes "
-             "convert while senior ones keep their pref, in the middle range between these two "
-             "extremes — that requires testing conversion elections class by class (a small solver, "
-             "not a single formula). This always ties to total proceeds and is exactly right at both "
-             "extremes; treat the boundary/middle range as a case for a proper waterfall tool or "
-             "counsel, not this template.")
-ws["B13"].font = ITALIC_GRAY
+set_col_widths(ws, [4, 40, 18, 18, 14, 18, 14, 18, 18, 18, 18, 18, 18, 14, 14, 16, 18])
+ws["B2"] = "Exit Proceeds Waterfall — Independent Preferred-Class Elections"; ws["B2"].font = TITLE
+for column, value in enumerate(["Metric", "Base", "Adversarial"], start=2):
+    ws.cell(4, column, value)
+style_header_row(ws, 4, 3, start_col=2)
+ws["B5"] = "Total exit proceeds"
+for cell in (ws["C5"], ws["D5"]):
+    cell.value = 0
+    cell.font = BLUE
+    cell.fill = YELLOW_FILL
+    cell.border = BORDER
+    cell.number_format = CUR
+add_holder_election_solver(
+    ws,
+    base_exit_ref="$C$5",
+    adverse_exit_ref="$D$5",
+    start_row=8,
+)
 ws.sheet_view.showGridLines = False
 
 # ---------------- COMPARABLE FINANCINGS ----------------

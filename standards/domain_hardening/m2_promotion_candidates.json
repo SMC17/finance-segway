@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "status": "applied_release_validated",
   "target_maturity": "M2",
-  "promotion_policy": "A candidate may update the canonical inventory only after independent oracles, conventional and adversarial cases, workbook contracts before and after recalculation, zero cached spreadsheet errors, workbook engineering audit, canonical builder parity, and source-addressed benchmark generation all pass on one immutable head.",
+  "promotion_policy": "A candidate may update the canonical inventory only after independent oracles, conventional and adversarial public cases, workbook contracts before and after recalculation, zero cached spreadsheet errors, workbook engineering audit, canonical builder parity, and source-addressed receipt validation all pass on one immutable head.",
   "global_gates": [
     "m1_registry_validation_pass",
     "independent_oracle_cases_18_of_18_pass",
@@ -12,8 +12,8 @@
     "post_recalculation_contracts_pass",
     "workbook_engineering_errors_zero",
     "canonical_builder_artifact_parity_pass",
-    "conventional_benchmark_per_model_pass",
-    "adversarial_benchmark_per_model_pass"
+    "conventional_public_case_per_model_pass",
+    "adversarial_public_case_per_model_pass"
   ],
   "candidates": [
     {

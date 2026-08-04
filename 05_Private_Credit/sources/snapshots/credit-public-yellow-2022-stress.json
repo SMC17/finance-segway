@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "model_id": "05",
+  "domain": "Private Credit",
+  "case_id": "credit-public-yellow-2022-stress",
+  "case_type": "adversarial",
+  "as_of": "2022-12-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Yellow Corporation 2022 annual report",
+      "url": "https://www.sec.gov/Archives/edgar/data/716006/000119312522064324/d186462dars.pdf",
+      "publisher": "U.S. SEC / Yellow Corporation",
+      "captured_values": {
+        "cash_and_cash_equivalents_usd_mm": 235.1,
+        "minimum_trailing_twelve_month_adjusted_ebitda_covenant_usd_mm": 200.0
+      }
+    },
+    {
+      "name": "Yellow Corporation bankruptcy Form 8-K filing index",
+      "url": "https://www.sec.gov/Archives/edgar/data/716006/0001193125-23-204370-index.htm",
+      "publisher": "U.S. SEC / Yellow Corporation",
+      "captured_values": {
+        "chapter_11_filing_date": "2023-08-06",
+        "chapter_11_filed": 1
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D9",
+      "value": 200.0,
+      "kind": "derived",
+      "source": "Yellow Corporation 2022 annual report"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D12",
+      "value": 235.1,
+      "kind": "observed",
+      "source": "Yellow Corporation 2022 annual report"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "chapter_11_filed_within_twelve_months",
+    "forecast": 0.0,
+    "realized": 1.0,
+    "realized_source": "Yellow Corporation bankruptcy Form 8-K filing index",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "a38b55f9bc3b91b767854e1c27d58287c3595577fdc7e234d76a1bb27d3fb977"
+}

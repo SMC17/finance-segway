@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "credit-public-yellow-2022-stress",
+  "as_of": "2022-12-31",
+  "manifest": "standards/public_cases/credit-public-yellow-2022-stress.json",
+  "template": "05_Private_Credit/_template_CREDIT.xlsx",
+  "output": "05_Private_Credit/instances/public_yellow_2022_stress.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D9",
+      "previous": 20,
+      "value": 200.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/716006/000119312522064324/d186462dars.pdf",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Amendment Economics",
+      "cell": "D12",
+      "previous": 180,
+      "value": 235.1,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/716006/000119312522064324/d186462dars.pdf",
+      "source_as_of": "2022-12-31"
+    }
+  ],
+  "workbook_sha256": "a00a048490a57fd7ace798710fa595c475c900bb5937988c5d71bdcdedc3c74d",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false
+}

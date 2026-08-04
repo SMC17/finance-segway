@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "corporate-public-microsoft-2024",
+  "as_of": "2024-06-30",
+  "manifest": "standards/public_cases/corporate-public-microsoft-2024.json",
+  "template": "02_Corporate_Finance/_template_BASE.xlsx",
+  "output": "02_Corporate_Finance/instances/public_microsoft_2024.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C6",
+      "previous": 150,
+      "value": 118548.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C7",
+      "previous": 50,
+      "value": 44477.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C8",
+      "previous": 20,
+      "value": 21771.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C9",
+      "previous": 10,
+      "value": 17254.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C10",
+      "previous": 0,
+      "value": 24395.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C11",
+      "previous": 30,
+      "value": 29070.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C12",
+      "previous": 200,
+      "value": 71802.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    }
+  ],
+  "workbook_sha256": "eb7c7345c6a4b996b624023a180a6d391015e5bc3a179ac16fb67f6aa61cf37d",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false
+}

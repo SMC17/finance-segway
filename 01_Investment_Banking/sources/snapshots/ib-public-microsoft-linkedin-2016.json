@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "model_id": "01",
+  "domain": "Investment Banking",
+  "case_id": "ib-public-microsoft-linkedin-2016",
+  "case_type": "conventional",
+  "as_of": "2016-12-08",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "LinkedIn September 2016 Form 10-Q merger disclosure",
+      "url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+      "publisher": "U.S. SEC / LinkedIn",
+      "captured_values": {
+        "cash_consideration_per_share_usd": 196.0,
+        "transaction_value_including_net_cash_usd_mm": 26200.0,
+        "implied_diluted_shares_mm": 133.673469
+      }
+    },
+    {
+      "name": "LinkedIn merger completion Form 8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1271024/000110465916161289/a16-22816_18k.htm",
+      "publisher": "U.S. SEC / LinkedIn",
+      "captured_values": {
+        "merger_completed": 1
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C5",
+      "value": 26200.0,
+      "kind": "observed",
+      "source": "LinkedIn September 2016 Form 10-Q merger disclosure"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C8",
+      "value": 133.673469,
+      "kind": "derived",
+      "source": "LinkedIn September 2016 Form 10-Q merger disclosure"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C9",
+      "value": 196.0,
+      "kind": "observed",
+      "source": "LinkedIn September 2016 Form 10-Q merger disclosure"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "transaction_completed",
+    "forecast": 1.0,
+    "realized": 1.0,
+    "realized_source": "LinkedIn merger completion Form 8-K",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "68558043eb73280c7224ab11e28cd840e6faee4df4c7c8c60812263f36202301"
+}

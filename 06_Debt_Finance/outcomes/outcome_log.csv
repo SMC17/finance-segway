@@ -1,0 +1,3 @@
+case_id,case_type,metric,forecast,realized,error,realized_source,status
+debt-public-microsoft-2024,conventional,ending_debt_usd_mm,70000.0,67127.0,-2873.0,Microsoft 2024 Form 10-K,recorded
+debt-public-carnival-2020-stress,adversarial,emergency_debt_issued_usd_mm,0.0,5750.0,5750.0,Carnival 2020 Form 10-K,recorded

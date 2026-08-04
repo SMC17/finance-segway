@@ -2,87 +2,75 @@ version: 2
 
 sources:
   - name: finance_segway
-    description: "Raw tables loaded by tools/postgres_etl.py from governed Excel instances."
+    description: "Tables loaded from governed, source-addressed public workbooks."
     schema: public
     tables:
       - name: deals
-        description: "One row per LBO/PE deal instance."
         columns:
           - name: deal_id
-            description: "Primary key matching the workbook stem."
-            tests:
-              - unique
-              - not_null
+            tests: [unique, not_null]
           - name: classification
-            description: "real_public or synthetic_benchmark."
             tests:
               - accepted_values:
-                  values: ['real_public', 'synthetic_benchmark']
+                  values: ['real_public']
+          - name: workbook_path
+            tests: [not_null]
       - name: deal_returns
-        description: "Long-format returns and exit metrics."
         columns:
           - name: deal_id
-            tests:
-              - not_null
+            tests: [not_null]
           - name: metric
-            tests:
-              - not_null
+            tests: [not_null]
       - name: deal_debt_schedule
-        description: "Long-format debt schedule metrics by period."
         columns:
           - name: deal_id
-            tests:
-              - not_null
+            tests: [not_null]
           - name: period
-            tests:
-              - not_null
+            tests: [not_null]
           - name: metric
-            tests:
-              - not_null
+            tests: [not_null]
 
 models:
   - name: stg_deals
-    description: "Clean staging view of the deals table."
+    description: "Real-public deal registry."
     columns:
       - name: deal_id
+        tests: [unique, not_null]
+      - name: classification
         tests:
-          - unique
-          - not_null
+          - accepted_values:
+              values: ['real_public']
 
   - name: stg_deal_returns
-    description: "Clean staging view of deal_returns (EAV)."
+    description: "Long-form committed return outputs."
     columns:
       - name: deal_id
-        tests:
-          - not_null
+        tests: [not_null]
 
   - name: stg_deal_debt_schedule
-    description: "Clean staging view of deal_debt_schedule (EAV)."
+    description: "Long-form committed debt-schedule outputs."
     columns:
       - name: deal_id
-        tests:
-          - not_null
+        tests: [not_null]
 
   - name: mart_selected_exit_returns
-    description: "Analyst-facing mart of selected-exit headline returns. Restricted to evidence classifications by default."
+    description: "One row per real-public deal at the selected exit."
     columns:
       - name: deal_id
-        tests:
-          - unique
-          - not_null
+        tests: [unique, not_null]
       - name: classification
         tests:
           - accepted_values:
               values: ['real_public']
       - name: sponsor_moic
-        description: "Sponsor MOIC at the selected exit. Positivity is enforced by the singular test assert_selected_exit_moic_positive."
+        tests: [not_null]
+      - name: sponsor_irr
+        tests: [not_null]
 
   - name: mart_leverage_path
-    description: "Deleveraging trajectory (total debt, net debt, ending cash) by period."
+    description: "Debt and cash trajectory by deal and period."
     columns:
       - name: deal_id
-        tests:
-          - not_null
+        tests: [not_null]
       - name: period
-        tests:
-          - not_null
+        tests: [not_null]

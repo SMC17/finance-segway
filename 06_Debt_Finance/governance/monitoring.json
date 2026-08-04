@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "model_id": "06",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "refinancing_gap",
+      "warning": 0.0,
+      "breach": 1.0,
+      "action": "Escalate maturity, liquidity and capital-markets plan"
+    },
+    {
+      "metric": "interest_coverage",
+      "warning": 2.5,
+      "breach": 2.0,
+      "action": "Re-underwrite earnings, rates and debt capacity"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

@@ -198,11 +198,15 @@ def recalc(filename, timeout=30, force=False):
 
 def _recalc_with_profile(filename, abs_path, timeout, profile_dir: Path):
     started = time.monotonic()
+    deadline = started + timeout
     profile_url, err = setup_libreoffice_macro(profile_dir, timeout=timeout)
     if err:
         return {"error": err}
 
-    timeout = max(5, int(timeout - (time.monotonic() - started)))
+    remaining = max(5, int(deadline - time.monotonic()))
+    # Preserve enough of the caller's budget for a conversion-based fallback.
+    # Some container builds initialize correctly but hang on Basic macro dispatch.
+    macro_timeout = max(5, min(30, remaining // 2 if remaining >= 10 else remaining))
 
     before = _stamp(abs_path)
 
@@ -216,35 +220,50 @@ def _recalc_with_profile(filename, abs_path, timeout, profile_dir: Path):
     ]
 
     if platform.system() == "Linux" and shutil.which("timeout"):
-        cmd = ["timeout", str(timeout)] + cmd
+        cmd = ["timeout", str(macro_timeout)] + cmd
     elif platform.system() == "Darwin" and has_gtimeout():
-        cmd = ["gtimeout", str(timeout)] + cmd
+        cmd = ["gtimeout", str(macro_timeout)] + cmd
 
-    timed_out = f"LibreOffice timed out after {timeout}s; formulas were NOT recalculated. Re-run with a longer timeout."
+    timed_out = f"LibreOffice macro dispatch timed out after {macro_timeout}s"
 
+    macro_error = None
     try:
         result = subprocess.run(
-            cmd, capture_output=True, text=True, env=get_soffice_env(), timeout=timeout + 15
+            cmd,
+            capture_output=True,
+            text=True,
+            env=get_soffice_env(),
+            timeout=macro_timeout + 15,
         )
     except subprocess.TimeoutExpired:
-        return {"error": timed_out}
+        macro_error = timed_out
     except FileNotFoundError:
         return {"error": SOFFICE_MISSING}
+    else:
+        if result.returncode == 124:
+            macro_error = timed_out
+        elif result.returncode != 0:
+            detail = (result.stderr or "").strip() or f"soffice exited {result.returncode}"
+            macro_error = f"LibreOffice macro recalculation failed: {detail}"
+        elif _stamp(abs_path) == before:
+            macro_error = "LibreOffice macro exited without rewriting the workbook"
 
-    if result.returncode == 124:
-        return {"error": timed_out}
-
-    if result.returncode != 0:
-        detail = (result.stderr or "").strip() or f"soffice exited {result.returncode}"
-        return {"error": f"LibreOffice failed to recalculate: {detail}"}
-
-    if _stamp(abs_path) == before:
-        return {
-            "error": (
-                "LibreOffice exited cleanly but never rewrote the file, so nothing was "
-                "recalculated. Check that no other LibreOffice instance is running, then retry."
-            )
-        }
+    method = "basic_macro"
+    if macro_error:
+        remaining = max(0, int(deadline - time.monotonic()))
+        fallback_error = _recalc_via_conversion(
+            abs_path,
+            timeout=remaining,
+            profile_dir=profile_dir / "conversion-profile",
+        )
+        if fallback_error:
+            return {
+                "error": (
+                    f"{macro_error}; conversion fallback failed: {fallback_error}. "
+                    "Formulas were NOT recalculated."
+                )
+            }
+        method = "conversion_fallback"
 
     try:
         wb = load_workbook(filename, data_only=True)
@@ -306,11 +325,83 @@ def _recalc_with_profile(filename, abs_path, timeout, profile_dir: Path):
         wb_formulas.close()
 
         result["total_formulas"] = formula_count
+        result["recalculation_method"] = method
 
         return result
 
     except Exception as e:
         return {"error": str(e)}
+
+
+def _recalc_via_conversion(abs_path: str, timeout: int, profile_dir: Path) -> str | None:
+    """Recalculate an .xlsx by opening and exporting it with a clean profile."""
+
+    source = Path(abs_path)
+    if source.suffix.lower() != ".xlsx":
+        return f"conversion fallback is restricted to .xlsx files, got {source.suffix}"
+    if timeout < 5:
+        return "no timeout budget remained"
+    output_dir = profile_dir.parent / "converted"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    profile_dir.mkdir(parents=True, exist_ok=True)
+    output = output_dir / source.name
+    cmd = [
+        "soffice",
+        "--headless",
+        "--norestore",
+        f"-env:UserInstallation={profile_dir.as_uri()}",
+        "--convert-to",
+        "xlsx",
+        "--outdir",
+        str(output_dir),
+        str(source),
+    ]
+    if platform.system() == "Linux" and shutil.which("timeout"):
+        cmd = ["timeout", str(timeout)] + cmd
+    elif platform.system() == "Darwin" and has_gtimeout():
+        cmd = ["gtimeout", str(timeout)] + cmd
+    try:
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            env=get_soffice_env(),
+            timeout=timeout + 15,
+        )
+    except subprocess.TimeoutExpired:
+        return f"LibreOffice conversion timed out after {timeout}s"
+    except FileNotFoundError:
+        return SOFFICE_MISSING
+    if result.returncode == 124:
+        return f"LibreOffice conversion timed out after {timeout}s"
+    if result.returncode != 0:
+        detail = (result.stderr or "").strip() or f"soffice exited {result.returncode}"
+        return detail
+    if not output.exists() or output.stat().st_size == 0:
+        return "LibreOffice conversion produced no workbook"
+    # The LibreOffice profile normally lives under /tmp while a repository
+    # can be mounted on another filesystem. os.replace cannot cross that
+    # boundary, so stage a sibling copy and retain an atomic final replace.
+    staged: Path | None = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            prefix=f".{source.stem}-recalc-",
+            suffix=source.suffix,
+            dir=source.parent,
+            delete=False,
+        ) as staged_handle:
+            staged = Path(staged_handle.name)
+            with output.open("rb") as converted_handle:
+                shutil.copyfileobj(converted_handle, staged_handle)
+            staged_handle.flush()
+            os.fsync(staged_handle.fileno())
+        os.replace(staged, source)
+    except OSError as error:
+        if staged is not None:
+            with contextlib.suppress(OSError):
+                staged.unlink()
+        return f"could not install recalculated workbook: {error}"
+    return None
 
 
 def main():

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import unittest
+from unittest.mock import patch
 
 from tools import final_public_evidence
 from tools import final_public_evidence_registry
@@ -58,9 +59,8 @@ class FinalPublicEvidenceTests(unittest.TestCase):
                         self.assertIn(item["source"], names)
             self.assertGreaterEqual(external, 2, msg=model["model_id"])
 
-    def test_base_manifests_exist(self):
+    def test_public_outputs_are_declared(self):
         for case in self.cases:
-            self.assertTrue((final_public_evidence.ROOT / case["based_on"]).exists())
             self.assertTrue(case["output"].endswith(".xlsx"))
 
     def test_all_domain_partition_is_exact(self):
@@ -84,9 +84,51 @@ class FinalPublicEvidenceTests(unittest.TestCase):
 
     def test_claim_boundary_remains_conservative(self):
         policy = self.registry["promotion_policy"]
-        self.assertIs(policy["synthetic_cases_count_toward_m4"], False)
+        self.assertIs(policy["engineering_test_vectors_count_toward_m4"], False)
         self.assertIn("stakeholder_signoff", policy["m3_requires"])
         self.assertIn("multi_release_outcome_history", policy["m4_requires"])
+
+    def test_final_registry_uses_six_model_validation_contract(self):
+        original_path = final_public_evidence.m3_evidence.REGISTRY_PATH
+        with patch.object(
+            final_public_evidence.m3_evidence,
+            "validate",
+            return_value={"status": "PASS"},
+        ) as validator:
+            final_public_evidence._validate_registry(
+                final_public_evidence.FINAL_REGISTRY,
+                False,
+                expected_flagships=6,
+            )
+        validator.assert_called_once_with(False, expected_flagships=6)
+        self.assertEqual(
+            final_public_evidence.m3_evidence.REGISTRY_PATH, original_path
+        )
+
+    def test_synthetic_benchmark_lineage_is_removed_fail_closed(self):
+        manifest = {
+            "inputs": [
+                {
+                    "sheet": "Assumptions",
+                    "cell": "C5",
+                    "source": {
+                        "url": "repo://standards/benchmark_cases/example.json"
+                    },
+                },
+                {
+                    "sheet": "Assumptions",
+                    "cell": "C6",
+                    "source": {"url": "https://www.sec.gov/example"},
+                },
+            ]
+        }
+        removed = final_public_evidence._remove_synthetic_lineage(manifest)
+        self.assertEqual(removed, 1)
+        self.assertEqual(len(manifest["inputs"]), 1)
+        self.assertEqual(
+            manifest["inputs"][0]["source"]["url"],
+            "https://www.sec.gov/example",
+        )
 
 
 if __name__ == "__main__":

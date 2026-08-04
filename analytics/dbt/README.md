@@ -1,97 +1,46 @@
-# dbt Analytics Rail
+# dbt analytics rail
 
-Semantic layer over the Finance-Segway Postgres instance library.
+This optional semantic layer builds tested portfolio views over the Postgres
+query layer. It transforms only values extracted from committed,
+source-addressed public workbooks; it does not reproduce underwriting formulas.
 
-## Purpose
-
-Provide versioned, tested, documented transformations (staging → intermediate → marts) so that portfolio-level analytics, risk views, and performance summaries can be consumed by analysts without writing ad-hoc SQL against raw EAV tables.
-
-This rail does **not** re-implement any underwriting calculation. It only transforms values that have already been committed and recalculated in the governed Excel workbooks.
-
-## Prerequisites
-
-1. A local Postgres database with the Finance-Segway schema applied and the PE instances loaded:
+## Setup
 
 ```bash
 createdb finance_segway
 psql -d finance_segway -f db/schema.sql
-pip install psycopg2-binary
-python tools/postgres_etl.py          # loads the four registered PE deals
-```
+pip install -r requirements-postgres.txt
+python tools/postgres_etl.py
 
-2. dbt Core (1.7+ recommended):
-
-```bash
 pip install dbt-core dbt-postgres
-```
-
-## Pointing dbt at the database
-
-Copy the example profile and edit if needed:
-
-```bash
 cp analytics/dbt/profiles.yml.example ~/.dbt/profiles.yml
-# or keep it inside the project and set DBT_PROFILES_DIR
-```
-
-Default connection (peer/local auth):
-
-```yaml
-finance_segway:
-  target: dev
-  outputs:
-    dev:
-      type: postgres
-      host: localhost
-      user: "{{ env_var('PGUSER', 'postgres') }}"
-      password: "{{ env_var('PGPASSWORD', '') }}"
-      port: 5432
-      dbname: finance_segway
-      schema: analytics          # dbt will create models here
-      threads: 4
-```
-
-Override with environment variables `PGUSER`, `PGPASSWORD`, or `FINANCE_SEGWAY_PG_DSN` as needed.
-
-## Run
-
-From the repository root (or set `dbt_project.yml` path accordingly):
-
-```bash
 cd analytics/dbt
-dbt deps                    # currently empty packages.yml
-dbt debug                   # verify connection
-dbt run                     # build staging + marts
-dbt test                    # run schema + data tests
+dbt debug
+dbt run
+dbt test
 ```
 
-Useful selectors:
+The ETL currently registers two real-public PE cases. No synthetic
+classification, case, or fallback is accepted. Connection settings in the
+example profile use `PGHOST`, `PGPORT`, `PGUSER`, `PGPASSWORD`, and
+`PGDATABASE`.
 
-```bash
-dbt run --select staging
-dbt run --select marts
-dbt test --select mart_selected_exit_returns
-```
+## Models
 
-## Current models
+| Model | Grain | Purpose |
+|---|---|---|
+| `stg_deals` | deal | Source identity and status |
+| `stg_deal_returns` | deal, period, metric | Long-form returns |
+| `stg_deal_debt_schedule` | deal, period, metric | Long-form debt schedule |
+| `mart_selected_exit_returns` | deal | Selected-exit MOIC, IRR, EV, and debt |
+| `mart_leverage_path` | deal, period | Debt and cash trajectory |
 
-| Model | Grain | Description |
-|-------|-------|-------------|
-| `stg_deals` | deal_id | Clean deals table |
-| `stg_deal_returns` | deal_id, period, metric | Long-format returns |
-| `stg_deal_debt_schedule` | deal_id, period, metric | Long-format debt schedule |
-| `mart_selected_exit_returns` | deal_id | Selected-exit headline metrics (real_public only by default) |
-| `mart_leverage_path` | deal_id, period | Deleveraging trajectory (total debt, net debt, ending cash) |
+## Controls
 
-## Design rules
-
-1. Source freshness and row counts are tested.
-2. Every mart has a primary key and documented grain.
-3. No model may contain financial formulas that belong in the Excel archetypes or Python reference engines.
-4. Classification (`real_public` vs `synthetic_benchmark`) is preserved; evidence-oriented marts filter to `real_public` via the project var `evidence_classifications`.
-
-## Next steps
-
-- Add intermediate models if cross-domain joins become common.
-- Introduce dbt_utils once a concrete need appears.
-- Extend sources as additional domains gain real instance depth and are loaded by the ETL.
+1. Sources accept `real_public` only.
+2. Keys, classifications, return completeness, and economic bounds are tested.
+3. A zero MOIC and `-100%` IRR are valid total-loss outcomes; tests reject
+   negative MOIC or IRR below `-100%`, not legitimate distress.
+4. Financial calculations remain in governed workbooks and independent Python
+   reference engines.
+5. New sources require committed public cases and receipt validation first.

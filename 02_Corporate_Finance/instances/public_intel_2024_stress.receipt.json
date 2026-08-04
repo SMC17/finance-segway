@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "corporate-public-intel-2024-stress",
+  "as_of": "2024-06-29",
+  "manifest": "standards/public_cases/corporate-public-intel-2024-stress.json",
+  "template": "02_Corporate_Finance/_template_BASE.xlsx",
+  "output": "02_Corporate_Finance/instances/public_intel_2024_stress.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D10",
+      "previous": 80,
+      "value": 3038.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/50863/000005086324000124/intc-20240629.htm",
+      "source_as_of": "2024-06-29"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D8",
+      "previous": 20,
+      "value": 0.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/50863/000005086324000124/intc-20240629.htm",
+      "source_as_of": "2024-06-29"
+    }
+  ],
+  "workbook_sha256": "96d8a8863730ccc3eeaf401e2218ad76145784baa3ed350b9388ce2e43c706ed",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false
+}

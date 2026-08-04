@@ -7,62 +7,6 @@
   "output": "16_Crypto_Digital_Assets/instances/public_coinbase_2023.xlsx",
   "applied_inputs": [
     {
-      "sheet": "Tokenomics",
-      "cell": "C5",
-      "previous": 0,
-      "value": 300.0,
-      "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Tokenomics",
-      "cell": "C6",
-      "previous": 0,
-      "value": 200.0,
-      "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Tokenomics",
-      "cell": "C7",
-      "previous": 0,
-      "value": 150.0,
-      "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Tokenomics",
-      "cell": "C8",
-      "previous": 0,
-      "value": 150.0,
-      "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Tokenomics",
-      "cell": "C9",
-      "previous": 0,
-      "value": 200.0,
-      "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Tokenomics",
-      "cell": "C12",
-      "previous": 0,
-      "value": 700.0,
-      "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Valuation",
-      "cell": "C5",
-      "previous": 0,
-      "value": 2.5,
-      "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
       "sheet": "Valuation",
       "cell": "C6",
       "previous": 0,
@@ -88,49 +32,16 @@
     },
     {
       "sheet": "Staking Yield",
-      "cell": "C5",
-      "previous": 0,
-      "value": 0.6,
-      "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Staking Yield",
       "cell": "C6",
       "previous": 0,
       "value": 16.8,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
       "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Staking Yield",
-      "cell": "C7",
-      "previous": 0,
-      "value": 30.0,
-      "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Staking Yield",
-      "cell": "C8",
-      "previous": 0,
-      "value": 2.5,
-      "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Supply Rollforward & Unlocks",
-      "cell": "C3",
-      "previous": "Base",
-      "value": "Base",
-      "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-      "source_as_of": "2023-12-31"
     }
   ],
-  "workbook_sha256": "acdda60efddcf7a5aa24dc89b12e78e2129833b49c5a9be0d495ae2846c539d1",
+  "workbook_sha256": "ca6702109db0590c36e044c595eff1c148a8d798d8fc2a990c1ac39d5ff1c35b",
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
-  "recalculated_on": "2026-08-04",
-  "recalculation_engine": "LibreOffice Calc",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }

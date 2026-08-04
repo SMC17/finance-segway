@@ -15,126 +15,6 @@
       "source_as_of": "2023-09-30"
     },
     {
-      "sheet": "Unit Economics",
-      "cell": "C6",
-      "previous": 0.025,
-      "value": 0.025,
-      "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-      "source_as_of": "2023-09-30"
-    },
-    {
-      "sheet": "Unit Economics",
-      "cell": "C7",
-      "previous": 0.015,
-      "value": 0.008,
-      "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-      "source_as_of": "2023-09-30"
-    },
-    {
-      "sheet": "Unit Economics",
-      "cell": "C8",
-      "previous": 0,
-      "value": 4.0,
-      "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-      "source_as_of": "2023-09-30"
-    },
-    {
-      "sheet": "Unit Economics",
-      "cell": "C9",
-      "previous": 0,
-      "value": 2.0,
-      "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-      "source_as_of": "2023-09-30"
-    },
-    {
-      "sheet": "Unit Economics",
-      "cell": "C10",
-      "previous": 0.6,
-      "value": 20.0,
-      "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-      "source_as_of": "2023-09-30"
-    },
-    {
-      "sheet": "Unit Economics",
-      "cell": "C11",
-      "previous": 0.03,
-      "value": 30.0,
-      "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-      "source_as_of": "2023-09-30"
-    },
-    {
-      "sheet": "Unit Economics",
-      "cell": "C12",
-      "previous": null,
-      "value": 8.0,
-      "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-      "source_as_of": "2023-09-30"
-    },
-    {
-      "sheet": "Unit Economics",
-      "cell": "C13",
-      "previous": null,
-      "value": 0.6,
-      "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-      "source_as_of": "2023-09-30"
-    },
-    {
-      "sheet": "Fraud & Risk",
-      "cell": "C5",
-      "previous": 0,
-      "value": 1000.0,
-      "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-      "source_as_of": "2023-09-30"
-    },
-    {
-      "sheet": "Fraud & Risk",
-      "cell": "C6",
-      "previous": 8,
-      "value": 10.0,
-      "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-      "source_as_of": "2023-09-30"
-    },
-    {
-      "sheet": "Fraud & Risk",
-      "cell": "C7",
-      "previous": 0,
-      "value": 5.0,
-      "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-      "source_as_of": "2023-09-30"
-    },
-    {
-      "sheet": "Fraud & Risk",
-      "cell": "C8",
-      "previous": 25,
-      "value": 2.0,
-      "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-      "source_as_of": "2023-09-30"
-    },
-    {
-      "sheet": "Fraud & Risk",
-      "cell": "C9",
-      "previous": 0,
-      "value": 1.0,
-      "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-      "source_as_of": "2023-09-30"
-    },
-    {
-      "sheet": "Fraud & Risk",
-      "cell": "C10",
-      "previous": 50,
-      "value": 50.0,
-      "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-      "source_as_of": "2023-09-30"
-    },
-    {
-      "sheet": "Network & Cohorts",
-      "cell": "C3",
-      "previous": "Base",
-      "value": "Base",
-      "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-      "source_as_of": "2023-09-30"
-    },
-    {
       "sheet": "Network & Cohorts",
       "cell": "C5",
       "previous": 100000,
@@ -159,10 +39,9 @@
       "source_as_of": "2023-09-30"
     }
   ],
-  "workbook_sha256": "6c16ac805f941f55aa803a9d1b282ada6f3db954331ee69954910fa5d087dad3",
+  "workbook_sha256": "dfb3da2e07ff27b7545f1df6066ff242b137d62d06bd72353ee030d8815e5f64",
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
-  "recalculated_on": "2026-08-04",
-  "recalculation_engine": "LibreOffice Calc",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }

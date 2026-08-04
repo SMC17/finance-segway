@@ -29,36 +29,11 @@
       "value": 0.23,
       "source_url": "https://www.sec.gov/Archives/edgar/data/775368/000077536822000010/y-20211231.htm",
       "source_as_of": "2022-02-24"
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C19",
-      "previous": 4,
-      "value": 3.5,
-      "source_url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
-      "source_as_of": "2022-02-24"
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C22",
-      "previous": 1.5,
-      "value": 0.75,
-      "source_url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
-      "source_as_of": "2022-02-24"
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C29",
-      "previous": 5,
-      "value": 7,
-      "source_url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
-      "source_as_of": "2022-02-24"
     }
   ],
-  "workbook_sha256": "7d544577196047a35c702dc679e29c31a3cc6c2c333fc10475e8e9778899a4a1",
+  "workbook_sha256": "5fd814b160ff4fc2cca1fd937a168e3dc53fd24fbaaa6ac14516dcf01d307df7",
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
-  "hash_refreshed_on": "2026-08-04",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }

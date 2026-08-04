@@ -6,6 +6,7 @@ import unittest
 from openpyxl import Workbook, load_workbook
 
 from tools.model_instances import apply_manifest
+from tools.model_instance_release import apply_manifest as apply_release_manifest
 
 
 class ModelInstanceTests(unittest.TestCase):
@@ -82,6 +83,36 @@ class ModelInstanceTests(unittest.TestCase):
             result = apply_manifest(manifest, root, validate_only=True)
             self.assertTrue(result["valid"])
             self.assertFalse((root / "instances/test.xlsx").exists())
+
+    def test_public_release_rejects_synthetic_benchmark_lineage(self):
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.create_template(root)
+            manifest = self.write_manifest(root)
+            payload = json.loads(manifest.read_text(encoding="utf-8"))
+            payload["classification"] = "external_historical_case"
+            payload["counts_toward_M4"] = False
+            payload["inputs"][0]["source"]["url"] = (
+                "repo://standards/benchmark_cases/test-instance.json"
+            )
+            manifest.write_text(json.dumps(payload), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "synthetic benchmark lineage"):
+                apply_release_manifest(manifest, root)
+
+    def test_public_release_receipt_carries_claim_boundary(self):
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.create_template(root)
+            manifest = self.write_manifest(root)
+            payload = json.loads(manifest.read_text(encoding="utf-8"))
+            payload["classification"] = "external_historical_case"
+            payload["counts_toward_M4"] = False
+            manifest.write_text(json.dumps(payload), encoding="utf-8")
+            receipt = apply_release_manifest(manifest, root)
+            self.assertEqual(
+                receipt["classification"], "external_historical_case"
+            )
+            self.assertIs(receipt["counts_toward_M4"], False)
 
 
 if __name__ == "__main__":

@@ -7,62 +7,6 @@
   "output": "16_Crypto_Digital_Assets/instances/public_coinbase_2022_stress.xlsx",
   "applied_inputs": [
     {
-      "sheet": "Tokenomics",
-      "cell": "C5",
-      "previous": 0,
-      "value": 250.0,
-      "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Tokenomics",
-      "cell": "C6",
-      "previous": 0,
-      "value": 250.0,
-      "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Tokenomics",
-      "cell": "C7",
-      "previous": 0,
-      "value": 250.0,
-      "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Tokenomics",
-      "cell": "C8",
-      "previous": 0,
-      "value": 100.0,
-      "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Tokenomics",
-      "cell": "C9",
-      "previous": 0,
-      "value": 150.0,
-      "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Tokenomics",
-      "cell": "C12",
-      "previous": 0,
-      "value": 350.0,
-      "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Valuation",
-      "cell": "C5",
-      "previous": 0,
-      "value": 0.8,
-      "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
       "sheet": "Valuation",
       "cell": "C6",
       "previous": 0,
@@ -85,52 +29,11 @@
       "value": 75.413,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
       "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Staking Yield",
-      "cell": "C5",
-      "previous": 0,
-      "value": 0.35,
-      "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Staking Yield",
-      "cell": "C6",
-      "previous": 0,
-      "value": 50.0,
-      "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Staking Yield",
-      "cell": "C7",
-      "previous": 0,
-      "value": 2.0,
-      "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Staking Yield",
-      "cell": "C8",
-      "previous": 0,
-      "value": 0.8,
-      "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-      "source_as_of": "2022-12-31"
-    },
-    {
-      "sheet": "Supply Rollforward & Unlocks",
-      "cell": "C3",
-      "previous": "Base",
-      "value": "Downside",
-      "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-      "source_as_of": "2022-12-31"
     }
   ],
-  "workbook_sha256": "543f5ed073bec79e39a963c48e5208cc34df0ff1885e3b74181b60523cfbb9a5",
+  "workbook_sha256": "d7fb66a3d435a38864b02ebc3b732ef1a2ca9eda51c3c72f9691944d622bb31e",
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
-  "recalculated_on": "2026-08-04",
-  "recalculation_engine": "LibreOffice Calc",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }

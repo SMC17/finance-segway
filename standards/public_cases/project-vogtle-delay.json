@@ -8,7 +8,7 @@
   "as_of": "2023-12-31",
   "scenario": "Downside",
   "cover": {
-    "Project / concession:": "Vogtle-style construction delay and cost-overrun stress"
+    "Subject:": "Vogtle-style construction delay and cost-overrun stress"
   },
   "inputs": [
     {
@@ -34,30 +34,6 @@
         "as_of": "2023-12-31",
         "notes": "Georgia Public Service Commission; frozen curated observation as of case date"
       }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D11",
-      "value": 135.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from project-adversarial-delay.json",
-        "url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D23",
-      "value": 0.72,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from project-adversarial-delay.json",
-        "url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
     }
   ],
   "sources": [
@@ -81,5 +57,16 @@
     "what_changed": "Generated public case project-vogtle-delay from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "delay_months",
+    "forecast": 10,
+    "realized": 10,
+    "realized_source": "Georgia PSC Vogtle monitoring reports",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://20_Project_Finance/sources/snapshots/project-vogtle-delay.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

@@ -8,7 +8,7 @@
   "as_of": "2020-03-16",
   "scenario": "Downside",
   "cover": {
-    "Underlying:": "SPX March 2020 gap-and-volatility shock"
+    "Subject:": "SPX March 2020 gap-and-volatility shock"
   },
   "inputs": [
     {
@@ -33,18 +33,6 @@
         "url": "https://fred.stlouisfed.org/series/VIXCLS",
         "as_of": "2020-03-16",
         "notes": "Federal Reserve Bank of St. Louis / CBOE; frozen curated observation as of case date"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "D11",
-      "value": 30.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from options-adversarial-skew.json",
-        "url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
-        "as_of": "2020-03-16",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
       }
     },
     {
@@ -87,5 +75,16 @@
     "what_changed": "Generated public case options-spx-2020-03-16 from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "three_month_realized_volatility",
+    "forecast": 0.8269,
+    "realized": 0.679,
+    "realized_source": "S&P 500 daily closes via FRED",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://14_Options_Derivatives/sources/snapshots/options-spx-2020-03-16.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

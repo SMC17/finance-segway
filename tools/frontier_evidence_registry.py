@@ -1,9 +1,4 @@
-"""Public historical evidence registry for the nine recently hardened M2 domains.
-
-The cases deliberately replace only sourceable workbook cells. Every retained
-cell from the synthetic benchmark remains a modeler-owned assumption when the
-shared M3 evidence materializer builds the final manifest.
-"""
+"""Public historical evidence registry for nine recently hardened M2 domains."""
 from __future__ import annotations
 
 from typing import Any
@@ -44,7 +39,6 @@ def override(
 def case(
     case_id: str,
     case_type: str,
-    based_on: str,
     output: str,
     subject: str,
     as_of: str,
@@ -58,7 +52,6 @@ def case(
     return {
         "id": case_id,
         "type": case_type,
-        "based_on": based_on,
         "output": output,
         "subject": subject,
         "as_of": as_of,
@@ -294,7 +287,6 @@ def registry() -> dict[str, Any]:
         case(
             "am-public-blackrock-2023",
             "conventional",
-            "standards/benchmark_cases/am-reference-fund.json",
             "08_Asset_Management/instances/public_blackrock_2023.xlsx",
             "BlackRock 2023 AUM rollforward",
             "2023-12-31",
@@ -314,7 +306,6 @@ def registry() -> dict[str, Any]:
         case(
             "am-public-blackrock-2022-stress",
             "adversarial",
-            "standards/benchmark_cases/am-adversarial-liquidity.json",
             "08_Asset_Management/instances/public_blackrock_2022_stress.xlsx",
             "BlackRock 2022 market and FX AUM contraction",
             "2022-12-31",
@@ -360,7 +351,6 @@ def registry() -> dict[str, Any]:
         case(
             "trade-public-boeing-2019",
             "conventional",
-            "standards/benchmark_cases/trade-reference-exporter.json",
             "10_Trade_Finance/instances/public_boeing_2019.xlsx",
             "Boeing 2019 working-capital and inventory case",
             "2019-12-31",
@@ -380,7 +370,6 @@ def registry() -> dict[str, Any]:
         case(
             "trade-public-boeing-2020-stress",
             "adversarial",
-            "standards/benchmark_cases/trade-adversarial-country-shock.json",
             "10_Trade_Finance/instances/public_boeing_2020_stress.xlsx",
             "Boeing 2020 production and working-capital shock",
             "2020-12-31",
@@ -421,7 +410,6 @@ def registry() -> dict[str, Any]:
         case(
             "microfinance-public-asa-2025",
             "conventional",
-            "standards/benchmark_cases/microfinance-reference-book.json",
             "11_Microfinance/instances/public_asa_2025.xlsx",
             "ASA International 2025 portfolio",
             "2025-12-31",
@@ -440,7 +428,6 @@ def registry() -> dict[str, Any]:
         case(
             "microfinance-public-asa-zambia-stress",
             "adversarial",
-            "standards/benchmark_cases/microfinance-adversarial-moratorium.json",
             "11_Microfinance/instances/public_asa_zambia_stress.xlsx",
             "ASA Zambia elevated PAR portfolio",
             "2025-12-31",
@@ -474,7 +461,6 @@ def registry() -> dict[str, Any]:
         case(
             "equity-public-tesla-2020-offering",
             "conventional",
-            "standards/benchmark_cases/equity-reference-rights.json",
             "12_Equity_Finance/instances/public_tesla_2020_offering.xlsx",
             "Tesla February 2020 underwritten primary offering",
             "2020-02-14",
@@ -493,7 +479,6 @@ def registry() -> dict[str, Any]:
         case(
             "equity-public-amc-2020-dilution",
             "adversarial",
-            "standards/benchmark_cases/equity-adversarial-dilution.json",
             "12_Equity_Finance/instances/public_amc_2020_dilution.xlsx",
             "AMC 2020 emergency equity and debt financing",
             "2020-12-31",
@@ -530,7 +515,6 @@ def registry() -> dict[str, Any]:
         case(
             "commodities-public-wti-2023",
             "conventional",
-            "standards/benchmark_cases/commodities-reference-hedge.json",
             "15_Commodities/instances/public_wti_2023.xlsx",
             "WTI 2023 price and Cushing inventory case",
             "2023-12-31",
@@ -547,7 +531,6 @@ def registry() -> dict[str, Any]:
         case(
             "commodities-public-wti-april-2020",
             "adversarial",
-            "standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
             "15_Commodities/instances/public_wti_april_2020.xlsx",
             "April 2020 WTI expiry, demand and storage dislocation",
             "2020-04-20",
@@ -587,7 +570,6 @@ def registry() -> dict[str, Any]:
         case(
             "crypto-public-coinbase-2023",
             "conventional",
-            "standards/benchmark_cases/crypto-reference-network.json",
             "16_Crypto_Digital_Assets/instances/public_coinbase_2023.xlsx",
             "Coinbase 2023 custody and staking scale",
             "2023-12-31",
@@ -606,7 +588,6 @@ def registry() -> dict[str, Any]:
         case(
             "crypto-public-coinbase-2022-stress",
             "adversarial",
-            "standards/benchmark_cases/crypto-adversarial-unlock-run.json",
             "16_Crypto_Digital_Assets/instances/public_coinbase_2022_stress.xlsx",
             "Coinbase 2022 crypto-winter custody contraction",
             "2022-12-31",
@@ -639,7 +620,6 @@ def registry() -> dict[str, Any]:
         case(
             "real-estate-public-realty-income-2023",
             "conventional",
-            "standards/benchmark_cases/real-estate-reference-property.json",
             "17_Real_Estate_REIT/instances/public_realty_income_2023.xlsx",
             "Realty Income 2023 simplified FFO bridge",
             "2023-12-31",
@@ -657,7 +637,6 @@ def registry() -> dict[str, Any]:
         case(
             "real-estate-public-wework-2022-stress",
             "adversarial",
-            "standards/benchmark_cases/real-estate-adversarial-refinancing.json",
             "17_Real_Estate_REIT/instances/public_wework_2022_stress.xlsx",
             "WeWork 2022 occupancy-economics and refinancing stress proxy",
             "2022-12-31",
@@ -698,7 +677,6 @@ def registry() -> dict[str, Any]:
         case(
             "fintech-public-visa-2023",
             "conventional",
-            "standards/benchmark_cases/fintech-reference-payments.json",
             "23_Fintech_Payments/instances/public_visa_2023.xlsx",
             "Visa 2023 global network scale",
             "2023-09-30",
@@ -717,7 +695,6 @@ def registry() -> dict[str, Any]:
         case(
             "fintech-public-fis-worldpay-2023-stress",
             "adversarial",
-            "standards/benchmark_cases/fintech-adversarial-fraud-run.json",
             "23_Fintech_Payments/instances/public_fis_worldpay_2023_stress.xlsx",
             "FIS Worldpay impairment, disposal and capital-recovery stress proxy",
             "2023-12-31",
@@ -755,7 +732,6 @@ def registry() -> dict[str, Any]:
         case(
             "distressed-public-hertz-2021-reorganization",
             "conventional",
-            "standards/benchmark_cases/distressed-reference-reorganization.json",
             "24_Distressed_Restructuring/instances/public_hertz_2021_reorganization.xlsx",
             "Hertz Chapter 11 emergence financing and recovery",
             "2021-06-30",
@@ -771,7 +747,6 @@ def registry() -> dict[str, Any]:
         case(
             "distressed-public-bbby-2022-liquidity",
             "adversarial",
-            "standards/benchmark_cases/distressed-adversarial-cramdown.json",
             "24_Distressed_Restructuring/instances/public_bbby_2022_liquidity.xlsx",
             "Bed Bath & Beyond 2022 liquidity deterioration",
             "2022-08-27",
@@ -828,7 +803,7 @@ def registry() -> dict[str, Any]:
                 "multi_release_outcome_history",
                 "rollback_replacement_retirement_evidence",
             ],
-            "synthetic_cases_count_toward_m4": False,
+            "engineering_test_vectors_count_toward_m4": False,
         },
         "flagships": flagships,
     }

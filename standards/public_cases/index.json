@@ -1,11 +1,271 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "2.0",
   "as_of": "2026-08-04",
   "classification": "external_historical_cases",
   "counts_toward_m4": false,
-  "case_count": 36,
-  "evidence_models": 18,
+  "case_count": 48,
+  "evidence_models": 24,
   "cases": [
+    {
+      "model_id": "01",
+      "domain": "Investment Banking",
+      "case_id": "ib-public-hp-autonomy-2012-stress",
+      "case_type": "adversarial",
+      "manifest": "standards/public_cases/ib-public-hp-autonomy-2012-stress.json",
+      "output": "01_Investment_Banking/instances/public_hp_autonomy_2012_stress.xlsx",
+      "snapshot": "01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
+      "snapshot_sha256": "0699ecbd28057d77e798a13005680ae41339f3b6218704c75b49670f852063fb",
+      "counts_toward_m4": false,
+      "outcome": {
+        "metric": "impairment_usd_mm",
+        "forecast": 0.0,
+        "realized": 8800.0,
+        "realized_source": "Hewlett-Packard 2012 Form 10-K Autonomy impairment",
+        "status": "recorded"
+      },
+      "receipt": {
+        "schema_version": "1.0",
+        "instance_id": "ib-public-hp-autonomy-2012-stress",
+        "as_of": "2012-10-31",
+        "manifest": "standards/public_cases/ib-public-hp-autonomy-2012-stress.json",
+        "template": "01_Investment_Banking/_template_BASE.xlsx",
+        "output": "01_Investment_Banking/instances/public_hp_autonomy_2012_stress.xlsx",
+        "applied_inputs": [
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D5",
+            "previous": 1000,
+            "value": 11100.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D8",
+            "previous": 100,
+            "value": 1.0,
+            "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D9",
+            "previous": 15,
+            "value": 11100.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D16",
+            "previous": 50,
+            "value": 2300.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
+            "source_as_of": "2012-10-31"
+          }
+        ],
+        "workbook_sha256": "51433b1f9a71ce49f607f6a8e90e9d41bb2bd92110c18e47fb34297821a8cc37",
+        "generated_on": "2026-08-04",
+        "refresh_schema": "source-addressed-v2",
+        "classification": "external_historical_case",
+        "counts_toward_M4": false
+      }
+    },
+    {
+      "model_id": "01",
+      "domain": "Investment Banking",
+      "case_id": "ib-public-microsoft-linkedin-2016",
+      "case_type": "conventional",
+      "manifest": "standards/public_cases/ib-public-microsoft-linkedin-2016.json",
+      "output": "01_Investment_Banking/instances/public_microsoft_linkedin_2016.xlsx",
+      "snapshot": "01_Investment_Banking/sources/snapshots/ib-public-microsoft-linkedin-2016.json",
+      "snapshot_sha256": "68558043eb73280c7224ab11e28cd840e6faee4df4c7c8c60812263f36202301",
+      "counts_toward_m4": false,
+      "outcome": {
+        "metric": "transaction_completed",
+        "forecast": 1.0,
+        "realized": 1.0,
+        "realized_source": "LinkedIn merger completion Form 8-K",
+        "status": "recorded"
+      },
+      "receipt": {
+        "schema_version": "1.0",
+        "instance_id": "ib-public-microsoft-linkedin-2016",
+        "as_of": "2016-12-08",
+        "manifest": "standards/public_cases/ib-public-microsoft-linkedin-2016.json",
+        "template": "01_Investment_Banking/_template_BASE.xlsx",
+        "output": "01_Investment_Banking/instances/public_microsoft_linkedin_2016.xlsx",
+        "applied_inputs": [
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C5",
+            "previous": 1000,
+            "value": 26200.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+            "source_as_of": "2016-12-08"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C8",
+            "previous": 100,
+            "value": 133.673469,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+            "source_as_of": "2016-12-08"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C9",
+            "previous": 9.5,
+            "value": 196.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+            "source_as_of": "2016-12-08"
+          }
+        ],
+        "workbook_sha256": "9f36eb60ac0cc5ef86b7a889f3e1ade7f968cbc4bbca4aad6c8658e13c0001a9",
+        "generated_on": "2026-08-04",
+        "refresh_schema": "source-addressed-v2",
+        "classification": "external_historical_case",
+        "counts_toward_M4": false
+      }
+    },
+    {
+      "model_id": "02",
+      "domain": "Corporate Finance",
+      "case_id": "corporate-public-intel-2024-stress",
+      "case_type": "adversarial",
+      "manifest": "standards/public_cases/corporate-public-intel-2024-stress.json",
+      "output": "02_Corporate_Finance/instances/public_intel_2024_stress.xlsx",
+      "snapshot": "02_Corporate_Finance/sources/snapshots/corporate-public-intel-2024-stress.json",
+      "snapshot_sha256": "654d4b05e0d48a8ac0e35e1e1ffde0329f6df681ac57ee0d50a03461a85a2e45",
+      "counts_toward_m4": false,
+      "outcome": {
+        "metric": "quarterly_dividend_suspended",
+        "forecast": 0.0,
+        "realized": 1.0,
+        "realized_source": "Intel second-quarter 2024 Form 10-Q",
+        "status": "recorded"
+      },
+      "receipt": {
+        "schema_version": "1.0",
+        "instance_id": "corporate-public-intel-2024-stress",
+        "as_of": "2024-06-29",
+        "manifest": "standards/public_cases/corporate-public-intel-2024-stress.json",
+        "template": "02_Corporate_Finance/_template_BASE.xlsx",
+        "output": "02_Corporate_Finance/instances/public_intel_2024_stress.xlsx",
+        "applied_inputs": [
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D10",
+            "previous": 80,
+            "value": 3038.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/50863/000005086324000124/intc-20240629.htm",
+            "source_as_of": "2024-06-29"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D8",
+            "previous": 20,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/50863/000005086324000124/intc-20240629.htm",
+            "source_as_of": "2024-06-29"
+          }
+        ],
+        "workbook_sha256": "96d8a8863730ccc3eeaf401e2218ad76145784baa3ed350b9388ce2e43c706ed",
+        "generated_on": "2026-08-04",
+        "refresh_schema": "source-addressed-v2",
+        "classification": "external_historical_case",
+        "counts_toward_M4": false
+      }
+    },
+    {
+      "model_id": "02",
+      "domain": "Corporate Finance",
+      "case_id": "corporate-public-microsoft-2024",
+      "case_type": "conventional",
+      "manifest": "standards/public_cases/corporate-public-microsoft-2024.json",
+      "output": "02_Corporate_Finance/instances/public_microsoft_2024.xlsx",
+      "snapshot": "02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+      "snapshot_sha256": "61628e0a406188921ba18146b62a91d6ef8994fc5df1d47cdef1cea6fda414e7",
+      "counts_toward_m4": false,
+      "outcome": {
+        "metric": "ending_cash_and_short_term_investments_usd_mm",
+        "forecast": 75000.0,
+        "realized": 75543.0,
+        "realized_source": "Microsoft 2024 Form 10-K",
+        "status": "recorded"
+      },
+      "receipt": {
+        "schema_version": "1.0",
+        "instance_id": "corporate-public-microsoft-2024",
+        "as_of": "2024-06-30",
+        "manifest": "standards/public_cases/corporate-public-microsoft-2024.json",
+        "template": "02_Corporate_Finance/_template_BASE.xlsx",
+        "output": "02_Corporate_Finance/instances/public_microsoft_2024.xlsx",
+        "applied_inputs": [
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "C6",
+            "previous": 150,
+            "value": 118548.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "C7",
+            "previous": 50,
+            "value": 44477.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "C8",
+            "previous": 20,
+            "value": 21771.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "C9",
+            "previous": 10,
+            "value": 17254.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "C10",
+            "previous": 0,
+            "value": 24395.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "C11",
+            "previous": 30,
+            "value": 29070.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "C12",
+            "previous": 200,
+            "value": 71802.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          }
+        ],
+        "workbook_sha256": "eb7c7345c6a4b996b624023a180a6d391015e5bc3a179ac16fb67f6aa61cf37d",
+        "generated_on": "2026-08-04",
+        "refresh_schema": "source-addressed-v2",
+        "classification": "external_historical_case",
+        "counts_toward_M4": false
+      }
+    },
     {
       "model_id": "03",
       "domain": "Private Equity",
@@ -39,38 +299,20 @@
             "value": -0.291,
             "source_url": "https://www.sec.gov/Archives/edgar/data/794367/000079436721000038/m-20210130.htm",
             "source_as_of": "2021-03-30"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "D8",
-            "previous": -0.003,
-            "value": -0.008,
-            "source_url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
-            "source_as_of": "2021-03-30"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "D24",
-            "previous": 0.05,
-            "value": 0.07,
-            "source_url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
-            "source_as_of": "2021-03-30"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "D28",
-            "previous": 8,
-            "value": 7.0,
-            "source_url": "repo://standards/benchmark_cases/pe-adversarial-contraction.json",
-            "source_as_of": "2021-03-30"
           }
         ],
-        "workbook_sha256": "87808e6f28783f45736e3b3bc6bdbb26d9c8f59e9c44bc7af8766658dbf39f5e",
+        "workbook_sha256": "e134ae1e370e9d7dd96443063219a11836686e45aaa7ead0a083a75b8fb3aa75",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "next_fiscal_year_revenue_usd_mm",
+        "forecast": 12300.0,
+        "realized": 24460.0,
+        "realized_source": "Macy's 2021 Form 10-K",
+        "status": "recorded"
       }
     },
     {
@@ -114,46 +356,20 @@
             "value": -0.03,
             "source_url": "https://www.sec.gov/Archives/edgar/data/354950/000035495024000062/hd-20240128.htm",
             "source_as_of": "2024-03-13"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C13",
-            "previous": 10,
-            "value": 10.5,
-            "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
-            "source_as_of": "2024-03-13"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C19",
-            "previous": 4,
-            "value": 4.25,
-            "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
-            "source_as_of": "2024-03-13"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C22",
-            "previous": 1.5,
-            "value": 1.25,
-            "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
-            "source_as_of": "2024-03-13"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C28",
-            "previous": 10,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/pe-reference-buyout.json",
-            "source_as_of": "2024-03-13"
           }
         ],
-        "workbook_sha256": "669647285b292acd8e5fefd967b13b45e7dae57cc42d3cf274a88951af45cade",
+        "workbook_sha256": "945c2687cc61710ae0d958e93488ec3546c5df345a24ecd2a0cefcff2a292c66",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "next_fiscal_year_revenue_usd_mm",
+        "forecast": 148088.9,
+        "realized": 159514.0,
+        "realized_source": "Home Depot FY2024 Form 10-K",
+        "status": "recorded"
       }
     },
     {
@@ -189,30 +405,20 @@
             "value": 0.145,
             "source_url": "repo://04_Merchant_Banking/sources/snapshots/merchant-wework-2022.json",
             "source_as_of": "2023-03-29"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "D24",
-            "previous": 0.05,
-            "value": 0.08,
-            "source_url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
-            "source_as_of": "2023-03-29"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "D28",
-            "previous": 8,
-            "value": 6.5,
-            "source_url": "repo://standards/benchmark_cases/merchant-adversarial-holdco.json",
-            "source_as_of": "2023-03-29"
           }
         ],
-        "workbook_sha256": "8837c4444b8045bf472d208ec64819d1c8ccd9336d1e286e9a682b7e8697be66",
+        "workbook_sha256": "d1c2e0c4256455a11741adea748abc9ec9b36df2b07195b7e2877f40e08dd09d",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "bankruptcy_within_12_months",
+        "forecast": 1.0,
+        "realized": 1.0,
+        "realized_source": "WeWork Chapter 11 filing, November 2023",
+        "status": "recorded"
       }
     },
     {
@@ -256,37 +462,385 @@
             "value": 0.23,
             "source_url": "https://www.sec.gov/Archives/edgar/data/775368/000077536822000010/y-20211231.htm",
             "source_as_of": "2022-02-24"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C19",
-            "previous": 4,
-            "value": 3.5,
-            "source_url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
-            "source_as_of": "2022-02-24"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C22",
-            "previous": 1.5,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
-            "source_as_of": "2022-02-24"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C29",
-            "previous": 5,
-            "value": 7,
-            "source_url": "repo://standards/benchmark_cases/merchant-reference-principal.json",
-            "source_as_of": "2022-02-24"
           }
         ],
-        "workbook_sha256": "7d544577196047a35c702dc679e29c31a3cc6c2c333fc10475e8e9778899a4a1",
+        "workbook_sha256": "5fd814b160ff4fc2cca1fd937a168e3dc53fd24fbaaa6ac14516dcf01d307df7",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
+        "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "announced_transaction_equity_value_usd_mm",
+        "forecast": 11600.0,
+        "realized": 11600.0,
+        "realized_source": "Berkshire Hathaway transaction announcement",
+        "status": "recorded"
+      }
+    },
+    {
+      "model_id": "05",
+      "domain": "Private Credit",
+      "case_id": "credit-public-yellow-2022-stress",
+      "case_type": "adversarial",
+      "manifest": "standards/public_cases/credit-public-yellow-2022-stress.json",
+      "output": "05_Private_Credit/instances/public_yellow_2022_stress.xlsx",
+      "snapshot": "05_Private_Credit/sources/snapshots/credit-public-yellow-2022-stress.json",
+      "snapshot_sha256": "a38b55f9bc3b91b767854e1c27d58287c3595577fdc7e234d76a1bb27d3fb977",
+      "counts_toward_m4": false,
+      "outcome": {
+        "metric": "chapter_11_filed_within_twelve_months",
+        "forecast": 0.0,
+        "realized": 1.0,
+        "realized_source": "Yellow Corporation bankruptcy Form 8-K filing index",
+        "status": "recorded"
+      },
+      "receipt": {
+        "schema_version": "1.0",
+        "instance_id": "credit-public-yellow-2022-stress",
+        "as_of": "2022-12-31",
+        "manifest": "standards/public_cases/credit-public-yellow-2022-stress.json",
+        "template": "05_Private_Credit/_template_CREDIT.xlsx",
+        "output": "05_Private_Credit/instances/public_yellow_2022_stress.xlsx",
+        "applied_inputs": [
+          {
+            "sheet": "Amendment Economics",
+            "cell": "D9",
+            "previous": 20,
+            "value": 200.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/716006/000119312522064324/d186462dars.pdf",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Amendment Economics",
+            "cell": "D12",
+            "previous": 180,
+            "value": 235.1,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/716006/000119312522064324/d186462dars.pdf",
+            "source_as_of": "2022-12-31"
+          }
+        ],
+        "workbook_sha256": "a00a048490a57fd7ace798710fa595c475c900bb5937988c5d71bdcdedc3c74d",
+        "generated_on": "2026-08-04",
+        "refresh_schema": "source-addressed-v2",
+        "classification": "external_historical_case",
+        "counts_toward_M4": false
+      }
+    },
+    {
+      "model_id": "05",
+      "domain": "Private Credit",
+      "case_id": "credit-public-ares-2024",
+      "case_type": "conventional",
+      "manifest": "standards/public_cases/credit-public-ares-2024.json",
+      "output": "05_Private_Credit/instances/public_ares_2024.xlsx",
+      "snapshot": "05_Private_Credit/sources/snapshots/credit-public-ares-2024.json",
+      "snapshot_sha256": "a7bf17f1ee570a5e51207899412527f387b4acde6fad5f5e7669f66dad75f7c5",
+      "counts_toward_m4": false,
+      "outcome": {
+        "metric": "next_reported_portfolio_fair_value_usd_mm",
+        "forecast": 27000.0,
+        "realized": 27886.1,
+        "realized_source": "Ares Capital second-quarter 2025 Form 10-Q",
+        "status": "recorded"
+      },
+      "receipt": {
+        "schema_version": "1.0",
+        "instance_id": "credit-public-ares-2024",
+        "as_of": "2024-12-31",
+        "manifest": "standards/public_cases/credit-public-ares-2024.json",
+        "template": "05_Private_Credit/_template_CREDIT.xlsx",
+        "output": "05_Private_Credit/instances/public_ares_2024.xlsx",
+        "applied_inputs": [
+          {
+            "sheet": "Portfolio & Concentration",
+            "cell": "C5",
+            "previous": 35,
+            "value": 9352.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Portfolio & Concentration",
+            "cell": "C6",
+            "previous": 25,
+            "value": 6680.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Portfolio & Concentration",
+            "cell": "C7",
+            "previous": 20,
+            "value": 5344.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Portfolio & Concentration",
+            "cell": "C8",
+            "previous": 12,
+            "value": 3206.4,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Portfolio & Concentration",
+            "cell": "C9",
+            "previous": 8,
+            "value": 2137.6,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1287750/000128775025000012/arcc-20241231.htm",
+            "source_as_of": "2024-12-31"
+          }
+        ],
+        "workbook_sha256": "d6b6557febfa6df264c5fd862131ebfd7f140f0ea14bf5ff7df08e4e892c9a01",
+        "generated_on": "2026-08-04",
+        "refresh_schema": "source-addressed-v2",
+        "classification": "external_historical_case",
+        "counts_toward_M4": false
+      }
+    },
+    {
+      "model_id": "06",
+      "domain": "Debt Finance",
+      "case_id": "debt-public-carnival-2020-stress",
+      "case_type": "adversarial",
+      "manifest": "standards/public_cases/debt-public-carnival-2020-stress.json",
+      "output": "06_Debt_Finance/instances/public_carnival_2020_stress.xlsx",
+      "snapshot": "06_Debt_Finance/sources/snapshots/debt-public-carnival-2020-stress.json",
+      "snapshot_sha256": "3f8b093c28202271d030edeb75048ebb52b29f39b39227ea42fe1ce6458ce89a",
+      "counts_toward_m4": false,
+      "outcome": {
+        "metric": "emergency_debt_issued_usd_mm",
+        "forecast": 0.0,
+        "realized": 5750.0,
+        "realized_source": "Carnival 2020 Form 10-K",
+        "status": "recorded"
+      },
+      "receipt": {
+        "schema_version": "1.0",
+        "instance_id": "debt-public-carnival-2020-stress",
+        "as_of": "2020-11-30",
+        "manifest": "standards/public_cases/debt-public-carnival-2020-stress.json",
+        "template": "06_Debt_Finance/_template_CREDIT.xlsx",
+        "output": "06_Debt_Finance/instances/public_carnival_2020_stress.xlsx",
+        "applied_inputs": [
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D6",
+            "previous": 300,
+            "value": 5750.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/815097/000081509721000012/ccl-20201130.htm",
+            "source_as_of": "2020-11-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D13",
+            "previous": 50,
+            "value": 9500.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/815097/000081509721000012/ccl-20201130.htm",
+            "source_as_of": "2020-11-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D15",
+            "previous": 500,
+            "value": 4000.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/815097/000081509721000012/ccl-20201130.htm",
+            "source_as_of": "2020-11-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D17",
+            "previous": 250,
+            "value": 1750.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/815097/000081509721000012/ccl-20201130.htm",
+            "source_as_of": "2020-11-30"
+          }
+        ],
+        "workbook_sha256": "638dd50e85bdb83bcd206ba1db70e0633ed0421a212fc8ad2e03efc59b218041",
+        "generated_on": "2026-08-04",
+        "refresh_schema": "source-addressed-v2",
+        "classification": "external_historical_case",
+        "counts_toward_M4": false
+      }
+    },
+    {
+      "model_id": "06",
+      "domain": "Debt Finance",
+      "case_id": "debt-public-microsoft-2024",
+      "case_type": "conventional",
+      "manifest": "standards/public_cases/debt-public-microsoft-2024.json",
+      "output": "06_Debt_Finance/instances/public_microsoft_2024.xlsx",
+      "snapshot": "06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+      "snapshot_sha256": "548eb1da596855a67530ae163dd530e1e77363cfba3770dda6837c2485e58817",
+      "counts_toward_m4": false,
+      "outcome": {
+        "metric": "ending_debt_usd_mm",
+        "forecast": 70000.0,
+        "realized": 67127.0,
+        "realized_source": "Microsoft 2024 Form 10-K",
+        "status": "recorded"
+      },
+      "receipt": {
+        "schema_version": "1.0",
+        "instance_id": "debt-public-microsoft-2024",
+        "as_of": "2024-06-30",
+        "manifest": "standards/public_cases/debt-public-microsoft-2024.json",
+        "template": "06_Debt_Finance/_template_CREDIT.xlsx",
+        "output": "06_Debt_Finance/instances/public_microsoft_2024.xlsx",
+        "applied_inputs": [
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C5",
+            "previous": 500,
+            "value": 71802.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C6",
+            "previous": 100,
+            "value": 24395.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C7",
+            "previous": 150,
+            "value": 29070.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C13",
+            "previous": 100,
+            "value": 75543.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          }
+        ],
+        "workbook_sha256": "fa1c16b2ac301a05b272efd059e51fe0811baf1104a3b18d8eaa6052a0760a68",
+        "generated_on": "2026-08-04",
+        "refresh_schema": "source-addressed-v2",
+        "classification": "external_historical_case",
+        "counts_toward_M4": false
+      }
+    },
+    {
+      "model_id": "07",
+      "domain": "Public Finance",
+      "case_id": "public-finance-sri-lanka-2023-stress",
+      "case_type": "adversarial",
+      "manifest": "standards/public_cases/public-finance-sri-lanka-2023-stress.json",
+      "output": "07_Public_Finance/instances/public_sri_lanka_2023_stress.xlsx",
+      "snapshot": "07_Public_Finance/sources/snapshots/public-finance-sri-lanka-2023-stress.json",
+      "snapshot_sha256": "dfb9053c2bf4529b28a42a291daf5cc9e12b902bc0a55e74a801b1e728c42a5d",
+      "counts_toward_m4": false,
+      "outcome": {
+        "metric": "imf_extended_fund_facility_approved",
+        "forecast": 0.0,
+        "realized": 1.0,
+        "realized_source": "IMF Sri Lanka 2023 EFF request and debt-sustainability analysis",
+        "status": "recorded"
+      },
+      "receipt": {
+        "schema_version": "1.0",
+        "instance_id": "public-finance-sri-lanka-2023-stress",
+        "as_of": "2023-03-20",
+        "manifest": "standards/public_cases/public-finance-sri-lanka-2023-stress.json",
+        "template": "07_Public_Finance/_template_PUBLIC_FINANCE.xlsx",
+        "output": "07_Public_Finance/instances/public_sri_lanka_2023_stress.xlsx",
+        "applied_inputs": [
+          {
+            "sheet": "Revenue Stress",
+            "cell": "D5",
+            "previous": 1.2,
+            "value": 1.281,
+            "source_url": "https://www.elibrary.imf.org/view/journals/002/2023/116/article-A001-en.xml",
+            "source_as_of": "2023-03-20"
+          },
+          {
+            "sheet": "Revenue Stress",
+            "cell": "D8",
+            "previous": -0.03,
+            "value": -0.038,
+            "source_url": "https://www.elibrary.imf.org/view/journals/002/2023/116/article-A001-en.xml",
+            "source_as_of": "2023-03-20"
+          }
+        ],
+        "workbook_sha256": "3068567fb4218d1dde4d0da0fc831bdb63c03a92add5125ea8c2e069466218fd",
+        "generated_on": "2026-08-04",
+        "refresh_schema": "source-addressed-v2",
+        "classification": "external_historical_case",
+        "counts_toward_M4": false
+      }
+    },
+    {
+      "model_id": "07",
+      "domain": "Public Finance",
+      "case_id": "public-finance-jamaica-2024",
+      "case_type": "conventional",
+      "manifest": "standards/public_cases/public-finance-jamaica-2024.json",
+      "output": "07_Public_Finance/instances/public_jamaica_2024.xlsx",
+      "snapshot": "07_Public_Finance/sources/snapshots/public-finance-jamaica-2024.json",
+      "snapshot_sha256": "380ad2b9e1870ac67010f3b4cff4323e059e7c3dc8cecccfe522d0d59848e446",
+      "counts_toward_m4": false,
+      "outcome": {
+        "metric": "imf_review_completed",
+        "forecast": 1.0,
+        "realized": 1.0,
+        "realized_source": "IMF Jamaica 2024 Article IV Consultation and second reviews",
+        "status": "recorded"
+      },
+      "receipt": {
+        "schema_version": "1.0",
+        "instance_id": "public-finance-jamaica-2024",
+        "as_of": "2024-03-08",
+        "manifest": "standards/public_cases/public-finance-jamaica-2024.json",
+        "template": "07_Public_Finance/_template_PUBLIC_FINANCE.xlsx",
+        "output": "07_Public_Finance/instances/public_jamaica_2024.xlsx",
+        "applied_inputs": [
+          {
+            "sheet": "Revenue Stress",
+            "cell": "C5",
+            "previous": 0.6,
+            "value": 0.75,
+            "source_url": "https://www.imf.org/en/publications/cr/issues/2024/03/08/jamaica-2024-article-iv-consultation-and-second-reviews-under-the-arrangement-under-the-545715",
+            "source_as_of": "2024-03-08"
+          },
+          {
+            "sheet": "Revenue Stress",
+            "cell": "C6",
+            "previous": 0.05,
+            "value": 0.07,
+            "source_url": "https://www.imf.org/en/publications/cr/issues/2024/03/08/jamaica-2024-article-iv-consultation-and-second-reviews-under-the-arrangement-under-the-545715",
+            "source_as_of": "2024-03-08"
+          },
+          {
+            "sheet": "Revenue Stress",
+            "cell": "C7",
+            "previous": 0.04,
+            "value": 0.08,
+            "source_url": "https://www.imf.org/en/publications/cr/issues/2024/03/08/jamaica-2024-article-iv-consultation-and-second-reviews-under-the-arrangement-under-the-545715",
+            "source_as_of": "2024-03-08"
+          },
+          {
+            "sheet": "Revenue Stress",
+            "cell": "C8",
+            "previous": 0.015,
+            "value": 0.057,
+            "source_url": "https://www.imf.org/en/publications/cr/issues/2024/03/08/jamaica-2024-article-iv-consultation-and-second-reviews-under-the-arrangement-under-the-545715",
+            "source_as_of": "2024-03-08"
+          }
+        ],
+        "workbook_sha256": "63adeca13163277dbad831a232bbeb0b8c036f42a6674349aa8861cd6a4f8b9a",
+        "generated_on": "2026-08-04",
+        "refresh_schema": "source-addressed-v2",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
       }
     },
@@ -347,246 +901,20 @@
             "value": 0.0,
             "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2022-stress.json",
             "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "D6",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "D7",
-            "previous": 0,
-            "value": -10.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "D8",
-            "previous": 0,
-            "value": 3.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "D9",
-            "previous": 0,
-            "value": 20.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "E6",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "E7",
-            "previous": 0,
-            "value": -5.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "E8",
-            "previous": 0,
-            "value": 2.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "E9",
-            "previous": 0,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "F6",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "F7",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "F8",
-            "previous": 0,
-            "value": 2.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "F9",
-            "previous": 0,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fee Waterfall",
-            "cell": "C5",
-            "previous": 0,
-            "value": 100.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fee Waterfall",
-            "cell": "C6",
-            "previous": 0.02,
-            "value": 80.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fee Waterfall",
-            "cell": "C7",
-            "previous": 0.08,
-            "value": 0.08,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fee Waterfall",
-            "cell": "C8",
-            "previous": 0.2,
-            "value": 0.2,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fee Waterfall",
-            "cell": "C9",
-            "previous": 1,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Fee Waterfall",
-            "cell": "C10",
-            "previous": 0,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Return Measurement",
-            "cell": "C14",
-            "previous": 0,
-            "value": -0.05,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "D5",
-            "previous": 180,
-            "value": 180.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "D6",
-            "previous": 100,
-            "value": 100.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "D8",
-            "previous": 55,
-            "value": 55.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "D9",
-            "previous": 35,
-            "value": 35.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "D10",
-            "previous": 40,
-            "value": 40.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "D11",
-            "previous": 20,
-            "value": 20.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "D12",
-            "previous": 15,
-            "value": 15.0,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "D13",
-            "previous": 0.4,
-            "value": 0.4,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "D14",
-            "previous": 0.25,
-            "value": 0.25,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "D15",
-            "previous": 1.2,
-            "value": 1.2,
-            "source_url": "repo://standards/benchmark_cases/am-adversarial-liquidity.json",
-            "source_as_of": "2022-12-31"
           }
         ],
-        "workbook_sha256": "1489ba1b25f8d9ed2b8dfe39ecb9be8c287d5a1ddeb4f985cc256df282f3a09a",
+        "workbook_sha256": "e4d22bea6a94712b56d2418897ae4dcf865a2b931460f40dcf3e842050f10020",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "next_year_ending_aum_usd_bn",
+        "forecast": 8500.0,
+        "realized": 10008.995,
+        "realized_source": "BlackRock 2023 Form 10-K",
+        "status": "recorded"
       }
     },
     {
@@ -646,246 +974,20 @@
             "value": 0.0,
             "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
             "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "D6",
-            "previous": 0,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "D7",
-            "previous": 0,
-            "value": 7.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "D8",
-            "previous": 0,
-            "value": 2.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "D9",
-            "previous": 0,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "E6",
-            "previous": 0,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "E7",
-            "previous": 0,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "E8",
-            "previous": 0,
-            "value": 2.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "E9",
-            "previous": 0,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "F6",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "F7",
-            "previous": 0,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "F8",
-            "previous": 0,
-            "value": 2.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fund NAV",
-            "cell": "F9",
-            "previous": 0,
-            "value": 6.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fee Waterfall",
-            "cell": "C5",
-            "previous": 0,
-            "value": 100.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fee Waterfall",
-            "cell": "C6",
-            "previous": 0.02,
-            "value": 80.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fee Waterfall",
-            "cell": "C7",
-            "previous": 0.08,
-            "value": 0.08,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fee Waterfall",
-            "cell": "C8",
-            "previous": 0.2,
-            "value": 0.2,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fee Waterfall",
-            "cell": "C9",
-            "previous": 1,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fee Waterfall",
-            "cell": "C10",
-            "previous": 0,
-            "value": 100.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Return Measurement",
-            "cell": "C14",
-            "previous": 0,
-            "value": 0.08,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "C5",
-            "previous": 150,
-            "value": 150.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "C6",
-            "previous": 60,
-            "value": 60.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "C8",
-            "previous": 35,
-            "value": 35.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "C9",
-            "previous": 15,
-            "value": 15.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "C10",
-            "previous": 12,
-            "value": 12.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "C11",
-            "previous": 8,
-            "value": 8.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "C12",
-            "previous": 30,
-            "value": 30.0,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "C13",
-            "previous": 0.4,
-            "value": 0.4,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "C14",
-            "previous": 0.25,
-            "value": 0.25,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Exposure & Liquidity",
-            "cell": "C15",
-            "previous": 1.2,
-            "value": 1.2,
-            "source_url": "repo://standards/benchmark_cases/am-reference-fund.json",
-            "source_as_of": "2023-12-31"
           }
         ],
-        "workbook_sha256": "d5a00bdef7d92d2578ceb7c40ee8073291a9c48f2e4f513763effa225e6f688e",
+        "workbook_sha256": "77f8ff5a7dcd90390050178f12be3dec31170be0449070e763adeb646842dae0",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "ending_aum_usd_bn",
+        "forecast": 10500.0,
+        "realized": null,
+        "realized_source": "Pending next maintained evidence refresh",
+        "status": "pending"
       }
     },
     {
@@ -916,38 +1018,6 @@
           },
           {
             "sheet": "Assumptions",
-            "cell": "D12",
-            "previous": 10,
-            "value": 8.0,
-            "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
-            "source_as_of": "2020-03-16"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "D13",
-            "previous": 30,
-            "value": 22.0,
-            "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
-            "source_as_of": "2020-03-16"
-          },
-          {
-            "sheet": "Positions",
-            "cell": "E6",
-            "previous": 35,
-            "value": 90.0,
-            "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
-            "source_as_of": "2020-03-16"
-          },
-          {
-            "sheet": "Positions",
-            "cell": "M14",
-            "previous": 20,
-            "value": 35.0,
-            "source_url": "repo://standards/benchmark_cases/risk-adversarial-crowding.json",
-            "source_as_of": "2020-03-16"
-          },
-          {
-            "sheet": "Assumptions",
             "cell": "D11",
             "previous": 0.5,
             "value": 0.8269,
@@ -955,12 +1025,18 @@
             "source_as_of": "2020-03-16"
           }
         ],
-        "workbook_sha256": "68d679ec3226837d79a10c0306a3708ba8aab37addd9eea3d6701072915e0db4",
+        "workbook_sha256": "c2e9bb34339c3b44f7d05b9b20203e5ac63868ad83283b23d3c7631d9d513453",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "peak_to_trough_sp500_drawdown",
+        "forecast": -0.3,
+        "realized": -0.339,
+        "realized_source": "S&P 500 via FRED",
+        "status": "recorded"
       }
     },
     {
@@ -983,46 +1059,6 @@
         "applied_inputs": [
           {
             "sheet": "Assumptions",
-            "cell": "C5",
-            "previous": 0.99,
-            "value": 0.99,
-            "source_url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
-            "source_as_of": "2024-01-02"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C12",
-            "previous": 12,
-            "value": 12.0,
-            "source_url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
-            "source_as_of": "2024-01-02"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C18",
-            "previous": 250,
-            "value": 300.0,
-            "source_url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
-            "source_as_of": "2024-01-02"
-          },
-          {
-            "sheet": "Positions",
-            "cell": "D5",
-            "previous": 45,
-            "value": 50.0,
-            "source_url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
-            "source_as_of": "2024-01-02"
-          },
-          {
-            "sheet": "Positions",
-            "cell": "E5",
-            "previous": 120,
-            "value": 140.0,
-            "source_url": "repo://standards/benchmark_cases/risk-reference-balanced.json",
-            "source_as_of": "2024-01-02"
-          },
-          {
-            "sheet": "Assumptions",
             "cell": "C7",
             "previous": 0.22,
             "value": 0.132,
@@ -1038,12 +1074,18 @@
             "source_as_of": "2024-01-02"
           }
         ],
-        "workbook_sha256": "1a0f51746973b412b6f3c1041d10664e6780a902b1a6100f9147cf0f6c0571e0",
+        "workbook_sha256": "633fa21a6a6e87f6dedda928c8a38092434259e4e0b939905d5c0c900b36940d",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "subsequent_60d_max_drawdown",
+        "forecast": -0.08,
+        "realized": -0.052,
+        "realized_source": "S&P 500 via FRED",
+        "status": "recorded"
       }
     },
     {
@@ -1103,150 +1145,20 @@
             "value": 12928.0,
             "source_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292721000011/ba-20201231.htm",
             "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "LC & Factoring Cost",
-            "cell": "C5",
-            "previous": 0,
-            "value": 100.0,
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "LC & Factoring Cost",
-            "cell": "C6",
-            "previous": 0.015,
-            "value": 0.04,
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "LC & Factoring Cost",
-            "cell": "C7",
-            "previous": 0.01,
-            "value": 0.03,
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "LC & Factoring Cost",
-            "cell": "C8",
-            "previous": 90,
-            "value": 90.0,
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "LC & Factoring Cost",
-            "cell": "C14",
-            "previous": 0,
-            "value": 100.0,
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "LC & Factoring Cost",
-            "cell": "C15",
-            "previous": 0.85,
-            "value": 0.7,
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "LC & Factoring Cost",
-            "cell": "C16",
-            "previous": 0.02,
-            "value": 0.18,
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "LC & Factoring Cost",
-            "cell": "C17",
-            "previous": 60,
-            "value": 45.0,
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Credit & Facility",
-            "cell": "C3",
-            "previous": "Base",
-            "value": "Downside",
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Documentary Controls",
-            "cell": "C5",
-            "previous": 10,
-            "value": 30.0,
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Documentary Controls",
-            "cell": "C6",
-            "previous": 0,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Documentary Controls",
-            "cell": "C7",
-            "previous": 1,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Documentary Controls",
-            "cell": "C8",
-            "previous": 1,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Documentary Controls",
-            "cell": "C9",
-            "previous": 1,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Documentary Controls",
-            "cell": "C10",
-            "previous": 1,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Documentary Controls",
-            "cell": "C11",
-            "previous": 1,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Documentary Controls",
-            "cell": "C12",
-            "previous": 1,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/trade-adversarial-country-shock.json",
-            "source_as_of": "2020-12-31"
           }
         ],
-        "workbook_sha256": "af7f3109f1c5f4f790b8995b3a0d6b7709fd495e32da119b225139b751c8eee2",
+        "workbook_sha256": "853521e21c2c453fff25169123dfd490222d32ae66253726d94c549ec9987432",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "next_year_revenue_usd_mm",
+        "forecast": 55000.0,
+        "realized": 62286.0,
+        "realized_source": "Boeing 2021 Form 10-K",
+        "status": "recorded"
       }
     },
     {
@@ -1306,150 +1218,20 @@
             "value": 15553.0,
             "source_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292721000011/ba-20201231.htm",
             "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "LC & Factoring Cost",
-            "cell": "C5",
-            "previous": 0,
-            "value": 100.0,
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "LC & Factoring Cost",
-            "cell": "C6",
-            "previous": 0.015,
-            "value": 0.015,
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "LC & Factoring Cost",
-            "cell": "C7",
-            "previous": 0.01,
-            "value": 0.01,
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "LC & Factoring Cost",
-            "cell": "C8",
-            "previous": 90,
-            "value": 180.0,
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "LC & Factoring Cost",
-            "cell": "C14",
-            "previous": 0,
-            "value": 100.0,
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "LC & Factoring Cost",
-            "cell": "C15",
-            "previous": 0.85,
-            "value": 0.85,
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "LC & Factoring Cost",
-            "cell": "C16",
-            "previous": 0.02,
-            "value": 0.02,
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "LC & Factoring Cost",
-            "cell": "C17",
-            "previous": 60,
-            "value": 60.0,
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "Credit & Facility",
-            "cell": "C3",
-            "previous": "Base",
-            "value": "Base",
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "Documentary Controls",
-            "cell": "C5",
-            "previous": 10,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "Documentary Controls",
-            "cell": "C6",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "Documentary Controls",
-            "cell": "C7",
-            "previous": 1,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "Documentary Controls",
-            "cell": "C8",
-            "previous": 1,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "Documentary Controls",
-            "cell": "C9",
-            "previous": 1,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "Documentary Controls",
-            "cell": "C10",
-            "previous": 1,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "Documentary Controls",
-            "cell": "C11",
-            "previous": 1,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
-          },
-          {
-            "sheet": "Documentary Controls",
-            "cell": "C12",
-            "previous": 1,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/trade-reference-exporter.json",
-            "source_as_of": "2019-12-31"
           }
         ],
-        "workbook_sha256": "338d5612222554fc2b5d299938aaba8fee2629771e7f80d101588bf19af1fae1",
+        "workbook_sha256": "0507a85a1ba33bb25ab057405f8b02063ffb1f0a1b36ce8576799aab591d59b6",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "next_year_revenue_usd_mm",
+        "forecast": 75000.0,
+        "realized": 58158.0,
+        "realized_source": "Boeing 2020 Form 10-K",
+        "status": "recorded"
       }
     },
     {
@@ -1496,123 +1278,25 @@
           },
           {
             "sheet": "Loan Portfolio",
-            "cell": "C8",
-            "previous": 0,
-            "value": 20.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Loan Portfolio",
-            "cell": "C9",
-            "previous": 0,
-            "value": 8.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Loan Portfolio",
             "cell": "C10",
             "previous": 0,
             "value": 0.214286,
             "source_url": "https://zambia.asa-international.com/",
             "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Sustainability",
-            "cell": "C5",
-            "previous": 0,
-            "value": 8.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Sustainability",
-            "cell": "C6",
-            "previous": 0,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Sustainability",
-            "cell": "C7",
-            "previous": 0,
-            "value": 8.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Sustainability",
-            "cell": "C8",
-            "previous": 0,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Sustainability",
-            "cell": "C9",
-            "previous": 0,
-            "value": 2.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Provisioning",
-            "cell": "C5",
-            "previous": 0,
-            "value": 40.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Provisioning",
-            "cell": "C6",
-            "previous": 0,
-            "value": 20.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Provisioning",
-            "cell": "C7",
-            "previous": 0,
-            "value": 15.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Provisioning",
-            "cell": "C8",
-            "previous": 0,
-            "value": 7.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Provisioning",
-            "cell": "C12",
-            "previous": 0,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Portfolio Rollforward",
-            "cell": "C3",
-            "previous": "Base",
-            "value": "Downside",
-            "source_url": "repo://standards/benchmark_cases/microfinance-adversarial-moratorium.json",
-            "source_as_of": "2025-12-31"
           }
         ],
-        "workbook_sha256": "6af3a1009434f22381fe9d1519cb06bbc4aa1d31e2884e0fb8b2b4bf4fea475e",
+        "workbook_sha256": "9b7d221ad0f6d2d82f0604669016bf39dd2b843c78fa86c53aec40736dff36ff",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "next_reporting_period_par30",
+        "forecast": 0.08,
+        "realized": null,
+        "realized_source": "Pending next maintained evidence refresh",
+        "status": "pending"
       }
     },
     {
@@ -1659,123 +1343,25 @@
           },
           {
             "sheet": "Loan Portfolio",
-            "cell": "C8",
-            "previous": 0,
-            "value": 2.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-reference-book.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Loan Portfolio",
-            "cell": "C9",
-            "previous": 0,
-            "value": 2.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-reference-book.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Loan Portfolio",
             "cell": "C10",
             "previous": 0,
             "value": 0.218214,
             "source_url": "https://www.asa-international.com/investors/annual-report-2025/",
             "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Sustainability",
-            "cell": "C5",
-            "previous": 0,
-            "value": 20.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-reference-book.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Sustainability",
-            "cell": "C6",
-            "previous": 0,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-reference-book.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Sustainability",
-            "cell": "C7",
-            "previous": 0,
-            "value": 2.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-reference-book.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Sustainability",
-            "cell": "C8",
-            "previous": 0,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-reference-book.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Sustainability",
-            "cell": "C9",
-            "previous": 0,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-reference-book.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Provisioning",
-            "cell": "C5",
-            "previous": 0,
-            "value": 95.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-reference-book.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Provisioning",
-            "cell": "C6",
-            "previous": 0,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-reference-book.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Provisioning",
-            "cell": "C7",
-            "previous": 0,
-            "value": 2.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-reference-book.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Provisioning",
-            "cell": "C8",
-            "previous": 0,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-reference-book.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Provisioning",
-            "cell": "C12",
-            "previous": 0,
-            "value": 6.0,
-            "source_url": "repo://standards/benchmark_cases/microfinance-reference-book.json",
-            "source_as_of": "2025-12-31"
-          },
-          {
-            "sheet": "Portfolio Rollforward",
-            "cell": "C3",
-            "previous": "Base",
-            "value": "Base",
-            "source_url": "repo://standards/benchmark_cases/microfinance-reference-book.json",
-            "source_as_of": "2025-12-31"
           }
         ],
-        "workbook_sha256": "7609fb762b7e494bc1cb2d986e2e2f9e957f21c9a51c1ac5943231052b7b450b",
+        "workbook_sha256": "cad583d3245f77bfed274ec7cdcfc41d22d507587fb2dd8b5694053faeaa7dc6",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "next_quarter_gross_olp_usd_mm",
+        "forecast": 625.0,
+        "realized": 583.2,
+        "realized_source": "ASA International Q1 2026 Business Update",
+        "status": "recorded"
       }
     },
     {
@@ -1797,92 +1383,26 @@
         "output": "12_Equity_Finance/instances/public_amc_2020_dilution.xlsx",
         "applied_inputs": [
           {
-            "sheet": "Cap Table & Dilution",
-            "cell": "C3",
-            "previous": "Base",
-            "value": "Adversarial",
-            "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Rights Offering",
-            "cell": "D7",
-            "previous": 10,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Rights Offering",
-            "cell": "D8",
-            "previous": 3,
-            "value": 3.0,
-            "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
             "sheet": "Rights Offering",
             "cell": "D9",
             "previous": 0.45,
             "value": 0.196,
             "source_url": "https://www.sec.gov/Archives/edgar/data/1411579/000141157921000006/amc-20201231x10k.htm",
             "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Rights Offering",
-            "cell": "D10",
-            "previous": 0.08,
-            "value": 0.08,
-            "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Convertible Securities",
-            "cell": "D7",
-            "previous": 4,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Convertible Securities",
-            "cell": "D8",
-            "previous": 0.08,
-            "value": 0.08,
-            "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Convertible Securities",
-            "cell": "D9",
-            "previous": 1,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Convertible Securities",
-            "cell": "D10",
-            "previous": 0.15,
-            "value": 0.15,
-            "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
-            "source_as_of": "2020-12-31"
-          },
-          {
-            "sheet": "Convertible Securities",
-            "cell": "D11",
-            "previous": 3.5,
-            "value": 3.5,
-            "source_url": "repo://standards/benchmark_cases/equity-adversarial-dilution.json",
-            "source_as_of": "2020-12-31"
           }
         ],
-        "workbook_sha256": "451e308e8f8ff1fe1abf0cbd088337460d6115fb36bed7c68b1b0475f69e63df",
+        "workbook_sha256": "532a123f5a8626d12025b7da648ce1fd47f66c6fed7607736b51ea3c4242f251",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "emergency_financing_completed",
+        "forecast": 1.0,
+        "realized": 1.0,
+        "realized_source": "AMC Entertainment 2020 Form 10-K",
+        "status": "recorded"
       }
     },
     {
@@ -1903,14 +1423,6 @@
         "template": "12_Equity_Finance/_template_BASE.xlsx",
         "output": "12_Equity_Finance/instances/public_tesla_2020_offering.xlsx",
         "applied_inputs": [
-          {
-            "sheet": "Cap Table & Dilution",
-            "cell": "C3",
-            "previous": "Base",
-            "value": "Base",
-            "source_url": "repo://standards/benchmark_cases/equity-reference-rights.json",
-            "source_as_of": "2020-02-14"
-          },
           {
             "sheet": "Rights Offering",
             "cell": "C7",
@@ -1942,53 +1454,149 @@
             "value": 0.01176,
             "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
             "source_as_of": "2020-02-14"
-          },
-          {
-            "sheet": "Convertible Securities",
-            "cell": "C7",
-            "previous": 12,
-            "value": 12.0,
-            "source_url": "repo://standards/benchmark_cases/equity-reference-rights.json",
-            "source_as_of": "2020-02-14"
-          },
-          {
-            "sheet": "Convertible Securities",
-            "cell": "C8",
-            "previous": 0.04,
-            "value": 0.04,
-            "source_url": "repo://standards/benchmark_cases/equity-reference-rights.json",
-            "source_as_of": "2020-02-14"
-          },
-          {
-            "sheet": "Convertible Securities",
-            "cell": "C9",
-            "previous": 3,
-            "value": 3.0,
-            "source_url": "repo://standards/benchmark_cases/equity-reference-rights.json",
-            "source_as_of": "2020-02-14"
-          },
-          {
-            "sheet": "Convertible Securities",
-            "cell": "C10",
-            "previous": 0.05,
-            "value": 0.05,
-            "source_url": "repo://standards/benchmark_cases/equity-reference-rights.json",
-            "source_as_of": "2020-02-14"
-          },
-          {
-            "sheet": "Convertible Securities",
-            "cell": "C11",
-            "previous": 9.5,
-            "value": 9.5,
-            "source_url": "repo://standards/benchmark_cases/equity-reference-rights.json",
-            "source_as_of": "2020-02-14"
           }
         ],
-        "workbook_sha256": "bc399a363a0ef133bdb56859026c53c0f2c52e4951a6307f1faabeba60314c95",
+        "workbook_sha256": "91bbecd22ca42338b9f8e399a098355b472f6e19150b918df415d505d21c871d",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
+        "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "net_proceeds_before_expenses_usd_mm",
+        "forecast": 2032.55,
+        "realized": 2008.65,
+        "realized_source": "Tesla February 2020 Final Prospectus",
+        "status": "recorded"
+      }
+    },
+    {
+      "model_id": "13",
+      "domain": "Venture Capital",
+      "case_id": "vc-public-instacart-2023-down-round",
+      "case_type": "adversarial",
+      "manifest": "standards/public_cases/vc-public-instacart-2023-down-round.json",
+      "output": "13_Venture_Capital/instances/public_instacart_2023_down_round.xlsx",
+      "snapshot": "13_Venture_Capital/sources/snapshots/vc-public-instacart-2023-down-round.json",
+      "snapshot_sha256": "ef102545b1478ae458ad59d17e057abb116243e9ab4afc80a529ce6e2e13601a",
+      "counts_toward_m4": false,
+      "outcome": {
+        "metric": "down_round_relative_to_prior_private_valuation",
+        "forecast": 0.0,
+        "realized": 1.0,
+        "realized_source": "Maplebear 2023 final IPO prospectus",
+        "status": "recorded"
+      },
+      "receipt": {
+        "schema_version": "1.0",
+        "instance_id": "vc-public-instacart-2023-down-round",
+        "as_of": "2023-09-18",
+        "manifest": "standards/public_cases/vc-public-instacart-2023-down-round.json",
+        "template": "13_Venture_Capital/_template_VC.xlsx",
+        "output": "13_Venture_Capital/instances/public_instacart_2023_down_round.xlsx",
+        "applied_inputs": [
+          {
+            "sheet": "Ownership & Dilution",
+            "cell": "D5",
+            "previous": 100,
+            "value": 39000.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+            "source_as_of": "2023-09-18"
+          },
+          {
+            "sheet": "Ownership & Dilution",
+            "cell": "D6",
+            "previous": 20,
+            "value": 423.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+            "source_as_of": "2023-09-18"
+          },
+          {
+            "sheet": "Ownership & Dilution",
+            "cell": "D7",
+            "previous": 10,
+            "value": 285.9,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+            "source_as_of": "2023-09-18"
+          },
+          {
+            "sheet": "Ownership & Dilution",
+            "cell": "D8",
+            "previous": 4,
+            "value": 14.1,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+            "source_as_of": "2023-09-18"
+          }
+        ],
+        "workbook_sha256": "f832f7b5ea74e47c927b3632d89283e60baf4a8354a44c499b5c5e492653532e",
+        "generated_on": "2026-08-04",
+        "refresh_schema": "source-addressed-v2",
+        "classification": "external_historical_case",
+        "counts_toward_M4": false
+      }
+    },
+    {
+      "model_id": "13",
+      "domain": "Venture Capital",
+      "case_id": "vc-public-snowflake-2020",
+      "case_type": "conventional",
+      "manifest": "standards/public_cases/vc-public-snowflake-2020.json",
+      "output": "13_Venture_Capital/instances/public_snowflake_2020.xlsx",
+      "snapshot": "13_Venture_Capital/sources/snapshots/vc-public-snowflake-2020.json",
+      "snapshot_sha256": "40b14977f0e0d815b3a83b7f3bfe2eb31e6a540b10fbbc40453ffbddce553f2b",
+      "counts_toward_m4": false,
+      "outcome": {
+        "metric": "ipo_completed",
+        "forecast": 1.0,
+        "realized": 1.0,
+        "realized_source": "Snowflake 2020 final IPO prospectus",
+        "status": "recorded"
+      },
+      "receipt": {
+        "schema_version": "1.0",
+        "instance_id": "vc-public-snowflake-2020",
+        "as_of": "2020-09-16",
+        "manifest": "standards/public_cases/vc-public-snowflake-2020.json",
+        "template": "13_Venture_Capital/_template_VC.xlsx",
+        "output": "13_Venture_Capital/instances/public_snowflake_2020.xlsx",
+        "applied_inputs": [
+          {
+            "sheet": "Ownership & Dilution",
+            "cell": "C5",
+            "previous": 80,
+            "value": 30000.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+            "source_as_of": "2020-09-16"
+          },
+          {
+            "sheet": "Ownership & Dilution",
+            "cell": "C6",
+            "previous": 20,
+            "value": 3360.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+            "source_as_of": "2020-09-16"
+          },
+          {
+            "sheet": "Ownership & Dilution",
+            "cell": "C7",
+            "previous": 8,
+            "value": 250.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+            "source_as_of": "2020-09-16"
+          },
+          {
+            "sheet": "Ownership & Dilution",
+            "cell": "C8",
+            "previous": 2,
+            "value": 28.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+            "source_as_of": "2020-09-16"
+          }
+        ],
+        "workbook_sha256": "53a3ac5f61ff2a95373eda4a459bbe69a7897893ced7b0fe7c39c5e52735ab8e",
+        "generated_on": "2026-08-04",
+        "refresh_schema": "source-addressed-v2",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
       }
     },
@@ -2028,14 +1636,6 @@
           },
           {
             "sheet": "Assumptions",
-            "cell": "D11",
-            "previous": 15,
-            "value": 30.0,
-            "source_url": "repo://standards/benchmark_cases/options-adversarial-skew.json",
-            "source_as_of": "2020-03-16"
-          },
-          {
-            "sheet": "Assumptions",
             "cell": "D14",
             "previous": -0.3,
             "value": -0.339,
@@ -2043,12 +1643,18 @@
             "source_as_of": "2020-03-16"
           }
         ],
-        "workbook_sha256": "dae1d5e00df1b2965d4661af42f3250c937b313fc981af3cc6c94576aea6b534",
+        "workbook_sha256": "67b3726181739664c0daae301a48cb4c6eefde650716122d7ac993a09b533e7a",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "three_month_realized_volatility",
+        "forecast": 0.8269,
+        "realized": 0.679,
+        "realized_source": "S&P 500 daily closes via FRED",
+        "status": "recorded"
       }
     },
     {
@@ -2087,26 +1693,10 @@
           },
           {
             "sheet": "Assumptions",
-            "cell": "C7",
-            "previous": 0.5,
-            "value": 0.5,
-            "source_url": "repo://standards/benchmark_cases/options-reference-atm.json",
-            "source_as_of": "2024-01-02"
-          },
-          {
-            "sheet": "Assumptions",
             "cell": "C10",
             "previous": 0.25,
             "value": 0.132,
             "source_url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "source_as_of": "2024-01-02"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C11",
-            "previous": 8.25,
-            "value": 8.25,
-            "source_url": "repo://standards/benchmark_cases/options-reference-atm.json",
             "source_as_of": "2024-01-02"
           },
           {
@@ -2118,12 +1708,18 @@
             "source_as_of": "2024-01-02"
           }
         ],
-        "workbook_sha256": "6f3984d32197e0d6aefcd4dd0cd0adf9125714131ed8ce79807a4c2cc356f33e",
+        "workbook_sha256": "f73428a3a99a2d0bc404baa35a8ad34ba0880461b0c187b375d5d2c3820e306b",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "six_month_realized_volatility",
+        "forecast": 0.132,
+        "realized": 0.128,
+        "realized_source": "S&P 500 daily closes via FRED",
+        "status": "recorded"
       }
     },
     {
@@ -2146,22 +1742,6 @@
         "applied_inputs": [
           {
             "sheet": "Hedging",
-            "cell": "C5",
-            "previous": 0,
-            "value": 500.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-            "source_as_of": "2020-04-20"
-          },
-          {
-            "sheet": "Hedging",
-            "cell": "C6",
-            "previous": 1000,
-            "value": 100.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-            "source_as_of": "2020-04-20"
-          },
-          {
-            "sheet": "Hedging",
             "cell": "C7",
             "previous": 0,
             "value": -37.63,
@@ -2177,107 +1757,11 @@
             "source_as_of": "2020-04-20"
           },
           {
-            "sheet": "Hedging",
-            "cell": "C9",
-            "previous": 1,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-            "source_as_of": "2020-04-20"
-          },
-          {
-            "sheet": "Hedging",
-            "cell": "C10",
-            "previous": null,
-            "value": 2.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-            "source_as_of": "2020-04-20"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "D7",
-            "previous": 0.07,
-            "value": 0.02,
-            "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-            "source_as_of": "2020-04-20"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "D8",
-            "previous": 0.2,
-            "value": 0.3,
-            "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-            "source_as_of": "2020-04-20"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "D9",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-            "source_as_of": "2020-04-20"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "D10",
-            "previous": 0.25,
-            "value": 0.25,
-            "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-            "source_as_of": "2020-04-20"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "D11",
-            "previous": 20,
-            "value": 20.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-            "source_as_of": "2020-04-20"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "D12",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-            "source_as_of": "2020-04-20"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "D13",
-            "previous": 10,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-            "source_as_of": "2020-04-20"
-          },
-          {
             "sheet": "Physical Balance & Carry",
             "cell": "D14",
             "previous": 25,
             "value": 60.0,
             "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=43495",
-            "source_as_of": "2020-04-20"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "D15",
-            "previous": 5,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-            "source_as_of": "2020-04-20"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "D16",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
-            "source_as_of": "2020-04-20"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "D17",
-            "previous": 5,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
             "source_as_of": "2020-04-20"
           },
           {
@@ -2289,12 +1773,18 @@
             "source_as_of": "2020-04-20"
           }
         ],
-        "workbook_sha256": "21d08a70cd3c44494f93c8257244bc4f22d84b08086b9274e5a7a3535b3ad27b",
+        "workbook_sha256": "fee53a78885874a3a99718217e2b1d33aee3218b216e38e8a7baecff2227ffa0",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "wti_price_by_2020_07_01_usd_per_bbl",
+        "forecast": 0.0,
+        "realized": 40.0,
+        "realized_source": "EIA July 2020 oil-price recovery",
+        "status": "recorded"
       }
     },
     {
@@ -2317,106 +1807,10 @@
         "applied_inputs": [
           {
             "sheet": "Hedging",
-            "cell": "C5",
-            "previous": 0,
-            "value": 1000.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Hedging",
-            "cell": "C6",
-            "previous": 1000,
-            "value": 100.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Hedging",
             "cell": "C7",
             "previous": 0,
             "value": 77.58,
             "source_url": "https://www.eia.gov/dnav/pet/PET_PRI_SPT_S1_A.htm",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Hedging",
-            "cell": "C8",
-            "previous": 0,
-            "value": 82.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Hedging",
-            "cell": "C9",
-            "previous": 1,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Hedging",
-            "cell": "C10",
-            "previous": null,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "C7",
-            "previous": 0.04,
-            "value": 0.04,
-            "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "C8",
-            "previous": 0.02,
-            "value": 0.02,
-            "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "C9",
-            "previous": 0.03,
-            "value": 0.03,
-            "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "C10",
-            "previous": 0.5,
-            "value": 0.5,
-            "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "C11",
-            "previous": 100,
-            "value": 100.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "C12",
-            "previous": 50,
-            "value": 50.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "C13",
-            "previous": 20,
-            "value": 20.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
             "source_as_of": "2023-12-31"
           },
           {
@@ -2426,46 +1820,20 @@
             "value": 34.454,
             "source_url": "https://www.eia.gov/dnav/pet/PET_PRI_SPT_S1_A.htm",
             "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "C15",
-            "previous": 30,
-            "value": 30.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "C16",
-            "previous": 60,
-            "value": 60.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "C17",
-            "previous": 10,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Physical Balance & Carry",
-            "cell": "C18",
-            "previous": 1.25,
-            "value": 1.25,
-            "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-            "source_as_of": "2023-12-31"
           }
         ],
-        "workbook_sha256": "1d2fc4c8d531d8ad08f77040d7276b38c61f61e51a388c805535aece8dfe6e16",
+        "workbook_sha256": "16c1393d578ad66ff0266db38cfacaba07efc41180d668b7d21a73845cdf2f82",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "next_year_wti_average_usd_per_bbl",
+        "forecast": 75.0,
+        "realized": null,
+        "realized_source": "Pending maintained annual EIA evidence refresh",
+        "status": "pending"
       }
     },
     {
@@ -2486,62 +1854,6 @@
         "template": "16_Crypto_Digital_Assets/_template_CRYPTO.xlsx",
         "output": "16_Crypto_Digital_Assets/instances/public_coinbase_2022_stress.xlsx",
         "applied_inputs": [
-          {
-            "sheet": "Tokenomics",
-            "cell": "C5",
-            "previous": 0,
-            "value": 250.0,
-            "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Tokenomics",
-            "cell": "C6",
-            "previous": 0,
-            "value": 250.0,
-            "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Tokenomics",
-            "cell": "C7",
-            "previous": 0,
-            "value": 250.0,
-            "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Tokenomics",
-            "cell": "C8",
-            "previous": 0,
-            "value": 100.0,
-            "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Tokenomics",
-            "cell": "C9",
-            "previous": 0,
-            "value": 150.0,
-            "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Tokenomics",
-            "cell": "C12",
-            "previous": 0,
-            "value": 350.0,
-            "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Valuation",
-            "cell": "C5",
-            "previous": 0,
-            "value": 0.8,
-            "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-            "source_as_of": "2022-12-31"
-          },
           {
             "sheet": "Valuation",
             "cell": "C6",
@@ -2565,54 +1877,20 @@
             "value": 75.413,
             "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
             "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Staking Yield",
-            "cell": "C5",
-            "previous": 0,
-            "value": 0.35,
-            "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Staking Yield",
-            "cell": "C6",
-            "previous": 0,
-            "value": 50.0,
-            "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Staking Yield",
-            "cell": "C7",
-            "previous": 0,
-            "value": 2.0,
-            "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Staking Yield",
-            "cell": "C8",
-            "previous": 0,
-            "value": 0.8,
-            "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Supply Rollforward & Unlocks",
-            "cell": "C3",
-            "previous": "Base",
-            "value": "Downside",
-            "source_url": "repo://standards/benchmark_cases/crypto-adversarial-unlock-run.json",
-            "source_as_of": "2022-12-31"
           }
         ],
-        "workbook_sha256": "543f5ed073bec79e39a963c48e5208cc34df0ff1885e3b74181b60523cfbb9a5",
+        "workbook_sha256": "d7fb66a3d435a38864b02ebc3b732ef1a2ca9eda51c3c72f9691944d622bb31e",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "next_year_total_customer_assets_usd_bn",
+        "forecast": 100.0,
+        "realized": 197.154,
+        "realized_source": "Coinbase 2023 Form 10-K",
+        "status": "recorded"
       }
     },
     {
@@ -2633,62 +1911,6 @@
         "template": "16_Crypto_Digital_Assets/_template_CRYPTO.xlsx",
         "output": "16_Crypto_Digital_Assets/instances/public_coinbase_2023.xlsx",
         "applied_inputs": [
-          {
-            "sheet": "Tokenomics",
-            "cell": "C5",
-            "previous": 0,
-            "value": 300.0,
-            "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Tokenomics",
-            "cell": "C6",
-            "previous": 0,
-            "value": 200.0,
-            "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Tokenomics",
-            "cell": "C7",
-            "previous": 0,
-            "value": 150.0,
-            "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Tokenomics",
-            "cell": "C8",
-            "previous": 0,
-            "value": 150.0,
-            "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Tokenomics",
-            "cell": "C9",
-            "previous": 0,
-            "value": 200.0,
-            "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Tokenomics",
-            "cell": "C12",
-            "previous": 0,
-            "value": 700.0,
-            "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Valuation",
-            "cell": "C5",
-            "previous": 0,
-            "value": 2.5,
-            "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-            "source_as_of": "2023-12-31"
-          },
           {
             "sheet": "Valuation",
             "cell": "C6",
@@ -2715,51 +1937,25 @@
           },
           {
             "sheet": "Staking Yield",
-            "cell": "C5",
-            "previous": 0,
-            "value": 0.6,
-            "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Staking Yield",
             "cell": "C6",
             "previous": 0,
             "value": 16.8,
             "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
             "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Staking Yield",
-            "cell": "C7",
-            "previous": 0,
-            "value": 30.0,
-            "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Staking Yield",
-            "cell": "C8",
-            "previous": 0,
-            "value": 2.5,
-            "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Supply Rollforward & Unlocks",
-            "cell": "C3",
-            "previous": "Base",
-            "value": "Base",
-            "source_url": "repo://standards/benchmark_cases/crypto-reference-network.json",
-            "source_as_of": "2023-12-31"
           }
         ],
-        "workbook_sha256": "acdda60efddcf7a5aa24dc89b12e78e2129833b49c5a9be0d495ae2846c539d1",
+        "workbook_sha256": "ca6702109db0590c36e044c595eff1c148a8d798d8fc2a990c1ac39d5ff1c35b",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "next_quarter_total_customer_assets_usd_bn",
+        "forecast": 220.0,
+        "realized": 334.708,
+        "realized_source": "Coinbase Q1 2024 Form 10-Q",
+        "status": "recorded"
       }
     },
     {
@@ -2790,58 +1986,10 @@
           },
           {
             "sheet": "Property Pro Forma",
-            "cell": "C6",
-            "previous": 0,
-            "value": 6.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Property Pro Forma",
-            "cell": "C8",
-            "previous": 0,
-            "value": 0.5,
-            "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Property Pro Forma",
             "cell": "C10",
             "previous": 0,
             "value": 5354.25,
             "source_url": "https://www.sec.gov/Archives/edgar/data/1813756/000181375623000016/we-20221231.htm",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Property Pro Forma",
-            "cell": "C12",
-            "previous": 0,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Cap Rate & Valuation",
-            "cell": "C5",
-            "previous": 0.06,
-            "value": 0.09,
-            "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Cap Rate & Valuation",
-            "cell": "C8",
-            "previous": 0,
-            "value": 100.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Cap Rate & Valuation",
-            "cell": "C10",
-            "previous": 0,
-            "value": 85.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
             "source_as_of": "2022-12-31"
           },
           {
@@ -2867,86 +2015,20 @@
             "value": 0.0,
             "source_url": "repo://17_Real_Estate_REIT/sources/snapshots/real-estate-public-wework-2022-stress.json",
             "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "REIT FFO-AFFO",
-            "cell": "C9",
-            "previous": 0,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "REIT FFO-AFFO",
-            "cell": "C10",
-            "previous": 0,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "REIT FFO-AFFO",
-            "cell": "C13",
-            "previous": 1,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Debt Schedule",
-            "cell": "C3",
-            "previous": 0.06,
-            "value": 0.1,
-            "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Debt Schedule",
-            "cell": "C4",
-            "previous": 25,
-            "value": 15.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "Debt Schedule",
-            "cell": "C5",
-            "previous": 1.25,
-            "value": 1.25,
-            "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "5-Year Hold & IRR",
-            "cell": "C5",
-            "previous": 0.02,
-            "value": -0.03,
-            "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "5-Year Hold & IRR",
-            "cell": "C6",
-            "previous": 0.065,
-            "value": 0.1,
-            "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-            "source_as_of": "2022-12-31"
-          },
-          {
-            "sheet": "5-Year Hold & IRR",
-            "cell": "C7",
-            "previous": 0.02,
-            "value": 0.04,
-            "source_url": "repo://standards/benchmark_cases/real-estate-adversarial-refinancing.json",
-            "source_as_of": "2022-12-31"
           }
         ],
-        "workbook_sha256": "878b2aa7e9ee53363b3b7a4cfb9184270a59c9a63b84d5f661075713a7b48b6a",
+        "workbook_sha256": "3f4ffd280cdbd6c7089cc96fc1599ae15e828ab39339a9e896c037a21299db4d",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "bankruptcy_within_12_months",
+        "forecast": 1.0,
+        "realized": 1.0,
+        "realized_source": "WeWork Chapter 11 filing, November 2023",
+        "status": "recorded"
       }
     },
     {
@@ -2967,70 +2049,6 @@
         "template": "17_Real_Estate_REIT/_template_REAL_ESTATE.xlsx",
         "output": "17_Real_Estate_REIT/instances/public_realty_income_2023.xlsx",
         "applied_inputs": [
-          {
-            "sheet": "Property Pro Forma",
-            "cell": "C5",
-            "previous": 0,
-            "value": 20.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Property Pro Forma",
-            "cell": "C6",
-            "previous": 0,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Property Pro Forma",
-            "cell": "C8",
-            "previous": 0,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Property Pro Forma",
-            "cell": "C10",
-            "previous": 0,
-            "value": 7.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Property Pro Forma",
-            "cell": "C12",
-            "previous": 0,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Cap Rate & Valuation",
-            "cell": "C5",
-            "previous": 0.06,
-            "value": 0.06,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Cap Rate & Valuation",
-            "cell": "C8",
-            "previous": 0,
-            "value": 200.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Cap Rate & Valuation",
-            "cell": "C10",
-            "previous": 0,
-            "value": 120.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
-          },
           {
             "sheet": "REIT FFO-AFFO",
             "cell": "C4",
@@ -3054,86 +2072,20 @@
             "value": 25.667,
             "source_url": "https://www.sec.gov/Archives/edgar/data/726728/000072672825000080/o-20250326.htm",
             "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "REIT FFO-AFFO",
-            "cell": "C9",
-            "previous": 0,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "REIT FFO-AFFO",
-            "cell": "C10",
-            "previous": 0,
-            "value": 0.5,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "REIT FFO-AFFO",
-            "cell": "C13",
-            "previous": 1,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Debt Schedule",
-            "cell": "C3",
-            "previous": 0.06,
-            "value": 0.06,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Debt Schedule",
-            "cell": "C4",
-            "previous": 25,
-            "value": 25.0,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Debt Schedule",
-            "cell": "C5",
-            "previous": 1.25,
-            "value": 1.25,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "5-Year Hold & IRR",
-            "cell": "C5",
-            "previous": 0.02,
-            "value": 0.02,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "5-Year Hold & IRR",
-            "cell": "C6",
-            "previous": 0.065,
-            "value": 0.065,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "5-Year Hold & IRR",
-            "cell": "C7",
-            "previous": 0.02,
-            "value": 0.02,
-            "source_url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-            "source_as_of": "2023-12-31"
           }
         ],
-        "workbook_sha256": "4121c84f6b249bafdc98ff4aa1ac06b838c36f27ac3c5f1657dc5fa2ee9a2a76",
+        "workbook_sha256": "c034bf56258f2741c2404f935e778defc8d5852bb2ce04aac4d7fccbb9b82656",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "next_year_net_income_common_usd_mm",
+        "forecast": 900.0,
+        "realized": 847.893,
+        "realized_source": "Realty Income 2024 public reconciliation",
+        "status": "recorded"
       }
     },
     {
@@ -3164,22 +2116,6 @@
           },
           {
             "sheet": "Assumptions",
-            "cell": "D8",
-            "previous": 0.075,
-            "value": 0.12,
-            "source_url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
-            "source_as_of": "2009-03-02"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "D10",
-            "previous": 0.15,
-            "value": 0.22,
-            "source_url": "repo://standards/benchmark_cases/insurance-adversarial-social-inflation.json",
-            "source_as_of": "2009-03-02"
-          },
-          {
-            "sheet": "Assumptions",
             "cell": "D17",
             "previous": 0.14,
             "value": 0.2,
@@ -3187,12 +2123,18 @@
             "source_as_of": "2009-03-02"
           }
         ],
-        "workbook_sha256": "e1b278a2c6377877cdbe627e28fda349bb4dba6ae87817141ebaefbd42b30fc7",
+        "workbook_sha256": "b2cfbe98636dfb7e150384138ca2f15708eac0d4ed563890a13cee574f8d1112",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "government_support_required",
+        "forecast": 1.0,
+        "realized": 1.0,
+        "realized_source": "Federal Reserve and U.S. Treasury intervention records",
+        "status": "recorded"
       }
     },
     {
@@ -3246,12 +2188,18 @@
             "source_as_of": "2024-02-23"
           }
         ],
-        "workbook_sha256": "c498f69939e896c8414d4face80eba39b31b3f894d2ceebfe6e5f90b16958a9a",
+        "workbook_sha256": "ecf6e767544f0b64b1a40ff2dceafd84e5867ff684feaa626cfa998063434a42",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "following_year_combined_ratio",
+        "forecast": 0.85,
+        "realized": 0.868,
+        "realized_source": "Chubb 2024 Form 10-K",
+        "status": "recorded"
       }
     },
     {
@@ -3272,14 +2220,6 @@
         "template": "19_Structured_Finance_Securitization/_template_SECURITIZATION.xlsx",
         "output": "19_Structured_Finance_Securitization/instances/public_fed_mortgage_2009_adversarial.xlsx",
         "applied_inputs": [
-          {
-            "sheet": "Assumptions",
-            "cell": "D7",
-            "previous": 0.06,
-            "value": 0.03,
-            "source_url": "repo://standards/benchmark_cases/securitization-adversarial-default.json",
-            "source_as_of": "2009-10-01"
-          },
           {
             "sheet": "Assumptions",
             "cell": "D8",
@@ -3305,12 +2245,18 @@
             "source_as_of": "2009-10-01"
           }
         ],
-        "workbook_sha256": "cfd4ce75a7d80aab19a6b1fbe4bc8ab16d918fbd6d37da96e2461d55ce485cda",
+        "workbook_sha256": "a0e0848aeaab4d0145fde06a2526b63559443759197974c99a2b598f4a530c08",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "next_year_delinquency_rate",
+        "forecast": 0.1014,
+        "realized": 0.1044,
+        "realized_source": "Mortgage delinquency rate via FRED",
+        "status": "recorded"
       }
     },
     {
@@ -3333,14 +2279,6 @@
         "applied_inputs": [
           {
             "sheet": "Assumptions",
-            "cell": "C5",
-            "previous": 1000,
-            "value": 1200.0,
-            "source_url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
-            "source_as_of": "2024-01-01"
-          },
-          {
-            "sheet": "Assumptions",
             "cell": "C7",
             "previous": 0.12,
             "value": 0.14,
@@ -3354,22 +2292,20 @@
             "value": 0.0189,
             "source_url": "https://fred.stlouisfed.org/series/DRSFRMACBS",
             "source_as_of": "2024-01-01"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C9",
-            "previous": 0.45,
-            "value": 0.5,
-            "source_url": "repo://standards/benchmark_cases/securitization-reference-pool.json",
-            "source_as_of": "2024-01-01"
           }
         ],
-        "workbook_sha256": "f511d4953025e611b7c64fd1a7f36fbf39f87f6a7cb6f752db2d67da5a10b4c0",
+        "workbook_sha256": "2c60fa52489f25e2842388ed94db4602de228847a0332c7ce1b08872e59b914c",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "next_year_delinquency_rate",
+        "forecast": 0.0189,
+        "realized": 0.0179,
+        "realized_source": "Mortgage delinquency rate via FRED",
+        "status": "recorded"
       }
     },
     {
@@ -3405,30 +2341,20 @@
             "value": 10,
             "source_url": "https://psc.ga.gov/facilities-construction/project-overview/plant-vogtle-units-3-and-4/",
             "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "D11",
-            "previous": 150,
-            "value": 135.0,
-            "source_url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "D23",
-            "previous": 0.85,
-            "value": 0.72,
-            "source_url": "repo://standards/benchmark_cases/project-adversarial-delay.json",
-            "source_as_of": "2023-12-31"
           }
         ],
-        "workbook_sha256": "2cbb9aaea4107568bba6140974d500f9fe4d1a882de22d6709ee7e0908a9eb01",
+        "workbook_sha256": "0e3c171bd7d42eae8c3bec104ef6f980a634334210cab42e0913801ba6688f70",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "delay_months",
+        "forecast": 10,
+        "realized": 10,
+        "realized_source": "Georgia PSC Vogtle monitoring reports",
+        "status": "recorded"
       }
     },
     {
@@ -3459,22 +2385,6 @@
           },
           {
             "sheet": "Assumptions",
-            "cell": "C11",
-            "previous": 180,
-            "value": 205.0,
-            "source_url": "repo://standards/benchmark_cases/project-reference-contracted.json",
-            "source_as_of": "2024-07-01"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C16",
-            "previous": 1.35,
-            "value": 1.4,
-            "source_url": "repo://standards/benchmark_cases/project-reference-contracted.json",
-            "source_as_of": "2024-07-01"
-          },
-          {
-            "sheet": "Assumptions",
             "cell": "C23",
             "previous": 0.97,
             "value": 0.98,
@@ -3482,12 +2392,18 @@
             "source_as_of": "2024-07-01"
           }
         ],
-        "workbook_sha256": "e1689c94c04bce56673ae3550197739f6be7c4ef6b65d9bcda53d08e5d2b13a9",
+        "workbook_sha256": "aa548e60f2d2beabd3c4f1cdd3c1c45a09ef175dbb1c565cb210b03a29235860",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "first_operating_year_availability",
+        "forecast": 0.98,
+        "realized": null,
+        "realized_source": null,
+        "status": "future_test_defined"
       }
     },
     {
@@ -3517,22 +2433,6 @@
             "source_as_of": "2022-10-21"
           },
           {
-            "sheet": "Assumptions",
-            "cell": "D10",
-            "previous": 0.02,
-            "value": 0.025,
-            "source_url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
-            "source_as_of": "2022-10-21"
-          },
-          {
-            "sheet": "Zero Curve",
-            "cell": "D10",
-            "previous": 0.055,
-            "value": 0.08,
-            "source_url": "repo://standards/benchmark_cases/rates-adversarial-bear-steepener.json",
-            "source_as_of": "2022-10-21"
-          },
-          {
             "sheet": "Zero Curve",
             "cell": "D14",
             "previous": 0.062,
@@ -3541,12 +2441,18 @@
             "source_as_of": "2022-10-21"
           }
         ],
-        "workbook_sha256": "6d3c805ae3f92d84438278b785e51abd00a960e1817c8da7b35a29c4f312ab59",
+        "workbook_sha256": "4e1819257b26ea79dd83f42fb9c00bae9df789e5be8554e8fbcc3de3463dccb0",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "year_end_ten_year_yield",
+        "forecast": 0.0423,
+        "realized": 0.0388,
+        "realized_source": "Daily Treasury Par Yield Curve Rates",
+        "status": "recorded"
       }
     },
     {
@@ -3569,43 +2475,25 @@
         "applied_inputs": [
           {
             "sheet": "Assumptions",
-            "cell": "C6",
-            "previous": 0.05,
-            "value": 0.05,
-            "source_url": "repo://standards/benchmark_cases/rates-reference-curve.json",
-            "source_as_of": "2025-12-01"
-          },
-          {
-            "sheet": "Assumptions",
             "cell": "C7",
             "previous": 0.055,
             "value": 0.0409,
             "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202512&type=daily_treasury_yield_curve",
             "source_as_of": "2025-12-01"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C8",
-            "previous": 10,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/rates-reference-curve.json",
-            "source_as_of": "2025-12-01"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C14",
-            "previous": 50,
-            "value": 75.0,
-            "source_url": "repo://standards/benchmark_cases/rates-reference-curve.json",
-            "source_as_of": "2025-12-01"
           }
         ],
-        "workbook_sha256": "1522383026e60406b02383e30df913cab9e12201b5f7f46eeef6727498f2b9c2",
+        "workbook_sha256": "4cf16ecd19da62c2e772fed454e71cee4b1bbca2757d0909d781dcb7b9947d7f",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "one_month_ten_year_yield_change_bps",
+        "forecast": 0.0,
+        "realized": -12.0,
+        "realized_source": "Daily Treasury Par Yield Curve Rates",
+        "status": "recorded"
       }
     },
     {
@@ -3636,26 +2524,10 @@
           },
           {
             "sheet": "Assumptions",
-            "cell": "D8",
-            "previous": 0.008,
-            "value": 0.015,
-            "source_url": "repo://standards/benchmark_cases/quant-adversarial-capacity.json",
-            "source_as_of": "2024-12-31"
-          },
-          {
-            "sheet": "Assumptions",
             "cell": "D9",
             "previous": 150,
             "value": 250.0,
             "source_url": "repo://22_Quantitative_Systematic/sources/snapshots/quant-sp500-2020-2024-capacity.json",
-            "source_as_of": "2024-12-31"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "D10",
-            "previous": 250,
-            "value": 100.0,
-            "source_url": "repo://standards/benchmark_cases/quant-adversarial-capacity.json",
             "source_as_of": "2024-12-31"
           },
           {
@@ -4139,12 +3011,18 @@
             "source_as_of": "2024-12-31"
           }
         ],
-        "workbook_sha256": "7037e74004d8cea310dd647698918d29e6af4b723a823a5971ac8926372a6d0d",
+        "workbook_sha256": "9095e4eaea8d522a9b5a2f46a533aa3030fc5c81a488a155c754427bd4cfa906",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "max_drawdown_2020_2024",
+        "forecast": -0.2,
+        "realized": -0.339,
+        "realized_source": "S&P 500 via FRED",
+        "status": "recorded"
       }
     },
     {
@@ -4171,38 +3049,6 @@
             "previous": 8,
             "value": 10.0,
             "source_url": "repo://22_Quantitative_Systematic/sources/snapshots/quant-sp500-2019-2023.json",
-            "source_as_of": "2023-12-29"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C8",
-            "previous": 0.002,
-            "value": 0.003,
-            "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
-            "source_as_of": "2023-12-29"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C9",
-            "previous": 50,
-            "value": 60.0,
-            "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
-            "source_as_of": "2023-12-29"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C18",
-            "previous": 1,
-            "value": 1,
-            "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
-            "source_as_of": "2023-12-29"
-          },
-          {
-            "sheet": "Assumptions",
-            "cell": "C19",
-            "previous": 1,
-            "value": 1,
-            "source_url": "repo://standards/benchmark_cases/quant-reference-costed.json",
             "source_as_of": "2023-12-29"
           },
           {
@@ -4686,12 +3532,18 @@
             "source_as_of": "2023-12-29"
           }
         ],
-        "workbook_sha256": "e29e77ba97b34d02e7270474cad005b744d1b27dd912ec9d93b4807f5e850726",
+        "workbook_sha256": "495804df9e9f7e787fbb8a0ecea805e5effb22f189f32b4073570a47afe58a26",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "hash_refreshed_on": "2026-08-04",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "2024_net_return",
+        "forecast": 0.1,
+        "realized": 0.234,
+        "realized_source": "S&P 500 via FRED",
+        "status": "recorded"
       }
     },
     {
@@ -4713,134 +3565,6 @@
         "output": "23_Fintech_Payments/instances/public_fis_worldpay_2023_stress.xlsx",
         "applied_inputs": [
           {
-            "sheet": "Unit Economics",
-            "cell": "C5",
-            "previous": 0,
-            "value": 1000.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-adversarial-fraud-run.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Unit Economics",
-            "cell": "C6",
-            "previous": 0.025,
-            "value": 0.015,
-            "source_url": "repo://standards/benchmark_cases/fintech-adversarial-fraud-run.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Unit Economics",
-            "cell": "C7",
-            "previous": 0.015,
-            "value": 0.01,
-            "source_url": "repo://standards/benchmark_cases/fintech-adversarial-fraud-run.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Unit Economics",
-            "cell": "C8",
-            "previous": 0,
-            "value": 8.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-adversarial-fraud-run.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Unit Economics",
-            "cell": "C9",
-            "previous": 0,
-            "value": 6.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-adversarial-fraud-run.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Unit Economics",
-            "cell": "C10",
-            "previous": 0.6,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-adversarial-fraud-run.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Unit Economics",
-            "cell": "C11",
-            "previous": 0.03,
-            "value": 20.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-adversarial-fraud-run.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Unit Economics",
-            "cell": "C12",
-            "previous": null,
-            "value": 3.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-adversarial-fraud-run.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Unit Economics",
-            "cell": "C13",
-            "previous": null,
-            "value": 0.2,
-            "source_url": "repo://standards/benchmark_cases/fintech-adversarial-fraud-run.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fraud & Risk",
-            "cell": "C5",
-            "previous": 0,
-            "value": 1000.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-adversarial-fraud-run.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fraud & Risk",
-            "cell": "C6",
-            "previous": 8,
-            "value": 200.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-adversarial-fraud-run.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fraud & Risk",
-            "cell": "C7",
-            "previous": 0,
-            "value": 100.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-adversarial-fraud-run.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fraud & Risk",
-            "cell": "C8",
-            "previous": 25,
-            "value": 50.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-adversarial-fraud-run.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fraud & Risk",
-            "cell": "C9",
-            "previous": 0,
-            "value": 8.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-adversarial-fraud-run.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Fraud & Risk",
-            "cell": "C10",
-            "previous": 50,
-            "value": 50.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-adversarial-fraud-run.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
-            "sheet": "Network & Cohorts",
-            "cell": "C3",
-            "previous": "Base",
-            "value": "Downside",
-            "source_url": "repo://standards/benchmark_cases/fintech-adversarial-fraud-run.json",
-            "source_as_of": "2023-12-31"
-          },
-          {
             "sheet": "Capital & Liquidity",
             "cell": "D5",
             "previous": 5,
@@ -4857,12 +3581,18 @@
             "source_as_of": "2023-12-31"
           }
         ],
-        "workbook_sha256": "86df46a9505195b0d8a8fd94e612252e2056ba6299887ff183cf5d0bd9c9a70f",
+        "workbook_sha256": "dc0783caa7ef587006b0c346bf930383d3ce8759b511f9eb90c3796a4026618d",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "worldpay_sale_closed_within_12_months",
+        "forecast": 1.0,
+        "realized": 1.0,
+        "realized_source": "FIS Worldpay sale closed January 31, 2024",
+        "status": "recorded"
       }
     },
     {
@@ -4892,126 +3622,6 @@
             "source_as_of": "2023-09-30"
           },
           {
-            "sheet": "Unit Economics",
-            "cell": "C6",
-            "previous": 0.025,
-            "value": 0.025,
-            "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-            "source_as_of": "2023-09-30"
-          },
-          {
-            "sheet": "Unit Economics",
-            "cell": "C7",
-            "previous": 0.015,
-            "value": 0.008,
-            "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-            "source_as_of": "2023-09-30"
-          },
-          {
-            "sheet": "Unit Economics",
-            "cell": "C8",
-            "previous": 0,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-            "source_as_of": "2023-09-30"
-          },
-          {
-            "sheet": "Unit Economics",
-            "cell": "C9",
-            "previous": 0,
-            "value": 2.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-            "source_as_of": "2023-09-30"
-          },
-          {
-            "sheet": "Unit Economics",
-            "cell": "C10",
-            "previous": 0.6,
-            "value": 20.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-            "source_as_of": "2023-09-30"
-          },
-          {
-            "sheet": "Unit Economics",
-            "cell": "C11",
-            "previous": 0.03,
-            "value": 30.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-            "source_as_of": "2023-09-30"
-          },
-          {
-            "sheet": "Unit Economics",
-            "cell": "C12",
-            "previous": null,
-            "value": 8.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-            "source_as_of": "2023-09-30"
-          },
-          {
-            "sheet": "Unit Economics",
-            "cell": "C13",
-            "previous": null,
-            "value": 0.6,
-            "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-            "source_as_of": "2023-09-30"
-          },
-          {
-            "sheet": "Fraud & Risk",
-            "cell": "C5",
-            "previous": 0,
-            "value": 1000.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-            "source_as_of": "2023-09-30"
-          },
-          {
-            "sheet": "Fraud & Risk",
-            "cell": "C6",
-            "previous": 8,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-            "source_as_of": "2023-09-30"
-          },
-          {
-            "sheet": "Fraud & Risk",
-            "cell": "C7",
-            "previous": 0,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-            "source_as_of": "2023-09-30"
-          },
-          {
-            "sheet": "Fraud & Risk",
-            "cell": "C8",
-            "previous": 25,
-            "value": 2.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-            "source_as_of": "2023-09-30"
-          },
-          {
-            "sheet": "Fraud & Risk",
-            "cell": "C9",
-            "previous": 0,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-            "source_as_of": "2023-09-30"
-          },
-          {
-            "sheet": "Fraud & Risk",
-            "cell": "C10",
-            "previous": 50,
-            "value": 50.0,
-            "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-            "source_as_of": "2023-09-30"
-          },
-          {
-            "sheet": "Network & Cohorts",
-            "cell": "C3",
-            "previous": "Base",
-            "value": "Base",
-            "source_url": "repo://standards/benchmark_cases/fintech-reference-payments.json",
-            "source_as_of": "2023-09-30"
-          },
-          {
             "sheet": "Network & Cohorts",
             "cell": "C5",
             "previous": 100000,
@@ -5036,12 +3646,18 @@
             "source_as_of": "2023-09-30"
           }
         ],
-        "workbook_sha256": "6c16ac805f941f55aa803a9d1b282ada6f3db954331ee69954910fa5d087dad3",
+        "workbook_sha256": "dfb3da2e07ff27b7545f1df6066ff242b137d62d06bd72353ee030d8815e5f64",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "next_year_payments_and_cash_volume_usd_bn",
+        "forecast": 16000.0,
+        "realized": 16000.0,
+        "realized_source": "Visa 2024 Form 10-K",
+        "status": "recorded"
       }
     },
     {
@@ -5063,659 +3679,11 @@
         "output": "24_Distressed_Restructuring/instances/public_bbby_2022_liquidity.xlsx",
         "applied_inputs": [
           {
-            "sheet": "Recovery Waterfall",
-            "cell": "C5",
-            "previous": 0,
-            "value": 15.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "Recovery Waterfall",
-            "cell": "C6",
-            "previous": 0,
-            "value": 80.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "Recovery Waterfall",
-            "cell": "C7",
-            "previous": 0,
-            "value": 20.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "Recovery Waterfall",
-            "cell": "C8",
-            "previous": 0,
-            "value": 50.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "Recovery Waterfall",
-            "cell": "C9",
-            "previous": 0,
-            "value": 20.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "Recovery Waterfall",
-            "cell": "C10",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "Recovery Waterfall",
-            "cell": "C12",
-            "previous": 0,
-            "value": 100.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "Liquidation vs Reorg",
-            "cell": "C5",
-            "previous": 0,
-            "value": 140.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "Liquidation vs Reorg",
-            "cell": "D5",
-            "previous": 0,
-            "value": 110.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "Liquidation vs Reorg",
-            "cell": "C6",
-            "previous": 0,
-            "value": 20.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "Liquidation vs Reorg",
-            "cell": "C7",
-            "previous": 0,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "Liquidation vs Reorg",
-            "cell": "D7",
-            "previous": 0,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "Liquidation vs Reorg",
-            "cell": "C8",
-            "previous": 6,
-            "value": 6.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "Liquidation vs Reorg",
-            "cell": "D8",
-            "previous": 18,
-            "value": 24.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "Liquidation vs Reorg",
-            "cell": "C9",
-            "previous": 0.15,
-            "value": 0.2,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
             "sheet": "13-Week Liquidity",
             "cell": "C3",
             "previous": 20,
             "value": 166.7,
             "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "C4",
-            "previous": 5,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "D7",
-            "previous": 8,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "E7",
-            "previous": 7,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "F7",
-            "previous": 0.75,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "G7",
-            "previous": 0.5,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "H7",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "D8",
-            "previous": 8,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "E8",
-            "previous": 7,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "F8",
-            "previous": 0.75,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "G8",
-            "previous": 0.5,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "H8",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "D9",
-            "previous": 8,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "E9",
-            "previous": 7,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "F9",
-            "previous": 0.75,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "G9",
-            "previous": 0.5,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "H9",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "D10",
-            "previous": 8,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "E10",
-            "previous": 7,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "F10",
-            "previous": 0.75,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "G10",
-            "previous": 0.5,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "H10",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "D11",
-            "previous": 8,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "E11",
-            "previous": 7,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "F11",
-            "previous": 0.75,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "G11",
-            "previous": 0.5,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "H11",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "D12",
-            "previous": 8,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "E12",
-            "previous": 7,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "F12",
-            "previous": 0.75,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "G12",
-            "previous": 0.5,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "H12",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "D13",
-            "previous": 8,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "E13",
-            "previous": 7,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "F13",
-            "previous": 0.75,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "G13",
-            "previous": 0.5,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "H13",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "D14",
-            "previous": 8,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "E14",
-            "previous": 7,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "F14",
-            "previous": 0.75,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "G14",
-            "previous": 0.5,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "H14",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "D15",
-            "previous": 8,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "E15",
-            "previous": 7,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "F15",
-            "previous": 0.75,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "G15",
-            "previous": 0.5,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "H15",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "D16",
-            "previous": 8,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "E16",
-            "previous": 7,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "F16",
-            "previous": 0.75,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "G16",
-            "previous": 0.5,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "H16",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "D17",
-            "previous": 8,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "E17",
-            "previous": 7,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "F17",
-            "previous": 0.75,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "G17",
-            "previous": 0.5,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "H17",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "D18",
-            "previous": 8,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "E18",
-            "previous": 7,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "F18",
-            "previous": 0.75,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "G18",
-            "previous": 0.5,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "H18",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "D19",
-            "previous": 8,
-            "value": 4.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "E19",
-            "previous": 7,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "F19",
-            "previous": 0.75,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "G19",
-            "previous": 0.5,
-            "value": 0.75,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "H19",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
             "source_as_of": "2022-08-27"
           },
           {
@@ -5725,54 +3693,20 @@
             "value": 690.0,
             "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
             "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "New Money",
-            "cell": "C7",
-            "previous": 0.02,
-            "value": 0.05,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "New Money",
-            "cell": "C8",
-            "previous": 0.12,
-            "value": 0.18,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "New Money",
-            "cell": "C9",
-            "previous": 1,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "New Money",
-            "cell": "C10",
-            "previous": 0.03,
-            "value": 0.1,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
-          },
-          {
-            "sheet": "New Money",
-            "cell": "C11",
-            "previous": 1,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-adversarial-cramdown.json",
-            "source_as_of": "2022-08-27"
           }
         ],
-        "workbook_sha256": "630f60f4cca5f4acba5bb00dc1e6277438c9f67dd4f6983a4f521d98797bb699",
+        "workbook_sha256": "4a45a139c5d143844c1fada1d11bd26d977de29e11f6287e7d4a95e4f475e87c",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "chapter_11_filing_within_12_months",
+        "forecast": 1.0,
+        "realized": 1.0,
+        "realized_source": "Bed Bath & Beyond Chapter 11 filing, April 23, 2023",
+        "status": "recorded"
       }
     },
     {
@@ -5794,196 +3728,26 @@
         "output": "24_Distressed_Restructuring/instances/public_hertz_2021_reorganization.xlsx",
         "applied_inputs": [
           {
-            "sheet": "Recovery Waterfall",
-            "cell": "C5",
-            "previous": 0,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "Recovery Waterfall",
-            "cell": "C6",
-            "previous": 0,
-            "value": 80.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "Recovery Waterfall",
-            "cell": "C7",
-            "previous": 0,
-            "value": 20.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "Recovery Waterfall",
-            "cell": "C8",
-            "previous": 0,
-            "value": 60.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "Recovery Waterfall",
-            "cell": "C9",
-            "previous": 0,
-            "value": 20.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "Recovery Waterfall",
-            "cell": "C10",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "Recovery Waterfall",
-            "cell": "C12",
-            "previous": 0,
-            "value": 200.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "Liquidation vs Reorg",
-            "cell": "C5",
-            "previous": 0,
-            "value": 180.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "Liquidation vs Reorg",
-            "cell": "D5",
-            "previous": 0,
-            "value": 220.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "Liquidation vs Reorg",
-            "cell": "C6",
-            "previous": 0,
-            "value": 30.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "Liquidation vs Reorg",
-            "cell": "C7",
-            "previous": 0,
-            "value": 10.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "Liquidation vs Reorg",
-            "cell": "D7",
-            "previous": 0,
-            "value": 15.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "Liquidation vs Reorg",
-            "cell": "C8",
-            "previous": 6,
-            "value": 6.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "Liquidation vs Reorg",
-            "cell": "D8",
-            "previous": 18,
-            "value": 18.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "Liquidation vs Reorg",
-            "cell": "C9",
-            "previous": 0.15,
-            "value": 0.15,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "C3",
-            "previous": 20,
-            "value": 20.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "13-Week Liquidity",
-            "cell": "C4",
-            "previous": 5,
-            "value": 5.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
             "sheet": "New Money",
             "cell": "C5",
             "previous": 25,
             "value": 7500.0,
             "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785322000012/htz-20211231.htm",
             "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "New Money",
-            "cell": "C7",
-            "previous": 0.02,
-            "value": 0.02,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "New Money",
-            "cell": "C8",
-            "previous": 0.12,
-            "value": 0.12,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "New Money",
-            "cell": "C9",
-            "previous": 1,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "New Money",
-            "cell": "C10",
-            "previous": 0.03,
-            "value": 0.03,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
-          },
-          {
-            "sheet": "New Money",
-            "cell": "C11",
-            "previous": 1,
-            "value": 1.0,
-            "source_url": "repo://standards/benchmark_cases/distressed-reference-reorganization.json",
-            "source_as_of": "2021-06-30"
           }
         ],
-        "workbook_sha256": "81e0beb87230cc9bef4de33fe077496fc47c537102b054b8f281b362667f8ceb",
+        "workbook_sha256": "95e4bd507332a754804aa241ffe8b9d7cccfb4286ebb3b9565b5046e4fd0a6e6",
         "generated_on": "2026-08-04",
         "refresh_schema": "source-addressed-v2",
-        "recalculated_on": "2026-08-04",
-        "recalculation_engine": "LibreOffice Calc",
+        "classification": "external_historical_case",
         "counts_toward_M4": false
+      },
+      "outcome": {
+        "metric": "chapter_11_emergence_completed",
+        "forecast": 1.0,
+        "realized": 1.0,
+        "realized_source": "Hertz 2021 Form 10-K",
+        "status": "recorded"
       }
     }
   ]

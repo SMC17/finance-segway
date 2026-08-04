@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "model_id": "01",
+  "domain": "Investment Banking",
+  "case_id": "ib-public-hp-autonomy-2012-stress",
+  "case_type": "adversarial",
+  "as_of": "2012-10-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Hewlett-Packard 2012 Form 10-K Autonomy impairment",
+      "url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
+      "publisher": "U.S. SEC / Hewlett-Packard",
+      "captured_values": {
+        "autonomy_purchase_price_usd_mm": 11100.0,
+        "autonomy_impairment_usd_mm": 8800.0,
+        "residual_value_after_impairment_usd_mm": 2300.0
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D5",
+      "value": 11100.0,
+      "kind": "observed",
+      "source": "Hewlett-Packard 2012 Form 10-K Autonomy impairment"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D8",
+      "value": 1.0,
+      "kind": "modeler_assumption",
+      "source": "Transaction normalization to one unit"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D9",
+      "value": 11100.0,
+      "kind": "derived",
+      "source": "Hewlett-Packard 2012 Form 10-K Autonomy impairment"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D16",
+      "value": 2300.0,
+      "kind": "derived",
+      "source": "Hewlett-Packard 2012 Form 10-K Autonomy impairment"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "impairment_usd_mm",
+    "forecast": 0.0,
+    "realized": 8800.0,
+    "realized_source": "Hewlett-Packard 2012 Form 10-K Autonomy impairment",
+    "status": "recorded"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "0699ecbd28057d77e798a13005680ae41339f3b6218704c75b49670f852063fb"
+}

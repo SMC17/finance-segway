@@ -12,102 +12,6 @@
   },
   "inputs": [
     {
-      "sheet": "Property Pro Forma",
-      "cell": "C5",
-      "value": 20.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Property Pro Forma",
-      "cell": "C6",
-      "value": 1.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Property Pro Forma",
-      "cell": "C8",
-      "value": 1.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Property Pro Forma",
-      "cell": "C10",
-      "value": 7.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Property Pro Forma",
-      "cell": "C12",
-      "value": 1.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Cap Rate & Valuation",
-      "cell": "C5",
-      "value": 0.06,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Cap Rate & Valuation",
-      "cell": "C8",
-      "value": 200.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Cap Rate & Valuation",
-      "cell": "C10",
-      "value": 120.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
       "sheet": "REIT FFO-AFFO",
       "cell": "C4",
       "value": 872.309,
@@ -142,114 +46,6 @@
         "as_of": "2023-12-31",
         "notes": "U.S. SEC / Realty Income; frozen curated observation as of case date"
       }
-    },
-    {
-      "sheet": "REIT FFO-AFFO",
-      "cell": "C9",
-      "value": 1.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "REIT FFO-AFFO",
-      "cell": "C10",
-      "value": 0.5,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "REIT FFO-AFFO",
-      "cell": "C13",
-      "value": 10.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Debt Schedule",
-      "cell": "C3",
-      "value": 0.06,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Debt Schedule",
-      "cell": "C4",
-      "value": 25.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Debt Schedule",
-      "cell": "C5",
-      "value": 1.25,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "5-Year Hold & IRR",
-      "cell": "C5",
-      "value": 0.02,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "5-Year Hold & IRR",
-      "cell": "C6",
-      "value": 0.065,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "5-Year Hold & IRR",
-      "cell": "C7",
-      "value": 0.02,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from real-estate-reference-property.json",
-        "url": "repo://standards/benchmark_cases/real-estate-reference-property.json",
-        "as_of": "2023-12-31",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
     }
   ],
   "sources": [
@@ -273,5 +69,16 @@
     "what_changed": "Generated public case real-estate-public-realty-income-2023 from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "next_year_net_income_common_usd_mm",
+    "forecast": 900.0,
+    "realized": 847.893,
+    "realized_source": "Realty Income 2024 public reconciliation",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://17_Real_Estate_REIT/sources/snapshots/real-estate-public-realty-income-2023.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }

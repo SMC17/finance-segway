@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "public-finance-sri-lanka-2023-stress",
+  "as_of": "2023-03-20",
+  "manifest": "standards/public_cases/public-finance-sri-lanka-2023-stress.json",
+  "template": "07_Public_Finance/_template_PUBLIC_FINANCE.xlsx",
+  "output": "07_Public_Finance/instances/public_sri_lanka_2023_stress.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D5",
+      "previous": 1.2,
+      "value": 1.281,
+      "source_url": "https://www.elibrary.imf.org/view/journals/002/2023/116/article-A001-en.xml",
+      "source_as_of": "2023-03-20"
+    },
+    {
+      "sheet": "Revenue Stress",
+      "cell": "D8",
+      "previous": -0.03,
+      "value": -0.038,
+      "source_url": "https://www.elibrary.imf.org/view/journals/002/2023/116/article-A001-en.xml",
+      "source_as_of": "2023-03-20"
+    }
+  ],
+  "workbook_sha256": "3068567fb4218d1dde4d0da0fc831bdb63c03a92add5125ea8c2e069466218fd",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false
+}

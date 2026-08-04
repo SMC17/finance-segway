@@ -8,106 +8,10 @@
   "applied_inputs": [
     {
       "sheet": "Hedging",
-      "cell": "C5",
-      "previous": 0,
-      "value": 1000.0,
-      "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Hedging",
-      "cell": "C6",
-      "previous": 1000,
-      "value": 100.0,
-      "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Hedging",
       "cell": "C7",
       "previous": 0,
       "value": 77.58,
       "source_url": "https://www.eia.gov/dnav/pet/PET_PRI_SPT_S1_A.htm",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Hedging",
-      "cell": "C8",
-      "previous": 0,
-      "value": 82.0,
-      "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Hedging",
-      "cell": "C9",
-      "previous": 1,
-      "value": 0.0,
-      "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Hedging",
-      "cell": "C10",
-      "previous": null,
-      "value": 1.0,
-      "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C7",
-      "previous": 0.04,
-      "value": 0.04,
-      "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C8",
-      "previous": 0.02,
-      "value": 0.02,
-      "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C9",
-      "previous": 0.03,
-      "value": 0.03,
-      "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C10",
-      "previous": 0.5,
-      "value": 0.5,
-      "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C11",
-      "previous": 100,
-      "value": 100.0,
-      "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C12",
-      "previous": 50,
-      "value": 50.0,
-      "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C13",
-      "previous": 20,
-      "value": 20.0,
-      "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
       "source_as_of": "2023-12-31"
     },
     {
@@ -117,44 +21,11 @@
       "value": 34.454,
       "source_url": "https://www.eia.gov/dnav/pet/PET_PRI_SPT_S1_A.htm",
       "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C15",
-      "previous": 30,
-      "value": 30.0,
-      "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C16",
-      "previous": 60,
-      "value": 60.0,
-      "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C17",
-      "previous": 10,
-      "value": 10.0,
-      "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-      "source_as_of": "2023-12-31"
-    },
-    {
-      "sheet": "Physical Balance & Carry",
-      "cell": "C18",
-      "previous": 1.25,
-      "value": 1.25,
-      "source_url": "repo://standards/benchmark_cases/commodities-reference-hedge.json",
-      "source_as_of": "2023-12-31"
     }
   ],
-  "workbook_sha256": "1d2fc4c8d531d8ad08f77040d7276b38c61f61e51a388c805535aece8dfe6e16",
+  "workbook_sha256": "16c1393d578ad66ff0266db38cfacaba07efc41180d668b7d21a73845cdf2f82",
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
-  "recalculated_on": "2026-08-04",
-  "recalculation_engine": "LibreOffice Calc",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }

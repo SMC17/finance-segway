@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "id": "vc-public-instacart-2023-down-round",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "13_Venture_Capital/_template_VC.xlsx",
+  "output": "13_Venture_Capital/instances/public_instacart_2023_down_round.xlsx",
+  "as_of": "2023-09-18",
+  "scenario": "Downside",
+  "cover": {
+    "Subject:": "Instacart 2023 IPO relative to prior private valuation"
+  },
+  "inputs": [
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D5",
+      "value": 39000.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Maplebear 2023 final IPO prospectus",
+        "url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+        "as_of": "2023-09-18",
+        "notes": "U.S. SEC / Maplebear; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D6",
+      "value": 423.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Maplebear 2023 final IPO prospectus",
+        "url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+        "as_of": "2023-09-18",
+        "notes": "U.S. SEC / Maplebear; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D7",
+      "value": 285.9,
+      "input_kind": "derived",
+      "source": {
+        "name": "Maplebear 2023 final IPO prospectus",
+        "url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+        "as_of": "2023-09-18",
+        "notes": "U.S. SEC / Maplebear; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D8",
+      "value": 14.1,
+      "input_kind": "observed",
+      "source": {
+        "name": "Maplebear 2023 final IPO prospectus",
+        "url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+        "as_of": "2023-09-18",
+        "notes": "U.S. SEC / Maplebear; frozen curated observation as of case date"
+      }
+    }
+  ],
+  "outcome": {
+    "metric": "down_round_relative_to_prior_private_valuation",
+    "forecast": 0.0,
+    "realized": 1.0,
+    "realized_source": "Maplebear 2023 final IPO prospectus",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://13_Venture_Capital/sources/snapshots/vc-public-instacart-2023-down-round.json",
+    "synthetic_benchmark_inputs_allowed": false
+  },
+  "sources": [
+    {
+      "name": "Maplebear 2023 final IPO prospectus",
+      "url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+      "as_of": "2023-09-18",
+      "notes": "U.S. SEC / Maplebear; frozen curated observation as of case date"
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://13_Venture_Capital/sources/snapshots/vc-public-instacart-2023-down-round.json",
+      "as_of": "2023-09-18",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "External historical evidence materialization",
+    "source_snapshot": "repo://13_Venture_Capital/sources/snapshots/vc-public-instacart-2023-down-round.json",
+    "what_changed": "Generated public case vc-public-instacart-2023-down-round from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  }
+}

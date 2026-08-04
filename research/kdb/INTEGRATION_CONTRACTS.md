@@ -1,41 +1,35 @@
-# kdb+/q ↔ Finance-Segway Integration Contracts
+# kdb+/q integration contracts
 
-## Contract 1 — Scenario / Regime Export
+## Empirical scenario export
 
-**Direction**: kdb+ → Governance rail  
-**Purpose**: Supply empirical scenario sets and regime statistics that become inputs or stress cases inside governed archetypes.
+Required fields:
 
-Required fields for a compliant export:
+| Field | Requirement |
+|---|---|
+| `as_of_date` | Observation freeze date |
+| `universe` | Unambiguous public universe identifier |
+| `metric` | Versioned metric name |
+| `value` | Empirical value |
+| `methodology` | Code or documented transformation reference |
+| `source_url` | Public or licensed source locator |
+| `source_as_of` | Source publication/observation date |
+| `source_checksum` | SHA-256 of the frozen admissible input |
+| `license_note` | Redistribution and use constraint |
 
-| Field | Type | Notes |
-|-------|------|-------|
-| as_of_date | date | Freeze date of the statistics |
-| universe | symbol | e.g. `sp500_liquid`, `hy_credit` |
-| metric | symbol | e.g. `realized_vol_1y`, `recovery_multiple_p50` |
-| value | float | |
-| methodology | symbol | Short description or code reference |
-| source_checksum | symbol | Optional but preferred |
+Missing provenance is a hard failure. A compliant export must also be recorded
+in the consuming domain's `sources/source_register.csv` and, where permitted,
+under `sources/snapshots/`.
 
-The export must be registered in the consuming domain’s `sources/source_register.csv` and (where redistribution permits) accompanied by a snapshot under `sources/snapshots/`.
+## Outcome monitoring feed
 
-## Contract 2 — Outcome Monitoring Feed
+An outcome record must identify the instrument or deal, prediction date,
+outcome date, predicted metric/value, realized metric/value, residual, source,
+and reviewer note. Records land under the governed domain's `outcomes/` tree;
+the research rail never edits frozen workbooks directly.
 
-**Direction**: kdb+ (or other realized-data store) → Governance rail  
-**Purpose**: Provide realized outcomes that can be compared with prior model predictions for M3/M4 evidence.
+## Prohibitions
 
-Minimum fields:
-
-- instrument / deal identifier
-- prediction_date
-- outcome_date
-- predicted_value / metric
-- realized_value / metric
-- error or residual
-- notes
-
-These records land in the domain’s `outcomes/` tree or are summarized into the model card / validation record.
-
-## Non-goals
-
-- kdb+ will not become the calculation engine for any M-maturity model.
-- Live tick streams will not be written directly into frozen public instances.
+- No generated or synthetic business observations.
+- No silent substitution when a public source is unavailable.
+- No M-maturity claims for the research rail.
+- No direct write from a live stream into a committed public instance.

@@ -24,26 +24,10 @@
     },
     {
       "sheet": "Assumptions",
-      "cell": "C7",
-      "previous": 0.5,
-      "value": 0.5,
-      "source_url": "repo://standards/benchmark_cases/options-reference-atm.json",
-      "source_as_of": "2024-01-02"
-    },
-    {
-      "sheet": "Assumptions",
       "cell": "C10",
       "previous": 0.25,
       "value": 0.132,
       "source_url": "https://fred.stlouisfed.org/series/VIXCLS",
-      "source_as_of": "2024-01-02"
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C11",
-      "previous": 8.25,
-      "value": 8.25,
-      "source_url": "repo://standards/benchmark_cases/options-reference-atm.json",
       "source_as_of": "2024-01-02"
     },
     {
@@ -55,10 +39,9 @@
       "source_as_of": "2024-01-02"
     }
   ],
-  "workbook_sha256": "6f3984d32197e0d6aefcd4dd0cd0adf9125714131ed8ce79807a4c2cc356f33e",
+  "workbook_sha256": "f73428a3a99a2d0bc404baa35a8ad34ba0880461b0c187b375d5d2c3820e306b",
   "generated_on": "2026-08-04",
   "refresh_schema": "source-addressed-v2",
-  "hash_refreshed_on": "2026-08-04",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }

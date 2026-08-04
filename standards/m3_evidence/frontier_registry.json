@@ -19,7 +19,7 @@
       "multi_release_outcome_history",
       "rollback_replacement_retirement_evidence"
     ],
-    "synthetic_cases_count_toward_m4": false
+    "engineering_test_vectors_count_toward_m4": false
   },
   "flagships": [
     {
@@ -64,7 +64,6 @@
         {
           "id": "am-public-blackrock-2023",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/am-reference-fund.json",
           "output": "08_Asset_Management/instances/public_blackrock_2023.xlsx",
           "subject": "BlackRock 2023 AUM rollforward",
           "as_of": "2023-12-31",
@@ -129,7 +128,6 @@
         {
           "id": "am-public-blackrock-2022-stress",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/am-adversarial-liquidity.json",
           "output": "08_Asset_Management/instances/public_blackrock_2022_stress.xlsx",
           "subject": "BlackRock 2022 market and FX AUM contraction",
           "as_of": "2022-12-31",
@@ -246,7 +244,6 @@
         {
           "id": "trade-public-boeing-2019",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/trade-reference-exporter.json",
           "output": "10_Trade_Finance/instances/public_boeing_2019.xlsx",
           "subject": "Boeing 2019 working-capital and inventory case",
           "as_of": "2019-12-31",
@@ -317,7 +314,6 @@
         {
           "id": "trade-public-boeing-2020-stress",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/trade-adversarial-country-shock.json",
           "output": "10_Trade_Finance/instances/public_boeing_2020_stress.xlsx",
           "subject": "Boeing 2020 production and working-capital shock",
           "as_of": "2020-12-31",
@@ -437,7 +433,6 @@
         {
           "id": "microfinance-public-asa-2025",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/microfinance-reference-book.json",
           "output": "11_Microfinance/instances/public_asa_2025.xlsx",
           "subject": "ASA International 2025 portfolio",
           "as_of": "2025-12-31",
@@ -505,7 +500,6 @@
         {
           "id": "microfinance-public-asa-zambia-stress",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/microfinance-adversarial-moratorium.json",
           "output": "11_Microfinance/instances/public_asa_zambia_stress.xlsx",
           "subject": "ASA Zambia elevated PAR portfolio",
           "as_of": "2025-12-31",
@@ -603,7 +597,6 @@
         {
           "id": "equity-public-tesla-2020-offering",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/equity-reference-rights.json",
           "output": "12_Equity_Finance/instances/public_tesla_2020_offering.xlsx",
           "subject": "Tesla February 2020 underwritten primary offering",
           "as_of": "2020-02-14",
@@ -662,7 +655,6 @@
         {
           "id": "equity-public-amc-2020-dilution",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/equity-adversarial-dilution.json",
           "output": "12_Equity_Finance/instances/public_amc_2020_dilution.xlsx",
           "subject": "AMC 2020 emergency equity and debt financing",
           "as_of": "2020-12-31",
@@ -740,7 +732,6 @@
         {
           "id": "commodities-public-wti-2023",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/commodities-reference-hedge.json",
           "output": "15_Commodities/instances/public_wti_2023.xlsx",
           "subject": "WTI 2023 price and Cushing inventory case",
           "as_of": "2023-12-31",
@@ -782,7 +773,6 @@
         {
           "id": "commodities-public-wti-april-2020",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
           "output": "15_Commodities/instances/public_wti_april_2020.xlsx",
           "subject": "April 2020 WTI expiry, demand and storage dislocation",
           "as_of": "2020-04-20",
@@ -889,7 +879,6 @@
         {
           "id": "crypto-public-coinbase-2023",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/crypto-reference-network.json",
           "output": "16_Crypto_Digital_Assets/instances/public_coinbase_2023.xlsx",
           "subject": "Coinbase 2023 custody and staking scale",
           "as_of": "2023-12-31",
@@ -954,7 +943,6 @@
         {
           "id": "crypto-public-coinbase-2022-stress",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/crypto-adversarial-unlock-run.json",
           "output": "16_Crypto_Digital_Assets/instances/public_coinbase_2022_stress.xlsx",
           "subject": "Coinbase 2022 crypto-winter custody contraction",
           "as_of": "2022-12-31",
@@ -1055,7 +1043,6 @@
         {
           "id": "real-estate-public-realty-income-2023",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/real-estate-reference-property.json",
           "output": "17_Real_Estate_REIT/instances/public_realty_income_2023.xlsx",
           "subject": "Realty Income 2023 simplified FFO bridge",
           "as_of": "2023-12-31",
@@ -1106,7 +1093,6 @@
         {
           "id": "real-estate-public-wework-2022-stress",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/real-estate-adversarial-refinancing.json",
           "output": "17_Real_Estate_REIT/instances/public_wework_2022_stress.xlsx",
           "subject": "WeWork 2022 occupancy-economics and refinancing stress proxy",
           "as_of": "2022-12-31",
@@ -1211,7 +1197,6 @@
         {
           "id": "fintech-public-visa-2023",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/fintech-reference-payments.json",
           "output": "23_Fintech_Payments/instances/public_visa_2023.xlsx",
           "subject": "Visa 2023 global network scale",
           "as_of": "2023-09-30",
@@ -1280,7 +1265,6 @@
         {
           "id": "fintech-public-fis-worldpay-2023-stress",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/fintech-adversarial-fraud-run.json",
           "output": "23_Fintech_Payments/instances/public_fis_worldpay_2023_stress.xlsx",
           "subject": "FIS Worldpay impairment, disposal and capital-recovery stress proxy",
           "as_of": "2023-12-31",
@@ -1365,7 +1349,6 @@
         {
           "id": "distressed-public-hertz-2021-reorganization",
           "type": "conventional",
-          "based_on": "standards/benchmark_cases/distressed-reference-reorganization.json",
           "output": "24_Distressed_Restructuring/instances/public_hertz_2021_reorganization.xlsx",
           "subject": "Hertz Chapter 11 emergence financing and recovery",
           "as_of": "2021-06-30",
@@ -1403,7 +1386,6 @@
         {
           "id": "distressed-public-bbby-2022-liquidity",
           "type": "adversarial",
-          "based_on": "standards/benchmark_cases/distressed-adversarial-cramdown.json",
           "output": "24_Distressed_Restructuring/instances/public_bbby_2022_liquidity.xlsx",
           "subject": "Bed Bath & Beyond 2022 liquidity deterioration",
           "as_of": "2022-08-27",

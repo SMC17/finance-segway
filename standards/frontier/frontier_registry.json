@@ -6,7 +6,7 @@
     "declared_maturity": "M2",
     "m3_promoted": 0,
     "m4_promoted": 0,
-    "synthetic_cases_count_toward_m4": false,
+    "engineering_test_vectors_count_toward_m4": false,
     "statement": "Engineering evidence, historical public cases, and cross-domain oracles do not substitute for named stakeholder approval or maintained production history."
   },
   "cohorts": {

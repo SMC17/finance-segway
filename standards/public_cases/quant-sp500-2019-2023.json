@@ -8,7 +8,7 @@
   "as_of": "2023-12-29",
   "scenario": "Base",
   "cover": {
-    "Strategy / universe:": "Monthly S&P 500 public-index research series"
+    "Subject:": "Monthly S&P 500 public-index research series"
   },
   "inputs": [
     {
@@ -21,54 +21,6 @@
         "url": "repo://22_Quantitative_Systematic/sources/snapshots/quant-sp500-2019-2023.json",
         "as_of": "2023-12-29",
         "notes": "Modeler-owned assumption documented in frozen snapshot"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C8",
-      "value": 0.003,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from quant-reference-costed.json",
-        "url": "repo://standards/benchmark_cases/quant-reference-costed.json",
-        "as_of": "2023-12-29",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C9",
-      "value": 60.0,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from quant-reference-costed.json",
-        "url": "repo://standards/benchmark_cases/quant-reference-costed.json",
-        "as_of": "2023-12-29",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C18",
-      "value": 1,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from quant-reference-costed.json",
-        "url": "repo://standards/benchmark_cases/quant-reference-costed.json",
-        "as_of": "2023-12-29",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
-      }
-    },
-    {
-      "sheet": "Assumptions",
-      "cell": "C19",
-      "value": 1,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Retained modeler assumption from quant-reference-costed.json",
-        "url": "repo://standards/benchmark_cases/quant-reference-costed.json",
-        "as_of": "2023-12-29",
-        "notes": "Not an external observation; retained for sensitivity and transaction-structure completeness"
       }
     },
     {
@@ -813,5 +765,16 @@
     "what_changed": "Generated public case quant-sp500-2019-2023 from canonical release template",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
+  },
+  "outcome": {
+    "metric": "2024_net_return",
+    "forecast": 0.1,
+    "realized": 0.234,
+    "realized_source": "S&P 500 via FRED",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://22_Quantitative_Systematic/sources/snapshots/quant-sp500-2019-2023.json",
+    "synthetic_benchmark_inputs_allowed": false
   }
 }
