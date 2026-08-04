@@ -47,7 +47,7 @@ def validate() -> dict[str, Any]:
     inventory_by_id = {item["id"]: item for item in inventory["models"]}
     status = registry.get("status", "planned")
     candidate_active = status in {RELEASE_STAGED, RELEASE_APPLIED}
-    expected_benchmark_count = 2 if status == RELEASE_APPLIED else 0
+    expected_benchmark_count = 2 if candidate_active else 0
     errors: list[str] = []
     warnings: list[str] = []
     results: list[dict[str, Any]] = []
@@ -76,7 +76,7 @@ def validate() -> dict[str, Any]:
             )
     if status == RELEASE_STAGED:
         warnings.append(
-            "Release is staged in a workflow tree; benchmark index finalization is still pending."
+            "Release is staged in a workflow tree with complete benchmark pairs; receipt finalization and commit remain pending."
         )
 
     case_ids: list[str] = []
