@@ -247,25 +247,72 @@ def check_lbo_sources_uses_and_debt_schedule():
 # ---------------------------------------------------------------------
 def check_vc_waterfall_conservation():
     path = os.path.join(REPO_ROOT, "13_Venture_Capital", "_template_VC.xlsx")
+    shares = {"founders": 6_000_000, "pool": 1_000_000, "seed": 1_000_000,
+              "a": 1_500_000, "b": 1_000_000}
+    invested = {"founders": 6_000_000 * 0.0001, "pool": 1_000_000 * 0.0001,
+                "seed": 1_000_000 * 1.00, "a": 1_500_000 * 2.00, "b": 1_000_000 * 5.00}
+    total_shares = sum(shares.values())
+    fd_pct = {k: v / total_shares for k, v in shares.items()}
+    base_proceeds, adv_proceeds = 8_000_000, 50_000_000
 
-    def populate(workbook, total_proceeds):
+    def populate(workbook):
         cap_table = workbook["Cap Table"]
-        cap_table["C5"], cap_table["E5"] = 6_000_000, 0.0001
-        cap_table["C6"], cap_table["E6"] = 1_000_000, 0.0001
-        cap_table["C8"], cap_table["E8"] = 1_000_000, 1.00
-        cap_table["C9"], cap_table["E9"] = 1_500_000, 2.00
-        cap_table["C10"], cap_table["E10"] = 1_000_000, 5.00
-        workbook["Exit Waterfall"]["C15"] = total_proceeds
+        cap_table["C5"], cap_table["E5"] = shares["founders"], 0.0001
+        cap_table["C6"], cap_table["E6"] = shares["pool"], 0.0001
+        cap_table["C8"], cap_table["E8"] = shares["seed"], 1.00
+        cap_table["C9"], cap_table["E9"] = shares["a"], 2.00
+        cap_table["C10"], cap_table["E10"] = shares["b"], 5.00
+        workbook["Exit Waterfall"]["C5"] = base_proceeds
+        workbook["Exit Waterfall"]["D5"] = adv_proceeds
 
-    ok = True
-    details = []
-    for scenario, proceeds in (("preference stack", 8_000_000), ("as converted", 50_000_000)):
-        workbook = with_recalc(path, lambda item, value=proceeds: populate(item, value))
-        distributed = workbook["Exit Waterfall"]["C11"].value
-        scenario_ok = close(distributed, proceeds, tol=1e-6)
-        ok = ok and scenario_ok
-        details.append(f"{scenario}: distributed={distributed}, proceeds={proceeds}")
-    return "VC: exit waterfall conservation", ok, "; ".join(details)
+    workbook = with_recalc(path, populate)
+    ws = workbook["Exit Waterfall"]
+
+    def ref_cascade(total_proceeds):
+        pref = {"b": invested["b"], "a": invested["a"], "seed": invested["seed"]}
+        b = min(total_proceeds, pref["b"])
+        a = min(max(total_proceeds - b, 0), pref["a"])
+        seed = min(max(total_proceeds - b - a, 0), pref["seed"])
+        common = max(0.0, total_proceeds - b - a - seed)
+        pref_stack = {"b": b, "a": a, "seed": seed, "common": common}
+        as_converted = {
+            "b": total_proceeds * fd_pct["b"], "a": total_proceeds * fd_pct["a"],
+            "seed": total_proceeds * fd_pct["seed"],
+            "common": total_proceeds * (fd_pct["founders"] + fd_pct["pool"]),
+        }
+        use_as_converted = total_proceeds > sum(pref.values())
+        return (as_converted if use_as_converted else pref_stack), use_as_converted
+
+    ref_base, base_as_converted = ref_cascade(base_proceeds)
+    ref_adv, adv_as_converted = ref_cascade(adv_proceeds)
+
+    sheet_class_rows = {"b": 20, "a": 21, "seed": 22, "common": 23}
+    mismatches = []
+    for cls, row in sheet_class_rows.items():
+        sheet_base = ws.cell(row=row, column=10).value  # J = Actual: Base
+        sheet_adv = ws.cell(row=row, column=11).value    # K = Actual: Adversarial
+        if not close(sheet_base, ref_base[cls]):
+            mismatches.append(f"{cls} Base: sheet={sheet_base} ref={ref_base[cls]:.2f}")
+        if not close(sheet_adv, ref_adv[cls]):
+            mismatches.append(f"{cls} Adversarial: sheet={sheet_adv} ref={ref_adv[cls]:.2f}")
+
+    total_base = ws.cell(row=26, column=3).value
+    total_adv = ws.cell(row=27, column=3).value
+    ok = (
+        not mismatches
+        and close(total_base, base_proceeds, tol=1e-6)
+        and close(total_adv, adv_proceeds, tol=1e-6)
+        and not base_as_converted   # low exit value: preference stack should bind
+        and adv_as_converted        # high exit value: as-converted should bind
+    )
+    detail = (
+        f"{len(mismatches)} class-payout mismatches"
+        + (f" (first: {mismatches[0]})" if mismatches else "")
+        + f" | Base (pref-stack expected): distributed={total_base}, proceeds={base_proceeds} | "
+        f"Adversarial (as-converted expected): distributed={total_adv}, proceeds={adv_proceeds} | "
+        f"regime Base=as-converted:{base_as_converted} Adv=as-converted:{adv_as_converted}"
+    )
+    return "VC: exit waterfall conservation (full cap-table liquidation preference cascade)", ok, detail
 
 
 # ---------------------------------------------------------------------
