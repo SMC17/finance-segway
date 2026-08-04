@@ -61,19 +61,24 @@ def build(output: Path) -> None:
     build_layout(output)
     workbook = load_workbook(output)
 
-    # Scalarize the liquidity penalty in each stress scenario. SUMPRODUCT with
-    # ABS/MAX over two ranges is not consistently evaluated outside Excel.
+    # Scalarize both parts of each stress scenario. Excel accepts SUMPRODUCT
+    # between a vertical factor vector and a horizontal shock vector, plus a
+    # MAX operation over ranges; LibreOffice treats those shapes as #VALUE.
+    # The expanded terms are financially identical and independently auditable.
     stress = workbook["Stress"]
     liquidity_terms = "+".join(
         f"ABS(Positions!$D${row})*MAX(0,Positions!$M${row}-1)"
         for row in POSITION_ROWS
     )
     for row in range(5, 11):
+        factor_terms = "+".join(
+            f"Factors!$C${factor_row}*{shock_column}{row}"
+            for factor_row, shock_column in zip(FACTOR_ROWS, ("C", "D", "E", "F", "G"))
+        )
         stress.cell(
             row,
             9,
-            f"=SUMPRODUCT(Factors!$C$5:$C$9,C{row}:G{row})-"
-            f"({liquidity_terms})*Assumptions!$E$17*(1-H{row})",
+            f"=({factor_terms})-({liquidity_terms})*Assumptions!$E$17*(1-H{row})",
         )
         stress.cell(row, 9).number_format = CUR
 
