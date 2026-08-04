@@ -1,0 +1,184 @@
+{
+  "schema_version": "1.0",
+  "status": "applied_release_validated",
+  "target_maturity": "M2",
+  "promotion_policy": "A candidate may update the canonical inventory only after independent oracles, conventional and adversarial cases, workbook contracts before and after recalculation, zero cached spreadsheet errors, workbook engineering audit, canonical builder parity, and source-addressed benchmark generation all pass on one immutable head.",
+  "global_gates": [
+    "m1_registry_validation_pass",
+    "independent_oracle_cases_18_of_18_pass",
+    "hardened_workbooks_9_of_9_build",
+    "pre_recalculation_contracts_pass",
+    "libreoffice_cached_errors_zero",
+    "post_recalculation_contracts_pass",
+    "workbook_engineering_errors_zero",
+    "canonical_builder_artifact_parity_pass",
+    "conventional_benchmark_per_model_pass",
+    "adversarial_benchmark_per_model_pass"
+  ],
+  "candidates": [
+    {
+      "model_id": "08",
+      "domain": "Asset Management",
+      "candidate_builder": "tools/builders/build_asset_management_release.py",
+      "required_new_sheets": [
+        "Return Measurement",
+        "Exposure & Liquidity",
+        "Decision & Checks"
+      ],
+      "reference_checks": [
+        "nav_rollforward",
+        "tvpi_identity",
+        "waterfall_conservation",
+        "carry_rate_bounds",
+        "liquidity_coverage"
+      ]
+    },
+    {
+      "model_id": "10",
+      "domain": "Trade Finance",
+      "candidate_builder": "tools/builders/build_trade_finance_release.py",
+      "required_new_sheets": [
+        "Credit & Facility",
+        "Documentary Controls",
+        "Decision & Checks"
+      ],
+      "reference_checks": [
+        "cash_conversion_cycle",
+        "expected_loss_identity",
+        "facility_utilization",
+        "lc_annualized_cost",
+        "factoring_effective_apr"
+      ]
+    },
+    {
+      "model_id": "11",
+      "domain": "Microfinance",
+      "candidate_builder": "tools/builders/build_microfinance_release.py",
+      "required_new_sheets": [
+        "Portfolio Rollforward",
+        "Funding & Liquidity",
+        "Client & Conduct",
+        "Decision & Checks"
+      ],
+      "reference_checks": [
+        "portfolio_rollforward",
+        "par30_90_order",
+        "reserve_adequacy",
+        "oss",
+        "fss",
+        "funding_gap"
+      ]
+    },
+    {
+      "model_id": "12",
+      "domain": "Equity Finance",
+      "candidate_builder": "tools/builders/build_equity_finance_release.py",
+      "required_new_sheets": [
+        "Cap Table & Dilution",
+        "Rights Offering",
+        "Convertible Securities",
+        "Decision & Checks"
+      ],
+      "reference_checks": [
+        "share_conservation",
+        "ownership_dilution_identity",
+        "theoretical_ex_rights_price",
+        "converted_share_reconciliation"
+      ]
+    },
+    {
+      "model_id": "15",
+      "domain": "Commodities",
+      "candidate_builder": "tools/builders/build_commodities_release.py",
+      "required_new_sheets": [
+        "Physical Balance & Carry",
+        "Decision & Checks"
+      ],
+      "reference_checks": [
+        "cost_of_carry_identity",
+        "physical_balance",
+        "basis",
+        "roll_yield",
+        "hedge_ratio"
+      ]
+    },
+    {
+      "model_id": "16",
+      "domain": "Crypto & Digital Assets",
+      "candidate_builder": "tools/builders/build_crypto_release.py",
+      "required_new_sheets": [
+        "Supply Rollforward & Unlocks",
+        "Treasury & Runway",
+        "Custody & Liquidity",
+        "Decision & Checks"
+      ],
+      "reference_checks": [
+        "supply_conservation",
+        "locked_supply_bound",
+        "unlock_rate",
+        "staking_dilution",
+        "treasury_runway",
+        "liquidity_coverage"
+      ]
+    },
+    {
+      "model_id": "17",
+      "domain": "Real Estate & REIT",
+      "candidate_builder": "tools/builders/build_real_estate_release.py",
+      "required_new_sheets": [
+        "Lease Roll",
+        "Debt Schedule",
+        "Decision & Checks"
+      ],
+      "reference_checks": [
+        "noi_identity",
+        "dscr",
+        "ltv",
+        "ffo_bridge",
+        "affo_bridge",
+        "lease_rollover"
+      ]
+    },
+    {
+      "model_id": "23",
+      "domain": "Fintech & Payments",
+      "candidate_builder": "tools/builders/build_fintech_release.py",
+      "required_new_sheets": [
+        "Network & Cohorts",
+        "Capital & Liquidity",
+        "Operational Controls",
+        "Decision & Checks"
+      ],
+      "reference_checks": [
+        "volume_take_rate_identity",
+        "cohort_rollforward",
+        "ltv_cac",
+        "fraud_loss_identity",
+        "capital_coverage",
+        "liquidity_coverage"
+      ]
+    },
+    {
+      "model_id": "24",
+      "domain": "Distressed & Restructuring",
+      "candidate_builder": "tools/builders/build_restructuring_release.py",
+      "required_new_sheets": [
+        "13-Week Liquidity",
+        "New Money",
+        "Decision & Checks"
+      ],
+      "reference_checks": [
+        "thirteen_week_liquidity",
+        "waterfall_conservation",
+        "priority_order",
+        "recovery_bounds",
+        "fulcrum_security",
+        "liquidation_reorganization_uplift"
+      ]
+    }
+  ],
+  "prepared_from_head": "c8bf15ede3713cf2714f9e77b7e57950a8bdcfc9",
+  "prepared_on": "2026-08-04",
+  "validated_on": "2026-08-04",
+  "validated_source_head": "c8bf15ede3713cf2714f9e77b7e57950a8bdcfc9"
+}
