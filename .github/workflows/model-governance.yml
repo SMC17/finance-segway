@@ -25,24 +25,38 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Compile governance sources
+      - name: Compile governance and reconciliation sources
         run: |
           python -m py_compile tools/validate_model_inventory.py
           python -m py_compile tools/reference_engines.py
           python -m py_compile tools/test_reference_engines.py
           python -m py_compile tools/scaffold_model_evidence.py
+          python -m py_compile tools/reconciled_reference_engines.py
+          python -m py_compile tools/test_reconciled_reference_engines.py
+          python -m py_compile tools/validate_reconciled_models.py
+          python -m py_compile tools/builders/institutional_helpers.py
+          python -m py_compile tools/builders/build_private_credit_template.py
+          python -m py_compile tools/builders/build_debt_finance_template.py
+          python -m py_compile tools/builders/build_public_finance_template.py
 
       - name: Test independent reference engines
-        run: python tools/test_reference_engines.py
+        run: |
+          python tools/test_reference_engines.py
+          PYTHONPATH=tools python tools/test_reconciled_reference_engines.py
+
+      - name: Validate reconciled builder outputs
+        run: python tools/validate_reconciled_models.py --report reconciled-model-report.json
 
       - name: Validate model inventory and maturity claims
         run: python tools/validate_model_inventory.py --report model-governance-report.json
 
-      - name: Upload governance report
+      - name: Upload governance reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: model-governance-report
-          path: model-governance-report.json
+          path: |
+            model-governance-report.json
+            reconciled-model-report.json
           if-no-files-found: warn
           retention-days: 30
