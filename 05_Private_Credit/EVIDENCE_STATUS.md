@@ -2,38 +2,33 @@
 
 **Declared maturity**: M2  
 **Target**: M3 then M4  
-**Service priority**: P0 (near-term revenue path)
+**Service priority**: P0
 
 ## Present
 
-- [x] Canonical template + builder
-- [x] Model card (`model_card.md`)
-- [x] Validation record (`validation.md`)
-- [x] Governance / releases / sources / outcomes folders
-- [x] Domain engines listed (CFADS, covenants, yield/OID, recovery/LGD, downside)
+- [x] Canonical template + builder (`build_private_credit_release.py`)
+- [x] Model card + validation
+- [x] Domain source register with Ares + Yellow public citations
+- [x] **Real reference instance path**: `instances/public_ares_capital_2024/`
+- [x] L3 tool wired to builder: `tools/agents/private_credit_underwrite.py`
+- [x] EDGAR companyfacts extract for ARCC attached as provenance
 
 ## Gaps to M3
 
-- [ ] At least one **real** reference instance (public BDC holding, public credit agreement proxy, or fully sourced public borrower case)
-- [ ] At least one **adversarial** real or public-derived instance
-- [ ] Source register fully populated for material inputs (no live URL without as-of)
-- [ ] Checks sheet green on instances after LibreOffice recalc
-- [ ] Stakeholder sign-off recorded (currently PENDING in model card)
+- [ ] Populate CFADS / pricing from portfolio or borrower-level public data (placeholders force REVIEW)
+- [ ] LibreOffice recalc + Checks **PASS** on `public_ares_capital_2024`
+- [ ] Adversarial real instance fully built (Yellow stress is cited in domain register — promote to instance folder)
+- [ ] Stakeholder sign-off (currently PENDING in model card)
 
 ## Gaps to M4
 
-- [ ] Three material RefreshLog entries
-- [ ] One outcome comparison (e.g. predicted DSCR/recovery vs realized)
+- [ ] Three material RefreshLog entries on a maintained instance
+- [ ] One outcome comparison
 - [ ] Dated release with reproducible builder hash
 
-## Agent tool
+## Commands
 
-Thin stub: `tools/agents/private_credit_underwrite.py`  
-Contract: `docs/AGENT_TOOL_CONTRACT.md`
-
-## Next concrete actions
-
-1. Select one public credit name or BDC portfolio company with redistributable facts.
-2. Populate `instances/<slug>/` with workbook + source_register + snapshots.
-3. Run Checks; fix until PASS.
-4. Record first RefreshLog entry.
+```bash
+python tools/data_fabric/edgar_company_facts.py --ticker ARCC --cik 1287750
+python tools/agents/private_credit_underwrite.py --use-ares-fixture
+```
