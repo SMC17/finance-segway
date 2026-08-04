@@ -39,3 +39,37 @@ def normalize_hardened_formulas(workbook) -> None:
             )
         checks["C6"] = "=MIN(" + ",".join(pairs) + ")"
         checks["D6"] = '=IF(C6>=-0.000001,"PASS","FAIL")'
+
+    if {"Decision & Checks", "Fund Performance"}.issubset(workbook.sheetnames):
+        checks = workbook["Decision & Checks"]
+        numeric_test = (
+            "AND(ISNUMBER('Fund Performance'!C18),"
+            "ISNUMBER('Fund Performance'!C16),"
+            "ISNUMBER('Fund Performance'!C17))"
+        )
+        checks["C6"] = (
+            f"=IF({numeric_test},'Fund Performance'!C18-"
+            "'Fund Performance'!C16-'Fund Performance'!C17,0)"
+        )
+        checks["D6"] = (
+            f'=IF({numeric_test},IF(ABS(C6)<0.000001,"PASS","FAIL"),"REVIEW")'
+        )
+
+    if {"Decision & Checks", "Working Capital Cycle"}.issubset(
+        workbook.sheetnames
+    ):
+        checks = workbook["Decision & Checks"]
+        numeric_test = (
+            "AND(ISNUMBER('Working Capital Cycle'!C15),"
+            "ISNUMBER('Working Capital Cycle'!C12),"
+            "ISNUMBER('Working Capital Cycle'!C13),"
+            "ISNUMBER('Working Capital Cycle'!C14))"
+        )
+        checks["C5"] = (
+            f"=IF({numeric_test},'Working Capital Cycle'!C15-("
+            "'Working Capital Cycle'!C12+'Working Capital Cycle'!C13-"
+            "'Working Capital Cycle'!C14),0)"
+        )
+        checks["D5"] = (
+            f'=IF({numeric_test},IF(ABS(C5)<0.000001,"PASS","FAIL"),"REVIEW")'
+        )
