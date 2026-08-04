@@ -1,0 +1,340 @@
+name: Committed M2 Release Validation
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/m2-committed-state.yml"
+      - "standards/domain_hardening/M2_RELEASE_STATUS.json"
+      - "standards/domain_hardening/m2_promotion_candidates.json"
+      - "standards/domain_hardening/m1_registry.json"
+      - "standards/model_inventory.json"
+      - "standards/benchmark_cases/**"
+      - "tools/release_m1_domain_promotions.py"
+      - "tools/apply_m1_promotion_surfaces.py"
+      - "tools/validate_hardened_workbooks.py"
+      - "tools/builders/build_*_release.py"
+      - "08_Asset_Management/**"
+      - "10_Trade_Finance/**"
+      - "11_Microfinance/**"
+      - "12_Equity_Finance/**"
+      - "15_Commodities/**"
+      - "16_Crypto_Digital_Assets/**"
+      - "17_Real_Estate_REIT/**"
+      - "23_Fintech_Payments/**"
+      - "24_Distressed_Restructuring/**"
+  push:
+    branches:
+      - main
+      - agent/harden-m1-domain-engines
+    paths:
+      - ".github/workflows/m2-committed-state.yml"
+      - "standards/domain_hardening/M2_RELEASE_STATUS.json"
+      - "standards/domain_hardening/m2_promotion_candidates.json"
+      - "standards/domain_hardening/m1_registry.json"
+      - "standards/model_inventory.json"
+      - "standards/benchmark_cases/**"
+      - "tools/release_m1_domain_promotions.py"
+      - "tools/apply_m1_promotion_surfaces.py"
+      - "tools/validate_hardened_workbooks.py"
+      - "tools/builders/build_*_release.py"
+      - "08_Asset_Management/**"
+      - "10_Trade_Finance/**"
+      - "11_Microfinance/**"
+      - "12_Equity_Finance/**"
+      - "15_Commodities/**"
+      - "16_Crypto_Digital_Assets/**"
+      - "17_Real_Estate_REIT/**"
+      - "23_Fintech_Payments/**"
+      - "24_Distressed_Restructuring/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: committed-m2-release-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  committed-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout committed branch head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install repository dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile and run release source tests
+        run: |
+          python -m compileall -q tools tests
+          PYTHONPATH=. python -m unittest tests.test_domain_hardening -v
+          PYTHONPATH=. python -m unittest tests.test_hardened_workbooks -v
+          PYTHONPATH=. python -m unittest tests.test_m1_promotion_release -v
+          PYTHONPATH=. python -m unittest tests.test_m1_promotion_surfaces -v
+
+      - name: Verify committed release ancestry
+        run: |
+          RELEASE_COMMIT=$(python - <<'PY'
+          import json
+          from pathlib import Path
+          print(json.loads(Path('standards/domain_hardening/M2_RELEASE_STATUS.json').read_text())['release_commit'])
+          PY
+          )
+          git cat-file -e "${RELEASE_COMMIT}^{commit}"
+          git merge-base --is-ancestor "$RELEASE_COMMIT" HEAD
+
+      - name: Validate committed ledgers, hashes, surfaces, and contracts
+        run: |
+          PYTHONPATH=.:tools python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+
+          from tools.institutional_surface import (
+              profiles_by_id,
+              validate_profiles,
+              validate_workbook_surface,
+          )
+          from tools.release_m1_domain_promotions import (
+              BENCHMARK_INDEX_PATH,
+              CANDIDATE_PATH,
+              EXPECTED_IDS,
+              INVENTORY_PATH,
+              case_specs,
+          )
+          from tools.validate_hardened_workbooks import validate_workbook
+          from tools.workbook_engineering import audit_workbook
+
+          root = Path('.').resolve()
+          status_path = Path('standards/domain_hardening/M2_RELEASE_STATUS.json')
+          release_status = json.loads(status_path.read_text(encoding='utf-8'))
+          promotion_report = json.loads(Path('m1-domain-promotion-report.json').read_text(encoding='utf-8'))
+          candidates = json.loads(CANDIDATE_PATH.read_text(encoding='utf-8'))
+          inventory = json.loads(INVENTORY_PATH.read_text(encoding='utf-8'))
+          benchmark_index = json.loads(BENCHMARK_INDEX_PATH.read_text(encoding='utf-8'))
+          registry = json.loads(Path('standards/domain_hardening/m1_registry.json').read_text(encoding='utf-8'))
+          models = {item['id']: item for item in inventory['models']}
+          candidate_by_id = {item['model_id']: item for item in candidates['candidates']}
+          profiles = profiles_by_id(root)
+          errors = list(validate_profiles(root))
+          contracts = []
+          surfaces = []
+          audits = []
+
+          if release_status.get('status') != 'committed_release':
+              errors.append('release status is not committed_release')
+          if set(release_status.get('m2_promoted', [])) != EXPECTED_IDS:
+              errors.append('release-status M2 cohort mismatch')
+          if release_status.get('counts_toward_M4') is not False:
+              errors.append('release status incorrectly counts toward M4')
+          if promotion_report.get('status') != 'PASS':
+              errors.append('promotion report is not PASS')
+          if set(promotion_report.get('m2_promoted', [])) != EXPECTED_IDS:
+              errors.append('promotion-report M2 cohort mismatch')
+          if promotion_report.get('receipt_hashes_current') is not True:
+              errors.append('promotion report does not confirm current receipt hashes')
+          if candidates.get('status') != 'applied_release_validated':
+              errors.append('candidate transaction is not applied_release_validated')
+          if benchmark_index.get('instance_count') != 36:
+              errors.append(f"benchmark index count is {benchmark_index.get('instance_count')}, expected 36")
+          if benchmark_index.get('counts_toward_M4') is not False:
+              errors.append('benchmark index incorrectly counts toward M4')
+
+          registry_ids = {item['model_id'] for item in registry.get('domains', [])}
+          if registry_ids != EXPECTED_IDS:
+              errors.append('primary-reference registry cohort mismatch')
+          for domain in registry.get('domains', []):
+              for reference in domain.get('references', []):
+                  if not reference.get('url', '').startswith('https://'):
+                      errors.append(f"{domain['model_id']}: non-HTTPS primary reference")
+
+          targets = []
+          for model_id in sorted(EXPECTED_IDS):
+              model = models[model_id]
+              candidate = candidate_by_id[model_id]
+              if model.get('declared_maturity') != 'M2':
+                  errors.append(f"{model_id}: committed maturity is not M2")
+              if model.get('builder') != candidate.get('candidate_builder'):
+                  errors.append(f"{model_id}: committed builder mismatch")
+              if model.get('reference_checks') != candidate.get('reference_checks'):
+                  errors.append(f"{model_id}: committed reference-check mismatch")
+              targets.append((model_id, 'canonical', model['workbook']))
+          for spec in case_specs():
+              targets.append((spec['model_id'], spec['id'], spec['output']))
+
+          if len(targets) != 27 or len({path for _, _, path in targets}) != 27:
+              errors.append('committed artifact target set is not 27 unique workbooks')
+
+          indexed_ids = {item.get('instance_id') for item in benchmark_index.get('instances', [])}
+          for spec in case_specs():
+              if spec['id'] not in indexed_ids:
+                  errors.append(f"{spec['id']}: missing from benchmark index")
+              output = Path(spec['output'])
+              receipt_path = output.with_suffix('.receipt.json')
+              manifest_path = Path('standards/benchmark_cases') / f"{spec['id']}.json"
+              for required in (output, receipt_path, manifest_path):
+                  if not required.is_file():
+                      errors.append(f"missing committed promotion artifact: {required}")
+              if output.is_file() and receipt_path.is_file():
+                  receipt = json.loads(receipt_path.read_text(encoding='utf-8'))
+                  digest = hashlib.sha256(output.read_bytes()).hexdigest()
+                  if receipt.get('workbook_sha256') != digest:
+                      errors.append(f"{spec['id']}: stale committed receipt")
+                  if receipt.get('counts_toward_M4') is not False:
+                      errors.append(f"{spec['id']}: receipt incorrectly counts toward M4")
+
+          for model_id, label, path_string in targets:
+              path = Path(path_string)
+              model = models[model_id]
+              contract = validate_workbook(model_id, path)
+              contracts.append({'label': label, **contract})
+              errors.extend(f"{label}: {item}" for item in contract['errors'])
+              surface_errors = validate_workbook_surface(path, model, profiles[model_id])
+              surfaces.append({'label': label, 'path': str(path), 'errors': surface_errors})
+              errors.extend(f"{label}: institutional surface {item}" for item in surface_errors)
+              summary, findings = audit_workbook(path)
+              audit_errors = [item.__dict__ for item in findings if item.severity == 'error']
+              audits.append({'label': label, 'path': str(path), 'summary': summary, 'errors': audit_errors})
+              errors.extend(f"{label}: engineering {item}" for item in audit_errors)
+
+          report = {
+              'schema_version': '1.0',
+              'status': 'PASS' if not errors else 'FAIL',
+              'release_commit': release_status.get('release_commit'),
+              'm2_models': sorted(EXPECTED_IDS),
+              'canonical_templates': 9,
+              'promotion_instances': 18,
+              'benchmark_instances_total': benchmark_index.get('instance_count'),
+              'contracts': contracts,
+              'surfaces': surfaces,
+              'audits': audits,
+              'errors': errors,
+              'counts_toward_M4': False,
+          }
+          Path('m2-committed-ledger-report.json').write_text(
+              json.dumps(report, indent=2), encoding='utf-8'
+          )
+          if errors:
+              raise SystemExit(errors)
+          PY
+
+      - name: Validate full inventory and full-library builder parity
+        run: |
+          PYTHONPATH=.:tools python tools/validate_model_inventory.py \
+            --report m2-committed-inventory-report.json
+          PYTHONPATH=.:tools python tools/build_all_models.py \
+            --report m2-committed-builder-parity-report.json \
+            --require-parity
+
+      - name: Copy committed artifacts for independent recalculation
+        run: |
+          PYTHONPATH=.:tools python - <<'PY'
+          import json
+          import shutil
+          from pathlib import Path
+          from tools.release_m1_domain_promotions import EXPECTED_IDS, INVENTORY_PATH, case_specs
+
+          inventory = json.loads(INVENTORY_PATH.read_text(encoding='utf-8'))
+          models = {item['id']: item for item in inventory['models']}
+          destination = Path('.committed-m2-recalc')
+          if destination.exists():
+              shutil.rmtree(destination)
+          manifest = []
+          for model_id in sorted(EXPECTED_IDS):
+              source = Path(models[model_id]['workbook'])
+              target = destination / model_id / 'canonical' / source.name
+              target.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(source, target)
+              manifest.append({'model_id': model_id, 'label': f'canonical-{model_id}', 'path': str(target)})
+          for spec in case_specs():
+              source = Path(spec['output'])
+              target = destination / spec['model_id'] / spec['id'] / source.name
+              target.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(source, target)
+              manifest.append({'model_id': spec['model_id'], 'label': spec['id'], 'path': str(target)})
+          if len(manifest) != 27:
+              raise SystemExit(f"expected 27 copied artifacts, found {len(manifest)}")
+          Path('m2-committed-recalc-manifest.json').write_text(
+              json.dumps(manifest, indent=2), encoding='utf-8'
+          )
+          PY
+
+      - name: Install LibreOffice
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice-calc
+
+      - name: Recalculate committed copies and reject cached errors
+        run: |
+          PYTHONPATH=.:tools python - <<'PY'
+          import json
+          from pathlib import Path
+          from recalc import recalc
+
+          manifest = json.loads(Path('m2-committed-recalc-manifest.json').read_text(encoding='utf-8'))
+          results = []
+          errors = []
+          for item in manifest:
+              path = Path(item['path'])
+              result = recalc(path, timeout=120)
+              results.append({**item, 'result': result})
+              if result.get('status') != 'success' or result.get('total_errors', 0) != 0:
+                  errors.append(f"{item['label']}: {result}")
+          Path('m2-committed-recalc-report.json').write_text(
+              json.dumps({'status': 'PASS' if not errors else 'FAIL', 'errors': errors, 'results': results}, indent=2),
+              encoding='utf-8',
+          )
+          if errors:
+              raise SystemExit(errors)
+          PY
+
+      - name: Revalidate contracts and engineering after independent recalculation
+        run: |
+          PYTHONPATH=.:tools python - <<'PY'
+          import json
+          from pathlib import Path
+          from tools.validate_hardened_workbooks import validate_workbook
+          from tools.workbook_engineering import audit_workbook
+
+          manifest = json.loads(Path('m2-committed-recalc-manifest.json').read_text(encoding='utf-8'))
+          results = []
+          errors = []
+          for item in manifest:
+              path = Path(item['path'])
+              contract = validate_workbook(item['model_id'], path)
+              summary, findings = audit_workbook(path)
+              audit_errors = [finding.__dict__ for finding in findings if finding.severity == 'error']
+              results.append({**item, 'contract': contract, 'audit_summary': summary, 'audit_errors': audit_errors})
+              errors.extend(f"{item['label']}: {error}" for error in contract['errors'])
+              errors.extend(f"{item['label']}: engineering {error}" for error in audit_errors)
+          Path('m2-committed-post-recalc-report.json').write_text(
+              json.dumps({'status': 'PASS' if not errors else 'FAIL', 'errors': errors, 'results': results}, indent=2),
+              encoding='utf-8',
+          )
+          if errors:
+              raise SystemExit(errors)
+          PY
+
+      - name: Upload committed-state evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: committed-m2-release-${{ github.event_name }}
+          path: |
+            m2-committed-ledger-report.json
+            m2-committed-inventory-report.json
+            m2-committed-builder-parity-report.json
+            m2-committed-recalc-manifest.json
+            m2-committed-recalc-report.json
+            m2-committed-post-recalc-report.json
+          if-no-files-found: warn
+          retention-days: 30

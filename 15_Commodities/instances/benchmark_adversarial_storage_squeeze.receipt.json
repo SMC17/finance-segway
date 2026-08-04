@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "commodities-adversarial-storage-squeeze",
+  "as_of": "2026-08-04",
+  "manifest": "standards/benchmark_cases/commodities-adversarial-storage-squeeze.json",
+  "template": "15_Commodities/_template_COMMODITIES.xlsx",
+  "output": "15_Commodities/instances/benchmark_adversarial_storage_squeeze.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Hedging",
+      "cell": "C5",
+      "previous": 0,
+      "value": 500.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Hedging",
+      "cell": "C6",
+      "previous": 1000,
+      "value": 100.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Hedging",
+      "cell": "C7",
+      "previous": 0,
+      "value": 20.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Hedging",
+      "cell": "C8",
+      "previous": 0,
+      "value": 40.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Hedging",
+      "cell": "C9",
+      "previous": 1,
+      "value": 0.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Hedging",
+      "cell": "C10",
+      "previous": null,
+      "value": 2.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D7",
+      "previous": 0.07,
+      "value": 0.02,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D8",
+      "previous": 0.2,
+      "value": 0.3,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D9",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D10",
+      "previous": 0.25,
+      "value": 0.25,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D11",
+      "previous": 20,
+      "value": 20.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D12",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D13",
+      "previous": 10,
+      "value": 10.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D14",
+      "previous": 25,
+      "value": 25.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D15",
+      "previous": 5,
+      "value": 5.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D16",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D17",
+      "previous": 5,
+      "value": 5.0,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "D18",
+      "previous": 1.1,
+      "value": 1.1,
+      "source_url": "repo://standards/domain_hardening/m1_registry.json",
+      "source_as_of": "2026-08-04"
+    }
+  ],
+  "workbook_sha256": "13d139792db98e7b85928f5a1316fdf937e054b43c18dcd286be5c6b0601b642",
+  "generated_on": "2026-08-04",
+  "refresh_schema": "source-addressed-v2",
+  "model_id": "15",
+  "domain": "Commodities",
+  "case_type": "adversarial",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false
+}

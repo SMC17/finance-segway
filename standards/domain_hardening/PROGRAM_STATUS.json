@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "program": "M1 domain hardening",
+  "base_release": "PR #8 / M3 evidence operations",
+  "domains": ["08", "10", "11", "12", "15", "16", "17", "23", "24"],
+  "promotion_rule": "No M2 promotion without independent reference checks, adversarial tests, decision outputs, and workbook contracts.",
+  "status": "active"
+}

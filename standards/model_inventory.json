@@ -268,9 +268,9 @@
       "folder": "08_Asset_Management",
       "archetype": "AM",
       "workbook": "08_Asset_Management/_template_AM.xlsx",
-      "builder": "tools/builders/build_am_template.py",
+      "builder": "tools/builders/build_asset_management_release.py",
       "horizon": "perpetual",
-      "declared_maturity": "M1",
+      "declared_maturity": "M2",
       "required_engines": [
         "nav",
         "subscriptions_redemptions",
@@ -285,7 +285,13 @@
         "risk",
         "operations"
       ],
-      "reference_checks": [],
+      "reference_checks": [
+        "nav_rollforward",
+        "tvpi_identity",
+        "waterfall_conservation",
+        "carry_rate_bounds",
+        "liquidity_coverage"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -332,9 +338,9 @@
       "folder": "10_Trade_Finance",
       "archetype": "TRADE_FINANCE",
       "workbook": "10_Trade_Finance/_template_TRADE_FINANCE.xlsx",
-      "builder": "tools/builders/build_trade_finance_template.py",
+      "builder": "tools/builders/build_trade_finance_release.py",
       "horizon": "short_term_1y",
-      "declared_maturity": "M1",
+      "declared_maturity": "M2",
       "required_engines": [
         "cash_conversion",
         "facility_utilization",
@@ -349,7 +355,13 @@
         "insurer",
         "dfi"
       ],
-      "reference_checks": [],
+      "reference_checks": [
+        "cash_conversion_cycle",
+        "expected_loss_identity",
+        "facility_utilization",
+        "lc_annualized_cost",
+        "factoring_effective_apr"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -359,9 +371,9 @@
       "folder": "11_Microfinance",
       "archetype": "MICROFINANCE",
       "workbook": "11_Microfinance/_template_MICROFINANCE.xlsx",
-      "builder": "tools/builders/build_microfinance_template.py",
+      "builder": "tools/builders/build_microfinance_release.py",
       "horizon": "corporate_5y",
-      "declared_maturity": "M1",
+      "declared_maturity": "M2",
       "required_engines": [
         "portfolio_rollforward",
         "par30_90",
@@ -376,7 +388,14 @@
         "regulator",
         "dfi"
       ],
-      "reference_checks": [],
+      "reference_checks": [
+        "portfolio_rollforward",
+        "par30_90_order",
+        "reserve_adequacy",
+        "oss",
+        "fss",
+        "funding_gap"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -386,9 +405,9 @@
       "folder": "12_Equity_Finance",
       "archetype": "BASE",
       "workbook": "12_Equity_Finance/_template_BASE.xlsx",
-      "builder": "tools/builders/build_template.py",
+      "builder": "tools/builders/build_equity_finance_release.py",
       "horizon": "corporate_5y",
-      "declared_maturity": "M1",
+      "declared_maturity": "M2",
       "required_engines": [
         "three_statement",
         "cap_table",
@@ -402,7 +421,12 @@
         "shareholder",
         "advisor"
       ],
-      "reference_checks": [],
+      "reference_checks": [
+        "share_conservation",
+        "ownership_dilution_identity",
+        "theoretical_ex_rights_price",
+        "converted_share_reconciliation"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -476,9 +500,9 @@
       "folder": "15_Commodities",
       "archetype": "COMMODITIES",
       "workbook": "15_Commodities/_template_COMMODITIES.xlsx",
-      "builder": "tools/builders/build_commodities_template.py",
+      "builder": "tools/builders/build_commodities_release.py",
       "horizon": "trading_daily",
-      "declared_maturity": "M1",
+      "declared_maturity": "M2",
       "required_engines": [
         "forward_curve",
         "carry_storage",
@@ -494,7 +518,13 @@
         "consumer",
         "risk"
       ],
-      "reference_checks": [],
+      "reference_checks": [
+        "cost_of_carry_identity",
+        "physical_balance",
+        "basis",
+        "roll_yield",
+        "hedge_ratio"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -504,9 +534,9 @@
       "folder": "16_Crypto_Digital_Assets",
       "archetype": "CRYPTO",
       "workbook": "16_Crypto_Digital_Assets/_template_CRYPTO.xlsx",
-      "builder": "tools/builders/build_crypto_template.py",
+      "builder": "tools/builders/build_crypto_release.py",
       "horizon": "perpetual",
-      "declared_maturity": "M1",
+      "declared_maturity": "M2",
       "required_engines": [
         "token_supply",
         "unlock_schedule",
@@ -522,7 +552,14 @@
         "validator",
         "market_maker"
       ],
-      "reference_checks": [],
+      "reference_checks": [
+        "supply_conservation",
+        "locked_supply_bound",
+        "unlock_rate",
+        "staking_dilution",
+        "treasury_runway",
+        "liquidity_coverage"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -532,9 +569,9 @@
       "folder": "17_Real_Estate_REIT",
       "archetype": "REAL_ESTATE",
       "workbook": "17_Real_Estate_REIT/_template_REAL_ESTATE.xlsx",
-      "builder": "tools/builders/build_real_estate_template.py",
+      "builder": "tools/builders/build_real_estate_release.py",
       "horizon": "long_term_10y",
-      "declared_maturity": "M1",
+      "declared_maturity": "M2",
       "required_engines": [
         "property_proforma",
         "lease_roll",
@@ -550,7 +587,14 @@
         "tenant",
         "appraiser"
       ],
-      "reference_checks": [],
+      "reference_checks": [
+        "noi_identity",
+        "dscr",
+        "ltv",
+        "ffo_bridge",
+        "affo_bridge",
+        "lease_rollover"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -737,9 +781,9 @@
       "folder": "23_Fintech_Payments",
       "archetype": "FINTECH",
       "workbook": "23_Fintech_Payments/_template_FINTECH.xlsx",
-      "builder": "tools/builders/build_fintech_template.py",
+      "builder": "tools/builders/build_fintech_release.py",
       "horizon": "corporate_10y",
-      "declared_maturity": "M1",
+      "declared_maturity": "M2",
       "required_engines": [
         "volume_take_rate",
         "unit_economics",
@@ -755,7 +799,14 @@
         "partner",
         "regulator"
       ],
-      "reference_checks": [],
+      "reference_checks": [
+        "volume_take_rate_identity",
+        "cohort_rollforward",
+        "ltv_cac",
+        "fraud_loss_identity",
+        "capital_coverage",
+        "liquidity_coverage"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     },
@@ -765,9 +816,9 @@
       "folder": "24_Distressed_Restructuring",
       "archetype": "RESTRUCTURING",
       "workbook": "24_Distressed_Restructuring/_template_RESTRUCTURING.xlsx",
-      "builder": "tools/builders/build_restructuring_template.py",
+      "builder": "tools/builders/build_restructuring_release.py",
       "horizon": "corporate_5y",
-      "declared_maturity": "M1",
+      "declared_maturity": "M2",
       "required_engines": [
         "capital_structure",
         "liquidity_13_week",
@@ -783,7 +834,14 @@
         "advisor",
         "court"
       ],
-      "reference_checks": [],
+      "reference_checks": [
+        "thirteen_week_liquidity",
+        "waterfall_conservation",
+        "priority_order",
+        "recovery_bounds",
+        "fulcrum_security",
+        "liquidation_reorganization_uplift"
+      ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
     }

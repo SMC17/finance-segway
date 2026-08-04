@@ -1,0 +1,285 @@
+{
+  "schema_version": "1.1",
+  "id": "distressed-reference-reorganization",
+  "classification": "synthetic_engineering_benchmark",
+  "counts_toward_M4": false,
+  "domain": "Distressed & Restructuring",
+  "model_id": "24",
+  "case_type": "conventional",
+  "template": "24_Distressed_Restructuring/_template_RESTRUCTURING.xlsx",
+  "output": "24_Distressed_Restructuring/instances/benchmark_reference_reorganization.xlsx",
+  "as_of": "2026-08-04",
+  "scenario": "Base",
+  "cover": {},
+  "inputs": [
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C5",
+      "value": 10.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C6",
+      "value": 80.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C7",
+      "value": 20.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C8",
+      "value": 60.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C9",
+      "value": 20.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C10",
+      "value": 0.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C12",
+      "value": 200.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C5",
+      "value": 180.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D5",
+      "value": 220.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C6",
+      "value": 30.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C7",
+      "value": 10.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D7",
+      "value": 15.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C8",
+      "value": 6.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D8",
+      "value": 18.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C9",
+      "value": 0.15,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "C3",
+      "value": 20.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "C4",
+      "value": 5.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C5",
+      "value": 25.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C7",
+      "value": 0.02,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C8",
+      "value": 0.12,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C9",
+      "value": 1.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C10",
+      "value": 0.03,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C11",
+      "value": 1.0,
+      "source": {
+        "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+        "url": "repo://standards/domain_hardening/m1_registry.json",
+        "as_of": "2026-08-04",
+        "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finance-Segway domain-hardening fixture distressed-reference-reorganization",
+      "url": "repo://standards/domain_hardening/m1_registry.json",
+      "as_of": "2026-08-04",
+      "notes": "Synthetic engineering fixture derived from the authoritative-reference and adversarial-case registry; not investment evidence and not M4 evidence"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-04",
+    "trigger": "M1-to-M2 domain hardening benchmark",
+    "source_snapshot": "repo://standards/domain_hardening/m1_registry.json",
+    "what_changed": "Generated conventional benchmark distressed-reference-reorganization from the canonical hardened release template",
+    "reviewer_notes": "Synthetic engineering fixture only; does not count toward M4 or live approval",
+    "next_check": "On builder, reference-check, formula, or contract change"
+  }
+}
