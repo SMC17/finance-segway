@@ -26,6 +26,7 @@ BORDER_BOTTOM = Border(bottom=THIN)
 BORDER_TOP = Border(top=TOP)
 
 CUR = '$#,##0.0;[Red]($#,##0.0);-'
+CUR2 = '$#,##0.00;[Red]($#,##0.00);-'
 CUR0 = '$#,##0;[Red]($#,##0);-'
 PCT = '0.0%;[Red](0.0%);-'
 PCT2 = '0.00%;[Red](0.00%);-'
