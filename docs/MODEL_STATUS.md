@@ -9,12 +9,19 @@ This file is the human-readable projection of the machine contracts in
 
 - Inventory version: **2.1.0**
 - Core archetypes: **24**
-- M2 Decision Models: **15**
-- M1 Correct Skeletons: **9**
+- M2 Decision Models: **24**
+- M1 Correct Skeletons: **0**
 - M3 Institutional Underwriting Models: **0**
 - M4 Maintained Production Systems: **0**
-- Synthetic engineering benchmark instances: **18**
+- Synthetic engineering benchmark instances: **48**
+- Source-addressed public historical cases: **36** (across 18 domains)
 - Public maintained instances that count toward M4: **0**
+
+These figures reflect `main` as of the #13 M1-to-M2 promotion and #11
+all-domain frontier merges. Draft PR #17 (real-only evidence release,
+tracked in issue #4) will delete all 48 synthetic instances and raise
+public case coverage to 48 across all 24 domains once it merges -- update
+this section again at that point, not before.
 
 The benchmark instances are deliberately excluded from M4. They prove builder,
 scenario, source-register, RefreshLog, recalculation, receipt, and adversarial-case
@@ -52,7 +59,7 @@ The engineered release is accepted only when all of the following pass:
 7. Semantic builder-to-artifact parity for every inventory model.
 8. Whole-library external-link and structural audit.
 9. Cryptographic SHA-256 evidence for each workbook and builder.
-10. Recalculation of all 18 reference/adversarial benchmark instances.
+10. Recalculation of all 48 reference/adversarial benchmark instances.
 
 Permanent CI enforcement lives in:
 
