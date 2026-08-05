@@ -22,6 +22,66 @@
         "as_of": "2020-12-31",
         "notes": "U.S. SEC / AMC Entertainment; frozen curated observation as of case date"
       }
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "C3",
+      "value": "Adversarial",
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Scenario selector -- this case represents AMC's real severe 2020 dilution event",
+        "url": "https://investor.amctheatres.com/news-events/press-releases/detail/120/amc-raises-917-million-of-fresh-investment-capital-since-mid-december-of-2020",
+        "as_of": "2020-12-31",
+        "notes": "The template's Decision & Checks sheet reads the ACTIVE column (E), switched by this cell -- the original manifest never set it, so it defaulted to 'Base' and the real dilution data already present in the Adversarial (D) column (D9=0.196) was being silently ignored by every check."
+      }
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "D5",
+      "value": 125.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "AMC Entertainment shares outstanding entering the December 2020 capital raise (~125mm)",
+        "url": "https://investor.amctheatres.com/news-events/press-releases/detail/120/amc-raises-917-million-of-fresh-investment-capital-since-mid-december-of-2020",
+        "as_of": "2020-12-14",
+        "notes": "Real, widely-corroborated share count."
+      }
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "D7",
+      "value": 164.7,
+      "input_kind": "observed",
+      "source": {
+        "name": "AMC Entertainment -- 164.7mm new common shares issued for $506mm since mid-December 2020",
+        "url": "https://investor.amctheatres.com/news-events/press-releases/detail/120/amc-raises-917-million-of-fresh-investment-capital-since-mid-december-of-2020",
+        "as_of": "2020-12-31",
+        "notes": "Real disclosed share issuance."
+      }
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "D11",
+      "value": 3.07,
+      "input_kind": "derived",
+      "source": {
+        "name": "Derived: $506mm / 164.7mm shares = $3.07/share average issue price",
+        "url": "https://investor.amctheatres.com/news-events/press-releases/detail/120/amc-raises-917-million-of-fresh-investment-capital-since-mid-december-of-2020",
+        "as_of": "2020-12-31",
+        "notes": "Derived from the two real disclosed figures above."
+      }
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "D12",
+      "value": 15.2,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated underwriting/placement fees (~3% of gross proceeds)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-amc-2020-dilution.json",
+        "as_of": "2020-12-31",
+        "notes": "Order-of-magnitude estimate -- precise disclosed fee percentage not found via available search."
+      }
     }
   ],
   "sources": [

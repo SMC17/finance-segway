@@ -21,11 +21,61 @@
       "value": 0.0,
       "source_url": "https://www.sec.gov/Archives/edgar/data/50863/000005086324000124/intc-20240629.htm",
       "source_as_of": "2024-06-29"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D6",
+      "previous": 30,
+      "value": 8300.0,
+      "source_url": "https://www.intc.com/news-events/press-releases/detail/1726/intel-reports-fourth-quarter-and-full-year-2024-financial",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D7",
+      "previous": 60,
+      "value": 14650.0,
+      "source_url": "https://www.intc.com/news-events/press-releases/detail/1726/intel-reports-fourth-quarter-and-full-year-2024-financial",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D12",
+      "previous": 300,
+      "value": 44100.0,
+      "source_url": "https://www.intc.com/news-events/press-releases/detail/1726/intel-reports-fourth-quarter-and-full-year-2024-financial",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D13",
+      "previous": 60,
+      "value": 8300.0,
+      "source_url": "https://www.intc.com/news-events/press-releases/detail/1726/intel-reports-fourth-quarter-and-full-year-2024-financial",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D14",
+      "previous": 40,
+      "value": 1764.0,
+      "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-intel-2024-stress.json",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D5",
+      "previous": 50,
+      "value": 14710.0,
+      "source_url": "https://www.intc.com/news-events/press-releases/detail/1726/intel-reports-fourth-quarter-and-full-year-2024-financial",
+      "source_as_of": "2024-12-31"
     }
   ],
-  "workbook_sha256": "96d8a8863730ccc3eeaf401e2218ad76145784baa3ed350b9388ce2e43c706ed",
-  "generated_on": "2026-08-04",
+  "workbook_sha256": "ea03de4827d879c4b456b4741b7e2e135606212d42275c7496cf39f0b9be23a6",
+  "generated_on": "2026-08-05",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
-  "counts_toward_M4": false
+  "counts_toward_M4": false,
+  "hash_refreshed_on": "2026-08-05",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
 }

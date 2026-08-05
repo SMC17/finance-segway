@@ -70,6 +70,126 @@
         "as_of": "2022-12-31",
         "notes": "Modeler-owned assumption documented in frozen snapshot"
       }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C8",
+      "value": 200.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Order-of-magnitude estimate (Order-of-magnitude estimate: ~2% of total AUM, same basis as the 2023 case.)",
+        "url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2022-stress.json",
+        "as_of": "2022-12-31",
+        "notes": "Order-of-magnitude estimate: ~2% of total AUM, same basis as the 2023 case."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D8",
+      "value": 200.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Order-of-magnitude estimate (Order-of-magnitude estimate: ~2% of total AUM, same basis as the 2023 case.)",
+        "url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2022-stress.json",
+        "as_of": "2022-12-31",
+        "notes": "Order-of-magnitude estimate: ~2% of total AUM, same basis as the 2023 case."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C9",
+      "value": 310.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated from BlackRock's FY2023-disclosed Alternatives AUM ratio (3.1% of total AUM) applied to FY2022 total AUM -- FY2022's own product-type breakdown was not separately found via available search",
+        "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017023004343/blk-20221231.htm",
+        "as_of": "2022-12-31",
+        "notes": "Extrapolated ratio, not a separately disclosed FY2022 figure -- labeled as such."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D9",
+      "value": 310.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated from BlackRock's FY2023-disclosed Alternatives AUM ratio (3.1% of total AUM) applied to FY2022 total AUM -- FY2022's own product-type breakdown was not separately found via available search",
+        "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017023004343/blk-20221231.htm",
+        "as_of": "2022-12-31",
+        "notes": "Extrapolated ratio, not a separately disclosed FY2022 figure -- labeled as such."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C10",
+      "value": 100.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Order-of-magnitude estimate (Order-of-magnitude estimate: ~1% of total AUM ($10010bn), a commonly-cited rough industry convention for a globally diversified manager's 30-day redemption demand -- not a BlackRock-specific disclosed figure.)",
+        "url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2022-stress.json",
+        "as_of": "2022-12-31",
+        "notes": "Order-of-magnitude estimate: ~1% of total AUM ($10010bn), a commonly-cited rough industry convention for a globally diversified manager's 30-day redemption demand -- not a BlackRock-specific disclosed figure."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D10",
+      "value": 100.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Order-of-magnitude estimate (Order-of-magnitude estimate: ~1% of total AUM ($10010bn), a commonly-cited rough industry convention for a globally diversified manager's 30-day redemption demand -- not a BlackRock-specific disclosed figure.)",
+        "url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2022-stress.json",
+        "as_of": "2022-12-31",
+        "notes": "Order-of-magnitude estimate: ~1% of total AUM ($10010bn), a commonly-cited rough industry convention for a globally diversified manager's 30-day redemption demand -- not a BlackRock-specific disclosed figure."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C11",
+      "value": 50.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Order-of-magnitude estimate (Order-of-magnitude estimate scaled to the Alternatives AUM sleeve's typical capital-call exposure -- not a BlackRock-specific disclosed figure.)",
+        "url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2022-stress.json",
+        "as_of": "2022-12-31",
+        "notes": "Order-of-magnitude estimate scaled to the Alternatives AUM sleeve's typical capital-call exposure -- not a BlackRock-specific disclosed figure."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D11",
+      "value": 50.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Order-of-magnitude estimate (Order-of-magnitude estimate scaled to the Alternatives AUM sleeve's typical capital-call exposure -- not a BlackRock-specific disclosed figure.)",
+        "url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2022-stress.json",
+        "as_of": "2022-12-31",
+        "notes": "Order-of-magnitude estimate scaled to the Alternatives AUM sleeve's typical capital-call exposure -- not a BlackRock-specific disclosed figure."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C12",
+      "value": 7416.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "BlackRock Form 10-K -- consolidated balance sheet cash and cash equivalents $7416.0mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017023004343/blk-20221231.htm",
+        "as_of": "2022-12-31",
+        "notes": "Real disclosed corporate cash and equivalents, replacing an earlier rough order-of-magnitude placeholder that was producing an artifactual liquidity-coverage BREACH inconsistent with BlackRock's real, well-capitalized balance sheet."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D12",
+      "value": 7416.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "BlackRock Form 10-K -- consolidated balance sheet cash and cash equivalents $7416.0mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017023004343/blk-20221231.htm",
+        "as_of": "2022-12-31",
+        "notes": "Real disclosed corporate cash and equivalents, replacing an earlier rough order-of-magnitude placeholder that was producing an artifactual liquidity-coverage BREACH inconsistent with BlackRock's real, well-capitalized balance sheet."
+      }
     }
   ],
   "sources": [

@@ -29,11 +29,93 @@
       "value": 25.667,
       "source_url": "https://www.sec.gov/Archives/edgar/data/726728/000072672825000080/o-20250326.htm",
       "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "E5",
+      "previous": 0.75,
+      "value": 0.986,
+      "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "G5",
+      "previous": 3,
+      "value": 1,
+      "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "E6",
+      "previous": 0.72,
+      "value": 0.986,
+      "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "G6",
+      "previous": 3,
+      "value": 1,
+      "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "E7",
+      "previous": 0.7,
+      "value": 0.986,
+      "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "G7",
+      "previous": 4,
+      "value": 1,
+      "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "E8",
+      "previous": 0.68,
+      "value": 0.986,
+      "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "G8",
+      "previous": 4,
+      "value": 1,
+      "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "E9",
+      "previous": 0.65,
+      "value": 0.986,
+      "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "G9",
+      "previous": 5,
+      "value": 1,
+      "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+      "source_as_of": "2023-12-31"
     }
   ],
-  "workbook_sha256": "c034bf56258f2741c2404f935e778defc8d5852bb2ce04aac4d7fccbb9b82656",
-  "generated_on": "2026-08-04",
+  "workbook_sha256": "3a6561092b047c7ac09efb879a271b52456d635e1336d249b41e40396f5b23ea",
+  "generated_on": "2026-08-05",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
-  "counts_toward_M4": false
+  "counts_toward_M4": false,
+  "hash_refreshed_on": "2026-08-05",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
 }
