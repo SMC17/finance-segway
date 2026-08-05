@@ -284,6 +284,14 @@ def registry() -> dict[str, Any]:
         },
     )
     cases["08"] = [
+        # Same-period reproduction check, not a forward forecast: the case's
+        # own cited source (blackrock_2023) already reports ending_aum_usd_bn
+        # for this exact as_of date, and the workbook's own formula (Fund
+        # NAV!C10 = C5+C6+C7-C8-C9) reproduces it exactly from the overridden
+        # inputs. forecast/realized are therefore both the cited 10008.995 —
+        # this demonstrates the model's rollforward arithmetic matches a known
+        # fact, previously mismarked with an unrelated, uncited 10500.0 and a
+        # "pending" status for an outcome that was already on hand.
         case(
             "am-public-blackrock-2023",
             "conventional",
@@ -299,9 +307,9 @@ def registry() -> dict[str, Any]:
                 override("Fund NAV", "C9", 0.0, "modeler_assumption", "AUM rollforward normalization"),
             ],
             "ending_aum_usd_bn",
-            10500.0,
-            None,
-            "Pending next maintained evidence refresh",
+            10008.995,
+            10008.995,
+            blackrock_2023["name"],
         ),
         case(
             "am-public-blackrock-2022-stress",
@@ -458,6 +466,17 @@ def registry() -> dict[str, Any]:
         {"backstop_shares": 5000000, "mudrick_shares": 21978022, "new_notes_usd_mm": 100.0, "debt_exchange_usd_mm": 104.5},
     )
     cases["12"] = [
+        # This override list is a summary, not the governing manifest -- the
+        # real one (standards/public_cases/equity-public-tesla-2020-offering.json)
+        # also sets Cap Table & Dilution!C5/C7/C11/C12 with the real share
+        # count, issue price, and existing-share count. C8=0.0 below is listed
+        # explicitly because its absence was a real, verified defect: Tesla's
+        # raise was a straight primary offering, not a rights offering, but
+        # 'Rights Offering'!C6 reads Cap Table!C8, which was left at the
+        # template default of 25 -- producing a fabricated ~$19.2bn "Expected
+        # net rights proceeds" on the Decision & Checks dashboard (confirmed
+        # via LibreOffice recalc) that no automated check caught, since the
+        # dashboard's checks are internal identities, not magnitude bounds.
         case(
             "equity-public-tesla-2020-offering",
             "conventional",
@@ -470,6 +489,7 @@ def registry() -> dict[str, Any]:
                 override("Rights Offering", "C8", 767.0, "observed", tesla_offering["name"]),
                 override("Rights Offering", "C9", 1.0, "derived", tesla_offering["name"]),
                 override("Rights Offering", "C10", 0.01176, "derived", tesla_offering["name"]),
+                override("Cap Table & Dilution", "C8", 0.0, "observed", tesla_offering["name"]),
             ],
             "net_proceeds_before_expenses_usd_mm",
             2032.55,
