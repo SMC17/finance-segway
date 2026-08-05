@@ -1,0 +1,346 @@
+{
+  "inflation": {
+    "2016": {
+      "n_countries": 210,
+      "carry_forward": {
+        "spearman": 0.648,
+        "mae_skill_vs_carry": 0.0
+      },
+      "linear_drift": {
+        "spearman": 0.513,
+        "mae_skill_vs_carry": -0.406
+      },
+      "llm_recall": {
+        "spearman": 0.777,
+        "mae_skill_vs_carry": 0.071,
+        "n": 210
+      },
+      "llm_statistician": {
+        "spearman": 0.808,
+        "mae_skill_vs_carry": 0.355,
+        "n": 210
+      }
+    },
+    "2020": {
+      "n_countries": 214,
+      "carry_forward": {
+        "spearman": 0.841,
+        "mae_skill_vs_carry": 0.0
+      },
+      "linear_drift": {
+        "spearman": 0.684,
+        "mae_skill_vs_carry": -1.411
+      },
+      "llm_recall": {
+        "spearman": 0.722,
+        "mae_skill_vs_carry": -5.432,
+        "n": 213
+      },
+      "llm_statistician": {
+        "spearman": 0.881,
+        "mae_skill_vs_carry": -0.983,
+        "n": 214
+      }
+    },
+    "2023": {
+      "n_countries": 187,
+      "carry_forward": {
+        "spearman": 0.671,
+        "mae_skill_vs_carry": 0.0
+      },
+      "linear_drift": {
+        "spearman": 0.525,
+        "mae_skill_vs_carry": -0.294
+      },
+      "llm_recall": {
+        "spearman": 0.59,
+        "mae_skill_vs_carry": -0.384,
+        "n": 187
+      },
+      "llm_statistician": {
+        "spearman": 0.796,
+        "mae_skill_vs_carry": 0.298,
+        "n": 187
+      }
+    },
+    "2025": {
+      "n_countries": 180,
+      "carry_forward": {
+        "spearman": 0.569,
+        "mae_skill_vs_carry": 0.0
+      },
+      "linear_drift": {
+        "spearman": 0.516,
+        "mae_skill_vs_carry": -0.274
+      },
+      "llm_recall": {
+        "spearman": 0.774,
+        "mae_skill_vs_carry": 0.515,
+        "n": 180
+      },
+      "llm_statistician": {
+        "spearman": 0.753,
+        "mae_skill_vs_carry": 0.471,
+        "n": 180
+      }
+    }
+  },
+  "pop_growth": {
+    "2016": {
+      "n_countries": 227,
+      "carry_forward": {
+        "spearman": 0.942,
+        "mae_skill_vs_carry": 0.0
+      },
+      "linear_drift": {
+        "spearman": 0.931,
+        "mae_skill_vs_carry": -0.441
+      },
+      "llm_recall": {
+        "spearman": 0.979,
+        "mae_skill_vs_carry": 0.777,
+        "n": 227
+      },
+      "llm_statistician": {
+        "spearman": 0.957,
+        "mae_skill_vs_carry": 0.491,
+        "n": 226
+      }
+    },
+    "2020": {
+      "n_countries": 221,
+      "carry_forward": {
+        "spearman": 0.963,
+        "mae_skill_vs_carry": 0.0
+      },
+      "linear_drift": {
+        "spearman": 0.947,
+        "mae_skill_vs_carry": -0.542
+      },
+      "llm_recall": {
+        "spearman": 0.986,
+        "mae_skill_vs_carry": 0.056,
+        "n": 221
+      },
+      "llm_statistician": {
+        "spearman": 0.979,
+        "mae_skill_vs_carry": 0.275,
+        "n": 220
+      }
+    },
+    "2023": {
+      "n_countries": 219,
+      "carry_forward": {
+        "spearman": 0.966,
+        "mae_skill_vs_carry": 0.0
+      },
+      "linear_drift": {
+        "spearman": 0.953,
+        "mae_skill_vs_carry": -0.352
+      },
+      "llm_recall": {
+        "spearman": 0.954,
+        "mae_skill_vs_carry": -0.018,
+        "n": 218
+      },
+      "llm_statistician": {
+        "spearman": 0.964,
+        "mae_skill_vs_carry": -0.024,
+        "n": 219
+      }
+    },
+    "2025": {
+      "n_countries": 221,
+      "carry_forward": {
+        "spearman": 0.971,
+        "mae_skill_vs_carry": 0.0
+      },
+      "linear_drift": {
+        "spearman": 0.927,
+        "mae_skill_vs_carry": -0.657
+      },
+      "llm_recall": {
+        "spearman": 0.924,
+        "mae_skill_vs_carry": -0.494,
+        "n": 220
+      },
+      "llm_statistician": {
+        "spearman": 0.969,
+        "mae_skill_vs_carry": 0.135,
+        "n": 220
+      }
+    }
+  },
+  "gdp_percap": {
+    "2016": {
+      "n_countries": 193,
+      "carry_forward": {
+        "spearman": 0.968,
+        "mae_skill_vs_carry": 0.0
+      },
+      "linear_drift": {
+        "spearman": 0.952,
+        "mae_skill_vs_carry": -0.137
+      },
+      "llm_recall": {
+        "spearman": 0.997,
+        "mae_skill_vs_carry": 0.708,
+        "n": 193
+      },
+      "llm_statistician": {
+        "spearman": 0.969,
+        "mae_skill_vs_carry": 0.1,
+        "n": 192
+      }
+    },
+    "2020": {
+      "n_countries": 202,
+      "carry_forward": {
+        "spearman": 0.949,
+        "mae_skill_vs_carry": 0.0
+      },
+      "linear_drift": {
+        "spearman": 0.939,
+        "mae_skill_vs_carry": -0.283
+      },
+      "llm_recall": {
+        "spearman": 0.938,
+        "mae_skill_vs_carry": -0.194,
+        "n": 202
+      },
+      "llm_statistician": {
+        "spearman": 0.95,
+        "mae_skill_vs_carry": -0.125,
+        "n": 202
+      }
+    },
+    "2023": {
+      "n_countries": 191,
+      "carry_forward": {
+        "spearman": 0.993,
+        "mae_skill_vs_carry": 0.0
+      },
+      "linear_drift": {
+        "spearman": 0.941,
+        "mae_skill_vs_carry": -1.606
+      },
+      "llm_recall": {
+        "spearman": 0.997,
+        "mae_skill_vs_carry": -1.502,
+        "n": 191
+      },
+      "llm_statistician": {
+        "spearman": 0.994,
+        "mae_skill_vs_carry": 0.343,
+        "n": 191
+      }
+    },
+    "2025": {
+      "n_countries": 190,
+      "carry_forward": {
+        "spearman": 0.986,
+        "mae_skill_vs_carry": 0.0
+      },
+      "linear_drift": {
+        "spearman": 0.959,
+        "mae_skill_vs_carry": 0.003
+      },
+      "llm_recall": {
+        "spearman": 0.991,
+        "mae_skill_vs_carry": 0.507,
+        "n": 190
+      },
+      "llm_statistician": {
+        "spearman": 0.988,
+        "mae_skill_vs_carry": 0.117,
+        "n": 188
+      }
+    }
+  },
+  "mil_pct_gdp": {
+    "2016": {
+      "n_countries": 67,
+      "carry_forward": {
+        "spearman": 0.985,
+        "mae_skill_vs_carry": 0.0
+      },
+      "linear_drift": {
+        "spearman": 0.785,
+        "mae_skill_vs_carry": -0.744
+      },
+      "llm_recall": {
+        "spearman": 0.782,
+        "mae_skill_vs_carry": -0.699,
+        "n": 67
+      },
+      "llm_statistician": {
+        "spearman": 0.894,
+        "mae_skill_vs_carry": -0.327,
+        "n": 67
+      }
+    },
+    "2020": {
+      "n_countries": 140,
+      "carry_forward": {
+        "spearman": 0.891,
+        "mae_skill_vs_carry": 0.0
+      },
+      "linear_drift": {
+        "spearman": 0.822,
+        "mae_skill_vs_carry": -0.671
+      },
+      "llm_recall": {
+        "spearman": 0.966,
+        "mae_skill_vs_carry": 0.473,
+        "n": 140
+      },
+      "llm_statistician": {
+        "spearman": 0.924,
+        "mae_skill_vs_carry": 0.291,
+        "n": 140
+      }
+    },
+    "2023": {
+      "n_countries": 151,
+      "carry_forward": {
+        "spearman": 0.885,
+        "mae_skill_vs_carry": 0.0
+      },
+      "linear_drift": {
+        "spearman": 0.798,
+        "mae_skill_vs_carry": -0.455
+      },
+      "llm_recall": {
+        "spearman": 0.903,
+        "mae_skill_vs_carry": -0.367,
+        "n": 151
+      },
+      "llm_statistician": {
+        "spearman": 0.899,
+        "mae_skill_vs_carry": 0.145,
+        "n": 151
+      }
+    },
+    "2025": {
+      "n_countries": 151,
+      "carry_forward": {
+        "spearman": 0.866,
+        "mae_skill_vs_carry": 0.0
+      },
+      "linear_drift": {
+        "spearman": 0.835,
+        "mae_skill_vs_carry": -0.263
+      },
+      "llm_recall": {
+        "spearman": 0.892,
+        "mae_skill_vs_carry": -0.215,
+        "n": 151
+      },
+      "llm_statistician": {
+        "spearman": 0.902,
+        "mae_skill_vs_carry": 0.193,
+        "n": 151
+      }
+    }
+  }
+}
