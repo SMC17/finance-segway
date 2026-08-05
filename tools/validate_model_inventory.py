@@ -22,6 +22,11 @@ from typing import Any
 
 import openpyxl
 
+try:
+    from tools import reference_check_registry
+except (ImportError, ModuleNotFoundError):  # script-style execution
+    import reference_check_registry
+
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INVENTORY = ROOT / "standards" / "model_inventory.json"
 ALLOWED_MATURITY = {"M0", "M1", "M2", "M3", "M4"}
@@ -50,6 +55,7 @@ class ModelResult:
     instance_count: int = 0
     errors: list[str] | None = None
     warnings: list[str] | None = None
+    reference_check_binding: dict | None = None
 
     def __post_init__(self) -> None:
         self.errors = [] if self.errors is None else self.errors
@@ -200,7 +206,39 @@ def validate_inventory(data: dict[str, Any]) -> tuple[list[ModelResult], list[st
         if duplicates:
             inventory_errors.append(f"duplicate {label} values: {duplicates}")
 
-    return [validate_model(model) for model in models], inventory_errors
+    results = [validate_model(model) for model in models]
+
+    # Bind every declared reference_checks token to the oracle that executes
+    # it (or record that none does). A bound identity check that fails its
+    # oracle blocks the gate; a declared token no oracle produces is a
+    # warning - the claim exists but nothing runs it.
+    try:
+        bindings = reference_check_registry.resolve_reference_checks(models)
+    except Exception as exc:  # noqa: BLE001
+        inventory_errors.append(f"reference-check binding pass could not run: {exc}")
+        bindings = {}
+    for result in results:
+        binding = bindings.get(result.model_id)
+        if binding is None:
+            continue
+        result.reference_check_binding = binding
+        if result.maturity in {"M2", "M3", "M4"}:
+            for token in binding["identity_failures"]:
+                result.errors.append(
+                    f"reference check {token!r} FAILED its oracle identity"
+                )
+            unbound = sorted(
+                token
+                for token, status in binding["tokens"].items()
+                if status == "unbound"
+            )
+            if unbound:
+                result.warnings.append(
+                    "reference checks declared but bound to no oracle: "
+                    + ", ".join(unbound)
+                )
+
+    return results, inventory_errors
 
 
 def print_summary(results: list[ModelResult], inventory_errors: list[str]) -> None:
@@ -225,9 +263,31 @@ def print_summary(results: list[ModelResult], inventory_errors: list[str]) -> No
     print("-" * 88)
     print("Maturity distribution:", ", ".join(f"{k}={maturity_counts[k]}" for k in sorted(maturity_counts)))
 
+    bindings = {
+        result.model_id: result.reference_check_binding
+        for result in results
+        if result.reference_check_binding is not None
+    }
+    if bindings:
+        coverage = reference_check_registry.coverage_summary(bindings)
+        print(
+            "Reference-check binding: "
+            f"{coverage['identity']} identity-verified, "
+            f"{coverage['flag']} flag-exercised, "
+            f"{coverage['unbound']} unbound "
+            f"of {coverage['declared']} declared tokens; "
+            f"{coverage['models_with_oracle']}/24 models oracle-backed, "
+            f"{coverage['models_workbook_verified']}/24 workbook-verified"
+        )
+
 
 def write_report(path: Path, results: list[ModelResult], inventory_errors: list[str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
+    bindings = {
+        result.model_id: result.reference_check_binding
+        for result in results
+        if result.reference_check_binding is not None
+    }
     payload = {
         "inventory_errors": inventory_errors,
         "models": [asdict(result) for result in results],
@@ -236,6 +296,9 @@ def write_report(path: Path, results: list[ModelResult], inventory_errors: list[
             "failed": sum(bool(result.errors) for result in results),
             "warnings": sum(bool(result.warnings) for result in results),
             "maturity_distribution": dict(Counter(result.maturity for result in results)),
+            "reference_check_coverage": (
+                reference_check_registry.coverage_summary(bindings) if bindings else None
+            ),
         },
     }
     path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
