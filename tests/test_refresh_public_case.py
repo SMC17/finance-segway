@@ -39,7 +39,13 @@ class RefreshPublicCaseTests(unittest.TestCase):
                     root, ["real-case"]
                 )
 
-            generator.assert_called_once_with(manifest, root.resolve())
+            # The code resolves root before building the manifest path; on
+            # macOS the temp dir is reached through the /var -> /private/var
+            # symlink, so the expected path must be resolved the same way.
+            generator.assert_called_once_with(
+                root.resolve() / "standards/public_cases/real-case.json",
+                root.resolve(),
+            )
             updated = json.loads(index_path.read_text(encoding="utf-8"))
             self.assertEqual(updated["cases"][0]["receipt"], receipt)
             self.assertEqual(result["refreshed"][0]["workbook_sha256"], "new")
