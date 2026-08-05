@@ -33,6 +33,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Install LibreOffice (test suite recalculates workbooks)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice-calc
+
       - name: Compile Python sources
         run: python -m compileall -q finance_segway tools tests
 
