@@ -78,6 +78,7 @@ class ReferenceCheckBindingTests(unittest.TestCase):
         expectations = {
             "01": "check_base_archetype_integration",
             "03": "check_lbo_sources_uses_and_debt_schedule",
+            "05": "check_credit_ecf_sweep_stepdown",
             "13": "check_vc_",
             "14": "check_black_scholes",
             "21": "check_bond_duration",
@@ -85,6 +86,14 @@ class ReferenceCheckBindingTests(unittest.TestCase):
         self.assertEqual(set(expectations), WORKBOOK_VERIFIED_MODELS)
         for model_id, fragment in expectations.items():
             self.assertIn(fragment, names, f"model {model_id}: {fragment} missing")
+        # And the other direction, so a new check function cannot leave the
+        # constant stale and silently under-report coverage (how "05" was
+        # briefly missed): every check must match some expected fragment.
+        for check in verify_reference_calcs.CHECKS:
+            self.assertTrue(
+                any(check.__name__.startswith(f) for f in expectations.values()),
+                f"{check.__name__} has no WORKBOOK_VERIFIED_MODELS entry",
+            )
 
     def test_failing_identity_blocks_an_m2_model(self) -> None:
         # A wrong reference calculation must fail the maturity gate itself,
