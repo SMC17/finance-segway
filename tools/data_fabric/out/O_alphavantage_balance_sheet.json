@@ -1,0 +1,63 @@
+{
+  "ticker": "O",
+  "cik": "0000726728",
+  "statement": "BALANCE_SHEET",
+  "retrieved_utc": "20260805T223841Z",
+  "facts": [
+    {
+      "concept": "Assets",
+      "av_field": "totalAssets",
+      "value": 72795612000.0,
+      "end": "2025-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "Liabilities",
+      "av_field": "totalLiabilities",
+      "value": 32671644000.0,
+      "end": "2025-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "StockholdersEquity",
+      "av_field": "totalShareholderEquity",
+      "value": 39438695000.0,
+      "end": "2025-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "CashAndCashEquivalentsAtCarryingValue",
+      "av_field": "cashAndCashEquivalentsAtCarryingValue",
+      "value": 434842000.0,
+      "end": "2025-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "CommonStockSharesOutstanding",
+      "av_field": "commonStockSharesOutstanding",
+      "value": 904786324.0,
+      "end": "2025-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    }
+  ]
+}
