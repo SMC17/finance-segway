@@ -1,0 +1,20 @@
+{
+  "forecast_id": "reit-realty-income-fy2026-total-assets",
+  "case_id": "real-estate-public-realty-income-2023",
+  "model_id": "17",
+  "metric": "fiscal_2026_total_assets_usd_mm",
+  "outcome_class": "out_of_sample_forecast",
+  "point": 76756.224,
+  "interval": null,
+  "basis": "modeled",
+  "baseline": {
+    "kind": "naive_last_recorded",
+    "value": 72795.612,
+    "source": "carry-forward of fiscal_2026_total_assets_usd_mm = 72795.612 at FY2025 per tools/data_fabric/out/O_alphavantage_balance_sheet.json (Alpha Vantage MCP)"
+  },
+  "registered_on": "2026-08-05",
+  "resolve_by": "2027-03-31",
+  "resolution_source_expected": "Realty Income FY2026 Form 10-K (total assets, USD mm)",
+  "resolution": null,
+  "registration_sha256": "6014d642c52394ab3e711ac6ec0aa1ab86dab94e5686178c5cdef4d9aa05fb8b"
+}
