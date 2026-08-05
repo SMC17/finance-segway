@@ -1,0 +1,20 @@
+{
+  "forecast_id": "am-blackrock-fy2026-ending-aum",
+  "case_id": "am-public-blackrock-2023",
+  "model_id": "08",
+  "metric": "fiscal_2026_ending_aum_usd_bn",
+  "outcome_class": "out_of_sample_forecast",
+  "point": 10008.995,
+  "interval": null,
+  "basis": "naive_last_recorded",
+  "baseline": {
+    "kind": "naive_last_recorded",
+    "value": 10008.995,
+    "source": "BlackRock FY2023 ending AUM as recorded in 08_Asset_Management/outcomes/outcome_log.csv (realized, BlackRock 2023 Form 10-K)"
+  },
+  "resolve_by": "2027-03-31",
+  "resolution_source_expected": "BlackRock 2026 Form 10-K (ending AUM, USD bn)",
+  "resolution": null,
+  "registered_on": "2026-08-05",
+  "registration_sha256": "d5628b16c5f56acfc03ea59b1418145ab0373e81a68d992c7e385df046404f2e"
+}

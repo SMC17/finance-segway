@@ -70,6 +70,8 @@ jobs:
             --validate --require-instances
           PYTHONPATH=. python tools/evidence_receipt_integrity.py \
             --check --report committed-public-receipts.json
+          PYTHONPATH=.:tools python tools/forecast_registration.py \
+            --check --report committed-forecast-registry.json
           PYTHONPATH=.:tools python tools/validate_model_inventory.py \
             --report committed-model-inventory.json
           PYTHONPATH=.:tools python tools/build_all_models.py \
