@@ -18,7 +18,7 @@ class FrontierProgramTests(unittest.TestCase):
     def test_program_validator_passes(self):
         report = validate_frontier_program.validate()
         self.assertEqual(report["status"], "PASS", msg=report["errors"])
-        self.assertEqual(report["inventory_models"], 24)
+        self.assertEqual(report["inventory_models"], 25)
         self.assertEqual(report["existing_m3_evidence_models"], 9)
         self.assertEqual(report["evidence_expansion_models"], 15)
         self.assertEqual(report["legacy_engine_hardening_models"], 6)
