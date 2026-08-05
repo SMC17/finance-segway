@@ -15,7 +15,12 @@ class PostgresETLTests(unittest.TestCase):
     def test_registry_is_real_only_and_all_workbooks_exist(self) -> None:
         postgres_etl.validate_registry()
         self.assertEqual(
-            {"home_depot_2023", "macys_2020_adversarial"},
+            {
+                "home_depot_2023",
+                "macys_2020_adversarial",
+                "alleghany_2021",
+                "wework_2022_adversarial",
+            },
             set(postgres_etl.DEALS),
         )
         for metadata in postgres_etl.DEALS.values():
