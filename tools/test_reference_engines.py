@@ -80,6 +80,59 @@ class CapitalStructureReferenceTests(unittest.TestCase):
             )
             previous_closing = period.closing_debt
 
+    def test_debt_sweep_reports_unfunded_debt_service_as_shortfall(self) -> None:
+        # Interest due is 8.0 and mandatory amortization due is 10.0 against
+        # 2.0 of cash: the cascade must not pretend the payments happened.
+        # Interest absorbs all cash, nothing amortizes, debt is unchanged,
+        # and the unpaid 16.0 is reported instead of silently vanishing.
+        period = debt_sweep(
+            opening_debt=100.0,
+            cash_available=[2.0],
+            annual_rate=0.08,
+            mandatory_amortization_rate=0.10,
+        )[0]
+        self.assertAlmostEqual(period.cash_interest, 2.0, places=12)
+        self.assertAlmostEqual(period.mandatory_amortization, 0.0, places=12)
+        self.assertAlmostEqual(period.cash_sweep, 0.0, places=12)
+        self.assertAlmostEqual(period.closing_debt, 100.0, places=12)
+        self.assertAlmostEqual(period.funding_shortfall, 16.0, places=12)
+
+    def test_debt_sweep_partial_funding_amortizes_only_paid_amounts(self) -> None:
+        # 12.0 of cash: interest 8.0 paid in full, 4.0 of the 10.0 scheduled
+        # amortization funded, debt falls only by the funded 4.0.
+        period = debt_sweep(
+            opening_debt=100.0,
+            cash_available=[12.0],
+            annual_rate=0.08,
+            mandatory_amortization_rate=0.10,
+        )[0]
+        self.assertAlmostEqual(period.cash_interest, 8.0, places=12)
+        self.assertAlmostEqual(period.mandatory_amortization, 4.0, places=12)
+        self.assertAlmostEqual(period.closing_debt, 96.0, places=12)
+        self.assertAlmostEqual(period.funding_shortfall, 6.0, places=12)
+
+    def test_debt_sweep_exact_funding_conserves_cash(self) -> None:
+        # Cash exactly covers interest + mandatory amortization; no sweep, no
+        # shortfall, and every unit of cash is accounted for.
+        period = debt_sweep(
+            opening_debt=100.0,
+            cash_available=[18.0],
+            annual_rate=0.08,
+            mandatory_amortization_rate=0.10,
+        )[0]
+        self.assertAlmostEqual(period.cash_interest, 8.0, places=12)
+        self.assertAlmostEqual(period.mandatory_amortization, 10.0, places=12)
+        self.assertAlmostEqual(period.closing_debt, 90.0, places=12)
+        self.assertAlmostEqual(period.funding_shortfall, 0.0, places=12)
+        self.assertAlmostEqual(
+            period.cash_interest
+            + period.mandatory_amortization
+            + period.cash_sweep
+            + period.excess_cash_after_sweep,
+            18.0,
+            places=12,
+        )
+
     def test_single_exit_irr_matches_moic_identity(self) -> None:
         irr = annualized_irr_single_exit(250.0, 100.0, 5.0)
         self.assertAlmostEqual((1.0 + irr) ** 5.0, 2.5, places=12)
