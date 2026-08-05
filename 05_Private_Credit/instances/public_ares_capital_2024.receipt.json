@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "instance_id": "public_ares_capital_2024",
-  "as_of": "2026-03-31",
+  "as_of": "2025-12-31",
   "manifest": "05_Private_Credit/instances/public_ares_capital_2024.manifest.json",
   "template": "05_Private_Credit/_template_CREDIT.xlsx",
   "output": "05_Private_Credit/instances/public_ares_capital_2024.xlsx",
@@ -10,21 +10,21 @@
       "sheet": "Assumptions",
       "cell": "C12",
       "previous": 350,
-      "value": 15848.0,
+      "value": 15991.0,
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001287750.json",
-      "source_as_of": "2026-03-31"
+      "source_as_of": "2025-12-31"
     },
     {
       "sheet": "Assumptions",
       "cell": "C11",
       "previous": 25,
-      "value": 505.0,
+      "value": 638.0,
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001287750.json",
-      "source_as_of": "2026-03-31"
+      "source_as_of": "2025-12-31"
     }
   ],
-  "workbook_sha256": "78e8c822e642de461ca043adb5d727d7d5a515e995ea3c01abe5364cb17d5149",
-  "generated_on": "2026-08-04",
+  "workbook_sha256": "9d9614270406c4262ff93f3914a39de7b38690a264c7c9666b445292e1533cae",
+  "generated_on": "2026-08-05",
   "refresh_schema": "source-addressed-v2",
   "classification": "agent_tool_draft",
   "counts_toward_M4": false
