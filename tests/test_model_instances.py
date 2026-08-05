@@ -75,6 +75,22 @@ class ModelInstanceTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "refusing to overwrite formula"):
                 apply_manifest(manifest, root)
 
+    def test_unmapped_cover_key_fails_loudly_instead_of_silently_dropping(self):
+        # Regression guard: a manifest "cover" key that matches no Cover
+        # sheet row used to be silently skipped, so a workbook could carry
+        # real, sourced financial data while its Cover sheet still showed
+        # the template's literal placeholder text. Confirmed live across
+        # every public case in the repo before this test was added.
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.create_template(root)
+            manifest = self.write_manifest(root)
+            payload = json.loads(manifest.read_text(encoding="utf-8"))
+            payload["cover"] = {"Subject:": "This label does not exist on Cover"}
+            manifest.write_text(json.dumps(payload), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "matches no Cover sheet row"):
+                apply_manifest(manifest, root)
+
     def test_validate_only_does_not_write(self):
         with TemporaryDirectory() as directory:
             root = Path(directory)
