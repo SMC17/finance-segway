@@ -195,6 +195,7 @@ class DebtSweepPeriod:
     cash_sweep: float
     closing_debt: float
     excess_cash_after_sweep: float
+    funding_shortfall: float = 0.0
 
 
 def debt_sweep(
@@ -204,6 +205,16 @@ def debt_sweep(
     mandatory_amortization_rate: float = 0.0,
     sweep_percent: float = 1.0,
 ) -> list[DebtSweepPeriod]:
+    """Run an interest / mandatory-amortization / sweep cascade.
+
+    cash_interest and mandatory_amortization are the amounts actually PAID
+    from the period's cash, in that order of priority; debt is reduced only
+    by funded amortization plus the sweep. When cash cannot cover interest
+    plus scheduled amortization, the unpaid remainder is reported in
+    funding_shortfall - in a real structure it would be met by a revolver
+    draw or become a default, neither of which this cascade models, and
+    unpaid interest does not accrue onto the balance.
+    """
     if opening_debt < 0:
         raise ValueError("opening debt cannot be negative")
     if not 0 <= mandatory_amortization_rate <= 1:
@@ -216,22 +227,26 @@ def debt_sweep(
     for available in cash_available:
         if available < 0:
             raise ValueError("cash available cannot be negative")
-        interest = debt * annual_rate
-        post_interest_cash = max(0.0, available - interest)
-        mandatory = min(debt, debt * mandatory_amortization_rate)
-        post_mandatory_debt = debt - mandatory
-        post_mandatory_cash = max(0.0, post_interest_cash - mandatory)
+        interest_due = debt * annual_rate
+        interest_paid = min(available, interest_due)
+        post_interest_cash = available - interest_paid
+        mandatory_due = min(debt, debt * mandatory_amortization_rate)
+        mandatory_paid = min(post_interest_cash, mandatory_due)
+        shortfall = (interest_due - interest_paid) + (mandatory_due - mandatory_paid)
+        post_mandatory_debt = debt - mandatory_paid
+        post_mandatory_cash = post_interest_cash - mandatory_paid
         sweep = min(post_mandatory_debt, post_mandatory_cash * sweep_percent)
         closing = post_mandatory_debt - sweep
         excess = post_mandatory_cash - sweep
         periods.append(
             DebtSweepPeriod(
                 opening_debt=debt,
-                cash_interest=interest,
-                mandatory_amortization=mandatory,
+                cash_interest=interest_paid,
+                mandatory_amortization=mandatory_paid,
                 cash_sweep=sweep,
                 closing_debt=closing,
                 excess_cash_after_sweep=excess,
+                funding_shortfall=shortfall,
             )
         )
         debt = closing
