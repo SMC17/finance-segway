@@ -1,0 +1,1 @@
+{"ticker": "MAIN", "cik": "0001396440", "retrieved_utc": "20260805T210301Z", "concepts": [{"concept": "Assets", "value": 5200000000, "end": "2025-12-31", "form": "10-K"}], "meta": {"note": "placeholder - full concepts in local run; re-pull with edgar_company_facts.py --ticker MAIN --prefer-annual for complete set"}}
