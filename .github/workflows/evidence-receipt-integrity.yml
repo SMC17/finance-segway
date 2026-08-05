@@ -46,12 +46,12 @@ jobs:
       - name: Install repository dependencies
         run: pip install -r requirements.txt
 
-      - name: Refresh all public evidence receipts and index entries
+      - name: Verify receipts match the committed workbook bytes
         run: |
           PYTHONPATH=. python tools/evidence_receipt_integrity.py \
-            --refresh --check --report evidence-receipt-integrity-report.json
+            --check --report evidence-receipt-integrity-report.json
 
-      - name: Validate combined evidence after receipt refresh
+      - name: Validate combined evidence after receipt check
         run: |
           PYTHONPATH=.:tools python tools/final_public_evidence.py \
             --validate --require-instances
