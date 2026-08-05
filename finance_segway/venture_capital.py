@@ -1,8 +1,9 @@
 """Venture-capital liquidation-preference and conversion-election engine.
 
 The engine enumerates every conversion election for a small preferred stack.
-For each candidate it pays non-converting preferences in seniority order and
-allocates the residual pro rata to common plus converted preferred.  A
+For each candidate it pays non-converting preferences in seniority order -
+HIGHER seniority numbers are paid first (see PreferredSecurity.seniority) -
+and allocates the residual pro rata to common plus converted preferred.  A
 candidate is an equilibrium only when no preferred class can improve its own
 payout by changing its election while the other elections remain fixed.
 
@@ -28,6 +29,12 @@ class PreferredSecurity:
     name: str
     shares: float
     invested: float
+    # Higher number = more senior = paid first. Note this is the OPPOSITE of
+    # both the "1 = most senior" ranking many cap-table tools use AND this
+    # package's own debt engines, where a LOWER priority number is paid first
+    # (see DebtTranche.priority in debt.py and Tranche.priority in
+    # structured.py). Equal-seniority classes are processed in name order,
+    # not pari passu.
     seniority: int
     preference_multiple: float = 1.0
     conversion_ratio: float = 1.0

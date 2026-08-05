@@ -138,6 +138,16 @@ def moic(distributions: Sequence[float], invested_equity: float) -> float:
 
 
 def irr(cash_flows: Sequence[float], *, low: float = -0.999999, high: float = 100.0) -> float:
+    """Bisect for an IRR in (low, high).
+
+    Reliable only for conventional cash flows (one sign change). With
+    multiple sign changes there may be zero or several IRRs: when NPV has
+    the same sign at both interval ends this raises (which cannot
+    distinguish the zero-root from the even-root case), and when the ends
+    happen to bracket, bisection returns ONE root with no indication that
+    others exist. For non-conventional flows, compare NPV at an explicit
+    discount rate instead.
+    """
     flows = [float(value) for value in cash_flows]
     if len(flows) < 2 or not any(value < 0 for value in flows) or not any(value > 0 for value in flows):
         raise ValueError("IRR requires at least one negative and one positive cash flow")
@@ -146,7 +156,12 @@ def irr(cash_flows: Sequence[float], *, low: float = -0.999999, high: float = 10
     left, right = low, high
     left_value, right_value = npv(left), npv(right)
     if left_value * right_value > 0:
-        raise ValueError("cash flows do not bracket a root in the search interval")
+        raise ValueError(
+            "NPV does not change sign over the search interval; no IRR was "
+            "bracketed. Non-conventional cash flows (multiple sign changes) "
+            "can have zero or several IRRs - for those, compare NPV at an "
+            "explicit discount rate instead of relying on a single IRR"
+        )
     for _ in range(240):
         mid = (left + right) / 2.0
         mid_value = npv(mid)
