@@ -1,3 +1,3 @@
-case_id,case_type,metric,forecast,realized,error,realized_source,status
-crypto-public-coinbase-2023,conventional,next_quarter_total_customer_assets_usd_bn,220.0,334.708,114.70800000000003,Coinbase Q1 2024 Form 10-Q,recorded
-crypto-public-coinbase-2022-stress,adversarial,next_year_total_customer_assets_usd_bn,100.0,197.154,97.154,Coinbase 2023 Form 10-K,recorded
+case_id,case_type,metric,forecast,realized,error,realized_source,forecast_kind,status
+crypto-public-coinbase-2023,conventional,next_quarter_total_customer_assets_usd_bn,220.0,334.708,114.70800000000003,Coinbase Q1 2024 Form 10-Q,point_forecast,recorded
+crypto-public-coinbase-2022-stress,adversarial,next_year_total_customer_assets_usd_bn,100.0,197.154,97.154,Coinbase 2023 Form 10-K,point_forecast,recorded

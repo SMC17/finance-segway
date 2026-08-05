@@ -127,7 +127,7 @@ class EngineTests(unittest.TestCase):
         self.assertAlmostEqual(irr([-100, 0, 121]), 0.1, places=9)
 
     def test_black_scholes_parity_and_iv(self):
-        result = black_scholes(100, 100, 1.0, 0.05, 0.2, 0.02)
+        result = black_scholes(100, 100, 1.0, 0.05, volatility=0.2, dividend_yield=0.02)
         parity = result.call - result.put - (
             100 * exp(-0.02) - 100 * exp(-0.05)
         )
@@ -141,7 +141,7 @@ class EngineTests(unittest.TestCase):
         self.assertGreater(result.vega, 0)
 
     def test_american_put_not_below_european(self):
-        european = black_scholes(100, 110, 1.0, 0.05, 0.25)
+        european = black_scholes(100, 110, 1.0, 0.05, volatility=0.25)
         american = american_binomial(
             spot=100, strike=110, maturity=1.0, rate=0.05,
             volatility=0.25, steps=300, is_call=False,

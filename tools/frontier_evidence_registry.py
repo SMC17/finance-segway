@@ -1,9 +1,41 @@
-"""Public historical evidence registry for nine recently hardened M2 domains."""
+"""Public historical evidence registry for nine recently hardened M2 domains.
+
+Every case's forecast/realized pair was authored on AS_OF using fully public,
+already-known historical facts -- there is no case in this registry where the
+forecast was genuinely made before the outcome existed. That alone means none
+of this is real predictive-track-record evidence in the sense M4's
+"multi_release_outcome_history" requirement is written for; monitoring that
+actually starts before an outcome resolves is a separate, not-yet-built
+system. Given that shared limitation, outcome pairs still differ in what they
+demonstrate, and FORECAST_KIND makes the difference explicit rather than
+letting every case look like the same kind of evidence:
+
+  - "point_forecast": an independently chosen number that could have differed
+    from the realized value, and in most cases here genuinely does (e.g.
+    Boeing's forecast 75000 vs realized 58158 -- a real, sourced miss). This
+    is the closest thing to genuine model behavior on record, even though it
+    was chosen in hindsight.
+  - "same_period_reproduction": forecast and realized describe the exact same
+    already-known fact, and the workbook's own formula reproduces it from its
+    other inputs. Proves the model's arithmetic is right; proves nothing
+    about prediction.
+  - "hindsight_restated_fact": forecast is not independent at all -- it was
+    copied from the same source cited for realized (sometimes literally the
+    same captured_values field), so forecast == realized by construction with
+    zero chance of ever differing. This is the defect class an earlier
+    external review flagged ("some rows are literal identities... contribute
+    zero real signal"): a binary "did the modeled stress scenario happen"
+    confirmation, or a plainly-copied cross-period figure, dressed up with
+    forecast/realized column headers that imply a comparison never actually
+    happened. Still legitimate evidence that the case's stress scenario is
+    grounded in a real, not hypothetical, event -- just not forecast evidence.
+"""
 from __future__ import annotations
 
 from typing import Any
 
 AS_OF = "2026-08-04"
+FORECAST_KINDS = frozenset({"point_forecast", "same_period_reproduction", "hindsight_restated_fact"})
 
 
 def source(
@@ -48,7 +80,10 @@ def case(
     forecast: float,
     realized: float | None,
     realized_source: str,
+    forecast_kind: str,
 ) -> dict[str, Any]:
+    if forecast_kind not in FORECAST_KINDS:
+        raise ValueError(f"{case_id}: unknown forecast_kind {forecast_kind!r}, expected one of {sorted(FORECAST_KINDS)}")
     return {
         "id": case_id,
         "type": case_type,
@@ -62,6 +97,7 @@ def case(
             "forecast": forecast,
             "realized": realized,
             "realized_source": realized_source,
+            "forecast_kind": forecast_kind,
             "status": "recorded" if realized is not None else "pending",
         },
     }
@@ -72,6 +108,16 @@ COMMON_PROHIBITED = [
     "Representing retained modeler assumptions as external observations",
     "Treating historical public cases as transaction-specific diligence",
 ]
+
+# Models where every case is forecast_kind == "hindsight_restated_fact" --
+# zero genuine (point_forecast / same_period_reproduction) outcome evidence.
+# tests/test_frontier_evidence.py requires each model to have at least one
+# genuine case unless listed here; an entry means the gap is real and known,
+# not silently accepted. Fixing either domain needs a genuinely independent
+# forecast -- e.g. a growth-rate extrapolation sourced from data other than
+# the realized-value's own source -- which is real sourcing/modeling work,
+# not a one-line change, so it's tracked rather than rushed.
+KNOWN_HINDSIGHT_ONLY_MODELS: frozenset[str] = frozenset({"23", "24"})
 
 
 MODEL_META: dict[str, dict[str, Any]] = {
@@ -284,6 +330,14 @@ def registry() -> dict[str, Any]:
         },
     )
     cases["08"] = [
+        # Same-period reproduction check, not a forward forecast: the case's
+        # own cited source (blackrock_2023) already reports ending_aum_usd_bn
+        # for this exact as_of date, and the workbook's own formula (Fund
+        # NAV!C10 = C5+C6+C7-C8-C9) reproduces it exactly from the overridden
+        # inputs. forecast/realized are therefore both the cited 10008.995 —
+        # this demonstrates the model's rollforward arithmetic matches a known
+        # fact, previously mismarked with an unrelated, uncited 10500.0 and a
+        # "pending" status for an outcome that was already on hand.
         case(
             "am-public-blackrock-2023",
             "conventional",
@@ -299,9 +353,10 @@ def registry() -> dict[str, Any]:
                 override("Fund NAV", "C9", 0.0, "modeler_assumption", "AUM rollforward normalization"),
             ],
             "ending_aum_usd_bn",
-            10500.0,
-            None,
-            "Pending next maintained evidence refresh",
+            10008.995,
+            10008.995,
+            blackrock_2023["name"],
+            "same_period_reproduction",
         ),
         case(
             "am-public-blackrock-2022-stress",
@@ -321,6 +376,7 @@ def registry() -> dict[str, Any]:
             8500.0,
             10008.995,
             "BlackRock 2023 Form 10-K",
+            "point_forecast",
         ),
     ]
 
@@ -366,6 +422,7 @@ def registry() -> dict[str, Any]:
             75000.0,
             58158.0,
             "Boeing 2020 Form 10-K",
+            "point_forecast",
         ),
         case(
             "trade-public-boeing-2020-stress",
@@ -385,6 +442,7 @@ def registry() -> dict[str, Any]:
             55000.0,
             62286.0,
             "Boeing 2021 Form 10-K",
+            "point_forecast",
         ),
     ]
 
@@ -424,6 +482,7 @@ def registry() -> dict[str, Any]:
             625.0,
             583.2,
             "ASA International Q1 2026 Business Update",
+            "point_forecast",
         ),
         case(
             "microfinance-public-asa-zambia-stress",
@@ -442,6 +501,7 @@ def registry() -> dict[str, Any]:
             0.08,
             None,
             "Pending next maintained evidence refresh",
+            "point_forecast",
         ),
     ]
 
@@ -458,6 +518,17 @@ def registry() -> dict[str, Any]:
         {"backstop_shares": 5000000, "mudrick_shares": 21978022, "new_notes_usd_mm": 100.0, "debt_exchange_usd_mm": 104.5},
     )
     cases["12"] = [
+        # This override list is a summary, not the governing manifest -- the
+        # real one (standards/public_cases/equity-public-tesla-2020-offering.json)
+        # also sets Cap Table & Dilution!C5/C7/C11/C12 with the real share
+        # count, issue price, and existing-share count. C8=0.0 below is listed
+        # explicitly because its absence was a real, verified defect: Tesla's
+        # raise was a straight primary offering, not a rights offering, but
+        # 'Rights Offering'!C6 reads Cap Table!C8, which was left at the
+        # template default of 25 -- producing a fabricated ~$19.2bn "Expected
+        # net rights proceeds" on the Decision & Checks dashboard (confirmed
+        # via LibreOffice recalc) that no automated check caught, since the
+        # dashboard's checks are internal identities, not magnitude bounds.
         case(
             "equity-public-tesla-2020-offering",
             "conventional",
@@ -470,11 +541,13 @@ def registry() -> dict[str, Any]:
                 override("Rights Offering", "C8", 767.0, "observed", tesla_offering["name"]),
                 override("Rights Offering", "C9", 1.0, "derived", tesla_offering["name"]),
                 override("Rights Offering", "C10", 0.01176, "derived", tesla_offering["name"]),
+                override("Cap Table & Dilution", "C8", 0.0, "observed", tesla_offering["name"]),
             ],
             "net_proceeds_before_expenses_usd_mm",
             2032.55,
             2008.65,
             "Tesla February 2020 Final Prospectus",
+            "point_forecast",
         ),
         case(
             "equity-public-amc-2020-dilution",
@@ -490,6 +563,11 @@ def registry() -> dict[str, Any]:
             1.0,
             1.0,
             "AMC Entertainment 2020 Form 10-K",
+            # hindsight_restated_fact, not point_forecast: AMC's completion of
+            # its 2020 emergency financing is a known, already-disclosed fact
+            # in the same 10-K used as both "forecast" and "realized" -- there
+            # was never an independent prediction to miss.
+            "hindsight_restated_fact",
         ),
     ]
 
@@ -527,6 +605,7 @@ def registry() -> dict[str, Any]:
             75.0,
             None,
             "Pending maintained annual EIA evidence refresh",
+            "point_forecast",
         ),
         case(
             "commodities-public-wti-april-2020",
@@ -545,6 +624,7 @@ def registry() -> dict[str, Any]:
             0.0,
             40.0,
             "EIA July 2020 oil-price recovery",
+            "point_forecast",
         ),
     ]
 
@@ -584,6 +664,7 @@ def registry() -> dict[str, Any]:
             220.0,
             334.708,
             "Coinbase Q1 2024 Form 10-Q",
+            "point_forecast",
         ),
         case(
             "crypto-public-coinbase-2022-stress",
@@ -601,6 +682,7 @@ def registry() -> dict[str, Any]:
             100.0,
             197.154,
             "Coinbase 2023 Form 10-K",
+            "point_forecast",
         ),
     ]
 
@@ -633,6 +715,7 @@ def registry() -> dict[str, Any]:
             900.0,
             847.893,
             "Realty Income 2024 public reconciliation",
+            "point_forecast",
         ),
         case(
             "real-estate-public-wework-2022-stress",
@@ -652,6 +735,12 @@ def registry() -> dict[str, Any]:
             1.0,
             1.0,
             "WeWork Chapter 11 filing, November 2023",
+            # hindsight_restated_fact: WeWork's Chapter 11 filing is a known
+            # historical fact restated as "forecast" -- no independent
+            # prediction was made before it. Still legitimate evidence that
+            # this adversarial case is grounded in a real distress event, not
+            # a hypothetical one, but not forecast evidence.
+            "hindsight_restated_fact",
         ),
     ]
 
@@ -691,6 +780,15 @@ def registry() -> dict[str, Any]:
             16000.0,
             16000.0,
             "Visa 2024 Form 10-K",
+            # hindsight_restated_fact: forecast (16000.0) was copied straight
+            # from visa_2024["captured_values"]["payments_and_cash_volume_usd_bn"]
+            # -- the exact same field cited for realized -- rather than derived
+            # independently (e.g. from a trailing growth rate off visa_2023's
+            # own 15000.0). Same defect class as the BlackRock 2023 case fixed
+            # elsewhere in this registry, but here there's no clean workbook
+            # formula to substitute a genuine derived forecast, so it's
+            # labeled honestly instead.
+            "hindsight_restated_fact",
         ),
         case(
             "fintech-public-fis-worldpay-2023-stress",
@@ -707,6 +805,9 @@ def registry() -> dict[str, Any]:
             1.0,
             1.0,
             "FIS Worldpay sale closed January 31, 2024",
+            # hindsight_restated_fact: the sale's closing is a known fact
+            # restated as "forecast" -- no independent prediction was made.
+            "hindsight_restated_fact",
         ),
     ]
 
@@ -743,6 +844,10 @@ def registry() -> dict[str, Any]:
             1.0,
             1.0,
             "Hertz 2021 Form 10-K",
+            # hindsight_restated_fact: Hertz's emergence from Chapter 11 is a
+            # known historical fact restated as "forecast" -- no independent
+            # prediction was made before it.
+            "hindsight_restated_fact",
         ),
         case(
             "distressed-public-bbby-2022-liquidity",
@@ -759,6 +864,13 @@ def registry() -> dict[str, Any]:
             1.0,
             1.0,
             "Bed Bath & Beyond Chapter 11 filing, April 23, 2023",
+            # hindsight_restated_fact: BBBY's Chapter 11 filing is a known
+            # historical fact restated as "forecast" -- no independent
+            # prediction was made before it. Both of model 24's cases are
+            # hindsight_restated_fact, so Distressed & Restructuring currently
+            # has zero genuine forecast evidence -- tracked in
+            # KNOWN_HINDSIGHT_ONLY_MODELS below, same as model 23 Fintech.
+            "hindsight_restated_fact",
         ),
     ]
 

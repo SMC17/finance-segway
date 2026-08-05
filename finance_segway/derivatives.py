@@ -30,7 +30,11 @@ class BlackScholesResult:
 
 
 def black_scholes(spot: float, strike: float, maturity: float, rate: float,
-                  volatility: float, dividend_yield: float = 0.0) -> BlackScholesResult:
+                  *, volatility: float, dividend_yield: float = 0.0) -> BlackScholesResult:
+    # volatility/dividend_yield are keyword-only: this repo also has
+    # tools.reference_engines.black_scholes with the same 6 arguments in the
+    # OPPOSITE order for these two (dividend_yield before volatility) —
+    # forcing keywords here removes the silent-swap hazard between them.
     spot = require_positive("spot", spot)
     strike = require_positive("strike", strike)
     maturity = require_positive("maturity", maturity)
@@ -63,7 +67,7 @@ def implied_volatility(price: float, *, is_call: bool, spot: float, strike: floa
                        lower: float = 1e-6, upper: float = 8.0) -> float:
     price = require_nonnegative("price", price)
     def objective(volatility: float) -> float:
-        result = black_scholes(spot, strike, maturity, rate, volatility, dividend_yield)
+        result = black_scholes(spot, strike, maturity, rate, volatility=volatility, dividend_yield=dividend_yield)
         return (result.call if is_call else result.put) - price
     left, right = lower, upper
     if objective(left) > 0 or objective(right) < 0:

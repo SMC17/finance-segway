@@ -185,6 +185,10 @@ def registry() -> dict[str, Any]:
             1.0,
             1.0,
             linkedin_close["name"],
+            # hindsight_restated_fact: linkedin_close's own captured_values is
+            # just {"merger_completed": 1} -- a fact restated as "forecast",
+            # not an independent prediction.
+            "hindsight_restated_fact",
         ),
         case(
             "ib-public-hp-autonomy-2012-stress",
@@ -203,6 +207,7 @@ def registry() -> dict[str, Any]:
             0.0,
             8800.0,
             hp_autonomy["name"],
+            "point_forecast",
         ),
     ]
 
@@ -254,6 +259,7 @@ def registry() -> dict[str, Any]:
             75000.0,
             75543.0,
             microsoft_2024["name"],
+            "point_forecast",
         ),
         case(
             "corporate-public-intel-2024-stress",
@@ -270,6 +276,7 @@ def registry() -> dict[str, Any]:
             0.0,
             1.0,
             intel_2024["name"],
+            "point_forecast",
         ),
     ]
 
@@ -322,6 +329,7 @@ def registry() -> dict[str, Any]:
             27000.0,
             27886.1,
             ares_q2_2025["name"],
+            "point_forecast",
         ),
         case(
             "credit-public-yellow-2022-stress",
@@ -338,6 +346,7 @@ def registry() -> dict[str, Any]:
             0.0,
             1.0,
             yellow_bankruptcy["name"],
+            "point_forecast",
         ),
     ]
 
@@ -370,6 +379,7 @@ def registry() -> dict[str, Any]:
             70000.0,
             67127.0,
             microsoft_2024["name"],
+            "point_forecast",
         ),
         case(
             "debt-public-carnival-2020-stress",
@@ -388,6 +398,7 @@ def registry() -> dict[str, Any]:
             0.0,
             5750.0,
             carnival_2020["name"],
+            "point_forecast",
         ),
     ]
 
@@ -432,6 +443,10 @@ def registry() -> dict[str, Any]:
             1.0,
             1.0,
             jamaica_2024["name"],
+            # hindsight_restated_fact: jamaica_2024's own captured_values
+            # already includes "review_completed": 1 -- a fact restated as
+            # "forecast", not an independent prediction.
+            "hindsight_restated_fact",
         ),
         case(
             "public-finance-sri-lanka-2023-stress",
@@ -448,6 +463,7 @@ def registry() -> dict[str, Any]:
             0.0,
             1.0,
             sri_lanka_2023["name"],
+            "point_forecast",
         ),
     ]
 
@@ -496,6 +512,11 @@ def registry() -> dict[str, Any]:
             1.0,
             1.0,
             snowflake_2020["name"],
+            # hindsight_restated_fact: snowflake_2020's own captured_values
+            # already includes "ipo_completed": 1 -- the case's source is the
+            # final IPO prospectus itself, so "forecast" restates a fact the
+            # source already confirms, not an independent prediction.
+            "hindsight_restated_fact",
         ),
         case(
             "vc-public-instacart-2023-down-round",
@@ -514,6 +535,7 @@ def registry() -> dict[str, Any]:
             0.0,
             1.0,
             instacart_2023["name"],
+            "point_forecast",
         ),
     ]
 

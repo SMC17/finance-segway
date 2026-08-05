@@ -109,20 +109,28 @@ def enrich(workbook) -> None:
     cap["B17"].font = BOLD
     cap["B17"].fill = GRAY_FILL
     outputs = [
-        (18, "Converted shares", "=IFERROR(E9/E10,0)", NUM),
-        (19, "Fully diluted post-money shares", "=SUM(E5:E8)+E18", NUM),
-        (20, "Existing common ownership", "=IFERROR(E5/E19,0)", PCT),
-        (21, "Existing-holder dilution", "=1-E20", PCT),
-        (22, "Option / RSU overhang", "=IFERROR(E6/E19,0)", PCT),
-        (23, "Gross primary proceeds", "=E7*E11", CUR),
-        (24, "Net primary proceeds", "=E23-E12", CUR),
-        (25, "Share-conservation residual", "=E19-E5-E6-E7-E8-E18", NUM),
+        (18, "Converted shares", "IFERROR({0}9/{0}10,0)", NUM),
+        (19, "Fully diluted post-money shares", "SUM({0}5:{0}8)+{0}18", NUM),
+        (20, "Existing common ownership", "IFERROR({0}5/{0}19,0)", PCT),
+        (21, "Existing-holder dilution", "1-{0}20", PCT),
+        (22, "Option / RSU overhang", "IFERROR({0}6/{0}19,0)", PCT),
+        (23, "Gross primary proceeds", "{0}7*{0}11", CUR),
+        (24, "Net primary proceeds", "{0}23-{0}12", CUR),
+        (25, "Share-conservation residual", "{0}19-{0}5-{0}6-{0}7-{0}8-{0}18", NUM),
     ]
-    for row, label, formula, number_format in outputs:
+    # Base (C) and Adversarial (D) get their own derived outputs, matching
+    # the C/D/E convention the sheet's own inputs section (rows 5-14) and the
+    # sibling Rights Offering / Convertible Securities sheets already use.
+    # Previously only E (Active) was formulaed here, leaving C18 permanently
+    # blank -- silently breaking the Decision & Checks "Converted-share
+    # reconciliation" check, which specifically needs the Base-column figure
+    # to compare against Convertible Securities' own Base-column C14.
+    for row, label, formula_template, number_format in outputs:
         cap.cell(row, 2, label)
-        cap.cell(row, 5, formula)
-        cap.cell(row, 5).number_format = number_format
-        cap.cell(row, 5).border = BORDER
+        for column_letter, column in (("C", 3), ("D", 4), ("E", 5)):
+            cell = cap.cell(row, column, "=" + formula_template.format(column_letter))
+            cell.number_format = number_format
+            cell.border = BORDER
     cap["B27"] = (
         "The fully diluted denominator must use the security-specific treasury-stock, "
         "if-converted, contingently issuable, and anti-dilution conventions approved for the analysis."

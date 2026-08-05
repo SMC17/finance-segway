@@ -53,8 +53,8 @@ every future change is better.
 ## Adding a new archetype (a genuinely new type of model)
 
 1. Confirm it doesn't already exist — check `README.md`'s domain table first.
-2. Build it as `<DOMAIN>_template.py` using `tools/template_helpers.py` for
-   consistent styling.
+2. Build it as `<DOMAIN>_template.py` using `tools/builders/template_helpers.py`
+   for consistent styling.
 3. Add the domain to `tools/scaffold_repo.py`'s `DOMAINS` dict.
 4. Run `tools/recalc.py` and fix every error before opening a PR.
 5. Add the archetype's required tabs to `tools/weekly_refresh_check.py`'s
