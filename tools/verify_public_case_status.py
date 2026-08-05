@@ -94,16 +94,6 @@ KNOWN_THIN_CASES: frozenset[str] = frozenset({
 #   EPS dilution -- different real magnitudes from different real
 #   companies, both happen to be BREACH under the template's
 #   zero-tolerance dilution threshold.
-# - Equity Finance: AMC's real 2020 raise shows 75.5% existing-holder
-#   dilution vs Tesla's real 19.2% -- genuinely differentiated on that
-#   check -- but both still show Overall BREACH via a separate, confirmed
-#   template defect: the 'Converted-share reconciliation' check compares
-#   Convertible Securities!C14 (always the static Base column) against
-#   Cap Table & Dilution!C18 (the scenario-active column), so it only
-#   ties when Base and the active scenario happen to be identical --
-#   confirmed pre-existing on the untouched Tesla case too, not introduced
-#   by this pass. Needs a builder-level fix (same class as the Insurance
-#   triangle bug), out of scope here.
 # - Venture Capital: Instacart's real 2023 IPO valuation (~$9.9bn, down
 #   from a ~$39bn 2021 private peak) correctly BREACHes "Round pricing"
 #   while Snowflake's real 2020 IPO does not -- genuinely differentiated
@@ -113,9 +103,21 @@ KNOWN_THIN_CASES: frozenset[str] = frozenset({
 #   at IPO; there is no real liquidation waterfall to source data for).
 #   A conceptual mismatch between the case and the template's mechanic,
 #   not a data gap.
+#
+# Equity Finance's AMC/Tesla pair used to be here: both showed Overall
+# BREACH via a confirmed template defect (Cap Table & Dilution's derived
+# outputs -- rows 18-25 -- only formulaed the Active/E column, leaving C18
+# permanently blank, which broke the 'Converted-share reconciliation'
+# check for every Base-scenario instance). Fixed at the builder level
+# (tools/builders/build_equity_finance_release.py now formulas C/D/E for
+# all eight derived-output rows) and reverified via LibreOffice recalc on
+# regenerated instances: Tesla now REVIEW (driven by a genuine, unrelated
+# convertible anti-dilution signal), AMC still BREACH but now for its own
+# real reasons (75.5% existing-holder dilution and 19.6% rights
+# participation, both genuinely breach their thresholds) -- differentiated,
+# so removed from this set.
 KNOWN_REAL_CORRELATED_CASES: frozenset[str] = frozenset({
     "ib-public-hp-autonomy-2012-stress", "ib-public-microsoft-linkedin-2016",
-    "equity-public-amc-2020-dilution", "equity-public-tesla-2020-offering",
     "vc-public-instacart-2023-down-round", "vc-public-snowflake-2020",
 })
 

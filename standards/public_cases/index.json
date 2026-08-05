@@ -2303,13 +2303,11 @@
             "source_as_of": "2020-12-31"
           }
         ],
-        "workbook_sha256": "1154645dc73b096df17686102e35679d9e4db8116a71ef70025de41b8d54ee9a",
+        "workbook_sha256": "5217572faee894701936b1e7c35f5bf30ec9137f2d7e89d8f0e8d0d5ef6cf628",
         "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false,
-        "hash_refreshed_on": "2026-08-05",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
+        "counts_toward_M4": false
       },
       "outcome": {
         "metric": "emergency_financing_completed",
@@ -2418,7 +2416,7 @@
             "source_as_of": "2020-02-14"
           }
         ],
-        "workbook_sha256": "012f2ebd3c30718a836c7eedc78e8419a2bf5df77a82ef382f3ca036e97879be",
+        "workbook_sha256": "19e7a6ba16c562261fedecc2a7ad03f260f9ac0a3a2c2debd574f374ea9cb3be",
         "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
