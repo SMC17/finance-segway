@@ -1,6 +1,0 @@
-field,source_name,as_of_date,retrieval_date,transformation,snapshot,workbook_destination
-borrower_name,SEC EDGAR / Ares Capital identity,2026-03-31,2026-08-04,public company name,05_Private_Credit/sources/snapshots/credit-public-ares-2024.json,Assumptions / operating case
-facility_size,SEC companyfacts LongTermDebt,2026-03-31,2026-08-04,latest USD LongTermDebt from 10-Q,tools/data_fabric/out/ARCC_facts_selected.json,Assumptions / operating case
-pricing_spread_bps,modeler_assumption,2026-03-31,2026-08-04,portfolio blended spread not a single facility — set 0 pending underwriting,,Assumptions / operating case
-cfads_base,modeler_assumption,2026-03-31,2026-08-04,placeholder 0 — construct CFADS before decision use,,Assumptions / operating case
-senior_debt,SEC companyfacts LongTermDebt,2026-03-31,2026-08-04,latest USD LongTermDebt from 10-Q,tools/data_fabric/out/ARCC_facts_selected.json,Assumptions / operating case
