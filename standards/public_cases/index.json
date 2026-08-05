@@ -725,11 +725,13 @@
             "source_as_of": "2021-03-30"
           }
         ],
-        "workbook_sha256": "e134ae1e370e9d7dd96443063219a11836686e45aaa7ead0a083a75b8fb3aa75",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "b8a0dec7606b5b409867faaa6dd13bfa925a6511f0946f6af50231fc96a60591",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {
         "metric": "next_fiscal_year_revenue_usd_mm",
@@ -782,11 +784,13 @@
             "source_as_of": "2024-03-13"
           }
         ],
-        "workbook_sha256": "945c2687cc61710ae0d958e93488ec3546c5df345a24ecd2a0cefcff2a292c66",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "5e13cff61b4367a73f322759925babe7974ba71cf9d28b08655ab42375f4cc75",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {
         "metric": "next_fiscal_year_revenue_usd_mm",
@@ -831,11 +835,13 @@
             "source_as_of": "2023-03-29"
           }
         ],
-        "workbook_sha256": "d1c2e0c4256455a11741adea748abc9ec9b36df2b07195b7e2877f40e08dd09d",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "01108629619586dea314219651e86845898a61f7f6f39c23e3eefcad6a717f48",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {
         "metric": "bankruptcy_within_12_months",
@@ -888,11 +894,13 @@
             "source_as_of": "2022-02-24"
           }
         ],
-        "workbook_sha256": "5fd814b160ff4fc2cca1fd937a168e3dc53fd24fbaaa6ac14516dcf01d307df7",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "0ac7e3c731483cdf61c847a22adc9efa9d2f73bf1ec0809df853e59298a493bc",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {
         "metric": "announced_transaction_equity_value_usd_mm",

@@ -33,6 +33,20 @@ DEALS: dict[str, dict[str, str]] = {
         "path": "03_Private_Equity/instances/public_macys_2020_adversarial.xlsx",
         "classification": REAL_PUBLIC,
     },
+    # 04_Merchant_Banking shares 03_Private_Equity's exact LBO archetype
+    # (Cover/Assumptions/Sources & Uses/Debt Schedule/Returns Waterfall/
+    # Checks, same labels) -- merchant banking is a principal-investing
+    # variant of the same engine, not a different schema. Extraction here
+    # is label-driven, so these load through the identical extract_* path
+    # with no new code.
+    "alleghany_2021": {
+        "path": "04_Merchant_Banking/instances/public_alleghany_2021.xlsx",
+        "classification": REAL_PUBLIC,
+    },
+    "wework_2022_adversarial": {
+        "path": "04_Merchant_Banking/instances/public_wework_2022_adversarial.xlsx",
+        "classification": REAL_PUBLIC,
+    },
 }
 
 REQUIRED_SHEETS = {

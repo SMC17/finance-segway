@@ -61,10 +61,21 @@ def _set_cover(workbook: Any, manifest: dict[str, Any]) -> None:
     mapping.update(manifest.get("cover", {}))
     for label, value in mapping.items():
         row = _find_label_row(cover, label)
-        if row is not None:
-            cover.cell(row, 3, value)
-            cover.cell(row, 3).font = Font(name="Arial", size=10, color=BLUE)
-            cover.cell(row, 3).fill = PatternFill("solid", fgColor=YELLOW)
+        if row is None:
+            # A manifest cover key that matches no row silently drops that
+            # value -- the template keeps its literal placeholder (e.g.
+            # "[Name]") in a workbook that is otherwise real and sourced.
+            # Fail loudly instead: this exact silent-drop class of bug left
+            # every public case's Cover sheet showing template placeholder
+            # text instead of the real subject, undetected, for the whole
+            # life of the public-evidence program.
+            raise ValueError(
+                f"manifest cover key {label!r} matches no Cover sheet row -- "
+                "check the label against the template's actual Cover field text"
+            )
+        cover.cell(row, 3, value)
+        cover.cell(row, 3).font = Font(name="Arial", size=10, color=BLUE)
+        cover.cell(row, 3).fill = PatternFill("solid", fgColor=YELLOW)
 
 
 def _append_sources(workbook: Any, manifest: dict[str, Any]) -> None:
