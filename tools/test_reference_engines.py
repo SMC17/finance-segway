@@ -23,14 +23,14 @@ class OptionsReferenceTests(unittest.TestCase):
     def test_put_call_parity_across_grid(self) -> None:
         for spot in (80.0, 100.0, 120.0):
             for strike in (90.0, 100.0, 110.0):
-                result = black_scholes(spot, strike, 0.75, 0.04, 0.01, 0.25)
+                result = black_scholes(spot, strike, 0.75, 0.04, dividend_yield=0.01, volatility=0.25)
                 residual = put_call_parity_residual(
                     spot, strike, 0.75, 0.04, 0.01, result.call, result.put
                 )
                 self.assertAlmostEqual(residual, 0.0, places=10)
 
     def test_expected_greek_signs(self) -> None:
-        result = black_scholes(100.0, 100.0, 1.0, 0.05, 0.0, 0.20)
+        result = black_scholes(100.0, 100.0, 1.0, 0.05, dividend_yield=0.0, volatility=0.20)
         self.assertGreater(result.call_delta, 0.0)
         self.assertLess(result.put_delta, 0.0)
         self.assertGreater(result.gamma, 0.0)

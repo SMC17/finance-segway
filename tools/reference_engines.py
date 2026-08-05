@@ -38,9 +38,14 @@ def black_scholes(
     strike: float,
     years: float,
     rate: float,
+    *,
     dividend_yield: float,
     volatility: float,
 ) -> BlackScholesResult:
+    # dividend_yield/volatility are keyword-only: this repo also has
+    # finance_segway.derivatives.black_scholes with the same 6 arguments in
+    # the OPPOSITE order for these two (volatility before dividend_yield) —
+    # forcing keywords here removes the silent-swap hazard between them.
     if min(spot, strike, years, volatility) <= 0:
         raise ValueError("spot, strike, years, and volatility must be positive")
 
