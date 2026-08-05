@@ -75,6 +75,48 @@ class EngineTests(unittest.TestCase):
         self.assertLess(rows[-1].ending_balance, 100)
         self.assertAlmostEqual(covenant_headroom(4.5, 5.0, maximum=True), 0.5)
 
+    def test_debt_schedule_rejects_unfunded_debt_service(self):
+        # Interest 8.0 + mandatory amortization 10.0 against 1.0 of cash:
+        # the schedule has no revolver to bridge the gap, so it must refuse
+        # rather than pay with cash that does not exist.
+        with self.assertRaises(ValueError):
+            build_debt_schedule(
+                [DebtTranche("term", 100, 0.08, mandatory_amort_pct=0.10)],
+                [1.0],
+            )
+
+    def test_debt_schedule_default_maturity_is_assumed_refinancing(self):
+        # With refinance_at_maturity=True (default) a bullet retires at par
+        # without consuming operating cash: 20.0 covers the 8.0 of interest
+        # and the balance is refinanced, not cash-funded.
+        rows = build_debt_schedule(
+            [DebtTranche("term", 100, 0.08, maturity_period=1)],
+            [20.0],
+        )
+        row = rows[0]
+        self.assertAlmostEqual(row.cash_interest, 8.0)
+        self.assertAlmostEqual(row.maturity_payment, 100.0)
+        self.assertAlmostEqual(row.ending_balance, 0.0)
+
+    def test_debt_schedule_strict_maturity_requires_cash(self):
+        # With refinance_at_maturity=False the balloon must be funded: 20.0
+        # cannot repay 100, so the schedule refuses; 120.0 can, and the
+        # repayment consumes cash ahead of any junior claim on it.
+        with self.assertRaises(ValueError):
+            build_debt_schedule(
+                [DebtTranche("term", 100, 0.08, maturity_period=1)],
+                [20.0],
+                refinance_at_maturity=False,
+            )
+        rows = build_debt_schedule(
+            [DebtTranche("term", 100, 0.08, maturity_period=1)],
+            [120.0],
+            refinance_at_maturity=False,
+        )
+        row = rows[0]
+        self.assertAlmostEqual(row.maturity_payment, 100.0)
+        self.assertAlmostEqual(row.ending_balance, 0.0)
+
     def test_recovery_waterfall_conserves_value(self):
         result = recovery_waterfall(90, [("revolver", 20), ("term", 100)])
         self.assertEqual(result["revolver"], 20)
