@@ -16,6 +16,7 @@ try:
         CUR,
         CUR2,
         GRAY_FILL,
+        GREEN,
         HEADER_FILL,
         ITALIC_GRAY,
         MULT,
@@ -37,6 +38,7 @@ except ModuleNotFoundError:
         CUR,
         CUR2,
         GRAY_FILL,
+        GREEN,
         HEADER_FILL,
         ITALIC_GRAY,
         MULT,
@@ -90,8 +92,10 @@ def enrich(workbook) -> None:
         sheet.cell(row, 2, label).font = BLACK
         for column, value in ((3, base), (4, downside)):
             cell = sheet.cell(row, column, value)
-            cell.font = BLUE
-            cell.fill = YELLOW_FILL
+            is_link = isinstance(value, str) and value.startswith("=")
+            cell.font = GREEN if is_link else BLUE
+            if not is_link:
+                cell.fill = YELLOW_FILL
             cell.number_format = number_format
             cell.border = BORDER
         sheet.cell(row, 5, f'=IF(Cover!$C$9="Downside",D{row},C{row})')
