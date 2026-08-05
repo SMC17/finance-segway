@@ -118,6 +118,18 @@
         "as_of": "2020-02-14",
         "notes": "Mirrors the real Base-column participation rate onto the Adversarial column, which is what the 'Adversarial rights participation' check reads regardless of case framing -- the original manifest only set C9, leaving D9 at the template default (0.45)."
       }
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "C8",
+      "value": 0.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla's February 2020 raise was a single underwritten primary offering -- no separate rights offering occurred, so no shares were issued through a rights mechanism",
+        "url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+        "as_of": "2020-02-14",
+        "notes": "Left at the template default of 25 (placeholder rights-shares-issued) before this fix. The 'Rights Offering' sheet's own C6 ('Rights shares offered') reads 'Cap Table & Dilution'!C8, not C7 -- so despite C7 already correctly holding the real 2.65mm primary share count, the Rights Offering sheet's downstream computation (C16-C19) was pulling 25mm phantom rights shares, producing an 'Expected net rights proceeds' of ~$19.175bn on the Decision & Checks dashboard (row 23) for a transaction that raised about $2bn total. Setting this to 0 correctly reflects that no rights offering happened, without touching the already-correct C7/C11-driven primary-offering figures (Cap Table 'Gross/Net primary proceeds', matching the case's recorded forecast/realized)."
+      }
     }
   ],
   "sources": [
