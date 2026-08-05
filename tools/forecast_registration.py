@@ -316,6 +316,48 @@ def check_all(directory: Path = FORECAST_DIR) -> dict[str, Any]:
     return report
 
 
+def forward_evidence_by_model(directory: Path = FORECAST_DIR) -> dict[str, dict[str, Any]]:
+    """Group the registry by model_id for the inventory gate's report.
+
+    Returns {model_id: {registered, pending, overdue, resolved, skills,
+    median_skill_vs_baseline, interval_hits}}. Purely descriptive - the
+    thresholds that turn forward evidence into an M4 promotion decision are
+    governance, set by the maintainer, not by this function.
+    """
+    today = date.today()
+    evidence: dict[str, dict[str, Any]] = {}
+    for record in load_all(directory).values():
+        model_id = str(record.get("model_id", ""))
+        entry = evidence.setdefault(model_id, {
+            "registered": 0, "pending": 0, "overdue": 0, "resolved": 0,
+            "skills": [], "median_skill_vs_baseline": None, "interval_hits": [],
+        })
+        entry["registered"] += 1
+        resolution = record.get("resolution")
+        if resolution is None:
+            resolve_by = _parse_date("resolve_by", record.get("resolve_by"), [])
+            if resolve_by is not None and resolve_by < today:
+                entry["overdue"] += 1
+            else:
+                entry["pending"] += 1
+            continue
+        entry["resolved"] += 1
+        skill = resolution.get("skill_vs_baseline")
+        if isinstance(skill, (int, float)):
+            entry["skills"].append(float(skill))
+        hit = resolution.get("interval_hit")
+        if isinstance(hit, bool):
+            entry["interval_hits"].append(hit)
+    for entry in evidence.values():
+        skills = sorted(entry["skills"])
+        if skills:
+            mid = len(skills) // 2
+            entry["median_skill_vs_baseline"] = (
+                skills[mid] if len(skills) % 2 else (skills[mid - 1] + skills[mid]) / 2
+            )
+    return evidence
+
+
 def register(path: Path) -> dict[str, Any]:
     record = json.loads(path.read_text(encoding="utf-8"))
     if record.get("registration_sha256") is not None:

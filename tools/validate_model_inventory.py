@@ -57,8 +57,9 @@ from typing import Any
 import openpyxl
 
 try:
-    from tools import reference_check_registry
+    from tools import forecast_registration, reference_check_registry
 except (ImportError, ModuleNotFoundError):  # script-style execution
+    import forecast_registration
     import reference_check_registry
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -92,6 +93,7 @@ class ModelResult:
     errors: list[str] | None = None
     warnings: list[str] | None = None
     reference_check_binding: dict | None = None
+    forward_evidence: dict | None = None
 
     def __post_init__(self) -> None:
         self.errors = [] if self.errors is None else self.errors
@@ -289,6 +291,34 @@ def validate_inventory(
 
     results = [validate_model(model, public_case_index) for model in models]
 
+    # Attach each model's forward evidence from the forecast registry.
+    # Purely descriptive at every maturity except M4: M4 is defined as
+    # demonstrated forward accuracy, so an M4 claim with no resolved
+    # out-of-sample forecast is an error. The thresholds above that floor
+    # (how many resolutions, what skill) are governance parameters and are
+    # deliberately not set here.
+    try:
+        forward = forecast_registration.forward_evidence_by_model()
+    except Exception as exc:  # noqa: BLE001
+        inventory_errors.append(f"forward-evidence pass could not run: {exc}")
+        forward = {}
+    for result, model in zip(results, models):
+        evidence = forward.get(result.model_id)
+        result.forward_evidence = evidence
+        if result.maturity == "M4":
+            resolved = (evidence or {}).get("resolved", 0)
+            if not resolved:
+                result.errors.append(
+                    "M4 claims demonstrated forward accuracy but the forecast "
+                    "registry has no resolved out-of-sample forecast for this "
+                    "model - register forecasts and let them resolve first"
+                )
+        if evidence and evidence.get("overdue"):
+            result.warnings.append(
+                f"{evidence['overdue']} registered forecast(s) past resolve_by "
+                "without resolution - the registry check will fail until resolved"
+            )
+
     # Bind every declared reference_checks token to the oracle that executes
     # it (or record that none does). A bound identity check that fails its
     # oracle blocks the gate; a declared token no oracle produces is a
@@ -360,6 +390,21 @@ def print_summary(results: list[ModelResult], inventory_errors: list[str]) -> No
             f"{coverage['models_with_oracle']}/24 models oracle-backed, "
             f"{coverage['models_workbook_verified']}/24 workbook-verified"
         )
+    forward_totals = {
+        "models": 0, "registered": 0, "pending": 0, "overdue": 0, "resolved": 0,
+    }
+    for result in results:
+        if result.forward_evidence:
+            forward_totals["models"] += 1
+            for key in ("registered", "pending", "overdue", "resolved"):
+                forward_totals[key] += result.forward_evidence.get(key, 0)
+    print(
+        "Forward evidence: "
+        f"{forward_totals['registered']} registered forecasts across "
+        f"{forward_totals['models']} models "
+        f"({forward_totals['pending']} pending, {forward_totals['overdue']} overdue, "
+        f"{forward_totals['resolved']} resolved)"
+    )
 
 
 def write_report(path: Path, results: list[ModelResult], inventory_errors: list[str]) -> None:
@@ -380,6 +425,11 @@ def write_report(path: Path, results: list[ModelResult], inventory_errors: list[
             "reference_check_coverage": (
                 reference_check_registry.coverage_summary(bindings) if bindings else None
             ),
+            "forward_evidence": {
+                result.model_id: result.forward_evidence
+                for result in results
+                if result.forward_evidence
+            },
         },
     }
     path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
