@@ -1,0 +1,20 @@
+{
+  "forecast_id": "credit-arcc-fy2026-total-assets",
+  "case_id": "credit-public-ares-2024",
+  "model_id": "05",
+  "metric": "fiscal_2026_total_assets_usd_mm",
+  "outcome_class": "out_of_sample_forecast",
+  "point": 34216.0,
+  "interval": null,
+  "basis": "modeled",
+  "baseline": {
+    "kind": "naive_last_recorded",
+    "value": 31235.0,
+    "source": "carry-forward of fiscal_2026_total_assets_usd_mm = 31235.0 at FY2025 per tools/data_fabric/out/ARCC_alphavantage_balance_sheet.json (Alpha Vantage MCP, cross-verified against SEC EDGAR companyfacts)"
+  },
+  "registered_on": "2026-08-05",
+  "resolve_by": "2027-03-31",
+  "resolution_source_expected": "Ares Capital FY2026 Form 10-K (total assets, USD mm)",
+  "resolution": null,
+  "registration_sha256": "b2fc96a7aaf878fd2df2913c42b024ab4ad4e2086a855b2ae151d7f5e81d60af"
+}
