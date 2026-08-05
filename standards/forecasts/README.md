@@ -64,7 +64,8 @@ record = draft_registration(
     forecast_id="pc-acme-fy2027-revenue",
     case_id="acme_unitranche_2026", model_id="05", metric="revenue_usd_mm",
     point=112.0,                          # e.g. parsed from a statistician-protocol reply
-    history=[("FY2025", 101.0), ("FY2026", 104.0)],   # from the instance workbook
+    history=[("FY2025", 101.0), ("FY2026", 104.0)],
+    history_source="05_Private_Credit/instances/acme_unitranche_2026 workbook",
     interval=[102.0, 121.0],              # optional: the Base/Downside scenario range
     resolve_by="2027-09-30",
     resolution_source_expected="Issuer FY2027 audited financials",
@@ -77,3 +78,13 @@ register(path)                            # stamps the immutable content hash
 On `interval`: the honest producer here is a scenario range already in the
 workbook (Base/Downside), not LLM elicitation - elicited intervals are
 unbenchmarked and must not be recorded as if they carried measured coverage.
+
+Two teeth worth knowing about:
+
+- `history_source` is mandatory. The frozen baseline is a material input:
+  an unsourced (or understated) history would make the naive line
+  artificially easy to beat.
+- Expired windows fail the check. An unresolved forecast past its
+  `resolve_by` turns the registry status to FAIL - resolving hits while
+  letting misses expire silently is selective resolution, and the check
+  refuses to allow it.
