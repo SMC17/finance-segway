@@ -494,6 +494,74 @@ def check_base_archetype_integration():
     return "BASE: projected income statement and cash-flow linkage", ok, detail
 
 
+# ---------------------------------------------------------------------
+# Private Credit: leverage-based excess-cash-flow sweep step-down grid.
+# ---------------------------------------------------------------------
+def check_credit_ecf_sweep_stepdown():
+    path = os.path.join(REPO_ROOT, "05_Private_Credit", "_template_CREDIT.xlsx")
+    workbook = with_recalc(path, lambda _: None)
+    debt = workbook["Debt Schedule"]
+
+    tier1 = debt["E21"].value
+    breakpoints = [debt["D21"].value, debt["D22"].value, debt["D23"].value]
+    rates = [tier1, debt["E22"].value, debt["E23"].value, debt["E24"].value]
+
+    failures = []
+    if not close(rates[1], tier1 * 2 / 3, tol=1e-8):
+        failures.append("tier2 not 2/3 of tier1")
+    if not close(rates[2], tier1 / 3, tol=1e-8):
+        failures.append("tier3 not 1/3 of tier1")
+    if rates[3] != 0:
+        failures.append("tier4 not zero")
+
+    tiers_visited = set()
+    for column in range(4, 9):
+        letter = get_column_letter(column)
+        previous = get_column_letter(column - 1)
+        beginning_debt = debt[f"{letter}11"].value
+        prior_ebitda = workbook["Operating Case"][f"{previous}7"].value
+        expected_leverage = beginning_debt / prior_ebitda if prior_ebitda else 0.0
+        actual_leverage = debt[f"{letter}26"].value
+        if not close(actual_leverage, expected_leverage, tol=1e-6):
+            failures.append(f"{letter}:leverage")
+
+        if expected_leverage >= breakpoints[0]:
+            expected_rate = rates[0]
+        elif expected_leverage >= breakpoints[1]:
+            expected_rate = rates[1]
+        elif expected_leverage >= breakpoints[2]:
+            expected_rate = rates[2]
+        else:
+            expected_rate = rates[3]
+        tiers_visited.add(round(expected_rate, 10))
+        actual_rate = debt[f"{letter}27"].value
+        if not close(actual_rate, expected_rate, tol=1e-8):
+            failures.append(f"{letter}:sweep rate")
+
+        mandatory_amort = debt[f"{letter}7"].value
+        cfads_after_interest = debt[f"{letter}6"].value
+        cash_before_sweep = debt[f"{letter}8"].value
+        minimum_cash = workbook["Assumptions"]["E19"].value
+        expected_sweep = min(
+            max(0.0, beginning_debt - mandatory_amort),
+            max(0.0, cash_before_sweep - minimum_cash) * expected_rate,
+        )
+        actual_sweep = debt[f"{letter}9"].value
+        if not close(actual_sweep, expected_sweep, tol=1e-6):
+            failures.append(f"{letter}:sweep amount")
+
+    if len(tiers_visited) < 2:
+        failures.append("step-down grid never crosses a tier boundary -- decorative, not mechanically real")
+
+    ok = not failures
+    detail = (
+        f"tier rates={rates}; breakpoints={breakpoints}; "
+        f"tiers visited across schedule={sorted(tiers_visited, reverse=True)}; "
+        f"failures={failures or 'none'}"
+    )
+    return "Private Credit: leverage-based ECF sweep step-down grid", ok, detail
+
+
 CHECKS = [
     check_black_scholes,
     check_bond_duration,
@@ -501,6 +569,7 @@ CHECKS = [
     check_vc_waterfall_conservation,
     check_vc_holder_election_waterfall,
     check_base_archetype_integration,
+    check_credit_ecf_sweep_stepdown,
 ]
 
 
