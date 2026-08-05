@@ -286,8 +286,30 @@ def build(output: Path) -> None:
     sheet = workbook["Checks"]
     title(sheet, "B2:C2", "Actuarial Model Checks")
     header(sheet, 4, 2, ["Check", "Status"])
+    # A loss-development triangle is deliberately ragged -- the most recent
+    # accident years only have their earliest development periods observed,
+    # everything beyond that is blank until future refreshes fill it in
+    # (same "observed = DEVELOPMENT_PERIODS - ay" shape used to populate the
+    # triangle itself above). A blanket MIN(D5:L14 - C5:K14) treats every
+    # blank cell as 0, so "next period (blank=0) minus this period (real
+    # value)" is large and negative for every row except the single oldest
+    # one that happens to have all 10 periods filled -- failing this check
+    # unconditionally for any real triangle, regardless of the data.
+    # Compare only adjacent *observed* periods per row instead.
+    paid_triangle_deltas = []
+    for ay in range(ACCIDENT_YEARS):
+        row = 5 + ay
+        observed = DEVELOPMENT_PERIODS - ay
+        for dev in range(1, observed):
+            column = 3 + dev
+            letter = get_column_letter(column)
+            prev_letter = get_column_letter(column - 1)
+            paid_triangle_deltas.append(
+                f"'Paid Triangle'!{letter}{row}-'Paid Triangle'!{prev_letter}{row}"
+            )
+    paid_triangle_formula = f'=IF(MIN({",".join(paid_triangle_deltas)})>=0,"PASS","FAIL")'
     checks = [
-        ("Paid triangle cumulative", '=IF(MIN(\'Paid Triangle\'!D5:L14-\'Paid Triangle\'!C5:K14)>=0,"PASS","FAIL")'),
+        ("Paid triangle cumulative", paid_triangle_formula),
         ("Development factors at least one", '=IF(MIN(\'Chain Ladder\'!C5:L5)>=1,"PASS","FAIL")'),
         ("Chain-ladder reserve nonnegative", '=IF(MIN(\'Chain Ladder\'!N8:N17)>=0,"PASS","FAIL")'),
         ("BF reserve nonnegative", '=IF(MIN(\'Bornhuetter-Ferguson\'!H5:H14)>=0,"PASS","FAIL")'),
