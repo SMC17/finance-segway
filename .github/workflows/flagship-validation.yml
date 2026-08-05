@@ -32,6 +32,11 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
+      - name: Install LibreOffice (test suite recalculates workbooks)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice-calc
+
       - name: Compile sources and run engine tests
         run: |
           python -m compileall -q finance_segway tools tests
@@ -59,11 +64,6 @@ jobs:
           PYTHONPATH=.:tools python tools/validate_risk_model.py .flagship-build/RISK.xlsx
           PYTHONPATH=.:tools python tools/validate_fixed_income_model.py .flagship-build/FIXED_INCOME.xlsx
           PYTHONPATH=.:tools python tools/validate_lbo_model.py .flagship-build/LBO.xlsx
-
-      - name: Install LibreOffice
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libreoffice-calc
 
       - name: Recalculate every flagship and reject cached Excel errors
         run: |
