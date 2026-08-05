@@ -23,6 +23,10 @@ class RecalcTests(unittest.TestCase):
             source.write_bytes(b"old")
 
             def fake_run(command, **_kwargs):
+                if "--outdir" not in command:
+                    # Not the soffice conversion (e.g. the Darwin gtimeout
+                    # probe); succeed so the platform branch stays exercised.
+                    return subprocess.CompletedProcess(command, 0, "", "")
                 output_dir = Path(command[command.index("--outdir") + 1])
                 output_dir.mkdir(parents=True, exist_ok=True)
                 (output_dir / source.name).write_bytes(b"recalculated")
