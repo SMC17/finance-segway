@@ -5,10 +5,44 @@ from a decision model, institutional underwriting model, and maintained
 production system. CI should fail when the repository claims a maturity level
 without the evidence required for that level.
 
+Until this file's history, "evidence required" for M2+ meant a non-empty
+reference_checks list of free-text strings on the inventory entry itself --
+never cross-checked against anything. A model could declare
+reference_checks: ["some_check_name"] whether or not that check existed, ran,
+or passed. Three real verification tiers exist elsewhere in the repo and were
+never consulted here:
+
+  1. tools/verify_public_case_status.py -- opens every real public-case
+     workbook, recalculates it via LibreOffice, and reads back its genuine
+     computed Overall/Decision status. Covers all 24 domains
+     (standards/public_cases/index.json has at least one case per model_id).
+     This is the tier wired in below, since it's both the strongest evidence
+     (a real recalculation, not a static claim) and the only one with
+     complete, unambiguous model_id coverage.
+  2. tools/legacy_engine_oracles.py / tools/domain_hardening_oracles.py --
+     pure-Python oracles scoring JSON case inputs. Covers 15/24 model_ids
+     with a clean ORACLES[model_id] mapping, but is redundant with tier 1
+     for models both cover and doesn't reach the other 9 -- not required
+     here, but see check_oracle_coverage() for an informational note.
+  3. tools/verify_reference_calcs.py -- six named independent-oracle checks
+     (Black-Scholes, bond duration, LBO sources & uses, VC waterfalls x2,
+     BASE archetype integration). No clean check-to-model_id mapping exists
+     (a "BASE archetype" check spans multiple domains), so it isn't wired
+     into per-model gating here either -- it remains a standalone CI check.
+
 Usage:
     python tools/validate_model_inventory.py
     python tools/validate_model_inventory.py --report /tmp/model-report.json
     python tools/validate_model_inventory.py --strict
+
+    # M2+ requires real, recalculated public-case evidence by default (fail
+    # closed) -- this needs LibreOffice (soffice) on PATH. For fast local
+    # iteration on schema-only questions, skip it explicitly:
+    python tools/validate_model_inventory.py --skip-public-case-verification
+
+    # CI that already ran tools/verify_public_case_status.py can reuse its
+    # report instead of recalculating a second time:
+    python tools/validate_model_inventory.py --public-case-report public-case-status-report.json
 """
 from __future__ import annotations
 
@@ -24,6 +58,8 @@ import openpyxl
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INVENTORY = ROOT / "standards" / "model_inventory.json"
+HARD_FAILURE_STATUSES = {"MISSING_WORKBOOK", "RECALC_FAILED", "NO_STATUS_FOUND"}
+EXPECTED_MODEL_COUNT = 24
 ALLOWED_MATURITY = {"M0", "M1", "M2", "M3", "M4"}
 ALLOWED_HORIZONS = {
     "trading_intraday",
@@ -62,6 +98,30 @@ def load_inventory(path: Path) -> dict[str, Any]:
     if not isinstance(data.get("models"), list):
         raise ValueError("inventory must contain a models list")
     return data
+
+
+def load_public_case_verification(report_path: Path | None) -> dict[str, list[dict[str, Any]]]:
+    """Return real public-case verification results indexed by model_id.
+
+    If report_path is given, load a previously-generated
+    tools/verify_public_case_status.py --report JSON (fast, no recalculation
+    -- reuses CI that already ran it). Otherwise run verification directly,
+    which recalculates every public-case workbook via LibreOffice and
+    therefore requires soffice on PATH.
+    """
+    sys.path.insert(0, str(ROOT / "tools"))
+    if report_path is not None:
+        report = json.loads(report_path.read_text(encoding="utf-8"))
+    else:
+        from verify_public_case_status import verify as verify_public_cases
+
+        report = verify_public_cases()
+    by_model: dict[str, list[dict[str, Any]]] = {}
+    for entry in report["results"]:
+        model_id = entry.get("model_id")
+        if model_id is not None:
+            by_model.setdefault(model_id, []).append(entry)
+    return by_model
 
 
 def count_instances(folder: Path) -> int:
@@ -107,7 +167,10 @@ def inspect_workbook(path: Path, result: ModelResult) -> set[str]:
     return sheetnames
 
 
-def validate_model(model: dict[str, Any]) -> ModelResult:
+def validate_model(
+    model: dict[str, Any],
+    public_case_index: dict[str, list[dict[str, Any]]] | None,
+) -> ModelResult:
     model_id = str(model.get("id", ""))
     domain = str(model.get("domain", ""))
     maturity = str(model.get("declared_maturity", ""))
@@ -164,6 +227,21 @@ def validate_model(model: dict[str, Any]) -> ModelResult:
             result.errors.append("M2+ requires at least 20 formula cells")
         if len(engines or []) < 3:
             result.errors.append("M2+ requires at least three documented domain engines")
+        if public_case_index is not None:
+            cases = public_case_index.get(model_id, [])
+            if not cases:
+                result.errors.append(
+                    "M2+ requires at least one real public case in "
+                    "standards/public_cases/index.json with a genuine, "
+                    "recalculated Overall/Decision status -- reference_checks "
+                    "naming a check is not itself evidence that check ran or passed"
+                )
+            elif all(case.get("status") in HARD_FAILURE_STATUSES for case in cases):
+                result.errors.append(
+                    "M2+ requires at least one public case whose workbook actually "
+                    f"recalculates cleanly and reports a real status; found: "
+                    f"{[case.get('status') for case in cases]}"
+                )
 
     if maturity in {"M3", "M4"}:
         if len(perspectives or []) < 3:
@@ -186,11 +264,14 @@ def validate_model(model: dict[str, Any]) -> ModelResult:
     return result
 
 
-def validate_inventory(data: dict[str, Any]) -> tuple[list[ModelResult], list[str]]:
+def validate_inventory(
+    data: dict[str, Any],
+    public_case_index: dict[str, list[dict[str, Any]]] | None = None,
+) -> tuple[list[ModelResult], list[str]]:
     models = data["models"]
     inventory_errors: list[str] = []
-    if len(models) != 24:
-        inventory_errors.append(f"expected 24 core model domains; found {len(models)}")
+    if len(models) != EXPECTED_MODEL_COUNT:
+        inventory_errors.append(f"expected {EXPECTED_MODEL_COUNT} core model domains; found {len(models)}")
 
     ids = [str(model.get("id", "")) for model in models]
     folders = [str(model.get("folder", "")) for model in models]
@@ -200,7 +281,7 @@ def validate_inventory(data: dict[str, Any]) -> tuple[list[ModelResult], list[st
         if duplicates:
             inventory_errors.append(f"duplicate {label} values: {duplicates}")
 
-    return [validate_model(model) for model in models], inventory_errors
+    return [validate_model(model, public_case_index) for model in models], inventory_errors
 
 
 def print_summary(results: list[ModelResult], inventory_errors: list[str]) -> None:
@@ -250,11 +331,32 @@ def main() -> int:
         action="store_true",
         help="Treat warnings as failures. Useful for release promotion, not routine PR checks.",
     )
+    parser.add_argument(
+        "--public-case-report", type=Path, default=None,
+        help=(
+            "Reuse a JSON report already produced by "
+            "tools/verify_public_case_status.py --report instead of recalculating "
+            "every public case again."
+        ),
+    )
+    parser.add_argument(
+        "--skip-public-case-verification", action="store_true",
+        help=(
+            "Skip cross-checking M2+ claims against real, recalculated public-case "
+            "evidence (falls back to the old reference_checks string-presence check "
+            "only). For fast local iteration on schema-only questions -- not for CI."
+        ),
+    )
     args = parser.parse_args()
 
     try:
         data = load_inventory(args.inventory)
-        results, inventory_errors = validate_inventory(data)
+        public_case_index = (
+            None
+            if args.skip_public_case_verification
+            else load_public_case_verification(args.public_case_report)
+        )
+        results, inventory_errors = validate_inventory(data, public_case_index)
     except Exception as exc:  # noqa: BLE001
         print(f"inventory validation could not start: {exc}", file=sys.stderr)
         return 2

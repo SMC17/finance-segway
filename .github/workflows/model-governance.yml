@@ -32,6 +32,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Install LibreOffice (needed for real public-case verification)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice-calc
+
       - name: Compile governance and reconciliation sources
         run: |
           python -m py_compile tools/validate_model_inventory.py
@@ -57,8 +62,16 @@ jobs:
       - name: Validate committed reconciled artifacts
         run: python tools/validate_reconciled_models.py --committed --report committed-reconciled-model-report.json
 
+      - name: Recalculate every public case and verify its real decision status
+        run: |
+          PYTHONPATH=. python tools/verify_public_case_status.py \
+            --report public-case-status-report.json
+
       - name: Validate model inventory and maturity claims
-        run: python tools/validate_model_inventory.py --report model-governance-report.json
+        run: |
+          python tools/validate_model_inventory.py \
+            --public-case-report public-case-status-report.json \
+            --report model-governance-report.json
 
       - name: Upload governance reports
         if: always()
@@ -69,5 +82,6 @@ jobs:
             model-governance-report.json
             reconciled-model-report.json
             committed-reconciled-model-report.json
+            public-case-status-report.json
           if-no-files-found: warn
           retention-days: 30
