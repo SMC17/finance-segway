@@ -43,8 +43,27 @@ class DebtPeriod:
     ending_balance: float
 
 
-def build_debt_schedule(tranches: Sequence[DebtTranche], cash_available: Sequence[float]) -> list[DebtPeriod]:
-    """Apply interest, amortization, PIK, priority sweeps, and maturity payments."""
+def build_debt_schedule(
+    tranches: Sequence[DebtTranche],
+    cash_available: Sequence[float],
+    *,
+    refinance_at_maturity: bool = True,
+) -> list[DebtPeriod]:
+    """Apply interest, amortization, PIK, priority sweeps, and maturity payments.
+
+    Cash interest and mandatory amortization must be funded: the schedule
+    raises ValueError when a period's cash cannot cover them, because the
+    engine has no revolver or cash carryforward to bridge the gap - model it
+    explicitly (PIK the coupon, cut the amortization, or treat it as a
+    default).
+
+    A tranche reaching maturity_period is retired in full. With the default
+    refinance_at_maturity=True the repayment is treated as refinanced at par
+    and consumes no operating cash - the standard assumption for a bullet
+    maturing inside a projection window. With refinance_at_maturity=False
+    the balloon must be paid from the period's remaining cash, and the
+    schedule raises when it cannot be.
+    """
     if not tranches:
         return []
     balances = {tranche.name: float(tranche.opening_balance) for tranche in tranches}
@@ -63,6 +82,14 @@ def build_debt_schedule(tranches: Sequence[DebtTranche], cash_available: Sequenc
                 "beginning": beginning, "cash_interest": cash_interest,
                 "pik_interest": pik_interest, "amort": amort, "post_amort": post_amort,
             }
+            due = cash_interest + amort
+            if remaining_cash + max(1e-9, 1e-12 * due) < due:
+                raise ValueError(
+                    f"period {period}: tranche {tranche.name!r} needs {due:.6f} for "
+                    f"cash interest plus mandatory amortization but only "
+                    f"{remaining_cash:.6f} cash remains; model the funding gap "
+                    "explicitly (PIK, reduced amortization, or default)"
+                )
             remaining_cash = max(0.0, remaining_cash - cash_interest - amort)
         for tranche in ordered:
             state = interim[tranche.name]
@@ -70,6 +97,15 @@ def build_debt_schedule(tranches: Sequence[DebtTranche], cash_available: Sequenc
             remaining_cash -= sweep
             post_sweep = max(0.0, state["post_amort"] - sweep)
             maturity = post_sweep if tranche.maturity_period == period else 0.0
+            if maturity > 0.0 and not refinance_at_maturity:
+                if maturity > remaining_cash + max(1e-9, 1e-12 * maturity):
+                    raise ValueError(
+                        f"period {period}: tranche {tranche.name!r} matures with "
+                        f"balance {maturity:.6f} but only {remaining_cash:.6f} cash "
+                        "remains and refinance_at_maturity is False; model "
+                        "refinancing or extension explicitly"
+                    )
+                remaining_cash = max(0.0, remaining_cash - maturity)
             ending = max(0.0, post_sweep - maturity)
             balances[tranche.name] = ending
             output.append(DebtPeriod(
