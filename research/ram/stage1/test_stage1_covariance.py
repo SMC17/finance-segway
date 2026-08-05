@@ -1,16 +1,25 @@
-\"\"\"Stage-1 tests — runtime still capped at 10 until evidence promotion.\"\"\"
+"""Stage-1 tests — runtime still capped at 10 until evidence promotion."""
 from __future__ import annotations
 
 import math
 import unittest
 
-from covariance import (
-    MAX_STAGE1_DESIGN_UNIVERSE,
-    equal_weight_risk,
-    inverse_vol_weights,
-    is_positive_semidefinite,
-    portfolio_variance,
-)
+try:
+    from research.ram.stage1.covariance import (
+        MAX_STAGE1_DESIGN_UNIVERSE,
+        equal_weight_risk,
+        inverse_vol_weights,
+        is_positive_semidefinite,
+        portfolio_variance,
+    )
+except ImportError:
+    from covariance import (
+        MAX_STAGE1_DESIGN_UNIVERSE,
+        equal_weight_risk,
+        inverse_vol_weights,
+        is_positive_semidefinite,
+        portfolio_variance,
+    )
 
 
 class TestStage1Skeleton(unittest.TestCase):

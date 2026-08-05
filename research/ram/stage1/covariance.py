@@ -1,4 +1,4 @@
-\"\"\"Stage-1 covariance / risk primitives — design capacity 50.
+"""Stage-1 covariance / risk primitives — design capacity 50.
 
 This module mirrors the Stage-0 API so promotion is a gate, not a rewrite.
 Until the Stage-1 evidence pack exists, callers should continue to use
@@ -8,7 +8,7 @@ When Stage-1 is promoted:
 - raise the enforced cap to MAX_STAGE1_DESIGN_UNIVERSE
 - add tests and a bench under research/ram/evidence/
 - keep pure-Python clarity first; profile before any acceleration
-\"\"\"
+"""
 from __future__ import annotations
 
 import math
