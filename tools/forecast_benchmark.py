@@ -161,6 +161,94 @@ def statistician_prompt(label, units, target, ev_years, ev, names, countries):
             f"All {len(countries)} codes, no other text.")
 
 
+def interval_prompt(label, units, target, ev_years, ev, names, countries):
+    lines = []
+    for c in countries:
+        hist = ", ".join(f"{y}: {ev[y][c]:g}" for y in ev_years)
+        lines.append(f"{c} ({names.get(c, c)}): {hist}")
+    example = json.dumps({countries[0]: [3.2, 2.1, 4.6],
+                          countries[1]: [-0.5, -1.4, 0.3]})
+    return (f'Forecast each country\'s "{label}" ({units}) for {target}.\n'
+            f"You are given the observed values for {ev_years[0]}-{ev_years[-1]}. "
+            f"Use the trend, mean-reversion, and what you know about each "
+            f"economy UP TO {ev_years[-1]} - do not use knowledge of events "
+            f"after {ev_years[-1]}.\nHistory:\n" + "\n".join(lines) + "\n"
+            f"For each country return [point, low, high] where [low, high] is "
+            f"your central 80% interval: across all countries, the realized "
+            f"{target} value should fall inside the interval about 80% of the "
+            f"time. Widths must reflect each country's own volatility and your "
+            f"uncertainty - volatile histories deserve wide intervals, stable "
+            f"ones narrow. Do not give uniformly wide or uniformly narrow "
+            f"bands.\nReturn ONLY compact JSON mapping every ISO2 code to "
+            f"[point, low, high] in {units}, like {example}. "
+            f"All {len(countries)} codes, no other text.")
+
+
+def parse_intervals(text: str, countries: list[str]) -> dict | None:
+    s, e = text.find("{"), text.rfind("}")
+    if s < 0 or e <= s:
+        return None
+    try:
+        obj = json.loads(text[s:e + 1])
+    except json.JSONDecodeError:
+        return None
+    rec = {}
+    for c in countries:
+        v = obj.get(c)
+        if isinstance(v, list) and len(v) == 3:
+            try:
+                point, low, high = (float(x) for x in v)
+            except (TypeError, ValueError):
+                continue
+            if low > high:
+                low, high = high, low
+            rec[c] = (point, low, high)
+    return rec if len(rec) >= len(countries) * 0.85 else None
+
+
+def run_interval_cell(ind: str, target: int, model: str) -> dict:
+    label, units = INDICATORS[ind]
+    ev_years = [target + o for o in EVIDENCE_OFFSETS]
+    ev = {y: load_year(ind, y) for y in ev_years}
+    tgt = load_year(ind, target)
+    names = country_names(ind, target)
+    countries = sorted(set(tgt) & set.intersection(*(set(v) for v in ev.values())))
+    if len(countries) < 50:
+        return {"error": f"only {len(countries)} countries"}
+    actual = {c: tgt[c] for c in countries}
+    carry = {c: ev[ev_years[-1]][c] for c in countries}
+    cpath = CACHE / f"{ind}.{target}.intervals.{model}.json"
+    if cpath.exists():
+        rec = {c: tuple(v) for c, v in json.loads(cpath.read_text()).items()}
+    else:
+        rec = None
+        for _ in range(2):
+            rec = parse_intervals(
+                call_claude(interval_prompt(label, units, target, ev_years, ev,
+                                            names, countries), model),
+                countries)
+            if rec:
+                break
+        if rec is None:
+            return {"error": "unparseable", "n_countries": len(countries)}
+        CACHE.mkdir(exist_ok=True)
+        cpath.write_text(json.dumps({c: list(v) for c, v in rec.items()}))
+    ks = sorted(rec)
+    points = {c: rec[c][0] for c in ks}
+    inside = [1 if rec[c][1] <= actual[c] <= rec[c][2] else 0 for c in ks]
+    widths = sorted(rec[c][2] - rec[c][1] for c in ks)
+    sub_actual = {c: actual[c] for c in ks}
+    sub_carry_mae = mae({c: carry[c] for c in ks}, sub_actual)
+    return {
+        "n_countries": len(countries),
+        "n_parsed": len(ks),
+        "coverage": round(sum(inside) / len(inside), 3),
+        "point_skill_vs_carry": round(1 - mae(points, sub_actual) / sub_carry_mae, 3),
+        "median_width": round(widths[len(widths) // 2], 4),
+        "median_abs_actual": round(sorted(abs(v) for v in sub_actual.values())[len(ks) // 2], 4),
+    }
+
+
 # ------------------------------------------------------------------ the grid
 def run_cell(ind: str, target: int, model: str, llm: bool) -> dict:
     label, units = INDICATORS[ind]
@@ -222,7 +310,20 @@ def main() -> None:
     ap.add_argument("--model", default="claude-opus-5")
     ap.add_argument("--no-llm", action="store_true",
                     help="naive rungs only (no CLI required)")
+    ap.add_argument("--intervals", action="store_true",
+                    help="interval-calibration grid (requires the CLI); "
+                         "writes results/interval_rerun.json")
     args = ap.parse_args()
+    if args.intervals:
+        if not claude_available():
+            raise SystemExit("--intervals requires an authenticated claude CLI")
+        report = {ind: {str(t): run_interval_cell(ind, t, args.model)
+                        for t in TARGETS} for ind in INDICATORS}
+        out = BASE / "results" / "interval_rerun.json"
+        out.parent.mkdir(exist_ok=True)
+        out.write_text(json.dumps(report, indent=2))
+        print(json.dumps(report, indent=2))
+        return
     llm = not args.no_llm and claude_available()
     if not llm and not args.no_llm:
         print("claude CLI not found - running naive rungs only")

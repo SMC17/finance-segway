@@ -76,3 +76,23 @@ The runner is stdlib-only by design (this repository's dependency policy); the
 LLM rungs shell out to `claude -p` and cache responses, so a full rerun is
 resumable. Nothing here runs in CI - committed results are the record, the
 scripts are the protocol.
+
+## Interval calibration — why registration intervals come from scenario ranges
+
+Measured 2026-08-05 (claude-opus-5, committed as `results/interval_calibration.json`,
+rerun with `python3 tools/forecast_benchmark.py --intervals`): the statistician
+protocol extended to elicit a central **80%** interval per country, same 16 cells.
+
+The trap this measurement exposes: **mean coverage is 0.804 — indistinguishable
+from perfect — but only 2/16 cells land within ±5 points of nominal** (per-cell
+range 0.277-0.953, stdev 0.20). Aggregate calibration is a mirage produced by
+overconfident cells averaging against over-wide ones. Dollar-denominated levels
+are the worst class (real GDP per capita: 0.277 / 0.535 / 0.932 / 0.474) — and
+balance-sheet totals, the metric class of this repository's first real
+registrations, are exactly that shape. Eliciting intervals also cost point
+accuracy: 10/16 cells positive skill vs 12/16 for the identical protocol without
+interval elicitation.
+
+Consequence, already encoded in `standards/forecasts/`: `interval` on a
+registration comes from a scenario range the model actually computed
+(Base/Downside), never from asking the LLM how sure it is.
