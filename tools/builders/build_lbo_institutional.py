@@ -72,6 +72,7 @@ def build(output: Path) -> None:
         ("Management equity pool", 0.10, 0.10, "% fully diluted", PCT),
         ("Sponsor preferred return", 0.08, 0.08, "%", PCT),
         ("Management catch-up above hurdle", 0.20, 0.20, "% incremental", PCT),
+        ("Revolver commitment fee (undrawn balance)", 0.00375, 0.005, "% p.a.", PCT2),
     ]
     for row, (label, base, downside, units, number_format) in enumerate(assumptions, start=5):
         sheet.cell(row, 2, label)
@@ -173,7 +174,7 @@ def build(output: Path) -> None:
         "Ending revolver", "Beginning TLB", "TLB interest", "TLB amortization",
         "TLB cash sweep", "Ending TLB", "Beginning second lien", "Second-lien cash interest",
         "Second-lien PIK", "Second-lien cash sweep", "Ending second lien", "Total debt",
-        "Net debt",
+        "Net debt", "Revolver commitment fee (undrawn balance)",
     ]
     for row, label in enumerate(labels, start=5):
         sheet.cell(row, 2, label)
