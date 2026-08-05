@@ -31,6 +31,17 @@ EXPECTED_LEGACY_IDS = {"01", "02", "05", "06", "07", "13"}
 LEGACY_RELEASE_APPLIED = "applied_release_validated"
 LEGACY_RELEASE_STAGED = "release_staged"
 
+# The frozen, certified 24-domain program this validator's cohort and
+# public-case-count checks are actually about. Domains added after the
+# program was certified (e.g. "29") are real inventory entries but are
+# deliberately outside this specific claim boundary until their own evidence
+# program is built out -- see EXPECTED_INVENTORY_IDS below for the check that
+# any such addition is declared honestly (not M2, not silently folded into
+# the frontier program's cohorts).
+FRONTIER_PROGRAM_IDS = {f"{value:02d}" for value in range(1, 25)}
+EXPECTED_INVENTORY_IDS = FRONTIER_PROGRAM_IDS | {"29"}
+EXPECTED_MATURITY = Counter({"M2": 24, "M1": 1})
+
 
 def _load(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -69,11 +80,15 @@ def validate() -> dict[str, Any]:
 
     inventory_ids = {item["id"] for item in inventory["models"]}
     maturity = Counter(item["declared_maturity"] for item in inventory["models"])
-    if inventory_ids != {f"{value:02d}" for value in range(1, 25)}:
-        errors.append("model inventory must contain the exact governed 01-24 domain set")
-    if maturity != Counter({"M2": 24}):
+    if inventory_ids != EXPECTED_INVENTORY_IDS:
         errors.append(
-            f"frontier program requires a conservative 24-model M2 base, found {dict(maturity)}"
+            "model inventory must contain the certified 01-24 frontier program plus any "
+            f"explicitly-declared later additions, found {sorted(inventory_ids)}"
+        )
+    if maturity != EXPECTED_MATURITY:
+        errors.append(
+            "frontier program requires the certified 24-model M2 base plus any later "
+            f"additions at their own honestly-declared maturity, found {dict(maturity)}"
         )
 
     flagship_ids = {item["model_id"] for item in flagships["flagships"]}
@@ -85,8 +100,8 @@ def validate() -> dict[str, Any]:
 
     if flagship_ids != declared_existing:
         errors.append("existing M3 evidence cohort must equal the flagship registry")
-    if declared_existing | declared_expansion != inventory_ids:
-        errors.append("existing and expansion cohorts must partition the 24-model inventory")
+    if declared_existing | declared_expansion != FRONTIER_PROGRAM_IDS:
+        errors.append("existing and expansion cohorts must partition the certified 24-model frontier program")
     if declared_existing & declared_expansion:
         errors.append("existing and expansion evidence cohorts must be disjoint")
     if len(declared_expansion) != 15:
@@ -113,7 +128,7 @@ def validate() -> dict[str, Any]:
     public_counts: Counter[str] = Counter(
         item["model_id"] for item in public_index.get("cases", [])
     )
-    for model_id in inventory_ids:
+    for model_id in FRONTIER_PROGRAM_IDS:
         if public_counts[model_id] != 2:
             errors.append(f"{model_id}: requires exactly two public cases")
 

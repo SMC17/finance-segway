@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "model_id": "29",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "nav_rollforward_residual",
+      "warning": 0.01,
+      "breach": 0.05,
+      "action": "Reconcile sourced cash flows, fees, and gain/loss against the FoF's reported ending NAV"
+    },
+    {
+      "metric": "single_fund_concentration",
+      "warning": 0.15,
+      "breach": 0.20,
+      "action": "Escalate diversification review before further commitments to that GP"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}
