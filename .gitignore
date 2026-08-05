@@ -12,3 +12,7 @@ __pycache__/
 
 # OS
 .DS_Store
+
+# L3 agent tool scratch output (demo/test instances) -- never the real
+# evidence corpus under */instances/, see tools/agents/*.py
+.agent-tool-scratch/
