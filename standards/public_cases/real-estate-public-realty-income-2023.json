@@ -46,6 +46,126 @@
         "as_of": "2023-12-31",
         "notes": "U.S. SEC / Realty Income; frozen curated observation as of case date"
       }
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "E5",
+      "value": 0.986,
+      "input_kind": "observed",
+      "source": {
+        "name": "Realty Income FY2023 results -- portfolio occupancy 98.6% -- renewal probability anchored to real disclosed portfolio occupancy",
+        "url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+        "as_of": "2023-12-31",
+        "notes": "Real disclosed occupancy used directly as the renewal-probability input across all 5 projected years -- the resulting computed 'Economic occupancy' (which also reflects downtime and lost-rent mechanics) will be realistically in the same range but not an exact reproduction of the single disclosed point-in-time figure."
+      }
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "G5",
+      "value": 1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated re-leasing downtime (months)",
+        "url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+        "as_of": "2023-12-31",
+        "notes": "Order-of-magnitude estimate reflecting the real, well-documented difference between office-sector re-leasing friction and net-lease re-tenanting speed -- not a precisely disclosed figure."
+      }
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "E6",
+      "value": 0.986,
+      "input_kind": "observed",
+      "source": {
+        "name": "Realty Income FY2023 results -- portfolio occupancy 98.6% -- renewal probability anchored to real disclosed portfolio occupancy",
+        "url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+        "as_of": "2023-12-31",
+        "notes": "Real disclosed occupancy used directly as the renewal-probability input across all 5 projected years -- the resulting computed 'Economic occupancy' (which also reflects downtime and lost-rent mechanics) will be realistically in the same range but not an exact reproduction of the single disclosed point-in-time figure."
+      }
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "G6",
+      "value": 1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated re-leasing downtime (months)",
+        "url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+        "as_of": "2023-12-31",
+        "notes": "Order-of-magnitude estimate reflecting the real, well-documented difference between office-sector re-leasing friction and net-lease re-tenanting speed -- not a precisely disclosed figure."
+      }
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "E7",
+      "value": 0.986,
+      "input_kind": "observed",
+      "source": {
+        "name": "Realty Income FY2023 results -- portfolio occupancy 98.6% -- renewal probability anchored to real disclosed portfolio occupancy",
+        "url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+        "as_of": "2023-12-31",
+        "notes": "Real disclosed occupancy used directly as the renewal-probability input across all 5 projected years -- the resulting computed 'Economic occupancy' (which also reflects downtime and lost-rent mechanics) will be realistically in the same range but not an exact reproduction of the single disclosed point-in-time figure."
+      }
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "G7",
+      "value": 1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated re-leasing downtime (months)",
+        "url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+        "as_of": "2023-12-31",
+        "notes": "Order-of-magnitude estimate reflecting the real, well-documented difference between office-sector re-leasing friction and net-lease re-tenanting speed -- not a precisely disclosed figure."
+      }
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "E8",
+      "value": 0.986,
+      "input_kind": "observed",
+      "source": {
+        "name": "Realty Income FY2023 results -- portfolio occupancy 98.6% -- renewal probability anchored to real disclosed portfolio occupancy",
+        "url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+        "as_of": "2023-12-31",
+        "notes": "Real disclosed occupancy used directly as the renewal-probability input across all 5 projected years -- the resulting computed 'Economic occupancy' (which also reflects downtime and lost-rent mechanics) will be realistically in the same range but not an exact reproduction of the single disclosed point-in-time figure."
+      }
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "G8",
+      "value": 1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated re-leasing downtime (months)",
+        "url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+        "as_of": "2023-12-31",
+        "notes": "Order-of-magnitude estimate reflecting the real, well-documented difference between office-sector re-leasing friction and net-lease re-tenanting speed -- not a precisely disclosed figure."
+      }
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "E9",
+      "value": 0.986,
+      "input_kind": "observed",
+      "source": {
+        "name": "Realty Income FY2023 results -- portfolio occupancy 98.6% -- renewal probability anchored to real disclosed portfolio occupancy",
+        "url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+        "as_of": "2023-12-31",
+        "notes": "Real disclosed occupancy used directly as the renewal-probability input across all 5 projected years -- the resulting computed 'Economic occupancy' (which also reflects downtime and lost-rent mechanics) will be realistically in the same range but not an exact reproduction of the single disclosed point-in-time figure."
+      }
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "G9",
+      "value": 1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated re-leasing downtime (months)",
+        "url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+        "as_of": "2023-12-31",
+        "notes": "Order-of-magnitude estimate reflecting the real, well-documented difference between office-sector re-leasing friction and net-lease re-tenanting speed -- not a precisely disclosed figure."
+      }
     }
   ],
   "sources": [

@@ -29,11 +29,165 @@
       "value": 196.0,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
       "source_as_of": "2016-12-08"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C10",
+      "previous": 0.1,
+      "value": 0.09,
+      "source_url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.htm",
+      "source_as_of": "2016-06-13"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D10",
+      "previous": 0.05,
+      "value": 0.09,
+      "source_url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.htm",
+      "source_as_of": "2016-06-13"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C11",
+      "previous": 0.03,
+      "value": 0.025,
+      "source_url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.htm",
+      "source_as_of": "2016-06-13"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D11",
+      "previous": 0.06,
+      "value": 0.025,
+      "source_url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.htm",
+      "source_as_of": "2016-06-13"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C5",
+      "previous": 100,
+      "value": 16800.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312516662209/d187868d10k.htm",
+      "source_as_of": "2016-06-30"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D5",
+      "previous": 100,
+      "value": 16800.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312516662209/d187868d10k.htm",
+      "source_as_of": "2016-06-30"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C6",
+      "previous": 100,
+      "value": 8000.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312516662209/d187868d10k.htm",
+      "source_as_of": "2016-06-30"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D6",
+      "previous": 100,
+      "value": 8000.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312516662209/d187868d10k.htm",
+      "source_as_of": "2016-06-30"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C7",
+      "previous": 10,
+      "value": -164.8,
+      "source_url": "https://news.linkedin.com/2016/linkedin-announces-fourth-quarter-and-full-year-2015-results",
+      "source_as_of": "2015-12-31"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D7",
+      "previous": 5,
+      "value": -164.8,
+      "source_url": "https://news.linkedin.com/2016/linkedin-announces-fourth-quarter-and-full-year-2015-results",
+      "source_as_of": "2015-12-31"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C8",
+      "previous": 5,
+      "value": 0.0,
+      "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-microsoft-linkedin-2016.json",
+      "source_as_of": "2016-06-13"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D8",
+      "previous": 0,
+      "value": 0.0,
+      "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-microsoft-linkedin-2016.json",
+      "source_as_of": "2016-06-13"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C9",
+      "previous": 3,
+      "value": 592.5,
+      "source_url": "https://www.forbes.com/sites/spleverage/2016/08/02/microsofts-bond-offering-for-linkedin-buy-5th-largest-deal-ever/",
+      "source_as_of": "2016-08-02"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D9",
+      "previous": 20,
+      "value": 592.5,
+      "source_url": "https://www.forbes.com/sites/spleverage/2016/08/02/microsofts-bond-offering-for-linkedin-buy-5th-largest-deal-ever/",
+      "source_as_of": "2016-08-02"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C10",
+      "previous": 10,
+      "value": 0.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-06-13"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D10",
+      "previous": 50,
+      "value": 0.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-06-13"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D5",
+      "previous": 1000,
+      "value": 26200.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+      "source_as_of": "2016-12-08"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D8",
+      "previous": 100,
+      "value": 133.673469,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+      "source_as_of": "2016-12-08"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D9",
+      "previous": 15,
+      "value": 196.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+      "source_as_of": "2016-12-08"
     }
   ],
-  "workbook_sha256": "9f36eb60ac0cc5ef86b7a889f3e1ade7f968cbc4bbca4aad6c8658e13c0001a9",
-  "generated_on": "2026-08-04",
+  "workbook_sha256": "b43dc06de0cee9c41d67aa0bd2cb934a9eb3203fce260f554447d2c2d4cfc6ef",
+  "generated_on": "2026-08-05",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
-  "counts_toward_M4": false
+  "counts_toward_M4": false,
+  "hash_refreshed_on": "2026-08-05",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
 }

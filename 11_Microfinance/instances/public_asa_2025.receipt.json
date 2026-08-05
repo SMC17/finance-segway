@@ -37,11 +37,173 @@
       "value": 0.218214,
       "source_url": "https://www.asa-international.com/investors/annual-report-2025/",
       "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C5",
+      "previous": 0,
+      "value": 597.558,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C6",
+      "previous": 0,
+      "value": 8.737,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C7",
+      "previous": 0,
+      "value": 3.36,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C8",
+      "previous": 0,
+      "value": 1.344,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C12",
+      "previous": 0,
+      "value": 10.367,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C5",
+      "previous": 0,
+      "value": 171.08,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C6",
+      "previous": 0,
+      "value": 25.662,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C7",
+      "previous": 0,
+      "value": 17.108,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C8",
+      "previous": 0,
+      "value": 94.094,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C9",
+      "previous": 0,
+      "value": 13.686,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "C5",
+      "previous": 12,
+      "value": 55.0,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "C6",
+      "previous": 8,
+      "value": 40.0,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "C7",
+      "previous": 15,
+      "value": 70.0,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "C8",
+      "previous": 20,
+      "value": 90.0,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "C9",
+      "previous": 80,
+      "value": 400.0,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "D5",
+      "previous": 4,
+      "value": 55.0,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "D6",
+      "previous": 2,
+      "value": 40.0,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "D7",
+      "previous": 18,
+      "value": 70.0,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "D8",
+      "previous": 35,
+      "value": 90.0,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "D9",
+      "previous": 70,
+      "value": 400.0,
+      "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+      "source_as_of": "2024-12-31"
     }
   ],
-  "workbook_sha256": "cad583d3245f77bfed274ec7cdcfc41d22d507587fb2dd8b5694053faeaa7dc6",
-  "generated_on": "2026-08-04",
+  "workbook_sha256": "e95ae9fc9c2151e0b31def7900a3edb4b86a26c64285ad57d70d0ef8bc8607b4",
+  "generated_on": "2026-08-05",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
-  "counts_toward_M4": false
+  "counts_toward_M4": false,
+  "hash_refreshed_on": "2026-08-05",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
 }

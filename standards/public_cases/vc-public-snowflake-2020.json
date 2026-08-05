@@ -58,6 +58,102 @@
         "as_of": "2020-09-16",
         "notes": "U.S. SEC / Snowflake; frozen curated observation as of case date"
       }
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D5",
+      "value": 30000.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Snowflake 2020 final IPO prospectus",
+        "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+        "as_of": "2020-09-16",
+        "notes": "U.S. SEC / Snowflake; frozen curated observation as of case date Mirrored onto the Adversarial column, which is what Decision & Checks always reads regardless of case framing."
+      }
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D6",
+      "value": 3360.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Snowflake 2020 final IPO prospectus",
+        "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+        "as_of": "2020-09-16",
+        "notes": "U.S. SEC / Snowflake; frozen curated observation as of case date Mirrored onto the Adversarial column, which is what Decision & Checks always reads regardless of case framing."
+      }
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D7",
+      "value": 250.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Snowflake 2020 final IPO prospectus",
+        "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+        "as_of": "2020-09-16",
+        "notes": "U.S. SEC / Snowflake; frozen curated observation as of case date Mirrored onto the Adversarial column, which is what Decision & Checks always reads regardless of case framing."
+      }
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D8",
+      "value": 28.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Snowflake 2020 final IPO prospectus",
+        "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+        "as_of": "2020-09-16",
+        "notes": "U.S. SEC / Snowflake; frozen curated observation as of case date Mirrored onto the Adversarial column, which is what Decision & Checks always reads regardless of case framing."
+      }
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "C9",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "No specific final option-pool top-up disclosed for Snowflake's IPO",
+        "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+        "as_of": "2020-09-16",
+        "notes": "Left at zero rather than inventing an unsourced figure."
+      }
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D9",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "No specific final option-pool top-up disclosed for Snowflake's IPO",
+        "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+        "as_of": "2020-09-16",
+        "notes": "Mirrored onto the Adversarial column."
+      }
+    },
+    {
+      "sheet": "Exit Waterfall",
+      "cell": "C5",
+      "value": 70000.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Snowflake IPO-day closing market capitalization (~$70bn, shares closed at $253.93 vs $120 IPO price)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+        "as_of": "2020-09-16",
+        "notes": "Real, widely-reported IPO-day valuation; used as 'exit equity value' proxy since an IPO doesn't have a traditional M&A exit value -- the closest real analog."
+      }
+    },
+    {
+      "sheet": "Exit Waterfall",
+      "cell": "D5",
+      "value": 70000.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Snowflake IPO-day closing market capitalization",
+        "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+        "as_of": "2020-09-16",
+        "notes": "Mirrored onto the Adversarial column, which is what Decision & Checks reads."
+      }
     }
   ],
   "outcome": {

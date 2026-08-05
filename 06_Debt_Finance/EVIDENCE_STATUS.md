@@ -4,23 +4,27 @@
 **Target**: M3  
 **Service priority**: P1 (with Private Credit)
 
-## Present
+## Present (corrected 2026-08-05 — verified against actual repo state, not just claimed)
 
 - [x] Template + builder path in inventory
 - [x] Model card + validation
 - [x] Governance / sources / instances / outcomes folders
+- [x] **Real reference instance**: `instances/public_microsoft_2024.xlsx` (Microsoft FY2024 Form 10-K)
+- [x] **Real adversarial instance**: `instances/public_carnival_2020_stress.xlsx` (Carnival FY2020 Form 10-K, COVID-era liquidity stress)
+- [x] Source register populated: `sources/source_register.csv` — both cases with real SEC EDGAR URLs, as-of dates, and SHA-256 snapshot hashes
 
 ## Gaps to M3
 
-- [ ] Real reference instance (public issuer maturity ladder / refinancing case)
-- [ ] Real adversarial instance (refinancing gap / maturity wall)
-- [ ] Source register populated with EDGAR / prospectus citations
-- [ ] Checks green after recalc
-- [ ] Stakeholder sign-off
+- [ ] Both instances currently show Checks **REVIEW** after a real LibreOffice recalc (verified via `tools/verify_public_case_status.py`), not PASS — including the Microsoft reference case. Not yet root-caused to the same depth as the Insurance false-negative fix; needs the same "read every failing check line, trace the formula, confirm it's a real signal not a formula defect" pass before claiming this is either correct or a bug.
+- [ ] Stakeholder sign-off (currently PENDING in model card)
+
+## Gaps to M4
+
+- [ ] Three material RefreshLog entries
+- [ ] One outcome comparison
 
 ## Next actions
 
-1. Pick one public IG or HY issuer with clear maturity schedule in 10-K.
-2. Run `python tools/scaffold_model_evidence.py 06_Debt_Finance` if any template files missing.
-3. Mirror the Private Credit agent pattern: `debt_finance_issue` tool stub after first instance exists.
-4. Reuse `tools/data_fabric/edgar_company_facts.py` for LongTermDebt / InterestExpense provenance.
+1. Recalculate both instances and read the individual (not just Overall) Checks line items — same method used to find and fix the Insurance triangle bug — to determine whether the REVIEW status is a genuine signal or another false negative.
+2. Record RefreshLog entries once the above is resolved.
+3. Stakeholder sign-off remains the real blocker for M3 either way.

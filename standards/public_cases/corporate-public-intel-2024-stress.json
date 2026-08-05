@@ -34,6 +34,78 @@
         "as_of": "2024-06-29",
         "notes": "U.S. SEC / Intel; frozen curated observation as of case date"
       }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D6",
+      "value": 8300.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Intel full-year 2024 results -- cash from operations $8.3bn",
+        "url": "https://www.intc.com/news-events/press-releases/detail/1726/intel-reports-fourth-quarter-and-full-year-2024-financial",
+        "as_of": "2024-12-31",
+        "notes": "Real full-year 2024 operating cash flow."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D7",
+      "value": 14650.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Intel full-year 2024 results -- capital expenditure $14.65bn",
+        "url": "https://www.intc.com/news-events/press-releases/detail/1726/intel-reports-fourth-quarter-and-full-year-2024-financial",
+        "as_of": "2024-12-31",
+        "notes": "Capex dramatically exceeding operating cash flow -- consistent with Intel's disclosed -$4.95bn full-year 2024 free cash flow; a genuinely adversarial real data point, not a modeling artifact."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D12",
+      "value": 44100.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Intel long-term debt $44.1bn (against $14.3bn cash)",
+        "url": "https://www.intc.com/news-events/press-releases/detail/1726/intel-reports-fourth-quarter-and-full-year-2024-financial",
+        "as_of": "2024-12-31",
+        "notes": "Real disclosed long-term debt balance, used as opening debt for the stress scenario."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D13",
+      "value": 8300.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Operating cash flow used as an EBITDA proxy (Intel's 2024 GAAP operating result was a large loss dominated by ~$15.9bn of one-time impairment and $2.8bn restructuring charges, making reported operating income a poor proxy for ongoing cash-generating capacity)",
+        "url": "https://www.intc.com/news-events/press-releases/detail/1726/intel-reports-fourth-quarter-and-full-year-2024-financial",
+        "as_of": "2024-12-31",
+        "notes": "Labeled proxy, not a precise EBITDA figure -- Intel did not disclose EBITDA directly in the sources found."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D14",
+      "value": 1764.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated cash interest: $44.1bn long-term debt at an illustrative ~4% average coupon",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-intel-2024-stress.json",
+        "as_of": "2024-12-31",
+        "notes": "Intel's precise disclosed cash-interest-paid figure was not found via available search; this is a labeled estimate from the real disclosed debt balance, not a disclosed figure itself."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D5",
+      "value": 14710.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Intel cash and equivalents, year-end 2024: $14.71bn",
+        "url": "https://www.intc.com/news-events/press-releases/detail/1726/intel-reports-fourth-quarter-and-full-year-2024-financial",
+        "as_of": "2024-12-31",
+        "notes": "Used as opening cash approximation -- precise January-2024 opening balance not found via available search; labeled as an approximation using the closest real disclosed cash figure."
+      }
     }
   ],
   "outcome": {

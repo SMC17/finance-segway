@@ -13,11 +13,53 @@
       "value": 0.196,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1411579/000141157921000006/amc-20201231x10k.htm",
       "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "C3",
+      "previous": "Base",
+      "value": "Adversarial",
+      "source_url": "https://investor.amctheatres.com/news-events/press-releases/detail/120/amc-raises-917-million-of-fresh-investment-capital-since-mid-december-of-2020",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "D5",
+      "previous": 100,
+      "value": 125.0,
+      "source_url": "https://investor.amctheatres.com/news-events/press-releases/detail/120/amc-raises-917-million-of-fresh-investment-capital-since-mid-december-of-2020",
+      "source_as_of": "2020-12-14"
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "D7",
+      "previous": 150,
+      "value": 164.7,
+      "source_url": "https://investor.amctheatres.com/news-events/press-releases/detail/120/amc-raises-917-million-of-fresh-investment-capital-since-mid-december-of-2020",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "D11",
+      "previous": 4,
+      "value": 3.07,
+      "source_url": "https://investor.amctheatres.com/news-events/press-releases/detail/120/amc-raises-917-million-of-fresh-investment-capital-since-mid-december-of-2020",
+      "source_as_of": "2020-12-31"
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "D12",
+      "previous": 20,
+      "value": 15.2,
+      "source_url": "repo://12_Equity_Finance/sources/snapshots/equity-public-amc-2020-dilution.json",
+      "source_as_of": "2020-12-31"
     }
   ],
-  "workbook_sha256": "532a123f5a8626d12025b7da648ce1fd47f66c6fed7607736b51ea3c4242f251",
-  "generated_on": "2026-08-04",
+  "workbook_sha256": "1154645dc73b096df17686102e35679d9e4db8116a71ef70025de41b8d54ee9a",
+  "generated_on": "2026-08-05",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
-  "counts_toward_M4": false
+  "counts_toward_M4": false,
+  "hash_refreshed_on": "2026-08-05",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
 }
