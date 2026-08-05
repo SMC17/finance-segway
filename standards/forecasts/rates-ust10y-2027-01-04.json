@@ -1,0 +1,20 @@
+{
+  "forecast_id": "rates-ust10y-2027-01-04",
+  "case_id": "rates-treasury-2025-12-01",
+  "model_id": "21",
+  "metric": "ust_10y_constant_maturity_yield_2027_01_04",
+  "outcome_class": "out_of_sample_forecast",
+  "point": 0.0409,
+  "interval": null,
+  "basis": "naive_random_walk",
+  "baseline": {
+    "kind": "naive_random_walk",
+    "value": 0.0409,
+    "source": "10Y UST constant-maturity yield as of 2025-12-01, recorded in standards/public_cases/rates-treasury-2025-12-01.json (input C7, Treasury/FRED DGS10)"
+  },
+  "resolve_by": "2027-01-08",
+  "resolution_source_expected": "U.S. Treasury daily yield curve / FRED DGS10 for 2027-01-04 (first trading day of 2027)",
+  "resolution": null,
+  "registered_on": "2026-08-05",
+  "registration_sha256": "e6de541bd0a621d88edb1d655d90bcb8c09b07272dd06ed7b28ce06cd5ec558c"
+}

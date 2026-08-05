@@ -1,0 +1,20 @@
+{
+  "forecast_id": "pe-home-depot-fy2026-revenue",
+  "case_id": "pe-public-home-depot-2023",
+  "model_id": "03",
+  "metric": "fiscal_2026_revenue_usd_mm",
+  "outcome_class": "out_of_sample_forecast",
+  "point": 159514.0,
+  "interval": null,
+  "basis": "naive_last_recorded",
+  "baseline": {
+    "kind": "naive_last_recorded",
+    "value": 159514.0,
+    "source": "Home Depot FY2024 revenue as recorded in 03_Private_Equity/outcomes/outcome_log.csv (realized, Home Depot FY2024 Form 10-K)"
+  },
+  "resolve_by": "2027-04-30",
+  "resolution_source_expected": "Home Depot fiscal 2026 Form 10-K (fiscal year ending early February 2027)",
+  "resolution": null,
+  "registered_on": "2026-08-05",
+  "registration_sha256": "8fa23f9e7f44f71e38119334ba24e19f0bcc1a79f527fbe387773ded618f2d55"
+}
