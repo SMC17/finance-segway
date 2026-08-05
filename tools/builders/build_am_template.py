@@ -43,7 +43,8 @@ for c in range(3, 7):
 for c in range(4, 7):
     col = get_column_letter(c)
     prev = get_column_letter(c-1)
-    ws.cell(row=begin_row, column=c, value=f"={prev}{end_row}")
+    cell = ws.cell(row=begin_row, column=c, value=f"={prev}{end_row}")
+    cell.font = BLACK  # formula now, not the hardcoded-0 input it replaced
 ws.sheet_view.showGridLines = False
 
 # ---------------- FEE WATERFALL ----------------
