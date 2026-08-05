@@ -4,26 +4,27 @@
 **Target**: M3  
 **Service priority**: P1 (service revenue cluster with 05/06)
 
-## Present
+## Present (corrected 2026-08-05 — verified against actual repo state, not just claimed)
 
 - [x] Template + builder path in inventory
 - [x] Model card + validation
 - [x] Governance / sources / instances / outcomes folders
+- [x] **Real reference instance**: `instances/public_hertz_2021_reorganization.xlsx` (Hertz FY2021 Form 10-K, post-Chapter-11 reorganization)
+- [x] **Real adversarial instance**: `instances/public_bbby_2022_liquidity.xlsx` (Bed Bath & Beyond 2022 10-Q + Chapter 11 disclosure statement)
+- [x] Source register populated: `sources/source_register.csv` — both cases with real SEC EDGAR URLs, as-of dates, and SHA-256 snapshot hashes
 
 ## Gaps to M3
 
-- [ ] Real reference instance (public restructuring with recovery waterfall)
-- [ ] Real adversarial / liquidation comparison instance
-- [ ] Source register with court docket / 8-K / disclosure statement citations (public only)
-- [ ] Checks green (13-week liquidity, waterfall conservation, fulcrum)
-- [ ] Stakeholder sign-off
+- [ ] Both instances currently show Checks **REVIEW** after a real LibreOffice recalc (verified via `tools/verify_public_case_status.py`). Plausibly a genuine signal here specifically — both real cases are inherently about companies under real financial stress (reorganization / liquidity crisis) — but not yet individually traced line-by-line the way the Insurance false-negative was, so don't treat "REVIEW" as confirmed-correct without that pass.
+- [ ] Stakeholder sign-off (currently PENDING in model card)
 
-## Natural public seed
+## Gaps to M4
 
-Yellow Corporation citations already appear on the Private Credit domain register as stress sources — candidate to formalize under `24_Distressed_Restructuring/instances/` with restructuring-specific engines (fulcrum, recovery waterfall, 13-week).
+- [ ] Three material RefreshLog entries
+- [ ] One outcome comparison
 
 ## Next actions
 
-1. `python tools/scaffold_model_evidence.py 24_Distressed_Restructuring` if needed.
-2. Create `instances/public_yellow_2023_reorg/` thesis + source register from public 8-K / docket indexes.
-3. Agent stub `restructuring_screen` after first instance path exists.
+1. Recalculate both instances and read the individual (not just Overall) Checks line items to confirm the REVIEW status reflects real distress signals rather than a formula defect.
+2. Record RefreshLog entries once the above is resolved.
+3. Stakeholder sign-off remains the real blocker for M3 either way.

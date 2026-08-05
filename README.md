@@ -263,6 +263,7 @@ See:
 
 - `docs/COLLABORATION_PROTOCOL.md`;
 - `docs/INTEGRATION_LEDGER.md`;
+- `docs/EVIDENCE_STATUS_BOARD.md` — per-domain evidence depth, kept honest by `tools/verify_public_case_status.py`;
 - Issue #4, the institutional-depth implementation program.
 
 ## Public references
