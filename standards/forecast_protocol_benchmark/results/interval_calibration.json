@@ -1,0 +1,138 @@
+{
+  "inflation": {
+    "2016": {
+      "n_countries": 210,
+      "n_parsed": 210,
+      "coverage": 0.729,
+      "point_skill_vs_carry": 0.198,
+      "median_width": 5.0,
+      "median_abs_actual": 1.8
+    },
+    "2020": {
+      "n_countries": 214,
+      "n_parsed": 213,
+      "coverage": 0.953,
+      "point_skill_vs_carry": -0.764,
+      "median_width": 4.0,
+      "median_abs_actual": 2.1
+    },
+    "2023": {
+      "n_countries": 187,
+      "n_parsed": 187,
+      "coverage": 0.925,
+      "point_skill_vs_carry": 0.266,
+      "median_width": 7.0,
+      "median_abs_actual": 3.47
+    },
+    "2025": {
+      "n_countries": 180,
+      "n_parsed": 180,
+      "coverage": 0.883,
+      "point_skill_vs_carry": 0.496,
+      "median_width": 4.5,
+      "median_abs_actual": 3.25
+    }
+  },
+  "pop_growth": {
+    "2016": {
+      "n_countries": 227,
+      "n_parsed": 227,
+      "coverage": 0.925,
+      "point_skill_vs_carry": 0.515,
+      "median_width": 0.6,
+      "median_abs_actual": 1.05
+    },
+    "2020": {
+      "n_countries": 221,
+      "n_parsed": 221,
+      "coverage": 0.946,
+      "point_skill_vs_carry": 0.31,
+      "median_width": 0.57,
+      "median_abs_actual": 0.99
+    },
+    "2023": {
+      "n_countries": 219,
+      "n_parsed": 218,
+      "coverage": 0.913,
+      "point_skill_vs_carry": -0.006,
+      "median_width": 0.7,
+      "median_abs_actual": 0.905
+    },
+    "2025": {
+      "n_countries": 221,
+      "n_parsed": 221,
+      "coverage": 0.842,
+      "point_skill_vs_carry": 0.13,
+      "median_width": 0.38,
+      "median_abs_actual": 0.83
+    }
+  },
+  "gdp_percap": {
+    "2016": {
+      "n_countries": 193,
+      "n_parsed": 191,
+      "coverage": 0.277,
+      "point_skill_vs_carry": 0.093,
+      "median_width": 2400.0,
+      "median_abs_actual": 12200.0
+    },
+    "2020": {
+      "n_countries": 202,
+      "n_parsed": 202,
+      "coverage": 0.535,
+      "point_skill_vs_carry": -0.152,
+      "median_width": 4500.0,
+      "median_abs_actual": 9159.5
+    },
+    "2023": {
+      "n_countries": 191,
+      "n_parsed": 191,
+      "coverage": 0.932,
+      "point_skill_vs_carry": -0.416,
+      "median_width": 7500.0,
+      "median_abs_actual": 13800.0
+    },
+    "2025": {
+      "n_countries": 190,
+      "n_parsed": 190,
+      "coverage": 0.474,
+      "point_skill_vs_carry": 0.283,
+      "median_width": 5000.0,
+      "median_abs_actual": 17250.0
+    }
+  },
+  "mil_pct_gdp": {
+    "2016": {
+      "n_countries": 67,
+      "n_parsed": 66,
+      "coverage": 0.894,
+      "point_skill_vs_carry": -0.295,
+      "median_width": 1.025,
+      "median_abs_actual": 1.47
+    },
+    "2020": {
+      "n_countries": 140,
+      "n_parsed": 140,
+      "coverage": 0.9,
+      "point_skill_vs_carry": 0.283,
+      "median_width": 0.775,
+      "median_abs_actual": 1.5
+    },
+    "2023": {
+      "n_countries": 151,
+      "n_parsed": 151,
+      "coverage": 0.914,
+      "point_skill_vs_carry": 0.036,
+      "median_width": 0.85,
+      "median_abs_actual": 1.6
+    },
+    "2025": {
+      "n_countries": 151,
+      "n_parsed": 150,
+      "coverage": 0.827,
+      "point_skill_vs_carry": -0.07,
+      "median_width": 0.8,
+      "median_abs_actual": 2.0
+    }
+  }
+}

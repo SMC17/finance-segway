@@ -54,5 +54,52 @@ class CommittedResultsTests(unittest.TestCase):
                 self.assertEqual(row["carry_forward"]["mae_skill_vs_carry"], 0.0)
 
 
+class IntervalCalibrationTests(unittest.TestCase):
+    def test_committed_interval_results_are_complete_and_consistent(self) -> None:
+        results = json.loads(
+            (ROOT / "standards" / "forecast_protocol_benchmark" / "results"
+             / "interval_calibration.json").read_text()
+        )
+        self.assertEqual(set(results), set(bench.INDICATORS))
+        coverages = []
+        for ind, years in results.items():
+            self.assertEqual(set(years), {str(t) for t in bench.TARGETS}, ind)
+            for year, row in years.items():
+                self.assertGreaterEqual(row["n_parsed"], row["n_countries"] * 0.85)
+                self.assertTrue(0.0 <= row["coverage"] <= 1.0, f"{ind}/{year}")
+                self.assertGreater(row["median_width"], 0.0)
+                coverages.append(row["coverage"])
+        # The finding the README states: the mean looks calibrated while the
+        # cells are not. Pin both halves so the claim cannot drift from the
+        # committed data.
+        mean = sum(coverages) / len(coverages)
+        self.assertAlmostEqual(mean, 0.80, delta=0.02)
+        near_nominal = sum(1 for c in coverages if abs(c - 0.80) <= 0.05)
+        self.assertLessEqual(near_nominal, 4, coverages)
+
+    def test_parse_intervals_rejects_malformed_and_orders_bounds(self) -> None:
+        countries = ["US", "FR"]
+        good = '{"US": [3.2, 2.1, 4.6], "FR": [1.0, 2.0, 0.5]}'
+        rec = bench.parse_intervals(good, countries)
+        self.assertEqual(rec["US"], (3.2, 2.1, 4.6))
+        self.assertEqual(rec["FR"], (1.0, 0.5, 2.0))  # bounds reordered
+        self.assertIsNone(bench.parse_intervals("no json here", countries))
+        self.assertIsNone(
+            bench.parse_intervals('{"US": [1, 2]}', countries)  # <85% parsed
+        )
+
+    def test_interval_prompt_pins_load_bearing_clauses(self) -> None:
+        ev = {y: {"US": 1.0 + i / 10, "FR": 2.0 + i / 10}
+              for i, y in enumerate((2021, 2022, 2023, 2024))}
+        prompt = bench.interval_prompt(
+            "Inflation", "%", 2026, [2021, 2022, 2023, 2024], ev,
+            {"US": "United States", "FR": "France"}, ["US", "FR"]
+        )
+        for clause in ("central 80% interval", "[point, low, high]",
+                       "volatile histories deserve wide intervals",
+                       "do not use knowledge of events after"):
+            self.assertIn(clause.lower(), prompt.lower(), clause)
+
+
 if __name__ == "__main__":
     unittest.main()
