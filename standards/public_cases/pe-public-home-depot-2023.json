@@ -13,6 +13,30 @@
   "inputs": [
     {
       "sheet": "Assumptions",
+      "cell": "C10",
+      "value": 0.0211,
+      "input_kind": "derived",
+      "source": {
+        "name": "Home Depot FY2023 Cash Flow Statement (Alpha Vantage, SEC-derived)",
+        "url": "https://www.alphavantage.co/documentation/#cash-flow",
+        "as_of": "2024-01-31",
+        "notes": "depreciationDepletionAndAmortization=$3,247mm, capitalExpenditures=$3,226mm for fiscalDateEnding 2024-01-31 (Home Depot FY2023, ended 2024-01-28). Retrieved via Alpha Vantage CASH_FLOW (symbol=HD)."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C12",
+      "value": 0.24,
+      "input_kind": "observed",
+      "source": {
+        "name": "Home Depot Q4 & FY2023 Earnings Call Transcript (2024-02-20)",
+        "url": "https://www.alphavantage.co/documentation/#earnings-call-transcripts",
+        "as_of": "2024-02-20",
+        "notes": "Management-disclosed FY2023 operating margin (~14.2%), gross margin (~33.4%), opex/sales (~19.2%), and effective tax rate (24%), retrieved via Alpha Vantage EARNINGS_CALL_TRANSCRIPT (symbol=HD, quarter=2023Q4). Call predates the case as_of date of 2024-03-13."
+      }
+    },
+    {
+      "sheet": "Assumptions",
       "cell": "C5",
       "value": 152669.0,
       "input_kind": "observed",
@@ -26,25 +50,37 @@
     {
       "sheet": "Assumptions",
       "cell": "C6",
-      "value": 0.153,
+      "value": 0.163,
       "input_kind": "derived",
       "source": {
-        "name": "Home Depot 2023 Form 10-K",
-        "url": "https://www.sec.gov/Archives/edgar/data/354950/000035495024000062/hd-20240128.htm",
-        "as_of": "2024-03-13",
-        "notes": "U.S. SEC; frozen curated observation as of case date"
+        "name": "Home Depot Q4 & FY2023 Earnings Call Transcript (2024-02-20)",
+        "url": "https://www.alphavantage.co/documentation/#earnings-call-transcripts",
+        "as_of": "2024-02-20",
+        "notes": "Management-disclosed FY2023 operating margin (~14.2%), gross margin (~33.4%), opex/sales (~19.2%), and effective tax rate (24%), retrieved via Alpha Vantage EARNINGS_CALL_TRANSCRIPT (symbol=HD, quarter=2023Q4). Call predates the case as_of date of 2024-03-13."
       }
     },
     {
       "sheet": "Assumptions",
       "cell": "C7",
-      "value": -0.03,
+      "value": 0.01,
+      "input_kind": "observed",
+      "source": {
+        "name": "Home Depot Q4 & FY2023 Earnings Call Transcript (2024-02-20)",
+        "url": "https://www.alphavantage.co/documentation/#earnings-call-transcripts",
+        "as_of": "2024-02-20",
+        "notes": "Management-disclosed FY2023 operating margin (~14.2%), gross margin (~33.4%), opex/sales (~19.2%), and effective tax rate (24%), retrieved via Alpha Vantage EARNINGS_CALL_TRANSCRIPT (symbol=HD, quarter=2023Q4). Call predates the case as_of date of 2024-03-13."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "value": 0.0213,
       "input_kind": "derived",
       "source": {
-        "name": "Home Depot 2023 Form 10-K",
-        "url": "https://www.sec.gov/Archives/edgar/data/354950/000035495024000062/hd-20240128.htm",
-        "as_of": "2024-03-13",
-        "notes": "U.S. SEC; frozen curated observation as of case date"
+        "name": "Home Depot FY2023 Cash Flow Statement (Alpha Vantage, SEC-derived)",
+        "url": "https://www.alphavantage.co/documentation/#cash-flow",
+        "as_of": "2024-01-31",
+        "notes": "depreciationDepletionAndAmortization=$3,247mm, capitalExpenditures=$3,226mm for fiscalDateEnding 2024-01-31 (Home Depot FY2023, ended 2024-01-28). Retrieved via Alpha Vantage CASH_FLOW (symbol=HD)."
       }
     }
   ],
@@ -56,6 +92,18 @@
       "notes": "U.S. SEC; frozen curated observation as of case date"
     },
     {
+      "name": "Home Depot Q4 & FY2023 Earnings Call Transcript (2024-02-20)",
+      "url": "https://www.alphavantage.co/documentation/#earnings-call-transcripts",
+      "as_of": "2024-02-20",
+      "notes": "Management-disclosed FY2023 operating margin (~14.2%), gross margin (~33.4%), opex/sales (~19.2%), and effective tax rate (24%), retrieved via Alpha Vantage EARNINGS_CALL_TRANSCRIPT (symbol=HD, quarter=2023Q4). Call predates the case as_of date of 2024-03-13."
+    },
+    {
+      "name": "Home Depot FY2023 Cash Flow Statement (Alpha Vantage, SEC-derived)",
+      "url": "https://www.alphavantage.co/documentation/#cash-flow",
+      "as_of": "2024-01-31",
+      "notes": "depreciationDepletionAndAmortization=$3,247mm, capitalExpenditures=$3,226mm for fiscalDateEnding 2024-01-31 (Home Depot FY2023, ended 2024-01-28). Retrieved via Alpha Vantage CASH_FLOW (symbol=HD)."
+    },
+    {
       "name": "Frozen source snapshot",
       "url": "repo://03_Private_Equity/sources/snapshots/pe-public-home-depot-2023.json",
       "as_of": "2024-03-13",
@@ -63,10 +111,10 @@
     }
   ],
   "refresh": {
-    "date": "2026-08-04",
-    "trigger": "External historical evidence materialization",
+    "date": "2026-08-05",
+    "trigger": "Real judgment-density deepening from earnings call + cash-flow cross-check",
     "source_snapshot": "repo://03_Private_Equity/sources/snapshots/pe-public-home-depot-2023.json",
-    "what_changed": "Generated public case pe-public-home-depot-2023 from canonical release template",
+    "what_changed": "Added real, sourced overrides for EBITDA margin (corrected), D&A/revenue, capex/revenue, and cash tax rate from Home Depot's FY2023 earnings call and SEC-derived cash-flow data; replaced the trailing revenue-growth actual with management's own FY2024 guidance for the model's forward growth mechanic.",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
   },

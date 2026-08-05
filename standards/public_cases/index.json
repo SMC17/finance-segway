@@ -749,7 +749,7 @@
       "manifest": "standards/public_cases/pe-public-home-depot-2023.json",
       "output": "03_Private_Equity/instances/public_home_depot_2023.xlsx",
       "snapshot": "03_Private_Equity/sources/snapshots/pe-public-home-depot-2023.json",
-      "snapshot_sha256": "0a771d73b74716152d171ab0883c09bd8887efeb397af9292d3315c5e0c0930b",
+      "snapshot_sha256": "f65f0060297f6528a36ad4d65ddee808c134a90c5b0528da14521c1d78801c45",
       "counts_toward_m4": false,
       "receipt": {
         "schema_version": "1.0",
@@ -759,6 +759,22 @@
         "template": "03_Private_Equity/_template_LBO.xlsx",
         "output": "03_Private_Equity/instances/public_home_depot_2023.xlsx",
         "applied_inputs": [
+          {
+            "sheet": "Assumptions",
+            "cell": "C10",
+            "previous": 0.035,
+            "value": 0.0211,
+            "source_url": "https://www.alphavantage.co/documentation/#cash-flow",
+            "source_as_of": "2024-01-31"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C12",
+            "previous": 0.25,
+            "value": 0.24,
+            "source_url": "https://www.alphavantage.co/documentation/#earnings-call-transcripts",
+            "source_as_of": "2024-02-20"
+          },
           {
             "sheet": "Assumptions",
             "cell": "C5",
@@ -771,26 +787,32 @@
             "sheet": "Assumptions",
             "cell": "C6",
             "previous": 0.2,
-            "value": 0.153,
-            "source_url": "https://www.sec.gov/Archives/edgar/data/354950/000035495024000062/hd-20240128.htm",
-            "source_as_of": "2024-03-13"
+            "value": 0.163,
+            "source_url": "https://www.alphavantage.co/documentation/#earnings-call-transcripts",
+            "source_as_of": "2024-02-20"
           },
           {
             "sheet": "Assumptions",
             "cell": "C7",
             "previous": 0.06,
-            "value": -0.03,
-            "source_url": "https://www.sec.gov/Archives/edgar/data/354950/000035495024000062/hd-20240128.htm",
-            "source_as_of": "2024-03-13"
+            "value": 0.01,
+            "source_url": "https://www.alphavantage.co/documentation/#earnings-call-transcripts",
+            "source_as_of": "2024-02-20"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C9",
+            "previous": 0.025,
+            "value": 0.0213,
+            "source_url": "https://www.alphavantage.co/documentation/#cash-flow",
+            "source_as_of": "2024-01-31"
           }
         ],
-        "workbook_sha256": "af3b5b35503987764f7baa8836bef7fd90d1607e9ee44adec1f88846a17157e8",
+        "workbook_sha256": "e7a9c37c51be05c31251011b99aa2cfe871a24cd77cec8b5fdc938571f2b5da9",
         "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false,
-        "hash_refreshed_on": "2026-08-05",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
+        "counts_toward_M4": false
       },
       "outcome": {
         "metric": "next_fiscal_year_revenue_usd_mm",
