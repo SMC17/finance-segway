@@ -45,11 +45,93 @@
       "value": 0.0,
       "source_url": "repo://17_Real_Estate_REIT/sources/snapshots/real-estate-public-wework-2022-stress.json",
       "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "E5",
+      "previous": 0.75,
+      "value": 0.75,
+      "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "G5",
+      "previous": 3,
+      "value": 6,
+      "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "E6",
+      "previous": 0.72,
+      "value": 0.75,
+      "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "G6",
+      "previous": 3,
+      "value": 6,
+      "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "E7",
+      "previous": 0.7,
+      "value": 0.75,
+      "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "G7",
+      "previous": 4,
+      "value": 6,
+      "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "E8",
+      "previous": 0.68,
+      "value": 0.75,
+      "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "G8",
+      "previous": 4,
+      "value": 6,
+      "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "E9",
+      "previous": 0.65,
+      "value": 0.75,
+      "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Lease Roll",
+      "cell": "G9",
+      "previous": 5,
+      "value": 6,
+      "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+      "source_as_of": "2022-12-31"
     }
   ],
-  "workbook_sha256": "3f4ffd280cdbd6c7089cc96fc1599ae15e828ab39339a9e896c037a21299db4d",
-  "generated_on": "2026-08-04",
+  "workbook_sha256": "cb01bbdf13260719c81c60b6e316189ad41722125221a07ad66bcb6a4f44cef9",
+  "generated_on": "2026-08-05",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
-  "counts_toward_M4": false
+  "counts_toward_M4": false,
+  "hash_refreshed_on": "2026-08-05",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
 }

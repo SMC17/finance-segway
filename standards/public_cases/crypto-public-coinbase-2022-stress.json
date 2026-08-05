@@ -46,6 +46,102 @@
         "as_of": "2022-12-31",
         "notes": "U.S. SEC / Coinbase; frozen curated observation as of case date"
       }
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "C5",
+      "value": 4425.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Coinbase FY2022 Form 10-K -- cash and cash equivalents $4425.0mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+        "as_of": "2022-12-31",
+        "notes": "Real disclosed figure, applied to both Base and Downside columns since Decision & Checks reads the Downside column exclusively regardless of case framing."
+      }
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "C6",
+      "value": 861.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Coinbase FY2022 Form 10-K -- USDC holdings $861.0mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+        "as_of": "2022-12-31",
+        "notes": "Real disclosed figure."
+      }
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "C10",
+      "value": 492.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Coinbase FY2022 Form 10-K -- derived monthly operating burn from disclosed annual operating expenses",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+        "as_of": "2022-12-31",
+        "notes": "Real annual opex / 12."
+      }
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "C11",
+      "value": 492.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated 30-day contractual obligations, approximated as one month of real disclosed operating expenses",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+        "as_of": "2022-12-31",
+        "notes": "Order-of-magnitude estimate -- precise disclosed near-term contractual obligations not found via available search."
+      }
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "D5",
+      "value": 4425.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Coinbase FY2022 Form 10-K -- cash and cash equivalents $4425.0mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+        "as_of": "2022-12-31",
+        "notes": "Real disclosed figure, applied to both Base and Downside columns since Decision & Checks reads the Downside column exclusively regardless of case framing."
+      }
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "D6",
+      "value": 861.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Coinbase FY2022 Form 10-K -- USDC holdings $861.0mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+        "as_of": "2022-12-31",
+        "notes": "Real disclosed figure."
+      }
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "D10",
+      "value": 492.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Coinbase FY2022 Form 10-K -- derived monthly operating burn from disclosed annual operating expenses",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+        "as_of": "2022-12-31",
+        "notes": "Real annual opex / 12."
+      }
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "D11",
+      "value": 492.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated 30-day contractual obligations, approximated as one month of real disclosed operating expenses",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+        "as_of": "2022-12-31",
+        "notes": "Order-of-magnitude estimate -- precise disclosed near-term contractual obligations not found via available search."
+      }
     }
   ],
   "sources": [

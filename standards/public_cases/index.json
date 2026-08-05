@@ -62,13 +62,143 @@
             "value": 2300.0,
             "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
             "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C10",
+            "previous": 0.1,
+            "value": 0.1,
+            "source_url": "https://aswathdamodaran.blogspot.com/2012/11/hps-deal-from-hell-mark-it-up-and-write.html",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D10",
+            "previous": 0.05,
+            "value": 0.1,
+            "source_url": "https://aswathdamodaran.blogspot.com/2012/11/hps-deal-from-hell-mark-it-up-and-write.html",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C11",
+            "previous": 0.03,
+            "value": 0.03,
+            "source_url": "https://aswathdamodaran.blogspot.com/2012/11/hps-deal-from-hell-mark-it-up-and-write.html",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D11",
+            "previous": 0.06,
+            "value": 0.03,
+            "source_url": "https://aswathdamodaran.blogspot.com/2012/11/hps-deal-from-hell-mark-it-up-and-write.html",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "C5",
+            "previous": 100,
+            "value": 7074.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746911010094/a2206500z10-k.htm",
+            "source_as_of": "2011-10-31"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D5",
+            "previous": 100,
+            "value": 7074.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746911010094/a2206500z10-k.htm",
+            "source_as_of": "2011-10-31"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "C6",
+            "previous": 100,
+            "value": 2131.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746911010094/a2206500z10-k.htm",
+            "source_as_of": "2011-10-31"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D6",
+            "previous": 100,
+            "value": 2131.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746911010094/a2206500z10-k.htm",
+            "source_as_of": "2011-10-31"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "C7",
+            "previous": 10,
+            "value": 379.0,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2010-12-31"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D7",
+            "previous": 5,
+            "value": 379.0,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2010-12-31"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "C8",
+            "previous": 5,
+            "value": 0.0,
+            "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D8",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "C9",
+            "previous": 3,
+            "value": 500.0,
+            "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D9",
+            "previous": 20,
+            "value": 500.0,
+            "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "C10",
+            "previous": 10,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D10",
+            "previous": 50,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
+            "source_as_of": "2012-10-31"
           }
         ],
-        "workbook_sha256": "51433b1f9a71ce49f607f6a8e90e9d41bb2bd92110c18e47fb34297821a8cc37",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "6a50478ae6ddf17f6558cffd0f5070636b534b3fb72baa6ac7e686f973283e89",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       }
     },
     {
@@ -119,13 +249,167 @@
             "value": 196.0,
             "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
             "source_as_of": "2016-12-08"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C10",
+            "previous": 0.1,
+            "value": 0.09,
+            "source_url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.htm",
+            "source_as_of": "2016-06-13"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D10",
+            "previous": 0.05,
+            "value": 0.09,
+            "source_url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.htm",
+            "source_as_of": "2016-06-13"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C11",
+            "previous": 0.03,
+            "value": 0.025,
+            "source_url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.htm",
+            "source_as_of": "2016-06-13"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D11",
+            "previous": 0.06,
+            "value": 0.025,
+            "source_url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.htm",
+            "source_as_of": "2016-06-13"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "C5",
+            "previous": 100,
+            "value": 16800.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312516662209/d187868d10k.htm",
+            "source_as_of": "2016-06-30"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D5",
+            "previous": 100,
+            "value": 16800.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312516662209/d187868d10k.htm",
+            "source_as_of": "2016-06-30"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "C6",
+            "previous": 100,
+            "value": 8000.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312516662209/d187868d10k.htm",
+            "source_as_of": "2016-06-30"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D6",
+            "previous": 100,
+            "value": 8000.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312516662209/d187868d10k.htm",
+            "source_as_of": "2016-06-30"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "C7",
+            "previous": 10,
+            "value": -164.8,
+            "source_url": "https://news.linkedin.com/2016/linkedin-announces-fourth-quarter-and-full-year-2015-results",
+            "source_as_of": "2015-12-31"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D7",
+            "previous": 5,
+            "value": -164.8,
+            "source_url": "https://news.linkedin.com/2016/linkedin-announces-fourth-quarter-and-full-year-2015-results",
+            "source_as_of": "2015-12-31"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "C8",
+            "previous": 5,
+            "value": 0.0,
+            "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-microsoft-linkedin-2016.json",
+            "source_as_of": "2016-06-13"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D8",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-microsoft-linkedin-2016.json",
+            "source_as_of": "2016-06-13"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "C9",
+            "previous": 3,
+            "value": 592.5,
+            "source_url": "https://www.forbes.com/sites/spleverage/2016/08/02/microsofts-bond-offering-for-linkedin-buy-5th-largest-deal-ever/",
+            "source_as_of": "2016-08-02"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D9",
+            "previous": 20,
+            "value": 592.5,
+            "source_url": "https://www.forbes.com/sites/spleverage/2016/08/02/microsofts-bond-offering-for-linkedin-buy-5th-largest-deal-ever/",
+            "source_as_of": "2016-08-02"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "C10",
+            "previous": 10,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+            "source_as_of": "2016-06-13"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D10",
+            "previous": 50,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+            "source_as_of": "2016-06-13"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D5",
+            "previous": 1000,
+            "value": 26200.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+            "source_as_of": "2016-12-08"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D8",
+            "previous": 100,
+            "value": 133.673469,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+            "source_as_of": "2016-12-08"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D9",
+            "previous": 15,
+            "value": 196.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+            "source_as_of": "2016-12-08"
           }
         ],
-        "workbook_sha256": "9f36eb60ac0cc5ef86b7a889f3e1ade7f968cbc4bbca4aad6c8658e13c0001a9",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "b43dc06de0cee9c41d67aa0bd2cb934a9eb3203fce260f554447d2c2d4cfc6ef",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       }
     },
     {
@@ -168,13 +452,63 @@
             "value": 0.0,
             "source_url": "https://www.sec.gov/Archives/edgar/data/50863/000005086324000124/intc-20240629.htm",
             "source_as_of": "2024-06-29"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D6",
+            "previous": 30,
+            "value": 8300.0,
+            "source_url": "https://www.intc.com/news-events/press-releases/detail/1726/intel-reports-fourth-quarter-and-full-year-2024-financial",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D7",
+            "previous": 60,
+            "value": 14650.0,
+            "source_url": "https://www.intc.com/news-events/press-releases/detail/1726/intel-reports-fourth-quarter-and-full-year-2024-financial",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D12",
+            "previous": 300,
+            "value": 44100.0,
+            "source_url": "https://www.intc.com/news-events/press-releases/detail/1726/intel-reports-fourth-quarter-and-full-year-2024-financial",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D13",
+            "previous": 60,
+            "value": 8300.0,
+            "source_url": "https://www.intc.com/news-events/press-releases/detail/1726/intel-reports-fourth-quarter-and-full-year-2024-financial",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D14",
+            "previous": 40,
+            "value": 1764.0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-intel-2024-stress.json",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D5",
+            "previous": 50,
+            "value": 14710.0,
+            "source_url": "https://www.intc.com/news-events/press-releases/detail/1726/intel-reports-fourth-quarter-and-full-year-2024-financial",
+            "source_as_of": "2024-12-31"
           }
         ],
-        "workbook_sha256": "96d8a8863730ccc3eeaf401e2218ad76145784baa3ed350b9388ce2e43c706ed",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "ea03de4827d879c4b456b4741b7e2e135606212d42275c7496cf39f0b9be23a6",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       }
     },
     {
@@ -257,13 +591,103 @@
             "value": 71802.0,
             "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
             "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D6",
+            "previous": 30,
+            "value": 118548.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D7",
+            "previous": 60,
+            "value": 44477.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D8",
+            "previous": 20,
+            "value": 21771.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D9",
+            "previous": 30,
+            "value": 17254.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D10",
+            "previous": 80,
+            "value": 24395.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D11",
+            "previous": 0,
+            "value": 29070.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D12",
+            "previous": 300,
+            "value": 71802.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "C13",
+            "previous": 120,
+            "value": 109400.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D13",
+            "previous": 60,
+            "value": 109400.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "C14",
+            "previous": 10,
+            "value": 1700.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D14",
+            "previous": 40,
+            "value": 1700.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
           }
         ],
-        "workbook_sha256": "eb7c7345c6a4b996b624023a180a6d391015e5bc3a179ac16fb67f6aa61cf37d",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "7466d22b2290b558824ff20ffc3cc02e97c3f3f5faf32c33b114dcd71a84dafb",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       }
     },
     {
@@ -901,13 +1325,95 @@
             "value": 0.0,
             "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2022-stress.json",
             "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "C8",
+            "previous": 35,
+            "value": 200.0,
+            "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2022-stress.json",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "D8",
+            "previous": 55,
+            "value": 200.0,
+            "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2022-stress.json",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "C9",
+            "previous": 15,
+            "value": 310.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017023004343/blk-20221231.htm",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "D9",
+            "previous": 35,
+            "value": 310.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017023004343/blk-20221231.htm",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "C10",
+            "previous": 12,
+            "value": 100.0,
+            "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2022-stress.json",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "D10",
+            "previous": 40,
+            "value": 100.0,
+            "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2022-stress.json",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "C11",
+            "previous": 8,
+            "value": 50.0,
+            "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2022-stress.json",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "D11",
+            "previous": 20,
+            "value": 50.0,
+            "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2022-stress.json",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "C12",
+            "previous": 30,
+            "value": 7416.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017023004343/blk-20221231.htm",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "D12",
+            "previous": 15,
+            "value": 7416.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017023004343/blk-20221231.htm",
+            "source_as_of": "2022-12-31"
           }
         ],
-        "workbook_sha256": "e4d22bea6a94712b56d2418897ae4dcf865a2b931460f40dcf3e842050f10020",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "b05679168ee193129f68b72e444d15303c90af8ebf01d0189c497708a16b8607",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {
         "metric": "next_year_ending_aum_usd_bn",
@@ -974,13 +1480,95 @@
             "value": 0.0,
             "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
             "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "C8",
+            "previous": 35,
+            "value": 172.0,
+            "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "D8",
+            "previous": 55,
+            "value": 172.0,
+            "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "C9",
+            "previous": 15,
+            "value": 266.21,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "D9",
+            "previous": 35,
+            "value": 266.21,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "C10",
+            "previous": 12,
+            "value": 86.0,
+            "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "D10",
+            "previous": 40,
+            "value": 86.0,
+            "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "C11",
+            "previous": 8,
+            "value": 40.0,
+            "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "D11",
+            "previous": 20,
+            "value": 40.0,
+            "source_url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "C12",
+            "previous": 30,
+            "value": 8736.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Exposure & Liquidity",
+            "cell": "D12",
+            "previous": 15,
+            "value": 8736.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+            "source_as_of": "2023-12-31"
           }
         ],
-        "workbook_sha256": "77f8ff5a7dcd90390050178f12be3dec31170be0449070e763adeb646842dae0",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "e2c12694ed182803e59717a9af915dbbb0ce29abb63aff41300a6cc6f9bead45",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {
         "metric": "ending_aum_usd_bn",
@@ -1283,13 +1871,135 @@
             "value": 0.214286,
             "source_url": "https://zambia.asa-international.com/",
             "source_as_of": "2025-12-31"
+          },
+          {
+            "sheet": "Provisioning",
+            "cell": "C5",
+            "previous": 0,
+            "value": 6.825,
+            "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+            "source_as_of": "2025-12-31"
+          },
+          {
+            "sheet": "Provisioning",
+            "cell": "C6",
+            "previous": 0,
+            "value": 0.371,
+            "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+            "source_as_of": "2025-12-31"
+          },
+          {
+            "sheet": "Provisioning",
+            "cell": "C7",
+            "previous": 0,
+            "value": 0.202,
+            "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+            "source_as_of": "2025-12-31"
+          },
+          {
+            "sheet": "Provisioning",
+            "cell": "C8",
+            "previous": 0,
+            "value": 0.101,
+            "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+            "source_as_of": "2025-12-31"
+          },
+          {
+            "sheet": "Provisioning",
+            "cell": "C12",
+            "previous": 0,
+            "value": 0.261,
+            "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+            "source_as_of": "2025-12-31"
+          },
+          {
+            "sheet": "Sustainability",
+            "cell": "C5",
+            "previous": 0,
+            "value": 2.1,
+            "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+            "source_as_of": "2025-12-31"
+          },
+          {
+            "sheet": "Sustainability",
+            "cell": "C6",
+            "previous": 0,
+            "value": 0.378,
+            "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+            "source_as_of": "2025-12-31"
+          },
+          {
+            "sheet": "Sustainability",
+            "cell": "C7",
+            "previous": 0,
+            "value": 0.462,
+            "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+            "source_as_of": "2025-12-31"
+          },
+          {
+            "sheet": "Sustainability",
+            "cell": "C8",
+            "previous": 0,
+            "value": 1.365,
+            "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+            "source_as_of": "2025-12-31"
+          },
+          {
+            "sheet": "Sustainability",
+            "cell": "C9",
+            "previous": 0,
+            "value": 0.21,
+            "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+            "source_as_of": "2025-12-31"
+          },
+          {
+            "sheet": "Funding & Liquidity",
+            "cell": "D5",
+            "previous": 4,
+            "value": 0.5,
+            "source_url": "https://zambia.asa-international.com/",
+            "source_as_of": "2025-12-31"
+          },
+          {
+            "sheet": "Funding & Liquidity",
+            "cell": "D6",
+            "previous": 2,
+            "value": 0.3,
+            "source_url": "https://zambia.asa-international.com/",
+            "source_as_of": "2025-12-31"
+          },
+          {
+            "sheet": "Funding & Liquidity",
+            "cell": "D7",
+            "previous": 18,
+            "value": 1.1,
+            "source_url": "https://zambia.asa-international.com/",
+            "source_as_of": "2025-12-31"
+          },
+          {
+            "sheet": "Funding & Liquidity",
+            "cell": "D8",
+            "previous": 35,
+            "value": 1.0,
+            "source_url": "https://zambia.asa-international.com/",
+            "source_as_of": "2025-12-31"
+          },
+          {
+            "sheet": "Funding & Liquidity",
+            "cell": "D9",
+            "previous": 70,
+            "value": 5.0,
+            "source_url": "https://zambia.asa-international.com/",
+            "source_as_of": "2025-12-31"
           }
         ],
-        "workbook_sha256": "9b7d221ad0f6d2d82f0604669016bf39dd2b843c78fa86c53aec40736dff36ff",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "d03f3525977d0cdc06a877f755979bec6ee6c8ce0d696ef534f376f90486d8b2",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {
         "metric": "next_reporting_period_par30",
@@ -1348,13 +2058,175 @@
             "value": 0.218214,
             "source_url": "https://www.asa-international.com/investors/annual-report-2025/",
             "source_as_of": "2025-12-31"
+          },
+          {
+            "sheet": "Provisioning",
+            "cell": "C5",
+            "previous": 0,
+            "value": 597.558,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Provisioning",
+            "cell": "C6",
+            "previous": 0,
+            "value": 8.737,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Provisioning",
+            "cell": "C7",
+            "previous": 0,
+            "value": 3.36,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Provisioning",
+            "cell": "C8",
+            "previous": 0,
+            "value": 1.344,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Provisioning",
+            "cell": "C12",
+            "previous": 0,
+            "value": 10.367,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Sustainability",
+            "cell": "C5",
+            "previous": 0,
+            "value": 171.08,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Sustainability",
+            "cell": "C6",
+            "previous": 0,
+            "value": 25.662,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Sustainability",
+            "cell": "C7",
+            "previous": 0,
+            "value": 17.108,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Sustainability",
+            "cell": "C8",
+            "previous": 0,
+            "value": 94.094,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Sustainability",
+            "cell": "C9",
+            "previous": 0,
+            "value": 13.686,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Funding & Liquidity",
+            "cell": "C5",
+            "previous": 12,
+            "value": 55.0,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Funding & Liquidity",
+            "cell": "C6",
+            "previous": 8,
+            "value": 40.0,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Funding & Liquidity",
+            "cell": "C7",
+            "previous": 15,
+            "value": 70.0,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Funding & Liquidity",
+            "cell": "C8",
+            "previous": 20,
+            "value": 90.0,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Funding & Liquidity",
+            "cell": "C9",
+            "previous": 80,
+            "value": 400.0,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Funding & Liquidity",
+            "cell": "D5",
+            "previous": 4,
+            "value": 55.0,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Funding & Liquidity",
+            "cell": "D6",
+            "previous": 2,
+            "value": 40.0,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Funding & Liquidity",
+            "cell": "D7",
+            "previous": 18,
+            "value": 70.0,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Funding & Liquidity",
+            "cell": "D8",
+            "previous": 35,
+            "value": 90.0,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
+          },
+          {
+            "sheet": "Funding & Liquidity",
+            "cell": "D9",
+            "previous": 70,
+            "value": 400.0,
+            "source_url": "https://www.asa-international.com/media/2467/asa-international-group-plc-2024-results.pdf",
+            "source_as_of": "2024-12-31"
           }
         ],
-        "workbook_sha256": "cad583d3245f77bfed274ec7cdcfc41d22d507587fb2dd8b5694053faeaa7dc6",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "e95ae9fc9c2151e0b31def7900a3edb4b86a26c64285ad57d70d0ef8bc8607b4",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {
         "metric": "next_quarter_gross_olp_usd_mm",
@@ -1389,13 +2261,55 @@
             "value": 0.196,
             "source_url": "https://www.sec.gov/Archives/edgar/data/1411579/000141157921000006/amc-20201231x10k.htm",
             "source_as_of": "2020-12-31"
+          },
+          {
+            "sheet": "Cap Table & Dilution",
+            "cell": "C3",
+            "previous": "Base",
+            "value": "Adversarial",
+            "source_url": "https://investor.amctheatres.com/news-events/press-releases/detail/120/amc-raises-917-million-of-fresh-investment-capital-since-mid-december-of-2020",
+            "source_as_of": "2020-12-31"
+          },
+          {
+            "sheet": "Cap Table & Dilution",
+            "cell": "D5",
+            "previous": 100,
+            "value": 125.0,
+            "source_url": "https://investor.amctheatres.com/news-events/press-releases/detail/120/amc-raises-917-million-of-fresh-investment-capital-since-mid-december-of-2020",
+            "source_as_of": "2020-12-14"
+          },
+          {
+            "sheet": "Cap Table & Dilution",
+            "cell": "D7",
+            "previous": 150,
+            "value": 164.7,
+            "source_url": "https://investor.amctheatres.com/news-events/press-releases/detail/120/amc-raises-917-million-of-fresh-investment-capital-since-mid-december-of-2020",
+            "source_as_of": "2020-12-31"
+          },
+          {
+            "sheet": "Cap Table & Dilution",
+            "cell": "D11",
+            "previous": 4,
+            "value": 3.07,
+            "source_url": "https://investor.amctheatres.com/news-events/press-releases/detail/120/amc-raises-917-million-of-fresh-investment-capital-since-mid-december-of-2020",
+            "source_as_of": "2020-12-31"
+          },
+          {
+            "sheet": "Cap Table & Dilution",
+            "cell": "D12",
+            "previous": 20,
+            "value": 15.2,
+            "source_url": "repo://12_Equity_Finance/sources/snapshots/equity-public-amc-2020-dilution.json",
+            "source_as_of": "2020-12-31"
           }
         ],
-        "workbook_sha256": "532a123f5a8626d12025b7da648ce1fd47f66c6fed7607736b51ea3c4242f251",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "1154645dc73b096df17686102e35679d9e4db8116a71ef70025de41b8d54ee9a",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {
         "metric": "emergency_financing_completed",
@@ -1454,13 +2368,55 @@
             "value": 0.01176,
             "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
             "source_as_of": "2020-02-14"
+          },
+          {
+            "sheet": "Cap Table & Dilution",
+            "cell": "C5",
+            "previous": 100,
+            "value": 179.7,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+            "source_as_of": "2020-02-14"
+          },
+          {
+            "sheet": "Cap Table & Dilution",
+            "cell": "C7",
+            "previous": 20,
+            "value": 2.65,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+            "source_as_of": "2020-02-14"
+          },
+          {
+            "sheet": "Cap Table & Dilution",
+            "cell": "C11",
+            "previous": 11,
+            "value": 767.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+            "source_as_of": "2020-02-14"
+          },
+          {
+            "sheet": "Cap Table & Dilution",
+            "cell": "C12",
+            "previous": 5,
+            "value": 40.6,
+            "source_url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+            "source_as_of": "2020-02-14"
+          },
+          {
+            "sheet": "Rights Offering",
+            "cell": "D9",
+            "previous": 0.45,
+            "value": 1.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+            "source_as_of": "2020-02-14"
           }
         ],
-        "workbook_sha256": "91bbecd22ca42338b9f8e399a098355b472f6e19150b918df415d505d21c871d",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "923526174a38f14a7cd5ec2efa52a44bab3a06090f31081baccea2ed159bd611",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {
         "metric": "net_proceeds_before_expenses_usd_mm",
@@ -1526,13 +2482,31 @@
             "value": 14.1,
             "source_url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
             "source_as_of": "2023-09-18"
+          },
+          {
+            "sheet": "Ownership & Dilution",
+            "cell": "D9",
+            "previous": 5,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+            "source_as_of": "2023-09-18"
+          },
+          {
+            "sheet": "Exit Waterfall",
+            "cell": "D5",
+            "previous": 80,
+            "value": 9900.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+            "source_as_of": "2023-09-18"
           }
         ],
-        "workbook_sha256": "f832f7b5ea74e47c927b3632d89283e60baf4a8354a44c499b5c5e492653532e",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "0952da0fef81e13a636f7c0375c111296f52bf5fe3b59d9ff6d2af089df0f02c",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       }
     },
     {
@@ -1591,13 +2565,79 @@
             "value": 28.0,
             "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
             "source_as_of": "2020-09-16"
+          },
+          {
+            "sheet": "Ownership & Dilution",
+            "cell": "D5",
+            "previous": 100,
+            "value": 30000.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+            "source_as_of": "2020-09-16"
+          },
+          {
+            "sheet": "Ownership & Dilution",
+            "cell": "D6",
+            "previous": 20,
+            "value": 3360.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+            "source_as_of": "2020-09-16"
+          },
+          {
+            "sheet": "Ownership & Dilution",
+            "cell": "D7",
+            "previous": 10,
+            "value": 250.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+            "source_as_of": "2020-09-16"
+          },
+          {
+            "sheet": "Ownership & Dilution",
+            "cell": "D8",
+            "previous": 4,
+            "value": 28.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+            "source_as_of": "2020-09-16"
+          },
+          {
+            "sheet": "Ownership & Dilution",
+            "cell": "C9",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+            "source_as_of": "2020-09-16"
+          },
+          {
+            "sheet": "Ownership & Dilution",
+            "cell": "D9",
+            "previous": 5,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+            "source_as_of": "2020-09-16"
+          },
+          {
+            "sheet": "Exit Waterfall",
+            "cell": "C5",
+            "previous": 500,
+            "value": 70000.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+            "source_as_of": "2020-09-16"
+          },
+          {
+            "sheet": "Exit Waterfall",
+            "cell": "D5",
+            "previous": 80,
+            "value": 70000.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828020013667/snowflake424b4.htm",
+            "source_as_of": "2020-09-16"
           }
         ],
-        "workbook_sha256": "53a3ac5f61ff2a95373eda4a459bbe69a7897893ced7b0fe7c39c5e52735ab8e",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "e41f587e27ff30ea4fb3791d4826bd741e1e110f650addce20566e585dda252a",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       }
     },
     {
@@ -1820,13 +2860,31 @@
             "value": 34.454,
             "source_url": "https://www.eia.gov/dnav/pet/PET_PRI_SPT_S1_A.htm",
             "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Hedging",
+            "cell": "C8",
+            "previous": 0,
+            "value": 76.5,
+            "source_url": "https://www.eia.gov/dnav/pet/PET_PRI_SPT_S1_A.htm",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Physical Balance & Carry",
+            "cell": "C16",
+            "previous": 60,
+            "value": 105.546,
+            "source_url": "https://www.eia.gov/dnav/pet/PET_PRI_SPT_S1_A.htm",
+            "source_as_of": "2023-12-31"
           }
         ],
-        "workbook_sha256": "16c1393d578ad66ff0266db38cfacaba07efc41180d668b7d21a73845cdf2f82",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "12cdd36fef97fd7832d1ad51e13598f08bc946dfd76de62e9a0fd219b271915f",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {
         "metric": "next_year_wti_average_usd_per_bbl",
@@ -1877,13 +2935,79 @@
             "value": 75.413,
             "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
             "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Treasury & Runway",
+            "cell": "C5",
+            "previous": 30,
+            "value": 4425.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Treasury & Runway",
+            "cell": "C6",
+            "previous": 10,
+            "value": 861.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Treasury & Runway",
+            "cell": "C10",
+            "previous": 5,
+            "value": 492.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Treasury & Runway",
+            "cell": "C11",
+            "previous": 20,
+            "value": 492.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Treasury & Runway",
+            "cell": "D5",
+            "previous": 10,
+            "value": 4425.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Treasury & Runway",
+            "cell": "D6",
+            "previous": 3,
+            "value": 861.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Treasury & Runway",
+            "cell": "D10",
+            "previous": 7,
+            "value": 492.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Treasury & Runway",
+            "cell": "D11",
+            "previous": 25,
+            "value": 492.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+            "source_as_of": "2022-12-31"
           }
         ],
-        "workbook_sha256": "d7fb66a3d435a38864b02ebc3b732ef1a2ca9eda51c3c72f9691944d622bb31e",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "ac50cf1eda78271c0c7468073f9089c7259564fbf5d93ff116f14114c041e452",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {
         "metric": "next_year_total_customer_assets_usd_bn",
@@ -1942,13 +3066,79 @@
             "value": 16.8,
             "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
             "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Treasury & Runway",
+            "cell": "C5",
+            "previous": 30,
+            "value": 5139.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Treasury & Runway",
+            "cell": "C6",
+            "previous": 10,
+            "value": 700.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Treasury & Runway",
+            "cell": "C10",
+            "previous": 5,
+            "value": 272.5,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Treasury & Runway",
+            "cell": "C11",
+            "previous": 20,
+            "value": 272.5,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Treasury & Runway",
+            "cell": "D5",
+            "previous": 10,
+            "value": 5139.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Treasury & Runway",
+            "cell": "D6",
+            "previous": 3,
+            "value": 700.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Treasury & Runway",
+            "cell": "D10",
+            "previous": 7,
+            "value": 272.5,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Treasury & Runway",
+            "cell": "D11",
+            "previous": 25,
+            "value": 272.5,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+            "source_as_of": "2023-12-31"
           }
         ],
-        "workbook_sha256": "ca6702109db0590c36e044c595eff1c148a8d798d8fc2a990c1ac39d5ff1c35b",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "1a2a3d99ca34c5ba6255f14e6117a034da9e8d402980f9f9336a386833929a2f",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {
         "metric": "next_quarter_total_customer_assets_usd_bn",
@@ -2015,13 +3205,95 @@
             "value": 0.0,
             "source_url": "repo://17_Real_Estate_REIT/sources/snapshots/real-estate-public-wework-2022-stress.json",
             "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "E5",
+            "previous": 0.75,
+            "value": 0.75,
+            "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "G5",
+            "previous": 3,
+            "value": 6,
+            "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "E6",
+            "previous": 0.72,
+            "value": 0.75,
+            "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "G6",
+            "previous": 3,
+            "value": 6,
+            "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "E7",
+            "previous": 0.7,
+            "value": 0.75,
+            "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "G7",
+            "previous": 4,
+            "value": 6,
+            "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "E8",
+            "previous": 0.68,
+            "value": 0.75,
+            "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "G8",
+            "previous": 4,
+            "value": 6,
+            "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "E9",
+            "previous": 0.65,
+            "value": 0.75,
+            "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+            "source_as_of": "2022-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "G9",
+            "previous": 5,
+            "value": 6,
+            "source_url": "https://www.wework.com/newsroom/wework-reports-fourth-quarter-and-fiscal-year-2022-results",
+            "source_as_of": "2022-12-31"
           }
         ],
-        "workbook_sha256": "3f4ffd280cdbd6c7089cc96fc1599ae15e828ab39339a9e896c037a21299db4d",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "cb01bbdf13260719c81c60b6e316189ad41722125221a07ad66bcb6a4f44cef9",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {
         "metric": "bankruptcy_within_12_months",
@@ -2072,13 +3344,95 @@
             "value": 25.667,
             "source_url": "https://www.sec.gov/Archives/edgar/data/726728/000072672825000080/o-20250326.htm",
             "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "E5",
+            "previous": 0.75,
+            "value": 0.986,
+            "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "G5",
+            "previous": 3,
+            "value": 1,
+            "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "E6",
+            "previous": 0.72,
+            "value": 0.986,
+            "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "G6",
+            "previous": 3,
+            "value": 1,
+            "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "E7",
+            "previous": 0.7,
+            "value": 0.986,
+            "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "G7",
+            "previous": 4,
+            "value": 1,
+            "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "E8",
+            "previous": 0.68,
+            "value": 0.986,
+            "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "G8",
+            "previous": 4,
+            "value": 1,
+            "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "E9",
+            "previous": 0.65,
+            "value": 0.986,
+            "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+            "source_as_of": "2023-12-31"
+          },
+          {
+            "sheet": "Lease Roll",
+            "cell": "G9",
+            "previous": 5,
+            "value": 1,
+            "source_url": "https://www.prnewswire.com/news-releases/realty-income-announces-operating-results-for-the-three-months-and-year-ended-december-31-2023-302066579.html",
+            "source_as_of": "2023-12-31"
           }
         ],
-        "workbook_sha256": "c034bf56258f2741c2404f935e778defc8d5852bb2ce04aac4d7fccbb9b82656",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "3a6561092b047c7ac09efb879a271b52456d635e1336d249b41e40396f5b23ea",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {
         "metric": "next_year_net_income_common_usd_mm",
@@ -3648,13 +5002,95 @@
             "value": 276000.0,
             "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
             "source_as_of": "2023-09-30"
+          },
+          {
+            "sheet": "Capital & Liquidity",
+            "cell": "C5",
+            "previous": 20,
+            "value": 38733.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+            "source_as_of": "2023-09-30"
+          },
+          {
+            "sheet": "Capital & Liquidity",
+            "cell": "C7",
+            "previous": 25,
+            "value": 16286.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+            "source_as_of": "2023-09-30"
+          },
+          {
+            "sheet": "Capital & Liquidity",
+            "cell": "C6",
+            "previous": 10,
+            "value": 5000.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+            "source_as_of": "2023-09-30"
+          },
+          {
+            "sheet": "Capital & Liquidity",
+            "cell": "C8",
+            "previous": 15,
+            "value": 4000.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+            "source_as_of": "2023-09-30"
+          },
+          {
+            "sheet": "Capital & Liquidity",
+            "cell": "D5",
+            "previous": 5,
+            "value": 38733.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+            "source_as_of": "2023-09-30"
+          },
+          {
+            "sheet": "Capital & Liquidity",
+            "cell": "D7",
+            "previous": 8,
+            "value": 16286.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+            "source_as_of": "2023-09-30"
+          },
+          {
+            "sheet": "Capital & Liquidity",
+            "cell": "D6",
+            "previous": 20,
+            "value": 5000.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+            "source_as_of": "2023-09-30"
+          },
+          {
+            "sheet": "Capital & Liquidity",
+            "cell": "D8",
+            "previous": 25,
+            "value": 4000.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+            "source_as_of": "2023-09-30"
+          },
+          {
+            "sheet": "Network & Cohorts",
+            "cell": "C11",
+            "previous": 276000.0,
+            "value": 233000.0,
+            "source_url": "https://s1.q4cdn.com/050606653/files/doc_downloads/2023/12/849d0b35-b550-4d4a-95e3-611146a657f2.pdf",
+            "source_as_of": "2023-09-30"
+          },
+          {
+            "sheet": "Network & Cohorts",
+            "cell": "C12",
+            "previous": 15000,
+            "value": 233.0,
+            "source_url": "https://s1.q4cdn.com/050606653/files/doc_downloads/2023/12/849d0b35-b550-4d4a-95e3-611146a657f2.pdf",
+            "source_as_of": "2023-09-30"
           }
         ],
-        "workbook_sha256": "dfb3da2e07ff27b7545f1df6066ff242b137d62d06bd72353ee030d8815e5f64",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "e1e436dd8c6875533b865e4445df98f4a70817393c5f5644a44824a0734a543c",
+        "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false
+        "counts_toward_M4": false,
+        "hash_refreshed_on": "2026-08-05",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {
         "metric": "next_year_payments_and_cash_volume_usd_bn",

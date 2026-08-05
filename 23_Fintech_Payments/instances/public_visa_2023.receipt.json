@@ -37,11 +37,93 @@
       "value": 276000.0,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
       "source_as_of": "2023-09-30"
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "C5",
+      "previous": 20,
+      "value": 38733.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+      "source_as_of": "2023-09-30"
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "C7",
+      "previous": 25,
+      "value": 16286.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+      "source_as_of": "2023-09-30"
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "C6",
+      "previous": 10,
+      "value": 5000.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+      "source_as_of": "2023-09-30"
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "C8",
+      "previous": 15,
+      "value": 4000.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+      "source_as_of": "2023-09-30"
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "D5",
+      "previous": 5,
+      "value": 38733.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+      "source_as_of": "2023-09-30"
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "D7",
+      "previous": 8,
+      "value": 16286.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+      "source_as_of": "2023-09-30"
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "D6",
+      "previous": 20,
+      "value": 5000.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+      "source_as_of": "2023-09-30"
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "D8",
+      "previous": 25,
+      "value": 4000.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+      "source_as_of": "2023-09-30"
+    },
+    {
+      "sheet": "Network & Cohorts",
+      "cell": "C11",
+      "previous": 276000.0,
+      "value": 233000.0,
+      "source_url": "https://s1.q4cdn.com/050606653/files/doc_downloads/2023/12/849d0b35-b550-4d4a-95e3-611146a657f2.pdf",
+      "source_as_of": "2023-09-30"
+    },
+    {
+      "sheet": "Network & Cohorts",
+      "cell": "C12",
+      "previous": 15000,
+      "value": 233.0,
+      "source_url": "https://s1.q4cdn.com/050606653/files/doc_downloads/2023/12/849d0b35-b550-4d4a-95e3-611146a657f2.pdf",
+      "source_as_of": "2023-09-30"
     }
   ],
-  "workbook_sha256": "dfb3da2e07ff27b7545f1df6066ff242b137d62d06bd72353ee030d8815e5f64",
-  "generated_on": "2026-08-04",
+  "workbook_sha256": "e1e436dd8c6875533b865e4445df98f4a70817393c5f5644a44824a0734a543c",
+  "generated_on": "2026-08-05",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
-  "counts_toward_M4": false
+  "counts_toward_M4": false,
+  "hash_refreshed_on": "2026-08-05",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
 }

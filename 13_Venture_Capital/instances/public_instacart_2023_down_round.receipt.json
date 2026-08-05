@@ -37,11 +37,29 @@
       "value": 14.1,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
       "source_as_of": "2023-09-18"
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D9",
+      "previous": 5,
+      "value": 0.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+      "source_as_of": "2023-09-18"
+    },
+    {
+      "sheet": "Exit Waterfall",
+      "cell": "D5",
+      "previous": 80,
+      "value": 9900.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+      "source_as_of": "2023-09-18"
     }
   ],
-  "workbook_sha256": "f832f7b5ea74e47c927b3632d89283e60baf4a8354a44c499b5c5e492653532e",
-  "generated_on": "2026-08-04",
+  "workbook_sha256": "0952da0fef81e13a636f7c0375c111296f52bf5fe3b59d9ff6d2af089df0f02c",
+  "generated_on": "2026-08-05",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
-  "counts_toward_M4": false
+  "counts_toward_M4": false,
+  "hash_refreshed_on": "2026-08-05",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
 }

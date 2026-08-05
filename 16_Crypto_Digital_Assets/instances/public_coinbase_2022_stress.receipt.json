@@ -29,11 +29,77 @@
       "value": 75.413,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
       "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "C5",
+      "previous": 30,
+      "value": 4425.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "C6",
+      "previous": 10,
+      "value": 861.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "C10",
+      "previous": 5,
+      "value": 492.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "C11",
+      "previous": 20,
+      "value": 492.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "D5",
+      "previous": 10,
+      "value": 4425.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "D6",
+      "previous": 3,
+      "value": 861.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "D10",
+      "previous": 7,
+      "value": 492.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+      "source_as_of": "2022-12-31"
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "D11",
+      "previous": 25,
+      "value": 492.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978823000031/coin-20221231.htm",
+      "source_as_of": "2022-12-31"
     }
   ],
-  "workbook_sha256": "d7fb66a3d435a38864b02ebc3b732ef1a2ca9eda51c3c72f9691944d622bb31e",
-  "generated_on": "2026-08-04",
+  "workbook_sha256": "ac50cf1eda78271c0c7468073f9089c7259564fbf5d93ff116f14114c041e452",
+  "generated_on": "2026-08-05",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
-  "counts_toward_M4": false
+  "counts_toward_M4": false,
+  "hash_refreshed_on": "2026-08-05",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
 }

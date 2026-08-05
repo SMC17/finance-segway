@@ -21,11 +21,29 @@
       "value": 34.454,
       "source_url": "https://www.eia.gov/dnav/pet/PET_PRI_SPT_S1_A.htm",
       "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Hedging",
+      "cell": "C8",
+      "previous": 0,
+      "value": 76.5,
+      "source_url": "https://www.eia.gov/dnav/pet/PET_PRI_SPT_S1_A.htm",
+      "source_as_of": "2023-12-31"
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "C16",
+      "previous": 60,
+      "value": 105.546,
+      "source_url": "https://www.eia.gov/dnav/pet/PET_PRI_SPT_S1_A.htm",
+      "source_as_of": "2023-12-31"
     }
   ],
-  "workbook_sha256": "16c1393d578ad66ff0266db38cfacaba07efc41180d668b7d21a73845cdf2f82",
-  "generated_on": "2026-08-04",
+  "workbook_sha256": "12cdd36fef97fd7832d1ad51e13598f08bc946dfd76de62e9a0fd219b271915f",
+  "generated_on": "2026-08-05",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
-  "counts_toward_M4": false
+  "counts_toward_M4": false,
+  "hash_refreshed_on": "2026-08-05",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
 }

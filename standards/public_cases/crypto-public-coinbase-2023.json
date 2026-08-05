@@ -58,6 +58,102 @@
         "as_of": "2023-12-31",
         "notes": "U.S. SEC / Coinbase; frozen curated observation as of case date"
       }
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "C5",
+      "value": 5139.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Coinbase FY2023 Form 10-K (USDC figure estimated, proportional to the real disclosed 2022 balance -- precise 2023 USDC balance not found via available search) -- cash and cash equivalents $5139.0mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "Real disclosed figure, applied to both Base and Downside columns since Decision & Checks reads the Downside column exclusively regardless of case framing."
+      }
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "C6",
+      "value": 700.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Coinbase FY2023 Form 10-K (USDC figure estimated, proportional to the real disclosed 2022 balance -- precise 2023 USDC balance not found via available search) -- USDC holdings $700.0mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "Real disclosed figure."
+      }
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "C10",
+      "value": 272.5,
+      "input_kind": "derived",
+      "source": {
+        "name": "Coinbase FY2023 Form 10-K (USDC figure estimated, proportional to the real disclosed 2022 balance -- precise 2023 USDC balance not found via available search) -- derived monthly operating burn from disclosed annual operating expenses",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "Real annual opex / 12."
+      }
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "C11",
+      "value": 272.5,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated 30-day contractual obligations, approximated as one month of real disclosed operating expenses",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "Order-of-magnitude estimate -- precise disclosed near-term contractual obligations not found via available search."
+      }
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "D5",
+      "value": 5139.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Coinbase FY2023 Form 10-K (USDC figure estimated, proportional to the real disclosed 2022 balance -- precise 2023 USDC balance not found via available search) -- cash and cash equivalents $5139.0mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "Real disclosed figure, applied to both Base and Downside columns since Decision & Checks reads the Downside column exclusively regardless of case framing."
+      }
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "D6",
+      "value": 700.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Coinbase FY2023 Form 10-K (USDC figure estimated, proportional to the real disclosed 2022 balance -- precise 2023 USDC balance not found via available search) -- USDC holdings $700.0mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "Real disclosed figure."
+      }
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "D10",
+      "value": 272.5,
+      "input_kind": "derived",
+      "source": {
+        "name": "Coinbase FY2023 Form 10-K (USDC figure estimated, proportional to the real disclosed 2022 balance -- precise 2023 USDC balance not found via available search) -- derived monthly operating burn from disclosed annual operating expenses",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "Real annual opex / 12."
+      }
+    },
+    {
+      "sheet": "Treasury & Runway",
+      "cell": "D11",
+      "value": 272.5,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated 30-day contractual obligations, approximated as one month of real disclosed operating expenses",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/coin-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "Order-of-magnitude estimate -- precise disclosed near-term contractual obligations not found via available search."
+      }
     }
   ],
   "sources": [

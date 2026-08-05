@@ -58,6 +58,30 @@
         "as_of": "2023-09-18",
         "notes": "U.S. SEC / Maplebear; frozen curated observation as of case date"
       }
+    },
+    {
+      "sheet": "Ownership & Dilution",
+      "cell": "D9",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "No specific final option-pool top-up disclosed for Instacart's IPO",
+        "url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+        "as_of": "2023-09-18",
+        "notes": "Left at zero rather than inventing an unsourced figure."
+      }
+    },
+    {
+      "sheet": "Exit Waterfall",
+      "cell": "D5",
+      "value": 9900.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Instacart (Maplebear) IPO valuation ~$9.9bn -- well below its 2021 private peak valuation of ~$39bn, the real basis for this case's 'down round' framing",
+        "url": "https://www.sec.gov/Archives/edgar/data/1579091/000119312523237900/d55348d424b4.htm",
+        "as_of": "2023-09-18",
+        "notes": "Real, widely-reported IPO valuation."
+      }
     }
   ],
   "outcome": {

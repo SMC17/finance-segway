@@ -58,6 +58,186 @@
         "as_of": "2025-12-31",
         "notes": "ASA International Zambia; frozen curated observation as of case date"
       }
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C5",
+      "value": 6.825,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated current (0-30 day) balance",
+        "url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+        "as_of": "2025-12-31",
+        "notes": "Order-of-magnitude estimate derived from the real disclosed gross loan portfolio ($7.5mm) and an elevated PAR>30 estimate (9.0%) reflecting ASA International's FY2025 disclosure that Zambia specifically experienced higher delinquency and was named among countries facing portfolio quality challenges -- ASA International FY2025 disclosure -- Zambia named among countries with portfolio quality challenges / higher delinquency, https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159, as of 2025-12-31. The precise Zambia-specific PAR percentage was not found via available search (ASA discloses this at group and select-country level, not for every subsidiary); this estimate is directionally real (genuinely worse than the 2025 conventional case, consistent with the real qualitative disclosure) but not a precisely disclosed figure."
+      }
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C6",
+      "value": 0.371,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated 31-90 day balance",
+        "url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+        "as_of": "2025-12-31",
+        "notes": "Order-of-magnitude estimate derived from the real disclosed gross loan portfolio ($7.5mm) and an elevated PAR>30 estimate (9.0%) reflecting ASA International's FY2025 disclosure that Zambia specifically experienced higher delinquency and was named among countries facing portfolio quality challenges -- ASA International FY2025 disclosure -- Zambia named among countries with portfolio quality challenges / higher delinquency, https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159, as of 2025-12-31. The precise Zambia-specific PAR percentage was not found via available search (ASA discloses this at group and select-country level, not for every subsidiary); this estimate is directionally real (genuinely worse than the 2025 conventional case, consistent with the real qualitative disclosure) but not a precisely disclosed figure."
+      }
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C7",
+      "value": 0.202,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated 91-180 day balance",
+        "url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+        "as_of": "2025-12-31",
+        "notes": "Order-of-magnitude estimate derived from the real disclosed gross loan portfolio ($7.5mm) and an elevated PAR>30 estimate (9.0%) reflecting ASA International's FY2025 disclosure that Zambia specifically experienced higher delinquency and was named among countries facing portfolio quality challenges -- ASA International FY2025 disclosure -- Zambia named among countries with portfolio quality challenges / higher delinquency, https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159, as of 2025-12-31. The precise Zambia-specific PAR percentage was not found via available search (ASA discloses this at group and select-country level, not for every subsidiary); this estimate is directionally real (genuinely worse than the 2025 conventional case, consistent with the real qualitative disclosure) but not a precisely disclosed figure."
+      }
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C8",
+      "value": 0.101,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated 180+ day balance",
+        "url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+        "as_of": "2025-12-31",
+        "notes": "Order-of-magnitude estimate derived from the real disclosed gross loan portfolio ($7.5mm) and an elevated PAR>30 estimate (9.0%) reflecting ASA International's FY2025 disclosure that Zambia specifically experienced higher delinquency and was named among countries facing portfolio quality challenges -- ASA International FY2025 disclosure -- Zambia named among countries with portfolio quality challenges / higher delinquency, https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159, as of 2025-12-31. The precise Zambia-specific PAR percentage was not found via available search (ASA discloses this at group and select-country level, not for every subsidiary); this estimate is directionally real (genuinely worse than the 2025 conventional case, consistent with the real qualitative disclosure) but not a precisely disclosed figure."
+      }
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C12",
+      "value": 0.261,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated actual reserve held (~85% of modeled required reserve -- under-reserved, stress framing)",
+        "url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+        "as_of": "2025-12-31",
+        "notes": "Order-of-magnitude estimate derived from the real disclosed gross loan portfolio ($7.5mm) and an elevated PAR>30 estimate (9.0%) reflecting ASA International's FY2025 disclosure that Zambia specifically experienced higher delinquency and was named among countries facing portfolio quality challenges -- ASA International FY2025 disclosure -- Zambia named among countries with portfolio quality challenges / higher delinquency, https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159, as of 2025-12-31. The precise Zambia-specific PAR percentage was not found via available search (ASA discloses this at group and select-country level, not for every subsidiary); this estimate is directionally real (genuinely worse than the 2025 conventional case, consistent with the real qualitative disclosure) but not a precisely disclosed figure."
+      }
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C5",
+      "value": 2.1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated financial revenue",
+        "url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+        "as_of": "2025-12-31",
+        "notes": "Order-of-magnitude estimate derived from the real disclosed gross loan portfolio ($7.5mm) and an elevated PAR>30 estimate (9.0%) reflecting ASA International's FY2025 disclosure that Zambia specifically experienced higher delinquency and was named among countries facing portfolio quality challenges -- ASA International FY2025 disclosure -- Zambia named among countries with portfolio quality challenges / higher delinquency, https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159, as of 2025-12-31. The precise Zambia-specific PAR percentage was not found via available search (ASA discloses this at group and select-country level, not for every subsidiary); this estimate is directionally real (genuinely worse than the 2025 conventional case, consistent with the real qualitative disclosure) but not a precisely disclosed figure."
+      }
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C6",
+      "value": 0.378,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated financial expense",
+        "url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+        "as_of": "2025-12-31",
+        "notes": "Order-of-magnitude estimate derived from the real disclosed gross loan portfolio ($7.5mm) and an elevated PAR>30 estimate (9.0%) reflecting ASA International's FY2025 disclosure that Zambia specifically experienced higher delinquency and was named among countries facing portfolio quality challenges -- ASA International FY2025 disclosure -- Zambia named among countries with portfolio quality challenges / higher delinquency, https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159, as of 2025-12-31. The precise Zambia-specific PAR percentage was not found via available search (ASA discloses this at group and select-country level, not for every subsidiary); this estimate is directionally real (genuinely worse than the 2025 conventional case, consistent with the real qualitative disclosure) but not a precisely disclosed figure."
+      }
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C7",
+      "value": 0.462,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated loan loss provision expense (elevated)",
+        "url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+        "as_of": "2025-12-31",
+        "notes": "Order-of-magnitude estimate derived from the real disclosed gross loan portfolio ($7.5mm) and an elevated PAR>30 estimate (9.0%) reflecting ASA International's FY2025 disclosure that Zambia specifically experienced higher delinquency and was named among countries facing portfolio quality challenges -- ASA International FY2025 disclosure -- Zambia named among countries with portfolio quality challenges / higher delinquency, https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159, as of 2025-12-31. The precise Zambia-specific PAR percentage was not found via available search (ASA discloses this at group and select-country level, not for every subsidiary); this estimate is directionally real (genuinely worse than the 2025 conventional case, consistent with the real qualitative disclosure) but not a precisely disclosed figure."
+      }
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C8",
+      "value": 1.365,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated operating expense (elevated ratio)",
+        "url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+        "as_of": "2025-12-31",
+        "notes": "Order-of-magnitude estimate derived from the real disclosed gross loan portfolio ($7.5mm) and an elevated PAR>30 estimate (9.0%) reflecting ASA International's FY2025 disclosure that Zambia specifically experienced higher delinquency and was named among countries facing portfolio quality challenges -- ASA International FY2025 disclosure -- Zambia named among countries with portfolio quality challenges / higher delinquency, https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159, as of 2025-12-31. The precise Zambia-specific PAR percentage was not found via available search (ASA discloses this at group and select-country level, not for every subsidiary); this estimate is directionally real (genuinely worse than the 2025 conventional case, consistent with the real qualitative disclosure) but not a precisely disclosed figure."
+      }
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C9",
+      "value": 0.21,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated imputed market-rate cost of capital",
+        "url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+        "as_of": "2025-12-31",
+        "notes": "Order-of-magnitude estimate derived from the real disclosed gross loan portfolio ($7.5mm) and an elevated PAR>30 estimate (9.0%) reflecting ASA International's FY2025 disclosure that Zambia specifically experienced higher delinquency and was named among countries facing portfolio quality challenges -- ASA International FY2025 disclosure -- Zambia named among countries with portfolio quality challenges / higher delinquency, https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159, as of 2025-12-31. The precise Zambia-specific PAR percentage was not found via available search (ASA discloses this at group and select-country level, not for every subsidiary); this estimate is directionally real (genuinely worse than the 2025 conventional case, consistent with the real qualitative disclosure) but not a precisely disclosed figure."
+      }
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "D5",
+      "value": 0.5,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated liquid assets, scaled to real Zambia GLP ($7.5mm)",
+        "url": "https://zambia.asa-international.com/",
+        "as_of": "2025-12-31",
+        "notes": "Order-of-magnitude estimate for a small country subsidiary."
+      }
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "D6",
+      "value": 0.3,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated committed undrawn funding",
+        "url": "https://zambia.asa-international.com/",
+        "as_of": "2025-12-31",
+        "notes": "Order-of-magnitude estimate."
+      }
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "D7",
+      "value": 1.1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated 30-day contractual outflows (stress: outflows exceed liquid resources)",
+        "url": "https://zambia.asa-international.com/",
+        "as_of": "2025-12-31",
+        "notes": "Order-of-magnitude estimate, deliberately stressed consistent with the real disclosed delinquency/quality-challenge framing."
+      }
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "D8",
+      "value": 1.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated largest funding provider balance",
+        "url": "https://zambia.asa-international.com/",
+        "as_of": "2025-12-31",
+        "notes": "Order-of-magnitude estimate -- a small subsidiary is plausibly more concentrated in its funding sources than the diversified group."
+      }
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "D9",
+      "value": 5.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated total wholesale/institutional funding",
+        "url": "https://zambia.asa-international.com/",
+        "as_of": "2025-12-31",
+        "notes": "Order-of-magnitude estimate."
+      }
     }
   ],
   "sources": [

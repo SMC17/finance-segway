@@ -94,6 +94,138 @@
         "as_of": "2024-06-30",
         "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date"
       }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D6",
+      "value": 118548.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date -- mirrored onto the Adversarial column, which is what Decision & Checks actually reads regardless of case framing; the original manifest only populated Base, leaving Adversarial at template defaults."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D7",
+      "value": 44477.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date -- mirrored onto the Adversarial column, which is what Decision & Checks actually reads regardless of case framing; the original manifest only populated Base, leaving Adversarial at template defaults."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D8",
+      "value": 21771.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date -- mirrored onto the Adversarial column, which is what Decision & Checks actually reads regardless of case framing; the original manifest only populated Base, leaving Adversarial at template defaults."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D9",
+      "value": 17254.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date -- mirrored onto the Adversarial column, which is what Decision & Checks actually reads regardless of case framing; the original manifest only populated Base, leaving Adversarial at template defaults."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D10",
+      "value": 24395.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date -- mirrored onto the Adversarial column, which is what Decision & Checks actually reads regardless of case framing; the original manifest only populated Base, leaving Adversarial at template defaults."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D11",
+      "value": 29070.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date -- mirrored onto the Adversarial column, which is what Decision & Checks actually reads regardless of case framing; the original manifest only populated Base, leaving Adversarial at template defaults."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D12",
+      "value": 71802.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date -- mirrored onto the Adversarial column, which is what Decision & Checks actually reads regardless of case framing; the original manifest only populated Base, leaving Adversarial at template defaults."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C13",
+      "value": 109400.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft FY2024 Form 10-K -- operating income $109.4bn, used as EBITDA proxy",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Real disclosed operating income; labeled proxy since precise D&A add-back to reach strict EBITDA was not separately sourced."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D13",
+      "value": 109400.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft FY2024 Form 10-K -- operating income $109.4bn, used as EBITDA proxy",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Mirrored onto the Adversarial column, which is what Decision & Checks reads. Neither the original manifest nor my first patch sourced this cell, leaving it at the tiny template default ($60mm) and producing an absurd >600x leverage ratio against Microsoft's real net debt -- this is what actually fixes that."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C14",
+      "value": 1700.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft FY2024 Form 10-K -- cash paid for interest on debt, $1.7bn",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Real disclosed cash interest paid."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D14",
+      "value": 1700.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft FY2024 Form 10-K -- cash paid for interest on debt, $1.7bn",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Mirrored onto the Adversarial column."
+      }
     }
   ],
   "outcome": {
