@@ -2303,13 +2303,11 @@
             "source_as_of": "2020-12-31"
           }
         ],
-        "workbook_sha256": "1154645dc73b096df17686102e35679d9e4db8116a71ef70025de41b8d54ee9a",
+        "workbook_sha256": "5217572faee894701936b1e7c35f5bf30ec9137f2d7e89d8f0e8d0d5ef6cf628",
         "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false,
-        "hash_refreshed_on": "2026-08-05",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
+        "counts_toward_M4": false
       },
       "outcome": {
         "metric": "emergency_financing_completed",
@@ -2408,15 +2406,21 @@
             "value": 1.0,
             "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
             "source_as_of": "2020-02-14"
+          },
+          {
+            "sheet": "Cap Table & Dilution",
+            "cell": "C8",
+            "previous": 25,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+            "source_as_of": "2020-02-14"
           }
         ],
-        "workbook_sha256": "923526174a38f14a7cd5ec2efa52a44bab3a06090f31081baccea2ed159bd611",
+        "workbook_sha256": "19e7a6ba16c562261fedecc2a7ad03f260f9ac0a3a2c2debd574f374ea9cb3be",
         "generated_on": "2026-08-05",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false,
-        "hash_refreshed_on": "2026-08-05",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
+        "counts_toward_M4": false
       },
       "outcome": {
         "metric": "net_proceeds_before_expenses_usd_mm",

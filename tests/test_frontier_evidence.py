@@ -39,6 +39,39 @@ class FrontierEvidenceTests(unittest.TestCase):
                 msg=model["model_id"],
             )
 
+    def test_forecast_kind_is_valid_and_explicit(self):
+        for model in self.models:
+            for case in model["cases"]:
+                self.assertIn(
+                    case["outcome"]["forecast_kind"],
+                    frontier_evidence_registry.FORECAST_KINDS,
+                    msg=case["id"],
+                )
+
+    def test_each_model_has_genuine_forecast_evidence_or_is_tracked(self):
+        # "recorded" alone isn't enough: a hindsight_restated_fact case is
+        # "recorded" (both values are known) but demonstrates nothing about
+        # prediction -- forecast was copied from the same source cited for
+        # realized. This requires at least one point_forecast or
+        # same_period_reproduction case per model, same intent as
+        # test_each_model_has_recorded_outcome but closing the loophole that
+        # let 6 hindsight-copied cases look like genuine outcome evidence.
+        genuine = {"point_forecast", "same_period_reproduction"}
+        for model in self.models:
+            has_genuine = any(
+                case["outcome"]["forecast_kind"] in genuine for case in model["cases"]
+            )
+            if model["model_id"] in frontier_evidence_registry.KNOWN_HINDSIGHT_ONLY_MODELS:
+                self.assertFalse(
+                    has_genuine,
+                    msg=(
+                        f"{model['model_id']} now has genuine forecast evidence -- "
+                        "remove it from KNOWN_HINDSIGHT_ONLY_MODELS"
+                    ),
+                )
+            else:
+                self.assertTrue(has_genuine, msg=model["model_id"])
+
     def test_sources_are_external_and_source_addressed(self):
         valid_kinds = {"observed", "derived", "modeler_assumption"}
         for model in self.models:

@@ -1,3 +1,3 @@
-case_id,case_type,metric,forecast,realized,error,realized_source,status
-trade-public-boeing-2019,conventional,next_year_revenue_usd_mm,75000.0,58158.0,-16842.0,Boeing 2020 Form 10-K,recorded
-trade-public-boeing-2020-stress,adversarial,next_year_revenue_usd_mm,55000.0,62286.0,7286.0,Boeing 2021 Form 10-K,recorded
+case_id,case_type,metric,forecast,realized,error,realized_source,forecast_kind,status
+trade-public-boeing-2019,conventional,next_year_revenue_usd_mm,75000.0,58158.0,-16842.0,Boeing 2020 Form 10-K,point_forecast,recorded
+trade-public-boeing-2020-stress,adversarial,next_year_revenue_usd_mm,55000.0,62286.0,7286.0,Boeing 2021 Form 10-K,point_forecast,recorded

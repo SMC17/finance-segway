@@ -57,6 +57,11 @@ def norm_cdf(x: float) -> float:
     return 0.5 * (1 + math.erf(x / math.sqrt(2)))
 
 
+# A third, independent Black-Scholes implementation (see also
+# tools/reference_engines.py and finance_segway/derivatives.py) — kept
+# separate deliberately since this one is the oracle checking the workbook,
+# not something those should import. Local and single-call-site, so the q/sigma
+# order swap that motivated keyword-only args in the other two isn't live here.
 def black_scholes(S, K, T, r, q, sigma):
     d1 = (math.log(S / K) + (r - q + 0.5 * sigma**2) * T) / (sigma * math.sqrt(T))
     d2 = d1 - sigma * math.sqrt(T)
