@@ -22,6 +22,16 @@
 
 - [ ] Three material RefreshLog entries
 - [ ] One outcome comparison
+- [ ] Zero genuine forecast evidence: both outcome cases in
+      `tools/frontier_evidence_registry.py` are `forecast_kind:
+      "hindsight_restated_fact"` (Hertz's Chapter 11 emergence and BBBY's
+      Chapter 11 filing are both known historical facts restated as
+      "forecast" — no independent prediction was ever made). Tracked in
+      `KNOWN_HINDSIGHT_ONLY_MODELS` in that file. Needs a genuinely
+      independent forecast (e.g. a liquidity-runway or fulcrum-security
+      projection derived from the pre-event 10-Q/10-K and compared against
+      the real outcome) before this domain has any real predictive-evidence
+      component of `outcomes_analysis`.
 
 ## Next actions
 

@@ -1,3 +1,3 @@
-case_id,case_type,metric,forecast,realized,error,realized_source,status
-distressed-public-hertz-2021-reorganization,conventional,chapter_11_emergence_completed,1.0,1.0,0.0,Hertz 2021 Form 10-K,recorded
-distressed-public-bbby-2022-liquidity,adversarial,chapter_11_filing_within_12_months,1.0,1.0,0.0,"Bed Bath & Beyond Chapter 11 filing, April 23, 2023",recorded
+case_id,case_type,metric,forecast,realized,error,realized_source,forecast_kind,status
+distressed-public-hertz-2021-reorganization,conventional,chapter_11_emergence_completed,1.0,1.0,0.0,Hertz 2021 Form 10-K,hindsight_restated_fact,recorded
+distressed-public-bbby-2022-liquidity,adversarial,chapter_11_filing_within_12_months,1.0,1.0,0.0,"Bed Bath & Beyond Chapter 11 filing, April 23, 2023",hindsight_restated_fact,recorded

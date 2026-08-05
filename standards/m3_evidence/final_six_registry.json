@@ -115,6 +115,7 @@
             "forecast": 1.0,
             "realized": 1.0,
             "realized_source": "LinkedIn merger completion Form 8-K",
+            "forecast_kind": "hindsight_restated_fact",
             "status": "recorded"
           }
         },
@@ -171,6 +172,7 @@
             "forecast": 0.0,
             "realized": 8800.0,
             "realized_source": "Hewlett-Packard 2012 Form 10-K Autonomy impairment",
+            "forecast_kind": "point_forecast",
             "status": "recorded"
           }
         }
@@ -295,6 +297,7 @@
             "forecast": 75000.0,
             "realized": 75543.0,
             "realized_source": "Microsoft 2024 Form 10-K",
+            "forecast_kind": "point_forecast",
             "status": "recorded"
           }
         },
@@ -338,6 +341,7 @@
             "forecast": 0.0,
             "realized": 1.0,
             "realized_source": "Intel second-quarter 2024 Form 10-Q",
+            "forecast_kind": "point_forecast",
             "status": "recorded"
           }
         }
@@ -455,6 +459,7 @@
             "forecast": 27000.0,
             "realized": 27886.1,
             "realized_source": "Ares Capital second-quarter 2025 Form 10-Q",
+            "forecast_kind": "point_forecast",
             "status": "recorded"
           }
         },
@@ -505,6 +510,7 @@
             "forecast": 0.0,
             "realized": 1.0,
             "realized_source": "Yellow Corporation bankruptcy Form 8-K filing index",
+            "forecast_kind": "point_forecast",
             "status": "recorded"
           }
         }
@@ -608,6 +614,7 @@
             "forecast": 70000.0,
             "realized": 67127.0,
             "realized_source": "Microsoft 2024 Form 10-K",
+            "forecast_kind": "point_forecast",
             "status": "recorded"
           }
         },
@@ -665,6 +672,7 @@
             "forecast": 0.0,
             "realized": 5750.0,
             "realized_source": "Carnival 2020 Form 10-K",
+            "forecast_kind": "point_forecast",
             "status": "recorded"
           }
         }
@@ -764,6 +772,7 @@
             "forecast": 1.0,
             "realized": 1.0,
             "realized_source": "IMF Jamaica 2024 Article IV Consultation and second reviews",
+            "forecast_kind": "hindsight_restated_fact",
             "status": "recorded"
           }
         },
@@ -807,6 +816,7 @@
             "forecast": 0.0,
             "realized": 1.0,
             "realized_source": "IMF Sri Lanka 2023 EFF request and debt-sustainability analysis",
+            "forecast_kind": "point_forecast",
             "status": "recorded"
           }
         }
@@ -907,6 +917,7 @@
             "forecast": 1.0,
             "realized": 1.0,
             "realized_source": "Snowflake 2020 final IPO prospectus",
+            "forecast_kind": "hindsight_restated_fact",
             "status": "recorded"
           }
         },
@@ -967,6 +978,7 @@
             "forecast": 0.0,
             "realized": 1.0,
             "realized_source": "Maplebear 2023 final IPO prospectus",
+            "forecast_kind": "point_forecast",
             "status": "recorded"
           }
         }

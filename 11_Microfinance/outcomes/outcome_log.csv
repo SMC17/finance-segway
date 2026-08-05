@@ -1,3 +1,3 @@
-case_id,case_type,metric,forecast,realized,error,realized_source,status
-microfinance-public-asa-2025,conventional,next_quarter_gross_olp_usd_mm,625.0,583.2,-41.799999999999955,ASA International Q1 2026 Business Update,recorded
-microfinance-public-asa-zambia-stress,adversarial,next_reporting_period_par30,0.08,,,Pending next maintained evidence refresh,pending
+case_id,case_type,metric,forecast,realized,error,realized_source,forecast_kind,status
+microfinance-public-asa-2025,conventional,next_quarter_gross_olp_usd_mm,625.0,583.2,-41.799999999999955,ASA International Q1 2026 Business Update,point_forecast,recorded
+microfinance-public-asa-zambia-stress,adversarial,next_reporting_period_par30,0.08,,,Pending next maintained evidence refresh,point_forecast,pending
