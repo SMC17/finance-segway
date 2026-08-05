@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "model_id": "29",
+  "active_release": "1.0.0",
+  "rollback_release": null,
+  "status": "active",
+  "replacement": null,
+  "retirement_trigger": "Fee structure, waterfall methodology, or look-through reporting convention is superseded",
+  "rollback_tested": false,
+  "retirement_exercised": false
+}

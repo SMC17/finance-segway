@@ -147,6 +147,7 @@ The design is informed by—but does not claim certification or formal complianc
 | 22 | Quantitative / Systematic | Performance and sizing framework | **M2** |
 | 23 | Fintech / Payments | Unit economics and cohorts | **M2** |
 | 24 | Distressed / Restructuring | Recovery and fulcrum waterfall | **M2** |
+| 29 | Fund of Funds | Look-through portfolio, NAV roll-forward, fee-layering | **M1** |
 
 Non-model research frameworks live under `25_Frameworks_NonModel/`.
 

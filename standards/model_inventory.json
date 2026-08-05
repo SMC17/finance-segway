@@ -872,6 +872,36 @@
       ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
+    },
+    {
+      "id": "29",
+      "domain": "Fund of Funds",
+      "folder": "29_Fund_of_Funds",
+      "archetype": "FOF",
+      "workbook": "29_Fund_of_Funds/_template_FOF.xlsx",
+      "builder": "tools/builders/build_fund_of_funds_institutional.py",
+      "horizon": "long_term_10y",
+      "declared_maturity": "M1",
+      "required_engines": [
+        "look_through_portfolio",
+        "nav_rollforward",
+        "fee_layering",
+        "fund_multiples",
+        "concentration"
+      ],
+      "required_perspectives": [
+        "fof_gp",
+        "underlying_lp",
+        "fof_lp"
+      ],
+      "reference_checks": [
+        "nav_rollforward_reconciliation",
+        "tvpi_dpi_rvpi_identity",
+        "fee_layering_drag_nonnegative",
+        "single_fund_concentration"
+      ],
+      "target_maturity": "M2",
+      "minimum_instances_for_M4": 2
     }
   ]
 }
