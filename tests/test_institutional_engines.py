@@ -158,6 +158,65 @@ class EngineTests(unittest.TestCase):
         ]
         self.assertGreater(weighted_average_life(principal), 0)
 
+    def test_waterfall_routes_recoveries_to_principal_and_conserves_cash(self):
+        collateral = collateral_cash_flows(
+            opening_balance=1000, periods=24, annual_coupon=0.08,
+            annual_cpr=0.12, annual_cdr=0.03, recovery_rate=0.4,
+        )
+        tranches = [Tranche("A", 700, 0.05, 0), Tranche("B", 200, 0.08, 1)]
+        waterfall = sequential_waterfall(collateral, tranches)
+        rows = {
+            period.period: [r for r in waterfall if r.period == period.period]
+            for period in collateral
+        }
+        for period in collateral:
+            paid_interest = sum(r.interest_paid for r in rows[period.period])
+            paid_principal = sum(r.principal_paid for r in rows[period.period])
+            # Interest collections alone fund coupons; recoveries are
+            # principal collections. Residuals (excess spread, OC release)
+            # must be non-negative - no cash invented, none lost untracked.
+            self.assertLessEqual(paid_interest, period.interest + 1e-9)
+            self.assertLessEqual(
+                paid_principal,
+                period.scheduled_principal + period.prepayment
+                + period.recoveries + 1e-9,
+            )
+        # Total principal returned to the stack never exceeds collateral
+        # principal collections, and the stack is fully retired here because
+        # collections (including recoveries) exceed the 900 of tranches.
+        total_principal_collected = sum(
+            p.scheduled_principal + p.prepayment + p.recoveries
+            for p in collateral
+        )
+        total_principal_paid = sum(r.principal_paid for r in waterfall)
+        self.assertLessEqual(total_principal_paid, total_principal_collected + 1e-9)
+        self.assertAlmostEqual(waterfall[-1].ending_balance, 0.0, places=8)
+        # Discriminates the routing: in period 1 the senior balance (700)
+        # dwarfs collections, so principal paid must equal scheduled +
+        # prepayment + RECOVERIES exactly. The old routing paid only
+        # scheduled + prepayment and discarded the recovery cash.
+        first = collateral[0]
+        self.assertAlmostEqual(
+            sum(r.principal_paid for r in rows[1]),
+            first.scheduled_principal + first.prepayment + first.recoveries,
+            places=9,
+        )
+
+    def test_waterfall_junior_waits_for_senior(self):
+        collateral = collateral_cash_flows(
+            opening_balance=1000, periods=24, annual_coupon=0.08,
+            annual_cpr=0.30, annual_cdr=0.0, recovery_rate=0.0,
+        )
+        waterfall = sequential_waterfall(
+            collateral,
+            [Tranche("A", 700, 0.05, 0), Tranche("B", 200, 0.08, 1)],
+        )
+        senior_balance = {r.period: r.ending_balance
+                         for r in waterfall if r.tranche == "A"}
+        for row in waterfall:
+            if row.tranche == "B" and row.principal_paid > 0:
+                self.assertAlmostEqual(senior_balance[row.period], 0.0, places=9)
+
     def test_risk_and_backtest(self):
         returns = [-0.05, 0.02, -0.01, 0.03, -0.02, 0.01]
         self.assertLess(max_drawdown(returns), 0)
