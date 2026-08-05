@@ -201,6 +201,7 @@ def draft_registration(
     metric: str,
     point: float,
     history: list[tuple[str, float]],
+    history_source: str,
     resolve_by: str,
     resolution_source_expected: str,
     interval: list[float] | None = None,
@@ -216,11 +217,20 @@ def draft_registration(
     honest producer in this repository is a scenario range (e.g. the
     Base/Downside spread of the instance workbook that produced the point) -
     LLM-elicited intervals are not benchmarked and should not be recorded as
-    if they were. Raises ValueError with every violation rather than
-    returning a record the registry would refuse.
+    if they were. `history_source` names where the history came from (the
+    instance workbook, an outcome log, a filing): the frozen baseline is a
+    material input under this repository's provenance rules, and an unsourced
+    history could game the naive line. Raises ValueError with every violation
+    rather than returning a record the registry would refuse.
     """
     if not history:
         raise ValueError("history must contain at least one (period, value) observation")
+    if not history_source.strip():
+        raise ValueError(
+            "history_source is required: the frozen baseline is a material input, "
+            "and a baseline whose history has no named source is gameable - "
+            "understating history makes the naive line artificially easy to beat"
+        )
     last_period, last_value = history[-1]
     record: dict[str, Any] = {
         "forecast_id": forecast_id,
@@ -234,7 +244,7 @@ def draft_registration(
         "baseline": {
             "kind": "naive_last_recorded",
             "value": float(last_value),
-            "source": f"carry-forward of {metric} = {last_value} at {last_period}",
+            "source": f"carry-forward of {metric} = {last_value} at {last_period} per {history_source}",
         },
         "registered_on": registered_on or date.today().isoformat(),
         "resolve_by": resolve_by,
@@ -259,13 +269,25 @@ def check_all(directory: Path = FORECAST_DIR) -> dict[str, Any]:
     records = load_all(directory)
     ids = [record.get("forecast_id") for record in records.values()]
     duplicate_ids = sorted({i for i in ids if ids.count(i) > 1})
-    resolved = pending = 0
+    resolved = pending = overdue = 0
     skills: list[float] = []
     interval_hits: list[bool] = []
+    today = date.today()
     for path, record in records.items():
         errors = validate_record(record)
         if record.get("registration_sha256") is None:
             errors.append("registration_sha256 missing - run --register to stamp it")
+        if record.get("resolution") is None:
+            resolve_by = _parse_date("resolve_by", record.get("resolve_by"), [])
+            if resolve_by is not None and resolve_by < today:
+                overdue += 1
+                errors.append(
+                    f"overdue: resolve_by {resolve_by} passed without resolution - "
+                    "an abandoned forecast counts against the registry; resolving "
+                    "hits while letting misses expire is the oldest trick in "
+                    "forecasting, so an expired window must be resolved (or the "
+                    "resolution source's unavailability documented in the record)"
+                )
         if errors:
             problems[path.name] = errors
         if record.get("resolution") is not None:
@@ -282,6 +304,7 @@ def check_all(directory: Path = FORECAST_DIR) -> dict[str, Any]:
         "status": "PASS" if not problems and not duplicate_ids else "FAIL",
         "forecasts": len(records),
         "pending": pending,
+        "overdue": overdue,
         "resolved": resolved,
         "mean_skill_vs_baseline": (sum(skills) / len(skills)) if skills else None,
         "interval_coverage": (

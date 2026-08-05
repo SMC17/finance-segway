@@ -135,6 +135,7 @@ class ForecastRegistrationTests(unittest.TestCase):
             metric="revenue_usd_mm",
             point=112.0,
             history=[("FY2024", 96.0), ("FY2025", 101.0), ("FY2026", 104.0)],
+            history_source="05_Private_Credit/instances/acme_unitranche_2026 workbook",
             resolve_by="2027-09-30",
             resolution_source_expected="Issuer FY2027 audited financials",
             interval=[102.0, 121.0],
@@ -144,6 +145,7 @@ class ForecastRegistrationTests(unittest.TestCase):
         self.assertEqual(record["baseline"]["kind"], "naive_last_recorded")
         self.assertEqual(record["baseline"]["value"], 104.0)
         self.assertIn("FY2026", record["baseline"]["source"])
+        self.assertIn("acme_unitranche_2026 workbook", record["baseline"]["source"])
         self.assertEqual(record["outcome_class"], "out_of_sample_forecast")
         self.assertEqual(record["basis"], "modeled")
 
@@ -156,9 +158,23 @@ class ForecastRegistrationTests(unittest.TestCase):
                 metric="m",
                 point=1.0,
                 history=[],
+                history_source="src",
                 resolve_by="2027-01-01",
                 resolution_source_expected="src",
             )
+        with self.assertRaises(ValueError) as ctx:
+            draft_registration(
+                forecast_id="no-history-source",
+                case_id="c",
+                model_id="05",
+                metric="m",
+                point=1.0,
+                history=[("FY2025", 1.0)],
+                history_source="  ",
+                resolve_by="2027-01-01",
+                resolution_source_expected="src",
+            )
+        self.assertIn("gameable", str(ctx.exception))
         with self.assertRaises(ValueError) as ctx:
             draft_registration(
                 forecast_id="closed-window",
@@ -167,6 +183,7 @@ class ForecastRegistrationTests(unittest.TestCase):
                 metric="m",
                 point=1.0,
                 history=[("FY2025", 1.0)],
+                history_source="src",
                 resolve_by="2020-01-01",
                 resolution_source_expected="src",
                 registered_on="2026-08-05",
@@ -180,6 +197,7 @@ class ForecastRegistrationTests(unittest.TestCase):
                 metric="m",
                 point=1.0,
                 history=[("FY2025", 1.0)],
+                history_source="src",
                 resolve_by="2027-01-01",
                 resolution_source_expected="src",
                 interval=[5.0, 2.0],
@@ -200,6 +218,7 @@ class ForecastRegistrationTests(unittest.TestCase):
             metric="revenue_usd_mm",
             point=estimates["acme"],
             history=[("FY2025", 101.0), ("FY2026", 104.0)],
+            history_source="05_Private_Credit/instances/acme_unitranche_2026 workbook",
             resolve_by="2027-09-30",
             resolution_source_expected="Issuer FY2027 audited financials",
             interval=[102.0, 121.0],
@@ -227,6 +246,37 @@ class ForecastRegistrationTests(unittest.TestCase):
             report = check_all(directory)
             self.assertEqual(report["status"], "PASS")
             self.assertEqual(report["resolved"], 1)
+
+    def test_expired_window_without_resolution_fails_check(self) -> None:
+        # Selective resolution - resolving hits while letting misses expire
+        # silently - must be impossible: an unresolved forecast past its
+        # resolve_by fails the registry check.
+        import tempfile
+
+        record = draft_registration(
+            forecast_id="overdue-forecast",
+            case_id="c",
+            model_id="05",
+            metric="m",
+            point=2.0,
+            history=[("FY2024", 1.0)],
+            history_source="outcome log",
+            resolve_by="2026-01-01",
+            resolution_source_expected="src",
+            registered_on="2025-06-01",
+        )
+        record["registration_sha256"] = registration_sha256(record)
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp)
+            (directory / "overdue-forecast.json").write_text(
+                json.dumps(record, indent=2) + "\n", encoding="utf-8"
+            )
+            report = check_all(directory)
+            self.assertEqual(report["status"], "FAIL")
+            self.assertEqual(report["overdue"], 1)
+            self.assertTrue(
+                any("overdue" in e for e in report["problems"]["overdue-forecast.json"])
+            )
 
     def test_committed_registry_is_clean(self) -> None:
         report = check_all(FORECAST_DIR)
