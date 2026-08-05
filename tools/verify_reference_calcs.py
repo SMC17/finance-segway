@@ -228,6 +228,18 @@ def check_lbo_sources_uses_and_debt_schedule():
                 debt[f"{letter}28"].value,
                 debt[f"{letter}27"].value - debt[f"{letter}13"].value,
             ),
+            "revolver commitment fee": (
+                debt[f"{letter}29"].value,
+                max(0.0, workbook["Assumptions"]["E17"].value - debt[f"{letter}14"].value)
+                * workbook["Assumptions"]["E33"].value,
+            ),
+            "cash interest includes commitment fee": (
+                debt[f"{letter}7"].value,
+                debt[f"{letter}15"].value
+                + debt[f"{letter}18"].value
+                + debt[f"{letter}23"].value
+                + debt[f"{letter}29"].value,
+            ),
         }
         for identity, (actual, expected) in identities.items():
             if not close(actual, expected, tol=1e-8):
@@ -238,6 +250,8 @@ def check_lbo_sources_uses_and_debt_schedule():
             debt[f"{letter}26"].value,
         ) < -1e-8:
             failures.append(f"{letter}:negative debt")
+        if debt[f"{letter}29"].value <= 0:
+            failures.append(f"{letter}:commitment fee not actually charged")
 
     ok = ok and not failures
     detail = (

@@ -60,7 +60,8 @@ def build(output: Path) -> None:
         debt.cell(23, column, f"={letter}22*Assumptions!$E$23")
         debt.cell(24, column, f"={letter}22*Assumptions!$E$24")
 
-        debt.cell(7, column, f"=SUM({letter}15,{letter}18,{letter}23)")
+        debt.cell(29, column, f"=MAX(0,Assumptions!$E$17-{letter}14)*Assumptions!$E$33")
+        debt.cell(7, column, f"=SUM({letter}15,{letter}18,{letter}23,{letter}29)")
         debt.cell(8, column, f"={letter}19")
         debt.cell(9, column, f"={letter}5+{letter}6-{letter}7-{letter}8")
         debt.cell(10, column, f"=IF({letter}9<Assumptions!$E$16,MIN(Assumptions!$E$17-{letter}14,Assumptions!$E$16-{letter}9),-MIN({letter}14,MAX(0,{letter}9-Assumptions!$E$16)))")
@@ -74,7 +75,7 @@ def build(output: Path) -> None:
         debt.cell(26, column, f"=MAX(0,{letter}22+{letter}24-{letter}25)")
         debt.cell(27, column, f"=SUM({letter}16,{letter}21,{letter}26)")
         debt.cell(28, column, f"={letter}27-{letter}13")
-        for row in range(5, 29):
+        for row in range(5, 30):
             debt.cell(row, column).number_format = CUR
 
         operating.cell(11, column, f"='Debt Schedule'!{letter}7")
