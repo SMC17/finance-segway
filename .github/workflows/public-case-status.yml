@@ -1,0 +1,62 @@
+name: Public Case Status
+
+# Recalculates every real public-case workbook via LibreOffice and reads
+# its genuine, computed Overall/Decision status back. Neither of the
+# other public-evidence gates does this: evidence-receipt-integrity.yml
+# only checks that committed bytes match a recorded hash (a workbook can
+# be financially broken and still match its own hash), and
+# final-public-evidence-release.yml only validates manifest schema and
+# input counts. This is the gate that would have caught the Insurance
+# "Paid triangle cumulative" false-negative and the thin-manifest cases
+# tracked in tools/verify_public_case_status.py's KNOWN_THIN_CASES.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install repository dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install LibreOffice (needed to actually recalculate formulas)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice-calc
+
+      - name: Recalculate every public case and verify its real decision status
+        run: |
+          PYTHONPATH=. python tools/verify_public_case_status.py \
+            --report public-case-status-report.json
+
+      - name: Upload status report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-case-status-${{ github.event_name }}
+          path: public-case-status-report.json
+          if-no-files-found: warn
+          retention-days: 30
