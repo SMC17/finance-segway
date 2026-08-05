@@ -1,33 +1,42 @@
 """L3 tool: private_credit_underwrite
 
-Fail-closed agent interface for 05 Private Credit.
-- Requires provenance on every material fact
-- Invokes tools/builders/build_private_credit_release.py
-- Writes instance directory, source_register fragment, receipt, RefreshLog note
-- Does not invent math; does not claim Checks PASS until a human/CI recalc verifies
+Fail-closed agent-facing interface for the 05 Private Credit flagship.
+Does not invent math: every number in the output comes from
+tools/builders/build_private_credit_release.py's formulas, recalculated for
+real by LibreOffice, never computed in this file. This tool's own job is
+narrowly the six steps in docs/AGENT_TOOL_CONTRACT.md: validate provenance,
+call the governed instance-generation path (tools/model_instance_release.py,
+the same manifest-driven machinery that produced every public_*.xlsx
+instance in this repo), recalculate, read Checks, and report status --
+never re-implement CFADS, leverage, or covenant formulas here.
 
-Usage:
+Usage (CLI):
   python tools/agents/private_credit_underwrite.py --demo
-  python tools/agents/private_credit_underwrite.py --inputs inputs.json
-  python tools/agents/private_credit_underwrite.py --instance public_ares_capital_2024 --use-ares-fixture
+  python tools/agents/private_credit_underwrite.py --use-ares-fixture
+  python tools/agents/private_credit_underwrite.py --inputs path/to/inputs.json
+
+Contract: docs/AGENT_TOOL_CONTRACT.md
 """
 from __future__ import annotations
 
 import argparse
 import json
-import shutil
 import sys
 from dataclasses import asdict, dataclass, field
-from datetime import date, datetime, timezone
+from datetime import date
 from pathlib import Path
 from typing import Any
 
+import openpyxl
+
 ROOT = Path(__file__).resolve().parents[2]
 DOMAIN = ROOT / "05_Private_Credit"
-BUILDER = ROOT / "tools" / "builders" / "build_private_credit_release.py"
 TEMPLATE = DOMAIN / "_template_CREDIT.xlsx"
 
+sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT))
+from model_instance_release import apply_manifest  # noqa: E402
+from recalc import recalc  # noqa: E402
 
 
 @dataclass
@@ -35,23 +44,30 @@ class Provenance:
     source_name: str
     as_of_date: str
     retrieval_date: str
+    source_url: str | None = None
     transformation: str = "none"
-    snapshot: str = ""
 
 
 @dataclass
 class ToolInput:
     instance_slug: str
+    borrower_name: str
     as_of: str
+    facility: str = "Unitranche"
     scenario: str = "Base"
-    facts: dict[str, Any] = field(default_factory=dict)
+    # facts maps an Assumptions-sheet row label (e.g. "Revenue (LTM)") to a
+    # Base-column override. Label-driven, not coordinate-driven -- matches
+    # db/README.md's extraction convention -- so a template row reorder
+    # breaks loudly (KeyError on an unknown label) rather than silently
+    # writing the wrong cell.
+    facts: dict[str, float] = field(default_factory=dict)
     provenance: dict[str, Provenance] = field(default_factory=dict)
 
 
 @dataclass
 class ToolOutput:
     ok: bool
-    checks_status: str
+    checks_status: str  # PASS | REVIEW | FAIL | NOT_RUN
     workbook_path: str | None
     headline: dict[str, Any]
     sources_written: list[dict[str, str]]
@@ -59,78 +75,141 @@ class ToolOutput:
     refresh_log_entry: str | None = None
 
 
-REQUIRED_FACT_KEYS = (
-    "borrower_name",
-    "facility_size",
-    "pricing_spread_bps",
-    "cfads_base",
-    "senior_debt",
-)
+def _assumption_rows() -> dict[str, int]:
+    """Label -> row number on the Assumptions sheet, read from the live
+    template rather than hardcoded, so a builder change is reflected here
+    automatically instead of silently going stale."""
+    workbook = openpyxl.load_workbook(TEMPLATE, data_only=False)
+    sheet = workbook["Assumptions"]
+    rows: dict[str, int] = {}
+    for row in range(5, sheet.max_row + 1):
+        label = sheet.cell(row, 2).value
+        if label:
+            rows[str(label).strip()] = row
+    return rows
 
 
 def validate_provenance(inp: ToolInput) -> list[str]:
     errors = []
-    for key in REQUIRED_FACT_KEYS:
-        if key not in inp.facts:
-            errors.append(f"missing required fact: {key}")
-            continue
-        if key not in inp.provenance:
-            errors.append(f"missing provenance for material fact: {key}")
+    if not inp.borrower_name or not inp.borrower_name.strip():
+        errors.append("missing required fact: borrower_name")
+    if not inp.facts:
+        errors.append("at least one material Assumptions fact is required")
+        return errors
+    known_labels = _assumption_rows()
+    for label in inp.facts:
+        if label not in known_labels:
+            errors.append(
+                f"unknown Assumptions row label: {label!r} "
+                f"(not present on {TEMPLATE.relative_to(ROOT)})"
+            )
+        if label not in inp.provenance:
+            errors.append(f"missing provenance for material fact: {label}")
     return errors
 
 
-def _write_source_register(instance_dir: Path, inp: ToolInput) -> list[dict[str, str]]:
-    reg_path = instance_dir / "sources" / "source_register.csv"
-    reg_path.parent.mkdir(parents=True, exist_ok=True)
-    rows = []
-    lines = [
-        "field,source_name,as_of_date,retrieval_date,transformation,snapshot,workbook_destination"
-    ]
-    for key, prov in inp.provenance.items():
-        row = {
-            "field": key,
-            "source_name": prov.source_name,
-            "as_of_date": prov.as_of_date,
-            "retrieval_date": prov.retrieval_date,
-            "transformation": prov.transformation,
-            "snapshot": prov.snapshot,
-            "workbook_destination": "Assumptions / operating case",
-        }
-        rows.append(row)
-        lines.append(
-            ",".join(
-                str(row[c]).replace(",", ";")
-                for c in [
-                    "field",
-                    "source_name",
-                    "as_of_date",
-                    "retrieval_date",
-                    "transformation",
-                    "snapshot",
-                    "workbook_destination",
-                ]
-            )
-        )
-    reg_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    return rows
+def _build_manifest(inp: ToolInput, instances_dir: Path) -> dict[str, Any]:
+    rows = _assumption_rows()
+    inputs = []
+    for label, value in inp.facts.items():
+        prov = inp.provenance[label]
+        inputs.append({
+            "sheet": "Assumptions",
+            "cell": f"C{rows[label]}",
+            "value": value,
+            "source": {
+                "name": prov.source_name,
+                "url": prov.source_url,
+                "as_of": prov.as_of_date,
+                "notes": prov.transformation,
+            },
+        })
+    return {
+        "schema_version": "1.0",
+        "id": inp.instance_slug,
+        # Agent-drafted, not yet independently reviewed -- must never be
+        # silently counted as M4 evidence regardless of whether the
+        # underlying facts are real or a demo fixture. Human review
+        # (Issue #7) is required to promote a draft instance further.
+        "classification": "agent_tool_draft",
+        "counts_toward_M4": False,
+        "template": str(TEMPLATE.relative_to(ROOT)),
+        "output": str((instances_dir / f"{inp.instance_slug}.xlsx").relative_to(ROOT)),
+        "as_of": inp.as_of,
+        "scenario": inp.scenario,
+        "cover": {
+            "Borrower / issuer:": inp.borrower_name,
+            "Facility:": inp.facility,
+            "Active scenario:": inp.scenario,
+        },
+        "inputs": inputs,
+        "refresh": {
+            "date": inp.as_of,
+            "trigger": "L3 agent tool: private_credit_underwrite",
+            "what_changed": f"Applied agent-submitted facts for {inp.borrower_name}",
+            "reviewer_notes": "Generated by tools/agents/private_credit_underwrite.py -- not yet human-reviewed",
+            "next_check": "On next material fact refresh",
+        },
+    }
 
 
-def _invoke_builder(workbook_path: Path) -> str:
-    """Build release-grade credit workbook into workbook_path."""
-    try:
-        from tools.builders.build_private_credit_release import build as pc_build
+def _read_checks(workbook_path: Path) -> tuple[str, dict[str, str]]:
+    workbook = openpyxl.load_workbook(workbook_path, data_only=True)
+    sheet = workbook["Checks"]
+    statuses: dict[str, str] = {}
+    overall = "NOT_RUN"
+    for row in range(5, sheet.max_row + 1):
+        label = sheet.cell(row, 2).value
+        status = sheet.cell(row, 3).value
+        if not label:
+            continue
+        statuses[str(label)] = str(status)
+        if str(label) == "Overall":
+            overall = str(status)
+    return overall, statuses
 
-        pc_build(workbook_path)
-        return "builder_ok"
-    except Exception as exc:
-        # Fallback: copy canonical template so the instance still has a workbook shell
-        if TEMPLATE.exists():
-            shutil.copyfile(TEMPLATE, workbook_path)
-            return f"builder_failed_fallback_template: {exc}"
-        return f"builder_failed: {exc}"
+
+def _read_headline(workbook_path: Path, scenario: str) -> dict[str, Any]:
+    workbook = openpyxl.load_workbook(workbook_path, data_only=True)
+    assumptions = workbook["Assumptions"]
+    labels = {
+        str(assumptions.cell(row, 2).value).strip(): row
+        for row in range(5, assumptions.max_row + 1)
+        if assumptions.cell(row, 2).value
+    }
+
+    def active(label: str) -> Any:
+        row = labels.get(label)
+        return assumptions.cell(row, 5).value if row else None
+
+    debt_schedule = workbook["Debt Schedule"]
+    covenants = workbook["Covenants"]
+    return {
+        "scenario": scenario,
+        "opening_gross_debt": active("Opening gross debt"),
+        "maximum_leverage": active("Maximum leverage"),
+        "minimum_dscr": active("Minimum DSCR"),
+        "yr5_ending_debt": debt_schedule.cell(15, 8).value,
+        "covenant_breach_count": sum(
+            1
+            for row in covenants.iter_rows(min_row=14, max_row=14, min_col=3, max_col=7)
+            for cell in row
+            if cell.value == "BREACH"
+        ),
+    }
 
 
-def run(inp: ToolInput) -> ToolOutput:
+def run(inp: ToolInput, *, instances_dir: Path | None = None) -> ToolOutput:
+    """Execute the tool: validate -> governed instance write -> real
+    LibreOffice recalc -> read Checks. Fails closed on missing provenance
+    or on the recalculated workbook showing FAIL.
+
+    instances_dir defaults to 05_Private_Credit/instances/ (production).
+    Tests must override it to a scratch directory under the repo root --
+    never write agent-drafted or demo instances into the real evidence
+    corpus directory, which is reserved for source-addressed public cases
+    (see tests/test_real_data_only.py)."""
+    instances_dir = instances_dir or (DOMAIN / "instances")
     errors = validate_provenance(inp)
     if errors:
         return ToolOutput(
@@ -142,188 +221,194 @@ def run(inp: ToolInput) -> ToolOutput:
             message="fail-closed: " + "; ".join(errors),
         )
 
-    instance_dir = DOMAIN / "instances" / inp.instance_slug
-    instance_dir.mkdir(parents=True, exist_ok=True)
-    (instance_dir / "sources" / "snapshots").mkdir(parents=True, exist_ok=True)
+    manifest = _build_manifest(inp, instances_dir)
+    manifest_path = instances_dir / f"{inp.instance_slug}.manifest.json"
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
-    workbook_path = instance_dir / "model.xlsx"
-    builder_status = _invoke_builder(workbook_path)
+    receipt = apply_manifest(manifest_path, ROOT)
+    output_path = ROOT / manifest["output"]
 
-    # Persist inputs for audit
-    (instance_dir / "inputs.json").write_text(
-        json.dumps(
-            {
-                "instance_slug": inp.instance_slug,
-                "as_of": inp.as_of,
-                "scenario": inp.scenario,
-                "facts": inp.facts,
-                "provenance": {k: asdict(v) for k, v in inp.provenance.items()},
-            },
-            indent=2,
-        ),
-        encoding="utf-8",
-    )
+    recalc_result = recalc(str(output_path), timeout=60)
+    if recalc_result.get("status") != "success" or recalc_result.get("total_errors", 0):
+        return ToolOutput(
+            ok=False,
+            checks_status="FAIL",
+            workbook_path=str(output_path.relative_to(ROOT)),
+            headline={},
+            sources_written=[asdict(v) for v in inp.provenance.values()],
+            message=f"fail-closed: recalculation did not succeed cleanly: {recalc_result}",
+        )
 
-    sources = _write_source_register(instance_dir, inp)
-
-    receipt = {
-        "instance_slug": inp.instance_slug,
-        "domain": "05_Private_Credit",
-        "as_of": inp.as_of,
-        "scenario": inp.scenario,
-        "builder_status": builder_status,
-        "checks_status": "NOT_RUN",
-        "created_at": datetime.now(timezone.utc).isoformat(),
-        "facts": inp.facts,
-        "note": (
-            "Workbook produced by builder or template fallback. "
-            "LibreOffice recalc + Checks must be run before client use. "
-            "Maturity remains M2 until evidence gates in EVIDENCE_STATUS.md are met."
-        ),
-    }
-    (instance_dir / "receipt.json").write_text(json.dumps(receipt, indent=2), encoding="utf-8")
-
-    refresh = (
-        f"{inp.as_of} | underwrite via private_credit_underwrite | "
-        f"scenario={inp.scenario} | builder={builder_status} | checks=NOT_RUN"
-    )
-    log_path = instance_dir / "RefreshLog.md"
-    prev = log_path.read_text(encoding="utf-8") if log_path.exists() else "# RefreshLog\n\n"
-    log_path.write_text(prev + f"- {refresh}\n", encoding="utf-8")
+    overall, statuses = _read_checks(output_path)
+    headline = _read_headline(output_path, inp.scenario)
+    headline["checks_detail"] = statuses
 
     return ToolOutput(
-        ok=True,
-        checks_status="NOT_RUN",
-        workbook_path=str(workbook_path.relative_to(ROOT)),
-        headline={
-            "borrower": inp.facts.get("borrower_name"),
-            "scenario": inp.scenario,
-            "facility_size": inp.facts.get("facility_size"),
-            "senior_debt": inp.facts.get("senior_debt"),
-            "cfads_base": inp.facts.get("cfads_base"),
-            "builder_status": builder_status,
-        },
-        sources_written=sources,
+        ok=overall != "FAIL",
+        checks_status=overall,
+        workbook_path=str(output_path.relative_to(ROOT)),
+        headline=headline,
+        sources_written=[
+            {"field": label, **asdict(prov)} for label, prov in inp.provenance.items()
+        ],
         message=(
-            f"Instance written under {instance_dir.relative_to(ROOT)}. "
-            f"Builder: {builder_status}. Run Checks before any client deliverable."
+            "instance generated and recalculated via the governed builder path; "
+            f"Checks Overall = {overall}. Not a client deliverable until Checks "
+            "is PASS and stakeholder sign-off is recorded (Issue #7)."
         ),
-        refresh_log_entry=refresh,
+        refresh_log_entry=receipt.get("as_of"),
     )
 
 
-def ares_fixture() -> ToolInput:
-    """Public BDC reference case using Ares Capital sourced facts (see domain source_register)."""
-    today = date.today().isoformat()
-    # Portfolio-level proxy metrics from public ARCC disclosures / EDGAR facts —
-    # labeled as modeler mapping, not a single-borrower commitment letter.
-    return ToolInput(
-        instance_slug="public_ares_capital_2024",
-        as_of="2026-03-31",
-        scenario="Base",
-        facts={
-            "borrower_name": "Ares Capital Corporation (public BDC portfolio proxy)",
-            "facility_size": 15_848_000_000,  # LongTermDebt from companyfacts
-            "pricing_spread_bps": 0,  # portfolio blended — modeler assumption, not single facility
-            "cfads_base": 0,  # requires portfolio CFADS construction — placeholder 0 forces REVIEW
-            "senior_debt": 15_848_000_000,
-            "total_assets": 30_679_000_000,
-            "stockholders_equity": 14_065_000_000,
-            "interest_expense_q": 213_000_000,
-            "cash": 505_000_000,
-        },
-        provenance={
-            "borrower_name": Provenance(
-                "SEC EDGAR / Ares Capital identity",
-                "2026-03-31",
-                today,
-                "public company name",
-                "05_Private_Credit/sources/snapshots/credit-public-ares-2024.json",
-            ),
-            "facility_size": Provenance(
-                "SEC companyfacts LongTermDebt",
-                "2026-03-31",
-                today,
-                "latest USD LongTermDebt from 10-Q",
-                "tools/data_fabric/out/ARCC_facts_selected.json",
-            ),
-            "pricing_spread_bps": Provenance(
-                "modeler_assumption",
-                "2026-03-31",
-                today,
-                "portfolio blended spread not a single facility — set 0 pending underwriting",
-                "",
-            ),
-            "cfads_base": Provenance(
-                "modeler_assumption",
-                "2026-03-31",
-                today,
-                "placeholder 0 — construct CFADS from portfolio company data before decision use",
-                "",
-            ),
-            "senior_debt": Provenance(
-                "SEC companyfacts LongTermDebt",
-                "2026-03-31",
-                today,
-                "latest USD LongTermDebt from 10-Q",
-                "tools/data_fabric/out/ARCC_facts_selected.json",
-            ),
-        },
-    )
+SCRATCH_DIR = ROOT / ".agent-tool-scratch" / "05_Private_Credit"
 
 
 def demo() -> ToolOutput:
+    """Illustrative run with a fully fictional borrower and no real source
+    URLs. Writes to SCRATCH_DIR, not the real 05_Private_Credit/instances/
+    corpus -- a demo instance must never be mistaken for, or accidentally
+    committed alongside, a source-addressed public case."""
     today = date.today().isoformat()
     inp = ToolInput(
         instance_slug="demo_unitranche_stub",
+        borrower_name="Demo Borrower LLC",
         as_of=today,
+        facility="Unitranche",
         scenario="Base",
         facts={
-            "borrower_name": "Demo Borrower LLC",
-            "facility_size": 150_000_000,
-            "pricing_spread_bps": 550,
-            "cfads_base": 28_000_000,
-            "senior_debt": 150_000_000,
+            "Revenue (LTM)": 480.0,
+            "EBITDA margin": 0.19,
+            "Opening gross debt": 340.0,
+            "Base rate": 0.045,
+            "Cash spread": 0.06,
+            "Maximum leverage": 6.0,
+            "Minimum DSCR": 1.05,
         },
         provenance={
-            k: Provenance("demo_fixture", today, today, "demo only — not for client use")
-            for k in REQUIRED_FACT_KEYS
+            label: Provenance(
+                source_name="demo_fixture",
+                as_of_date=today,
+                retrieval_date=today,
+                source_url=None,
+                transformation="demo only -- not for client use",
+            )
+            for label in (
+                "Revenue (LTM)", "EBITDA margin", "Opening gross debt",
+                "Base rate", "Cash spread", "Maximum leverage", "Minimum DSCR",
+            )
         },
     )
-    return run(inp)
+    return run(inp, instances_dir=SCRATCH_DIR)
+
+
+ARCC_COMPANYFACTS_URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK0001287750.json"
+ARCC_FACTS_PATH = ROOT / "tools" / "data_fabric" / "out" / "ARCC_facts_selected.json"
+
+
+def ares_fixture() -> ToolInput:
+    """Real reference instance: Ares Capital Corporation (ARCC, CIK
+    0001287750), a large publicly reporting BDC. Maps portfolio-level
+    balance-sheet facts from its Q1 2026 10-Q (via
+    tools/data_fabric/edgar_company_facts.py's companyfacts extract) onto
+    the CREDIT template's Assumptions rows.
+
+    Deliberately a portfolio-level proxy, NOT a single-borrower unitranche
+    commitment memo -- only facts with a real EDGAR-sourced number are
+    submitted (opening gross debt, opening cash). Revenue, EBITDA margin,
+    and covenant-driving assumptions are not overridden because ARCC's
+    public filings report portfolio-level investment income, not a
+    single-credit CFADS build -- inventing a mapping would violate this
+    tool's fail-closed provenance requirement. Expect Checks to show
+    REVIEW or FAIL against the template's default revenue/EBITDA
+    assumptions: that is the correct, honest signal for a proxy instance,
+    not a defect (see
+    05_Private_Credit/instances/public_ares_capital_2024.thesis.md).
+    """
+    if not ARCC_FACTS_PATH.exists():
+        raise FileNotFoundError(
+            f"{ARCC_FACTS_PATH.relative_to(ROOT)} not found -- run "
+            "tools/data_fabric/edgar_company_facts.py --ticker ARCC --cik 1287750 first"
+        )
+    raw_facts = {
+        row["concept"]: row for row in json.loads(ARCC_FACTS_PATH.read_text(encoding="utf-8"))
+    }
+    as_of = raw_facts["LongTermDebt"]["end"]
+    retrieval_date = date.today().isoformat()
+
+    def prov(concept: str, notes: str) -> Provenance:
+        return Provenance(
+            source_name=f"SEC EDGAR companyfacts: {concept} ({raw_facts[concept]['form']})",
+            as_of_date=raw_facts[concept]["end"],
+            retrieval_date=retrieval_date,
+            source_url=ARCC_COMPANYFACTS_URL,
+            transformation=notes,
+        )
+
+    return ToolInput(
+        instance_slug="public_ares_capital_2024",
+        borrower_name="Ares Capital Corporation (public BDC portfolio proxy)",
+        as_of=as_of,
+        facility="Portfolio (BDC aggregate, not a single facility)",
+        scenario="Base",
+        facts={
+            "Opening gross debt": raw_facts["LongTermDebt"]["value"] / 1_000_000,
+            "Opening cash": raw_facts["CashAndCashEquivalentsAtCarryingValue"]["value"] / 1_000_000,
+        },
+        provenance={
+            "Opening gross debt": prov(
+                "LongTermDebt",
+                "Portfolio-aggregate LongTermDebt from XBRL companyfacts, "
+                "converted from USD to the template's $ millions scale; "
+                "mapped onto the single-facility 'Opening gross debt' row "
+                "as a portfolio-level proxy, not a single-borrower balance.",
+            ),
+            "Opening cash": prov(
+                "CashAndCashEquivalentsAtCarryingValue",
+                "Portfolio-aggregate cash from XBRL companyfacts, converted "
+                "from USD to the template's $ millions scale.",
+            ),
+        },
+    )
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--demo", action="store_true")
-    ap.add_argument("--use-ares-fixture", action="store_true")
-    ap.add_argument("--instance", type=str, default="")
-    ap.add_argument("--inputs", type=Path, help="JSON file matching ToolInput shape")
-    args = ap.parse_args()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--demo", action="store_true", help="fictional borrower, writes to .agent-tool-scratch/")
+    parser.add_argument(
+        "--use-ares-fixture", action="store_true",
+        help="real Ares Capital (ARCC) portfolio-proxy instance from EDGAR companyfacts, "
+        "writes to 05_Private_Credit/instances/public_ares_capital_2024.xlsx",
+    )
+    parser.add_argument("--inputs", type=Path, help="JSON file matching ToolInput shape")
+    parser.add_argument(
+        "--output-dir", type=Path, default=None,
+        help="override instance output directory (default: 05_Private_Credit/instances/ for --inputs/--use-ares-fixture)",
+    )
+    args = parser.parse_args()
 
-    if args.use_ares_fixture:
-        inp = ares_fixture()
-        if args.instance:
-            inp.instance_slug = args.instance
-        out = run(inp)
-    elif args.demo:
+    if args.demo:
         out = demo()
+    elif args.use_ares_fixture:
+        out = run(ares_fixture(), instances_dir=args.output_dir)
     elif args.inputs:
         raw = json.loads(args.inputs.read_text())
-        prov = {
-            k: Provenance(**v) if isinstance(v, dict) else v
-            for k, v in raw.get("provenance", {}).items()
+        provenance = {
+            label: Provenance(**value) if isinstance(value, dict) else value
+            for label, value in raw.get("provenance", {}).items()
         }
         inp = ToolInput(
             instance_slug=raw["instance_slug"],
+            borrower_name=raw["borrower_name"],
             as_of=raw["as_of"],
+            facility=raw.get("facility", "Unitranche"),
             scenario=raw.get("scenario", "Base"),
             facts=raw.get("facts", {}),
-            provenance=prov,
+            provenance=provenance,
         )
-        out = run(inp)
+        out = run(inp, instances_dir=args.output_dir)
     else:
-        ap.error("provide --demo, --use-ares-fixture, or --inputs")
+        parser.error("provide --demo, --use-ares-fixture, or --inputs")
         return 2
 
     print(json.dumps(asdict(out), indent=2))
