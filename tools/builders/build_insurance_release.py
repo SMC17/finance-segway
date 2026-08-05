@@ -20,20 +20,21 @@ def build(output: Path) -> None:
     chain["L6"] = 1.0
     chain["L6"].number_format = "0.0000x"
 
-    # Excel can evaluate subtraction between two ranges inside MIN as an array,
-    # while LibreOffice returns #VALUE in this context. Expand the same
-    # cumulative-triangle monotonicity identity into scalar differences.
-    triangle_differences = []
-    for row in range(5, 15):
-        for column in range(4, 13):  # D:L compared with C:K
-            current = workbook["Paid Triangle"].cell(row, column).coordinate
-            previous = workbook["Paid Triangle"].cell(row, column - 1).coordinate
-            triangle_differences.append(
-                f"'Paid Triangle'!{current}-'Paid Triangle'!{previous}"
-            )
-    workbook["Checks"]["C5"] = (
-        '=IF(MIN(' + ','.join(triangle_differences) + ')>=0,"PASS","FAIL")'
-    )
+    # NOTE: this used to also overwrite Checks!C5 ("Paid triangle
+    # cumulative") with a hand-rolled scalar-difference MIN(...) formula --
+    # motivated by a real LibreOffice constraint (it evaluates range
+    # subtraction inside MIN as an array and returns #VALUE, unlike Excel),
+    # but built over the *full* rectangular D5:L14/C5:K14 block regardless
+    # of each accident year's actual observed development periods. A loss
+    # triangle is deliberately ragged -- most rows have blank cells beyond
+    # their observed periods, and Excel/LibreOffice both treat a blank as 0
+    # in subtraction, so "blank(=0) minus a real value" is large and
+    # negative for nearly every row. That silently failed this check for
+    # every real instance in the domain regardless of the underlying data.
+    # build_insurance_institutional.build_layout() now generates the same
+    # scalar-difference form directly (already LibreOffice-safe), but only
+    # over adjacent *observed* period pairs per row -- so this override is
+    # both redundant and wrong; removed rather than duplicating the fix here.
 
     finalize(workbook, output)
 
