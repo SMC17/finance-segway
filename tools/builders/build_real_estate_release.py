@@ -13,6 +13,7 @@ try:
         BORDER,
         CUR,
         GRAY_FILL,
+        GREEN,
         ITALIC_GRAY,
         MULT,
         NUM,
@@ -32,6 +33,7 @@ except ModuleNotFoundError:
         BORDER,
         CUR,
         GRAY_FILL,
+        GREEN,
         ITALIC_GRAY,
         MULT,
         NUM,
@@ -167,6 +169,7 @@ def enrich(workbook) -> None:
     debt.sheet_view.showGridLines = False
 
     proforma["C13"] = "='Debt Schedule'!E8"
+    proforma["C13"].font = GREEN
     for offset, source_row in enumerate(range(8, 13), start=3):
         hold.cell(14, offset, f"='Debt Schedule'!E{source_row}")
         hold.cell(14, offset).number_format = CUR
