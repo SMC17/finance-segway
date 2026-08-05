@@ -37,11 +37,53 @@
       "value": 0.01176,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
       "source_as_of": "2020-02-14"
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "C5",
+      "previous": 100,
+      "value": 179.7,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+      "source_as_of": "2020-02-14"
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "C7",
+      "previous": 20,
+      "value": 2.65,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+      "source_as_of": "2020-02-14"
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "C11",
+      "previous": 11,
+      "value": 767.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+      "source_as_of": "2020-02-14"
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "C12",
+      "previous": 5,
+      "value": 40.6,
+      "source_url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+      "source_as_of": "2020-02-14"
+    },
+    {
+      "sheet": "Rights Offering",
+      "cell": "D9",
+      "previous": 0.45,
+      "value": 1.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+      "source_as_of": "2020-02-14"
     }
   ],
-  "workbook_sha256": "91bbecd22ca42338b9f8e399a098355b472f6e19150b918df415d505d21c871d",
-  "generated_on": "2026-08-04",
+  "workbook_sha256": "923526174a38f14a7cd5ec2efa52a44bab3a06090f31081baccea2ed159bd611",
+  "generated_on": "2026-08-05",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
-  "counts_toward_M4": false
+  "counts_toward_M4": false,
+  "hash_refreshed_on": "2026-08-05",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
 }

@@ -58,6 +58,198 @@
         "as_of": "2012-10-31",
         "notes": "U.S. SEC / Hewlett-Packard; frozen curated observation as of case date"
       }
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C10",
+      "value": 0.1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Standard large-cap technology-sector WACC convention (2011-2012 era); not company-specific",
+        "url": "https://aswathdamodaran.blogspot.com/2012/11/hps-deal-from-hell-mark-it-up-and-write.html",
+        "as_of": "2012-10-31",
+        "notes": "Market-standard discount rate convention, clearly not an HP/Autonomy-specific disclosed figure -- no such figure is publicly disclosed for this deal."
+      }
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D10",
+      "value": 0.1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Standard large-cap technology-sector WACC convention (2011-2012 era); not company-specific",
+        "url": "https://aswathdamodaran.blogspot.com/2012/11/hps-deal-from-hell-mark-it-up-and-write.html",
+        "as_of": "2012-10-31",
+        "notes": "Fixes the template default (5%) that was below terminal growth by construction, unconditionally invalidating the Terminal-value validity check regardless of the real company."
+      }
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C11",
+      "value": 0.03,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Standard long-run nominal GDP-linked terminal growth cap; not company-specific",
+        "url": "https://aswathdamodaran.blogspot.com/2012/11/hps-deal-from-hell-mark-it-up-and-write.html",
+        "as_of": "2012-10-31",
+        "notes": "Conventional terminal-growth ceiling, not a disclosed company-specific figure."
+      }
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D11",
+      "value": 0.03,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Standard long-run nominal GDP-linked terminal growth cap; not company-specific",
+        "url": "https://aswathdamodaran.blogspot.com/2012/11/hps-deal-from-hell-mark-it-up-and-write.html",
+        "as_of": "2012-10-31",
+        "notes": "Fixes the template default (6%) that exceeded the discount rate by construction."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C5",
+      "value": 7074.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "HP FY2011 Form 10-K -- GAAP net earnings $7,074mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/47217/000104746911010094/a2206500z10-k.htm",
+        "as_of": "2011-10-31",
+        "notes": "Real HP fiscal-year-2011 GAAP net earnings; buyer earnings input."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D5",
+      "value": 7074.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "HP FY2011 Form 10-K -- GAAP net earnings $7,074mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/47217/000104746911010094/a2206500z10-k.htm",
+        "as_of": "2011-10-31",
+        "notes": "Same real figure applied to the Adversarial column, which is what Decision & Checks reads regardless of case framing."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C6",
+      "value": 2131.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "HP FY2011 Form 10-K -- derived from disclosed GAAP net earnings $7,074mm / diluted EPS $3.32",
+        "url": "https://www.sec.gov/Archives/edgar/data/47217/000104746911010094/a2206500z10-k.htm",
+        "as_of": "2011-10-31",
+        "notes": "7074/3.32 = 2131mm diluted shares; internally consistent with disclosed EPS."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D6",
+      "value": 2131.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "HP FY2011 Form 10-K -- derived diluted shares",
+        "url": "https://www.sec.gov/Archives/edgar/data/47217/000104746911010094/a2206500z10-k.htm",
+        "as_of": "2011-10-31",
+        "notes": "Same real figure applied to the Adversarial column."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C7",
+      "value": 379.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Autonomy Corporation plc FY2010 results -- adjusted profit before tax $379mm, as originally reported",
+        "url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+        "as_of": "2010-12-31",
+        "notes": "As-reported figure at the time HP underwrote the deal -- later shown materially overstated (HP disclosed Autonomy's operating profit restated ~81% lower after acquisition); using the as-reported figure here specifically because it reflects what the deal looked like at signing, before the fraud was uncovered."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D7",
+      "value": 379.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Autonomy Corporation plc FY2010 results -- adjusted profit before tax $379mm, as originally reported",
+        "url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+        "as_of": "2010-12-31",
+        "notes": "Same as-reported figure applied to the Adversarial column."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C8",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "No specific HP-disclosed synergy estimate found for this deal",
+        "url": "repo://01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
+        "as_of": "2012-10-31",
+        "notes": "Left at zero rather than inventing an unsourced synergy figure."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D8",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "No specific HP-disclosed synergy estimate found for this deal",
+        "url": "repo://01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
+        "as_of": "2012-10-31",
+        "notes": "Left at zero rather than inventing an unsourced synergy figure."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C9",
+      "value": 500.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated financing cost: ~$11.1bn at an illustrative ~4.5% large-cap corporate bond yield (2011-2012 era)",
+        "url": "repo://01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
+        "as_of": "2012-10-31",
+        "notes": "HP's exact financing mix (cash vs. debt) and rate for this specific deal were not found via available search; this is a labeled estimate, not a disclosed figure."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D9",
+      "value": 500.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated financing cost (see C9)",
+        "url": "repo://01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
+        "as_of": "2012-10-31",
+        "notes": "Same estimate applied to the Adversarial column."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C10",
+      "value": 0.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "HP acquisition of Autonomy was an all-cash transaction -- no shares issued",
+        "url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
+        "as_of": "2012-10-31",
+        "notes": "Widely and consistently reported as all-cash; the template default of 50mm shares issued was never true for this deal."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D10",
+      "value": 0.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "All-cash transaction -- no shares issued",
+        "url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
+        "as_of": "2012-10-31",
+        "notes": "Same real fact applied to the Adversarial column."
+      }
     }
   ],
   "outcome": {

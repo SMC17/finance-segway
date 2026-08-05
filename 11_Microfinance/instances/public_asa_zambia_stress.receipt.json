@@ -37,11 +37,133 @@
       "value": 0.214286,
       "source_url": "https://zambia.asa-international.com/",
       "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C5",
+      "previous": 0,
+      "value": 6.825,
+      "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C6",
+      "previous": 0,
+      "value": 0.371,
+      "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C7",
+      "previous": 0,
+      "value": 0.202,
+      "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C8",
+      "previous": 0,
+      "value": 0.101,
+      "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Provisioning",
+      "cell": "C12",
+      "previous": 0,
+      "value": 0.261,
+      "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C5",
+      "previous": 0,
+      "value": 2.1,
+      "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C6",
+      "previous": 0,
+      "value": 0.378,
+      "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C7",
+      "previous": 0,
+      "value": 0.462,
+      "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C8",
+      "previous": 0,
+      "value": 1.365,
+      "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Sustainability",
+      "cell": "C9",
+      "previous": 0,
+      "value": 0.21,
+      "source_url": "https://www.investing.com/news/company-news/asa-international-fy-2025-slides-net-profit-doubles-on-strong-leverage-93CH-4616159",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "D5",
+      "previous": 4,
+      "value": 0.5,
+      "source_url": "https://zambia.asa-international.com/",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "D6",
+      "previous": 2,
+      "value": 0.3,
+      "source_url": "https://zambia.asa-international.com/",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "D7",
+      "previous": 18,
+      "value": 1.1,
+      "source_url": "https://zambia.asa-international.com/",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "D8",
+      "previous": 35,
+      "value": 1.0,
+      "source_url": "https://zambia.asa-international.com/",
+      "source_as_of": "2025-12-31"
+    },
+    {
+      "sheet": "Funding & Liquidity",
+      "cell": "D9",
+      "previous": 70,
+      "value": 5.0,
+      "source_url": "https://zambia.asa-international.com/",
+      "source_as_of": "2025-12-31"
     }
   ],
-  "workbook_sha256": "9b7d221ad0f6d2d82f0604669016bf39dd2b843c78fa86c53aec40736dff36ff",
-  "generated_on": "2026-08-04",
+  "workbook_sha256": "d03f3525977d0cdc06a877f755979bec6ee6c8ce0d696ef534f376f90486d8b2",
+  "generated_on": "2026-08-05",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
-  "counts_toward_M4": false
+  "counts_toward_M4": false,
+  "hash_refreshed_on": "2026-08-05",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
 }

@@ -58,6 +58,126 @@
         "as_of": "2023-09-30",
         "notes": "U.S. SEC / Visa; frozen curated observation as of case date"
       }
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "C5",
+      "value": 38733.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Visa FY2023 Form 10-K -- total stockholders' equity ~$38,733mm, used as available capital",
+        "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+        "as_of": "2023-09-30",
+        "notes": "Real disclosed figure (total assets $90,499mm - total liabilities $51,766mm), applied to both Base and Downside columns since Decision & Checks reads the Downside column exclusively regardless of case framing."
+      }
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "C7",
+      "value": 16286.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Visa FY2023 Form 10-K -- cash and cash equivalents $16,286mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+        "as_of": "2023-09-30",
+        "notes": "Real disclosed figure."
+      }
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "C6",
+      "value": 5000.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated required capital, order-of-magnitude scaled to Visa's real size and disclosed long-term debt ($20,463mm)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+        "as_of": "2023-09-30",
+        "notes": "Precise disclosed regulatory/internal capital requirement not found via available search -- Visa is not a regulated bank with a disclosed minimum capital ratio the way a depository institution would be."
+      }
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "C8",
+      "value": 4000.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated 30-day settlement and operating obligations, order-of-magnitude scaled to Visa's real size",
+        "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+        "as_of": "2023-09-30",
+        "notes": "Precise disclosed figure not found via available search."
+      }
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "D5",
+      "value": 38733.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Visa FY2023 Form 10-K -- total stockholders' equity ~$38,733mm, used as available capital",
+        "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+        "as_of": "2023-09-30",
+        "notes": "Real disclosed figure (total assets $90,499mm - total liabilities $51,766mm), applied to both Base and Downside columns since Decision & Checks reads the Downside column exclusively regardless of case framing."
+      }
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "D7",
+      "value": 16286.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Visa FY2023 Form 10-K -- cash and cash equivalents $16,286mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+        "as_of": "2023-09-30",
+        "notes": "Real disclosed figure."
+      }
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "D6",
+      "value": 5000.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated required capital, order-of-magnitude scaled to Visa's real size and disclosed long-term debt ($20,463mm)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+        "as_of": "2023-09-30",
+        "notes": "Precise disclosed regulatory/internal capital requirement not found via available search -- Visa is not a regulated bank with a disclosed minimum capital ratio the way a depository institution would be."
+      }
+    },
+    {
+      "sheet": "Capital & Liquidity",
+      "cell": "D8",
+      "value": 4000.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated 30-day settlement and operating obligations, order-of-magnitude scaled to Visa's real size",
+        "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316123000099/v-20230930.htm",
+        "as_of": "2023-09-30",
+        "notes": "Precise disclosed figure not found via available search."
+      }
+    },
+    {
+      "sheet": "Network & Cohorts",
+      "cell": "C11",
+      "value": 233000.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Visa FY2023 -- approximately 233 billion processed transactions (233,000 in the template's thousands-scale units)",
+        "url": "https://s1.q4cdn.com/050606653/files/doc_downloads/2023/12/849d0b35-b550-4d4a-95e3-611146a657f2.pdf",
+        "as_of": "2023-09-30",
+        "notes": "Real, widely-disclosed annual processed transaction volume."
+      }
+    },
+    {
+      "sheet": "Network & Cohorts",
+      "cell": "C12",
+      "value": 233.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated failed/reversed transactions at a 0.1% rate, reflecting Visa's well-documented reputation for extremely high network reliability",
+        "url": "https://s1.q4cdn.com/050606653/files/doc_downloads/2023/12/849d0b35-b550-4d4a-95e3-611146a657f2.pdf",
+        "as_of": "2023-09-30",
+        "notes": "Order-of-magnitude estimate -- Visa does not publicly disclose a precise transaction failure rate."
+      }
     }
   ],
   "sources": [

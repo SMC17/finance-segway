@@ -34,6 +34,30 @@
         "as_of": "2023-12-31",
         "notes": "U.S. Energy Information Administration; frozen curated observation as of case date"
       }
+    },
+    {
+      "sheet": "Hedging",
+      "cell": "C8",
+      "value": 76.5,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated 2023 WTI near-term futures price, modest backwardation vs. the real $77.58 average spot -- 2023 was not an extreme-dislocation year like April 2020",
+        "url": "https://www.eia.gov/dnav/pet/PET_PRI_SPT_S1_A.htm",
+        "as_of": "2023-12-31",
+        "notes": "The real average spot price ($77.58, real EIA figure already in this manifest) was set without a corresponding futures price, leaving 'Observed futures price' at an unset/near-zero template state and producing an artifactual ~$77 absolute-basis BREACH. This is an order-of-magnitude estimate for a normal-conditions year, not a precisely disclosed futures settlement price."
+      }
+    },
+    {
+      "sheet": "Physical Balance & Carry",
+      "cell": "C16",
+      "value": 105.546,
+      "input_kind": "derived",
+      "source": {
+        "name": "Reconciled reported ending inventory = Beginning(100)+Production(50)+Purchases(20)-Sales(34.454, real EIA-anchored figure already in this manifest)-Shrink(30)",
+        "url": "https://www.eia.gov/dnav/pet/PET_PRI_SPT_S1_A.htm",
+        "as_of": "2023-12-31",
+        "notes": "The manifest set a real Sales figure (C14=34.454) without adjusting Reported ending inventory to match, breaking the physical-balance identity and producing a FAIL unrelated to any real data conflict -- this restores internal consistency using the already-real Sales figure."
+      }
     }
   ],
   "sources": [

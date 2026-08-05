@@ -70,6 +70,126 @@
         "as_of": "2023-12-31",
         "notes": "Modeler-owned assumption documented in frozen snapshot"
       }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C8",
+      "value": 172.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Order-of-magnitude estimate (Order-of-magnitude estimate: ~2% of total AUM, reflecting BlackRock's well-documented status as an index/ETF-dominant, maximally diversified manager -- not a precise disclosed single-position concentration figure (BlackRock does not disclose a single 'top-10 position' metric across its ~$8.6tn book).)",
+        "url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+        "as_of": "2023-12-31",
+        "notes": "Order-of-magnitude estimate: ~2% of total AUM, reflecting BlackRock's well-documented status as an index/ETF-dominant, maximally diversified manager -- not a precise disclosed single-position concentration figure (BlackRock does not disclose a single 'top-10 position' metric across its ~$8.6tn book)."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D8",
+      "value": 172.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Order-of-magnitude estimate (Order-of-magnitude estimate: ~2% of total AUM, reflecting BlackRock's well-documented status as an index/ETF-dominant, maximally diversified manager -- not a precise disclosed single-position concentration figure (BlackRock does not disclose a single 'top-10 position' metric across its ~$8.6tn book).)",
+        "url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+        "as_of": "2023-12-31",
+        "notes": "Order-of-magnitude estimate: ~2% of total AUM, reflecting BlackRock's well-documented status as an index/ETF-dominant, maximally diversified manager -- not a precise disclosed single-position concentration figure (BlackRock does not disclose a single 'top-10 position' metric across its ~$8.6tn book)."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C9",
+      "value": 266.21,
+      "input_kind": "observed",
+      "source": {
+        "name": "BlackRock FY2023 Form 10-K -- Alternatives AUM $266,210mm (3.1% of total AUM), used as the illiquid/gated NAV proxy since alternatives are BlackRock's least-liquid disclosed product category",
+        "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "Real disclosed Alternatives AUM figure used directly, not an estimate."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D9",
+      "value": 266.21,
+      "input_kind": "observed",
+      "source": {
+        "name": "BlackRock FY2023 Form 10-K -- Alternatives AUM $266,210mm (3.1% of total AUM), used as the illiquid/gated NAV proxy since alternatives are BlackRock's least-liquid disclosed product category",
+        "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "Real disclosed Alternatives AUM figure used directly, not an estimate."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C10",
+      "value": 86.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Order-of-magnitude estimate (Order-of-magnitude estimate: ~1% of total AUM ($8594bn), a commonly-cited rough industry convention for a globally diversified manager's 30-day redemption demand -- not a BlackRock-specific disclosed figure.)",
+        "url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+        "as_of": "2023-12-31",
+        "notes": "Order-of-magnitude estimate: ~1% of total AUM ($8594bn), a commonly-cited rough industry convention for a globally diversified manager's 30-day redemption demand -- not a BlackRock-specific disclosed figure."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D10",
+      "value": 86.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Order-of-magnitude estimate (Order-of-magnitude estimate: ~1% of total AUM ($8594bn), a commonly-cited rough industry convention for a globally diversified manager's 30-day redemption demand -- not a BlackRock-specific disclosed figure.)",
+        "url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+        "as_of": "2023-12-31",
+        "notes": "Order-of-magnitude estimate: ~1% of total AUM ($8594bn), a commonly-cited rough industry convention for a globally diversified manager's 30-day redemption demand -- not a BlackRock-specific disclosed figure."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C11",
+      "value": 40.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Order-of-magnitude estimate (Order-of-magnitude estimate scaled to the Alternatives AUM sleeve's typical capital-call exposure -- not a BlackRock-specific disclosed figure.)",
+        "url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+        "as_of": "2023-12-31",
+        "notes": "Order-of-magnitude estimate scaled to the Alternatives AUM sleeve's typical capital-call exposure -- not a BlackRock-specific disclosed figure."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D11",
+      "value": 40.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Order-of-magnitude estimate (Order-of-magnitude estimate scaled to the Alternatives AUM sleeve's typical capital-call exposure -- not a BlackRock-specific disclosed figure.)",
+        "url": "repo://08_Asset_Management/sources/snapshots/am-public-blackrock-2023.json",
+        "as_of": "2023-12-31",
+        "notes": "Order-of-magnitude estimate scaled to the Alternatives AUM sleeve's typical capital-call exposure -- not a BlackRock-specific disclosed figure."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "C12",
+      "value": 8736.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "BlackRock Form 10-K -- consolidated balance sheet cash and cash equivalents $8736.0mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "Real disclosed corporate cash and equivalents, replacing an earlier rough order-of-magnitude placeholder that was producing an artifactual liquidity-coverage BREACH inconsistent with BlackRock's real, well-capitalized balance sheet."
+      }
+    },
+    {
+      "sheet": "Exposure & Liquidity",
+      "cell": "D12",
+      "value": 8736.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "BlackRock Form 10-K -- consolidated balance sheet cash and cash equivalents $8736.0mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/1364742/000095017024019271/blk-20231231.htm",
+        "as_of": "2023-12-31",
+        "notes": "Real disclosed corporate cash and equivalents, replacing an earlier rough order-of-magnitude placeholder that was producing an artifactual liquidity-coverage BREACH inconsistent with BlackRock's real, well-capitalized balance sheet."
+      }
     }
   ],
   "sources": [

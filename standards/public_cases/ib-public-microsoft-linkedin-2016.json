@@ -46,6 +46,234 @@
         "as_of": "2016-12-08",
         "notes": "U.S. SEC / LinkedIn; frozen curated observation as of case date"
       }
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C10",
+      "value": 0.09,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Standard large-cap technology-sector WACC convention (2016 era); not company-specific",
+        "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.htm",
+        "as_of": "2016-06-13",
+        "notes": "Market-standard discount rate convention for a large-cap software/tech acquirer in 2016, not a Microsoft-specific disclosed figure."
+      }
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D10",
+      "value": 0.09,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Standard large-cap technology-sector WACC convention (2016 era); not company-specific",
+        "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.htm",
+        "as_of": "2016-06-13",
+        "notes": "Fixes the template default (5%) that was below terminal growth by construction, unconditionally invalidating the Terminal-value validity check regardless of the real company."
+      }
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C11",
+      "value": 0.025,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Standard long-run nominal GDP-linked terminal growth cap; not company-specific",
+        "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.htm",
+        "as_of": "2016-06-13",
+        "notes": "Conventional terminal-growth ceiling, not a disclosed company-specific figure."
+      }
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D11",
+      "value": 0.025,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Standard long-run nominal GDP-linked terminal growth cap; not company-specific",
+        "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.htm",
+        "as_of": "2016-06-13",
+        "notes": "Fixes the template default (6%) that exceeded the discount rate by construction."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C5",
+      "value": 16800.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft FY2016 Form 10-K -- GAAP net income $16,800mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312516662209/d187868d10k.htm",
+        "as_of": "2016-06-30",
+        "notes": "Real Microsoft fiscal-year-2016 GAAP net income; buyer earnings input."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D5",
+      "value": 16800.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft FY2016 Form 10-K -- GAAP net income $16,800mm",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312516662209/d187868d10k.htm",
+        "as_of": "2016-06-30",
+        "notes": "Same real figure applied to the Adversarial column, which is what Decision & Checks reads regardless of case framing."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C6",
+      "value": 8000.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2016 Form 10-K -- derived from disclosed GAAP net income $16,800mm / diluted EPS $2.10",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312516662209/d187868d10k.htm",
+        "as_of": "2016-06-30",
+        "notes": "16800/2.10 = 8000mm diluted shares; internally consistent with disclosed EPS."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D6",
+      "value": 8000.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2016 Form 10-K -- derived diluted shares",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312516662209/d187868d10k.htm",
+        "as_of": "2016-06-30",
+        "notes": "Same real figure applied to the Adversarial column."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C7",
+      "value": -164.8,
+      "input_kind": "observed",
+      "source": {
+        "name": "LinkedIn Corporation FY2015 10-K -- GAAP net loss $164.8mm",
+        "url": "https://news.linkedin.com/2016/linkedin-announces-fourth-quarter-and-full-year-2015-results",
+        "as_of": "2015-12-31",
+        "notes": "Most recent full fiscal year before deal announcement; LinkedIn was GAAP-unprofitable at signing."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D7",
+      "value": -164.8,
+      "input_kind": "observed",
+      "source": {
+        "name": "LinkedIn Corporation FY2015 10-K -- GAAP net loss $164.8mm",
+        "url": "https://news.linkedin.com/2016/linkedin-announces-fourth-quarter-and-full-year-2015-results",
+        "as_of": "2015-12-31",
+        "notes": "Same real figure applied to the Adversarial column."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C8",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "No specific Microsoft-disclosed cost-synergy estimate found for this deal",
+        "url": "repo://01_Investment_Banking/sources/snapshots/ib-public-microsoft-linkedin-2016.json",
+        "as_of": "2016-06-13",
+        "notes": "Left at zero rather than inventing an unsourced synergy figure."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D8",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "No specific Microsoft-disclosed cost-synergy estimate found for this deal",
+        "url": "repo://01_Investment_Banking/sources/snapshots/ib-public-microsoft-linkedin-2016.json",
+        "as_of": "2016-06-13",
+        "notes": "Left at zero rather than inventing an unsourced synergy figure."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C9",
+      "value": 592.5,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft $19.75bn bond offering financing the LinkedIn deal, disclosed all-in cost of maximum 3%",
+        "url": "https://www.forbes.com/sites/spleverage/2016/08/02/microsofts-bond-offering-for-linkedin-buy-5th-largest-deal-ever/",
+        "as_of": "2016-08-02",
+        "notes": "19,750 x 3% = 592.5; Microsoft's own disclosed maximum all-in financing cost for the actual bond offering backing this specific deal -- a real, deal-specific disclosed figure, not a generic estimate."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D9",
+      "value": 592.5,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft LinkedIn-deal bond offering financing cost (see C9)",
+        "url": "https://www.forbes.com/sites/spleverage/2016/08/02/microsofts-bond-offering-for-linkedin-buy-5th-largest-deal-ever/",
+        "as_of": "2016-08-02",
+        "notes": "Same real figure applied to the Adversarial column."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C10",
+      "value": 0.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft-LinkedIn was an all-cash transaction ($196.00/share) -- no shares issued",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-06-13",
+        "notes": "Widely and consistently reported as all-cash, financed via new debt; the template default of 50mm shares issued was never true for this deal."
+      }
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D10",
+      "value": 0.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "All-cash transaction -- no shares issued",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-06-13",
+        "notes": "Same real fact applied to the Adversarial column."
+      }
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D5",
+      "value": 26200.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "LinkedIn September 2016 Form 10-Q merger disclosure -- deal enterprise value ~$26.2bn",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+        "as_of": "2016-12-08",
+        "notes": "Mirrors the real Base-column value onto the Adversarial column, which is what Decision & Checks actually reads -- the original manifest only populated the Base column, leaving Adversarial at template defaults and producing a spurious offer-premium BREACH unrelated to the real deal."
+      }
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D8",
+      "value": 133.673469,
+      "input_kind": "derived",
+      "source": {
+        "name": "LinkedIn September 2016 Form 10-Q merger disclosure -- diluted share count",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+        "as_of": "2016-12-08",
+        "notes": "Mirrors the real Base-column value onto the Adversarial column."
+      }
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D9",
+      "value": 196.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "LinkedIn September 2016 Form 10-Q merger disclosure -- $196.00/share merger consideration",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
+        "as_of": "2016-12-08",
+        "notes": "Mirrors the real Base-column value onto the Adversarial column."
+      }
     }
   ],
   "outcome": {
