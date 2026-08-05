@@ -73,14 +73,23 @@ class TranchePayment:
 def sequential_waterfall(collateral: Sequence[CollateralPeriod],
                          tranches: Sequence[Tranche], *,
                          frequency: int = 12) -> list[TranchePayment]:
+    """Pay collateral collections through the tranche stack in priority order.
+
+    Interest collections pay tranche interest; scheduled principal,
+    prepayments, and default recoveries pay principal sequentially.
+    Collections left after the stack is served (excess spread on the
+    interest side, over-collateralization release on the principal side)
+    are the period residual: collections minus the sum of that period's
+    interest_paid and principal_paid across tranches.
+    """
     balances = {tranche.name: require_nonnegative(f"balance:{tranche.name}", tranche.balance)
                 for tranche in tranches}
     shortfalls = {tranche.name: 0.0 for tranche in tranches}
     ordered = sorted(tranches, key=lambda tranche: (tranche.priority, tranche.name))
     output: list[TranchePayment] = []
     for period in collateral:
-        interest_cash = period.interest + period.recoveries
-        principal_cash = period.scheduled_principal + period.prepayment
+        interest_cash = period.interest
+        principal_cash = period.scheduled_principal + period.prepayment + period.recoveries
         for tranche in ordered:
             beginning = balances[tranche.name]
             due = beginning * tranche.coupon / frequency + shortfalls[tranche.name]
