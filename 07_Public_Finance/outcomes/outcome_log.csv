@@ -1,3 +1,3 @@
-case_id,case_type,metric,forecast,realized,error,realized_source,status
-public-finance-jamaica-2024,conventional,imf_review_completed,1.0,1.0,0.0,IMF Jamaica 2024 Article IV Consultation and second reviews,recorded
-public-finance-sri-lanka-2023-stress,adversarial,imf_extended_fund_facility_approved,0.0,1.0,1.0,IMF Sri Lanka 2023 EFF request and debt-sustainability analysis,recorded
+case_id,case_type,metric,forecast,realized,error,realized_source,forecast_kind,status
+public-finance-jamaica-2024,conventional,imf_review_completed,1.0,1.0,0.0,IMF Jamaica 2024 Article IV Consultation and second reviews,hindsight_restated_fact,recorded
+public-finance-sri-lanka-2023-stress,adversarial,imf_extended_fund_facility_approved,0.0,1.0,1.0,IMF Sri Lanka 2023 EFF request and debt-sustainability analysis,point_forecast,recorded

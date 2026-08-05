@@ -5,6 +5,7 @@ from unittest.mock import patch
 
 from tools import final_public_evidence
 from tools import final_public_evidence_registry
+from tools import frontier_evidence_registry
 
 
 class FinalPublicEvidenceTests(unittest.TestCase):
@@ -41,6 +42,32 @@ class FinalPublicEvidenceTests(unittest.TestCase):
                 if case["outcome"]["status"] == "recorded"
             ]
             self.assertGreaterEqual(len(recorded), 1, msg=model["model_id"])
+
+    def test_forecast_kind_is_valid_and_explicit(self):
+        # final_public_evidence_registry.case() is imported directly from
+        # frontier_evidence_registry (not re-exported under a local name), so
+        # FORECAST_KINDS lives there too.
+        for case in self.cases:
+            self.assertIn(
+                case["outcome"]["forecast_kind"],
+                frontier_evidence_registry.FORECAST_KINDS,
+                msg=case["id"],
+            )
+
+    def test_each_model_has_genuine_forecast_evidence(self):
+        # "recorded" alone isn't enough: a hindsight_restated_fact case (e.g.
+        # microsoft-linkedin-2016's "transaction_completed", copied straight
+        # from a Form 8-K confirming the merger closed) is "recorded" but
+        # demonstrates nothing about prediction. Unlike
+        # tools/frontier_evidence_registry.py, this registry has no tracked
+        # hindsight-only gap -- every model here already has at least one
+        # genuine point_forecast case alongside its hindsight-restated one.
+        genuine = {"point_forecast", "same_period_reproduction"}
+        for model in self.models:
+            self.assertTrue(
+                any(case["outcome"]["forecast_kind"] in genuine for case in model["cases"]),
+                msg=model["model_id"],
+            )
 
     def test_external_sources_and_typed_overrides(self):
         valid_kinds = {"observed", "derived", "modeler_assumption"}

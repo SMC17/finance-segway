@@ -1,3 +1,3 @@
-case_id,case_type,metric,forecast,realized,error,realized_source,status
-real-estate-public-realty-income-2023,conventional,next_year_net_income_common_usd_mm,900.0,847.893,-52.10699999999997,Realty Income 2024 public reconciliation,recorded
-real-estate-public-wework-2022-stress,adversarial,bankruptcy_within_12_months,1.0,1.0,0.0,"WeWork Chapter 11 filing, November 2023",recorded
+case_id,case_type,metric,forecast,realized,error,realized_source,forecast_kind,status
+real-estate-public-realty-income-2023,conventional,next_year_net_income_common_usd_mm,900.0,847.893,-52.10699999999997,Realty Income 2024 public reconciliation,point_forecast,recorded
+real-estate-public-wework-2022-stress,adversarial,bankruptcy_within_12_months,1.0,1.0,0.0,"WeWork Chapter 11 filing, November 2023",hindsight_restated_fact,recorded
