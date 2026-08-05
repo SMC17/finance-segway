@@ -16,3 +16,10 @@ __pycache__/
 # L3 agent tool scratch output (demo/test instances) -- never the real
 # evidence corpus under */instances/, see tools/agents/*.py
 .agent-tool-scratch/
+
+# build_all_models.py's parity-comparison scratch output -- generated fresh
+# every run from the committed builders + committed templates it compares
+# against, so it carries no information the repo doesn't already have.
+# Accidentally committed once (see #55's follow-up cleanup); never again.
+.model-build/
+builder-parity-report.json
