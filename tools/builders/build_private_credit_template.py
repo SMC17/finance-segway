@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from institutional_helpers import (  # noqa: E402
     CUR, MULT, PCT, PCT2, BPS,
     add_cover, add_refresh_log, add_sources, add_status_rules, finalize,
-    formula_cell, header, input_cell, set_widths, title, total_row,
+    formula_cell, header, input_cell, section, set_widths, title, total_row,
 )
 
 SHEETS = ["Cover", "Assumptions", "Operating Case", "Debt Schedule", "Covenants",
@@ -39,7 +39,8 @@ def build(output: Path) -> None:
         ("Opening cash", 25.0, 20.0, "$mm", CUR), ("Opening gross debt", 350.0, 350.0, "$mm", CUR),
         ("Base rate", .045, .055, "%", PCT), ("Cash spread", .055, .070, "%", PCT),
         ("OID / upfront fee", .02, .02, "%", PCT), ("PIK spread", 0.0, .02, "%", PCT),
-        ("Mandatory amortization", .01, 0.0, "% opening debt", PCT), ("Cash sweep", .50, .25, "% excess cash", PCT),
+        ("Mandatory amortization", .01, 0.0, "% opening debt", PCT),
+        ("Cash sweep -- Tier 1 (leverage >= 4.0x)", .50, .25, "% excess cash", PCT),
         ("Minimum cash", 15.0, 20.0, "$mm", CUR), ("Maximum leverage", 6.0, 5.5, "x", MULT),
         ("Minimum interest coverage", 1.75, 1.50, "x", MULT), ("Minimum DSCR", 1.0, 1.0, "x", MULT),
         ("Recovery multiple", 5.0, 4.0, "x", MULT), ("EV haircut", .20, .35, "%", PCT),
@@ -81,12 +82,43 @@ def build(output: Path) -> None:
     for col in range(4,9):
         L,P=get_column_letter(col),get_column_letter(col-1)
         fs={5:f"={P}10",6:f"='Operating Case'!{L}14",7:f"=MIN({L}11,Assumptions!$E$12*Assumptions!$E$17)",
-            8:f"={L}5+{L}6-{L}7",9:f"=MIN(MAX(0,{L}11-{L}7),MAX(0,{L}8-Assumptions!$E$19)*Assumptions!$E$18)",
+            8:f"={L}5+{L}6-{L}7",9:f"=MIN(MAX(0,{L}11-{L}7),MAX(0,{L}8-Assumptions!$E$19)*{L}27)",
             10:f"={L}8-{L}9",11:f"={P}15",12:"=Assumptions!$E$13+Assumptions!$E$14",13:f"={L}11*{L}12",
             14:f"=MAX(0,{L}11-{L}7-{L}9)*Assumptions!$E$16",15:f"=MAX(0,{L}11-{L}7-{L}9+{L}14)",
             16:f"=AVERAGE({L}11,{L}15)",17:f"={L}11*Assumptions!$E$16",18:f"={L}13+{L}17"}
         for r,f in fs.items(): ws.cell(r,col,f).number_format=PCT if r==12 else CUR
     for r in (10,15,18): total_row(ws,r,2,8,CUR)
+
+    # Excess-cash-flow sweep: a leverage-based step-down grid, the actual
+    # provision leveraged-loan credit agreements use, not a flat percentage.
+    # Tier 1 is the scenario-toggled Assumptions!E18 rate (Base/Downside);
+    # tiers 2-4 step down proportionally from it as beginning-of-period
+    # leverage falls through 4.0x/3.0x/2.0x, so the whole grid rescales with
+    # the same lever the rest of the model already exposes rather than
+    # adding new hardcoded magic numbers. Leverage is computed on the
+    # BEGINNING-of-period debt balance against the prior period's EBITDA
+    # (never this period's own ending balance), the same non-circular
+    # convention every debt schedule in this repo uses.
+    section(ws,"B19:H19","Excess cash flow sweep -- leverage-based step-down grid")
+    ws["D20"]="Breakpoint (x)"; ws["E20"]="Sweep %"
+    grid=[(21,"Tier 1: leverage >= 4.0x",4.0,"=Assumptions!$E$18"),
+          (22,"Tier 2: 3.0x <= leverage < 4.0x",3.0,"=$E$21*2/3"),
+          (23,"Tier 3: 2.0x <= leverage < 3.0x",2.0,"=$E$21*1/3"),
+          (24,"Tier 4: leverage < 2.0x",None,0.0)]
+    for row,label,breakpoint_,pct_formula in grid:
+        ws.cell(row,2,label)
+        if breakpoint_ is not None:
+            ws.cell(row,4,breakpoint_).number_format=MULT
+        if isinstance(pct_formula,str) and pct_formula.startswith("="):
+            formula_cell(ws.cell(row,5,pct_formula),PCT,cross_sheet=True)
+        else:
+            input_cell(ws.cell(row,5,pct_formula),PCT)
+    ws["B26"]="Beginning-of-period gross leverage (x)"
+    ws["B27"]="Applicable sweep % (step-down grid lookup)"
+    for col in range(4,9):
+        L,P=get_column_letter(col),get_column_letter(col-1)
+        ws.cell(26,col,f"=IFERROR({L}11/'Operating Case'!{P}7,0)").number_format=MULT
+        ws.cell(27,col,f"=IF({L}26>=$D$21,$E$21,IF({L}26>=$D$22,$E$22,IF({L}26>=$D$23,$E$23,$E$24)))").number_format=PCT
     set_widths(ws,{"A":4,"B":40,**{get_column_letter(c):13 for c in range(3,9)}}); ws.freeze_panes="A5"
 
     ws=wb["Covenants"]; title(ws,"B2:G2","Covenant Compliance")
