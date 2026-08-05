@@ -1,0 +1,85 @@
+{
+  "ticker": "ARCC",
+  "cik": "0001287750",
+  "statement": "INCOME_STATEMENT",
+  "retrieved_utc": "20260805T223606Z",
+  "facts": [
+    {
+      "concept": "GrossProfit",
+      "av_field": "grossProfit",
+      "value": 1506000000.0,
+      "end": "2025-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "Revenues",
+      "av_field": "totalRevenue",
+      "value": 2242000000.0,
+      "end": "2025-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "OperatingIncomeLoss",
+      "av_field": "operatingIncome",
+      "value": 1398000000.0,
+      "end": "2025-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "InterestExpense",
+      "av_field": "interestExpense",
+      "value": 736000000.0,
+      "end": "2025-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "IncomeTaxExpenseBenefit",
+      "av_field": "incomeTaxExpense",
+      "value": 99000000.0,
+      "end": "2025-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "EBITDA",
+      "av_field": "ebitda",
+      "value": 1398000000.0,
+      "end": "2025-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "NetIncomeLoss",
+      "av_field": "netIncome",
+      "value": 1299000000.0,
+      "end": "2025-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    }
+  ]
+}
