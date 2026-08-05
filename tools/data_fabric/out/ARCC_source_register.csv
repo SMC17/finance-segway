@@ -1,0 +1,8 @@
+source_name,document_or_dataset,publication_date,as_of_date,retrieval_date,unit_currency,transformation,workbook_destination,license_or_restriction,checksum_or_snapshot
+SEC EDGAR companyfacts API,ARCC Assets (10-Q),2026-05-05,2026-03-31,2026-08-04,USD,latest USD fact by end date,Assumptions / historicals (IB; PE; Credit),Public SEC data,tools/data_fabric/out/ARCC_facts_selected.json
+SEC EDGAR companyfacts API,ARCC Liabilities (10-Q),2026-05-05,2026-03-31,2026-08-04,USD,latest USD fact by end date,Assumptions / historicals (IB; PE; Credit),Public SEC data,tools/data_fabric/out/ARCC_facts_selected.json
+SEC EDGAR companyfacts API,ARCC StockholdersEquity (10-Q),2026-05-05,2026-03-31,2026-08-04,USD,latest USD fact by end date,Assumptions / historicals (IB; PE; Credit),Public SEC data,tools/data_fabric/out/ARCC_facts_selected.json
+SEC EDGAR companyfacts API,ARCC LongTermDebt (10-Q),2026-05-05,2026-03-31,2026-08-04,USD,latest USD fact by end date,Debt schedule / credit inputs,Public SEC data,tools/data_fabric/out/ARCC_facts_selected.json
+SEC EDGAR companyfacts API,ARCC InterestExpense (10-Q),2026-05-05,2026-03-31,2026-08-04,USD,latest USD fact by end date,Debt schedule / credit inputs,Public SEC data,tools/data_fabric/out/ARCC_facts_selected.json
+SEC EDGAR companyfacts API,ARCC CashAndCashEquivalentsAtCarryingValue (10-Q),2026-05-05,2026-03-31,2026-08-04,USD,latest USD fact by end date,Liquidity,Public SEC data,tools/data_fabric/out/ARCC_facts_selected.json
+SEC EDGAR companyfacts API,ARCC NetIncomeLoss (10-Q),2026-05-05,2026-03-31,2026-08-04,USD,latest USD fact by end date,Operating case,Public SEC data,tools/data_fabric/out/ARCC_facts_selected.json
