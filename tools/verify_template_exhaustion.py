@@ -52,6 +52,22 @@ INDEX = ROOT / "standards" / "public_cases" / "index.json"
 INPUT_FONT_RGB = "000000FF"
 LEGEND_EXCLUDE_TEXT = "Blue text / yellow fill"
 
+# Governance surfaces, not model-input surfaces. These carry blue-font cells
+# (the repo's input marker) but are provenance and audit apparatus rather
+# than places a modeler enters decision-driving data: the Sources sheet is
+# auto-populated from the manifest's own sources list by
+# model_instances._append_sources, RefreshLog is an append-only change log,
+# and the institutional-surface trio is generated commentary. Counting them
+# as sourceable inputs inflates every case's denominator with cells no
+# amount of real-data work is supposed to fill by hand.
+NON_INPUT_SHEETS = {
+    "Sources",
+    "RefreshLog",
+    "Institutional Surface",
+    "Challenge Log",
+    "Lineage Map",
+}
+
 
 def _rgb(color: Any) -> str | None:
     try:
@@ -90,6 +106,8 @@ def find_candidate_cells(template_path: Path) -> dict[str, set[str]]:
     workbook = load_workbook(template_path, data_only=False)
     result: dict[str, set[str]] = {}
     for sheet in workbook.worksheets:
+        if sheet.title in NON_INPUT_SHEETS:
+            continue
         candidates: set[str] = set()
         for row in sheet.iter_rows():
             for cell in row:
@@ -158,11 +176,50 @@ def case_coverage(case: dict[str, Any]) -> dict[str, Any]:
         f"{sheet}!{cell}" for sheet, cell in real_cells - real_in_candidates
     )
 
+    # Cells the case explicitly declares can never carry real data, with a
+    # stated reason. Home Depot was never the subject of a leveraged buyout,
+    # so its entry multiple, TLB spread, and sponsor equity check have no
+    # disclosed value to source -- only a fabricated one. Declaring those
+    # (rather than leaving them silently unsourced) is what separates
+    # "no real value exists, and here is why" from "nobody did the work."
+    # Two kinds of declaration count:
+    #   1. an explicit `illustrative_declarations` map of cell -> reason
+    #   2. a manifest input already typed `modeler_assumption`, whose source
+    #      note carries the rationale
+    declared: dict[tuple[str, str], str] = {}
+    for entry in manifest.get("illustrative_declarations", []):
+        reason = str(entry.get("reason", "")).strip()
+        if reason:
+            declared[(entry["sheet"], entry["cell"])] = reason
+    for item in manifest.get("inputs", []):
+        if item.get("input_kind") != "modeler_assumption":
+            continue
+        source = item.get("source") or {}
+        reason = str(source.get("notes") or source.get("name") or "").strip()
+        if reason:
+            declared.setdefault((item["sheet"], item["cell"]), reason)
+
+    declared_in_candidates = {
+        key for key in declared
+        if key[1] in candidates_by_sheet.get(key[0], set())
+    } - real_in_candidates
+
+    all_candidates = {
+        (sheet, cell) for sheet, cells in candidates_by_sheet.items() for cell in cells
+    }
+    unaccounted = sorted(
+        f"{sheet}!{cell}"
+        for sheet, cell in all_candidates - real_in_candidates - declared_in_candidates
+    )
+
     coverage = len(real_in_candidates) / total_candidates if total_candidates else 0.0
+    accounted = len(real_in_candidates) + len(declared_in_candidates)
+    accounted_ratio = accounted / total_candidates if total_candidates else 0.0
     by_sheet = {
         sheet: {
             "candidates": len(cells),
             "real": len([1 for s, c in real_in_candidates if s == sheet]),
+            "declared_illustrative": len([1 for s, c in declared_in_candidates if s == sheet]),
         }
         for sheet, cells in candidates_by_sheet.items()
     }
@@ -174,8 +231,12 @@ def case_coverage(case: dict[str, Any]) -> dict[str, Any]:
         "case_type": case["case_type"],
         "total_candidate_cells": total_candidates,
         "real_cells": len(real_in_candidates),
+        "declared_illustrative_cells": len(declared_in_candidates),
+        "unaccounted_cells": len(unaccounted),
         "coverage": round(coverage, 4),
+        "accounted_ratio": round(accounted_ratio, 4),
         "real_cells_outside_candidate_set": real_outside_candidates,
+        "unaccounted": unaccounted,
         "by_sheet": by_sheet,
     }
 
@@ -189,7 +250,7 @@ def run(case_id: str | None = None) -> dict[str, Any]:
             raise ValueError(f"unknown case_id {case_id!r}")
 
     results = [case_coverage(case) for case in cases]
-    results.sort(key=lambda item: item["coverage"])
+    results.sort(key=lambda item: (item["accounted_ratio"], item["coverage"]))
 
     anomalies = [
         f"{item['case_id']}: real inputs outside the candidate set: {item['real_cells_outside_candidate_set']}"
@@ -200,6 +261,15 @@ def run(case_id: str | None = None) -> dict[str, Any]:
     return {
         "cases_measured": len(results),
         "mean_coverage": round(sum(item["coverage"] for item in results) / len(results), 4) if results else 0.0,
+        "mean_accounted": round(
+            sum(item["accounted_ratio"] for item in results) / len(results), 4
+        )
+        if results
+        else 0.0,
+        "total_unaccounted_cells": sum(item["unaccounted_cells"] for item in results),
+        "fully_accounted_cases": [
+            item["case_id"] for item in results if item["unaccounted_cells"] == 0
+        ],
         "anomalies": anomalies,
         "results": results,
     }
@@ -213,19 +283,43 @@ def main() -> int:
 
     report = run(args.case_id)
 
-    print(f"{'case_id':<45} {'domain':<32} {'type':<13} {'real/candidates':>16} {'coverage':>9}")
-    print("-" * 118)
+    header = (
+        f"{'case_id':<45} {'type':<13} {'real':>6} {'illus':>6} {'todo':>6} "
+        f"{'of':>5} {'real%':>7} {'acct%':>7}"
+    )
+    print(header)
+    print("-" * len(header))
     for item in report["results"]:
         print(
-            f"{item['case_id']:<45} {item['domain']:<32} {item['case_type']:<13} "
-            f"{item['real_cells']:>7}/{item['total_candidate_cells']:<8} {item['coverage'] * 100:>8.1f}%"
+            f"{item['case_id']:<45} {item['case_type']:<13} "
+            f"{item['real_cells']:>6} {item['declared_illustrative_cells']:>6} "
+            f"{item['unaccounted_cells']:>6} {item['total_candidate_cells']:>5} "
+            f"{item['coverage'] * 100:>6.1f}% {item['accounted_ratio'] * 100:>6.1f}%"
         )
-    print("-" * 118)
-    print(f"Cases measured: {report['cases_measured']}  Mean coverage: {report['mean_coverage'] * 100:.1f}%")
+    print("-" * len(header))
+    print(
+        f"Cases: {report['cases_measured']}  "
+        f"Mean real: {report['mean_coverage'] * 100:.1f}%  "
+        f"Mean accounted: {report['mean_accounted'] * 100:.1f}%  "
+        f"Unaccounted cells remaining: {report['total_unaccounted_cells']}  "
+        f"Fully accounted cases: {len(report['fully_accounted_cases'])}/{report['cases_measured']}"
+    )
+    print(
+        "\n'real' = sourced from disclosed data. 'illus' = explicitly declared "
+        "illustrative with a stated reason (no real value exists -- e.g. the entry\n"
+        "multiple of a buyout that never happened). 'todo' = neither: unsourced and "
+        "undeclared. Driving todo to zero is the goal; real% alone cannot reach\n"
+        "100% on a hypothetical-construct case without fabricating data."
+    )
     if report["anomalies"]:
         print("\nAnomalies (real inputs the scanner didn't recognize as template input cells):")
         for line in report["anomalies"]:
             print(f"  {line}")
+
+    if args.case_id and report["results"] and report["results"][0]["unaccounted"]:
+        print(f"\nUnaccounted cells for {args.case_id}:")
+        for coordinate in report["results"][0]["unaccounted"]:
+            print(f"  {coordinate}")
 
     if args.report:
         args.report.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")

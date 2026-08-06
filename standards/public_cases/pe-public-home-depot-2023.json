@@ -73,6 +73,18 @@
     },
     {
       "sheet": "Assumptions",
+      "cell": "C8",
+      "value": -0.001,
+      "input_kind": "derived",
+      "source": {
+        "name": "Home Depot Q4 & FY2023 Earnings Call Transcript (2024-02-20)",
+        "url": "https://www.alphavantage.co/documentation/#earnings-call-transcripts",
+        "as_of": "2024-02-20",
+        "notes": "FY2024 guided operating margin of approximately 14.1% against FY2023 actual operating margin of approximately 14.2%, both stated by CFO Richard McPhail on the call: a 0.1 percentage-point compression. The model applies this as the annual EBITDA-margin change with D&A/revenue held constant at C9, so operating-margin movement carries straight through to EBITDA margin."
+      }
+    },
+    {
+      "sheet": "Assumptions",
       "cell": "C9",
       "value": 0.0213,
       "input_kind": "derived",
@@ -111,10 +123,10 @@
     }
   ],
   "refresh": {
-    "date": "2026-08-05",
-    "trigger": "Real judgment-density deepening from earnings call + cash-flow cross-check",
+    "date": "2026-08-06",
+    "trigger": "Full input accounting: every candidate cell sourced or declared",
     "source_snapshot": "repo://03_Private_Equity/sources/snapshots/pe-public-home-depot-2023.json",
-    "what_changed": "Added real, sourced overrides for EBITDA margin (corrected), D&A/revenue, capex/revenue, and cash tax rate from Home Depot's FY2023 earnings call and SEC-derived cash-flow data; replaced the trailing revenue-growth actual with management's own FY2024 guidance for the model's forward growth mechanic.",
+    "what_changed": "Sourced annual EBITDA-margin change (C8) from management's own FY2024 operating-margin guidance vs FY2023 actual. Explicitly declared every remaining candidate input cell that has no disclosed value to source, each with a stated reason. NWC/revenue (C11) and existing net debt refinanced (C15) remain deliberately undeclared: both are real Home Depot balance-sheet facts that should be sourced, not declared away.",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
   },
@@ -128,5 +140,287 @@
   "lineage": {
     "source_snapshot": "repo://03_Private_Equity/sources/snapshots/pe-public-home-depot-2023.json",
     "synthetic_benchmark_inputs_allowed": false
-  }
+  },
+  "illustrative_declarations": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C13",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C14",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C16",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C17",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C18",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C19",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C20",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C21",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C22",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C23",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C24",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C25",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C26",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C27",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C28",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C29",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C30",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C31",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C32",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C33",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D12",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D13",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D14",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D15",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D16",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D17",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D18",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D19",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D20",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D21",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D22",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D23",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D24",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D25",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D26",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D27",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D28",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D29",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D30",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D31",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D32",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D33",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D6",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "reason": "Downside-scenario lever: a hypothetical stress input used to test model behaviour, not a disclosed fact about Home Depot. This case is framed on the Base column; the Downside column is deliberately a modeler-chosen stress, not an observation."
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C10",
+      "reason": "Presentation convention ($ in millions), not a fact about the subject."
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C5",
+      "reason": "No real sponsor exists: this case applies the LBO engine to Home Depot's real operating financials, not to an actual sponsor-led transaction."
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C6",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C7",
+      "reason": "Generated release metadata, not a sourced observation: populated automatically by tools/model_instances.py from the manifest's as_of date and scenario selection at build time."
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C8",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C9",
+      "reason": "Generated release metadata, not a sourced observation: populated automatically by tools/model_instances.py from the manifest's as_of date and scenario selection at build time."
+    },
+    {
+      "sheet": "Sources & Uses",
+      "cell": "F5",
+      "reason": "No real transaction exists: Home Depot has never been the subject of a leveraged buyout, so this term has no disclosed value to source. The template default is retained as an explicitly illustrative structuring assumption."
+    }
+  ]
 }
