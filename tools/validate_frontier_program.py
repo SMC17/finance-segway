@@ -42,8 +42,8 @@ LEGACY_RELEASE_STAGED = "release_staged"
 # real, sourced public instance -- both are counted honestly below, not
 # assumed to match the frontier cohort's own M2 claim.
 FRONTIER_PROGRAM_IDS = {f"{value:02d}" for value in range(1, 25)}
-EXPECTED_INVENTORY_IDS = FRONTIER_PROGRAM_IDS | {"29", "30"}
-EXPECTED_MATURITY = Counter({"M2": 25, "M1": 1})
+EXPECTED_INVENTORY_IDS = FRONTIER_PROGRAM_IDS | {"29", "30", "31"}
+EXPECTED_MATURITY = Counter({"M2": 25, "M1": 2})
 
 
 def _load(path: Path) -> dict[str, Any]:
