@@ -111,15 +111,67 @@ def fetch_company_facts(cik: str, session: requests.Session | None = None) -> di
     return r.json()
 
 
-def _pick_series(node: dict) -> list[dict]:
+# IFRS filers (CCEP files 20-F under ifrs-full in EUR, TRI under ifrs-full in
+# USD) tag the same economics under different concept names. Each us-gaap
+# concept maps to its ifrs-full equivalents, tried in order after the
+# us-gaap/dei lookup misses; the resolved taxonomy:tag is recorded on every
+# row so a consumer always knows which filed fact it is reading.
+IFRS_EQUIVALENTS = {
+    "Revenues": ["Revenue", "RevenueFromContractsWithCustomers"],
+    "RevenueFromContractWithCustomerExcludingAssessedTax": [
+        "RevenueFromContractsWithCustomers", "Revenue"],
+    "NetIncomeLoss": ["ProfitLossAttributableToOwnersOfParent", "ProfitLoss"],
+    "OperatingIncomeLoss": ["ProfitLossFromOperatingActivities"],
+    "GrossProfit": ["GrossProfit"],
+    "Assets": ["Assets"],
+    "AssetsCurrent": ["CurrentAssets"],
+    "Liabilities": ["Liabilities"],
+    "LiabilitiesCurrent": ["CurrentLiabilities"],
+    "StockholdersEquity": ["EquityAttributableToOwnersOfParent", "Equity"],
+    "CashAndCashEquivalentsAtCarryingValue": ["CashAndCashEquivalents"],
+    "NetCashProvidedByUsedInOperatingActivities": [
+        "CashFlowsFromUsedInOperatingActivities"],
+    "NetCashProvidedByUsedInInvestingActivities": [
+        "CashFlowsFromUsedInInvestingActivities"],
+    "NetCashProvidedByUsedInFinancingActivities": [
+        "CashFlowsFromUsedInFinancingActivities"],
+    "IncomeTaxExpenseBenefit": ["IncomeTaxExpenseContinuingOperations"],
+    "DepreciationDepletionAndAmortization": [
+        "DepreciationAndAmortisationExpense"],
+    "PaymentsToAcquirePropertyPlantAndEquipment": [
+        "PurchaseOfPropertyPlantAndEquipment"],
+    "EarningsPerShareBasic": ["BasicEarningsLossPerShare"],
+    "EarningsPerShareDiluted": ["DilutedEarningsLossPerShare"],
+    "InterestExpense": ["InterestExpense"],
+    "ResearchAndDevelopmentExpense": ["ResearchAndDevelopmentExpense"],
+}
+
+
+def _resolve_concept(facts: dict, concept: str) -> tuple[dict | None, str | None]:
+    """(node, 'taxonomy:tag') - us-gaap, then dei, then ifrs-full aliases."""
+    for taxonomy in ("us-gaap", "dei"):
+        node = facts.get("facts", {}).get(taxonomy, {}).get(concept)
+        if node:
+            return node, f"{taxonomy}:{concept}"
+    ifrs = facts.get("facts", {}).get("ifrs-full", {})
+    for alias in [concept] + IFRS_EQUIVALENTS.get(concept, []):
+        node = ifrs.get(alias)
+        if node:
+            return node, f"ifrs-full:{alias}"
+    return None, None
+
+
+def _pick_series(node: dict) -> tuple[str | None, list[dict]]:
+    """(unit, rows) - USD family preferred, else the filer's actual unit
+    (an IFRS filer reporting in EUR must be labeled EUR, never assumed USD)."""
     units = node.get("units", {})
-    # Prefer USD, then USD/shares, then any
     for key in ("USD", "USD/shares", "pure", "shares"):
         if key in units and units[key]:
-            return units[key]
+            return key, units[key]
     if units:
-        return next(iter(units.values()))
-    return []
+        unit = next(iter(units))
+        return unit, units[unit]
+    return None, []
 
 
 def extract_selected(
@@ -128,15 +180,13 @@ def extract_selected(
     prefer_annual: bool = False,
 ) -> list[dict]:
     """Extract latest (or preferred-form) values for each concept."""
-    usgaap = facts.get("facts", {}).get("us-gaap", {})
-    dei = facts.get("facts", {}).get("dei", {})
     rows: list[dict] = []
 
     for concept in concepts:
-        node = usgaap.get(concept) or dei.get(concept)
+        node, resolved = _resolve_concept(facts, concept)
         if not node:
             continue
-        series = _pick_series(node)
+        unit, series = _pick_series(node)
         if not series:
             continue
 
@@ -154,6 +204,8 @@ def extract_selected(
         rows.append(
             {
                 "concept": concept,
+                "resolved_tag": resolved,
+                "unit": unit,
                 "value": latest.get("val"),
                 "end": latest.get("end"),
                 "filed": latest.get("filed"),
@@ -189,8 +241,6 @@ def extract_annual_series(facts: dict, concepts: list[str]) -> list[dict]:
     - Instant (balance-sheet) facts have no start; annual filings carry
       them at fiscal year ends, so they key by end date directly.
     """
-    usgaap = facts.get("facts", {}).get("us-gaap", {})
-    dei = facts.get("facts", {}).get("dei", {})
     annual_forms = ("10-K", "20-F", "40-F")
 
     def months(item: dict) -> int | None:
@@ -207,11 +257,12 @@ def extract_annual_series(facts: dict, concepts: list[str]) -> list[dict]:
 
     rows: list[dict] = []
     for concept in concepts:
-        node = usgaap.get(concept) or dei.get(concept)
+        node, resolved = _resolve_concept(facts, concept)
         if not node:
             continue
+        unit, series = _pick_series(node)
         candidates = [
-            item for item in _pick_series(node)
+            item for item in series
             if str(item.get("form") or "").startswith(annual_forms)
             and item.get("end") and item.get("val") is not None
         ]
@@ -248,6 +299,8 @@ def extract_annual_series(facts: dict, concepts: list[str]) -> list[dict]:
         rows.append(
             {
                 "concept": concept,
+                "resolved_tag": resolved,
+                "unit": unit,
                 "observations": [
                     {
                         "end": item.get("end"),
@@ -313,8 +366,8 @@ def write_outputs(
                     "publication_date": row.get("filed") or "",
                     "as_of_date": row.get("end") or "",
                     "retrieval_date": today,
-                    "unit_currency": "USD",
-                    "transformation": "latest USD (or USD/shares) fact by end date"
+                    "unit_currency": row.get("unit") or "USD",
+                    "transformation": "latest fact by end date in the filer's reported unit"
                     + (" (prefer 10-K/20-F)" if extra_meta and extra_meta.get("prefer_annual") else ""),
                     "workbook_destination": "Assumptions / historicals (IB, Corporate, PE, Credit, Equity, AM)",
                     "license_or_restriction": "Public SEC data; see SEC terms of use and fair-access policy",

@@ -1,10 +1,12 @@
 {
   "ticker": "ADSK",
   "cik": "0000769397",
-  "retrieved_utc": "20260806T135443Z",
+  "retrieved_utc": "20260806T143353Z",
   "concepts": [
     {
       "concept": "Assets",
+      "resolved_tag": "us-gaap:Assets",
+      "unit": "USD",
       "value": 12467000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -15,6 +17,8 @@
     },
     {
       "concept": "AssetsCurrent",
+      "resolved_tag": "us-gaap:AssetsCurrent",
+      "unit": "USD",
       "value": 4942000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -25,6 +29,8 @@
     },
     {
       "concept": "LiabilitiesCurrent",
+      "resolved_tag": "us-gaap:LiabilitiesCurrent",
+      "unit": "USD",
       "value": 5808000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -35,6 +41,8 @@
     },
     {
       "concept": "StockholdersEquity",
+      "resolved_tag": "us-gaap:StockholdersEquity",
+      "unit": "USD",
       "value": 3045000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -45,6 +53,8 @@
     },
     {
       "concept": "CashAndCashEquivalentsAtCarryingValue",
+      "resolved_tag": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+      "unit": "USD",
       "value": 2249000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -55,6 +65,8 @@
     },
     {
       "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "resolved_tag": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "unit": "USD",
       "value": 2249000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -65,6 +77,8 @@
     },
     {
       "concept": "LongTermDebt",
+      "resolved_tag": "us-gaap:LongTermDebt",
+      "unit": "USD",
       "value": 2500000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -75,6 +89,8 @@
     },
     {
       "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "resolved_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "unit": "USD",
       "value": 7206000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -85,6 +101,8 @@
     },
     {
       "concept": "NetIncomeLoss",
+      "resolved_tag": "us-gaap:NetIncomeLoss",
+      "unit": "USD",
       "value": 1124000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -95,6 +113,8 @@
     },
     {
       "concept": "OperatingIncomeLoss",
+      "resolved_tag": "us-gaap:OperatingIncomeLoss",
+      "unit": "USD",
       "value": 1578000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -105,6 +125,8 @@
     },
     {
       "concept": "GrossProfit",
+      "resolved_tag": "us-gaap:GrossProfit",
+      "unit": "USD",
       "value": 6556000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -115,6 +137,8 @@
     },
     {
       "concept": "InterestExpense",
+      "resolved_tag": "us-gaap:InterestExpense",
+      "unit": "USD",
       "value": 80000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -125,6 +149,8 @@
     },
     {
       "concept": "IncomeTaxExpenseBenefit",
+      "resolved_tag": "us-gaap:IncomeTaxExpenseBenefit",
+      "unit": "USD",
       "value": 479000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -135,6 +161,8 @@
     },
     {
       "concept": "EarningsPerShareBasic",
+      "resolved_tag": "us-gaap:EarningsPerShareBasic",
+      "unit": "USD/shares",
       "value": 5.28,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -145,6 +173,8 @@
     },
     {
       "concept": "EarningsPerShareDiluted",
+      "resolved_tag": "us-gaap:EarningsPerShareDiluted",
+      "unit": "USD/shares",
       "value": 5.23,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -155,6 +185,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInOperatingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+      "unit": "USD",
       "value": 2452000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -165,6 +197,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInInvestingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInInvestingActivities",
+      "unit": "USD",
       "value": -451000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -175,6 +209,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInFinancingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInFinancingActivities",
+      "unit": "USD",
       "value": -1361000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -185,6 +221,8 @@
     },
     {
       "concept": "DepreciationDepletionAndAmortization",
+      "resolved_tag": "us-gaap:DepreciationDepletionAndAmortization",
+      "unit": "USD",
       "value": 145800000,
       "end": "2016-01-31",
       "filed": "2016-03-23",
@@ -195,6 +233,8 @@
     },
     {
       "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+      "resolved_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "unit": "USD",
       "value": 43000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -205,6 +245,8 @@
     },
     {
       "concept": "CommonStockSharesOutstanding",
+      "resolved_tag": "us-gaap:CommonStockSharesOutstanding",
+      "unit": "shares",
       "value": 212000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -215,6 +257,8 @@
     },
     {
       "concept": "CommonStockSharesIssued",
+      "resolved_tag": "us-gaap:CommonStockSharesIssued",
+      "unit": "shares",
       "value": 212000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -225,6 +269,8 @@
     },
     {
       "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+      "resolved_tag": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic",
+      "unit": "shares",
       "value": 213000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -235,6 +281,8 @@
     },
     {
       "concept": "ResearchAndDevelopmentExpense",
+      "resolved_tag": "us-gaap:ResearchAndDevelopmentExpense",
+      "unit": "USD",
       "value": 1643000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -245,6 +293,8 @@
     },
     {
       "concept": "SellingAndMarketingExpense",
+      "resolved_tag": "us-gaap:SellingAndMarketingExpense",
+      "unit": "USD",
       "value": 2373000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -255,6 +305,8 @@
     },
     {
       "concept": "GeneralAndAdministrativeExpense",
+      "resolved_tag": "us-gaap:GeneralAndAdministrativeExpense",
+      "unit": "USD",
       "value": 693000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -265,6 +317,8 @@
     },
     {
       "concept": "ShareBasedCompensation",
+      "resolved_tag": "us-gaap:ShareBasedCompensation",
+      "unit": "USD",
       "value": 788000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -275,6 +329,8 @@
     },
     {
       "concept": "CostOfRevenue",
+      "resolved_tag": "us-gaap:CostOfRevenue",
+      "unit": "USD",
       "value": 650000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -285,6 +341,8 @@
     },
     {
       "concept": "ContractWithCustomerLiabilityCurrent",
+      "resolved_tag": "us-gaap:ContractWithCustomerLiabilityCurrent",
+      "unit": "USD",
       "value": 4406000000,
       "end": "2026-01-31",
       "filed": "2026-03-03",
@@ -295,6 +353,8 @@
     },
     {
       "concept": "RevenueRemainingPerformanceObligation",
+      "resolved_tag": "us-gaap:RevenueRemainingPerformanceObligation",
+      "unit": "USD",
       "value": 5620000000,
       "end": "2023-01-31",
       "filed": "2023-03-14",
@@ -302,10 +362,22 @@
       "fy": 2023,
       "fp": "FY",
       "frame": "CY2022Q4I"
+    },
+    {
+      "concept": "AccountsReceivableNetCurrent",
+      "resolved_tag": "us-gaap:AccountsReceivableNetCurrent",
+      "unit": "USD",
+      "value": 1439000000,
+      "end": "2026-01-31",
+      "filed": "2026-03-03",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": null
     }
   ],
   "meta": {
     "prefer_annual": true,
-    "concept_count_requested": 42
+    "concept_count_requested": 43
   }
 }
