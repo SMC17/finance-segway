@@ -10,7 +10,56 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tools"))
 
-from verify_template_exhaustion import _cover_real_cells, find_candidate_cells, run  # noqa: E402
+from verify_template_exhaustion import (  # noqa: E402
+    _cover_real_cells,
+    _rgb,
+    find_candidate_cells,
+    run,
+)
+
+
+class InputColourDetectionTests(unittest.TestCase):
+    """The scanner must recognise input blue however openpyxl stored it."""
+
+    class _Colour:
+        def __init__(self, rgb: str) -> None:
+            self.rgb = rgb
+
+    def test_alpha_channel_does_not_change_the_detected_colour(self) -> None:
+        # Regression: the scanner compared full 8-digit aRGB, so the same
+        # blue written with a different alpha byte read as a different
+        # colour. Domain 31's template stores "FF0000FF" and reported zero
+        # candidate input cells -- a silent "nothing to source here" for a
+        # whole domain.
+        self.assertEqual(_rgb(self._Colour("000000FF")), _rgb(self._Colour("FF0000FF")))
+
+    def test_non_blue_fonts_are_still_rejected(self) -> None:
+        blue = _rgb(self._Colour("FF0000FF"))
+        for other in ("FF111827", "00FFFFFF", "FF008000"):
+            self.assertNotEqual(blue, _rgb(self._Colour(other)), msg=other)
+
+    def test_theme_and_missing_colours_do_not_raise(self) -> None:
+        class ThemeColour:
+            @property
+            def rgb(self):  # openpyxl raises for theme-indexed colours
+                raise ValueError("Values must be of type <class 'str'>")
+
+        self.assertIsNone(_rgb(None))
+        self.assertIsNone(_rgb(ThemeColour()))
+
+    def test_every_domain_template_exposes_some_input_surface(self) -> None:
+        # A template with no detectable input cells is either a template
+        # with no inputs (there are none) or a template the scanner cannot
+        # read. Both are worth failing on.
+        inventory = json.loads(
+            (ROOT / "standards" / "model_inventory.json").read_text(encoding="utf-8")
+        )
+        blind = [
+            model["workbook"]
+            for model in inventory["models"]
+            if not find_candidate_cells(ROOT / model["workbook"])
+        ]
+        self.assertEqual([], blind)
 
 
 class TemplateExhaustionTests(unittest.TestCase):
