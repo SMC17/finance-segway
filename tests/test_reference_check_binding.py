@@ -82,6 +82,7 @@ class ReferenceCheckBindingTests(unittest.TestCase):
             "13": "check_vc_",
             "14": "check_black_scholes",
             "21": "check_bond_duration",
+            "31": "check_software_arr_rollforward",
         }
         self.assertEqual(set(expectations), WORKBOOK_VERIFIED_MODELS)
         for model_id, fragment in expectations.items():
