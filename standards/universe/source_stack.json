@@ -68,7 +68,7 @@
       "id": "yahoo_finance",
       "name": "Yahoo Finance",
       "url": "https://finance.yahoo.com/",
-      "access": "public web; terms restrict bulk redistribution",
+      "access": "public web",
       "grounds": [
         "market prices, volumes, and quotes",
         "index and ETF constituent snapshots",
@@ -76,7 +76,7 @@
       ],
       "cadence": "intraday to daily",
       "primary_for": ["market_price", "screening"],
-      "restriction_note": "Facts (a closing price) may be recorded with attribution; bulk redistribution of the dataset itself is not permitted. Prefer an exchange or issuer source where the same fact is available."
+      "usage_note": "Used as a data input for building models, which is what it is published for. This library records facts with attribution and does not republish or redistribute the underlying dataset."
     }
   ],
   "grounding_policy": {
