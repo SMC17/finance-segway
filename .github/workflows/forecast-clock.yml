@@ -1,0 +1,22 @@
+name: Forecast Clock
+
+on:
+  schedule:
+    - cron: "17 13 * * 1"   # Mondays 13:17 UTC - the registry's weekly tick
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  due:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Registry content check
+        run: PYTHONPATH=. python tools/forecast_registration.py --check
+      - name: Registry time check (fails on any expired unresolved window)
+        run: PYTHONPATH=. python tools/forecast_registration.py --due
