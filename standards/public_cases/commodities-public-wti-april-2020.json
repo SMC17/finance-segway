@@ -8,7 +8,7 @@
   "as_of": "2020-04-20",
   "scenario": "Downside",
   "cover": {
-    "Subject:": "April 2020 WTI expiry, demand and storage dislocation"
+    "Commodity:": "April 2020 WTI expiry, demand and storage dislocation"
   },
   "inputs": [
     {

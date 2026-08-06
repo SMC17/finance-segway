@@ -8,7 +8,7 @@
   "as_of": "2024-01-01",
   "scenario": "Base",
   "cover": {
-    "Subject:": "U.S. mortgage delinquency-calibrated pool"
+    "Transaction / collateral:": "U.S. mortgage delinquency-calibrated pool"
   },
   "inputs": [
     {

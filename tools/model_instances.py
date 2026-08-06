@@ -43,6 +43,27 @@ def _load_manifest(path: Path) -> dict[str, Any]:
     return manifest
 
 
+# The Cover label that honestly holds a case subject, per model. Domains
+# with no label:value identity row (their identity slot is the Cover title
+# itself) map to the reserved "Title:" key, which _set_cover writes to the
+# title cell; unknown/new models default to "Title:" since every template
+# carries a B2 title.
+SUBJECT_COVER_LABELS = {
+    "03": "Target / transaction:", "04": "Target / transaction:",
+    "05": "Borrower / issuer:", "06": "Issuer:", "07": "Issuer:",
+    "10": "Counterparty:", "11": "Institution:", "12": "Issuer / security:",
+    "14": "Underlying:", "15": "Commodity:", "18": "Entity / line of business:",
+    "19": "Transaction / collateral:", "20": "Project / concession:",
+    "21": "Portfolio / security:", "22": "Strategy / universe:",
+    "24": "Situation type:",
+}
+
+
+def subject_cover(model_id: str, subject: str) -> dict[str, str]:
+    """The cover mapping a generated manifest should carry for its subject."""
+    return {SUBJECT_COVER_LABELS.get(str(model_id), "Title:"): subject}
+
+
 def _find_label_row(sheet: Any, label: str, *, label_column: int = 2) -> int | None:
     for row in range(1, sheet.max_row + 1):
         if str(sheet.cell(row, label_column).value or "").strip() == label:
@@ -54,12 +75,33 @@ def _set_cover(workbook: Any, manifest: dict[str, Any]) -> None:
     if "Cover" not in workbook.sheetnames:
         raise ValueError("template has no Cover sheet")
     cover = workbook["Cover"]
-    mapping = {
+    # Two tiers: infrastructure defaults are best-effort (several templates
+    # have no "Active scenario:" row - there is nothing to set and skipping
+    # is correct), while keys the MANIFEST asserts stay fail-loud below.
+    defaults = {
         "Last refreshed:": manifest["as_of"],
         "Active scenario:": manifest.get("scenario", "Base"),
     }
-    mapping.update(manifest.get("cover", {}))
+    asserted = manifest.get("cover", {})
+    mapping = {**defaults, **asserted}
     for label, value in mapping.items():
+        if label in defaults and label not in asserted and _find_label_row(cover, label) is None:
+            continue
+        if label == "Title:":
+            # Reserved key: several templates (e.g. Asset Management, Risk,
+            # Crypto, REIT, Fintech) have no label:value row that honestly
+            # holds a case subject - their identity slot is the Cover title
+            # itself (row 2, column B, the "[TICKER] - Company Name"
+            # placeholder). "Title:" writes that cell in place, keeping its
+            # existing title styling, instead of forcing the subject under a
+            # semantically wrong label.
+            if not str(cover.cell(2, 2).value or "").strip():
+                raise ValueError(
+                    "manifest cover key 'Title:' but the Cover sheet has no "
+                    "title text in B2 to replace"
+                )
+            cover.cell(2, 2, value)
+            continue
         row = _find_label_row(cover, label)
         if row is None:
             # A manifest cover key that matches no row silently drops that

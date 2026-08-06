@@ -8,7 +8,7 @@
   "as_of": "2024-01-02",
   "scenario": "Base",
   "cover": {
-    "Subject:": "SPX near-ATM public-market snapshot"
+    "Underlying:": "SPX near-ATM public-market snapshot"
   },
   "inputs": [
     {
