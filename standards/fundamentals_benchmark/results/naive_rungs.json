@@ -1,0 +1,188 @@
+{
+  "assets": {
+    "2019": {
+      "n_companies": 60,
+      "carry_forward": {
+        "spearman": 0.98,
+        "mae_skill_vs_carry": 0.0,
+        "medape_skill_vs_carry": 0.0,
+        "n": 60
+      },
+      "linear_drift": {
+        "spearman": 0.974,
+        "mae_skill_vs_carry": 0.001,
+        "medape_skill_vs_carry": 0.122,
+        "n": 60
+      }
+    },
+    "2021": {
+      "n_companies": 61,
+      "carry_forward": {
+        "spearman": 0.97,
+        "mae_skill_vs_carry": 0.0,
+        "medape_skill_vs_carry": 0.0,
+        "n": 61
+      },
+      "linear_drift": {
+        "spearman": 0.97,
+        "mae_skill_vs_carry": 0.184,
+        "medape_skill_vs_carry": 0.334,
+        "n": 61
+      }
+    },
+    "2023": {
+      "n_companies": 61,
+      "carry_forward": {
+        "spearman": 0.985,
+        "mae_skill_vs_carry": 0.0,
+        "medape_skill_vs_carry": 0.0,
+        "n": 61
+      },
+      "linear_drift": {
+        "spearman": 0.978,
+        "mae_skill_vs_carry": -1.021,
+        "medape_skill_vs_carry": -0.61,
+        "n": 61
+      }
+    },
+    "2025": {
+      "n_companies": 61,
+      "carry_forward": {
+        "spearman": 0.974,
+        "mae_skill_vs_carry": 0.0,
+        "medape_skill_vs_carry": 0.0,
+        "n": 61
+      },
+      "linear_drift": {
+        "spearman": 0.967,
+        "mae_skill_vs_carry": 0.272,
+        "medape_skill_vs_carry": -0.185,
+        "n": 61
+      }
+    }
+  },
+  "revenue": {
+    "2019": {
+      "n_companies": 29,
+      "carry_forward": {
+        "spearman": 0.981,
+        "mae_skill_vs_carry": 0.0,
+        "medape_skill_vs_carry": 0.0,
+        "n": 29
+      },
+      "linear_drift": {
+        "spearman": 0.971,
+        "mae_skill_vs_carry": 0.013,
+        "medape_skill_vs_carry": 0.03,
+        "n": 29
+      }
+    },
+    "2021": {
+      "n_companies": 46,
+      "carry_forward": {
+        "spearman": 0.948,
+        "mae_skill_vs_carry": 0.0,
+        "medape_skill_vs_carry": 0.0,
+        "n": 46
+      },
+      "linear_drift": {
+        "spearman": 0.945,
+        "mae_skill_vs_carry": 0.316,
+        "medape_skill_vs_carry": 0.266,
+        "n": 46
+      }
+    },
+    "2023": {
+      "n_companies": 55,
+      "carry_forward": {
+        "spearman": 0.954,
+        "mae_skill_vs_carry": 0.0,
+        "medape_skill_vs_carry": 0.0,
+        "n": 55
+      },
+      "linear_drift": {
+        "spearman": 0.915,
+        "mae_skill_vs_carry": 0.075,
+        "medape_skill_vs_carry": -0.052,
+        "n": 55
+      }
+    },
+    "2025": {
+      "n_companies": 54,
+      "carry_forward": {
+        "spearman": 0.938,
+        "mae_skill_vs_carry": 0.0,
+        "medape_skill_vs_carry": 0.0,
+        "n": 54
+      },
+      "linear_drift": {
+        "spearman": 0.923,
+        "mae_skill_vs_carry": 0.031,
+        "medape_skill_vs_carry": -0.344,
+        "n": 54
+      }
+    }
+  },
+  "net_income": {
+    "2019": {
+      "n_companies": 54,
+      "carry_forward": {
+        "spearman": 0.606,
+        "mae_skill_vs_carry": 0.0,
+        "medape_skill_vs_carry": 0.0,
+        "n": 54
+      },
+      "linear_drift": {
+        "spearman": 0.591,
+        "mae_skill_vs_carry": -0.08,
+        "medape_skill_vs_carry": -0.146,
+        "n": 54
+      }
+    },
+    "2021": {
+      "n_companies": 56,
+      "carry_forward": {
+        "spearman": 0.84,
+        "mae_skill_vs_carry": 0.0,
+        "medape_skill_vs_carry": 0.0,
+        "n": 56
+      },
+      "linear_drift": {
+        "spearman": 0.805,
+        "mae_skill_vs_carry": 0.09,
+        "medape_skill_vs_carry": 0.011,
+        "n": 56
+      }
+    },
+    "2023": {
+      "n_companies": 56,
+      "carry_forward": {
+        "spearman": 0.708,
+        "mae_skill_vs_carry": 0.0,
+        "medape_skill_vs_carry": 0.0,
+        "n": 56
+      },
+      "linear_drift": {
+        "spearman": 0.607,
+        "mae_skill_vs_carry": -0.651,
+        "medape_skill_vs_carry": -1.285,
+        "n": 56
+      }
+    },
+    "2025": {
+      "n_companies": 56,
+      "carry_forward": {
+        "spearman": 0.711,
+        "mae_skill_vs_carry": 0.0,
+        "medape_skill_vs_carry": 0.0,
+        "n": 56
+      },
+      "linear_drift": {
+        "spearman": 0.617,
+        "mae_skill_vs_carry": -0.125,
+        "medape_skill_vs_carry": -0.181,
+        "n": 56
+      }
+    }
+  }
+}
