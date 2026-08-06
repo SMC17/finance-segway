@@ -1,6 +1,9 @@
 # Excel lock/temp files
 ~$*.xlsx
 *.tmp
+# Scratch dirs created by verify_public_case_status.py / verify_m3_readiness.py,
+# which copy each workbook into the repo root to recalculate it.
+tmp*/
 
 # Weekly refresh reports (generated — commit via CI, not manually, to avoid noise)
 refresh_report_*.csv
