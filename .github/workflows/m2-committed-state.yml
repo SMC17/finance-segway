@@ -91,10 +91,21 @@ jobs:
           for model in inventory["models"]:
               maturity[model["declared_maturity"]] = maturity.get(model["declared_maturity"], 0) + 1
           errors = []
-          if maturity != {"M2": 24}:
-              errors.append(f"expected exactly 24 M2 models, found {maturity}")
-          if public.get("case_count") != 48 or public.get("evidence_models") != 24:
-              errors.append("public ledger must contain 48 cases across 24 models")
+          # Ratchet floors, not exact counts: the frontier cohort (24 M2
+          # models, 2 public cases each) must never shrink, but new domains
+          # launching at their own honest maturity must not redden main
+          # (the exact-count form broke the day the 25th model landed at M1).
+          if maturity.get("M2", 0) < 24:
+              errors.append(f"M2 cohort regressed below 24: {maturity}")
+          below_m1 = {m for m in maturity if m not in {"M1", "M2", "M3", "M4"}}
+          if below_m1:
+              errors.append(f"invalid declared maturities: {sorted(below_m1)}")
+          cases = public.get("case_count", 0)
+          models = public.get("evidence_models", 0)
+          if cases < 48 or models < 24:
+              errors.append(f"public ledger regressed below 48 cases / 24 models: {cases}/{models}")
+          if cases != 2 * models:
+              errors.append(f"public ledger must stay two cases per evidence model: {cases} cases / {models} models")
           if Path("standards/benchmark_cases").exists():
               errors.append("retired synthetic benchmark directory was reintroduced")
           if errors:
