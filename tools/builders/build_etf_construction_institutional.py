@@ -93,8 +93,17 @@ def build(output: Path) -> None:
     sheet = workbook["Portfolio Construction"]
     title(sheet, "B2:E2", "Constituent Holdings (Look-Through)")
     header(sheet, 4, 2, ["Symbol", "Issuer / description", "Weight"])
-    for offset, (symbol, issuer, weight) in enumerate(DEFAULT_HOLDINGS):
+    # Style the ENTIRE declared grid as input surface, not just the rows
+    # with illustrative defaults: a real instance manifest fills all
+    # HOLDING_ROWS rows, and an unmarked cell that receives real data is
+    # exactly what the template-exhaustion scanner (correctly) flags.
+    for offset in range(HOLDING_ROWS):
         row = 5 + offset
+        symbol, issuer, weight = (
+            DEFAULT_HOLDINGS[offset]
+            if offset < len(DEFAULT_HOLDINGS)
+            else (f"[Holding {offset + 1}]", f"[Issuer {offset + 1}]", 0.0)
+        )
         input_cell(sheet.cell(row, 2, symbol))
         input_cell(sheet.cell(row, 3, issuer))
         input_cell(sheet.cell(row, 4, weight), PCT2)
@@ -110,8 +119,13 @@ def build(output: Path) -> None:
     sector_start = other_row + 4
     title(sheet, f"B{sector_start - 1}:C{sector_start - 1}", "Sector Allocation (as disclosed)")
     header(sheet, sector_start, 2, ["Sector", "Weight"])
-    for offset, (sector, weight) in enumerate(DEFAULT_SECTORS):
+    for offset in range(SECTOR_ROWS):
         row = sector_start + 1 + offset
+        sector, weight = (
+            DEFAULT_SECTORS[offset]
+            if offset < len(DEFAULT_SECTORS)
+            else (f"[Sector {offset + 1}]", 0.0)
+        )
         input_cell(sheet.cell(row, 2, sector))
         input_cell(sheet.cell(row, 3, weight), PCT2)
     sector_total_row = sector_start + SECTOR_ROWS + 1
