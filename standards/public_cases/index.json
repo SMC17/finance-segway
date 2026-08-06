@@ -749,7 +749,7 @@
       "manifest": "standards/public_cases/pe-public-home-depot-2023.json",
       "output": "03_Private_Equity/instances/public_home_depot_2023.xlsx",
       "snapshot": "03_Private_Equity/sources/snapshots/pe-public-home-depot-2023.json",
-      "snapshot_sha256": "f65f0060297f6528a36ad4d65ddee808c134a90c5b0528da14521c1d78801c45",
+      "snapshot_sha256": "4a499ee201cb42e410d49bd0563f2945a9c114003c8efeb1362b912996508722",
       "counts_toward_m4": false,
       "receipt": {
         "schema_version": "1.0",
@@ -801,6 +801,14 @@
           },
           {
             "sheet": "Assumptions",
+            "cell": "C8",
+            "previous": 0.005,
+            "value": -0.001,
+            "source_url": "https://www.alphavantage.co/documentation/#earnings-call-transcripts",
+            "source_as_of": "2024-02-20"
+          },
+          {
+            "sheet": "Assumptions",
             "cell": "C9",
             "previous": 0.025,
             "value": 0.0213,
@@ -808,8 +816,8 @@
             "source_as_of": "2024-01-31"
           }
         ],
-        "workbook_sha256": "e7a9c37c51be05c31251011b99aa2cfe871a24cd77cec8b5fdc938571f2b5da9",
-        "generated_on": "2026-08-05",
+        "workbook_sha256": "54e7668bffd6ad9f8579c432f09bba2d3a3262d542ee46a977916914afa5e80f",
+        "generated_on": "2026-08-06",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
         "counts_toward_M4": false
