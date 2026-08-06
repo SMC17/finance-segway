@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-08-06",
+  "purpose": "The public data stack this library is allowed to build on. Every sourced value and every grounded driver range must trace to one of these. Recording them here makes 'where did this number come from' answerable without reading the manifest that used it.",
+  "principle": "A model never holds a hardcoded number that isn't real. Where no disclosed point value exists, the cell is a driver whose RANGE is grounded in one of these sources -- most often industry statistics rather than a company-specific disclosure. That is why the industry-statistics source below matters as much as the filings source.",
+  "sources": [
+    {
+      "id": "sec_edgar",
+      "name": "U.S. Securities and Exchange Commission -- EDGAR",
+      "url": "https://www.sec.gov/edgar",
+      "access": "public, no licence restriction on facts",
+      "grounds": [
+        "company financial statements (10-K, 10-Q, 8-K)",
+        "segment disclosures and MD&A narrative",
+        "share counts, capital structure, debt schedules",
+        "M&A terms via merger proxies and S-4 filings",
+        "fund holdings via N-PORT and 13F"
+      ],
+      "cadence": "continuous; quarterly for periodic reports",
+      "primary_for": ["real observed company facts"],
+      "environment_note": "Direct fetch returns HTTP 403 from this sandbox's egress. Reached instead through a connector, or recorded to tools/data_fabric/out/ from a session that had access."
+    },
+    {
+      "id": "us_treasury",
+      "name": "U.S. Department of the Treasury",
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates",
+      "access": "public",
+      "grounds": [
+        "daily par yield curve rates",
+        "risk-free rate for discounting and WACC builds",
+        "term structure for fixed-income and rates models"
+      ],
+      "cadence": "daily",
+      "primary_for": ["risk_free_rate", "yield_curve"]
+    },
+    {
+      "id": "fred",
+      "name": "FRED -- Federal Reserve Bank of St. Louis Economic Data",
+      "url": "https://fred.stlouisfed.org/",
+      "access": "public",
+      "grounds": [
+        "macro time series (GDP, CPI, unemployment, fed funds)",
+        "equity index history for realised volatility and drawdown",
+        "credit spreads and financial conditions",
+        "mortgage and delinquency series"
+      ],
+      "cadence": "varies by series; most monthly or daily",
+      "primary_for": ["macro_scenario_inputs", "realised_market_statistics"],
+      "already_used_by": ["09_Risk_Management", "22_Quantitative_Systematic", "19_Structured_Finance_Securitization"]
+    },
+    {
+      "id": "damodaran",
+      "name": "Damodaran Online -- NYU Stern industry datasets",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/data.html",
+      "access": "public, freely published for use",
+      "grounds": [
+        "industry-average unlevered and levered betas",
+        "industry cost of capital and cost of equity",
+        "implied equity risk premium",
+        "industry EV/EBITDA, EV/Sales, P/E multiples",
+        "industry operating margins, effective tax rates, reinvestment rates"
+      ],
+      "cadence": "annual (January refresh), with some series updated more often",
+      "primary_for": ["driver_range_grounding", "wacc_build", "sector_multiple_ranges"],
+      "why_it_matters": "This is the source that lets a driver range be grounded rather than invented. An entry multiple for a buyout that never happened has no disclosed value -- but the observed distribution of EV/EBITDA multiples for that industry is a real, published statistic, and a range built from it is sourced rather than fabricated."
+    },
+    {
+      "id": "yahoo_finance",
+      "name": "Yahoo Finance",
+      "url": "https://finance.yahoo.com/",
+      "access": "public web; terms restrict bulk redistribution",
+      "grounds": [
+        "market prices, volumes, and quotes",
+        "index and ETF constituent snapshots",
+        "basic ratio and market-cap screening"
+      ],
+      "cadence": "intraday to daily",
+      "primary_for": ["market_price", "screening"],
+      "restriction_note": "Facts (a closing price) may be recorded with attribution; bulk redistribution of the dataset itself is not permitted. Prefer an exchange or issuer source where the same fact is available."
+    }
+  ],
+  "grounding_policy": {
+    "observed": "A disclosed value for the specific subject, from sec_edgar, an issuer disclosure, or a primary market source.",
+    "derived": "Arithmetic on observed values, with the derivation stated (e.g. D&A / revenue).",
+    "grounded_driver": "A scenario driver whose range comes from a named industry statistic -- typically damodaran, fred, or us_treasury -- rather than from a point disclosure about the subject.",
+    "forbidden": "A hardcoded number with no traceable basis. This is the failure mode every other rule here exists to prevent."
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-08-06",
+  "purpose": "Coverage-group taxonomy modelled on how investment banks actually organise: product groups that own a transaction type, and sector groups that own an industry. This is the target surface area for the model library -- it defines what 'complete coverage' means, so gaps are visible instead of implicit.",
+  "provenance_note": "The group vocabulary is standard, publicly-observable industry structure (banks publish their coverage groups on their own websites and in league-table disclosures). No bank ranking, league-table position, or quality judgement is encoded here -- those are subjective and out of scope. Group definitions are structural, not sourced facts about any particular firm.",
+  "product_groups": [
+    {
+      "id": "ma",
+      "label": "Mergers & Acquisitions",
+      "aliases": ["M&A"],
+      "transaction_type": "Buy-side and sell-side advisory, mergers, divestitures, spin-offs",
+      "core_analytics": ["dcf", "trading_comps", "precedent_transactions", "accretion_dilution", "sum_of_parts"],
+      "serving_domains": ["01"]
+    },
+    {
+      "id": "restructuring",
+      "label": "Restructuring & Special Situations",
+      "aliases": ["RX", "RSSG"],
+      "transaction_type": "In-court and out-of-court restructuring, liability management, distressed M&A",
+      "core_analytics": ["capital_structure", "liquidity_13_week", "recovery_waterfall", "fulcrum_security"],
+      "serving_domains": ["24"]
+    },
+    {
+      "id": "leveraged_finance",
+      "label": "Leveraged Finance",
+      "aliases": ["LevFin"],
+      "transaction_type": "Leveraged loans, high-yield issuance, acquisition financing",
+      "core_analytics": ["debt_capacity", "covenant_analysis", "ratings_bridge", "yield_oid"],
+      "serving_domains": ["06", "05"]
+    },
+    {
+      "id": "financial_sponsors",
+      "label": "Financial Sponsors Group",
+      "aliases": ["FSG", "Sponsors"],
+      "transaction_type": "Coverage of private equity sponsors; LBO financing and sponsor-backed M&A",
+      "core_analytics": ["lbo", "returns_waterfall", "debt_schedule", "exit_analysis"],
+      "serving_domains": ["03", "04"]
+    },
+    {
+      "id": "ecm",
+      "label": "Equity Capital Markets",
+      "aliases": ["ECM"],
+      "transaction_type": "IPOs, follow-ons, convertibles, rights issues, block trades",
+      "core_analytics": ["cap_table", "dilution", "pre_post_money", "offering_economics"],
+      "serving_domains": ["12"]
+    },
+    {
+      "id": "dcm",
+      "label": "Debt Capital Markets",
+      "aliases": ["DCM"],
+      "transaction_type": "Investment-grade issuance, maturity management, liability profiling",
+      "core_analytics": ["issuance", "maturity_ladder", "interest_rate_risk", "refinancing"],
+      "serving_domains": ["06"]
+    },
+    {
+      "id": "structured_finance",
+      "label": "Structured Finance & Securitization",
+      "aliases": ["SF", "ABS"],
+      "transaction_type": "ABS, MBS, CLO, whole-business securitization",
+      "core_analytics": ["collateral_rollforward", "cpr_cdr", "tranching", "credit_enhancement"],
+      "serving_domains": ["19"]
+    },
+    {
+      "id": "private_capital",
+      "label": "Private Capital Advisory",
+      "aliases": ["PCA", "Private Placements"],
+      "transaction_type": "Private placements, GP-led secondaries, continuation vehicles, fund finance",
+      "core_analytics": ["nav_rollforward", "fee_layering", "look_through_portfolio"],
+      "serving_domains": ["29"]
+    }
+  ],
+  "sector_groups": [
+    {
+      "id": "tmt",
+      "label": "Technology, Media & Telecommunications",
+      "aliases": ["TMT"],
+      "subsectors": ["software", "semiconductors", "internet", "it_services", "media_entertainment", "telecom"],
+      "distinct_modeling_needs": ["recurring_revenue_cohorts", "rule_of_40", "capex_intensity_for_infrastructure", "content_amortization"],
+      "serving_domains": []
+    },
+    {
+      "id": "healthcare",
+      "label": "Healthcare",
+      "aliases": ["HC"],
+      "subsectors": ["biopharma", "medical_devices", "healthcare_services", "healthcare_it", "life_science_tools"],
+      "distinct_modeling_needs": ["risk_adjusted_pipeline_npv", "patent_cliff", "reimbursement_dynamics", "clinical_trial_probability_of_success"],
+      "serving_domains": []
+    },
+    {
+      "id": "fig",
+      "label": "Financial Institutions Group",
+      "aliases": ["FIG"],
+      "subsectors": ["banks", "insurance", "asset_wealth_management", "specialty_finance", "fintech_payments", "exchanges"],
+      "distinct_modeling_needs": ["net_interest_margin", "loan_loss_provisioning", "regulatory_capital", "book_value_multiples"],
+      "serving_domains": ["18", "08", "23"]
+    },
+    {
+      "id": "industrials",
+      "label": "Industrials",
+      "aliases": ["GIG"],
+      "subsectors": ["aerospace_defense", "automotive_mobility", "building_products", "capital_goods_machinery", "transportation_logistics", "business_services"],
+      "distinct_modeling_needs": ["backlog_conversion", "aftermarket_mix", "cyclical_normalization", "fixed_cost_absorption"],
+      "serving_domains": []
+    },
+    {
+      "id": "consumer_retail",
+      "label": "Consumer & Retail",
+      "aliases": ["CR", "Consumer"],
+      "subsectors": ["consumer_products", "retail", "restaurants_leisure", "food_beverage", "ecommerce"],
+      "distinct_modeling_needs": ["same_store_sales", "unit_economics_per_store", "category_mix", "seasonality"],
+      "serving_domains": []
+    },
+    {
+      "id": "energy",
+      "label": "Energy",
+      "aliases": [],
+      "subsectors": ["oil_gas_upstream", "oil_gas_midstream", "oil_gas_downstream", "oilfield_services", "renewables"],
+      "distinct_modeling_needs": ["reserve_based_nav", "production_decline_curves", "commodity_price_deck", "hedge_book"],
+      "serving_domains": ["15"]
+    },
+    {
+      "id": "power_utilities_infrastructure",
+      "label": "Power, Utilities & Infrastructure",
+      "aliases": ["PU&I", "PE&I", "IEC"],
+      "subsectors": ["regulated_utilities", "independent_power", "renewable_projects", "transport_infrastructure", "digital_infrastructure"],
+      "distinct_modeling_needs": ["rate_base_and_allowed_roe", "ppa_contracted_cashflows", "dsra_and_sculpting", "concession_life"],
+      "serving_domains": ["20"]
+    },
+    {
+      "id": "real_estate_gaming_lodging",
+      "label": "Real Estate, Gaming & Lodging",
+      "aliases": ["REGAL"],
+      "subsectors": ["reits", "commercial_real_estate", "residential", "gaming", "lodging"],
+      "distinct_modeling_needs": ["noi_and_cap_rates", "lease_rollover", "ffo_affo", "revpar"],
+      "serving_domains": ["17"]
+    },
+    {
+      "id": "metals_mining",
+      "label": "Metals & Mining",
+      "aliases": ["M&M"],
+      "subsectors": ["precious_metals", "base_metals", "bulk_commodities", "steel"],
+      "distinct_modeling_needs": ["reserve_resource_nav", "mine_life_schedule", "grade_and_recovery", "commodity_price_deck"],
+      "serving_domains": []
+    },
+    {
+      "id": "chemicals",
+      "label": "Chemicals",
+      "aliases": [],
+      "subsectors": ["commodity_chemicals", "specialty_chemicals", "agricultural_chemicals"],
+      "distinct_modeling_needs": ["spread_margins", "feedstock_linkage", "capacity_utilization", "turnaround_schedule"],
+      "serving_domains": []
+    },
+    {
+      "id": "public_sector",
+      "label": "Public Sector & Sovereign",
+      "aliases": [],
+      "subsectors": ["sovereign", "municipal", "supranational"],
+      "distinct_modeling_needs": ["debt_sustainability_analysis", "primary_balance", "reserve_adequacy", "contingent_liabilities"],
+      "serving_domains": ["07"]
+    }
+  ]
+}
