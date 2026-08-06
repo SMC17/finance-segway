@@ -1,0 +1,301 @@
+{
+  "ticker": "SHOP",
+  "cik": "0001594805",
+  "retrieved_utc": "20260806T133401Z",
+  "concepts": [
+    {
+      "concept": "Assets",
+      "value": 15189000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "AssetsCurrent",
+      "value": 8296000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "LiabilitiesCurrent",
+      "value": 1392000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "StockholdersEquity",
+      "value": 13473000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "CashAndCashEquivalentsAtCarryingValue",
+      "value": 1545000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "value": 1545000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "Revenues",
+      "value": 11556000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "value": 7060000000,
+      "end": "2023-12-31",
+      "filed": "2024-02-13",
+      "form": "40-F",
+      "fy": 2022,
+      "fp": "FY",
+      "frame": "CY2023"
+    },
+    {
+      "concept": "NetIncomeLoss",
+      "value": 1231000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "OperatingIncomeLoss",
+      "value": 1468000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "GrossProfit",
+      "value": 5555000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "InterestExpense",
+      "value": 3499000,
+      "end": "2022-12-31",
+      "filed": "2023-02-16",
+      "form": "40-F",
+      "fy": 2022,
+      "fp": "FY",
+      "frame": "CY2022"
+    },
+    {
+      "concept": "InterestExpenseDebt",
+      "value": 3499000,
+      "end": "2022-12-31",
+      "filed": "2023-02-16",
+      "form": "40-F",
+      "fy": 2022,
+      "fp": "FY",
+      "frame": "CY2022"
+    },
+    {
+      "concept": "IncomeTaxExpenseBenefit",
+      "value": 278000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "EarningsPerShareBasic",
+      "value": 0.95,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "EarningsPerShareDiluted",
+      "value": 0.94,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "NetCashProvidedByUsedInOperatingActivities",
+      "value": 2033000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "NetCashProvidedByUsedInInvestingActivities",
+      "value": -1190000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "NetCashProvidedByUsedInFinancingActivities",
+      "value": -811000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "DepreciationDepletionAndAmortization",
+      "value": 31000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+      "value": 26000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "CommonStockSharesOutstanding",
+      "value": 0,
+      "end": "2015-12-31",
+      "filed": "2016-02-17",
+      "form": "20-F",
+      "fy": 2015,
+      "fp": "FY",
+      "frame": "CY2015Q4I"
+    },
+    {
+      "concept": "CommonStockSharesIssued",
+      "value": 0,
+      "end": "2015-12-31",
+      "filed": "2016-02-17",
+      "form": "20-F",
+      "fy": 2015,
+      "fp": "FY",
+      "frame": "CY2015Q4I"
+    },
+    {
+      "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+      "value": 1298955860,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "ResearchAndDevelopmentExpense",
+      "value": 1536000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "SellingAndMarketingExpense",
+      "value": 1663000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "GeneralAndAdministrativeExpense",
+      "value": 471000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "ContractWithCustomerLiabilityCurrent",
+      "value": 300000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "ContractWithCustomerLiability",
+      "value": 398000000,
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    }
+  ],
+  "meta": {
+    "prefer_annual": true,
+    "concept_count_requested": 40
+  }
+}

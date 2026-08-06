@@ -166,6 +166,104 @@ def extract_selected(
     return rows
 
 
+def extract_annual_series(facts: dict, concepts: list[str]) -> list[dict]:
+    """Full annual history per concept from annual filings (10-K/20-F/40-F,
+    amendments included), deduped to one observation per fiscal PERIOD END,
+    latest-filed value winning (restatements win, including 10-K/A).
+
+    Discriminating annual facts is subtler than it looks; each rule below is
+    the scar of a reproduced failure mode:
+    - Form matches by PREFIX so amendment restatements are not dropped.
+    - fp/fy fields describe the FILING, not the fact (every row in a 10-K
+      carries fp=FY, including quarterly comparative frames), so they are
+      useless as annual markers and deliberately unused.
+    - A duration fact is annual when it spans >= 10 months. Dedupe keys on
+      the full END DATE, never its calendar year: a fiscal-year-end change
+      produces two distinct annual periods ending in the same calendar year
+      and both must land. Same end date -> longer duration wins (a mistagged
+      Q4 row loses to its full-year sibling), then latest filed.
+    - Short periods are admitted only as TRANSITION STUBS: >= 5 months
+      (quarterly frames are ~3) and not contained inside any kept annual
+      period - a spin-off's 8-month first fiscal year survives while the
+      quarterly comparatives inside every 10-K stay out.
+    - Instant (balance-sheet) facts have no start; annual filings carry
+      them at fiscal year ends, so they key by end date directly.
+    """
+    usgaap = facts.get("facts", {}).get("us-gaap", {})
+    dei = facts.get("facts", {}).get("dei", {})
+    annual_forms = ("10-K", "20-F", "40-F")
+
+    def months(item: dict) -> int | None:
+        start, end = item.get("start"), item.get("end")
+        if not start or not end:
+            return None
+        return (int(end[:4]) - int(start[:4])) * 12 + (int(end[5:7]) - int(start[5:7]))
+
+    def better(new: dict, kept: dict) -> bool:
+        new_m, kept_m = months(new) or 0, months(kept) or 0
+        if new_m != kept_m:
+            return new_m > kept_m
+        return (new.get("filed") or "") > (kept.get("filed") or "")
+
+    rows: list[dict] = []
+    for concept in concepts:
+        node = usgaap.get(concept) or dei.get(concept)
+        if not node:
+            continue
+        candidates = [
+            item for item in _pick_series(node)
+            if str(item.get("form") or "").startswith(annual_forms)
+            and item.get("end") and item.get("val") is not None
+        ]
+        by_end: dict[str, dict] = {}
+        shorts: list[dict] = []
+        for item in candidates:
+            duration = months(item)
+            if duration is not None and duration < 10:
+                shorts.append(item)
+                continue
+            kept = by_end.get(item["end"])
+            if kept is None or better(item, kept):
+                by_end[item["end"]] = item
+        annual_spans = [
+            (item.get("start"), item["end"])
+            for item in by_end.values()
+            if item.get("start")
+        ]
+        for item in shorts:
+            duration = months(item) or 0
+            if duration < 5:
+                continue  # quarterly comparative frames
+            contained = any(
+                start <= item["start"] and item["end"] <= end
+                for start, end in annual_spans
+            )
+            if contained or item["end"] in by_end:
+                continue
+            kept = by_end.get(item["end"])
+            if kept is None or better(item, kept):
+                by_end[item["end"]] = item
+        if not by_end:
+            continue
+        rows.append(
+            {
+                "concept": concept,
+                "observations": [
+                    {
+                        "end": item.get("end"),
+                        "value": item.get("val"),
+                        "filed": item.get("filed"),
+                        "form": item.get("form"),
+                        "fy": item.get("fy"),
+                        "fp": item.get("fp"),
+                    }
+                    for _, item in sorted(by_end.items())
+                ],
+            }
+        )
+    return rows
+
+
 def write_outputs(
     ticker: str,
     cik: str,
@@ -249,6 +347,13 @@ def main() -> int:
         default=[],
         help="Additional us-gaap or dei concept names to extract",
     )
+    ap.add_argument(
+        "--annual-series",
+        action="store_true",
+        help="Also write {TICKER}_facts_annual_series.json: full annual "
+             "history per concept, one value per fiscal end-year, latest "
+             "filed wins",
+    )
     args = ap.parse_args()
 
     sess = _session()
@@ -260,6 +365,31 @@ def main() -> int:
     facts = fetch_company_facts(cik, sess)
     concepts = list(dict.fromkeys(DEFAULT_CONCEPTS + list(args.extra_concepts or [])))
     rows = extract_selected(facts, concepts, prefer_annual=args.prefer_annual)
+    if args.annual_series:
+        series_rows = extract_annual_series(facts, concepts)
+        series_path = OUT_DIR / f"{args.ticker.upper()}_facts_annual_series.json"
+        series_path.write_text(
+            json.dumps(
+                {
+                    "ticker": args.ticker.upper(),
+                    "cik": str(cik).zfill(10),
+                    "retrieved_utc": datetime.now(timezone.utc).strftime(
+                        "%Y%m%dT%H%M%SZ"
+                    ),
+                    "dedupe_rule": (
+                        "annual filings (amendments included); one value per "
+                        "fiscal period-end date; annual = >=10-month span, "
+                        "transition stubs >=5 months admitted when not inside "
+                        "an annual period; longer duration then latest filed "
+                        "wins (restatements win)"
+                    ),
+                    "concepts": series_rows,
+                },
+                indent=2,
+            ),
+            encoding="utf-8",
+        )
+        print(f"Wrote {series_path} ({len(series_rows)} concepts with history)")
     write_outputs(
         args.ticker,
         cik,
