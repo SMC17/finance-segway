@@ -48,6 +48,14 @@
     },
     {
       "sheet": "Assumptions",
+      "cell": "C8",
+      "previous": 0.005,
+      "value": -0.001,
+      "source_url": "https://www.alphavantage.co/documentation/#earnings-call-transcripts",
+      "source_as_of": "2024-02-20"
+    },
+    {
+      "sheet": "Assumptions",
       "cell": "C9",
       "previous": 0.025,
       "value": 0.0213,
@@ -55,8 +63,8 @@
       "source_as_of": "2024-01-31"
     }
   ],
-  "workbook_sha256": "e7a9c37c51be05c31251011b99aa2cfe871a24cd77cec8b5fdc938571f2b5da9",
-  "generated_on": "2026-08-05",
+  "workbook_sha256": "aedd5b2a7cfac7b6c12c8dcf6968d87bd208ef24ecc141c139aa57102db7c3b4",
+  "generated_on": "2026-08-06",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
   "counts_toward_M4": false
