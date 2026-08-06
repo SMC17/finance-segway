@@ -930,6 +930,52 @@
       ],
       "target_maturity": "M3",
       "minimum_instances_for_M4": 2
+    },
+    {
+      "id": "31",
+      "domain": "Software & SaaS",
+      "folder": "31_Software_SaaS",
+      "archetype": "SOFTWARE",
+      "workbook": "31_Software_SaaS/_template_SOFTWARE.xlsx",
+      "builder": "tools/builders/build_software_saas_institutional.py",
+      "horizon": "corporate_5y",
+      "declared_maturity": "M1",
+      "sector_group": "tmt",
+      "subsectors": [
+        "software"
+      ],
+      "required_engines": [
+        "arr_rollforward",
+        "revenue_disaggregation",
+        "operating_model",
+        "unit_economics",
+        "rule_of_40"
+      ],
+      "engine_surfaces": {
+        "arr_rollforward": "ARR Rollforward",
+        "revenue_disaggregation": "Operating Model",
+        "operating_model": "Operating Model",
+        "unit_economics": "Unit Economics",
+        "rule_of_40": "Rule of 40"
+      },
+      "required_perspectives": [
+        "management",
+        "public_investor",
+        "growth_equity_investor"
+      ],
+      "perspective_surfaces": {
+        "management": "Unit Economics",
+        "public_investor": "Rule of 40",
+        "growth_equity_investor": "ARR Rollforward"
+      },
+      "reference_checks": [
+        "arr_rollforward_reconciliation",
+        "retention_ordering",
+        "revenue_disaggregation_identity",
+        "sbc_addback_ordering"
+      ],
+      "target_maturity": "M2",
+      "minimum_instances_for_M4": 2
     }
   ]
 }

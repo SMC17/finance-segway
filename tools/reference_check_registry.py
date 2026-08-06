@@ -45,7 +45,7 @@ HARDENING_REGISTRY = ROOT / "standards" / "domain_hardening" / "m1_registry.json
 # recalculation compared to independent Python) by verify_reference_calcs.py.
 # Pinned by tests against that module's actual check functions so this
 # constant cannot rot silently when checks are added or removed.
-WORKBOOK_VERIFIED_MODELS = {"01", "03", "05", "13", "14", "21"}
+WORKBOOK_VERIFIED_MODELS = {"01", "03", "05", "13", "14", "21", "31"}
 
 
 def _case_sources() -> dict[str, tuple[str, Callable[..., dict[str, Any]], list[dict[str, Any]]]]:

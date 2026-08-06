@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "model_id": "31",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "net_revenue_retention",
+      "warning": 1.05,
+      "breach": 1.0,
+      "action": "Investigate contraction and churn drivers; NRR below 100% means the installed base is shrinking before new logos"
+    },
+    {
+      "metric": "gross_profit_cac_payback_months",
+      "warning": 24,
+      "breach": 36,
+      "action": "Review sales efficiency; payback beyond three years implies acquisition spend is not returning within a normal contract life"
+    },
+    {
+      "metric": "rule_of_40",
+      "warning": 0.3,
+      "breach": 0.2,
+      "action": "Escalate growth-versus-margin trade-off to owner"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}

@@ -576,6 +576,90 @@ def check_credit_ecf_sweep_stepdown():
     return "Private Credit: leverage-based ECF sweep step-down grid", ok, detail
 
 
+# ---------------------------------------------------------------------
+# Software / SaaS: ARR roll-forward, retention ordering, revenue split.
+# ---------------------------------------------------------------------
+def check_software_arr_rollforward():
+    """Recompute the ARR cohort balance and its derived retention metrics.
+
+    Independent of the workbook's own formulas: the expected series is
+    generated here in pure Python from the Assumptions drivers, then
+    compared cell-for-cell against the recalculated sheet. Retention is the
+    part worth checking hardest -- NRR and GRR are easy to define wrongly
+    (including new logos in NRR is the classic error, and it inflates the
+    number in exactly the direction a seller would like).
+    """
+    path = os.path.join(REPO_ROOT, "31_Software_SaaS", "_template_SOFTWARE.xlsx")
+    workbook = with_recalc(path, lambda _: None)
+    assumptions = workbook["Assumptions"]
+    arr = workbook["ARR Rollforward"]
+    operating = workbook["Operating Model"]
+
+    beginning = assumptions["E5"].value
+    new_rate = assumptions["E6"].value
+    expansion_rate = assumptions["E7"].value
+    contraction_rate = assumptions["E8"].value
+    churn_rate = assumptions["E9"].value
+    services_rate = assumptions["E10"].value
+    subscription_margin = assumptions["E11"].value
+    services_margin = assumptions["E12"].value
+
+    failures = []
+    balance = beginning
+    for index, column in enumerate("CDEFG"):
+        new = balance * new_rate
+        expansion = balance * expansion_rate
+        contraction = balance * contraction_rate
+        churn = balance * churn_rate
+        ending = balance + new + expansion - contraction - churn
+        # NRR: installed base only -- excludes new logos by construction.
+        expected_nrr = (balance + expansion - contraction - churn) / balance
+        # GRR: churn only -- no credit for expansion.
+        expected_grr = (balance - churn) / balance
+
+        if not close(arr[f"{column}5"].value, balance, tol=1e-6):
+            failures.append(f"year{index + 1} beginning ARR")
+        if not close(arr[f"{column}10"].value, ending, tol=1e-6):
+            failures.append(f"year{index + 1} ending ARR")
+        if not close(arr[f"{column}12"].value, expected_nrr, tol=1e-9):
+            failures.append(f"year{index + 1} NRR")
+        if not close(arr[f"{column}13"].value, expected_grr, tol=1e-9):
+            failures.append(f"year{index + 1} GRR")
+        if expected_nrr < expected_grr - 1e-12:
+            failures.append(f"year{index + 1} NRR below GRR")
+
+        # Revenue recognises the average ARR balance, not the ending one.
+        subscription = (balance + ending) / 2
+        services = subscription * services_rate
+        total_revenue = subscription + services
+        blended = (
+            subscription * subscription_margin + services * services_margin
+        ) / total_revenue
+        if not close(operating[f"{column}7"].value, total_revenue, tol=1e-6):
+            failures.append(f"year{index + 1} total revenue")
+        if not close(operating[f"{column}11"].value, blended, tol=1e-9):
+            failures.append(f"year{index + 1} blended gross margin")
+        if not (services_margin - 1e-9 <= blended <= subscription_margin + 1e-9):
+            failures.append(f"year{index + 1} blended margin outside component bounds")
+
+        # SBC add-back must never reduce operating income.
+        if operating[f"{column}19"].value < operating[f"{column}16"].value - 1e-9:
+            failures.append(f"year{index + 1} non-GAAP below GAAP")
+
+        balance = ending
+
+    ok = not failures
+    detail = (
+        f"5-year ARR {beginning:.1f} -> {balance:.1f}; "
+        f"NRR={arr['C12'].value:.4f} GRR={arr['C13'].value:.4f} "
+        f"(NRR excludes new logos by construction); "
+        f"blended GM={operating['C11'].value:.4f} within "
+        f"[{services_margin:.2f}, {subscription_margin:.2f}]; "
+        f"failures={'none' if ok else failures}"
+    )
+    return "Software: ARR roll-forward, retention ordering, revenue split", ok, detail
+
+
 CHECKS = [
     check_black_scholes,
     check_bond_duration,
@@ -584,6 +668,7 @@ CHECKS = [
     check_vc_holder_election_waterfall,
     check_base_archetype_integration,
     check_credit_ecf_sweep_stepdown,
+    check_software_arr_rollforward,
 ]
 
 
