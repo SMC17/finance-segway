@@ -1,0 +1,7 @@
+{
+  "ticker": "TRI",
+  "cik": "0001075124",
+  "retrieved_utc": "20260806T140252Z",
+  "dedupe_rule": "annual filings (amendments included); one value per fiscal period-end date; annual = >=10-month span, transition stubs >=5 months admitted when not inside an annual period; longer duration then latest filed wins (restatements win)",
+  "concepts": []
+}

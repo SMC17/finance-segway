@@ -1,0 +1,1222 @@
+{
+  "ticker": "GEHC",
+  "cik": "0001932393",
+  "retrieved_utc": "20260806T140243Z",
+  "dedupe_rule": "annual filings (amendments included); one value per fiscal period-end date; annual = >=10-month span, transition stubs >=5 months admitted when not inside an annual period; longer duration then latest filed wins (restatements win)",
+  "concepts": [
+    {
+      "concept": "Assets",
+      "observations": [
+        {
+          "end": "2022-12-31",
+          "value": 27539000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 32454000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 33089000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 36906000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "AssetsCurrent",
+      "observations": [
+        {
+          "end": "2022-12-31",
+          "value": 8318000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 9410000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 9901000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 12501000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "Liabilities",
+      "observations": [
+        {
+          "end": "2022-12-31",
+          "value": 17947000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 25144000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 24437000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 26307000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "LiabilitiesCurrent",
+      "observations": [
+        {
+          "end": "2022-12-31",
+          "value": 7191000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 8981000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 9553000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 9105000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "StockholdersEquity",
+      "observations": [
+        {
+          "end": "2022-12-31",
+          "value": 9357000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 7133000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 8446000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 10379000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+      "observations": [
+        {
+          "end": "2020-12-31",
+          "value": 14751000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-12-31",
+          "value": 16676000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": 9362000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 7145000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 8464000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 10390000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "CashAndCashEquivalentsAtCarryingValue",
+      "observations": [
+        {
+          "end": "2022-12-31",
+          "value": 1440000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 2494000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 2874000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 4492000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "observations": [
+        {
+          "end": "2020-12-31",
+          "value": 1012000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-12-31",
+          "value": 561000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": 1451000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 2506000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 2893000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 4515000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "LongTermDebt",
+      "observations": [
+        {
+          "end": "2022-12-31",
+          "value": 8249000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 9442000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 8951000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 10003000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "LongTermDebtNoncurrent",
+      "observations": [
+        {
+          "end": "2022-12-31",
+          "value": 8234000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 8436000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 7449000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 9495000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "LongTermDebtCurrent",
+      "observations": [
+        {
+          "end": "2023-12-31",
+          "value": 1002000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 1500000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 502000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "ShortTermBorrowings",
+      "observations": [
+        {
+          "end": "2022-12-31",
+          "value": 15000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 1006000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 1502000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 508000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "observations": [
+        {
+          "end": "2021-12-31",
+          "value": 17585000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": 18341000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 19552000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 19672000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 20625000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "NetIncomeLoss",
+      "observations": [
+        {
+          "end": "2021-12-31",
+          "value": 2247000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": 1916000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 1568000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 1993000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 2084000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "OperatingIncomeLoss",
+      "observations": [
+        {
+          "end": "2021-12-31",
+          "value": 2795000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": 2522000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 2435000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 2625000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 2763000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "GrossProfit",
+      "observations": [
+        {
+          "end": "2021-12-31",
+          "value": 7174000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": 7179000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 7922000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 8205000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 8248000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "IncomeTaxExpenseBenefit",
+      "observations": [
+        {
+          "end": "2021-12-31",
+          "value": 600000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": 563000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 743000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 531000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 614000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "EarningsPerShareBasic",
+      "observations": [
+        {
+          "end": "2021-12-31",
+          "value": 4.95,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": 4.22,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 3.05,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 4.37,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 4.56,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "EarningsPerShareDiluted",
+      "observations": [
+        {
+          "end": "2021-12-31",
+          "value": 4.95,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": 4.22,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 3.03,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 4.34,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 4.55,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "NetCashProvidedByUsedInInvestingActivities",
+      "observations": [
+        {
+          "end": "2021-12-31",
+          "value": -1761000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": -398000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": -558000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": -914000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": -1047000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "NetCashProvidedByUsedInFinancingActivities",
+      "observations": [
+        {
+          "end": "2021-12-31",
+          "value": -263000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": -822000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": -478000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": -573000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 617000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "CommonStockSharesOutstanding",
+      "observations": [
+        {
+          "end": "2022-12-31",
+          "value": 100,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-03",
+          "value": 454000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 455342290,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "CommonStockSharesIssued",
+      "observations": [
+        {
+          "end": "2022-12-31",
+          "value": 100,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 455342290,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 457246971,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 458844209,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+      "observations": [
+        {
+          "end": "2021-12-31",
+          "value": 454000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": 454000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 455000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 456000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 456000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "ResearchAndDevelopmentExpense",
+      "observations": [
+        {
+          "end": "2021-12-31",
+          "value": 816000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": 1026000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 1205000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 1311000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 1260000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "ShareBasedCompensation",
+      "observations": [
+        {
+          "end": "2021-12-31",
+          "value": 76000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": 67000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 114000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 125000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 130000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "ContractWithCustomerLiabilityCurrent",
+      "observations": [
+        {
+          "end": "2022-12-31",
+          "value": 1896000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 1918000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 1943000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 2095000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "ContractWithCustomerLiability",
+      "observations": [
+        {
+          "end": "2022-12-31",
+          "value": 2526000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 2623000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 2629000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 2899000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "RevenueRemainingPerformanceObligation",
+      "observations": [
+        {
+          "end": "2023-12-31",
+          "value": 14655000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 14491000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 15729000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "InventoryNet",
+      "observations": [
+        {
+          "end": "2022-12-31",
+          "value": 2155000000,
+          "filed": "2024-02-06",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 1960000000,
+          "filed": "2025-02-13",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 1939000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 2234000000,
+          "filed": "2026-02-04",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    }
+  ]
+}
