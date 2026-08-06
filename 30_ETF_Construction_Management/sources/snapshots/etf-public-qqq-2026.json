@@ -1,0 +1,859 @@
+{
+  "schema_version": "1.0",
+  "model_id": "30",
+  "domain": "ETF Construction & Management",
+  "case_id": "etf-public-qqq-2026",
+  "case_type": "conventional",
+  "as_of": "2026-08-06",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+      "url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "publisher": "Invesco Capital Management LLC (via Alpha Vantage)",
+      "captured_values": {
+        "net_assets_usd_mm": 490100.0,
+        "net_expense_ratio": 0.0018,
+        "dividend_yield": 0.0043,
+        "inception_date": "1999-03-10",
+        "market_price_usd": 717.3,
+        "holdings_count_disclosed": 105,
+        "top30_holdings_weight_sum": 0.7495,
+        "sector_weight_sum_disclosed": 0.967
+      }
+    },
+    {
+      "name": "QQQ market close price (Alpha Vantage GLOBAL_QUOTE, 2026-08-05)",
+      "url": "https://www.alphavantage.co/documentation/#quote-endpoint",
+      "publisher": "Alpha Vantage MCP",
+      "captured_values": {
+        "market_price_usd": 717.3,
+        "latest_day": "2026-08-05"
+      }
+    }
+  ],
+  "input_overrides": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 490100.0,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 0.0018,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.0043,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "value": 717.3,
+      "kind": "observed",
+      "source": "QQQ market close price (Alpha Vantage GLOBAL_QUOTE, 2026-08-05)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B5",
+      "value": "NVDA",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C5",
+      "value": "NVIDIA CORP",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D5",
+      "value": 0.0828,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B6",
+      "value": "AAPL",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C6",
+      "value": "APPLE INC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D6",
+      "value": 0.0772,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B7",
+      "value": "MU",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C7",
+      "value": "MICRON TECHNOLOGY INC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D7",
+      "value": 0.0482,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B8",
+      "value": "MSFT",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C8",
+      "value": "MICROSOFT CORP",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D8",
+      "value": 0.0468,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B9",
+      "value": "AMZN",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C9",
+      "value": "AMAZON.COM INC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D9",
+      "value": 0.0425,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B10",
+      "value": "AMD",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C10",
+      "value": "ADVANCED MICRO DEVICES INC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D10",
+      "value": 0.0401,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B11",
+      "value": "GOOGL",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C11",
+      "value": "ALPHABET INC CLASS A",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D11",
+      "value": 0.0321,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B12",
+      "value": "AVGO",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C12",
+      "value": "BROADCOM INC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D12",
+      "value": 0.0303,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B13",
+      "value": "GOOG",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C13",
+      "value": "ALPHABET INC CLASS C",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D13",
+      "value": 0.0301,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B14",
+      "value": "TSLA",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C14",
+      "value": "TESLA INC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D14",
+      "value": 0.0301,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B15",
+      "value": "META",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C15",
+      "value": "META PLATFORMS INC CLASS A",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D15",
+      "value": 0.03,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B16",
+      "value": "WMT",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C16",
+      "value": "WALMART INC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D16",
+      "value": 0.0238,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B17",
+      "value": "INTC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C17",
+      "value": "INTEL CORP",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D17",
+      "value": 0.023,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B18",
+      "value": "CSCO",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C18",
+      "value": "CISCO SYSTEMS INC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D18",
+      "value": 0.0197,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B19",
+      "value": "AMAT",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C19",
+      "value": "APPLIED MATERIALS INC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D19",
+      "value": 0.0196,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B20",
+      "value": "COST",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C20",
+      "value": "COSTCO WHOLESALE CORP",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D20",
+      "value": 0.0183,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B21",
+      "value": "LRCX",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C21",
+      "value": "LAM RESEARCH CORP",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D21",
+      "value": 0.0178,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B22",
+      "value": "NFLX",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C22",
+      "value": "NETFLIX INC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D22",
+      "value": 0.0129,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B23",
+      "value": "PLTR",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C23",
+      "value": "n/a",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D23",
+      "value": 0.0127,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B24",
+      "value": "KLAC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C24",
+      "value": "KLA CORP",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D24",
+      "value": 0.0125,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B25",
+      "value": "PANW",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C25",
+      "value": "PALO ALTO NETWORKS INC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D25",
+      "value": 0.0122,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B26",
+      "value": "TXN",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C26",
+      "value": "TEXAS INSTRUMENTS INC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D26",
+      "value": 0.0119,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B27",
+      "value": "LIN",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C27",
+      "value": "LINDE PLC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D27",
+      "value": 0.0105,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B28",
+      "value": "SNDK",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C28",
+      "value": "SANDISK CORP ORDINARY SHARES",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D28",
+      "value": 0.0105,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B29",
+      "value": "SPCX",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C29",
+      "value": "n/a",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D29",
+      "value": 0.0098,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B30",
+      "value": "TMUS",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C30",
+      "value": "T-MOBILE US INC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D30",
+      "value": 0.0092,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B31",
+      "value": "STX",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C31",
+      "value": "SEAGATE TECHNOLOGY HOLDINGS PLC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D31",
+      "value": 0.0091,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B32",
+      "value": "AMGN",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C32",
+      "value": "AMGEN INC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D32",
+      "value": 0.0088,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B33",
+      "value": "CRWD",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C33",
+      "value": "CROWDSTRIKE HOLDINGS INC CLASS A",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D33",
+      "value": 0.0085,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B34",
+      "value": "WDC",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C34",
+      "value": "WESTERN DIGITAL CORP",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D34",
+      "value": 0.0085,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B40",
+      "value": "INFORMATION TECHNOLOGY",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C40",
+      "value": 0.577,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B41",
+      "value": "COMMUNICATION SERVICES",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C41",
+      "value": 0.133,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B42",
+      "value": "CONSUMER DISCRETIONARY",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C42",
+      "value": 0.101,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B43",
+      "value": "CONSUMER STAPLES",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C43",
+      "value": 0.061,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B44",
+      "value": "HEALTHCARE",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C44",
+      "value": 0.036,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B45",
+      "value": "INDUSTRIALS",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C45",
+      "value": 0.029,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B46",
+      "value": "UTILITIES",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C46",
+      "value": 0.012,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B47",
+      "value": "MATERIALS",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C47",
+      "value": 0.011,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B48",
+      "value": "ENERGY",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C48",
+      "value": 0.005,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B49",
+      "value": "FINANCIALS",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C49",
+      "value": 0.002,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B50",
+      "value": "REAL ESTATE",
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C50",
+      "value": 0.0,
+      "kind": "observed",
+      "source": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)"
+    }
+  ],
+  "series": null,
+  "outcome": {
+    "metric": "next_quarter_net_assets_usd_mm",
+    "forecast": 490100.0,
+    "realized": null,
+    "realized_source": "Pending next maintained evidence refresh",
+    "status": "pending"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "593a40e99d5a4dadb36a0ffb0a7ceeaf2c2501005b0851f5a0a2c226b7297306"
+}

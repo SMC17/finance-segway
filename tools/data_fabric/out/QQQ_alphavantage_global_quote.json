@@ -1,0 +1,15 @@
+{
+  "symbol": "QQQ",
+  "source": "Alpha Vantage GLOBAL_QUOTE MCP tool",
+  "retrieved_for": "30_ETF_Construction_Management etf-public-qqq-2026 public case",
+  "retrieved_at": "2026-08-06",
+  "open": 726.25,
+  "high": 728.54,
+  "low": 716.92,
+  "price": 717.30,
+  "volume": 32365731,
+  "latestDay": "2026-08-05",
+  "previousClose": 723.85,
+  "change": -6.55,
+  "changePercent": "-0.9049%"
+}

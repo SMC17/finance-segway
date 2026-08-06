@@ -65,7 +65,7 @@ except (ImportError, ModuleNotFoundError):  # script-style execution
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INVENTORY = ROOT / "standards" / "model_inventory.json"
 HARD_FAILURE_STATUSES = {"MISSING_WORKBOOK", "RECALC_FAILED", "NO_STATUS_FOUND"}
-EXPECTED_MODEL_COUNT = 25
+EXPECTED_MODEL_COUNT = 26
 ALLOWED_MATURITY = {"M0", "M1", "M2", "M3", "M4"}
 ALLOWED_HORIZONS = {
     "trading_intraday",
