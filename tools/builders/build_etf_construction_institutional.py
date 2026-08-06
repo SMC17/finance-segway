@@ -93,18 +93,17 @@ def build(output: Path) -> None:
     sheet = workbook["Portfolio Construction"]
     title(sheet, "B2:E2", "Constituent Holdings (Look-Through)")
     header(sheet, 4, 2, ["Symbol", "Issuer / description", "Weight"])
-    # Style every reserved holdings row as an input cell, not just the rows
-    # carrying an illustrative default. The table's real capacity is
-    # HOLDING_ROWS; a real instance (QQQ fills all 30) puts sourced data into
-    # rows the template left blank. Leaving those blank rows unstyled made
-    # the template under-declare its own input surface, so
-    # tools/verify_template_exhaustion.py could not see real, sourced cells
-    # as candidates -- they showed up as "real inputs outside the candidate
-    # set" instead of as coverage.
+    # Style the ENTIRE declared grid as input surface, not just the rows
+    # with illustrative defaults: a real instance manifest fills all
+    # HOLDING_ROWS rows, and an unmarked cell that receives real data is
+    # exactly what the template-exhaustion scanner (correctly) flags.
     for offset in range(HOLDING_ROWS):
         row = 5 + offset
-        default = DEFAULT_HOLDINGS[offset] if offset < len(DEFAULT_HOLDINGS) else (None, None, None)
-        symbol, issuer, weight = default
+        symbol, issuer, weight = (
+            DEFAULT_HOLDINGS[offset]
+            if offset < len(DEFAULT_HOLDINGS)
+            else (f"[Holding {offset + 1}]", f"[Issuer {offset + 1}]", 0.0)
+        )
         input_cell(sheet.cell(row, 2, symbol))
         input_cell(sheet.cell(row, 3, issuer))
         input_cell(sheet.cell(row, 4, weight), PCT2)
@@ -122,7 +121,11 @@ def build(output: Path) -> None:
     header(sheet, sector_start, 2, ["Sector", "Weight"])
     for offset in range(SECTOR_ROWS):
         row = sector_start + 1 + offset
-        sector, weight = DEFAULT_SECTORS[offset] if offset < len(DEFAULT_SECTORS) else (None, None)
+        sector, weight = (
+            DEFAULT_SECTORS[offset]
+            if offset < len(DEFAULT_SECTORS)
+            else (f"[Sector {offset + 1}]", 0.0)
+        )
         input_cell(sheet.cell(row, 2, sector))
         input_cell(sheet.cell(row, 3, weight), PCT2)
     sector_total_row = sector_start + SECTOR_ROWS + 1
