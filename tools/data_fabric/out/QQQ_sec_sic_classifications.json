@@ -1,0 +1,620 @@
+{
+ "source": "SEC EDGAR submissions API (data.sec.gov/submissions/CIK##########.json)",
+ "retrieved_at": "2026-08-06",
+ "retrieved_for": "standards/universe taxonomy sector classification",
+ "note": "Per-company SIC code and description as filed with the SEC. CIK overrides cover issuers absent from SEC's ticker map (AEP). The harvest refuses to write if any constituent is unresolvable.",
+ "companies": {
+  "AAPL": {
+   "cik": "0000320193",
+   "name": "Apple Inc.",
+   "sic": "3571",
+   "sic_description": "Electronic Computers"
+  },
+  "ABNB": {
+   "cik": "0001559720",
+   "name": "Airbnb, Inc.",
+   "sic": "7340",
+   "sic_description": "Services-To Dwellings & Other Buildings"
+  },
+  "ADBE": {
+   "cik": "0000796343",
+   "name": "ADOBE INC.",
+   "sic": "7372",
+   "sic_description": "Services-Prepackaged Software"
+  },
+  "ADI": {
+   "cik": "0000006281",
+   "name": "ANALOG DEVICES INC",
+   "sic": "3674",
+   "sic_description": "Semiconductors & Related Devices"
+  },
+  "ADP": {
+   "cik": "0000008670",
+   "name": "AUTOMATIC DATA PROCESSING INC",
+   "sic": "7374",
+   "sic_description": "Services-Computer Processing & Data Preparation"
+  },
+  "ADSK": {
+   "cik": "0000769397",
+   "name": "Autodesk, Inc.",
+   "sic": "7372",
+   "sic_description": "Services-Prepackaged Software"
+  },
+  "AEP": {
+   "cik": "0000004904",
+   "name": "AMERICAN ELECTRIC POWER CO INC",
+   "sic": "4911",
+   "sic_description": "Electric Services"
+  },
+  "ALAB": {
+   "cik": "0001736297",
+   "name": "Astera Labs, Inc.",
+   "sic": "3674",
+   "sic_description": "Semiconductors & Related Devices"
+  },
+  "ALNY": {
+   "cik": "0001178670",
+   "name": "ALNYLAM PHARMACEUTICALS, INC.",
+   "sic": "2834",
+   "sic_description": "Pharmaceutical Preparations"
+  },
+  "AMAT": {
+   "cik": "0000006951",
+   "name": "APPLIED MATERIALS INC /DE",
+   "sic": "3674",
+   "sic_description": "Semiconductors & Related Devices"
+  },
+  "AMD": {
+   "cik": "0000002488",
+   "name": "ADVANCED MICRO DEVICES INC",
+   "sic": "3674",
+   "sic_description": "Semiconductors & Related Devices"
+  },
+  "AMGN": {
+   "cik": "0000318154",
+   "name": "AMGEN INC",
+   "sic": "2836",
+   "sic_description": "Biological Products, (No Diagnostic Substances)"
+  },
+  "AMZN": {
+   "cik": "0001018724",
+   "name": "AMAZON COM INC",
+   "sic": "5961",
+   "sic_description": "Retail-Catalog & Mail-Order Houses"
+  },
+  "APP": {
+   "cik": "0001751008",
+   "name": "AppLovin Corp",
+   "sic": "7370",
+   "sic_description": "Services-Computer Programming, Data Processing, Etc."
+  },
+  "ARM": {
+   "cik": "0001973239",
+   "name": "ARM HOLDINGS PLC /UK",
+   "sic": "3674",
+   "sic_description": "Semiconductors & Related Devices"
+  },
+  "ASML": {
+   "cik": "0000937966",
+   "name": "ASML HOLDING NV",
+   "sic": "3559",
+   "sic_description": "Special Industry Machinery, NEC"
+  },
+  "AVGO": {
+   "cik": "0001730168",
+   "name": "Broadcom Inc.",
+   "sic": "3674",
+   "sic_description": "Semiconductors & Related Devices"
+  },
+  "AXON": {
+   "cik": "0001069183",
+   "name": "AXON ENTERPRISE, INC.",
+   "sic": "3480",
+   "sic_description": "Ordnance & Accessories, (No Vehicles/Guided Missiles)"
+  },
+  "BKNG": {
+   "cik": "0001075531",
+   "name": "Booking Holdings Inc.",
+   "sic": "4700",
+   "sic_description": "Transportation Services"
+  },
+  "BKR": {
+   "cik": "0001701605",
+   "name": "Baker Hughes Co",
+   "sic": "3533",
+   "sic_description": "Oil & Gas Field Machinery & Equipment"
+  },
+  "CCEP": {
+   "cik": "0001650107",
+   "name": "COCA-COLA EUROPACIFIC PARTNERS plc",
+   "sic": "2086",
+   "sic_description": "Bottled & Canned Soft Drinks & Carbonated Waters"
+  },
+  "CDNS": {
+   "cik": "0000813672",
+   "name": "CADENCE DESIGN SYSTEMS INC",
+   "sic": "7372",
+   "sic_description": "Services-Prepackaged Software"
+  },
+  "CEG": {
+   "cik": "0001868275",
+   "name": "Constellation Energy Corp",
+   "sic": "4911",
+   "sic_description": "Electric Services"
+  },
+  "CMCSA": {
+   "cik": "0001166691",
+   "name": "COMCAST CORP",
+   "sic": "4841",
+   "sic_description": "Cable & Other Pay Television Services"
+  },
+  "COST": {
+   "cik": "0000909832",
+   "name": "COSTCO WHOLESALE CORP /NEW",
+   "sic": "5331",
+   "sic_description": "Retail-Variety Stores"
+  },
+  "CPRT": {
+   "cik": "0000900075",
+   "name": "COPART INC",
+   "sic": "5500",
+   "sic_description": "Retail-Auto Dealers & Gasoline Stations"
+  },
+  "CRWD": {
+   "cik": "0001535527",
+   "name": "CrowdStrike Holdings, Inc.",
+   "sic": "7372",
+   "sic_description": "Services-Prepackaged Software"
+  },
+  "CRWV": {
+   "cik": "0001769628",
+   "name": "CoreWeave, Inc.",
+   "sic": "7372",
+   "sic_description": "Services-Prepackaged Software"
+  },
+  "CSCO": {
+   "cik": "0000858877",
+   "name": "CISCO SYSTEMS, INC.",
+   "sic": "3576",
+   "sic_description": "Computer Communications Equipment"
+  },
+  "CSX": {
+   "cik": "0000277948",
+   "name": "CSX CORP",
+   "sic": "4011",
+   "sic_description": "Railroads, Line-Haul Operating"
+  },
+  "CTAS": {
+   "cik": "0000723254",
+   "name": "CINTAS CORP",
+   "sic": "2320",
+   "sic_description": "Men's & Boys' Furnishgs, Work Clothg, & Allied Garments"
+  },
+  "DASH": {
+   "cik": "0001792789",
+   "name": "DoorDash, Inc.",
+   "sic": "7389",
+   "sic_description": "Services-Business Services, NEC"
+  },
+  "DDOG": {
+   "cik": "0001561550",
+   "name": "Datadog, Inc.",
+   "sic": "7372",
+   "sic_description": "Services-Prepackaged Software"
+  },
+  "DXCM": {
+   "cik": "0001093557",
+   "name": "DEXCOM INC",
+   "sic": "3841",
+   "sic_description": "Surgical & Medical Instruments & Apparatus"
+  },
+  "EA": {
+   "cik": "0000712515",
+   "name": "ELECTRONIC ARTS INC.",
+   "sic": "7372",
+   "sic_description": "Services-Prepackaged Software"
+  },
+  "EXC": {
+   "cik": "0001109357",
+   "name": "EXELON CORP",
+   "sic": "4931",
+   "sic_description": "Electric & Other Services Combined"
+  },
+  "FANG": {
+   "cik": "0001539838",
+   "name": "Diamondback Energy, Inc.",
+   "sic": "1311",
+   "sic_description": "Crude Petroleum & Natural Gas"
+  },
+  "FAST": {
+   "cik": "0000815556",
+   "name": "FASTENAL CO",
+   "sic": "5200",
+   "sic_description": "Retail-Building Materials, Hardware, Garden Supply"
+  },
+  "FTNT": {
+   "cik": "0001262039",
+   "name": "Fortinet, Inc.",
+   "sic": "3577",
+   "sic_description": "Computer Peripheral Equipment, NEC"
+  },
+  "GEHC": {
+   "cik": "0001932393",
+   "name": "GE HealthCare Technologies Inc.",
+   "sic": "3844",
+   "sic_description": "X-Ray Apparatus & Tubes & Related Irradiation Apparatus"
+  },
+  "GILD": {
+   "cik": "0000882095",
+   "name": "GILEAD SCIENCES, INC.",
+   "sic": "2836",
+   "sic_description": "Biological Products, (No Diagnostic Substances)"
+  },
+  "GOOG": {
+   "cik": "0001652044",
+   "name": "Alphabet Inc.",
+   "sic": "7370",
+   "sic_description": "Services-Computer Programming, Data Processing, Etc."
+  },
+  "GOOGL": {
+   "cik": "0001652044",
+   "name": "Alphabet Inc.",
+   "sic": "7370",
+   "sic_description": "Services-Computer Programming, Data Processing, Etc."
+  },
+  "HON": {
+   "cik": "0000773840",
+   "name": "HONEYWELL INTERNATIONAL INC",
+   "sic": "3724",
+   "sic_description": "Aircraft Engines & Engine Parts"
+  },
+  "HONA": {
+   "cik": "0002089271",
+   "name": "Honeywell Aerospace Inc.",
+   "sic": "3724",
+   "sic_description": "Aircraft Engines & Engine Parts"
+  },
+  "IDXX": {
+   "cik": "0000874716",
+   "name": "IDEXX LABORATORIES INC /DE",
+   "sic": "2835",
+   "sic_description": "In Vitro & In Vivo Diagnostic Substances"
+  },
+  "INTC": {
+   "cik": "0000050863",
+   "name": "INTEL CORP",
+   "sic": "3674",
+   "sic_description": "Semiconductors & Related Devices"
+  },
+  "INTU": {
+   "cik": "0000896878",
+   "name": "INTUIT INC.",
+   "sic": "7372",
+   "sic_description": "Services-Prepackaged Software"
+  },
+  "ISRG": {
+   "cik": "0001035267",
+   "name": "INTUITIVE SURGICAL INC",
+   "sic": "3842",
+   "sic_description": "Orthopedic, Prosthetic & Surgical Appliances & Supplies"
+  },
+  "KDP": {
+   "cik": "0001418135",
+   "name": "Keurig Dr Pepper Inc.",
+   "sic": "2080",
+   "sic_description": "Beverages"
+  },
+  "KHC": {
+   "cik": "0001637459",
+   "name": "Kraft Heinz Co",
+   "sic": "2030",
+   "sic_description": "Canned, Frozen & Preservd Fruit, Veg & Food Specialties"
+  },
+  "KLAC": {
+   "cik": "0000319201",
+   "name": "KLA CORP",
+   "sic": "3827",
+   "sic_description": "Optical Instruments & Lenses"
+  },
+  "LIN": {
+   "cik": "0001707925",
+   "name": "LINDE PLC",
+   "sic": "2810",
+   "sic_description": "Industrial Inorganic Chemicals"
+  },
+  "LITE": {
+   "cik": "0001633978",
+   "name": "Lumentum Holdings Inc.",
+   "sic": "3669",
+   "sic_description": "Communications Equipment, NEC"
+  },
+  "LRCX": {
+   "cik": "0000707549",
+   "name": "LAM RESEARCH CORP",
+   "sic": "3559",
+   "sic_description": "Special Industry Machinery, NEC"
+  },
+  "MAR": {
+   "cik": "0001048286",
+   "name": "MARRIOTT INTERNATIONAL INC /MD/",
+   "sic": "7011",
+   "sic_description": "Hotels & Motels"
+  },
+  "MCHP": {
+   "cik": "0000827054",
+   "name": "MICROCHIP TECHNOLOGY INC",
+   "sic": "3674",
+   "sic_description": "Semiconductors & Related Devices"
+  },
+  "MDLZ": {
+   "cik": "0001103982",
+   "name": "Mondelez International, Inc.",
+   "sic": "2000",
+   "sic_description": "Food and Kindred Products"
+  },
+  "MELI": {
+   "cik": "0001099590",
+   "name": "MERCADOLIBRE INC",
+   "sic": "7389",
+   "sic_description": "Services-Business Services, NEC"
+  },
+  "META": {
+   "cik": "0001326801",
+   "name": "Meta Platforms, Inc.",
+   "sic": "7370",
+   "sic_description": "Services-Computer Programming, Data Processing, Etc."
+  },
+  "MNST": {
+   "cik": "0000865752",
+   "name": "Monster Beverage Corp",
+   "sic": "2086",
+   "sic_description": "Bottled & Canned Soft Drinks & Carbonated Waters"
+  },
+  "MPWR": {
+   "cik": "0001280452",
+   "name": "MONOLITHIC POWER SYSTEMS, INC.",
+   "sic": "3674",
+   "sic_description": "Semiconductors & Related Devices"
+  },
+  "MRVL": {
+   "cik": "0001835632",
+   "name": "Marvell Technology, Inc.",
+   "sic": "3674",
+   "sic_description": "Semiconductors & Related Devices"
+  },
+  "MSFT": {
+   "cik": "0000789019",
+   "name": "MICROSOFT CORP",
+   "sic": "7372",
+   "sic_description": "Services-Prepackaged Software"
+  },
+  "MSTR": {
+   "cik": "0001050446",
+   "name": "Strategy Inc",
+   "sic": "6199",
+   "sic_description": "Finance Services"
+  },
+  "MU": {
+   "cik": "0000723125",
+   "name": "MICRON TECHNOLOGY INC",
+   "sic": "3674",
+   "sic_description": "Semiconductors & Related Devices"
+  },
+  "NBIS": {
+   "cik": "0001513845",
+   "name": "Nebius Group N.V.",
+   "sic": "7370",
+   "sic_description": "Services-Computer Programming, Data Processing, Etc."
+  },
+  "NFLX": {
+   "cik": "0001065280",
+   "name": "NETFLIX INC",
+   "sic": "7841",
+   "sic_description": "Services-Video Tape Rental"
+  },
+  "NVDA": {
+   "cik": "0001045810",
+   "name": "NVIDIA CORP",
+   "sic": "3674",
+   "sic_description": "Semiconductors & Related Devices"
+  },
+  "NXPI": {
+   "cik": "0001413447",
+   "name": "NXP Semiconductors N.V.",
+   "sic": "3674",
+   "sic_description": "Semiconductors & Related Devices"
+  },
+  "ODFL": {
+   "cik": "0000878927",
+   "name": "OLD DOMINION FREIGHT LINE, INC.",
+   "sic": "4213",
+   "sic_description": "Trucking (No Local)"
+  },
+  "ORLY": {
+   "cik": "0000898173",
+   "name": "O REILLY AUTOMOTIVE INC",
+   "sic": "5531",
+   "sic_description": "Retail-Auto & Home Supply Stores"
+  },
+  "PANW": {
+   "cik": "0001327567",
+   "name": "Palo Alto Networks Inc",
+   "sic": "3577",
+   "sic_description": "Computer Peripheral Equipment, NEC"
+  },
+  "PAYX": {
+   "cik": "0000723531",
+   "name": "PAYCHEX INC",
+   "sic": "8700",
+   "sic_description": "Services-Engineering, Accounting, Research, Management"
+  },
+  "PCAR": {
+   "cik": "0000075362",
+   "name": "PACCAR INC",
+   "sic": "3711",
+   "sic_description": "Motor Vehicles & Passenger Car Bodies"
+  },
+  "PDD": {
+   "cik": "0001737806",
+   "name": "PDD Holdings Inc.",
+   "sic": "7389",
+   "sic_description": "Services-Business Services, NEC"
+  },
+  "PEP": {
+   "cik": "0000077476",
+   "name": "PEPSICO INC",
+   "sic": "2080",
+   "sic_description": "Beverages"
+  },
+  "PLTR": {
+   "cik": "0001321655",
+   "name": "Palantir Technologies Inc.",
+   "sic": "7372",
+   "sic_description": "Services-Prepackaged Software"
+  },
+  "PYPL": {
+   "cik": "0001633917",
+   "name": "PayPal Holdings, Inc.",
+   "sic": "7389",
+   "sic_description": "Services-Business Services, NEC"
+  },
+  "QCOM": {
+   "cik": "0000804328",
+   "name": "QUALCOMM INC/DE",
+   "sic": "3663",
+   "sic_description": "Radio & Tv Broadcasting & Communications Equipment"
+  },
+  "REGN": {
+   "cik": "0000872589",
+   "name": "REGENERON PHARMACEUTICALS, INC.",
+   "sic": "2834",
+   "sic_description": "Pharmaceutical Preparations"
+  },
+  "RKLB": {
+   "cik": "0001819994",
+   "name": "Rocket Lab Corp",
+   "sic": "3760",
+   "sic_description": "Guided Missiles & Space Vehicles & Parts"
+  },
+  "ROP": {
+   "cik": "0000882835",
+   "name": "ROPER TECHNOLOGIES INC",
+   "sic": "3823",
+   "sic_description": "Industrial Instruments For Measurement, Display, and Control"
+  },
+  "ROST": {
+   "cik": "0000745732",
+   "name": "ROSS STORES, INC.",
+   "sic": "5651",
+   "sic_description": "Retail-Family Clothing Stores"
+  },
+  "SBUX": {
+   "cik": "0000829224",
+   "name": "STARBUCKS CORP",
+   "sic": "5810",
+   "sic_description": "Retail-Eating & Drinking Places"
+  },
+  "SHOP": {
+   "cik": "0001594805",
+   "name": "SHOPIFY INC.",
+   "sic": "7372",
+   "sic_description": "Services-Prepackaged Software"
+  },
+  "SNDK": {
+   "cik": "0002023554",
+   "name": "Sandisk Corp",
+   "sic": "3572",
+   "sic_description": "Computer Storage Devices"
+  },
+  "SNPS": {
+   "cik": "0000883241",
+   "name": "SYNOPSYS INC",
+   "sic": "7372",
+   "sic_description": "Services-Prepackaged Software"
+  },
+  "SPCX": {
+   "cik": "0001181412",
+   "name": "SPACE EXPLORATION TECHNOLOGIES CORP",
+   "sic": "7370",
+   "sic_description": "Services-Computer Programming, Data Processing, Etc."
+  },
+  "STX": {
+   "cik": "0001137789",
+   "name": "Seagate Technology Holdings plc",
+   "sic": "3572",
+   "sic_description": "Computer Storage Devices"
+  },
+  "TER": {
+   "cik": "0000097210",
+   "name": "TERADYNE, INC",
+   "sic": "3825",
+   "sic_description": "Instruments For Meas & Testing of  Electricity & Elec Signals"
+  },
+  "TMUS": {
+   "cik": "0001283699",
+   "name": "T-Mobile US, Inc.",
+   "sic": "4812",
+   "sic_description": "Radiotelephone Communications"
+  },
+  "TRI": {
+   "cik": "0001075124",
+   "name": "THOMSON REUTERS CORP /CAN/",
+   "sic": "2741",
+   "sic_description": "Miscellaneous Publishing"
+  },
+  "TSLA": {
+   "cik": "0001318605",
+   "name": "Tesla, Inc.",
+   "sic": "3711",
+   "sic_description": "Motor Vehicles & Passenger Car Bodies"
+  },
+  "TTWO": {
+   "cik": "0000946581",
+   "name": "TAKE TWO INTERACTIVE SOFTWARE INC",
+   "sic": "7372",
+   "sic_description": "Services-Prepackaged Software"
+  },
+  "TXN": {
+   "cik": "0000097476",
+   "name": "TEXAS INSTRUMENTS INC",
+   "sic": "3674",
+   "sic_description": "Semiconductors & Related Devices"
+  },
+  "VRTX": {
+   "cik": "0000875320",
+   "name": "VERTEX PHARMACEUTICALS INC / MA",
+   "sic": "2834",
+   "sic_description": "Pharmaceutical Preparations"
+  },
+  "WBD": {
+   "cik": "0001437107",
+   "name": "Warner Bros. Discovery, Inc.",
+   "sic": "4841",
+   "sic_description": "Cable & Other Pay Television Services"
+  },
+  "WDAY": {
+   "cik": "0001327811",
+   "name": "Workday, Inc.",
+   "sic": "7374",
+   "sic_description": "Services-Computer Processing & Data Preparation"
+  },
+  "WDC": {
+   "cik": "0000106040",
+   "name": "WESTERN DIGITAL CORP",
+   "sic": "3572",
+   "sic_description": "Computer Storage Devices"
+  },
+  "WMT": {
+   "cik": "0000104169",
+   "name": "Walmart Inc.",
+   "sic": "5331",
+   "sic_description": "Retail-Variety Stores"
+  },
+  "XEL": {
+   "cik": "0000072903",
+   "name": "XCEL ENERGY INC",
+   "sic": "4931",
+   "sic_description": "Electric & Other Services Combined"
+  }
+ }
+}
