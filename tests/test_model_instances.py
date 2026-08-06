@@ -14,6 +14,7 @@ class ModelInstanceTests(unittest.TestCase):
         workbook = Workbook()
         cover = workbook.active
         cover.title = "Cover"
+        cover["B2"] = "[TICKER] — Company Name"
         cover["B4"] = "Last refreshed:"
         cover["C4"] = "[date]"
         cover["B9"] = "Active scenario:"
@@ -89,6 +90,45 @@ class ModelInstanceTests(unittest.TestCase):
             payload["cover"] = {"Subject:": "This label does not exist on Cover"}
             manifest.write_text(json.dumps(payload), encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "matches no Cover sheet row"):
+                apply_manifest(manifest, root)
+
+    def test_title_cover_key_writes_the_cover_title_cell(self):
+        # Reserved "Title:" key: templates whose only honest identity slot is
+        # the Cover title (no label:value row for a case subject) replace the
+        # B2 placeholder in place instead of forcing the subject under a
+        # semantically wrong label.
+        from openpyxl import load_workbook
+
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.create_template(root)
+            manifest = self.write_manifest(root)
+            payload = json.loads(manifest.read_text(encoding="utf-8"))
+            payload["cover"] = {"Title:": "Macy's FY2020 pandemic contraction"}
+            manifest.write_text(json.dumps(payload), encoding="utf-8")
+            apply_manifest(manifest, root)
+            workbook = load_workbook(root / "instances" / "test.xlsx")
+            self.assertEqual(
+                workbook["Cover"]["B2"].value,
+                "Macy's FY2020 pandemic contraction",
+            )
+
+    def test_title_cover_key_requires_a_title_cell(self):
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.create_template(root)
+            # blank the fixture's title cell
+            from openpyxl import load_workbook
+
+            template = root / "template.xlsx"
+            workbook = load_workbook(template)
+            workbook["Cover"]["B2"] = None
+            workbook.save(template)
+            manifest = self.write_manifest(root)
+            payload = json.loads(manifest.read_text(encoding="utf-8"))
+            payload["cover"] = {"Title:": "A case subject"}
+            manifest.write_text(json.dumps(payload), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "no\s+title text in B2"):
                 apply_manifest(manifest, root)
 
     def test_validate_only_does_not_write(self):

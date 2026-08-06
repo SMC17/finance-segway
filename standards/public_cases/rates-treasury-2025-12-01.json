@@ -8,7 +8,7 @@
   "as_of": "2025-12-01",
   "scenario": "Base",
   "cover": {
-    "Subject:": "U.S. Treasury curve snapshot"
+    "Portfolio / security:": "U.S. Treasury curve snapshot"
   },
   "inputs": [
     {
