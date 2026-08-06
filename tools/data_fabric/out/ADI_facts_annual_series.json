@@ -1,11 +1,13 @@
 {
   "ticker": "ADI",
   "cik": "0000006281",
-  "retrieved_utc": "20260806T140239Z",
+  "retrieved_utc": "20260806T143352Z",
   "dedupe_rule": "annual filings (amendments included); one value per fiscal period-end date; annual = >=10-month span, transition stubs >=5 months admitted when not inside an annual period; longer duration then latest filed wins (restatements win)",
   "concepts": [
     {
       "concept": "Assets",
+      "resolved_tag": "us-gaap:Assets",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-11-01",
@@ -155,6 +157,8 @@
     },
     {
       "concept": "AssetsCurrent",
+      "resolved_tag": "us-gaap:AssetsCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-11-01",
@@ -304,6 +308,8 @@
     },
     {
       "concept": "LiabilitiesCurrent",
+      "resolved_tag": "us-gaap:LiabilitiesCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-11-01",
@@ -453,6 +459,8 @@
     },
     {
       "concept": "StockholdersEquity",
+      "resolved_tag": "us-gaap:StockholdersEquity",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-11-01",
@@ -602,6 +610,8 @@
     },
     {
       "concept": "CashAndCashEquivalentsAtCarryingValue",
+      "resolved_tag": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+      "unit": "USD",
       "observations": [
         {
           "end": "2006-10-28",
@@ -767,6 +777,8 @@
     },
     {
       "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "resolved_tag": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "unit": "USD",
       "observations": [
         {
           "end": "2016-10-29",
@@ -852,6 +864,8 @@
     },
     {
       "concept": "LongTermDebtNoncurrent",
+      "resolved_tag": "us-gaap:LongTermDebtNoncurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2022-10-29",
@@ -889,6 +903,8 @@
     },
     {
       "concept": "LongTermDebtCurrent",
+      "resolved_tag": "us-gaap:LongTermDebtCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2022-10-29",
@@ -926,6 +942,8 @@
     },
     {
       "concept": "DebtCurrent",
+      "resolved_tag": "us-gaap:DebtCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2015-10-31",
@@ -963,6 +981,8 @@
     },
     {
       "concept": "ShortTermBorrowings",
+      "resolved_tag": "us-gaap:ShortTermBorrowings",
+      "unit": "USD",
       "observations": [
         {
           "end": "2014-07-22",
@@ -992,6 +1012,8 @@
     },
     {
       "concept": "CommercialPaper",
+      "resolved_tag": "us-gaap:CommercialPaper",
+      "unit": "USD",
       "observations": [
         {
           "end": "2022-10-29",
@@ -1029,6 +1051,8 @@
     },
     {
       "concept": "Revenues",
+      "resolved_tag": "us-gaap:Revenues",
+      "unit": "USD",
       "observations": [
         {
           "end": "2016-10-29",
@@ -1058,6 +1082,8 @@
     },
     {
       "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "resolved_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "unit": "USD",
       "observations": [
         {
           "end": "2017-10-28",
@@ -1135,6 +1161,8 @@
     },
     {
       "concept": "NetIncomeLoss",
+      "resolved_tag": "us-gaap:NetIncomeLoss",
+      "unit": "USD",
       "observations": [
         {
           "end": "2009-10-31",
@@ -1276,6 +1304,8 @@
     },
     {
       "concept": "OperatingIncomeLoss",
+      "resolved_tag": "us-gaap:OperatingIncomeLoss",
+      "unit": "USD",
       "observations": [
         {
           "end": "2007-11-03",
@@ -1433,6 +1463,8 @@
     },
     {
       "concept": "GrossProfit",
+      "resolved_tag": "us-gaap:GrossProfit",
+      "unit": "USD",
       "observations": [
         {
           "end": "2007-11-03",
@@ -1590,6 +1622,8 @@
     },
     {
       "concept": "InterestExpense",
+      "resolved_tag": "us-gaap:InterestExpense",
+      "unit": "USD",
       "observations": [
         {
           "end": "2007-11-03",
@@ -1731,6 +1765,8 @@
     },
     {
       "concept": "IncomeTaxExpenseBenefit",
+      "resolved_tag": "us-gaap:IncomeTaxExpenseBenefit",
+      "unit": "USD",
       "observations": [
         {
           "end": "2007-11-03",
@@ -1888,6 +1924,8 @@
     },
     {
       "concept": "EarningsPerShareBasic",
+      "resolved_tag": "us-gaap:EarningsPerShareBasic",
+      "unit": "USD/shares",
       "observations": [
         {
           "end": "2007-11-03",
@@ -1997,6 +2035,8 @@
     },
     {
       "concept": "EarningsPerShareDiluted",
+      "resolved_tag": "us-gaap:EarningsPerShareDiluted",
+      "unit": "USD/shares",
       "observations": [
         {
           "end": "2007-11-03",
@@ -2106,6 +2146,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInOperatingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+      "unit": "USD",
       "observations": [
         {
           "end": "2007-11-03",
@@ -2263,6 +2305,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInInvestingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInInvestingActivities",
+      "unit": "USD",
       "observations": [
         {
           "end": "2007-11-03",
@@ -2420,6 +2464,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInFinancingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInFinancingActivities",
+      "unit": "USD",
       "observations": [
         {
           "end": "2007-11-03",
@@ -2577,6 +2623,8 @@
     },
     {
       "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+      "resolved_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "unit": "USD",
       "observations": [
         {
           "end": "2007-11-03",
@@ -2734,6 +2782,8 @@
     },
     {
       "concept": "CommonStockSharesOutstanding",
+      "resolved_tag": "us-gaap:CommonStockSharesOutstanding",
+      "unit": "shares",
       "observations": [
         {
           "end": "2008-11-01",
@@ -2883,6 +2933,8 @@
     },
     {
       "concept": "CommonStockSharesIssued",
+      "resolved_tag": "us-gaap:CommonStockSharesIssued",
+      "unit": "shares",
       "observations": [
         {
           "end": "2008-11-01",
@@ -2960,6 +3012,8 @@
     },
     {
       "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+      "resolved_tag": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic",
+      "unit": "shares",
       "observations": [
         {
           "end": "2007-11-03",
@@ -3117,6 +3171,8 @@
     },
     {
       "concept": "ResearchAndDevelopmentExpense",
+      "resolved_tag": "us-gaap:ResearchAndDevelopmentExpense",
+      "unit": "USD",
       "observations": [
         {
           "end": "2007-11-03",
@@ -3274,6 +3330,8 @@
     },
     {
       "concept": "ShareBasedCompensation",
+      "resolved_tag": "us-gaap:ShareBasedCompensation",
+      "unit": "USD",
       "observations": [
         {
           "end": "2007-11-03",
@@ -3431,6 +3489,8 @@
     },
     {
       "concept": "InventoryNet",
+      "resolved_tag": "us-gaap:InventoryNet",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-11-01",
@@ -3580,6 +3640,8 @@
     },
     {
       "concept": "AccountsReceivableNetCurrent",
+      "resolved_tag": "us-gaap:AccountsReceivableNetCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-11-01",

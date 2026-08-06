@@ -1,11 +1,13 @@
 {
   "ticker": "SNPS",
   "cik": "0000883241",
-  "retrieved_utc": "20260806T135443Z",
+  "retrieved_utc": "20260806T143414Z",
   "dedupe_rule": "annual filings (amendments included); one value per fiscal period-end date; annual = >=10-month span, transition stubs >=5 months admitted when not inside an annual period; longer duration then latest filed wins (restatements win)",
   "concepts": [
     {
       "concept": "Assets",
+      "resolved_tag": "us-gaap:Assets",
+      "unit": "USD",
       "observations": [
         {
           "end": "2009-10-31",
@@ -147,6 +149,8 @@
     },
     {
       "concept": "AssetsCurrent",
+      "resolved_tag": "us-gaap:AssetsCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2009-10-31",
@@ -288,6 +292,8 @@
     },
     {
       "concept": "Liabilities",
+      "resolved_tag": "us-gaap:Liabilities",
+      "unit": "USD",
       "observations": [
         {
           "end": "2009-10-31",
@@ -429,6 +435,8 @@
     },
     {
       "concept": "LiabilitiesCurrent",
+      "resolved_tag": "us-gaap:LiabilitiesCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2009-10-31",
@@ -570,6 +578,8 @@
     },
     {
       "concept": "StockholdersEquity",
+      "resolved_tag": "us-gaap:StockholdersEquity",
+      "unit": "USD",
       "observations": [
         {
           "end": "2009-10-31",
@@ -711,6 +721,8 @@
     },
     {
       "concept": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+      "resolved_tag": "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+      "unit": "USD",
       "observations": [
         {
           "end": "2007-10-31",
@@ -868,6 +880,8 @@
     },
     {
       "concept": "CashAndCashEquivalentsAtCarryingValue",
+      "resolved_tag": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+      "unit": "USD",
       "observations": [
         {
           "end": "2007-10-31",
@@ -1025,6 +1039,8 @@
     },
     {
       "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "resolved_tag": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "unit": "USD",
       "observations": [
         {
           "end": "2016-10-31",
@@ -1110,6 +1126,8 @@
     },
     {
       "concept": "LongTermDebt",
+      "resolved_tag": "us-gaap:LongTermDebt",
+      "unit": "USD",
       "observations": [
         {
           "end": "2025-10-31",
@@ -1123,6 +1141,8 @@
     },
     {
       "concept": "LongTermDebtNoncurrent",
+      "resolved_tag": "us-gaap:LongTermDebtNoncurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2012-10-31",
@@ -1240,6 +1260,8 @@
     },
     {
       "concept": "LongTermDebtCurrent",
+      "resolved_tag": "us-gaap:LongTermDebtCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2024-10-31",
@@ -1261,6 +1283,8 @@
     },
     {
       "concept": "DebtCurrent",
+      "resolved_tag": "us-gaap:DebtCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2012-10-31",
@@ -1354,6 +1378,8 @@
     },
     {
       "concept": "Revenues",
+      "resolved_tag": "us-gaap:Revenues",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-10-31",
@@ -1479,6 +1505,8 @@
     },
     {
       "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "resolved_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "unit": "USD",
       "observations": [
         {
           "end": "2017-10-31",
@@ -1556,6 +1584,8 @@
     },
     {
       "concept": "NetIncomeLoss",
+      "resolved_tag": "us-gaap:NetIncomeLoss",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-10-31",
@@ -1705,6 +1735,8 @@
     },
     {
       "concept": "OperatingIncomeLoss",
+      "resolved_tag": "us-gaap:OperatingIncomeLoss",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-10-31",
@@ -1854,6 +1886,8 @@
     },
     {
       "concept": "GrossProfit",
+      "resolved_tag": "us-gaap:GrossProfit",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-10-31",
@@ -2003,6 +2037,8 @@
     },
     {
       "concept": "InterestExpense",
+      "resolved_tag": "us-gaap:InterestExpense",
+      "unit": "USD",
       "observations": [
         {
           "end": "2010-10-31",
@@ -2120,6 +2156,8 @@
     },
     {
       "concept": "IncomeTaxExpenseBenefit",
+      "resolved_tag": "us-gaap:IncomeTaxExpenseBenefit",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-10-31",
@@ -2269,6 +2307,8 @@
     },
     {
       "concept": "EarningsPerShareBasic",
+      "resolved_tag": "us-gaap:EarningsPerShareBasic",
+      "unit": "USD/shares",
       "observations": [
         {
           "end": "2008-10-31",
@@ -2418,6 +2458,8 @@
     },
     {
       "concept": "EarningsPerShareDiluted",
+      "resolved_tag": "us-gaap:EarningsPerShareDiluted",
+      "unit": "USD/shares",
       "observations": [
         {
           "end": "2008-10-31",
@@ -2567,6 +2609,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInOperatingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-10-31",
@@ -2700,6 +2744,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInInvestingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInInvestingActivities",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-10-31",
@@ -2833,6 +2879,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInFinancingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInFinancingActivities",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-10-31",
@@ -2966,6 +3014,8 @@
     },
     {
       "concept": "DepreciationDepletionAndAmortization",
+      "resolved_tag": "us-gaap:DepreciationDepletionAndAmortization",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-10-31",
@@ -3115,6 +3165,8 @@
     },
     {
       "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+      "resolved_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-10-31",
@@ -3264,6 +3316,8 @@
     },
     {
       "concept": "CommonStockSharesOutstanding",
+      "resolved_tag": "us-gaap:CommonStockSharesOutstanding",
+      "unit": "shares",
       "observations": [
         {
           "end": "2009-10-31",
@@ -3405,6 +3459,8 @@
     },
     {
       "concept": "CommonStockSharesIssued",
+      "resolved_tag": "us-gaap:CommonStockSharesIssued",
+      "unit": "shares",
       "observations": [
         {
           "end": "2024-10-31",
@@ -3426,6 +3482,8 @@
     },
     {
       "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+      "resolved_tag": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic",
+      "unit": "shares",
       "observations": [
         {
           "end": "2008-10-31",
@@ -3575,6 +3633,8 @@
     },
     {
       "concept": "ResearchAndDevelopmentExpense",
+      "resolved_tag": "us-gaap:ResearchAndDevelopmentExpense",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-10-31",
@@ -3724,6 +3784,8 @@
     },
     {
       "concept": "SellingAndMarketingExpense",
+      "resolved_tag": "us-gaap:SellingAndMarketingExpense",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-10-31",
@@ -3873,6 +3935,8 @@
     },
     {
       "concept": "GeneralAndAdministrativeExpense",
+      "resolved_tag": "us-gaap:GeneralAndAdministrativeExpense",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-10-31",
@@ -4022,6 +4086,8 @@
     },
     {
       "concept": "ShareBasedCompensation",
+      "resolved_tag": "us-gaap:ShareBasedCompensation",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-10-31",
@@ -4171,6 +4237,8 @@
     },
     {
       "concept": "CostOfRevenue",
+      "resolved_tag": "us-gaap:CostOfRevenue",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-10-31",
@@ -4320,6 +4388,8 @@
     },
     {
       "concept": "ContractWithCustomerLiabilityCurrent",
+      "resolved_tag": "us-gaap:ContractWithCustomerLiabilityCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2018-10-31",
@@ -4389,6 +4459,8 @@
     },
     {
       "concept": "ContractWithCustomerLiability",
+      "resolved_tag": "us-gaap:ContractWithCustomerLiability",
+      "unit": "USD",
       "observations": [
         {
           "end": "2018-10-31",
@@ -4458,6 +4530,8 @@
     },
     {
       "concept": "RevenueRemainingPerformanceObligation",
+      "resolved_tag": "us-gaap:RevenueRemainingPerformanceObligation",
+      "unit": "USD",
       "observations": [
         {
           "end": "2019-10-31",
@@ -4510,6 +4584,228 @@
         {
           "end": "2025-10-31",
           "value": 11400000000,
+          "filed": "2025-12-22",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "InventoryNet",
+      "resolved_tag": "us-gaap:InventoryNet",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2017-10-31",
+          "value": 61884000,
+          "filed": "2018-12-17",
+          "form": "10-K",
+          "fy": 2018,
+          "fp": "FY"
+        },
+        {
+          "end": "2018-10-31",
+          "value": 122407000,
+          "filed": "2019-12-20",
+          "form": "10-K",
+          "fy": 2019,
+          "fp": "FY"
+        },
+        {
+          "end": "2019-10-31",
+          "value": 141518000,
+          "filed": "2020-12-15",
+          "form": "10-K",
+          "fy": 2020,
+          "fp": "FY"
+        },
+        {
+          "end": "2020-10-31",
+          "value": 192333000,
+          "filed": "2021-12-13",
+          "form": "10-K",
+          "fy": 2021,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-10-31",
+          "value": 229023000,
+          "filed": "2022-12-12",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-10-31",
+          "value": 211927000,
+          "filed": "2023-12-12",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-10-31",
+          "value": 325590000,
+          "filed": "2024-12-19",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-10-31",
+          "value": 361849000,
+          "filed": "2025-12-22",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-10-31",
+          "value": 365190000,
+          "filed": "2025-12-22",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "AccountsReceivableNetCurrent",
+      "resolved_tag": "us-gaap:AccountsReceivableNetCurrent",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2009-10-31",
+          "value": 127010000,
+          "filed": "2011-02-09",
+          "form": "10-K/A",
+          "fy": 2010,
+          "fp": "FY"
+        },
+        {
+          "end": "2010-10-31",
+          "value": 181102000,
+          "filed": "2011-12-16",
+          "form": "10-K",
+          "fy": 2011,
+          "fp": "FY"
+        },
+        {
+          "end": "2011-10-31",
+          "value": 203124000,
+          "filed": "2012-12-20",
+          "form": "10-K",
+          "fy": 2012,
+          "fp": "FY"
+        },
+        {
+          "end": "2012-10-31",
+          "value": 292668000,
+          "filed": "2013-12-20",
+          "form": "10-K",
+          "fy": 2013,
+          "fp": "FY"
+        },
+        {
+          "end": "2013-10-31",
+          "value": 256026000,
+          "filed": "2014-12-15",
+          "form": "10-K",
+          "fy": 2014,
+          "fp": "FY"
+        },
+        {
+          "end": "2014-10-31",
+          "value": 326727000,
+          "filed": "2015-12-14",
+          "form": "10-K",
+          "fy": 2015,
+          "fp": "FY"
+        },
+        {
+          "end": "2015-10-31",
+          "value": 385694000,
+          "filed": "2016-12-12",
+          "form": "10-K",
+          "fy": 2016,
+          "fp": "FY"
+        },
+        {
+          "end": "2016-10-31",
+          "value": 438873000,
+          "filed": "2017-12-14",
+          "form": "10-K",
+          "fy": 2017,
+          "fp": "FY"
+        },
+        {
+          "end": "2017-10-31",
+          "value": 451144000,
+          "filed": "2018-12-17",
+          "form": "10-K",
+          "fy": 2018,
+          "fp": "FY"
+        },
+        {
+          "end": "2018-10-31",
+          "value": 554217000,
+          "filed": "2019-12-20",
+          "form": "10-K",
+          "fy": 2019,
+          "fp": "FY"
+        },
+        {
+          "end": "2019-10-31",
+          "value": 553895000,
+          "filed": "2020-12-15",
+          "form": "10-K",
+          "fy": 2020,
+          "fp": "FY"
+        },
+        {
+          "end": "2020-10-31",
+          "value": 780709000,
+          "filed": "2021-12-13",
+          "form": "10-K",
+          "fy": 2021,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-10-31",
+          "value": 568501000,
+          "filed": "2022-12-12",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-10-31",
+          "value": 796091000,
+          "filed": "2023-12-12",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-10-31",
+          "value": 856660000,
+          "filed": "2024-12-19",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-10-31",
+          "value": 934470000,
+          "filed": "2025-12-22",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-10-31",
+          "value": 1505427000,
           "filed": "2025-12-22",
           "form": "10-K",
           "fy": 2025,

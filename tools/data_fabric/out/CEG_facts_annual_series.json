@@ -1,11 +1,13 @@
 {
   "ticker": "CEG",
   "cik": "0001868275",
-  "retrieved_utc": "20260806T140238Z",
+  "retrieved_utc": "20260806T143355Z",
   "dedupe_rule": "annual filings (amendments included); one value per fiscal period-end date; annual = >=10-month span, transition stubs >=5 months admitted when not inside an annual period; longer duration then latest filed wins (restatements win)",
   "concepts": [
     {
       "concept": "Assets",
+      "resolved_tag": "us-gaap:Assets",
+      "unit": "USD",
       "observations": [
         {
           "end": "2021-12-31",
@@ -51,6 +53,8 @@
     },
     {
       "concept": "AssetsCurrent",
+      "resolved_tag": "us-gaap:AssetsCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2021-12-31",
@@ -96,6 +100,8 @@
     },
     {
       "concept": "Liabilities",
+      "resolved_tag": "us-gaap:Liabilities",
+      "unit": "USD",
       "observations": [
         {
           "end": "2021-12-31",
@@ -141,6 +147,8 @@
     },
     {
       "concept": "LiabilitiesCurrent",
+      "resolved_tag": "us-gaap:LiabilitiesCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2021-12-31",
@@ -186,6 +194,8 @@
     },
     {
       "concept": "StockholdersEquity",
+      "resolved_tag": "us-gaap:StockholdersEquity",
+      "unit": "USD",
       "observations": [
         {
           "end": "2021-12-31",
@@ -231,6 +241,8 @@
     },
     {
       "concept": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+      "resolved_tag": "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+      "unit": "USD",
       "observations": [
         {
           "end": "2019-12-31",
@@ -300,6 +312,8 @@
     },
     {
       "concept": "CashAndCashEquivalentsAtCarryingValue",
+      "resolved_tag": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+      "unit": "USD",
       "observations": [
         {
           "end": "2019-12-31",
@@ -361,6 +375,8 @@
     },
     {
       "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "resolved_tag": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "unit": "USD",
       "observations": [
         {
           "end": "2019-12-31",
@@ -422,6 +438,8 @@
     },
     {
       "concept": "LongTermDebt",
+      "resolved_tag": "us-gaap:LongTermDebt",
+      "unit": "USD",
       "observations": [
         {
           "end": "2022-12-31",
@@ -459,6 +477,8 @@
     },
     {
       "concept": "LongTermDebtNoncurrent",
+      "resolved_tag": "us-gaap:LongTermDebtNoncurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2021-12-31",
@@ -504,6 +524,8 @@
     },
     {
       "concept": "LongTermDebtCurrent",
+      "resolved_tag": "us-gaap:LongTermDebtCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2021-12-31",
@@ -549,6 +571,8 @@
     },
     {
       "concept": "ShortTermBorrowings",
+      "resolved_tag": "us-gaap:ShortTermBorrowings",
+      "unit": "USD",
       "observations": [
         {
           "end": "2021-12-31",
@@ -602,6 +626,8 @@
     },
     {
       "concept": "Revenues",
+      "resolved_tag": "us-gaap:Revenues",
+      "unit": "USD",
       "observations": [
         {
           "end": "2020-12-31",
@@ -655,6 +681,8 @@
     },
     {
       "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "resolved_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "unit": "USD",
       "observations": [
         {
           "end": "2021-12-31",
@@ -700,6 +728,8 @@
     },
     {
       "concept": "NetIncomeLoss",
+      "resolved_tag": "us-gaap:NetIncomeLoss",
+      "unit": "USD",
       "observations": [
         {
           "end": "2020-12-31",
@@ -753,6 +783,8 @@
     },
     {
       "concept": "OperatingIncomeLoss",
+      "resolved_tag": "us-gaap:OperatingIncomeLoss",
+      "unit": "USD",
       "observations": [
         {
           "end": "2020-12-31",
@@ -806,6 +838,8 @@
     },
     {
       "concept": "InterestExpense",
+      "resolved_tag": "us-gaap:InterestExpense",
+      "unit": "USD",
       "observations": [
         {
           "end": "2020-12-31",
@@ -843,6 +877,8 @@
     },
     {
       "concept": "IncomeTaxExpenseBenefit",
+      "resolved_tag": "us-gaap:IncomeTaxExpenseBenefit",
+      "unit": "USD",
       "observations": [
         {
           "end": "2020-12-31",
@@ -896,6 +932,8 @@
     },
     {
       "concept": "EarningsPerShareBasic",
+      "resolved_tag": "us-gaap:EarningsPerShareBasic",
+      "unit": "USD/shares",
       "observations": [
         {
           "end": "2020-12-31",
@@ -949,6 +987,8 @@
     },
     {
       "concept": "EarningsPerShareDiluted",
+      "resolved_tag": "us-gaap:EarningsPerShareDiluted",
+      "unit": "USD/shares",
       "observations": [
         {
           "end": "2020-12-31",
@@ -1002,6 +1042,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInOperatingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+      "unit": "USD",
       "observations": [
         {
           "end": "2020-12-31",
@@ -1055,6 +1097,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInInvestingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInInvestingActivities",
+      "unit": "USD",
       "observations": [
         {
           "end": "2020-12-31",
@@ -1108,6 +1152,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInFinancingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInFinancingActivities",
+      "unit": "USD",
       "observations": [
         {
           "end": "2020-12-31",
@@ -1161,6 +1207,8 @@
     },
     {
       "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+      "resolved_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "unit": "USD",
       "observations": [
         {
           "end": "2020-12-31",
@@ -1214,6 +1262,8 @@
     },
     {
       "concept": "CommonStockSharesOutstanding",
+      "resolved_tag": "us-gaap:CommonStockSharesOutstanding",
+      "unit": "shares",
       "observations": [
         {
           "end": "2022-12-31",
@@ -1251,6 +1301,8 @@
     },
     {
       "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+      "resolved_tag": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic",
+      "unit": "shares",
       "observations": [
         {
           "end": "2020-12-31",
@@ -1295,6 +1347,225 @@
         {
           "end": "2025-12-31",
           "value": 313000000,
+          "filed": "2026-02-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "ContractWithCustomerLiability",
+      "resolved_tag": "us-gaap:ContractWithCustomerLiability",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2019-12-31",
+          "value": 71000000,
+          "filed": "2023-02-16",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2020-12-31",
+          "value": 84000000,
+          "filed": "2024-02-27",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-12-31",
+          "value": 75000000,
+          "filed": "2025-02-18",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": 47000000,
+          "filed": "2025-02-18",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 40000000,
+          "filed": "2025-02-18",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 33000000,
+          "filed": "2025-02-18",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "RevenueRemainingPerformanceObligation",
+      "resolved_tag": "us-gaap:RevenueRemainingPerformanceObligation",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2022-12-31",
+          "value": 485000000,
+          "filed": "2023-02-16",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 364000000,
+          "filed": "2024-02-27",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 915000000,
+          "filed": "2025-02-18",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 1047000000,
+          "filed": "2026-02-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "RevenueFromContractWithCustomerIncludingAssessedTax",
+      "resolved_tag": "us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2020-12-31",
+          "value": 16392000000,
+          "filed": "2023-02-16",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-12-31",
+          "value": 18461000000,
+          "filed": "2023-02-16",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": 24280000000,
+          "filed": "2023-02-16",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 24918000000,
+          "filed": "2026-02-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 23568000000,
+          "filed": "2026-02-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 25533000000,
+          "filed": "2026-02-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "InventoryNet",
+      "resolved_tag": "us-gaap:InventoryNet",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2024-12-31",
+          "value": 1600000000,
+          "filed": "2026-02-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 1736000000,
+          "filed": "2026-02-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "AccountsReceivableNetCurrent",
+      "resolved_tag": "us-gaap:AccountsReceivableNetCurrent",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2021-12-31",
+          "value": 1669000000,
+          "filed": "2023-02-16",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-12-31",
+          "value": 2585000000,
+          "filed": "2024-02-27",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-12-31",
+          "value": 1934000000,
+          "filed": "2025-02-18",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-12-31",
+          "value": 3718000000,
+          "filed": "2026-02-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-12-31",
+          "value": 4266000000,
           "filed": "2026-02-24",
           "form": "10-K",
           "fy": 2025,

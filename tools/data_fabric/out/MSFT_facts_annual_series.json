@@ -1,11 +1,13 @@
 {
   "ticker": "MSFT",
   "cik": "0000789019",
-  "retrieved_utc": "20260806T135440Z",
+  "retrieved_utc": "20260806T143409Z",
   "dedupe_rule": "annual filings (amendments included); one value per fiscal period-end date; annual = >=10-month span, transition stubs >=5 months admitted when not inside an annual period; longer duration then latest filed wins (restatements win)",
   "concepts": [
     {
       "concept": "Assets",
+      "resolved_tag": "us-gaap:Assets",
+      "unit": "USD",
       "observations": [
         {
           "end": "2009-06-30",
@@ -155,6 +157,8 @@
     },
     {
       "concept": "AssetsCurrent",
+      "resolved_tag": "us-gaap:AssetsCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2009-06-30",
@@ -304,6 +308,8 @@
     },
     {
       "concept": "Liabilities",
+      "resolved_tag": "us-gaap:Liabilities",
+      "unit": "USD",
       "observations": [
         {
           "end": "2010-06-30",
@@ -445,6 +451,8 @@
     },
     {
       "concept": "LiabilitiesCurrent",
+      "resolved_tag": "us-gaap:LiabilitiesCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2009-06-30",
@@ -594,6 +602,8 @@
     },
     {
       "concept": "StockholdersEquity",
+      "resolved_tag": "us-gaap:StockholdersEquity",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-06-30",
@@ -751,6 +761,8 @@
     },
     {
       "concept": "CashAndCashEquivalentsAtCarryingValue",
+      "resolved_tag": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+      "unit": "USD",
       "observations": [
         {
           "end": "2007-06-30",
@@ -916,6 +928,8 @@
     },
     {
       "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "resolved_tag": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "unit": "USD",
       "observations": [
         {
           "end": "2017-06-30",
@@ -1001,6 +1015,8 @@
     },
     {
       "concept": "LongTermDebt",
+      "resolved_tag": "us-gaap:LongTermDebt",
+      "unit": "USD",
       "observations": [
         {
           "end": "2010-06-30",
@@ -1142,6 +1158,8 @@
     },
     {
       "concept": "LongTermDebtNoncurrent",
+      "resolved_tag": "us-gaap:LongTermDebtNoncurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2009-06-30",
@@ -1291,6 +1309,8 @@
     },
     {
       "concept": "LongTermDebtCurrent",
+      "resolved_tag": "us-gaap:LongTermDebtCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2012-06-30",
@@ -1416,6 +1436,8 @@
     },
     {
       "concept": "ShortTermBorrowings",
+      "resolved_tag": "us-gaap:ShortTermBorrowings",
+      "unit": "USD",
       "observations": [
         {
           "end": "2009-06-30",
@@ -1493,6 +1515,8 @@
     },
     {
       "concept": "CommercialPaper",
+      "resolved_tag": "us-gaap:CommercialPaper",
+      "unit": "USD",
       "observations": [
         {
           "end": "2010-06-30",
@@ -1586,6 +1610,8 @@
     },
     {
       "concept": "Revenues",
+      "resolved_tag": "us-gaap:Revenues",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-06-30",
@@ -1615,6 +1641,8 @@
     },
     {
       "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "resolved_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "unit": "USD",
       "observations": [
         {
           "end": "2016-06-30",
@@ -1708,6 +1736,8 @@
     },
     {
       "concept": "NetIncomeLoss",
+      "resolved_tag": "us-gaap:NetIncomeLoss",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-06-30",
@@ -1865,6 +1895,8 @@
     },
     {
       "concept": "OperatingIncomeLoss",
+      "resolved_tag": "us-gaap:OperatingIncomeLoss",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-06-30",
@@ -2022,6 +2054,8 @@
     },
     {
       "concept": "GrossProfit",
+      "resolved_tag": "us-gaap:GrossProfit",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-06-30",
@@ -2179,6 +2213,8 @@
     },
     {
       "concept": "InterestExpense",
+      "resolved_tag": "us-gaap:InterestExpense",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-06-30",
@@ -2320,6 +2356,8 @@
     },
     {
       "concept": "IncomeTaxExpenseBenefit",
+      "resolved_tag": "us-gaap:IncomeTaxExpenseBenefit",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-06-30",
@@ -2477,6 +2515,8 @@
     },
     {
       "concept": "EarningsPerShareBasic",
+      "resolved_tag": "us-gaap:EarningsPerShareBasic",
+      "unit": "USD/shares",
       "observations": [
         {
           "end": "2008-06-30",
@@ -2634,6 +2674,8 @@
     },
     {
       "concept": "EarningsPerShareDiluted",
+      "resolved_tag": "us-gaap:EarningsPerShareDiluted",
+      "unit": "USD/shares",
       "observations": [
         {
           "end": "2008-06-30",
@@ -2791,6 +2833,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInOperatingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-06-30",
@@ -2932,6 +2976,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInInvestingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInInvestingActivities",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-06-30",
@@ -3073,6 +3119,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInFinancingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInFinancingActivities",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-06-30",
@@ -3214,6 +3262,8 @@
     },
     {
       "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+      "resolved_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-06-30",
@@ -3371,6 +3421,8 @@
     },
     {
       "concept": "CommonStockSharesOutstanding",
+      "resolved_tag": "us-gaap:CommonStockSharesOutstanding",
+      "unit": "shares",
       "observations": [
         {
           "end": "2007-06-30",
@@ -3536,6 +3588,8 @@
     },
     {
       "concept": "CommonStockSharesIssued",
+      "resolved_tag": "us-gaap:CommonStockSharesIssued",
+      "unit": "shares",
       "observations": [
         {
           "end": "2025-06-30",
@@ -3557,6 +3611,8 @@
     },
     {
       "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+      "resolved_tag": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic",
+      "unit": "shares",
       "observations": [
         {
           "end": "2008-06-30",
@@ -3714,6 +3770,8 @@
     },
     {
       "concept": "ResearchAndDevelopmentExpense",
+      "resolved_tag": "us-gaap:ResearchAndDevelopmentExpense",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-06-30",
@@ -3871,6 +3929,8 @@
     },
     {
       "concept": "SellingAndMarketingExpense",
+      "resolved_tag": "us-gaap:SellingAndMarketingExpense",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-06-30",
@@ -4028,6 +4088,8 @@
     },
     {
       "concept": "GeneralAndAdministrativeExpense",
+      "resolved_tag": "us-gaap:GeneralAndAdministrativeExpense",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-06-30",
@@ -4185,6 +4247,8 @@
     },
     {
       "concept": "ShareBasedCompensation",
+      "resolved_tag": "us-gaap:ShareBasedCompensation",
+      "unit": "USD",
       "observations": [
         {
           "end": "2015-06-30",
@@ -4286,6 +4350,8 @@
     },
     {
       "concept": "CostOfRevenue",
+      "resolved_tag": "us-gaap:CostOfRevenue",
+      "unit": "USD",
       "observations": [
         {
           "end": "2008-06-30",
@@ -4371,6 +4437,8 @@
     },
     {
       "concept": "ContractWithCustomerLiabilityCurrent",
+      "resolved_tag": "us-gaap:ContractWithCustomerLiabilityCurrent",
+      "unit": "USD",
       "observations": [
         {
           "end": "2017-06-30",
@@ -4456,6 +4524,8 @@
     },
     {
       "concept": "ContractWithCustomerLiability",
+      "resolved_tag": "us-gaap:ContractWithCustomerLiability",
+      "unit": "USD",
       "observations": [
         {
           "end": "2016-07-01",
@@ -4557,6 +4627,8 @@
     },
     {
       "concept": "RevenueRemainingPerformanceObligation",
+      "resolved_tag": "us-gaap:RevenueRemainingPerformanceObligation",
+      "unit": "USD",
       "observations": [
         {
           "end": "2018-06-30",
@@ -4625,6 +4697,308 @@
         {
           "end": "2026-06-30",
           "value": 684000000000,
+          "filed": "2026-07-29",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "InventoryNet",
+      "resolved_tag": "us-gaap:InventoryNet",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2009-06-30",
+          "value": 717000000,
+          "filed": "2010-07-30",
+          "form": "10-K",
+          "fy": 2010,
+          "fp": "FY"
+        },
+        {
+          "end": "2010-06-30",
+          "value": 740000000,
+          "filed": "2011-07-28",
+          "form": "10-K",
+          "fy": 2011,
+          "fp": "FY"
+        },
+        {
+          "end": "2011-06-30",
+          "value": 1372000000,
+          "filed": "2012-07-26",
+          "form": "10-K",
+          "fy": 2012,
+          "fp": "FY"
+        },
+        {
+          "end": "2012-06-30",
+          "value": 1137000000,
+          "filed": "2013-07-30",
+          "form": "10-K",
+          "fy": 2013,
+          "fp": "FY"
+        },
+        {
+          "end": "2013-06-30",
+          "value": 1938000000,
+          "filed": "2014-07-31",
+          "form": "10-K",
+          "fy": 2014,
+          "fp": "FY"
+        },
+        {
+          "end": "2014-06-30",
+          "value": 2660000000,
+          "filed": "2015-07-31",
+          "form": "10-K",
+          "fy": 2015,
+          "fp": "FY"
+        },
+        {
+          "end": "2015-06-30",
+          "value": 2902000000,
+          "filed": "2016-07-28",
+          "form": "10-K",
+          "fy": 2016,
+          "fp": "FY"
+        },
+        {
+          "end": "2016-06-30",
+          "value": 2251000000,
+          "filed": "2017-08-02",
+          "form": "10-K",
+          "fy": 2017,
+          "fp": "FY"
+        },
+        {
+          "end": "2017-06-30",
+          "value": 2181000000,
+          "filed": "2018-08-03",
+          "form": "10-K",
+          "fy": 2018,
+          "fp": "FY"
+        },
+        {
+          "end": "2018-06-30",
+          "value": 2662000000,
+          "filed": "2019-08-01",
+          "form": "10-K",
+          "fy": 2019,
+          "fp": "FY"
+        },
+        {
+          "end": "2019-06-30",
+          "value": 2063000000,
+          "filed": "2020-07-30",
+          "form": "10-K",
+          "fy": 2020,
+          "fp": "FY"
+        },
+        {
+          "end": "2020-06-30",
+          "value": 1895000000,
+          "filed": "2021-07-29",
+          "form": "10-K",
+          "fy": 2021,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-06-30",
+          "value": 2636000000,
+          "filed": "2022-07-28",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-06-30",
+          "value": 3742000000,
+          "filed": "2023-07-27",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-06-30",
+          "value": 2500000000,
+          "filed": "2024-07-30",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-06-30",
+          "value": 1246000000,
+          "filed": "2025-07-30",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-06-30",
+          "value": 938000000,
+          "filed": "2026-07-29",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-06-30",
+          "value": 1397000000,
+          "filed": "2026-07-29",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "AccountsReceivableNetCurrent",
+      "resolved_tag": "us-gaap:AccountsReceivableNetCurrent",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2009-06-30",
+          "value": 11192000000,
+          "filed": "2010-07-30",
+          "form": "10-K",
+          "fy": 2010,
+          "fp": "FY"
+        },
+        {
+          "end": "2010-06-30",
+          "value": 13014000000,
+          "filed": "2011-07-28",
+          "form": "10-K",
+          "fy": 2011,
+          "fp": "FY"
+        },
+        {
+          "end": "2011-06-30",
+          "value": 14987000000,
+          "filed": "2012-07-26",
+          "form": "10-K",
+          "fy": 2012,
+          "fp": "FY"
+        },
+        {
+          "end": "2012-06-30",
+          "value": 15780000000,
+          "filed": "2013-07-30",
+          "form": "10-K",
+          "fy": 2013,
+          "fp": "FY"
+        },
+        {
+          "end": "2013-06-30",
+          "value": 17486000000,
+          "filed": "2014-07-31",
+          "form": "10-K",
+          "fy": 2014,
+          "fp": "FY"
+        },
+        {
+          "end": "2014-06-30",
+          "value": 19544000000,
+          "filed": "2015-07-31",
+          "form": "10-K",
+          "fy": 2015,
+          "fp": "FY"
+        },
+        {
+          "end": "2015-06-30",
+          "value": 17908000000,
+          "filed": "2016-07-28",
+          "form": "10-K",
+          "fy": 2016,
+          "fp": "FY"
+        },
+        {
+          "end": "2016-06-30",
+          "value": 18277000000,
+          "filed": "2017-08-02",
+          "form": "10-K",
+          "fy": 2017,
+          "fp": "FY"
+        },
+        {
+          "end": "2017-06-30",
+          "value": 22431000000,
+          "filed": "2018-08-03",
+          "form": "10-K",
+          "fy": 2018,
+          "fp": "FY"
+        },
+        {
+          "end": "2018-06-30",
+          "value": 26481000000,
+          "filed": "2019-08-01",
+          "form": "10-K",
+          "fy": 2019,
+          "fp": "FY"
+        },
+        {
+          "end": "2019-06-30",
+          "value": 29524000000,
+          "filed": "2020-07-30",
+          "form": "10-K",
+          "fy": 2020,
+          "fp": "FY"
+        },
+        {
+          "end": "2020-06-30",
+          "value": 32011000000,
+          "filed": "2021-07-29",
+          "form": "10-K",
+          "fy": 2021,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-06-30",
+          "value": 38043000000,
+          "filed": "2022-07-28",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-06-30",
+          "value": 44261000000,
+          "filed": "2023-07-27",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-06-30",
+          "value": 48688000000,
+          "filed": "2024-07-30",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-06-30",
+          "value": 56924000000,
+          "filed": "2025-07-30",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-06-30",
+          "value": 69905000000,
+          "filed": "2026-07-29",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-06-30",
+          "value": 80876000000,
           "filed": "2026-07-29",
           "form": "10-K",
           "fy": 2026,
