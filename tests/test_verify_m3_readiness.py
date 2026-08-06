@@ -157,3 +157,25 @@ class M3GateFailClosedTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class OracleTierTests(unittest.TestCase):
+    def test_workbook_verified_models_count_as_oracle_backed(self) -> None:
+        # Regression: criterion F originally consulted only the
+        # identity-binding registry, so a domain shipping a passing
+        # workbook oracle (LibreOffice recalculation compared against a
+        # separate pure-Python computation) was reported as having no
+        # reference-engine agreement at all. Both tiers are genuine
+        # independent verification.
+        import sys
+        from pathlib import Path
+
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
+        from reference_check_registry import WORKBOOK_VERIFIED_MODELS
+        from verify_m3_readiness import _oracle_backed, check_f_reference_agreement
+
+        backed = _oracle_backed()
+        self.assertTrue(set(WORKBOOK_VERIFIED_MODELS).issubset(backed))
+        for model_id in WORKBOOK_VERIFIED_MODELS:
+            result = check_f_reference_agreement({"id": model_id}, backed)
+            self.assertEqual("PASS", result["status"], msg=model_id)

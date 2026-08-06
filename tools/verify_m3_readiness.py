@@ -215,10 +215,11 @@ def check_f_reference_agreement(model: dict[str, Any], oracle_backed: set[str]) 
     if model["id"] not in oracle_backed:
         return _result(
             "FAIL",
-            "no independent reference-engine check binds to this model "
-            "(tools/verify_reference_calcs.py)",
+            "no independent oracle checks this model -- needs either an "
+            "identity-bound reference check or a workbook check in "
+            "tools/verify_reference_calcs.py",
         )
-    return _result("PASS", "independent oracle check bound and passing")
+    return _result("PASS", "independent oracle (identity-bound or workbook-verified) passing")
 
 
 def check_g_effective_challenge(model: dict[str, Any]) -> dict[str, str]:
@@ -270,15 +271,28 @@ def _case_status_by_model() -> dict[str, list[dict[str, Any]]]:
 
 
 def _oracle_backed() -> set[str]:
-    """Model ids with at least one declared check bound to a passing identity.
+    """Model ids whose mechanics are checked by an independent oracle.
 
-    A token bound as "identity" was actually recomputed by an independent
-    pure-Python oracle and agreed with the workbook. Tokens that are merely
-    "flag" (a risk flag was exercised, not an identity verified) or
-    "unbound" (declared in the inventory, checked by nothing) do not count
-    -- an unbound reference check is a claim, not evidence.
+    Two tiers count, because both are genuine independent verification and
+    counting only one under-reports coverage:
+
+      1. Identity-bound. A declared reference_check token resolves to a
+         pure-Python oracle that recomputed the identity from JSON case
+         inputs and agreed. Tokens that are merely "flag" (a risk flag was
+         exercised, not an identity verified) or "unbound" (declared in the
+         inventory, checked by nothing) do not count -- an unbound
+         reference check is a claim, not evidence.
+      2. Workbook-verified. tools/verify_reference_calcs.py copies the
+         canonical workbook, recalculates it through LibreOffice, and
+         compares against a separate pure-Python computation. That is
+         arguably the stronger evidence of the two since it exercises the
+         shipped formulas rather than a parallel implementation of them.
+
+    Omitting tier 2 was a real defect in this gate: the Software domain
+    ships a passing workbook oracle and was still reported as having no
+    reference-engine agreement at all.
     """
-    from reference_check_registry import resolve_reference_checks
+    from reference_check_registry import WORKBOOK_VERIFIED_MODELS, resolve_reference_checks
 
     inventory = _load(INVENTORY)
     bindings = resolve_reference_checks(inventory["models"])
@@ -288,7 +302,7 @@ def _oracle_backed() -> set[str]:
             continue
         if any(status == "identity" for status in binding.get("tokens", {}).values()):
             backed.add(str(model_id))
-    return backed
+    return backed | set(WORKBOOK_VERIFIED_MODELS)
 
 
 def _parity_ok() -> set[str]:
