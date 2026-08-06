@@ -1,0 +1,351 @@
+{
+  "ticker": "MCHP",
+  "cik": "0000827054",
+  "retrieved_utc": "20260806T134125Z",
+  "concepts": [
+    {
+      "concept": "Assets",
+      "value": 14370100000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2026Q1I"
+    },
+    {
+      "concept": "AssetsCurrent",
+      "value": 2377600000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2026Q1I"
+    },
+    {
+      "concept": "LiabilitiesCurrent",
+      "value": 1136300000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2026Q1I"
+    },
+    {
+      "concept": "StockholdersEquity",
+      "value": 6432400000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2026Q1I"
+    },
+    {
+      "concept": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+      "value": 5287500000,
+      "end": "2019-03-31",
+      "filed": "2019-05-30",
+      "form": "10-K",
+      "fy": 2019,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "CashAndCashEquivalentsAtCarryingValue",
+      "value": 240300000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2026Q1I"
+    },
+    {
+      "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "value": 240300000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2026Q1I"
+    },
+    {
+      "concept": "LongTermDebt",
+      "value": 5496400000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2026Q1I"
+    },
+    {
+      "concept": "LongTermDebtNoncurrent",
+      "value": 5496400000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2026Q1I"
+    },
+    {
+      "concept": "LongTermDebtCurrent",
+      "value": 0,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2026Q1I"
+    },
+    {
+      "concept": "ShortTermBorrowings",
+      "value": 0,
+      "end": "2015-03-31",
+      "filed": "2015-05-27",
+      "form": "10-K",
+      "fy": 2015,
+      "fp": "FY",
+      "frame": "CY2015Q1I"
+    },
+    {
+      "concept": "Revenues",
+      "value": 5349500000,
+      "end": "2019-03-31",
+      "filed": "2019-05-30",
+      "form": "10-K",
+      "fy": 2019,
+      "fp": "FY",
+      "frame": "CY2018"
+    },
+    {
+      "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "value": 4713100000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "NetIncomeLoss",
+      "value": 230000000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "OperatingIncomeLoss",
+      "value": 490100000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "GrossProfit",
+      "value": 2721100000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "InterestExpense",
+      "value": 198300000,
+      "end": "2024-03-31",
+      "filed": "2024-05-23",
+      "form": "10-K",
+      "fy": 2024,
+      "fp": "FY",
+      "frame": "CY2023"
+    },
+    {
+      "concept": "IncomeTaxExpenseBenefit",
+      "value": 43500000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "EarningsPerShareBasic",
+      "value": 0.22,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "EarningsPerShareDiluted",
+      "value": 0.22,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "NetCashProvidedByUsedInOperatingActivities",
+      "value": 962100000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "NetCashProvidedByUsedInInvestingActivities",
+      "value": -195500000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "NetCashProvidedByUsedInFinancingActivities",
+      "value": -1298000000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "DepreciationDepletionAndAmortization",
+      "value": 689300000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+      "value": 91100000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "CommonStockSharesOutstanding",
+      "value": 542079011,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2026Q1I"
+    },
+    {
+      "concept": "CommonStockSharesIssued",
+      "value": 578423967,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2026Q1I"
+    },
+    {
+      "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+      "value": 540400000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "ResearchAndDevelopmentExpense",
+      "value": 1085900000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "ShareBasedCompensation",
+      "value": 255400000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "CostOfRevenue",
+      "value": 1992000000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2025"
+    },
+    {
+      "concept": "RevenueFromContractWithCustomerIncludingAssessedTax",
+      "value": 5349500000,
+      "end": "2019-03-31",
+      "filed": "2019-05-30",
+      "form": "10-K",
+      "fy": 2019,
+      "fp": "FY",
+      "frame": "CY2018"
+    },
+    {
+      "concept": "InventoryNet",
+      "value": 1035400000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2026Q1I"
+    },
+    {
+      "concept": "AccountsReceivableNetCurrent",
+      "value": 894700000,
+      "end": "2026-03-31",
+      "filed": "2026-05-21",
+      "form": "10-K",
+      "fy": 2026,
+      "fp": "FY",
+      "frame": "CY2026Q1I"
+    }
+  ],
+  "meta": {
+    "prefer_annual": true,
+    "concept_count_requested": 43
+  }
+}
