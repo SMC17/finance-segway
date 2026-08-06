@@ -1,0 +1,147 @@
+{
+ "schema_version": "1.0",
+ "as_of": "2026-08-06",
+ "purpose": "Maps SEC SIC codes onto the ISSUER-DISCLOSED sector buckets in standards/universe/taxonomy.json. The target scheme is deliberately the issuer's own partition (see the universe's sector_scheme field), NOT GICS: reconciliation against the issuer's disclosed bucket weights is the empirical check, and that only means something if both sides measure the same partition. Known divergences from GICS-2023 that the issuer's weights demand are listed in gics_divergences. The judgment layer is a committed, reviewable artifact: SIC->bucket rows carry multi-company semantics only; any single-company judgment lives in ambiguous_sic_overrides with its rationale.",
+ "sic_to_bucket": {
+  "3674": "information_technology",
+  "7372": "information_technology",
+  "3572": "information_technology",
+  "3577": "information_technology",
+  "3571": "information_technology",
+  "3576": "information_technology",
+  "3669": "information_technology",
+  "3663": "information_technology",
+  "3825": "information_technology",
+  "7374": "information_technology",
+  "3559": "information_technology",
+  "3827": "information_technology",
+  "7841": "communication_services",
+  "4841": "communication_services",
+  "4812": "communication_services",
+  "5961": "consumer_discretionary",
+  "3711": "consumer_discretionary",
+  "5810": "consumer_discretionary",
+  "5651": "consumer_discretionary",
+  "5531": "consumer_discretionary",
+  "4700": "consumer_discretionary",
+  "7011": "consumer_discretionary",
+  "5331": "consumer_staples",
+  "2080": "consumer_staples",
+  "2086": "consumer_staples",
+  "2000": "consumer_staples",
+  "2030": "consumer_staples",
+  "2834": "healthcare",
+  "2836": "healthcare",
+  "3842": "healthcare",
+  "2835": "healthcare",
+  "3841": "healthcare",
+  "3844": "healthcare",
+  "3724": "industrials",
+  "4011": "industrials",
+  "4213": "industrials",
+  "3760": "industrials",
+  "3480": "industrials",
+  "8700": "industrials",
+  "5200": "industrials",
+  "1311": "energy",
+  "3533": "energy",
+  "4911": "utilities",
+  "4931": "utilities",
+  "2810": "materials"
+ },
+ "ambiguous_sic_overrides": {
+  "GOOGL": {
+   "bucket": "communication_services",
+   "rationale": "SIC 7370 is too broad: interactive media, not computer services"
+  },
+  "GOOG": {
+   "bucket": "communication_services",
+   "rationale": "SIC 7370 is too broad: interactive media, not computer services"
+  },
+  "META": {
+   "bucket": "communication_services",
+   "rationale": "SIC 7370 is too broad: interactive media, not computer services"
+  },
+  "EA": {
+   "bucket": "communication_services",
+   "rationale": "SIC 7372 packaged software, but interactive entertainment classifies as media"
+  },
+  "TTWO": {
+   "bucket": "communication_services",
+   "rationale": "SIC 7372 packaged software, but interactive entertainment classifies as media"
+  },
+  "APP": {
+   "bucket": "information_technology",
+   "rationale": "SIC 7370: ad-tech software platform"
+  },
+  "NBIS": {
+   "bucket": "information_technology",
+   "rationale": "SIC 7370: AI infrastructure"
+  },
+  "SPCX": {
+   "bucket": "industrials",
+   "rationale": "SIC 7370 misleading: aerospace launch and satellite operator"
+  },
+  "PYPL": {
+   "bucket": "financials",
+   "rationale": "payments classify as financials in modern schemes (GICS-2023 moved payment processors to Financials)"
+  },
+  "MELI": {
+   "bucket": "consumer_discretionary",
+   "rationale": "SIC 7389: e-commerce marketplace"
+  },
+  "DASH": {
+   "bucket": "consumer_discretionary",
+   "rationale": "SIC 7389: consumer delivery marketplace"
+  },
+  "PDD": {
+   "bucket": "consumer_discretionary",
+   "rationale": "SIC 7389: e-commerce marketplace"
+  },
+  "MSTR": {
+   "bucket": "information_technology",
+   "rationale": "SIC 6199 (Finance Services) reflects the bitcoin-treasury strategy; the operating company is a software vendor and the issuer buckets it with technology"
+  },
+  "CTAS": {
+   "bucket": "consumer_discretionary",
+   "rationale": "SIC 2320 is what the garments are; GICS-2023 calls uniform rental Industrials, but the issuer's disclosed weights place it in the discretionary bucket - issuer scheme wins here by design"
+  },
+  "PCAR": {
+   "bucket": "consumer_discretionary",
+   "rationale": "SIC 3711 spans passenger cars and Class-8 trucks; GICS calls Paccar Industrials, the issuer's partition does not - issuer scheme wins by design"
+  },
+  "CPRT": {
+   "bucket": "consumer_discretionary",
+   "rationale": "SIC 5500 (auto dealers); B2B salvage auctions are Industrials under GICS, discretionary under the issuer's partition - issuer scheme wins by design"
+  },
+  "ABNB": {
+   "bucket": "consumer_discretionary",
+   "rationale": "SIC 7340 (services to dwellings) describes neither the marketplace nor its customers; travel marketplace, discretionary"
+  },
+  "TRI": {
+   "bucket": "communication_services",
+   "rationale": "SIC 2741 (publishing); professional information services - communication under the issuer's partition"
+  },
+  "ROP": {
+   "bucket": "industrials",
+   "rationale": "SIC 3823 (industrial instruments); largely software today (GICS-2023: IT) but the issuer's industrials weight requires it here - issuer scheme wins by design"
+  }
+ },
+ "gics_divergences": {
+  "note": "Companies whose issuer-scheme bucket differs from GICS-2023. Deliberate: the reconciliation check requires the issuer's partition, and re-bucketing these to GICS breaks it.",
+  "companies": {
+   "ADP": "GICS Industrials (Professional Services); issuer buckets with IT via SIC 7374",
+   "CTAS": "GICS Industrials",
+   "PCAR": "GICS Industrials",
+   "CPRT": "GICS Industrials",
+   "ROP": "GICS Information Technology",
+   "TRI": "GICS Industrials (Professional Services)"
+  }
+ },
+ "bucket_weight_check": {
+  "method": "normalized shares: assigned/total_assigned vs disclosed/total_disclosed",
+  "relative_tolerance": 0.12,
+  "absolute_floor": 0.003,
+  "rationale": "The issuer's sector table excludes ~3% of NAV beyond cash/futures, so raw weights are structurally biased high; normalized shares compare like with like. The floor covers micro-buckets where a relative band is meaningless. This gate bounds AGGREGATE drift and emptied buckets; it cannot certify any single small name - the per-company evidence is the cited SIC + crosswalk row, not this check."
+ }
+}
