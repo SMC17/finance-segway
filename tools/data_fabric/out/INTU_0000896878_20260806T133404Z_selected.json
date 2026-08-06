@@ -1,0 +1,321 @@
+{
+  "ticker": "INTU",
+  "cik": "0000896878",
+  "retrieved_utc": "20260806T133404Z",
+  "concepts": [
+    {
+      "concept": "Assets",
+      "value": 36958000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "AssetsCurrent",
+      "value": 14107000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "Liabilities",
+      "value": 17248000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "LiabilitiesCurrent",
+      "value": 10370000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "StockholdersEquity",
+      "value": 19710000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "CashAndCashEquivalentsAtCarryingValue",
+      "value": 2884000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "value": 9481000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "LongTermDebt",
+      "value": 5973000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "LongTermDebtNoncurrent",
+      "value": 5973000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "LongTermDebtCurrent",
+      "value": 0,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "DebtCurrent",
+      "value": 0,
+      "end": "2021-07-31",
+      "filed": "2021-09-08",
+      "form": "10-K",
+      "fy": 2021,
+      "fp": "FY",
+      "frame": "CY2021Q2I"
+    },
+    {
+      "concept": "ShortTermBorrowings",
+      "value": 245000000,
+      "end": "2016-01-31",
+      "filed": "2016-02-25",
+      "form": "10-Q",
+      "fy": 2016,
+      "fp": "Q2",
+      "frame": "CY2015Q4I"
+    },
+    {
+      "concept": "Revenues",
+      "value": 18831000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "value": 18831000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "NetIncomeLoss",
+      "value": 3869000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "OperatingIncomeLoss",
+      "value": 4923000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "InterestExpenseDebt",
+      "value": 247000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "IncomeTaxExpenseBenefit",
+      "value": 965000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "EarningsPerShareBasic",
+      "value": 13.82,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "EarningsPerShareDiluted",
+      "value": 13.67,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "NetCashProvidedByUsedInOperatingActivities",
+      "value": 6207000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "NetCashProvidedByUsedInInvestingActivities",
+      "value": -2318000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "NetCashProvidedByUsedInFinancingActivities",
+      "value": -1510000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+      "value": 84000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "CommonStockSharesOutstanding",
+      "value": 279129000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+      "value": 280000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "ResearchAndDevelopmentExpense",
+      "value": 2928000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "SellingAndMarketingExpense",
+      "value": 5035000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "GeneralAndAdministrativeExpense",
+      "value": 1601000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "ShareBasedCompensation",
+      "value": 1968000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "ContractWithCustomerLiabilityCurrent",
+      "value": 1019000000,
+      "end": "2025-07-31",
+      "filed": "2025-09-03",
+      "form": "10-K",
+      "fy": 2025,
+      "fp": "FY",
+      "frame": null
+    }
+  ],
+  "meta": {
+    "prefer_annual": true,
+    "concept_count_requested": 40
+  }
+}
