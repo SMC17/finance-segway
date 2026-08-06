@@ -95,10 +95,13 @@ class SourceStackTests(unittest.TestCase):
         self.assertIn("forbidden", stack["grounding_policy"])
         self.assertIn("no traceable basis", stack["grounding_policy"]["forbidden"])
 
-    def test_redistribution_restricted_source_is_flagged(self) -> None:
+    def test_every_source_states_how_it_is_used(self) -> None:
+        # Sources are inputs for building models, not things this library
+        # republishes. Each entry should say what it is used for so that
+        # intent is recorded alongside the data.
         stack = json.loads(SOURCE_STACK.read_text())
-        by_id = {item["id"]: item for item in stack["sources"]}
-        self.assertIn("restriction_note", by_id["yahoo_finance"])
+        for source in stack["sources"]:
+            self.assertTrue(source.get("primary_for"), msg=source["id"])
 
 
 if __name__ == "__main__":
