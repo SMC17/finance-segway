@@ -77,6 +77,91 @@ def validate(path: Path = TAXONOMY) -> dict[str, Any]:
             f"disclosed sector weights sum to {sector_total:.4f}, outside the plausible "
             f"band [{SECTOR_WEIGHT_FLOOR}, {SECTOR_WEIGHT_CEILING}]"
         )
+    # Empirical drift check on sector ASSIGNMENT. Both sides must measure
+    # the same partition, so shares are NORMALIZED (assigned/total_assigned
+    # vs disclosed/total_disclosed - the issuer's sector table excludes ~3%
+    # of NAV, which biases raw weights high everywhere). This gate bounds
+    # aggregate drift and emptied buckets; it cannot certify a single small
+    # name - that evidence is each company's cited SIC + crosswalk row.
+    assigned = [c for c in companies if c.get("sector_id")]
+    if not assigned and any(c.get("modelable") for c in companies):
+        errors.append(
+            "no modelable company carries a sector_id - the classification "
+            "layer (SIC snapshot + crosswalk) is missing or was not applied; "
+            "an unclassified taxonomy must not validate silently"
+        )
+    if assigned:
+        rel_tol, abs_floor = 0.12, 0.003
+        crosswalk_path = ROOT / "standards" / "universe" / "sic_crosswalk.json"
+        if crosswalk_path.exists():
+            try:
+                spec = json.loads(crosswalk_path.read_text(encoding="utf-8")).get(
+                    "bucket_weight_check", {}
+                )
+                rel_tol = float(spec.get("relative_tolerance", rel_tol))
+                abs_floor = float(spec.get("absolute_floor", abs_floor))
+            except (TypeError, ValueError, json.JSONDecodeError) as exc:
+                errors.append(f"bucket_weight_check spec unreadable: {exc}")
+        if not (0 < rel_tol <= 0.25) or not (0 < abs_floor <= 0.01):
+            errors.append(
+                f"bucket_weight_check tolerances out of bounds "
+                f"(relative {rel_tol}, floor {abs_floor}) - a loosened gate "
+                "must fail loudly, not pass quietly"
+            )
+        for universe_id in universes:
+            uni_sectors = {
+                sid: sec for sid, sec in sectors.items()
+                if sec.get("universe", universe_id) == universe_id
+            }
+            if not uni_sectors:
+                continue
+            bucket_sums: dict[str, float] = {}
+            total_assigned = 0.0
+            for company in assigned:
+                for membership in company.get("memberships") or []:
+                    if membership.get("universe") != universe_id:
+                        continue
+                    weight = float(membership.get("weight", 0.0))
+                    bucket_sums[company["sector_id"]] = (
+                        bucket_sums.get(company["sector_id"], 0.0) + weight
+                    )
+                    total_assigned += weight
+            total_disclosed = sum(
+                float(sec.get("disclosed_weight", 0.0)) for sec in uni_sectors.values()
+            )
+            if not total_assigned or not total_disclosed:
+                continue
+            for sector_id, sector in uni_sectors.items():
+                disclosed_share = float(sector.get("disclosed_weight", 0.0)) / total_disclosed
+                assigned_share = bucket_sums.get(sector_id, 0.0) / total_assigned
+                if disclosed_share > 0 and bucket_sums.get(sector_id, 0.0) == 0.0:
+                    errors.append(
+                        f"{universe_id}/{sector_id}: issuer discloses weight "
+                        f"{sector['disclosed_weight']} but no member is assigned - "
+                        "an emptied bucket cannot reconcile by tolerance"
+                    )
+                    continue
+                tolerance = max(abs_floor, rel_tol * disclosed_share)
+                if abs(assigned_share - disclosed_share) > tolerance:
+                    errors.append(
+                        f"{universe_id}/{sector_id}: assigned share "
+                        f"{assigned_share:.4f} vs disclosed {disclosed_share:.4f} "
+                        f"(tolerance {tolerance:.4f}) - assignment drifted from "
+                        "the issuer's partition"
+                    )
+    # Shared-CIK duplicate issuers (share classes): weights are legitimately
+    # separate, but coverage counts must not silently double-count one issuer.
+    cik_map: dict[str, list[str]] = {}
+    for company in companies:
+        if company.get("modelable") and company.get("cik"):
+            cik_map.setdefault(company["cik"], []).append(company["symbol"])
+    for cik, syms in sorted(cik_map.items()):
+        if len(syms) > 1:
+            warnings.append(
+                f"one issuer, multiple listings: CIK {cik} appears as "
+                f"{sorted(syms)} - coverage counts by company overstate issuers"
+            )
+
     for sector_id, sector in sectors.items():
         if not (sector.get("source") or {}).get("url"):
             errors.append(f"sector {sector_id}: no source url")
