@@ -902,6 +902,34 @@
       ],
       "target_maturity": "M2",
       "minimum_instances_for_M4": 2
+    },
+    {
+      "id": "30",
+      "domain": "ETF Construction & Management",
+      "folder": "30_ETF_Construction_Management",
+      "archetype": "ETF",
+      "workbook": "30_ETF_Construction_Management/_template_ETF.xlsx",
+      "builder": "tools/builders/build_etf_construction_institutional.py",
+      "horizon": "perpetual",
+      "declared_maturity": "M2",
+      "required_engines": [
+        "portfolio_construction",
+        "creation_redemption_mechanics",
+        "tracking_error_decomposition"
+      ],
+      "required_perspectives": [
+        "etf_issuer",
+        "authorized_participant",
+        "etf_investor"
+      ],
+      "reference_checks": [
+        "holdings_weight_reconciliation",
+        "sector_weight_reconciliation",
+        "creation_unit_basket_positive",
+        "tracking_difference_plausible_band"
+      ],
+      "target_maturity": "M3",
+      "minimum_instances_for_M4": 2
     }
   ]
 }

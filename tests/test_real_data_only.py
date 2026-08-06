@@ -71,8 +71,8 @@ class RealDataOnlyTests(unittest.TestCase):
             )
         )
         cases = index["cases"]
-        self.assertEqual(48, len(cases))
-        self.assertEqual(24, len({case["model_id"] for case in cases}))
+        self.assertEqual(49, len(cases))
+        self.assertEqual(25, len({case["model_id"] for case in cases}))
         for case in cases:
             manifest = json.loads(
                 (ROOT / case["manifest"]).read_text(encoding="utf-8")

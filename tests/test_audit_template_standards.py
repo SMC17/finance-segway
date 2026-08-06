@@ -143,7 +143,7 @@ class RealTemplateRegressionTests(unittest.TestCase):
         from audit_template_standards import audit_all
 
         results = audit_all()
-        self.assertEqual(len(results), 25)
+        self.assertEqual(len(results), 26)
         failing = {r.domain: r.findings for r in results if r.findings}
         self.assertEqual(failing, {})
 

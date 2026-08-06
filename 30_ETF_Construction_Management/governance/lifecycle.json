@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "model_id": "30",
+  "active_release": "1.0.0",
+  "rollback_release": null,
+  "status": "active",
+  "replacement": null,
+  "retirement_trigger": "Creation/redemption mechanics, tracking-cost decomposition methodology, or index-replication convention is superseded",
+  "rollback_tested": false,
+  "retirement_exercised": false
+}
