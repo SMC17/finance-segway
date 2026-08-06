@@ -79,6 +79,13 @@ def find_candidate_cells(template_path: Path) -> dict[str, set[str]]:
     "Downside" column often holds real, disclosed distress-scenario data,
     not a hypothetical modeler lever -- excluding it undercounted real,
     sourced cells for exactly the cases meant to be the most real.
+
+    A styled cell counts even when it holds no value. A table that reserves
+    N rows of capacity (an ETF holdings list, a comps peer set) but ships
+    illustrative defaults for only the first few still *offers* all N rows
+    for real data -- and a real instance fills them. Skipping blank cells
+    made those reserved slots invisible, so real sourced data landing in
+    them registered as "outside the candidate set" rather than as coverage.
     """
     workbook = load_workbook(template_path, data_only=False)
     result: dict[str, set[str]] = {}
@@ -86,9 +93,7 @@ def find_candidate_cells(template_path: Path) -> dict[str, set[str]]:
         candidates: set[str] = set()
         for row in sheet.iter_rows():
             for cell in row:
-                if cell.value is None:
-                    continue
-                if str(cell.value) == LEGEND_EXCLUDE_TEXT:
+                if cell.value is not None and str(cell.value) == LEGEND_EXCLUDE_TEXT:
                     continue
                 if _rgb(cell.font.color if cell.font else None) != INPUT_FONT_RGB:
                     continue

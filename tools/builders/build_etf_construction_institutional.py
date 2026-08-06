@@ -93,8 +93,18 @@ def build(output: Path) -> None:
     sheet = workbook["Portfolio Construction"]
     title(sheet, "B2:E2", "Constituent Holdings (Look-Through)")
     header(sheet, 4, 2, ["Symbol", "Issuer / description", "Weight"])
-    for offset, (symbol, issuer, weight) in enumerate(DEFAULT_HOLDINGS):
+    # Style every reserved holdings row as an input cell, not just the rows
+    # carrying an illustrative default. The table's real capacity is
+    # HOLDING_ROWS; a real instance (QQQ fills all 30) puts sourced data into
+    # rows the template left blank. Leaving those blank rows unstyled made
+    # the template under-declare its own input surface, so
+    # tools/verify_template_exhaustion.py could not see real, sourced cells
+    # as candidates -- they showed up as "real inputs outside the candidate
+    # set" instead of as coverage.
+    for offset in range(HOLDING_ROWS):
         row = 5 + offset
+        default = DEFAULT_HOLDINGS[offset] if offset < len(DEFAULT_HOLDINGS) else (None, None, None)
+        symbol, issuer, weight = default
         input_cell(sheet.cell(row, 2, symbol))
         input_cell(sheet.cell(row, 3, issuer))
         input_cell(sheet.cell(row, 4, weight), PCT2)
@@ -110,8 +120,9 @@ def build(output: Path) -> None:
     sector_start = other_row + 4
     title(sheet, f"B{sector_start - 1}:C{sector_start - 1}", "Sector Allocation (as disclosed)")
     header(sheet, sector_start, 2, ["Sector", "Weight"])
-    for offset, (sector, weight) in enumerate(DEFAULT_SECTORS):
+    for offset in range(SECTOR_ROWS):
         row = sector_start + 1 + offset
+        sector, weight = DEFAULT_SECTORS[offset] if offset < len(DEFAULT_SECTORS) else (None, None)
         input_cell(sheet.cell(row, 2, sector))
         input_cell(sheet.cell(row, 3, weight), PCT2)
     sector_total_row = sector_start + SECTOR_ROWS + 1
