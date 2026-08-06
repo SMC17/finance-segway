@@ -1,0 +1,1447 @@
+{
+  "schema_version": "1.0",
+  "id": "etf-public-qqq-2026",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "30_ETF_Construction_Management/_template_ETF.xlsx",
+  "output": "30_ETF_Construction_Management/instances/public_qqq_2026.xlsx",
+  "as_of": "2026-08-06",
+  "scenario": "Base",
+  "cover": {
+    "ETF / share class:": "Invesco QQQ Trust, Series 1 (NASDAQ: QQQ)",
+    "Benchmark index:": "NASDAQ-100 Index"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 490100.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 0.0018,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.0043,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "value": 717.3,
+      "input_kind": "observed",
+      "source": {
+        "name": "QQQ market close price (Alpha Vantage GLOBAL_QUOTE, 2026-08-05)",
+        "url": "https://www.alphavantage.co/documentation/#quote-endpoint",
+        "as_of": "2026-08-05",
+        "notes": "Last daily close $717.30, retrieved via Alpha Vantage GLOBAL_QUOTE (symbol=QQQ)."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B5",
+      "value": "NVDA",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C5",
+      "value": "NVIDIA CORP",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D5",
+      "value": 0.0828,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B6",
+      "value": "AAPL",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C6",
+      "value": "APPLE INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D6",
+      "value": 0.0772,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B7",
+      "value": "MU",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C7",
+      "value": "MICRON TECHNOLOGY INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D7",
+      "value": 0.0482,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B8",
+      "value": "MSFT",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C8",
+      "value": "MICROSOFT CORP",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D8",
+      "value": 0.0468,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B9",
+      "value": "AMZN",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C9",
+      "value": "AMAZON.COM INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D9",
+      "value": 0.0425,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B10",
+      "value": "AMD",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C10",
+      "value": "ADVANCED MICRO DEVICES INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D10",
+      "value": 0.0401,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B11",
+      "value": "GOOGL",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C11",
+      "value": "ALPHABET INC CLASS A",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D11",
+      "value": 0.0321,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B12",
+      "value": "AVGO",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C12",
+      "value": "BROADCOM INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D12",
+      "value": 0.0303,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B13",
+      "value": "GOOG",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C13",
+      "value": "ALPHABET INC CLASS C",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D13",
+      "value": 0.0301,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B14",
+      "value": "TSLA",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C14",
+      "value": "TESLA INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D14",
+      "value": 0.0301,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B15",
+      "value": "META",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C15",
+      "value": "META PLATFORMS INC CLASS A",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D15",
+      "value": 0.03,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B16",
+      "value": "WMT",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C16",
+      "value": "WALMART INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D16",
+      "value": 0.0238,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B17",
+      "value": "INTC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C17",
+      "value": "INTEL CORP",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D17",
+      "value": 0.023,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B18",
+      "value": "CSCO",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C18",
+      "value": "CISCO SYSTEMS INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D18",
+      "value": 0.0197,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B19",
+      "value": "AMAT",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C19",
+      "value": "APPLIED MATERIALS INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D19",
+      "value": 0.0196,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B20",
+      "value": "COST",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C20",
+      "value": "COSTCO WHOLESALE CORP",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D20",
+      "value": 0.0183,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B21",
+      "value": "LRCX",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C21",
+      "value": "LAM RESEARCH CORP",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D21",
+      "value": 0.0178,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B22",
+      "value": "NFLX",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C22",
+      "value": "NETFLIX INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D22",
+      "value": 0.0129,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B23",
+      "value": "PLTR",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C23",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D23",
+      "value": 0.0127,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B24",
+      "value": "KLAC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C24",
+      "value": "KLA CORP",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D24",
+      "value": 0.0125,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B25",
+      "value": "PANW",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C25",
+      "value": "PALO ALTO NETWORKS INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D25",
+      "value": 0.0122,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B26",
+      "value": "TXN",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C26",
+      "value": "TEXAS INSTRUMENTS INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D26",
+      "value": 0.0119,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B27",
+      "value": "LIN",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C27",
+      "value": "LINDE PLC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D27",
+      "value": 0.0105,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B28",
+      "value": "SNDK",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C28",
+      "value": "SANDISK CORP ORDINARY SHARES",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D28",
+      "value": 0.0105,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B29",
+      "value": "SPCX",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C29",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D29",
+      "value": 0.0098,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B30",
+      "value": "TMUS",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C30",
+      "value": "T-MOBILE US INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D30",
+      "value": 0.0092,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B31",
+      "value": "STX",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C31",
+      "value": "SEAGATE TECHNOLOGY HOLDINGS PLC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D31",
+      "value": 0.0091,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B32",
+      "value": "AMGN",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C32",
+      "value": "AMGEN INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D32",
+      "value": 0.0088,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B33",
+      "value": "CRWD",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C33",
+      "value": "CROWDSTRIKE HOLDINGS INC CLASS A",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D33",
+      "value": 0.0085,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B34",
+      "value": "WDC",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C34",
+      "value": "WESTERN DIGITAL CORP",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D34",
+      "value": 0.0085,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B40",
+      "value": "INFORMATION TECHNOLOGY",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C40",
+      "value": 0.577,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B41",
+      "value": "COMMUNICATION SERVICES",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C41",
+      "value": 0.133,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B42",
+      "value": "CONSUMER DISCRETIONARY",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C42",
+      "value": 0.101,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B43",
+      "value": "CONSUMER STAPLES",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C43",
+      "value": 0.061,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B44",
+      "value": "HEALTHCARE",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C44",
+      "value": 0.036,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B45",
+      "value": "INDUSTRIALS",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C45",
+      "value": 0.029,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B46",
+      "value": "UTILITIES",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C46",
+      "value": 0.012,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B47",
+      "value": "MATERIALS",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C47",
+      "value": 0.011,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B48",
+      "value": "ENERGY",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C48",
+      "value": 0.005,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B49",
+      "value": "FINANCIALS",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C49",
+      "value": 0.002,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B50",
+      "value": "REAL ESTATE",
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C50",
+      "value": 0.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Invesco QQQ Trust ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+      "url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "as_of": "2026-08-06",
+      "notes": "Fund net assets, net expense ratio, trailing dividend yield, sector weights, and full constituent holdings with weights, retrieved via Alpha Vantage ETF_PROFILE (symbol=QQQ). Sourced from the fund's own disclosed holdings/profile data."
+    },
+    {
+      "name": "QQQ market close price (Alpha Vantage GLOBAL_QUOTE, 2026-08-05)",
+      "url": "https://www.alphavantage.co/documentation/#quote-endpoint",
+      "as_of": "2026-08-05",
+      "notes": "Last daily close $717.30, retrieved via Alpha Vantage GLOBAL_QUOTE (symbol=QQQ)."
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://30_ETF_Construction_Management/sources/snapshots/etf-public-qqq-2026.json",
+      "as_of": "2026-08-06",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-06",
+    "trigger": "Initial real-instance sourcing for the ETF Construction & Management domain",
+    "source_snapshot": "repo://30_ETF_Construction_Management/sources/snapshots/etf-public-qqq-2026.json",
+    "what_changed": "Generated public case etf-public-qqq-2026 from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or quarterly review"
+  },
+  "outcome": {
+    "metric": "next_quarter_net_assets_usd_mm",
+    "forecast": 490100.0,
+    "realized": null,
+    "realized_source": "Pending next maintained evidence refresh",
+    "status": "pending"
+  },
+  "lineage": {
+    "source_snapshot": "repo://30_ETF_Construction_Management/sources/snapshots/etf-public-qqq-2026.json",
+    "synthetic_benchmark_inputs_allowed": false
+  }
+}

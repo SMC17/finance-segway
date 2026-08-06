@@ -271,9 +271,19 @@ def _validate_combined_index(require_instances: bool) -> dict[str, Any]:
 
     if len(case_ids) != len(set(case_ids)):
         errors.append("public case identifiers must be globally unique")
-    if set(by_model) != EXPECTED_ALL_IDS:
+    # The governed 01-24 set's own strict invariants (exactly two cases,
+    # one conventional and one adversarial, minimum external inputs, a
+    # recorded outcome) are a closed, certified claim about that specific
+    # cohort and must not silently loosen. Domains added later (e.g. "29"
+    # Fund of Funds, "30" ETF Construction & Management) are real,
+    # honestly-declared inventory entries with their own independent
+    # evidence bar (see model_inventory.json and each domain's own
+    # model_card.md) -- they are additive to this ledger, not required to
+    # satisfy the governed cohort's own two-case-per-model shape, and must
+    # not be silently dropped by requiring an exact-equality match here.
+    if not EXPECTED_ALL_IDS.issubset(set(by_model)):
         errors.append(
-            f"evidence model ids {sorted(by_model)} do not match governed 01-24 set"
+            f"evidence model ids {sorted(by_model)} do not cover the governed 01-24 set"
         )
     for model_id in EXPECTED_ALL_IDS:
         if by_model[model_id] != 2:
@@ -288,10 +298,12 @@ def _validate_combined_index(require_instances: bool) -> dict[str, Any]:
             )
         if recorded_outcomes[model_id] < 1:
             errors.append(f"{model_id}: requires at least one recorded outcome")
-    if index.get("case_count") != 48:
-        errors.append(f"public index case_count must equal 48")
-    if index.get("evidence_models") != 24:
-        errors.append("public index evidence_models must equal 24")
+    # At least the governed 48/24 -- later, honestly-declared additions grow
+    # these totals without invalidating the governed cohort's own claim.
+    if index.get("case_count", 0) < 48:
+        errors.append("public index case_count must be at least 48")
+    if index.get("evidence_models", 0) < 24:
+        errors.append("public index evidence_models must be at least 24")
     if index.get("counts_toward_m4") is not False:
         errors.append("public evidence index may not count toward M4")
 

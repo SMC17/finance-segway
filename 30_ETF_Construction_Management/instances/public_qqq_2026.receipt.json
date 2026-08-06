@@ -1,0 +1,943 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "etf-public-qqq-2026",
+  "as_of": "2026-08-06",
+  "manifest": "standards/public_cases/etf-public-qqq-2026.json",
+  "template": "30_ETF_Construction_Management/_template_ETF.xlsx",
+  "output": "30_ETF_Construction_Management/instances/public_qqq_2026.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "previous": 10000,
+      "value": 490100.0,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "previous": 0.005,
+      "value": 0.0018,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "previous": 0.015,
+      "value": 0.0043,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "previous": 100,
+      "value": 717.3,
+      "source_url": "https://www.alphavantage.co/documentation/#quote-endpoint",
+      "source_as_of": "2026-08-05"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B5",
+      "previous": "[Holding 1]",
+      "value": "NVDA",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C5",
+      "previous": "[Issuer 1]",
+      "value": "NVIDIA CORP",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D5",
+      "previous": 0.08,
+      "value": 0.0828,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B6",
+      "previous": "[Holding 2]",
+      "value": "AAPL",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C6",
+      "previous": "[Issuer 2]",
+      "value": "APPLE INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D6",
+      "previous": 0.07,
+      "value": 0.0772,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B7",
+      "previous": "[Holding 3]",
+      "value": "MU",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C7",
+      "previous": "[Issuer 3]",
+      "value": "MICRON TECHNOLOGY INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D7",
+      "previous": 0.05,
+      "value": 0.0482,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B8",
+      "previous": "[Holding 4]",
+      "value": "MSFT",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C8",
+      "previous": "[Issuer 4]",
+      "value": "MICROSOFT CORP",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D8",
+      "previous": 0.04,
+      "value": 0.0468,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B9",
+      "previous": "[Holding 5]",
+      "value": "AMZN",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C9",
+      "previous": "[Issuer 5]",
+      "value": "AMAZON.COM INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D9",
+      "previous": 0.04,
+      "value": 0.0425,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B10",
+      "previous": "[Holding 6]",
+      "value": "AMD",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C10",
+      "previous": "[Issuer 6]",
+      "value": "ADVANCED MICRO DEVICES INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D10",
+      "previous": 0.03,
+      "value": 0.0401,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B11",
+      "previous": "[Holding 7]",
+      "value": "GOOGL",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C11",
+      "previous": "[Issuer 7]",
+      "value": "ALPHABET INC CLASS A",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D11",
+      "previous": 0.03,
+      "value": 0.0321,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B12",
+      "previous": "[Holding 8]",
+      "value": "AVGO",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C12",
+      "previous": "[Issuer 8]",
+      "value": "BROADCOM INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D12",
+      "previous": 0.03,
+      "value": 0.0303,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B13",
+      "previous": "[Holding 9]",
+      "value": "GOOG",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C13",
+      "previous": "[Issuer 9]",
+      "value": "ALPHABET INC CLASS C",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D13",
+      "previous": 0.02,
+      "value": 0.0301,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B14",
+      "previous": "[Holding 10]",
+      "value": "TSLA",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C14",
+      "previous": "[Issuer 10]",
+      "value": "TESLA INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D14",
+      "previous": 0.02,
+      "value": 0.0301,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B15",
+      "previous": null,
+      "value": "META",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C15",
+      "previous": null,
+      "value": "META PLATFORMS INC CLASS A",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D15",
+      "previous": null,
+      "value": 0.03,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B16",
+      "previous": null,
+      "value": "WMT",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C16",
+      "previous": null,
+      "value": "WALMART INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D16",
+      "previous": null,
+      "value": 0.0238,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B17",
+      "previous": null,
+      "value": "INTC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C17",
+      "previous": null,
+      "value": "INTEL CORP",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D17",
+      "previous": null,
+      "value": 0.023,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B18",
+      "previous": null,
+      "value": "CSCO",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C18",
+      "previous": null,
+      "value": "CISCO SYSTEMS INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D18",
+      "previous": null,
+      "value": 0.0197,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B19",
+      "previous": null,
+      "value": "AMAT",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C19",
+      "previous": null,
+      "value": "APPLIED MATERIALS INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D19",
+      "previous": null,
+      "value": 0.0196,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B20",
+      "previous": null,
+      "value": "COST",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C20",
+      "previous": null,
+      "value": "COSTCO WHOLESALE CORP",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D20",
+      "previous": null,
+      "value": 0.0183,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B21",
+      "previous": null,
+      "value": "LRCX",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C21",
+      "previous": null,
+      "value": "LAM RESEARCH CORP",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D21",
+      "previous": null,
+      "value": 0.0178,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B22",
+      "previous": null,
+      "value": "NFLX",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C22",
+      "previous": null,
+      "value": "NETFLIX INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D22",
+      "previous": null,
+      "value": 0.0129,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B23",
+      "previous": null,
+      "value": "PLTR",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C23",
+      "previous": null,
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D23",
+      "previous": null,
+      "value": 0.0127,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B24",
+      "previous": null,
+      "value": "KLAC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C24",
+      "previous": null,
+      "value": "KLA CORP",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D24",
+      "previous": null,
+      "value": 0.0125,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B25",
+      "previous": null,
+      "value": "PANW",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C25",
+      "previous": null,
+      "value": "PALO ALTO NETWORKS INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D25",
+      "previous": null,
+      "value": 0.0122,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B26",
+      "previous": null,
+      "value": "TXN",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C26",
+      "previous": null,
+      "value": "TEXAS INSTRUMENTS INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D26",
+      "previous": null,
+      "value": 0.0119,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B27",
+      "previous": null,
+      "value": "LIN",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C27",
+      "previous": null,
+      "value": "LINDE PLC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D27",
+      "previous": null,
+      "value": 0.0105,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B28",
+      "previous": null,
+      "value": "SNDK",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C28",
+      "previous": null,
+      "value": "SANDISK CORP ORDINARY SHARES",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D28",
+      "previous": null,
+      "value": 0.0105,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B29",
+      "previous": null,
+      "value": "SPCX",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C29",
+      "previous": null,
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D29",
+      "previous": null,
+      "value": 0.0098,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B30",
+      "previous": null,
+      "value": "TMUS",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C30",
+      "previous": null,
+      "value": "T-MOBILE US INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D30",
+      "previous": null,
+      "value": 0.0092,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B31",
+      "previous": null,
+      "value": "STX",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C31",
+      "previous": null,
+      "value": "SEAGATE TECHNOLOGY HOLDINGS PLC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D31",
+      "previous": null,
+      "value": 0.0091,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B32",
+      "previous": null,
+      "value": "AMGN",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C32",
+      "previous": null,
+      "value": "AMGEN INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D32",
+      "previous": null,
+      "value": 0.0088,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B33",
+      "previous": null,
+      "value": "CRWD",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C33",
+      "previous": null,
+      "value": "CROWDSTRIKE HOLDINGS INC CLASS A",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D33",
+      "previous": null,
+      "value": 0.0085,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B34",
+      "previous": null,
+      "value": "WDC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C34",
+      "previous": null,
+      "value": "WESTERN DIGITAL CORP",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D34",
+      "previous": null,
+      "value": 0.0085,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B40",
+      "previous": "[Sector 1]",
+      "value": "INFORMATION TECHNOLOGY",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C40",
+      "previous": 0.3,
+      "value": 0.577,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B41",
+      "previous": "[Sector 2]",
+      "value": "COMMUNICATION SERVICES",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C41",
+      "previous": 0.2,
+      "value": 0.133,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B42",
+      "previous": "[Sector 3]",
+      "value": "CONSUMER DISCRETIONARY",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C42",
+      "previous": 0.15,
+      "value": 0.101,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B43",
+      "previous": "[Sector 4]",
+      "value": "CONSUMER STAPLES",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C43",
+      "previous": 0.1,
+      "value": 0.061,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B44",
+      "previous": "[Sector 5]",
+      "value": "HEALTHCARE",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C44",
+      "previous": 0.08,
+      "value": 0.036,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B45",
+      "previous": null,
+      "value": "INDUSTRIALS",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C45",
+      "previous": null,
+      "value": 0.029,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B46",
+      "previous": null,
+      "value": "UTILITIES",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C46",
+      "previous": null,
+      "value": 0.012,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B47",
+      "previous": null,
+      "value": "MATERIALS",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C47",
+      "previous": null,
+      "value": 0.011,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B48",
+      "previous": null,
+      "value": "ENERGY",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C48",
+      "previous": null,
+      "value": 0.005,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B49",
+      "previous": null,
+      "value": "FINANCIALS",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C49",
+      "previous": null,
+      "value": 0.002,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B50",
+      "previous": null,
+      "value": "REAL ESTATE",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C50",
+      "previous": null,
+      "value": 0.0,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-06"
+    }
+  ],
+  "workbook_sha256": "4aa3b21872d8e40f39d9556e288af04845504d0d8f5d5db4b2da263d6348cc5d",
+  "generated_on": "2026-08-06",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false
+}
