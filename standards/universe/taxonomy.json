@@ -24,6 +24,7 @@
     {
       "id": "information_technology",
       "label": "INFORMATION TECHNOLOGY",
+      "universe": "qqq",
       "disclosed_weight": 0.577,
       "source": {
         "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
@@ -35,6 +36,7 @@
     {
       "id": "communication_services",
       "label": "COMMUNICATION SERVICES",
+      "universe": "qqq",
       "disclosed_weight": 0.133,
       "source": {
         "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
@@ -46,6 +48,7 @@
     {
       "id": "consumer_discretionary",
       "label": "CONSUMER DISCRETIONARY",
+      "universe": "qqq",
       "disclosed_weight": 0.101,
       "source": {
         "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
@@ -57,6 +60,7 @@
     {
       "id": "consumer_staples",
       "label": "CONSUMER STAPLES",
+      "universe": "qqq",
       "disclosed_weight": 0.061,
       "source": {
         "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
@@ -68,6 +72,7 @@
     {
       "id": "healthcare",
       "label": "HEALTHCARE",
+      "universe": "qqq",
       "disclosed_weight": 0.036,
       "source": {
         "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
@@ -79,6 +84,7 @@
     {
       "id": "industrials",
       "label": "INDUSTRIALS",
+      "universe": "qqq",
       "disclosed_weight": 0.029,
       "source": {
         "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
@@ -90,6 +96,7 @@
     {
       "id": "utilities",
       "label": "UTILITIES",
+      "universe": "qqq",
       "disclosed_weight": 0.012,
       "source": {
         "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
@@ -101,6 +108,7 @@
     {
       "id": "materials",
       "label": "MATERIALS",
+      "universe": "qqq",
       "disclosed_weight": 0.011,
       "source": {
         "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
@@ -112,6 +120,7 @@
     {
       "id": "energy",
       "label": "ENERGY",
+      "universe": "qqq",
       "disclosed_weight": 0.005,
       "source": {
         "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
@@ -123,6 +132,7 @@
     {
       "id": "financials",
       "label": "FINANCIALS",
+      "universe": "qqq",
       "disclosed_weight": 0.002,
       "source": {
         "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
@@ -134,6 +144,7 @@
     {
       "id": "real_estate",
       "label": "REAL ESTATE",
+      "universe": "qqq",
       "disclosed_weight": 0.0,
       "source": {
         "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
@@ -147,1434 +158,1844 @@
     {
       "symbol": "AAPL",
       "name": "APPLE INC",
+      "name_sec": "Apple Inc.",
+      "cik": "0000320193",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0772
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3571 (Electronic Computers) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3571",
+      "sic_description": "Electronic Computers",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "ABNB",
       "name": "AIRBNB INC ORDINARY SHARES CLASS A",
+      "name_sec": "Airbnb, Inc.",
+      "cik": "0001559720",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0026
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_discretionary",
+      "sector_source": "SEC EDGAR SIC 7340 (Services-To Dwellings & Other Buildings) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 7340 (services to dwellings) describes neither the marketplace nor its customers; travel marketplace, discretionary",
+      "sic": "7340",
+      "sic_description": "Services-To Dwellings & Other Buildings",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "ADBE",
       "name": "ADOBE INC",
+      "name_sec": "ADOBE INC.",
+      "cik": "0000796343",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0039
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 7372 (Services-Prepackaged Software) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "7372",
+      "sic_description": "Services-Prepackaged Software",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "ADI",
       "name": "ANALOG DEVICES INC",
+      "name_sec": "ANALOG DEVICES INC",
+      "cik": "0000006281",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0084
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3674 (Semiconductors & Related Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3674",
+      "sic_description": "Semiconductors & Related Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "ADP",
       "name": "AUTOMATIC DATA PROCESSING INC",
+      "name_sec": "AUTOMATIC DATA PROCESSING INC",
+      "cik": "0000008670",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0043
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 7374 (Services-Computer Processing & Data Preparation) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "7374",
+      "sic_description": "Services-Computer Processing & Data Preparation",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "ADSK",
       "name": "AUTODESK INC",
+      "name_sec": "Autodesk, Inc.",
+      "cik": "0000769397",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0019
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 7372 (Services-Prepackaged Software) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "7372",
+      "sic_description": "Services-Prepackaged Software",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "AEP",
       "name": "AMERICAN ELECTRIC POWER CO INC",
+      "name_sec": "AMERICAN ELECTRIC POWER CO INC",
+      "cik": "0000004904",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0032
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "utilities",
+      "sector_source": "SEC EDGAR SIC 4911 (Electric Services) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "4911",
+      "sic_description": "Electric Services",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "ALAB",
       "name": "ASTERA LABS INC",
+      "name_sec": "Astera Labs, Inc.",
+      "cik": "0001736297",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0025
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3674 (Semiconductors & Related Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3674",
+      "sic_description": "Semiconductors & Related Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "ALNY",
       "name": "ALNYLAM PHARMACEUTICALS INC",
+      "name_sec": "ALNYLAM PHARMACEUTICALS, INC.",
+      "cik": "0001178670",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0016
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "healthcare",
+      "sector_source": "SEC EDGAR SIC 2834 (Pharmaceutical Preparations) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "2834",
+      "sic_description": "Pharmaceutical Preparations",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "AMAT",
       "name": "APPLIED MATERIALS INC",
+      "name_sec": "APPLIED MATERIALS INC /DE",
+      "cik": "0000006951",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0196
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3674 (Semiconductors & Related Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3674",
+      "sic_description": "Semiconductors & Related Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "AMD",
       "name": "ADVANCED MICRO DEVICES INC",
+      "name_sec": "ADVANCED MICRO DEVICES INC",
+      "cik": "0000002488",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0401
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3674 (Semiconductors & Related Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3674",
+      "sic_description": "Semiconductors & Related Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "AMGN",
       "name": "AMGEN INC",
+      "name_sec": "AMGEN INC",
+      "cik": "0000318154",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0088
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "healthcare",
+      "sector_source": "SEC EDGAR SIC 2836 (Biological Products, (No Diagnostic Substances)) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "2836",
+      "sic_description": "Biological Products, (No Diagnostic Substances)",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "AMZN",
       "name": "AMAZON.COM INC",
+      "name_sec": "AMAZON COM INC",
+      "cik": "0001018724",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0425
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_discretionary",
+      "sector_source": "SEC EDGAR SIC 5961 (Retail-Catalog & Mail-Order Houses) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "5961",
+      "sic_description": "Retail-Catalog & Mail-Order Houses",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "APP",
       "name": "APPLOVIN CORP ORDINARY SHARES CLASS A",
+      "name_sec": "AppLovin Corp",
+      "cik": "0001751008",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0056
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 7370 (Services-Computer Programming, Data Processing, Etc.) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 7370: ad-tech software platform",
+      "sic": "7370",
+      "sic_description": "Services-Computer Programming, Data Processing, Etc.",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "ARM",
       "name": "ARM HOLDINGS PLC ADR",
+      "name_sec": "ARM HOLDINGS PLC /UK",
+      "cik": "0001973239",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0054
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3674 (Semiconductors & Related Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3674",
+      "sic_description": "Semiconductors & Related Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "ASML",
       "name": "ASML HOLDING NV ADR",
+      "name_sec": "ASML HOLDING NV",
+      "cik": "0000937966",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0074
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3559 (Special Industry Machinery, NEC) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3559",
+      "sic_description": "Special Industry Machinery, NEC",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "AVGO",
       "name": "BROADCOM INC",
+      "name_sec": "Broadcom Inc.",
+      "cik": "0001730168",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0303
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3674 (Semiconductors & Related Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3674",
+      "sic_description": "Semiconductors & Related Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "AXON",
       "name": "AXON ENTERPRISE INC",
+      "name_sec": "AXON ENTERPRISE, INC.",
+      "cik": "0001069183",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0018
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "industrials",
+      "sector_source": "SEC EDGAR SIC 3480 (Ordnance & Accessories, (No Vehicles/Guided Missiles)) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3480",
+      "sic_description": "Ordnance & Accessories, (No Vehicles/Guided Missiles)",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "BKNG",
       "name": "BOOKING HOLDINGS INC",
+      "name_sec": "Booking Holdings Inc.",
+      "cik": "0001075531",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0061
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_discretionary",
+      "sector_source": "SEC EDGAR SIC 4700 (Transportation Services) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "4700",
+      "sic_description": "Transportation Services",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "BKR",
       "name": "BAKER HUGHES CO CLASS A",
+      "name_sec": "Baker Hughes Co",
+      "cik": "0001701605",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0025
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "energy",
+      "sector_source": "SEC EDGAR SIC 3533 (Oil & Gas Field Machinery & Equipment) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3533",
+      "sic_description": "Oil & Gas Field Machinery & Equipment",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "CCEP",
       "name": "COCA-COLA EUROPACIFIC PARTNERS PLC",
+      "name_sec": "COCA-COLA EUROPACIFIC PARTNERS plc",
+      "cik": "0001650107",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0021
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_staples",
+      "sector_source": "SEC EDGAR SIC 2086 (Bottled & Canned Soft Drinks & Carbonated Waters) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "2086",
+      "sic_description": "Bottled & Canned Soft Drinks & Carbonated Waters",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "CDNS",
       "name": "CADENCE DESIGN SYSTEMS INC",
+      "name_sec": "CADENCE DESIGN SYSTEMS INC",
+      "cik": "0000813672",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0041
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 7372 (Services-Prepackaged Software) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "7372",
+      "sic_description": "Services-Prepackaged Software",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "CEG",
       "name": "CONSTELLATION ENERGY CORP",
+      "name_sec": "Constellation Energy Corp",
+      "cik": "0001868275",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0044
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "utilities",
+      "sector_source": "SEC EDGAR SIC 4911 (Electric Services) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "4911",
+      "sic_description": "Electric Services",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "CMCSA",
       "name": "COMCAST CORP CLASS A",
+      "name_sec": "COMCAST CORP",
+      "cik": "0001166691",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0037
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "communication_services",
+      "sector_source": "SEC EDGAR SIC 4841 (Cable & Other Pay Television Services) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "4841",
+      "sic_description": "Cable & Other Pay Television Services",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "COST",
       "name": "COSTCO WHOLESALE CORP",
+      "name_sec": "COSTCO WHOLESALE CORP /NEW",
+      "cik": "0000909832",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0183
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_staples",
+      "sector_source": "SEC EDGAR SIC 5331 (Retail-Variety Stores) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "5331",
+      "sic_description": "Retail-Variety Stores",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "CPRT",
       "name": "COPART INC",
+      "name_sec": "COPART INC",
+      "cik": "0000900075",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0011
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_discretionary",
+      "sector_source": "SEC EDGAR SIC 5500 (Retail-Auto Dealers & Gasoline Stations) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 5500 (auto dealers); B2B salvage auctions are Industrials under GICS, discretionary under the issuer's partition - issuer scheme wins by design",
+      "sic": "5500",
+      "sic_description": "Retail-Auto Dealers & Gasoline Stations",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "CRWD",
       "name": "CROWDSTRIKE HOLDINGS INC CLASS A",
+      "name_sec": "CrowdStrike Holdings, Inc.",
+      "cik": "0001535527",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0085
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 7372 (Services-Prepackaged Software) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "7372",
+      "sic_description": "Services-Prepackaged Software",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "CRWV",
       "name": "COREWEAVE INC ORDINARY SHARES CLASS A",
+      "name_sec": "CoreWeave, Inc.",
+      "cik": "0001769628",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0016
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 7372 (Services-Prepackaged Software) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "7372",
+      "sic_description": "Services-Prepackaged Software",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "CSCO",
       "name": "CISCO SYSTEMS INC",
+      "name_sec": "CISCO SYSTEMS, INC.",
+      "cik": "0000858877",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0197
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3576 (Computer Communications Equipment) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3576",
+      "sic_description": "Computer Communications Equipment",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "CSX",
       "name": "CSX CORP",
+      "name_sec": "CSX CORP",
+      "cik": "0000277948",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0041
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "industrials",
+      "sector_source": "SEC EDGAR SIC 4011 (Railroads, Line-Haul Operating) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "4011",
+      "sic_description": "Railroads, Line-Haul Operating",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "CTAS",
       "name": "CINTAS CORP",
+      "name_sec": "CINTAS CORP",
+      "cik": "0000723254",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0036
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_discretionary",
+      "sector_source": "SEC EDGAR SIC 2320 (Men's & Boys' Furnishgs, Work Clothg, & Allied Garments) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 2320 is what the garments are; GICS-2023 calls uniform rental Industrials, but the issuer's disclosed weights place it in the discretionary bucket - issuer scheme wins here by design",
+      "sic": "2320",
+      "sic_description": "Men's & Boys' Furnishgs, Work Clothg, & Allied Garments",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "DASH",
       "name": "DOORDASH INC ORDINARY SHARES CLASS A",
+      "name_sec": "DoorDash, Inc.",
+      "cik": "0001792789",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0033
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_discretionary",
+      "sector_source": "SEC EDGAR SIC 7389 (Services-Business Services, NEC) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 7389: consumer delivery marketplace",
+      "sic": "7389",
+      "sic_description": "Services-Business Services, NEC",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "DDOG",
       "name": "DATADOG INC CLASS A",
+      "name_sec": "Datadog, Inc.",
+      "cik": "0001561550",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0036
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 7372 (Services-Prepackaged Software) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "7372",
+      "sic_description": "Services-Prepackaged Software",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "DXCM",
       "name": "DEXCOM INC",
+      "name_sec": "DEXCOM INC",
+      "cik": "0001093557",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0012
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "healthcare",
+      "sector_source": "SEC EDGAR SIC 3841 (Surgical & Medical Instruments & Apparatus) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3841",
+      "sic_description": "Surgical & Medical Instruments & Apparatus",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "EA",
       "name": "ELECTRONIC ARTS INC",
+      "name_sec": "ELECTRONIC ARTS INC.",
+      "cik": "0000712515",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0023
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "communication_services",
+      "sector_source": "SEC EDGAR SIC 7372 (Services-Prepackaged Software) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 7372 packaged software, but interactive entertainment classifies as media",
+      "sic": "7372",
+      "sic_description": "Services-Prepackaged Software",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "EXC",
       "name": "EXELON CORP",
+      "name_sec": "EXELON CORP",
+      "cik": "0001109357",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0021
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "utilities",
+      "sector_source": "SEC EDGAR SIC 4931 (Electric & Other Services Combined) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "4931",
+      "sic_description": "Electric & Other Services Combined",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "FANG",
       "name": "DIAMONDBACK ENERGY INC",
+      "name_sec": "Diamondback Energy, Inc.",
+      "cik": "0001539838",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0025
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "energy",
+      "sector_source": "SEC EDGAR SIC 1311 (Crude Petroleum & Natural Gas) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "1311",
+      "sic_description": "Crude Petroleum & Natural Gas",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "FAST",
       "name": "FASTENAL CO",
+      "name_sec": "FASTENAL CO",
+      "cik": "0000815556",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0023
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "industrials",
+      "sector_source": "SEC EDGAR SIC 5200 (Retail-Building Materials, Hardware, Garden Supply) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "5200",
+      "sic_description": "Retail-Building Materials, Hardware, Garden Supply",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "FTNT",
       "name": "FORTINET INC",
+      "name_sec": "Fortinet, Inc.",
+      "cik": "0001262039",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0051
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3577 (Computer Peripheral Equipment, NEC) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3577",
+      "sic_description": "Computer Peripheral Equipment, NEC",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "GEHC",
       "name": "GE HEALTHCARE TECHNOLOGIES INC COMMON STOCK",
+      "name_sec": "GE HealthCare Technologies Inc.",
+      "cik": "0001932393",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0012
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "healthcare",
+      "sector_source": "SEC EDGAR SIC 3844 (X-Ray Apparatus & Tubes & Related Irradiation Apparatus) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3844",
+      "sic_description": "X-Ray Apparatus & Tubes & Related Irradiation Apparatus",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "GILD",
       "name": "GILEAD SCIENCES INC",
+      "name_sec": "GILEAD SCIENCES, INC.",
+      "cik": "0000882095",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0072
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "healthcare",
+      "sector_source": "SEC EDGAR SIC 2836 (Biological Products, (No Diagnostic Substances)) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "2836",
+      "sic_description": "Biological Products, (No Diagnostic Substances)",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "GOOG",
       "name": "ALPHABET INC CLASS C",
+      "name_sec": "Alphabet Inc.",
+      "cik": "0001652044",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0301
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "communication_services",
+      "sector_source": "SEC EDGAR SIC 7370 (Services-Computer Programming, Data Processing, Etc.) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 7370 is too broad: interactive media, not computer services",
+      "sic": "7370",
+      "sic_description": "Services-Computer Programming, Data Processing, Etc.",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "GOOGL",
       "name": "ALPHABET INC CLASS A",
+      "name_sec": "Alphabet Inc.",
+      "cik": "0001652044",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0321
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "communication_services",
+      "sector_source": "SEC EDGAR SIC 7370 (Services-Computer Programming, Data Processing, Etc.) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 7370 is too broad: interactive media, not computer services",
+      "sic": "7370",
+      "sic_description": "Services-Computer Programming, Data Processing, Etc.",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "HON",
       "name": "HONEYWELL INTERNATIONAL INC",
+      "name_sec": "HONEYWELL INTERNATIONAL INC",
+      "cik": "0000773840",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0033
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "industrials",
+      "sector_source": "SEC EDGAR SIC 3724 (Aircraft Engines & Engine Parts) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3724",
+      "sic_description": "Aircraft Engines & Engine Parts",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "HONA",
       "name": "HONEYWELL AEROSPACE INC",
+      "name_sec": "Honeywell Aerospace Inc.",
+      "cik": "0002089271",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0029
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "industrials",
+      "sector_source": "SEC EDGAR SIC 3724 (Aircraft Engines & Engine Parts) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3724",
+      "sic_description": "Aircraft Engines & Engine Parts",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "IDXX",
       "name": "IDEXX LABORATORIES INC",
+      "name_sec": "IDEXX LABORATORIES INC /DE",
+      "cik": "0000874716",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0019
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "healthcare",
+      "sector_source": "SEC EDGAR SIC 2835 (In Vitro & In Vivo Diagnostic Substances) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "2835",
+      "sic_description": "In Vitro & In Vivo Diagnostic Substances",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "INTC",
       "name": "INTEL CORP",
+      "name_sec": "INTEL CORP",
+      "cik": "0000050863",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.023
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3674 (Semiconductors & Related Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3674",
+      "sic_description": "Semiconductors & Related Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "INTU",
       "name": "INTUIT INC",
+      "name_sec": "INTUIT INC.",
+      "cik": "0000896878",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0035
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 7372 (Services-Prepackaged Software) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "7372",
+      "sic_description": "Services-Prepackaged Software",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "ISRG",
       "name": "INTUITIVE SURGICAL INC",
+      "name_sec": "INTUITIVE SURGICAL INC",
+      "cik": "0001035267",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0054
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "healthcare",
+      "sector_source": "SEC EDGAR SIC 3842 (Orthopedic, Prosthetic & Surgical Appliances & Supplies) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3842",
+      "sic_description": "Orthopedic, Prosthetic & Surgical Appliances & Supplies",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "KDP",
       "name": "KEURIG DR PEPPER INC",
+      "name_sec": "Keurig Dr Pepper Inc.",
+      "cik": "0001418135",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0018
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_staples",
+      "sector_source": "SEC EDGAR SIC 2080 (Beverages) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "2080",
+      "sic_description": "Beverages",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "KHC",
       "name": "THE KRAFT HEINZ CO",
+      "name_sec": "Kraft Heinz Co",
+      "cik": "0001637459",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0014
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_staples",
+      "sector_source": "SEC EDGAR SIC 2030 (Canned, Frozen & Preservd Fruit, Veg & Food Specialties) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "2030",
+      "sic_description": "Canned, Frozen & Preservd Fruit, Veg & Food Specialties",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "KLAC",
       "name": "KLA CORP",
+      "name_sec": "KLA CORP",
+      "cik": "0000319201",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0125
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3827 (Optical Instruments & Lenses) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3827",
+      "sic_description": "Optical Instruments & Lenses",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "LIN",
       "name": "LINDE PLC",
+      "name_sec": "LINDE PLC",
+      "cik": "0001707925",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0105
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "materials",
+      "sector_source": "SEC EDGAR SIC 2810 (Industrial Inorganic Chemicals) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "2810",
+      "sic_description": "Industrial Inorganic Chemicals",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "LITE",
       "name": "LUMENTUM HOLDINGS INC",
+      "name_sec": "Lumentum Holdings Inc.",
+      "cik": "0001633978",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0029
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3669 (Communications Equipment, NEC) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3669",
+      "sic_description": "Communications Equipment, NEC",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "LRCX",
       "name": "LAM RESEARCH CORP",
+      "name_sec": "LAM RESEARCH CORP",
+      "cik": "0000707549",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0178
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3559 (Special Industry Machinery, NEC) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3559",
+      "sic_description": "Special Industry Machinery, NEC",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "MAR",
       "name": "MARRIOTT INTERNATIONAL INC CLASS A",
+      "name_sec": "MARRIOTT INTERNATIONAL INC /MD/",
+      "cik": "0001048286",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0043
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_discretionary",
+      "sector_source": "SEC EDGAR SIC 7011 (Hotels & Motels) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "7011",
+      "sic_description": "Hotels & Motels",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "MCHP",
       "name": "MICROCHIP TECHNOLOGY INC",
+      "name_sec": "MICROCHIP TECHNOLOGY INC",
+      "cik": "0000827054",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0021
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3674 (Semiconductors & Related Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3674",
+      "sic_description": "Semiconductors & Related Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "MDLZ",
       "name": "MONDELEZ INTERNATIONAL INC CLASS A",
+      "name_sec": "Mondelez International, Inc.",
+      "cik": "0001103982",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0035
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_staples",
+      "sector_source": "SEC EDGAR SIC 2000 (Food and Kindred Products) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "2000",
+      "sic_description": "Food and Kindred Products",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "MELI",
       "name": "MERCADOLIBRE INC",
+      "name_sec": "MERCADOLIBRE INC",
+      "cik": "0001099590",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0041
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_discretionary",
+      "sector_source": "SEC EDGAR SIC 7389 (Services-Business Services, NEC) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 7389: e-commerce marketplace",
+      "sic": "7389",
+      "sic_description": "Services-Business Services, NEC",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "META",
       "name": "META PLATFORMS INC CLASS A",
+      "name_sec": "Meta Platforms, Inc.",
+      "cik": "0001326801",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.03
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "communication_services",
+      "sector_source": "SEC EDGAR SIC 7370 (Services-Computer Programming, Data Processing, Etc.) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 7370 is too broad: interactive media, not computer services",
+      "sic": "7370",
+      "sic_description": "Services-Computer Programming, Data Processing, Etc.",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "MNST",
       "name": "MONSTER BEVERAGE CORP",
+      "name_sec": "Monster Beverage Corp",
+      "cik": "0000865752",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0042
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_staples",
+      "sector_source": "SEC EDGAR SIC 2086 (Bottled & Canned Soft Drinks & Carbonated Waters) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "2086",
+      "sic_description": "Bottled & Canned Soft Drinks & Carbonated Waters",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "MPWR",
       "name": "MONOLITHIC POWER SYSTEMS INC",
+      "name_sec": "MONOLITHIC POWER SYSTEMS, INC.",
+      "cik": "0001280452",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0031
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3674 (Semiconductors & Related Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3674",
+      "sic_description": "Semiconductors & Related Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "MRVL",
       "name": "MARVELL TECHNOLOGY INC",
+      "name_sec": "Marvell Technology, Inc.",
+      "cik": "0001835632",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0082
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3674 (Semiconductors & Related Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3674",
+      "sic_description": "Semiconductors & Related Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "MSFT",
       "name": "MICROSOFT CORP",
+      "name_sec": "MICROSOFT CORP",
+      "cik": "0000789019",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0468
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 7372 (Services-Prepackaged Software) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "7372",
+      "sic_description": "Services-Prepackaged Software",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "MSTR",
       "name": "STRATEGY INC CLASS A",
+      "name_sec": "Strategy Inc",
+      "cik": "0001050446",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0015
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 6199 (Finance Services) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 6199 (Finance Services) reflects the bitcoin-treasury strategy; the operating company is a software vendor and the issuer buckets it with technology",
+      "sic": "6199",
+      "sic_description": "Finance Services",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "MU",
       "name": "MICRON TECHNOLOGY INC",
+      "name_sec": "MICRON TECHNOLOGY INC",
+      "cik": "0000723125",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0482
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3674 (Semiconductors & Related Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3674",
+      "sic_description": "Semiconductors & Related Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "NBIS",
       "name": "NEBIUS GROUP NV SHS CLASS-A-",
+      "name_sec": "Nebius Group N.V.",
+      "cik": "0001513845",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0021
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 7370 (Services-Computer Programming, Data Processing, Etc.) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 7370: AI infrastructure",
+      "sic": "7370",
+      "sic_description": "Services-Computer Programming, Data Processing, Etc.",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "NFLX",
       "name": "NETFLIX INC",
+      "name_sec": "NETFLIX INC",
+      "cik": "0001065280",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0129
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "communication_services",
+      "sector_source": "SEC EDGAR SIC 7841 (Services-Video Tape Rental) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "7841",
+      "sic_description": "Services-Video Tape Rental",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "NVDA",
       "name": "NVIDIA CORP",
+      "name_sec": "NVIDIA CORP",
+      "cik": "0001045810",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0828
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3674 (Semiconductors & Related Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3674",
+      "sic_description": "Semiconductors & Related Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "NXPI",
       "name": "NXP SEMICONDUCTORS NV",
+      "name_sec": "NXP Semiconductors N.V.",
+      "cik": "0001413447",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0031
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3674 (Semiconductors & Related Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3674",
+      "sic_description": "Semiconductors & Related Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "ODFL",
       "name": "OLD DOMINION FREIGHT LINE INC ORDINARY SHARES",
+      "name_sec": "OLD DOMINION FREIGHT LINE, INC.",
+      "cik": "0000878927",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0022
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "industrials",
+      "sector_source": "SEC EDGAR SIC 4213 (Trucking (No Local)) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "4213",
+      "sic_description": "Trucking (No Local)",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "ORLY",
       "name": "O'REILLY AUTOMOTIVE INC",
+      "name_sec": "O REILLY AUTOMOTIVE INC",
+      "cik": "0000898173",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0032
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_discretionary",
+      "sector_source": "SEC EDGAR SIC 5531 (Retail-Auto & Home Supply Stores) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "5531",
+      "sic_description": "Retail-Auto & Home Supply Stores",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "PANW",
       "name": "PALO ALTO NETWORKS INC",
+      "name_sec": "Palo Alto Networks Inc",
+      "cik": "0001327567",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0122
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3577 (Computer Peripheral Equipment, NEC) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3577",
+      "sic_description": "Computer Peripheral Equipment, NEC",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "PAYX",
       "name": "PAYCHEX INC",
+      "name_sec": "PAYCHEX INC",
+      "cik": "0000723531",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0018
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "industrials",
+      "sector_source": "SEC EDGAR SIC 8700 (Services-Engineering, Accounting, Research, Management) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "8700",
+      "sic_description": "Services-Engineering, Accounting, Research, Management",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "PCAR",
       "name": "PACCAR INC",
+      "name_sec": "PACCAR INC",
+      "cik": "0000075362",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0031
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_discretionary",
+      "sector_source": "SEC EDGAR SIC 3711 (Motor Vehicles & Passenger Car Bodies) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 3711 spans passenger cars and Class-8 trucks; GICS calls Paccar Industrials, the issuer's partition does not - issuer scheme wins by design",
+      "sic": "3711",
+      "sic_description": "Motor Vehicles & Passenger Car Bodies",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "PDD",
       "name": "PDD HOLDINGS INC ADR",
+      "name_sec": "PDD Holdings Inc.",
+      "cik": "0001737806",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0025
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_discretionary",
+      "sector_source": "SEC EDGAR SIC 7389 (Services-Business Services, NEC) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 7389: e-commerce marketplace",
+      "sic": "7389",
+      "sic_description": "Services-Business Services, NEC",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "PEP",
       "name": "PEPSICO INC",
+      "name_sec": "PEPSICO INC",
+      "cik": "0000077476",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0083
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_staples",
+      "sector_source": "SEC EDGAR SIC 2080 (Beverages) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "2080",
+      "sic_description": "Beverages",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "PLTR",
       "name": null,
+      "name_sec": "Palantir Technologies Inc.",
+      "cik": "0001321655",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0127
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 7372 (Services-Prepackaged Software) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "7372",
+      "sic_description": "Services-Prepackaged Software",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "PYPL",
       "name": "PAYPAL HOLDINGS INC",
+      "name_sec": "PayPal Holdings, Inc.",
+      "cik": "0001633917",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0022
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "financials",
+      "sector_source": "SEC EDGAR SIC 7389 (Services-Business Services, NEC) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: payments classify as financials in modern schemes (GICS-2023 moved payment processors to Financials)",
+      "sic": "7389",
+      "sic_description": "Services-Business Services, NEC",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "QCOM",
       "name": "QUALCOMM INC",
+      "name_sec": "QUALCOMM INC/DE",
+      "cik": "0000804328",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0082
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3663 (Radio & Tv Broadcasting & Communications Equipment) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3663",
+      "sic_description": "Radio & Tv Broadcasting & Communications Equipment",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "REGN",
       "name": "REGENERON PHARMACEUTICALS INC",
+      "name_sec": "REGENERON PHARMACEUTICALS, INC.",
+      "cik": "0000872589",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.003
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "healthcare",
+      "sector_source": "SEC EDGAR SIC 2834 (Pharmaceutical Preparations) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "2834",
+      "sic_description": "Pharmaceutical Preparations",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "RKLB",
       "name": "ROCKET LAB CORP",
+      "name_sec": "Rocket Lab Corp",
+      "cik": "0001819994",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0018
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "industrials",
+      "sector_source": "SEC EDGAR SIC 3760 (Guided Missiles & Space Vehicles & Parts) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3760",
+      "sic_description": "Guided Missiles & Space Vehicles & Parts",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "ROP",
       "name": "ROPER TECHNOLOGIES INC",
+      "name_sec": "ROPER TECHNOLOGIES INC",
+      "cik": "0000882835",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0015
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "industrials",
+      "sector_source": "SEC EDGAR SIC 3823 (Industrial Instruments For Measurement, Display, and Control) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 3823 (industrial instruments); largely software today (GICS-2023: IT) but the issuer's industrials weight requires it here - issuer scheme wins by design",
+      "sic": "3823",
+      "sic_description": "Industrial Instruments For Measurement, Display, and Control",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "ROST",
       "name": "ROSS STORES INC",
+      "name_sec": "ROSS STORES, INC.",
+      "cik": "0000745732",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0034
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_discretionary",
+      "sector_source": "SEC EDGAR SIC 5651 (Retail-Family Clothing Stores) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "5651",
+      "sic_description": "Retail-Family Clothing Stores",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "SBUX",
       "name": "STARBUCKS CORP",
+      "name_sec": "STARBUCKS CORP",
+      "cik": "0000829224",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0053
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_discretionary",
+      "sector_source": "SEC EDGAR SIC 5810 (Retail-Eating & Drinking Places) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "5810",
+      "sic_description": "Retail-Eating & Drinking Places",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "SHOP",
       "name": null,
+      "name_sec": "SHOPIFY INC.",
+      "cik": "0001594805",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0064
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 7372 (Services-Prepackaged Software) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "7372",
+      "sic_description": "Services-Prepackaged Software",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "SNDK",
       "name": "SANDISK CORP ORDINARY SHARES",
+      "name_sec": "Sandisk Corp",
+      "cik": "0002023554",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0105
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3572 (Computer Storage Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3572",
+      "sic_description": "Computer Storage Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "SNPS",
       "name": "SYNOPSYS INC",
+      "name_sec": "SYNOPSYS INC",
+      "cik": "0000883241",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0032
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 7372 (Services-Prepackaged Software) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "7372",
+      "sic_description": "Services-Prepackaged Software",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "SPCX",
       "name": null,
+      "name_sec": "SPACE EXPLORATION TECHNOLOGIES CORP",
+      "cik": "0001181412",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0098
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "industrials",
+      "sector_source": "SEC EDGAR SIC 7370 (Services-Computer Programming, Data Processing, Etc.) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 7370 misleading: aerospace launch and satellite operator",
+      "sic": "7370",
+      "sic_description": "Services-Computer Programming, Data Processing, Etc.",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "STX",
       "name": "SEAGATE TECHNOLOGY HOLDINGS PLC",
+      "name_sec": "Seagate Technology Holdings plc",
+      "cik": "0001137789",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0091
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3572 (Computer Storage Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3572",
+      "sic_description": "Computer Storage Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "TER",
       "name": "TERADYNE INC",
+      "name_sec": "TERADYNE, INC",
+      "cik": "0000097210",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0026
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3825 (Instruments For Meas & Testing of  Electricity & Elec Signals) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3825",
+      "sic_description": "Instruments For Meas & Testing of  Electricity & Elec Signals",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "TMUS",
       "name": "T-MOBILE US INC",
+      "name_sec": "T-Mobile US, Inc.",
+      "cik": "0001283699",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0092
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "communication_services",
+      "sector_source": "SEC EDGAR SIC 4812 (Radiotelephone Communications) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "4812",
+      "sic_description": "Radiotelephone Communications",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "TRI",
       "name": "THOMSON REUTERS CORP",
+      "name_sec": "THOMSON REUTERS CORP /CAN/",
+      "cik": "0001075124",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0015
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "communication_services",
+      "sector_source": "SEC EDGAR SIC 2741 (Miscellaneous Publishing) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 2741 (publishing); professional information services - communication under the issuer's partition",
+      "sic": "2741",
+      "sic_description": "Miscellaneous Publishing",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "TSLA",
       "name": "TESLA INC",
+      "name_sec": "Tesla, Inc.",
+      "cik": "0001318605",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0301
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_discretionary",
+      "sector_source": "SEC EDGAR SIC 3711 (Motor Vehicles & Passenger Car Bodies) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3711",
+      "sic_description": "Motor Vehicles & Passenger Car Bodies",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "TTWO",
       "name": "TAKE-TWO INTERACTIVE SOFTWARE INC",
+      "name_sec": "TAKE TWO INTERACTIVE SOFTWARE INC",
+      "cik": "0000946581",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0019
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "communication_services",
+      "sector_source": "SEC EDGAR SIC 7372 (Services-Prepackaged Software) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, bucket via per-company override in standards/universe/sic_crosswalk.json: SIC 7372 packaged software, but interactive entertainment classifies as media",
+      "sic": "7372",
+      "sic_description": "Services-Prepackaged Software",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "TXN",
       "name": "TEXAS INSTRUMENTS INC",
+      "name_sec": "TEXAS INSTRUMENTS INC",
+      "cik": "0000097476",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0119
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3674 (Semiconductors & Related Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3674",
+      "sic_description": "Semiconductors & Related Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "VRTX",
       "name": "VERTEX PHARMACEUTICALS INC",
+      "name_sec": "VERTEX PHARMACEUTICALS INC / MA",
+      "cik": "0000875320",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0053
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "healthcare",
+      "sector_source": "SEC EDGAR SIC 2834 (Pharmaceutical Preparations) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "2834",
+      "sic_description": "Pharmaceutical Preparations",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "WBD",
       "name": "WARNER BROS. DISCOVERY INC ORDINARY SHARES CLASS A",
+      "name_sec": "Warner Bros. Discovery, Inc.",
+      "cik": "0001437107",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0029
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "communication_services",
+      "sector_source": "SEC EDGAR SIC 4841 (Cable & Other Pay Television Services) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "4841",
+      "sic_description": "Cable & Other Pay Television Services",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "WDAY",
       "name": "WORKDAY INC CLASS A",
+      "name_sec": "Workday, Inc.",
+      "cik": "0001327811",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0012
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 7374 (Services-Computer Processing & Data Preparation) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "7374",
+      "sic_description": "Services-Computer Processing & Data Preparation",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "WDC",
       "name": "WESTERN DIGITAL CORP",
+      "name_sec": "WESTERN DIGITAL CORP",
+      "cik": "0000106040",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0085
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "information_technology",
+      "sector_source": "SEC EDGAR SIC 3572 (Computer Storage Devices) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "3572",
+      "sic_description": "Computer Storage Devices",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "WMT",
       "name": "WALMART INC",
+      "name_sec": "Walmart Inc.",
+      "cik": "0000104169",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0238
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "consumer_staples",
+      "sector_source": "SEC EDGAR SIC 5331 (Retail-Variety Stores) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "5331",
+      "sic_description": "Retail-Variety Stores",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": "XEL",
       "name": "XCEL ENERGY INC",
+      "name_sec": "XCEL ENERGY INC",
+      "cik": "0000072903",
       "memberships": [
         {
           "universe": "qqq",
           "weight": 0.0022
         }
       ],
-      "sector_id": null,
-      "sector_source": null,
+      "sector_id": "utilities",
+      "sector_source": "SEC EDGAR SIC 4931 (Electric & Other Services Combined) per tools/data_fabric/out/QQQ_sec_sic_classifications.json, mapped by standards/universe/sic_crosswalk.json",
+      "sic": "4931",
+      "sic_description": "Electric & Other Services Combined",
       "modelable": true,
       "not_modelable_reason": null
     },
     {
       "symbol": null,
       "name": "FERROVIAL SE",
+      "name_sec": null,
+      "cik": null,
       "memberships": [
         {
           "universe": "qqq",
@@ -1583,12 +2004,16 @@
       ],
       "sector_id": null,
       "sector_source": null,
+      "sic": null,
+      "sic_description": null,
       "modelable": false,
       "not_modelable_reason": "unresolved_symbol"
     },
     {
       "symbol": null,
       "name": "CASH",
+      "name_sec": null,
+      "cik": null,
       "memberships": [
         {
           "universe": "qqq",
@@ -1597,12 +2022,16 @@
       ],
       "sector_id": null,
       "sector_source": null,
+      "sic": null,
+      "sic_description": null,
       "modelable": false,
       "not_modelable_reason": "cash_position"
     },
     {
       "symbol": null,
       "name": "E-MINI NASDAQ 100 FUTURE SEPT 26",
+      "name_sec": null,
+      "cik": null,
       "memberships": [
         {
           "universe": "qqq",
@@ -1611,6 +2040,8 @@
       ],
       "sector_id": null,
       "sector_source": null,
+      "sic": null,
+      "sic_description": null,
       "modelable": false,
       "not_modelable_reason": "derivative_position"
     }
