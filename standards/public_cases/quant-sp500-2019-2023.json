@@ -8,7 +8,7 @@
   "as_of": "2023-12-29",
   "scenario": "Base",
   "cover": {
-    "Subject:": "Monthly S&P 500 public-index research series"
+    "Strategy / universe:": "Monthly S&P 500 public-index research series"
   },
   "inputs": [
     {

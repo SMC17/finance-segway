@@ -8,7 +8,7 @@
   "as_of": "2020-03-16",
   "scenario": "Downside",
   "cover": {
-    "Subject:": "SPX March 2020 gap-and-volatility shock"
+    "Underlying:": "SPX March 2020 gap-and-volatility shock"
   },
   "inputs": [
     {
