@@ -1,0 +1,20 @@
+{
+  "forecast_id": "rates-ust10y-eom-2026-10",
+  "case_id": "rates-treasury-2025-12-01",
+  "model_id": "21",
+  "metric": "ust_10y_constant_maturity_yield_eom_2026_10",
+  "outcome_class": "out_of_sample_forecast",
+  "point": 0.0463,
+  "interval": null,
+  "basis": "modeled",
+  "baseline": {
+    "kind": "naive_last_recorded",
+    "value": 0.0463,
+    "source": "carry-forward of ust_10y_constant_maturity_yield_eom_2026_10 = 0.0463 at 2026-08-04 per FRED DGS10 snapshot frozen at standards/forecasts/evidence/ust10y-eom-2026/dgs10_eom_snapshot.json (retrieved 2026-08-05)"
+  },
+  "registered_on": "2026-08-05",
+  "resolve_by": "2026-11-06",
+  "resolution_source_expected": "FRED DGS10, last business day of October 2026, expressed as a decimal (percent / 100)",
+  "resolution": null,
+  "registration_sha256": "7f187eaf724deff539b4910adb75126090e81e3b0f73e2e8a443941a46852e03"
+}
