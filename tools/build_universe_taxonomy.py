@@ -46,6 +46,25 @@ NON_OPERATING_PATTERNS = (
 )
 
 
+SIC_SNAPSHOT = ROOT / "tools" / "data_fabric" / "out" / "QQQ_sec_sic_classifications.json"
+SIC_CROSSWALK = ROOT / "standards" / "universe" / "sic_crosswalk.json"
+
+
+def _load_classification() -> tuple[dict, dict]:
+    """Per-symbol SEC SIC facts + the committed SIC->bucket judgment layer.
+
+    Classification is optional by design: if either artifact is absent the
+    taxonomy builds with sector_id null exactly as before - companies are
+    never assigned a sector without both the SEC-filed fact and the
+    reviewable crosswalk to cite.
+    """
+    if not (SIC_SNAPSHOT.exists() and SIC_CROSSWALK.exists()):
+        return {}, {}
+    snapshot = json.loads(SIC_SNAPSHOT.read_text(encoding="utf-8"))
+    crosswalk = json.loads(SIC_CROSSWALK.read_text(encoding="utf-8"))
+    return snapshot.get("companies", {}), crosswalk
+
+
 def _slug(label: str) -> str:
     return re.sub(r"[^a-z0-9]+", "_", label.strip().lower()).strip("_")
 
@@ -71,6 +90,8 @@ def build_qqq_universe() -> dict[str, Any]:
         "snapshot": str(QQQ_PROFILE.relative_to(ROOT)),
     }
 
+    sic_facts, crosswalk = _load_classification()
+
     sectors = []
     for entry in payload["sectors"]:
         label = entry["sector"]
@@ -78,6 +99,7 @@ def build_qqq_universe() -> dict[str, Any]:
             {
                 "id": _slug(label),
                 "label": label,
+                "universe": "qqq",
                 "disclosed_weight": float(entry["weight"]),
                 "source": source,
             }
@@ -93,13 +115,39 @@ def build_qqq_universe() -> dict[str, Any]:
         # keyed on a ticker, so they are recorded and flagged rather than
         # dropped or assigned an invented symbol.
         unresolved_symbol = symbol in {"", "n/a", "N/A"}
+        sector_id = sector_source = None
+        sic_code = sic_description = None
+        sic_meta = sic_facts.get(symbol) if not unresolved_symbol else None
+        if sic_meta:
+            sic_code = sic_meta.get("sic")
+            sic_description = sic_meta.get("sic_description")
+            override = (crosswalk.get("ambiguous_sic_overrides") or {}).get(symbol)
+            if override:
+                sector_id = override["bucket"]
+                sector_source = (
+                    f"SEC EDGAR SIC {sic_code} ({sic_description}) per "
+                    f"{SIC_SNAPSHOT.relative_to(ROOT)}, bucket via per-company "
+                    f"override in {SIC_CROSSWALK.relative_to(ROOT)}: "
+                    f"{override['rationale']}"
+                )
+            elif sic_code in (crosswalk.get("sic_to_bucket") or {}):
+                sector_id = crosswalk["sic_to_bucket"][sic_code]
+                sector_source = (
+                    f"SEC EDGAR SIC {sic_code} ({sic_description}) per "
+                    f"{SIC_SNAPSHOT.relative_to(ROOT)}, mapped by "
+                    f"{SIC_CROSSWALK.relative_to(ROOT)}"
+                )
         companies.append(
             {
                 "symbol": None if unresolved_symbol else symbol,
                 "name": None if description in {"", "n/a", "N/A"} else description,
+                "name_sec": (sic_meta or {}).get("name"),
+                "cik": (sic_meta or {}).get("cik"),
                 "memberships": [{"universe": "qqq", "weight": float(entry["weight"])}],
-                "sector_id": None,
-                "sector_source": None,
+                "sector_id": sector_id,
+                "sector_source": sector_source,
+                "sic": sic_code,
+                "sic_description": sic_description,
                 "modelable": not (non_operating or unresolved_symbol),
                 "not_modelable_reason": non_operating
                 or ("unresolved_symbol" if unresolved_symbol else None),
