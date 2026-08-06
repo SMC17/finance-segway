@@ -8,7 +8,7 @@
   "as_of": "2009-03-02",
   "scenario": "Downside",
   "cover": {
-    "Subject:": "AIG 2008 reserve and capital stress"
+    "Entity / line of business:": "AIG 2008 reserve and capital stress"
   },
   "inputs": [
     {

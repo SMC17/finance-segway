@@ -14,6 +14,11 @@ from pathlib import Path
 from typing import Any
 
 try:
+    from tools.model_instances import subject_cover
+except (ImportError, ModuleNotFoundError):  # script-style execution
+    from model_instances import subject_cover
+
+try:
     from tools import m3_evidence
     from tools.final_public_evidence_registry import registry as build_registry
 except ModuleNotFoundError:
@@ -127,7 +132,7 @@ def _sanitize_baseline(
                     "scenario",
                     "Base" if case["type"] == "conventional" else "Downside",
                 ),
-                "cover": {"Subject:": case["subject"]},
+                "cover": subject_cover(model["model_id"], case["subject"]),
                 "outcome": case["outcome"],
                 "lineage": {
                     "source_snapshot": f"repo://{item['snapshot']}",

@@ -8,7 +8,7 @@
   "as_of": "2020-12-31",
   "scenario": "Downside",
   "cover": {
-    "Subject:": "Boeing 2020 production and working-capital shock"
+    "Counterparty:": "Boeing 2020 production and working-capital shock"
   },
   "inputs": [
     {

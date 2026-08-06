@@ -16,6 +16,10 @@ import math
 import re
 import urllib.request
 from collections import defaultdict
+try:
+    from tools.model_instances import subject_cover
+except (ImportError, ModuleNotFoundError):  # script-style execution
+    from model_instances import subject_cover
 from datetime import date
 from pathlib import Path
 from typing import Any
@@ -199,7 +203,7 @@ def build_case_manifest(
         "scenario": case.get(
             "scenario", "Base" if case["type"] == "conventional" else "Downside"
         ),
-        "cover": {"Subject:": case["subject"]},
+        "cover": subject_cover(model["model_id"], case["subject"]),
         "inputs": inputs,
         "outcome": case["outcome"],
         "lineage": {

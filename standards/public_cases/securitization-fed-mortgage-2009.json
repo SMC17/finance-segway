@@ -8,7 +8,7 @@
   "as_of": "2009-10-01",
   "scenario": "Downside",
   "cover": {
-    "Subject:": "U.S. mortgage-crisis delinquency stress"
+    "Transaction / collateral:": "U.S. mortgage-crisis delinquency stress"
   },
   "inputs": [
     {
