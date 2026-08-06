@@ -749,7 +749,7 @@
       "manifest": "standards/public_cases/pe-public-home-depot-2023.json",
       "output": "03_Private_Equity/instances/public_home_depot_2023.xlsx",
       "snapshot": "03_Private_Equity/sources/snapshots/pe-public-home-depot-2023.json",
-      "snapshot_sha256": "4a499ee201cb42e410d49bd0563f2945a9c114003c8efeb1362b912996508722",
+      "snapshot_sha256": "0b9b53ab30abf2322b1cd430aae62ef15f1b801f7d1108879d038145930917c3",
       "counts_toward_m4": false,
       "receipt": {
         "schema_version": "1.0",
@@ -816,7 +816,7 @@
             "source_as_of": "2024-01-31"
           }
         ],
-        "workbook_sha256": "54e7668bffd6ad9f8579c432f09bba2d3a3262d542ee46a977916914afa5e80f",
+        "workbook_sha256": "aedd5b2a7cfac7b6c12c8dcf6968d87bd208ef24ecc141c139aa57102db7c3b4",
         "generated_on": "2026-08-06",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",

@@ -176,50 +176,76 @@ def case_coverage(case: dict[str, Any]) -> dict[str, Any]:
         f"{sheet}!{cell}" for sheet, cell in real_cells - real_in_candidates
     )
 
-    # Cells the case explicitly declares can never carry real data, with a
-    # stated reason. Home Depot was never the subject of a leveraged buyout,
-    # so its entry multiple, TLB spread, and sponsor equity check have no
-    # disclosed value to source -- only a fabricated one. Declaring those
-    # (rather than leaving them silently unsourced) is what separates
-    # "no real value exists, and here is why" from "nobody did the work."
-    # Two kinds of declaration count:
-    #   1. an explicit `illustrative_declarations` map of cell -> reason
-    #   2. a manifest input already typed `modeler_assumption`, whose source
-    #      note carries the rationale
-    declared: dict[tuple[str, str], str] = {}
-    for entry in manifest.get("illustrative_declarations", []):
-        reason = str(entry.get("reason", "")).strip()
-        if reason:
-            declared[(entry["sheet"], entry["cell"])] = reason
+    # Cells that are not point observations but scenario drivers. The
+    # modeling standard is that a model never contains a hardcoded number
+    # that isn't real: where no disclosed value exists (Home Depot was never
+    # the subject of a leveraged buyout, so there is no real entry multiple),
+    # the cell must be a driver whose range is grounded in real comparable
+    # data -- not an invented point estimate wearing a rationale.
+    #
+    # So a declaration only earns credit when it carries a `basis` naming
+    # the real data that grounds the range. A declaration without one is
+    # reported separately as `unsourced_driver`: it is known to be a driver,
+    # but its range has not been grounded yet. That is visible remaining
+    # work, deliberately NOT counted as accounted-for.
+    #
+    # Two forms are recognised:
+    #   1. `driver_declarations` entries (sheet, cell, driver_type, basis)
+    #   2. a manifest input typed `modeler_assumption` whose source carries a
+    #      real url -- the pre-existing convention for the same idea
+    sourced_drivers: set[tuple[str, str]] = set()
+    unsourced_drivers: set[tuple[str, str]] = set()
+
+    for entry in manifest.get("driver_declarations", []):
+        key = (entry["sheet"], entry["cell"])
+        basis = entry.get("basis") or {}
+        has_real_basis = bool(str(basis.get("source_url", "")).strip()) or bool(
+            str(basis.get("source_name", "")).strip()
+        )
+        (sourced_drivers if has_real_basis else unsourced_drivers).add(key)
+
     for item in manifest.get("inputs", []):
         if item.get("input_kind") != "modeler_assumption":
             continue
+        key = (item["sheet"], item["cell"])
+        if key in sourced_drivers or key in unsourced_drivers:
+            continue
         source = item.get("source") or {}
-        reason = str(source.get("notes") or source.get("name") or "").strip()
-        if reason:
-            declared.setdefault((item["sheet"], item["cell"]), reason)
+        url = str(source.get("url", "")).strip()
+        # A repo:// self-reference is the manifest pointing at itself, which
+        # grounds nothing. Only an external source counts.
+        if url and not url.startswith("repo://"):
+            sourced_drivers.add(key)
+        else:
+            unsourced_drivers.add(key)
 
-    declared_in_candidates = {
-        key for key in declared
-        if key[1] in candidates_by_sheet.get(key[0], set())
-    } - real_in_candidates
+    def _in_candidates(keys: set[tuple[str, str]]) -> set[tuple[str, str]]:
+        return {
+            key for key in keys if key[1] in candidates_by_sheet.get(key[0], set())
+        } - real_in_candidates
+
+    sourced_driver_cells = _in_candidates(sourced_drivers)
+    unsourced_driver_cells = _in_candidates(unsourced_drivers) - sourced_driver_cells
 
     all_candidates = {
         (sheet, cell) for sheet, cells in candidates_by_sheet.items() for cell in cells
     }
+    untouched = (
+        all_candidates - real_in_candidates - sourced_driver_cells - unsourced_driver_cells
+    )
     unaccounted = sorted(
-        f"{sheet}!{cell}"
-        for sheet, cell in all_candidates - real_in_candidates - declared_in_candidates
+        f"{sheet}!{cell}" for sheet, cell in untouched | unsourced_driver_cells
     )
 
     coverage = len(real_in_candidates) / total_candidates if total_candidates else 0.0
-    accounted = len(real_in_candidates) + len(declared_in_candidates)
+    accounted = len(real_in_candidates) + len(sourced_driver_cells)
     accounted_ratio = accounted / total_candidates if total_candidates else 0.0
     by_sheet = {
         sheet: {
             "candidates": len(cells),
             "real": len([1 for s, c in real_in_candidates if s == sheet]),
-            "declared_illustrative": len([1 for s, c in declared_in_candidates if s == sheet]),
+            "sourced_driver": len([1 for s, c in sourced_driver_cells if s == sheet]),
+            "unsourced_driver": len([1 for s, c in unsourced_driver_cells if s == sheet]),
         }
         for sheet, cells in candidates_by_sheet.items()
     }
@@ -231,7 +257,9 @@ def case_coverage(case: dict[str, Any]) -> dict[str, Any]:
         "case_type": case["case_type"],
         "total_candidate_cells": total_candidates,
         "real_cells": len(real_in_candidates),
-        "declared_illustrative_cells": len(declared_in_candidates),
+        "sourced_driver_cells": len(sourced_driver_cells),
+        "unsourced_driver_cells": len(unsourced_driver_cells),
+        "untouched_cells": len(untouched),
         "unaccounted_cells": len(unaccounted),
         "coverage": round(coverage, 4),
         "accounted_ratio": round(accounted_ratio, 4),
@@ -284,16 +312,17 @@ def main() -> int:
     report = run(args.case_id)
 
     header = (
-        f"{'case_id':<45} {'type':<13} {'real':>6} {'illus':>6} {'todo':>6} "
-        f"{'of':>5} {'real%':>7} {'acct%':>7}"
+        f"{'case_id':<45} {'type':<13} {'real':>6} {'drv+':>5} {'drv-':>5} "
+        f"{'none':>5} {'of':>5} {'real%':>7} {'acct%':>7}"
     )
     print(header)
     print("-" * len(header))
     for item in report["results"]:
         print(
             f"{item['case_id']:<45} {item['case_type']:<13} "
-            f"{item['real_cells']:>6} {item['declared_illustrative_cells']:>6} "
-            f"{item['unaccounted_cells']:>6} {item['total_candidate_cells']:>5} "
+            f"{item['real_cells']:>6} {item['sourced_driver_cells']:>5} "
+            f"{item['unsourced_driver_cells']:>5} {item['untouched_cells']:>5} "
+            f"{item['total_candidate_cells']:>5} "
             f"{item['coverage'] * 100:>6.1f}% {item['accounted_ratio'] * 100:>6.1f}%"
         )
     print("-" * len(header))
@@ -301,15 +330,18 @@ def main() -> int:
         f"Cases: {report['cases_measured']}  "
         f"Mean real: {report['mean_coverage'] * 100:.1f}%  "
         f"Mean accounted: {report['mean_accounted'] * 100:.1f}%  "
-        f"Unaccounted cells remaining: {report['total_unaccounted_cells']}  "
-        f"Fully accounted cases: {len(report['fully_accounted_cases'])}/{report['cases_measured']}"
+        f"Cells still needing work: {report['total_unaccounted_cells']}  "
+        f"Fully accounted: {len(report['fully_accounted_cases'])}/{report['cases_measured']}"
     )
     print(
-        "\n'real' = sourced from disclosed data. 'illus' = explicitly declared "
-        "illustrative with a stated reason (no real value exists -- e.g. the entry\n"
-        "multiple of a buyout that never happened). 'todo' = neither: unsourced and "
-        "undeclared. Driving todo to zero is the goal; real% alone cannot reach\n"
-        "100% on a hypothetical-construct case without fabricating data."
+        "\nStates, per the modeling standard that a model never holds a hardcoded "
+        "number that isn't real:\n"
+        "  real  = sourced from disclosed data (an observation or a derivation of one)\n"
+        "  drv+  = scenario driver whose range is grounded in named real data\n"
+        "  drv-  = known to be a driver, range NOT yet grounded -- remaining work\n"
+        "  none  = neither sourced nor declared -- remaining work\n"
+        "acct% counts real + drv+ only. drv- deliberately earns no credit: a driver "
+        "without a grounded range\nis still an ungrounded number in a model."
     )
     if report["anomalies"]:
         print("\nAnomalies (real inputs the scanner didn't recognize as template input cells):")
