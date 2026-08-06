@@ -1,10 +1,12 @@
 {
   "ticker": "ORLY",
   "cik": "0000898173",
-  "retrieved_utc": "20260806T140248Z",
+  "retrieved_utc": "20260806T143410Z",
   "concepts": [
     {
       "concept": "Assets",
+      "resolved_tag": "us-gaap:Assets",
+      "unit": "USD",
       "value": 16538253000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -15,6 +17,8 @@
     },
     {
       "concept": "AssetsCurrent",
+      "resolved_tag": "us-gaap:AssetsCurrent",
+      "unit": "USD",
       "value": 6744277000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -25,6 +29,8 @@
     },
     {
       "concept": "LiabilitiesCurrent",
+      "resolved_tag": "us-gaap:LiabilitiesCurrent",
+      "unit": "USD",
       "value": 8775821000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -35,6 +41,8 @@
     },
     {
       "concept": "StockholdersEquity",
+      "resolved_tag": "us-gaap:StockholdersEquity",
+      "unit": "USD",
       "value": -763352000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -45,6 +53,8 @@
     },
     {
       "concept": "CashAndCashEquivalentsAtCarryingValue",
+      "resolved_tag": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+      "unit": "USD",
       "value": 193793000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -55,6 +65,8 @@
     },
     {
       "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "resolved_tag": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "unit": "USD",
       "value": 193793000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -65,6 +77,8 @@
     },
     {
       "concept": "LongTermDebt",
+      "resolved_tag": "us-gaap:LongTermDebt",
+      "unit": "USD",
       "value": 1900000000,
       "end": "2016-12-31",
       "filed": "2017-02-28",
@@ -75,6 +89,8 @@
     },
     {
       "concept": "LongTermDebtNoncurrent",
+      "resolved_tag": "us-gaap:LongTermDebtNoncurrent",
+      "unit": "USD",
       "value": 6016904000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -85,6 +101,8 @@
     },
     {
       "concept": "LongTermDebtCurrent",
+      "resolved_tag": "us-gaap:LongTermDebtCurrent",
+      "unit": "USD",
       "value": 25000,
       "end": "2014-12-31",
       "filed": "2015-02-27",
@@ -95,6 +113,8 @@
     },
     {
       "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "resolved_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "unit": "USD",
       "value": 17781992000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -105,6 +125,8 @@
     },
     {
       "concept": "NetIncomeLoss",
+      "resolved_tag": "us-gaap:NetIncomeLoss",
+      "unit": "USD",
       "value": 2538209000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -115,6 +137,8 @@
     },
     {
       "concept": "OperatingIncomeLoss",
+      "resolved_tag": "us-gaap:OperatingIncomeLoss",
+      "unit": "USD",
       "value": 3460612000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -125,6 +149,8 @@
     },
     {
       "concept": "GrossProfit",
+      "resolved_tag": "us-gaap:GrossProfit",
+      "unit": "USD",
       "value": 9174141000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -135,6 +161,8 @@
     },
     {
       "concept": "InterestExpenseDebt",
+      "resolved_tag": "us-gaap:InterestExpenseDebt",
+      "unit": "USD",
       "value": 235064000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -145,6 +173,8 @@
     },
     {
       "concept": "IncomeTaxExpenseBenefit",
+      "resolved_tag": "us-gaap:IncomeTaxExpenseBenefit",
+      "unit": "USD",
       "value": 701962000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -155,6 +185,8 @@
     },
     {
       "concept": "EarningsPerShareBasic",
+      "resolved_tag": "us-gaap:EarningsPerShareBasic",
+      "unit": "USD/shares",
       "value": 2.98,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -165,6 +197,8 @@
     },
     {
       "concept": "EarningsPerShareDiluted",
+      "resolved_tag": "us-gaap:EarningsPerShareDiluted",
+      "unit": "USD/shares",
       "value": 2.97,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -175,6 +209,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInOperatingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+      "unit": "USD",
       "value": 2761993000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -185,6 +221,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInInvestingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInInvestingActivities",
+      "unit": "USD",
       "value": -1152356000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -195,6 +233,8 @@
     },
     {
       "concept": "NetCashProvidedByUsedInFinancingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInFinancingActivities",
+      "unit": "USD",
       "value": -1548795000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -205,6 +245,8 @@
     },
     {
       "concept": "DepreciationDepletionAndAmortization",
+      "resolved_tag": "us-gaap:DepreciationDepletionAndAmortization",
+      "unit": "USD",
       "value": 511230000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -215,6 +257,8 @@
     },
     {
       "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+      "resolved_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "unit": "USD",
       "value": 1168815000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -225,6 +269,8 @@
     },
     {
       "concept": "CommonStockSharesOutstanding",
+      "resolved_tag": "us-gaap:CommonStockSharesOutstanding",
+      "unit": "shares",
       "value": 841909238,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -235,6 +281,8 @@
     },
     {
       "concept": "CommonStockSharesIssued",
+      "resolved_tag": "us-gaap:CommonStockSharesIssued",
+      "unit": "shares",
       "value": 841909238,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -245,6 +293,8 @@
     },
     {
       "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+      "resolved_tag": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic",
+      "unit": "shares",
       "value": 851472000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -255,6 +305,8 @@
     },
     {
       "concept": "ShareBasedCompensation",
+      "resolved_tag": "us-gaap:ShareBasedCompensation",
+      "unit": "USD",
       "value": 35115000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -265,6 +317,8 @@
     },
     {
       "concept": "InventoryNet",
+      "resolved_tag": "us-gaap:InventoryNet",
+      "unit": "USD",
       "value": 5731385000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
@@ -275,6 +329,8 @@
     },
     {
       "concept": "AccountsReceivableNetCurrent",
+      "resolved_tag": "us-gaap:AccountsReceivableNetCurrent",
+      "unit": "USD",
       "value": 389793000,
       "end": "2025-12-31",
       "filed": "2026-02-27",
