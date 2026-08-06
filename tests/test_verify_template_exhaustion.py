@@ -1,6 +1,7 @@
 """Tests for the template-exhaustion coverage scanner."""
 from __future__ import annotations
 
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -9,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tools"))
 
-from verify_template_exhaustion import find_candidate_cells, run  # noqa: E402
+from verify_template_exhaustion import _cover_real_cells, find_candidate_cells, run  # noqa: E402
 
 
 class TemplateExhaustionTests(unittest.TestCase):
@@ -67,6 +68,34 @@ class TemplateExhaustionTests(unittest.TestCase):
                     isinstance(value, str) and value.startswith("="),
                     f"{sheet_name}!{coordinate} is a formula, not a real input candidate",
                 )
+
+    def test_cover_sheet_overrides_count_as_real(self) -> None:
+        # manifest["cover"] is applied through a different code path
+        # (_set_cover, matched by row label) than manifest["inputs"], so
+        # without explicit handling these real, case-specific facts (e.g.
+        # the actual subject company name) are invisible to coverage.
+        manifest = json.loads(
+            (ROOT / "standards" / "public_cases" / "pe-public-home-depot-2023.json").read_text()
+        )
+        self.assertIn("Target / transaction:", manifest["cover"])
+        template_path = ROOT / manifest["template"]
+        cells = _cover_real_cells(manifest, template_path)
+        self.assertIn(("Cover", "C4"), cells)
+
+    def test_always_populated_cover_labels_are_excluded(self) -> None:
+        template_path = ROOT / "03_Private_Equity" / "_template_LBO.xlsx"
+        manifest = {
+            "cover": {
+                "Last refreshed:": "2026-01-01",
+                "Active scenario:": "Base",
+            }
+        }
+        self.assertEqual(set(), _cover_real_cells(manifest, template_path))
+
+    def test_home_depot_case_counts_cover_field_as_real(self) -> None:
+        report = run("pe-public-home-depot-2023")
+        item = report["results"][0]
+        self.assertEqual(item["by_sheet"]["Cover"]["real"], 1)
 
     def test_legend_cell_is_excluded(self) -> None:
         template_path = ROOT / "03_Private_Equity" / "_template_LBO.xlsx"

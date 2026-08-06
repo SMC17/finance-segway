@@ -98,6 +98,40 @@ def find_candidate_cells(template_path: Path) -> dict[str, set[str]]:
     return result
 
 
+def _cover_real_cells(manifest: dict[str, Any], template_path: Path) -> set[tuple[str, str]]:
+    """Cover-sheet cells the manifest's own "cover" dict overrides.
+
+    model_instances.py applies these through a separate code path
+    (_set_cover, matched by row label) from the "inputs" list, so without
+    this they're invisible to the coverage scanner even though they are
+    real, case-specific facts (e.g. the actual company/deal name). Two
+    labels are excluded deliberately: "Last refreshed:" and "Active
+    scenario:" are unconditionally populated for every case regardless of
+    how much real sourcing went into it (an as_of date and a Base/Downside
+    toggle, not a disclosed fact about the subject), so counting them
+    would inflate every case's coverage by the same fixed, meaningless
+    amount rather than reflecting real work.
+    """
+    always_populated = {"Last refreshed:", "Active scenario:"}
+    cover = {
+        label: value for label, value in manifest.get("cover", {}).items()
+        if label not in always_populated
+    }
+    if not cover:
+        return set()
+    workbook = load_workbook(template_path, data_only=False)
+    if "Cover" not in workbook.sheetnames:
+        return set()
+    sheet = workbook["Cover"]
+    cells: set[tuple[str, str]] = set()
+    for label in cover:
+        for row in sheet.iter_rows():
+            for cell in row:
+                if cell.column == 2 and str(cell.value or "").strip() == label:
+                    cells.add(("Cover", sheet.cell(cell.row, 3).coordinate))
+    return cells
+
+
 def case_coverage(case: dict[str, Any]) -> dict[str, Any]:
     manifest_path = ROOT / case["manifest"]
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -111,6 +145,7 @@ def case_coverage(case: dict[str, Any]) -> dict[str, Any]:
         for item in manifest.get("inputs", [])
         if item.get("input_kind") in {"observed", "derived"}
     }
+    real_cells |= _cover_real_cells(manifest, template_path)
     real_in_candidates = {
         (sheet, cell) for sheet, cell in real_cells if cell in candidates_by_sheet.get(sheet, set())
     }
