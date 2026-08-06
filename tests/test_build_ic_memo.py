@@ -110,10 +110,10 @@ class ICMemoDataGroundingTests(unittest.TestCase):
         # The real, sourced Assumptions cells must be exactly the ones the
         # deck claims are "real, sourced" -- every other transaction-
         # structure figure must carry the "Illustrative" tag. This case's
-        # real cell set: C5 (revenue, 10-K), C6/C7 (EBITDA margin / growth,
-        # earnings call), C9/C10/C12 (D&A, capex, tax rate -- cash flow
-        # statement cross-check).
-        self.assertEqual(real_cells, {"C5", "C6", "C7", "C9", "C10", "C12"})
+        # real cell set: C5 (revenue, 10-K), C6/C7/C8 (EBITDA margin, growth,
+        # annual margin change -- earnings call), C9/C10/C12 (D&A, capex, tax
+        # rate -- cash flow statement cross-check).
+        self.assertEqual(real_cells, {"C5", "C6", "C7", "C8", "C9", "C10", "C12"})
         self.assertIn("Illustrative", self.slide_text[3])
         self.assertNotIn("SEC-SOURCED", self.slide_text[3].upper().replace(" ", "-SOURCED").replace("--", "-"))
 
