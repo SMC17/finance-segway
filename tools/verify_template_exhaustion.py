@@ -49,7 +49,7 @@ from openpyxl import load_workbook
 ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / "standards" / "public_cases" / "index.json"
 
-INPUT_FONT_RGB = "000000FF"
+INPUT_FONT_RGB = "0000FF"
 LEGEND_EXCLUDE_TEXT = "Blue text / yellow fill"
 
 # Governance surfaces, not model-input surfaces. These carry blue-font cells
@@ -70,10 +70,25 @@ NON_INPUT_SHEETS = {
 
 
 def _rgb(color: Any) -> str | None:
+    """The colour's RGB triplet, with the alpha channel discarded.
+
+    openpyxl stores font colours as 8-digit aRGB, and the leading alpha
+    byte is not stable across how a Font was constructed: templates built
+    through one path carry "000000FF" for the repo's input blue while
+    others carry "FF0000FF". Both are the same colour and both render
+    identically in Excel. Comparing the full 8-digit string therefore made
+    the scanner blind to an entire builder archetype -- domain 31's
+    software template reported *zero* candidate input cells, which reads as
+    "nothing to source" rather than "the scanner cannot see this file".
+    Only the last six digits carry the colour, so only those are compared.
+    """
     try:
-        return color.rgb if color else None
+        raw = color.rgb if color else None
     except (AttributeError, ValueError, TypeError):
         return None
+    if not isinstance(raw, str):
+        return None
+    return raw[-6:].upper()
 
 
 def find_candidate_cells(template_path: Path) -> dict[str, set[str]]:

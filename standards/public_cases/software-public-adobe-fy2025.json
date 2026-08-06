@@ -1,0 +1,629 @@
+{
+  "schema_version": "1.0",
+  "id": "software-public-adobe-fy2025",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "31_Software_SaaS/_template_SOFTWARE.xlsx",
+  "output": "31_Software_SaaS/instances/public_adobe_fy2025.xlsx",
+  "as_of": "2026-01-15",
+  "scenario": "Base",
+  "cover": {
+    "Title:": "Adobe Inc. -- FY2025 software operating, RPO, and unit-economics case",
+    "Company / ticker:": "Adobe Inc. (NASDAQ: ADBE), CIK 0000796343",
+    "Subsector:": "application software -- SEC SIC 7372 (Services-Prepackaged Software), as filed by the registrant",
+    "Fiscal year end:": "2025-11-28 (FY2025; 52/53-week year ending the Friday nearest November 30)",
+    "Next filing / refresh:": "2027-01 expected (FY2026 Form 10-K); every Adobe 10-K in this fact set was filed in January (17 filings, 2010-01 through 2026-01)"
+  },
+  "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 20878.6,
+      "input_kind": "derived",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "Adobe does not tag annual recurring revenue in XBRL -- no issuer does; ARR is a management metric with no fixed definition. This case therefore uses disclosed FY2024 Revenues (21,505 $mm, period ending 2024-11-29) net of the services-mix driver as the opening SUBSCRIPTION ARR scale (20,878.6 $mm), so modelled total revenue stays on the same basis as disclosed revenue. It is a proxy and errs in a known direction: revenue is a flow averaged over a year while ARR is a point-in-time contracted balance, so for a growing business it understates exit ARR. The size of the error is measurable and is not hidden: modelled Year 1 revenue is 22,637 $mm against Adobe's disclosed FY2025 23,769 $mm, a gap of -4.76%. Ratios on this case are sourced; absolute dollar levels carry that gap."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "value": 20878.6,
+      "input_kind": "derived",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "Adobe does not tag annual recurring revenue in XBRL -- no issuer does; ARR is a management metric with no fixed definition. This case therefore uses disclosed FY2024 Revenues (21,505 $mm, period ending 2024-11-29) net of the services-mix driver as the opening SUBSCRIPTION ARR scale (20,878.6 $mm), so modelled total revenue stays on the same basis as disclosed revenue. It is a proxy and errs in a known direction: revenue is a flow averaged over a year while ARR is a point-in-time contracted balance, so for a growing business it understates exit ARR. The size of the error is measurable and is not hidden: modelled Year 1 revenue is 22,637 $mm against Adobe's disclosed FY2025 23,769 $mm, a gap of -4.76%. Ratios on this case are sourced; absolute dollar levels carry that gap."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 0.1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+        "as_of": "2026-01-15",
+        "notes": "New, expansion, and contraction ARR rates are not disclosed by Adobe or by any other issuer. They are drivers. Their decomposition is chosen; their net effect is not -- see the gross-churn residual, which pins the sum to disclosed growth."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D6",
+      "value": 0.1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+        "as_of": "2026-01-15",
+        "notes": "New, expansion, and contraction ARR rates are not disclosed by Adobe or by any other issuer. They are drivers. Their decomposition is chosen; their net effect is not -- see the gross-churn residual, which pins the sum to disclosed growth."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.09,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+        "as_of": "2026-01-15",
+        "notes": "New, expansion, and contraction ARR rates are not disclosed by Adobe or by any other issuer. They are drivers. Their decomposition is chosen; their net effect is not -- see the gross-churn residual, which pins the sum to disclosed growth."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": 0.09,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+        "as_of": "2026-01-15",
+        "notes": "New, expansion, and contraction ARR rates are not disclosed by Adobe or by any other issuer. They are drivers. Their decomposition is chosen; their net effect is not -- see the gross-churn residual, which pins the sum to disclosed growth."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "value": 0.03,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+        "as_of": "2026-01-15",
+        "notes": "New, expansion, and contraction ARR rates are not disclosed by Adobe or by any other issuer. They are drivers. Their decomposition is chosen; their net effect is not -- see the gross-churn residual, which pins the sum to disclosed growth."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "value": 0.03,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+        "as_of": "2026-01-15",
+        "notes": "New, expansion, and contraction ARR rates are not disclosed by Adobe or by any other issuer. They are drivers. Their decomposition is chosen; their net effect is not -- see the gross-churn residual, which pins the sum to disclosed growth."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "value": 0.054722,
+      "input_kind": "derived",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "The four ARR flow rates are individually undisclosed. Their NET is pinned to Adobe's disclosed revenue growth of 0.1053 (FY2025 23,769 over FY2024 21,505 $mm), used as a proxy for net ARR growth. Gross churn is the balancing residual that carries this constraint, which is why it is the one flow rate with a real basis. Downside uses the lowest growth of the three most recent disclosed fiscal years (0.1024)."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "value": 0.057592,
+      "input_kind": "derived",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "The four ARR flow rates are individually undisclosed. Their NET is pinned to Adobe's disclosed revenue growth of 0.1053 (FY2025 23,769 over FY2024 21,505 $mm), used as a proxy for net ARR growth. Gross churn is the balancing residual that carries this constraint, which is why it is the one flow rate with a real basis. Downside uses the lowest growth of the three most recent disclosed fiscal years (0.1024)."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C10",
+      "value": 0.03,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+        "as_of": "2026-01-15",
+        "notes": "Adobe does not disaggregate services revenue from subscription revenue in its XBRL facts, so the mix is a driver. It is load-bearing only through the blended gross margin, which IS pinned to disclosure (row 11)."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 0.03,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+        "as_of": "2026-01-15",
+        "notes": "Adobe does not disaggregate services revenue from subscription revenue in its XBRL facts, so the mix is a driver. It is load-bearing only through the blended gross margin, which IS pinned to disclosure (row 11)."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "value": 0.908956,
+      "input_kind": "derived",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "Subscription margin solved so the model's BLENDED gross margin equals the disclosed GrossProfit/Revenues of 0.8927 (FY2025: 21,218 / 23,769 $mm) given the services mix and services margin drivers. The split between subscription and services margin is undisclosed; their weighted average is not."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "value": 0.894578,
+      "input_kind": "derived",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "Subscription margin solved so the model's BLENDED gross margin equals the disclosed GrossProfit/Revenues of 0.8927 (FY2025: 21,218 / 23,769 $mm) given the services mix and services margin drivers. The split between subscription and services margin is undisclosed; their weighted average is not."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C12",
+      "value": 0.35,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+        "as_of": "2026-01-15",
+        "notes": "Services gross margin is not disclosed. Held as a driver; the blended margin it feeds is pinned to disclosure."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D12",
+      "value": 0.35,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+        "as_of": "2026-01-15",
+        "notes": "Services gross margin is not disclosed. Held as a driver; the blended margin it feeds is pinned to disclosure."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C13",
+      "value": 0.272961,
+      "input_kind": "observed",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "SellingAndMarketingExpense / Revenues. FY2025: 6,488 / 23,769 $mm. Downside is the highest of the three most recent disclosed fiscal years (2025-11-28, 2024-11-29, 2023-12-01)."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D13",
+      "value": 0.275697,
+      "input_kind": "observed",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "SellingAndMarketingExpense / Revenues. FY2025: 6,488 / 23,769 $mm. Downside is the highest of the three most recent disclosed fiscal years (2025-11-28, 2024-11-29, 2023-12-01)."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C14",
+      "value": 0.187261,
+      "input_kind": "derived",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "Adobe's XBRL facts contain no ResearchAndDevelopmentExpense concept, so this line is the operating-expense residual: GrossProfit - OperatingIncomeLoss - SellingAndMarketingExpense - GeneralAndAdministrativeExpense. It is BROADER than Adobe's reported R&D line because it also absorbs amortization of intangibles and any other separately reported operating expense. Using the residual keeps modelled GAAP operating margin tied exactly to the disclosed 0.3663; a hand-picked R&D percentage would not."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D14",
+      "value": 0.237759,
+      "input_kind": "derived",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "Adobe's XBRL facts contain no ResearchAndDevelopmentExpense concept, so this line is the operating-expense residual: GrossProfit - OperatingIncomeLoss - SellingAndMarketingExpense - GeneralAndAdministrativeExpense. It is BROADER than Adobe's reported R&D line because it also absorbs amortization of intangibles and any other separately reported operating expense. Using the residual keeps modelled GAAP operating margin tied exactly to the disclosed 0.3663; a hand-picked R&D percentage would not."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C15",
+      "value": 0.066179,
+      "input_kind": "observed",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "GeneralAndAdministrativeExpense / Revenues. FY2025: 1,573 / 23,769 $mm. Downside is the highest of the three most recent disclosed fiscal years."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D15",
+      "value": 0.072801,
+      "input_kind": "observed",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "GeneralAndAdministrativeExpense / Revenues. FY2025: 1,573 / 23,769 $mm. Downside is the highest of the three most recent disclosed fiscal years."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C16",
+      "value": 0.081703,
+      "input_kind": "observed",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "ShareBasedCompensation / Revenues. FY2025: 1,942 / 23,769 $mm. Downside is the highest of the three most recent disclosed fiscal years."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D16",
+      "value": 0.088516,
+      "input_kind": "observed",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "ShareBasedCompensation / Revenues. FY2025: 1,942 / 23,769 $mm. Downside is the highest of the three most recent disclosed fiscal years."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C17",
+      "value": 0.007531,
+      "input_kind": "observed",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "PaymentsToAcquirePropertyPlantAndEquipment / Revenues. FY2025: 179 / 23,769 $mm. Downside is the highest of the three most recent disclosed fiscal years."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D17",
+      "value": 0.018548,
+      "input_kind": "observed",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "PaymentsToAcquirePropertyPlantAndEquipment / Revenues. FY2025: 179 / 23,769 $mm. Downside is the highest of the three most recent disclosed fiscal years."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C18",
+      "value": 0.18365,
+      "input_kind": "derived",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "IncomeTaxExpenseBenefit / (NetIncomeLoss + IncomeTaxExpenseBenefit), i.e. the EFFECTIVE GAAP rate. Caveat: the template line is labelled 'cash tax rate' and Adobe's cash taxes paid are not in this concept set, so the two differ by deferred taxes. Downside is the highest of the three most recent disclosed fiscal years."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D18",
+      "value": 0.201647,
+      "input_kind": "derived",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "IncomeTaxExpenseBenefit / (NetIncomeLoss + IncomeTaxExpenseBenefit), i.e. the EFFECTIVE GAAP rate. Caveat: the template line is labelled 'cash tax rate' and Adobe's cash taxes paid are not in this concept set, so the two differ by deferred taxes. Downside is the highest of the three most recent disclosed fiscal years."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C19",
+      "value": 0.89,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+        "as_of": "2026-01-15",
+        "notes": "Gross margin carried by newly won ARR is not disclosed by any issuer. Held as a driver, set near the disclosed blended margin because Adobe's cost of revenue is overwhelmingly delivery infrastructure rather than per-cohort cost; the CAC-payback line it feeds should be read as a range, not a point."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D19",
+      "value": 0.89,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+        "as_of": "2026-01-15",
+        "notes": "Gross margin carried by newly won ARR is not disclosed by any issuer. Held as a driver, set near the disclosed blended margin because Adobe's cost of revenue is overwhelmingly delivery infrastructure rather than per-cohort cost; the CAC-payback line it feeds should be read as a range, not a point."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C20",
+      "value": 19960.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "RevenueRemainingPerformanceObligation at FY2024 year-end (2024-11-29): 19,960 $mm. This is the model's opening RPO balance, so it is a disclosed level rather than a scenario lever and is identical in both columns."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D20",
+      "value": 19960.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "RevenueRemainingPerformanceObligation at FY2024 year-end (2024-11-29): 19,960 $mm. This is the model's opening RPO balance, so it is a disclosed level rather than a scenario lever and is identical in both columns."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C21",
+      "value": 0.947453,
+      "input_kind": "derived",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "RevenueRemainingPerformanceObligation / Revenues. FY2025: 22,520 / 23,769 $mm. Downside is the LOWEST of the three most recent disclosed fiscal years -- thinner contracted coverage is the adverse direction."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D21",
+      "value": 0.887217,
+      "input_kind": "derived",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "RevenueRemainingPerformanceObligation / Revenues. FY2025: 22,520 / 23,769 $mm. Downside is the LOWEST of the three most recent disclosed fiscal years -- thinner contracted coverage is the adverse direction."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C22",
+      "value": 0.64,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+        "as_of": "2026-01-15",
+        "notes": "The portion of RPO expected to be recognised within twelve months is disclosed by Adobe only as narrative text in the revenue note; it is not tagged in the XBRL facts this case is built from, so it stays an ungrounded driver rather than being transcribed from memory."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D22",
+      "value": 0.64,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+        "as_of": "2026-01-15",
+        "notes": "The portion of RPO expected to be recognised within twelve months is disclosed by Adobe only as narrative text in the revenue note; it is not tagged in the XBRL facts this case is built from, so it stays an ungrounded driver rather than being transcribed from memory."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C23",
+      "value": 0.295763,
+      "input_kind": "derived",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "ContractWithCustomerLiability / Revenues. FY2025: 7,030 / 23,769 $mm. Downside is the highest of the three most recent disclosed fiscal years -- more of RPO already billed means less unbilled contracted revenue still to come."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D23",
+      "value": 0.306559,
+      "input_kind": "derived",
+      "source": {
+        "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+        "as_of": "2026-01-15",
+        "notes": "ContractWithCustomerLiability / Revenues. FY2025: 7,030 / 23,769 $mm. Downside is the highest of the three most recent disclosed fiscal years -- more of RPO already billed means less unbilled contracted revenue still to come."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+      "as_of": "2026-01-15",
+      "notes": "SEC XBRL company facts for CIK 0000796343, recorded at tools/data_fabric/out/ADBE_facts_annual_series.json. Three most recent disclosed fiscal years: 2025-11-28, 2024-11-29, 2023-12-01."
+    },
+    {
+      "name": "Frozen source snapshot",
+      "url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+      "as_of": "2026-01-15",
+      "notes": "Immutable curated observation package with SHA-256 digest"
+    }
+  ],
+  "outcome": {
+    "metric": "fy2026_total_revenue_usd_mm",
+    "forecast": 22637.0,
+    "realized": null,
+    "realized_source": "Adobe FY2026 Form 10-K, expected filing January 2027",
+    "status": "pending"
+  },
+  "lineage": {
+    "source_snapshot": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+    "synthetic_benchmark_inputs_allowed": false
+  },
+  "refresh": {
+    "date": "2026-08-06",
+    "trigger": "Initial materialization from SEC XBRL company facts",
+    "source_snapshot": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+    "what_changed": "Built the software domain's first company case. Sourced the entire GAAP cost and RPO layer from Adobe's disclosed FY2025 facts; pinned blended gross margin and net ARR growth to disclosure while leaving their undisclosed components as declared drivers; set the Downside column from the worst of three disclosed fiscal years rather than an invented stress. The ARR cohort layer remains ungrounded because no issuer discloses it.",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending. Absolute ARR and RPO dollar levels inherit the revenue-as-ARR-scale proxy and should be read as approximate; ratios are sourced.",
+    "next_check": "On Adobe's next 10-K, builder change, or annual review"
+  },
+  "driver_declarations": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "New, expansion, and contraction ARR rates are not disclosed by Adobe or by any other issuer. They are drivers. Their decomposition is chosen; their net effect is not -- see the gross-churn residual, which pins the sum to disclosed growth.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "New, expansion, and contraction ARR rates are not disclosed by Adobe or by any other issuer. They are drivers. Their decomposition is chosen; their net effect is not -- see the gross-churn residual, which pins the sum to disclosed growth.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "New, expansion, and contraction ARR rates are not disclosed by Adobe or by any other issuer. They are drivers. Their decomposition is chosen; their net effect is not -- see the gross-churn residual, which pins the sum to disclosed growth.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C10",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Adobe does not disaggregate services revenue from subscription revenue in its XBRL facts, so the mix is a driver. It is load-bearing only through the blended gross margin, which IS pinned to disclosure (row 11).",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C12",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Services gross margin is not disclosed. Held as a driver; the blended margin it feeds is pinned to disclosure.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C19",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Gross margin carried by newly won ARR is not disclosed by any issuer. Held as a driver, set near the disclosed blended margin because Adobe's cost of revenue is overwhelmingly delivery infrastructure rather than per-cohort cost; the CAC-payback line it feeds should be read as a range, not a point.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C22",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "The portion of RPO expected to be recognised within twelve months is disclosed by Adobe only as narrative text in the revenue note; it is not tagged in the XBRL facts this case is built from, so it stays an ungrounded driver rather than being transcribed from memory.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D6",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "New, expansion, and contraction ARR rates are not disclosed by Adobe or by any other issuer. They are drivers. Their decomposition is chosen; their net effect is not -- see the gross-churn residual, which pins the sum to disclosed growth.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "New, expansion, and contraction ARR rates are not disclosed by Adobe or by any other issuer. They are drivers. Their decomposition is chosen; their net effect is not -- see the gross-churn residual, which pins the sum to disclosed growth.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "New, expansion, and contraction ARR rates are not disclosed by Adobe or by any other issuer. They are drivers. Their decomposition is chosen; their net effect is not -- see the gross-churn residual, which pins the sum to disclosed growth.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Adobe does not disaggregate services revenue from subscription revenue in its XBRL facts, so the mix is a driver. It is load-bearing only through the blended gross margin, which IS pinned to disclosure (row 11).",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D12",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Services gross margin is not disclosed. Held as a driver; the blended margin it feeds is pinned to disclosure.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D19",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Gross margin carried by newly won ARR is not disclosed by any issuer. Held as a driver, set near the disclosed blended margin because Adobe's cost of revenue is overwhelmingly delivery infrastructure rather than per-cohort cost; the CAC-payback line it feeds should be read as a range, not a point.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D22",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "The portion of RPO expected to be recognised within twelve months is disclosed by Adobe only as narrative text in the revenue note; it is not tagged in the XBRL facts this case is built from, so it stays an ungrounded driver rather than being transcribed from memory.",
+      "basis": {}
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C7",
+      "driver_type": "generated_metadata",
+      "rationale": "Populated automatically by tools/model_instances.py from the manifest's as_of date. Release metadata, not an observation about the company.",
+      "basis": {}
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C9",
+      "driver_type": "generated_metadata",
+      "rationale": "Populated automatically from the manifest's scenario selection. A Base/Downside toggle, not an observation about the company.",
+      "basis": {}
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C10",
+      "driver_type": "presentation_convention",
+      "rationale": "Presentation convention ($ in millions), not a fact about the subject.",
+      "basis": {}
+    }
+  ]
+}

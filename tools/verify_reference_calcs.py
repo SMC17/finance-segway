@@ -660,6 +660,83 @@ def check_software_arr_rollforward():
     return "Software: ARR roll-forward, retention ordering, revenue split", ok, detail
 
 
+def check_software_rpo_rollforward():
+    """Recompute the RPO balance and the bookings residual independently.
+
+    The load-bearing property is that gross bookings are a *derived*
+    quantity, not an input. No issuer discloses bookings, so a model that
+    accepts one has accepted a number nobody can check. Here bookings come
+    out of the ASC 606 identity
+
+        ending RPO = beginning RPO + gross bookings - revenue recognised
+
+    which means the check is really "does the workbook's bookings line
+    equal the residual implied by two disclosed balances and one disclosed
+    flow". It also verifies the billed/unbilled split: contract liability
+    (deferred revenue) is on the balance sheet, the rest of RPO is not, and
+    conflating them overstates how much of backlog is near-term cash.
+    """
+    path = os.path.join(REPO_ROOT, "31_Software_SaaS", "_template_SOFTWARE.xlsx")
+    workbook = with_recalc(path, lambda _: None)
+    assumptions = workbook["Assumptions"]
+    operating = workbook["Operating Model"]
+    rpo = workbook["RPO & Bookings"]
+
+    beginning_rpo = assumptions["E20"].value
+    coverage = assumptions["E21"].value
+    current_share = assumptions["E22"].value
+    deferred_rate = assumptions["E23"].value
+
+    failures = []
+    balance = beginning_rpo
+    for index, column in enumerate("CDEFG"):
+        revenue = operating[f"{column}7"].value
+        ending = revenue * coverage
+        bookings = ending - balance + revenue
+        current = ending * current_share
+        deferred = revenue * deferred_rate
+        unbilled = ending - deferred
+
+        if not close(rpo[f"{column}6"].value, balance, tol=1e-6):
+            failures.append(f"year{index + 1} beginning RPO")
+        if not close(rpo[f"{column}7"].value, ending, tol=1e-6):
+            failures.append(f"year{index + 1} ending RPO")
+        if not close(rpo[f"{column}8"].value, bookings, tol=1e-6):
+            failures.append(f"year{index + 1} implied bookings")
+        # The identity itself, recomputed rather than read off the sheet.
+        if not close(balance + bookings - revenue, ending, tol=1e-6):
+            failures.append(f"year{index + 1} RPO identity")
+        if not close(rpo[f"{column}11"].value, current, tol=1e-6):
+            failures.append(f"year{index + 1} current RPO")
+        if not close(
+            rpo[f"{column}11"].value + rpo[f"{column}12"].value, ending, tol=1e-6
+        ):
+            failures.append(f"year{index + 1} current + non-current != total RPO")
+        if not close(rpo[f"{column}14"].value, unbilled, tol=1e-6):
+            failures.append(f"year{index + 1} unbilled RPO")
+        if unbilled < -1e-9:
+            failures.append(f"year{index + 1} deferred revenue exceeds total RPO")
+        if bookings <= 0:
+            failures.append(f"year{index + 1} non-positive implied bookings")
+        # Book-to-bill above 1.0 must coincide with a growing RPO balance;
+        # if those two ever disagree the residual has been mis-signed.
+        book_to_bill = bookings / revenue
+        if (book_to_bill > 1.0 + 1e-9) != (ending > balance + 1e-9):
+            failures.append(f"year{index + 1} book-to-bill contradicts RPO growth")
+
+        balance = ending
+
+    ok = not failures
+    detail = (
+        f"5-year RPO {beginning_rpo:.1f} -> {balance:.1f} at {coverage:.2f}x "
+        f"coverage; bookings derived as residual (year1 "
+        f"{rpo['C8'].value:.1f}, book-to-bill {rpo['C9'].value:.3f}); "
+        f"unbilled share {rpo['C15'].value:.3f} of RPO; "
+        f"failures={'none' if ok else failures}"
+    )
+    return "Software: RPO roll-forward, bookings residual, billed/unbilled split", ok, detail
+
+
 CHECKS = [
     check_black_scholes,
     check_bond_duration,
@@ -669,6 +746,7 @@ CHECKS = [
     check_base_archetype_integration,
     check_credit_ecf_sweep_stepdown,
     check_software_arr_rollforward,
+    check_software_rpo_rollforward,
 ]
 
 
