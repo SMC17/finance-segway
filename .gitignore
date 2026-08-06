@@ -23,3 +23,6 @@ __pycache__/
 # Accidentally committed once (see #55's follow-up cleanup); never again.
 .model-build/
 builder-parity-report.json
+final-public-evidence-report.json
+all-domain-public-evidence-report.json
+frontier-program-report.json
