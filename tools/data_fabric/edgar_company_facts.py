@@ -328,9 +328,90 @@ def write_outputs(
     return facts_path, reg_path
 
 
+TAXONOMY = ROOT / "standards" / "universe" / "taxonomy.json"
+SIC_SNAPSHOT = OUT_DIR / "QQQ_sec_sic_classifications.json"
+
+
+def sector_members(sector_id: str | None = None) -> list[tuple[str, str | None]]:
+    """(ticker, cik-or-None) for every modelable, classified company in the
+    taxonomy - one sector, or all of them when sector_id is None. CIKs come
+    offline from the committed SEC SIC snapshot when present, so a sector
+    sweep only touches the network for the companyfacts themselves."""
+    if not TAXONOMY.exists():
+        raise FileNotFoundError(
+            f"universe taxonomy missing at {TAXONOMY} - sector sweeps need "
+            "standards/universe/taxonomy.json; run from a full checkout"
+        )
+    taxonomy = json.loads(TAXONOMY.read_text(encoding="utf-8"))
+    ciks = {}
+    if SIC_SNAPSHOT.exists():
+        snapshot = json.loads(SIC_SNAPSHOT.read_text(encoding="utf-8"))
+        ciks = {sym: meta.get("cik") for sym, meta in snapshot.get("companies", {}).items()}
+    members = []
+    for company in taxonomy.get("companies", []):
+        if not company.get("modelable") or not company.get("sector_id"):
+            continue
+        if sector_id is not None and company["sector_id"] != sector_id:
+            continue
+        members.append((company["symbol"], ciks.get(company["symbol"])))
+    return sorted(members)
+
+
+def run_one(ticker: str, cik: str | None, args, sess, facts: dict | None = None) -> dict:
+    """Harvest one ticker; returns the fetched companyfacts so a sweep can
+    reuse them for dual listings sharing a CIK (GOOGL/GOOG) instead of
+    hitting SEC twice for identical data."""
+    if not cik:
+        cik = resolve_cik(ticker, sess)
+        print(f"Resolved {ticker.upper()} → CIK {cik}")
+    if facts is None:
+        facts = fetch_company_facts(cik, sess)
+    concepts = list(dict.fromkeys(DEFAULT_CONCEPTS + list(args.extra_concepts or [])))
+    rows = extract_selected(facts, concepts, prefer_annual=args.prefer_annual)
+    if args.annual_series:
+        series_rows = extract_annual_series(facts, concepts)
+        series_path = OUT_DIR / f"{ticker.upper()}_facts_annual_series.json"
+        series_path.write_text(
+            json.dumps(
+                {
+                    "ticker": ticker.upper(),
+                    "cik": str(cik).zfill(10),
+                    "retrieved_utc": datetime.now(timezone.utc).strftime(
+                        "%Y%m%dT%H%M%SZ"
+                    ),
+                    "dedupe_rule": (
+                        "annual filings (amendments included); one value per "
+                        "fiscal period-end date; annual = >=10-month span, "
+                        "transition stubs >=5 months admitted when not inside "
+                        "an annual period; longer duration then latest filed "
+                        "wins (restatements win)"
+                    ),
+                    "concepts": series_rows,
+                },
+                indent=2,
+            ),
+            encoding="utf-8",
+        )
+        print(f"Wrote {series_path} ({len(series_rows)} concepts with history)")
+    write_outputs(
+        ticker,
+        cik,
+        rows,
+        extra_meta={"prefer_annual": args.prefer_annual, "concept_count_requested": len(concepts)},
+    )
+    return facts
+
+
+def _sweep_done_marker(ticker: str, args) -> Path:
+    """--skip-existing keys on the file the current flags actually produce."""
+    if args.annual_series:
+        return OUT_DIR / f"{ticker.upper()}_facts_annual_series.json"
+    return OUT_DIR / f"{ticker.upper()}_facts_selected.json"
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--ticker", required=True, help="Ticker symbol (e.g. AAPL, ARCC)")
+    ap.add_argument("--ticker", help="Ticker symbol (e.g. AAPL, ARCC)")
     ap.add_argument(
         "--cik",
         default=None,
@@ -351,51 +432,56 @@ def main() -> int:
         "--annual-series",
         action="store_true",
         help="Also write {TICKER}_facts_annual_series.json: full annual "
-             "history per concept, one value per fiscal end-year, latest "
-             "filed wins",
+             "history per concept, one value per fiscal period-end date, "
+             "latest filed wins",
+    )
+    ap.add_argument(
+        "--sector",
+        help="Harvest every modelable company the universe taxonomy assigns "
+             "to this sector_id (CIKs resolved offline from the committed "
+             "SEC SIC snapshot)",
+    )
+    ap.add_argument(
+        "--all-sectors",
+        action="store_true",
+        help="Harvest every modelable, classified company in the taxonomy",
+    )
+    ap.add_argument(
+        "--skip-existing",
+        action="store_true",
+        help="Resume primitive: skip tickers whose output for the current "
+             "flag set already exists. A refresh is the opposite move - run "
+             "WITHOUT this flag and everything re-fetches and overwrites.",
     )
     args = ap.parse_args()
 
-    sess = _session()
-    cik = args.cik
-    if not cik:
-        cik = resolve_cik(args.ticker, sess)
-        print(f"Resolved {args.ticker.upper()} → CIK {cik}")
+    if not (args.ticker or args.sector or args.all_sectors):
+        ap.error("one of --ticker, --sector, or --all-sectors is required")
 
-    facts = fetch_company_facts(cik, sess)
-    concepts = list(dict.fromkeys(DEFAULT_CONCEPTS + list(args.extra_concepts or [])))
-    rows = extract_selected(facts, concepts, prefer_annual=args.prefer_annual)
-    if args.annual_series:
-        series_rows = extract_annual_series(facts, concepts)
-        series_path = OUT_DIR / f"{args.ticker.upper()}_facts_annual_series.json"
-        series_path.write_text(
-            json.dumps(
-                {
-                    "ticker": args.ticker.upper(),
-                    "cik": str(cik).zfill(10),
-                    "retrieved_utc": datetime.now(timezone.utc).strftime(
-                        "%Y%m%dT%H%M%SZ"
-                    ),
-                    "dedupe_rule": (
-                        "annual filings (amendments included); one value per "
-                        "fiscal period-end date; annual = >=10-month span, "
-                        "transition stubs >=5 months admitted when not inside "
-                        "an annual period; longer duration then latest filed "
-                        "wins (restatements win)"
-                    ),
-                    "concepts": series_rows,
-                },
-                indent=2,
-            ),
-            encoding="utf-8",
-        )
-        print(f"Wrote {series_path} ({len(series_rows)} concepts with history)")
-    write_outputs(
-        args.ticker,
-        cik,
-        rows,
-        extra_meta={"prefer_annual": args.prefer_annual, "concept_count_requested": len(concepts)},
-    )
+    sess = _session()
+    if args.sector or args.all_sectors:
+        members = sector_members(None if args.all_sectors else args.sector)
+        if not members:
+            ap.error(f"no modelable classified companies for {args.sector!r}")
+        facts_by_cik: dict[str, dict] = {}
+        failures = []
+        for ticker, cik in members:
+            if args.skip_existing and _sweep_done_marker(ticker, args).exists():
+                continue
+            try:
+                cached = facts_by_cik.get(cik) if cik else None
+                fetched = run_one(ticker, cik, args, sess, facts=cached)
+                if cik:
+                    facts_by_cik[cik] = fetched
+            except Exception as exc:  # noqa: BLE001 - one bad issuer must not kill the sweep
+                failures.append(f"{ticker}: {exc}")
+                print(f"FAILED {ticker}: {exc}")
+        if failures:
+            print(f"{len(failures)} failures: {failures}")
+            return 1
+        return 0
+
+    run_one(args.ticker, args.cik, args, sess)
     return 0
 
 

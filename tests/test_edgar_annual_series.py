@@ -3,7 +3,10 @@ from __future__ import annotations
 
 import unittest
 
-from tools.data_fabric.edgar_company_facts import extract_annual_series
+from tools.data_fabric.edgar_company_facts import (
+    extract_annual_series,
+    sector_members,
+)
 
 
 def _facts() -> dict:
@@ -126,6 +129,33 @@ class AnnualSeriesRegressionTests(unittest.TestCase):
         ]}}}}}
         rows = extract_annual_series(facts, ["Assets"])
         self.assertEqual(rows[0]["observations"][0]["value"], 5000)
+
+
+class SectorMembersTests(unittest.TestCase):
+    def test_sector_enumeration_matches_taxonomy(self) -> None:
+        import json
+        from pathlib import Path
+
+        root = Path(__file__).resolve().parents[1]
+        taxonomy = json.loads(
+            (root / "standards" / "universe" / "taxonomy.json").read_text()
+        )
+        classified = {
+            c["symbol"] for c in taxonomy["companies"]
+            if c["modelable"] and c.get("sector_id")
+        }
+        everyone = sector_members()
+        self.assertEqual({t for t, _ in everyone}, classified)
+        union = set()
+        for sector in {c["sector_id"] for c in taxonomy["companies"] if c.get("sector_id")}:
+            union.update(t for t, _ in sector_members(sector))
+        self.assertEqual(union, classified)
+        for _, cik in everyone:
+            if cik is not None:
+                self.assertEqual(len(cik), 10)
+
+    def test_unknown_sector_returns_empty(self) -> None:
+        self.assertEqual(sector_members("no_such_sector"), [])
 
 
 if __name__ == "__main__":
