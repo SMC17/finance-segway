@@ -33,14 +33,17 @@ LEGACY_RELEASE_STAGED = "release_staged"
 
 # The frozen, certified 24-domain program this validator's cohort and
 # public-case-count checks are actually about. Domains added after the
-# program was certified (e.g. "29") are real inventory entries but are
+# program was certified (e.g. "29", "30") are real inventory entries but are
 # deliberately outside this specific claim boundary until their own evidence
 # program is built out -- see EXPECTED_INVENTORY_IDS below for the check that
-# any such addition is declared honestly (not M2, not silently folded into
-# the frontier program's cohorts).
+# any such addition is declared honestly, at its own actual maturity, not
+# silently folded into the frontier program's cohorts. "29" (Fund of Funds)
+# launched at M1; "30" (ETF Construction & Management) launched at M2 with a
+# real, sourced public instance -- both are counted honestly below, not
+# assumed to match the frontier cohort's own M2 claim.
 FRONTIER_PROGRAM_IDS = {f"{value:02d}" for value in range(1, 25)}
-EXPECTED_INVENTORY_IDS = FRONTIER_PROGRAM_IDS | {"29"}
-EXPECTED_MATURITY = Counter({"M2": 24, "M1": 1})
+EXPECTED_INVENTORY_IDS = FRONTIER_PROGRAM_IDS | {"29", "30"}
+EXPECTED_MATURITY = Counter({"M2": 25, "M1": 1})
 
 
 def _load(path: Path) -> dict[str, Any]:

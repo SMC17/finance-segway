@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "model_id": "30",
+  "cadence": "per material refresh and at least quarterly",
+  "thresholds": [
+    {
+      "metric": "net_tracking_difference",
+      "warning": -0.01,
+      "breach": -0.02,
+      "action": "Reconcile expense ratio, securities-lending revenue, cash drag, and sampling error against the fund's own disclosed tracking-difference statistics"
+    },
+    {
+      "metric": "premium_discount_to_nav",
+      "warning": 0.0025,
+      "breach": 0.005,
+      "action": "Escalate authorized-participant arbitrage review; confirm creation/redemption activity is functioning normally"
+    }
+  ],
+  "exception_status": "none_open_at_initialization"
+}
