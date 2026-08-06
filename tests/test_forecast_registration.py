@@ -11,6 +11,7 @@ from tools.forecast_registration import (
     FORECAST_DIR,
     check_all,
     draft_registration,
+    due_report,
     register,
     registration_sha256,
     resolve,
@@ -277,6 +278,40 @@ class ForecastRegistrationTests(unittest.TestCase):
             self.assertTrue(
                 any("overdue" in e for e in report["problems"]["overdue-forecast.json"])
             )
+
+    def test_due_report_separates_overdue_from_upcoming(self) -> None:
+        import tempfile
+        from datetime import timedelta
+
+        def make(fid: str, resolve_by: str) -> dict:
+            record = draft_registration(
+                forecast_id=fid, case_id="c", model_id="05", metric="m",
+                point=2.0, history=[("FY2024", 1.0)], history_source="log",
+                resolve_by=resolve_by, resolution_source_expected="src",
+                registered_on="2025-06-01",
+            )
+            record["registration_sha256"] = registration_sha256(record)
+            return record
+
+        today = date.today()
+        soon = (today + timedelta(days=10)).isoformat()
+        far = (today + timedelta(days=400)).isoformat()
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp)
+            for fid, rb in (("overdue-1", "2026-01-01"), ("soon-1", soon), ("far-1", far)):
+                (directory / f"{fid}.json").write_text(
+                    json.dumps(make(fid, rb), indent=2) + "\n", encoding="utf-8"
+                )
+            report = due_report(directory, within_days=45)
+            self.assertEqual(report["status"], "OVERDUE")
+            self.assertEqual([r["forecast_id"] for r in report["overdue"]], ["overdue-1"])
+            self.assertEqual([r["forecast_id"] for r in report["upcoming"]], ["soon-1"])
+            self.assertLess(report["overdue"][0]["days"], 0)
+
+    def test_due_report_ok_when_nothing_expired(self) -> None:
+        report = due_report()  # committed registry: everything resolves 2027
+        self.assertEqual(report["status"], "OK")
+        self.assertEqual(report["overdue"], [])
 
     def test_committed_registry_is_clean(self) -> None:
         report = check_all(FORECAST_DIR)

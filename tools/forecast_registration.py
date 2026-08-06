@@ -316,6 +316,44 @@ def check_all(directory: Path = FORECAST_DIR) -> dict[str, Any]:
     return report
 
 
+def due_report(directory: Path = FORECAST_DIR, within_days: int = 45) -> dict[str, Any]:
+    """What needs resolving: overdue registrations and windows closing soon.
+
+    The check (--check) polices content; this polices time. A registry whose
+    first resolutions are quiet for months invites the failure mode where
+    resolve_by arrives and nobody notices - so CI runs this on a schedule
+    and turns red the day a window expires unresolved.
+    """
+    today = date.today()
+    overdue: list[dict[str, Any]] = []
+    upcoming: list[dict[str, Any]] = []
+    for record in load_all(directory).values():
+        if record.get("resolution") is not None:
+            continue
+        resolve_by = _parse_date("resolve_by", record.get("resolve_by"), [])
+        if resolve_by is None:
+            continue
+        row = {
+            "forecast_id": record.get("forecast_id"),
+            "resolve_by": record.get("resolve_by"),
+            "days": (resolve_by - today).days,
+            "resolution_source_expected": record.get("resolution_source_expected"),
+        }
+        if resolve_by < today:
+            overdue.append(row)
+        elif (resolve_by - today).days <= within_days:
+            upcoming.append(row)
+    overdue.sort(key=lambda r: r["resolve_by"])
+    upcoming.sort(key=lambda r: r["resolve_by"])
+    return {
+        "status": "OVERDUE" if overdue else "OK",
+        "as_of": today.isoformat(),
+        "overdue": overdue,
+        "due_within_days": within_days,
+        "upcoming": upcoming,
+    }
+
+
 def forward_evidence_by_model(directory: Path = FORECAST_DIR) -> dict[str, dict[str, Any]]:
     """Group the registry by model_id for the inventory gate's report.
 
@@ -401,7 +439,18 @@ def main() -> int:
     parser.add_argument("--resolve")
     parser.add_argument("--realized", type=float)
     parser.add_argument("--source")
+    parser.add_argument("--due", action="store_true",
+                        help="list overdue and soon-closing unresolved windows; "
+                             "exit 1 if any are overdue")
+    parser.add_argument("--within-days", type=int, default=45)
     args = parser.parse_args()
+
+    if args.due:
+        report = due_report(within_days=args.within_days)
+        print(json.dumps(report, indent=2))
+        if args.report:
+            args.report.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+        return 0 if report["status"] == "OK" else 1
 
     if args.register:
         record = register(args.register)
