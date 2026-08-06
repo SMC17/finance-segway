@@ -1,0 +1,1620 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-08-06",
+  "generated_by": "tools/build_universe_taxonomy.py",
+  "purpose": "Structured domain -> sector -> company backlog. Every company traces to a recorded, dated disclosure. Sector assignment per company is deliberately empty until a real classification source is attached.",
+  "universes": [
+    {
+      "id": "qqq",
+      "name": "Invesco QQQ Trust, Series 1",
+      "ticker": "QQQ",
+      "benchmark": "NASDAQ-100 Index",
+      "source": {
+        "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "snapshot": "tools/data_fabric/out/QQQ_alphavantage_etf_profile.json"
+      },
+      "disclosed_constituent_count": 105,
+      "sector_scheme": "issuer-disclosed sector buckets (not a licensed GICS mapping)",
+      "linked_public_case": "etf-public-qqq-2026"
+    }
+  ],
+  "sectors": [
+    {
+      "id": "information_technology",
+      "label": "INFORMATION TECHNOLOGY",
+      "disclosed_weight": 0.577,
+      "source": {
+        "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "snapshot": "tools/data_fabric/out/QQQ_alphavantage_etf_profile.json"
+      }
+    },
+    {
+      "id": "communication_services",
+      "label": "COMMUNICATION SERVICES",
+      "disclosed_weight": 0.133,
+      "source": {
+        "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "snapshot": "tools/data_fabric/out/QQQ_alphavantage_etf_profile.json"
+      }
+    },
+    {
+      "id": "consumer_discretionary",
+      "label": "CONSUMER DISCRETIONARY",
+      "disclosed_weight": 0.101,
+      "source": {
+        "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "snapshot": "tools/data_fabric/out/QQQ_alphavantage_etf_profile.json"
+      }
+    },
+    {
+      "id": "consumer_staples",
+      "label": "CONSUMER STAPLES",
+      "disclosed_weight": 0.061,
+      "source": {
+        "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "snapshot": "tools/data_fabric/out/QQQ_alphavantage_etf_profile.json"
+      }
+    },
+    {
+      "id": "healthcare",
+      "label": "HEALTHCARE",
+      "disclosed_weight": 0.036,
+      "source": {
+        "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "snapshot": "tools/data_fabric/out/QQQ_alphavantage_etf_profile.json"
+      }
+    },
+    {
+      "id": "industrials",
+      "label": "INDUSTRIALS",
+      "disclosed_weight": 0.029,
+      "source": {
+        "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "snapshot": "tools/data_fabric/out/QQQ_alphavantage_etf_profile.json"
+      }
+    },
+    {
+      "id": "utilities",
+      "label": "UTILITIES",
+      "disclosed_weight": 0.012,
+      "source": {
+        "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "snapshot": "tools/data_fabric/out/QQQ_alphavantage_etf_profile.json"
+      }
+    },
+    {
+      "id": "materials",
+      "label": "MATERIALS",
+      "disclosed_weight": 0.011,
+      "source": {
+        "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "snapshot": "tools/data_fabric/out/QQQ_alphavantage_etf_profile.json"
+      }
+    },
+    {
+      "id": "energy",
+      "label": "ENERGY",
+      "disclosed_weight": 0.005,
+      "source": {
+        "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "snapshot": "tools/data_fabric/out/QQQ_alphavantage_etf_profile.json"
+      }
+    },
+    {
+      "id": "financials",
+      "label": "FINANCIALS",
+      "disclosed_weight": 0.002,
+      "source": {
+        "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "snapshot": "tools/data_fabric/out/QQQ_alphavantage_etf_profile.json"
+      }
+    },
+    {
+      "id": "real_estate",
+      "label": "REAL ESTATE",
+      "disclosed_weight": 0.0,
+      "source": {
+        "name": "Invesco QQQ Trust ETF profile (issuer-disclosed holdings and sector weights)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-06",
+        "snapshot": "tools/data_fabric/out/QQQ_alphavantage_etf_profile.json"
+      }
+    }
+  ],
+  "companies": [
+    {
+      "symbol": "AAPL",
+      "name": "APPLE INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0772
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "ABNB",
+      "name": "AIRBNB INC ORDINARY SHARES CLASS A",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0026
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "ADBE",
+      "name": "ADOBE INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0039
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "ADI",
+      "name": "ANALOG DEVICES INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0084
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "ADP",
+      "name": "AUTOMATIC DATA PROCESSING INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0043
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "ADSK",
+      "name": "AUTODESK INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0019
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "AEP",
+      "name": "AMERICAN ELECTRIC POWER CO INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0032
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "ALAB",
+      "name": "ASTERA LABS INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0025
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "ALNY",
+      "name": "ALNYLAM PHARMACEUTICALS INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0016
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "AMAT",
+      "name": "APPLIED MATERIALS INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0196
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "AMD",
+      "name": "ADVANCED MICRO DEVICES INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0401
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "AMGN",
+      "name": "AMGEN INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0088
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "AMZN",
+      "name": "AMAZON.COM INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0425
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "APP",
+      "name": "APPLOVIN CORP ORDINARY SHARES CLASS A",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0056
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "ARM",
+      "name": "ARM HOLDINGS PLC ADR",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0054
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "ASML",
+      "name": "ASML HOLDING NV ADR",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0074
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "AVGO",
+      "name": "BROADCOM INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0303
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "AXON",
+      "name": "AXON ENTERPRISE INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0018
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "BKNG",
+      "name": "BOOKING HOLDINGS INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0061
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "BKR",
+      "name": "BAKER HUGHES CO CLASS A",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0025
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "CCEP",
+      "name": "COCA-COLA EUROPACIFIC PARTNERS PLC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0021
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "CDNS",
+      "name": "CADENCE DESIGN SYSTEMS INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0041
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "CEG",
+      "name": "CONSTELLATION ENERGY CORP",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0044
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "CMCSA",
+      "name": "COMCAST CORP CLASS A",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0037
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "COST",
+      "name": "COSTCO WHOLESALE CORP",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0183
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "CPRT",
+      "name": "COPART INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0011
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "CRWD",
+      "name": "CROWDSTRIKE HOLDINGS INC CLASS A",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0085
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "CRWV",
+      "name": "COREWEAVE INC ORDINARY SHARES CLASS A",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0016
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "CSCO",
+      "name": "CISCO SYSTEMS INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0197
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "CSX",
+      "name": "CSX CORP",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0041
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "CTAS",
+      "name": "CINTAS CORP",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0036
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "DASH",
+      "name": "DOORDASH INC ORDINARY SHARES CLASS A",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0033
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "DDOG",
+      "name": "DATADOG INC CLASS A",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0036
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "DXCM",
+      "name": "DEXCOM INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0012
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "EA",
+      "name": "ELECTRONIC ARTS INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0023
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "EXC",
+      "name": "EXELON CORP",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0021
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "FANG",
+      "name": "DIAMONDBACK ENERGY INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0025
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "FAST",
+      "name": "FASTENAL CO",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0023
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "FTNT",
+      "name": "FORTINET INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0051
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "GEHC",
+      "name": "GE HEALTHCARE TECHNOLOGIES INC COMMON STOCK",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0012
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "GILD",
+      "name": "GILEAD SCIENCES INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0072
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "GOOG",
+      "name": "ALPHABET INC CLASS C",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0301
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "GOOGL",
+      "name": "ALPHABET INC CLASS A",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0321
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "HON",
+      "name": "HONEYWELL INTERNATIONAL INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0033
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "HONA",
+      "name": "HONEYWELL AEROSPACE INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0029
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "IDXX",
+      "name": "IDEXX LABORATORIES INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0019
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "INTC",
+      "name": "INTEL CORP",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.023
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "INTU",
+      "name": "INTUIT INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0035
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "ISRG",
+      "name": "INTUITIVE SURGICAL INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0054
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "KDP",
+      "name": "KEURIG DR PEPPER INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0018
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "KHC",
+      "name": "THE KRAFT HEINZ CO",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0014
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "KLAC",
+      "name": "KLA CORP",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0125
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "LIN",
+      "name": "LINDE PLC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0105
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "LITE",
+      "name": "LUMENTUM HOLDINGS INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0029
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "LRCX",
+      "name": "LAM RESEARCH CORP",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0178
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "MAR",
+      "name": "MARRIOTT INTERNATIONAL INC CLASS A",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0043
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "MCHP",
+      "name": "MICROCHIP TECHNOLOGY INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0021
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "MDLZ",
+      "name": "MONDELEZ INTERNATIONAL INC CLASS A",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0035
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "MELI",
+      "name": "MERCADOLIBRE INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0041
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "META",
+      "name": "META PLATFORMS INC CLASS A",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.03
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "MNST",
+      "name": "MONSTER BEVERAGE CORP",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0042
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "MPWR",
+      "name": "MONOLITHIC POWER SYSTEMS INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0031
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "MRVL",
+      "name": "MARVELL TECHNOLOGY INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0082
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "MSFT",
+      "name": "MICROSOFT CORP",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0468
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "MSTR",
+      "name": "STRATEGY INC CLASS A",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0015
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "MU",
+      "name": "MICRON TECHNOLOGY INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0482
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "NBIS",
+      "name": "NEBIUS GROUP NV SHS CLASS-A-",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0021
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "NFLX",
+      "name": "NETFLIX INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0129
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "NVDA",
+      "name": "NVIDIA CORP",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0828
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "NXPI",
+      "name": "NXP SEMICONDUCTORS NV",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0031
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "ODFL",
+      "name": "OLD DOMINION FREIGHT LINE INC ORDINARY SHARES",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0022
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "ORLY",
+      "name": "O'REILLY AUTOMOTIVE INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0032
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "PANW",
+      "name": "PALO ALTO NETWORKS INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0122
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "PAYX",
+      "name": "PAYCHEX INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0018
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "PCAR",
+      "name": "PACCAR INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0031
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "PDD",
+      "name": "PDD HOLDINGS INC ADR",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0025
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "PEP",
+      "name": "PEPSICO INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0083
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "PLTR",
+      "name": null,
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0127
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "PYPL",
+      "name": "PAYPAL HOLDINGS INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0022
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "QCOM",
+      "name": "QUALCOMM INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0082
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "REGN",
+      "name": "REGENERON PHARMACEUTICALS INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.003
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "RKLB",
+      "name": "ROCKET LAB CORP",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0018
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "ROP",
+      "name": "ROPER TECHNOLOGIES INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0015
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "ROST",
+      "name": "ROSS STORES INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0034
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "SBUX",
+      "name": "STARBUCKS CORP",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0053
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "SHOP",
+      "name": null,
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0064
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "SNDK",
+      "name": "SANDISK CORP ORDINARY SHARES",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0105
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "SNPS",
+      "name": "SYNOPSYS INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0032
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "SPCX",
+      "name": null,
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0098
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "STX",
+      "name": "SEAGATE TECHNOLOGY HOLDINGS PLC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0091
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "TER",
+      "name": "TERADYNE INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0026
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "TMUS",
+      "name": "T-MOBILE US INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0092
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "TRI",
+      "name": "THOMSON REUTERS CORP",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0015
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "TSLA",
+      "name": "TESLA INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0301
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "TTWO",
+      "name": "TAKE-TWO INTERACTIVE SOFTWARE INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0019
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "TXN",
+      "name": "TEXAS INSTRUMENTS INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0119
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "VRTX",
+      "name": "VERTEX PHARMACEUTICALS INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0053
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "WBD",
+      "name": "WARNER BROS. DISCOVERY INC ORDINARY SHARES CLASS A",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0029
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "WDAY",
+      "name": "WORKDAY INC CLASS A",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0012
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "WDC",
+      "name": "WESTERN DIGITAL CORP",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0085
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "WMT",
+      "name": "WALMART INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0238
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": "XEL",
+      "name": "XCEL ENERGY INC",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0022
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": true,
+      "not_modelable_reason": null
+    },
+    {
+      "symbol": null,
+      "name": "FERROVIAL SE",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0021
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": false,
+      "not_modelable_reason": "unresolved_symbol"
+    },
+    {
+      "symbol": null,
+      "name": "CASH",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0013
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": false,
+      "not_modelable_reason": "cash_position"
+    },
+    {
+      "symbol": null,
+      "name": "E-MINI NASDAQ 100 FUTURE SEPT 26",
+      "memberships": [
+        {
+          "universe": "qqq",
+          "weight": 0.0012
+        }
+      ],
+      "sector_id": null,
+      "sector_source": null,
+      "modelable": false,
+      "not_modelable_reason": "derivative_position"
+    }
+  ],
+  "domain_sector_scope": [],
+  "scope_note": "domain_sector_scope records which domains we intend to cover for which sectors. It is a modeling-scope decision, not a sourced fact, and every entry must carry a rationale."
+}
