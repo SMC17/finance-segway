@@ -4,13 +4,14 @@ Once a quarter (after 10-Q/10-K season settles, and any week the index
 reconstitutes), the whole data layer refreshes with:
 
 ```bash
-python tools/quarterly_refresh.py            # network side; --dry-run to preview
+python tools/refresh_data_layer.py           # network side; --dry-run to preview
 ```
 
 What it runs, in order, and why the order matters:
 
 | step | what | why this order |
 |---|---|---|
+| staleness clock | `tools/quarterly_refresh.py` reports what is due and why | the clock decides; this driver only executes what it calls for |
 | facts | full `--all-sectors` re-fetch (annual series, all concepts) | refresh means overwrite; `--skip-existing` is the RESUME primitive, not refresh |
 | exhibits | earnings materials, `--skip-existing` | frozen filings never change; only new quarters add |
 | nport + check | the regulator's portfolio + cross-check vs taxonomy | a new N-PORT lands each quarter - the second source keeps the vendor honest |
