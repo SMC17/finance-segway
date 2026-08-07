@@ -1,0 +1,39 @@
+{
+ "ticker": "DDOG",
+ "cik": "0001561550",
+ "source": "SEC EDGAR 8-K filings, Item 2.02 (Results of Operations), EX-99 exhibits",
+ "retrieved_utc": "20260807T173821Z",
+ "note": "Raw, uninterpreted earnings-release documents. No numbers are extracted here by design - a modeling agent reads the frozen file and cites it by path + sha256.",
+ "filings": [
+  {
+   "accession": "0001628280-26-053829",
+   "filed": "2026-08-06",
+   "items": "2.02,9.01",
+   "report_date": "2026-08-06",
+   "files": [
+    {
+     "name": "ex-991x20260630x8k.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/1561550/000162828026053829/ex-991x20260630x8k.htm",
+     "sha256": "cc2aef81b41617e3c2134df6c6ae9a786cba55e4ac4362a709954c705d737a4f",
+     "bytes": 460658
+    }
+   ]
+  },
+  {
+   "accession": "0001628280-26-031677",
+   "filed": "2026-05-07",
+   "items": "2.02,9.01",
+   "report_date": "2026-05-07",
+   "files": [
+    {
+     "name": "ex-991x20260331x8k.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/1561550/000162828026031677/ex-991x20260331x8k.htm",
+     "sha256": "1b17bd5775253cf1749b2a97811fd6b3d23cd9eef0f466ad2e70a9ba4106c340",
+     "bytes": 345451
+    }
+   ]
+  }
+ ]
+}
