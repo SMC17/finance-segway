@@ -1,0 +1,39 @@
+{
+ "ticker": "ADSK",
+ "cik": "0000769397",
+ "source": "SEC EDGAR 8-K filings, Item 2.02 (Results of Operations), EX-99 exhibits",
+ "retrieved_utc": "20260807T173822Z",
+ "note": "Raw, uninterpreted earnings-release documents. No numbers are extracted here by design - a modeling agent reads the frozen file and cites it by path + sha256.",
+ "filings": [
+  {
+   "accession": "0000769397-26-000041",
+   "filed": "2026-05-28",
+   "items": "2.02,7.01,9.01",
+   "report_date": "2026-05-28",
+   "files": [
+    {
+     "name": "q127pressrelease.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/769397/000076939726000041/q127pressrelease.htm",
+     "sha256": "d8e342a8c6f7b145c5abf47836b0b7a98828762b1916c5e10a798350679aaf88",
+     "bytes": 246277
+    }
+   ]
+  },
+  {
+   "accession": "0000769397-26-000010",
+   "filed": "2026-02-26",
+   "items": "2.02,7.01,9.01",
+   "report_date": "2026-02-26",
+   "files": [
+    {
+     "name": "q426pressrelease.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/769397/000076939726000010/q426pressrelease.htm",
+     "sha256": "889e7306cb833d85c93c068a66e614cc4cc8a7eb9fcb10b6cbac5daa1dc6ae51",
+     "bytes": 390938
+    }
+   ]
+  }
+ ]
+}
