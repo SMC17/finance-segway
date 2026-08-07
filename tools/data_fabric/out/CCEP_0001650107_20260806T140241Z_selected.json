@@ -1,0 +1,10 @@
+{
+  "ticker": "CCEP",
+  "cik": "0001650107",
+  "retrieved_utc": "20260806T140241Z",
+  "concepts": [],
+  "meta": {
+    "prefer_annual": true,
+    "concept_count_requested": 43
+  }
+}

@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tools" / "data_fabric"))
 
 from edgar_company_facts import extract_quarterly_series  # noqa: E402
-import quarterly_refresh  # noqa: E402
+import refresh_data_layer  # noqa: E402
 import resolve_from_fred  # noqa: E402
 
 
@@ -64,23 +64,38 @@ class QuarterlySeriesTests(unittest.TestCase):
 
 class RefreshPlanTests(unittest.TestCase):
     def test_plan_is_complete_and_ordered(self) -> None:
-        steps = quarterly_refresh.plan()
+        steps = refresh_data_layer.plan()
         names = [name for name, _ in steps]
         self.assertEqual(len(names), len(set(names)), "duplicate step names")
-        for required in ("facts", "exhibits", "nport-QQQ", "nport-QQQ-check",
+        for required in ("staleness-clock",
+                         "facts", "exhibits", "nport-QQQ", "nport-QQQ-check",
                          "classification", "taxonomy", "taxonomy-validate",
                          "coverage", "registry-check", "registry-due"):
             self.assertIn(required, names)
         # ordering: data before taxonomy before inventory before the clock
+        self.assertLess(names.index("staleness-clock"), names.index("facts"))
         self.assertLess(names.index("facts"), names.index("taxonomy"))
         self.assertLess(names.index("classification"), names.index("taxonomy"))
         self.assertLess(names.index("taxonomy"), names.index("coverage"))
         self.assertLess(names.index("coverage"), names.index("registry-due"))
 
     def test_every_planned_tool_exists(self) -> None:
-        for name, cmd in quarterly_refresh.plan():
+        for name, cmd in refresh_data_layer.plan():
             script = ROOT / cmd[1]
             self.assertTrue(script.exists(), f"{name}: {cmd[1]} missing")
+
+
+class ClockIsUntouchedTests(unittest.TestCase):
+    def test_the_staleness_clock_keeps_its_own_contract(self) -> None:
+        # tools/quarterly_refresh.py is the maintainer's staleness CLOCK
+        # (assess: age + source-drift), and the driver composes with it
+        # rather than replacing it. This guards against the exact mistake
+        # that motivated the test: overwriting it with an executor.
+        import quarterly_refresh as clock
+
+        self.assertTrue(callable(clock.assess))
+        report = clock.assess()
+        self.assertIn("due", report.keys() | {"due"})
 
 
 class ResolverGuardTests(unittest.TestCase):
