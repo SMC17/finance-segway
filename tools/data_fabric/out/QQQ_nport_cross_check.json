@@ -1,0 +1,58 @@
+{
+  "universe": "QQQ",
+  "taxonomy_as_of": "2026-08-06",
+  "nport_period": "2026-03-31",
+  "period_note": "sources are snapshots of different dates; adds/drops and weight moves between them are expected, discrepancies below are candidates for review, not automatic errors",
+  "taxonomy_matched": 93,
+  "taxonomy_unmatched": [
+    "ALAB",
+    "CRWV",
+    "HONA",
+    "LITE",
+    "NBIS",
+    "RKLB",
+    "SNDK",
+    "SPCX",
+    "TER"
+  ],
+  "nport_only_over_10bps": [
+    "Charter Communications, Inc.",
+    "Cognizant Technology Solutions Corp.",
+    "FERROVIAL SE",
+    "Insmed Inc.",
+    "Verisk Analytics, Inc.",
+    "Zscaler, Inc."
+  ],
+  "weight_gaps_over_1pct": [
+    {
+      "symbol": "MU",
+      "taxonomy_weight": 0.0482,
+      "nport_pct": 0.0215,
+      "gap": 0.0267
+    },
+    {
+      "symbol": "AMD",
+      "taxonomy_weight": 0.0401,
+      "nport_pct": 0.0188,
+      "gap": 0.0213
+    },
+    {
+      "symbol": "INTC",
+      "taxonomy_weight": 0.023,
+      "nport_pct": 0.0125,
+      "gap": 0.0105
+    },
+    {
+      "symbol": "WMT",
+      "taxonomy_weight": 0.0238,
+      "nport_pct": 0.0343,
+      "gap": 0.0105
+    },
+    {
+      "symbol": "NFLX",
+      "taxonomy_weight": 0.0129,
+      "nport_pct": 0.023,
+      "gap": 0.0101
+    }
+  ]
+}
