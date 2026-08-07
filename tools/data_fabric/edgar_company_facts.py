@@ -385,6 +385,74 @@ TAXONOMY = ROOT / "standards" / "universe" / "taxonomy.json"
 SIC_SNAPSHOT = OUT_DIR / "QQQ_sec_sic_classifications.json"
 
 
+def extract_quarterly_series(facts: dict, concepts: list[str]) -> list[dict]:
+    """Quarterly history per concept, AS FILED - no derived values.
+
+    Rows from 10-Q filings plus quarterly-duration frames inside annual
+    filings, keyed by period end date, latest filed wins. Q4 for duration
+    concepts is deliberately NOT synthesized (most filers report Q4 only
+    inside the 10-K as full-year figures; Q4 = FY minus Q1-Q3 is a DERIVED
+    number and recording it here would violate the fabric's as-filed
+    contract - a consumer that wants it computes it and labels it derived).
+    Instant (balance-sheet) concepts appear at every reported period end,
+    including fiscal year ends.
+    """
+    quarterly_forms = ("10-Q", "10-K", "20-F", "40-F", "6-K")
+
+    def months(item: dict) -> int | None:
+        start, end = item.get("start"), item.get("end")
+        if not start or not end:
+            return None
+        return (int(end[:4]) - int(start[:4])) * 12 + (int(end[5:7]) - int(start[5:7]))
+
+    rows: list[dict] = []
+    for concept in concepts:
+        node, resolved = _resolve_concept(facts, concept)
+        if not node:
+            continue
+        unit, series = _pick_series(node)
+        by_end: dict[str, dict] = {}
+        for item in series:
+            form = str(item.get("form") or "")
+            if not form.startswith(quarterly_forms):
+                continue
+            end, val = item.get("end"), item.get("val")
+            if not end or val is None:
+                continue
+            duration = months(item)
+            if duration is not None and not (2 <= duration <= 4):
+                continue  # duration concepts: quarterly spans only
+            if duration is None and not form.startswith("10-Q"):
+                # instant concepts: 10-Q balance sheets carry quarter ends;
+                # annual filings' instant rows already live in the annual
+                # series - keep this series purely quarterly-sourced.
+                continue
+            kept = by_end.get(end)
+            if kept is None or (item.get("filed") or "") > (kept.get("filed") or ""):
+                by_end[end] = item
+        if not by_end:
+            continue
+        rows.append(
+            {
+                "concept": concept,
+                "resolved_tag": resolved,
+                "unit": unit,
+                "observations": [
+                    {
+                        "end": item.get("end"),
+                        "value": item.get("val"),
+                        "filed": item.get("filed"),
+                        "form": item.get("form"),
+                        "fy": item.get("fy"),
+                        "fp": item.get("fp"),
+                    }
+                    for _, item in sorted(by_end.items())
+                ],
+            }
+        )
+    return rows
+
+
 def sector_members(sector_id: str | None = None) -> list[tuple[str, str | None]]:
     """(ticker, cik-or-None) for every modelable, classified company in the
     taxonomy - one sector, or all of them when sector_id is None. CIKs come
@@ -421,6 +489,30 @@ def run_one(ticker: str, cik: str | None, args, sess, facts: dict | None = None)
         facts = fetch_company_facts(cik, sess)
     concepts = list(dict.fromkeys(DEFAULT_CONCEPTS + list(args.extra_concepts or [])))
     rows = extract_selected(facts, concepts, prefer_annual=args.prefer_annual)
+    if getattr(args, "quarterly_series", False):
+        q_rows = extract_quarterly_series(facts, concepts)
+        q_path = OUT_DIR / f"{ticker.upper()}_facts_quarterly_series.json"
+        q_path.write_text(
+            json.dumps(
+                {
+                    "ticker": ticker.upper(),
+                    "cik": str(cik).zfill(10),
+                    "retrieved_utc": datetime.now(timezone.utc).strftime(
+                        "%Y%m%dT%H%M%SZ"
+                    ),
+                    "dedupe_rule": (
+                        "as-filed quarterly rows (10-Q plus quarterly frames "
+                        "in annual filings), one value per period-end date, "
+                        "latest filed wins; Q4 duration values are NOT "
+                        "synthesized - derive and label downstream"
+                    ),
+                    "concepts": q_rows,
+                },
+                indent=2,
+            ),
+            encoding="utf-8",
+        )
+        print(f"Wrote {q_path} ({len(q_rows)} concepts with quarterly history)")
     if args.annual_series:
         series_rows = extract_annual_series(facts, concepts)
         series_path = OUT_DIR / f"{ticker.upper()}_facts_annual_series.json"
@@ -487,6 +579,12 @@ def main() -> int:
         help="Also write {TICKER}_facts_annual_series.json: full annual "
              "history per concept, one value per fiscal period-end date, "
              "latest filed wins",
+    )
+    ap.add_argument(
+        "--quarterly-series",
+        action="store_true",
+        help="Also write {TICKER}_facts_quarterly_series.json: as-filed "
+             "quarterly rows only, no derived Q4",
     )
     ap.add_argument(
         "--sector",
