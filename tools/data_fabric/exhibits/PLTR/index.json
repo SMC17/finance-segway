@@ -1,0 +1,39 @@
+{
+ "ticker": "PLTR",
+ "cik": "0001321655",
+ "source": "SEC EDGAR 8-K filings, Item 2.02 (Results of Operations), EX-99 exhibits",
+ "retrieved_utc": "20260807T173821Z",
+ "note": "Raw, uninterpreted earnings-release documents. No numbers are extracted here by design - a modeling agent reads the frozen file and cites it by path + sha256.",
+ "filings": [
+  {
+   "accession": "0001321655-26-000039",
+   "filed": "2026-08-03",
+   "items": "2.02,7.01,9.01",
+   "report_date": "2026-08-03",
+   "files": [
+    {
+     "name": "a2026q2ex991pressrelease.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/1321655/000132165526000039/a2026q2ex991pressrelease.htm",
+     "sha256": "6f9f63ea7846f2a33710e5fad73699b5cb556b9d7d25b130e8b797eb6618af37",
+     "bytes": 231522
+    }
+   ]
+  },
+  {
+   "accession": "0001321655-26-000026",
+   "filed": "2026-05-04",
+   "items": "2.02,7.01,9.01",
+   "report_date": "2026-05-04",
+   "files": [
+    {
+     "name": "a2026q1ex991pressrelease.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/1321655/000132165526000026/a2026q1ex991pressrelease.htm",
+     "sha256": "8bb61e349de9184f719690ca3fa8ced024c879327c7859369cad587c847ae0e2",
+     "bytes": 187154
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "ticker": "MSFT",
+ "cik": "0000789019",
+ "source": "SEC EDGAR 8-K filings, Item 2.02 (Results of Operations), EX-99 exhibits",
+ "retrieved_utc": "20260807T173821Z",
+ "note": "Raw, uninterpreted earnings-release documents. No numbers are extracted here by design - a modeling agent reads the frozen file and cites it by path + sha256.",
+ "filings": [
+  {
+   "accession": "0001193125-26-323632",
+   "filed": "2026-07-29",
+   "items": "2.02,9.01",
+   "report_date": "2026-07-29",
+   "files": [
+    {
+     "name": "msft-ex99_1.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm",
+     "sha256": "03471d4dc122c24deace523de4130d53205a78de2ec11fc965764738bf97149a",
+     "bytes": 901600
+    }
+   ]
+  },
+  {
+   "accession": "0001193125-26-191457",
+   "filed": "2026-04-29",
+   "items": "2.02,9.01",
+   "report_date": "2026-04-29",
+   "files": [
+    {
+     "name": "msft-ex99_1.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191457/msft-ex99_1.htm",
+     "sha256": "af9541f12522e607e1be9e77da08f350da9ff2e002127ff100f1a9f92f2a686e",
+     "bytes": 835607
+    }
+   ]
+  }
+ ]
+}
