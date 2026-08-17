@@ -58,6 +58,7 @@ jobs:
         run: |
           python -m compileall -q tools tests
           PYTHONPATH=. python -m unittest tests.test_final_public_evidence -v
+          PYTHONPATH=. python -m unittest tests.test_final_public_evidence_release -v
           PYTHONPATH=. python -m unittest tests.test_m3_evidence -v
           PYTHONPATH=. python -m unittest tests.test_model_instances -v
 
