@@ -1,0 +1,39 @@
+{
+ "ticker": "SHOP",
+ "cik": "0001594805",
+ "source": "SEC EDGAR 8-K filings, Item 2.02 (Results of Operations), EX-99 exhibits",
+ "retrieved_utc": "20260807T173821Z",
+ "note": "Raw, uninterpreted earnings-release documents. No numbers are extracted here by design - a modeling agent reads the frozen file and cites it by path + sha256.",
+ "filings": [
+  {
+   "accession": "0001594805-26-000046",
+   "filed": "2026-08-05",
+   "items": "2.02,9.01",
+   "report_date": "2026-08-05",
+   "files": [
+    {
+     "name": "exhibit991pressreleaseq220.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/1594805/000159480526000046/exhibit991pressreleaseq220.htm",
+     "sha256": "e75a90f7e4ee62aaed18750e186127a8725196c32c422a50585161f7a45860a8",
+     "bytes": 181938
+    }
+   ]
+  },
+  {
+   "accession": "0001594805-26-000018",
+   "filed": "2026-05-05",
+   "items": "2.02,9.01",
+   "report_date": "2026-05-05",
+   "files": [
+    {
+     "name": "exhibit991pressreleaseq120.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/1594805/000159480526000018/exhibit991pressreleaseq120.htm",
+     "sha256": "6ba6af47bfb2b22918d613bce935643b93c4bffe6502c72717adf7d014d0b8f3",
+     "bytes": 176068
+    }
+   ]
+  }
+ ]
+}
