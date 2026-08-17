@@ -1,6 +1,6 @@
 # Agent Tool Contract (L3)
 
-**Status**: Draft — binding once the first flagship tool is implemented  
+**Status**: Binding — three of four flagship tools on the original implementation order are shipped  
 **Depends on**: `docs/AI_NATIVE_GOLDMAN_ROADMAP.md`, domain builders, Checks sheets, source registers
 
 ## Principle
@@ -47,7 +47,7 @@ Output
 
 1. `private_credit_underwrite` → 05 — shipped, `tools/agents/private_credit_underwrite.py`
 2. `lbo_underwrite` → 03 — shipped, `tools/agents/lbo_underwrite.py`
-3. `restructuring_screen` → 24  
+3. `restructuring_screen` → 24 — shipped, `tools/agents/restructuring_screen.py`
 4. `dcf_comps` → 01  
 
 Each ships with a golden-path test: fixed public inputs → deterministic workbook hash (or semantic parity) + Checks PASS.
