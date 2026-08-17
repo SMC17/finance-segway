@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "model_id": "31",
+  "domain": "Software & SaaS",
+  "case_id": "software-public-uipath-fy2023-stress",
+  "case_type": "adversarial",
+  "as_of": "2023-01-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "UiPath, Inc. FY2023 Form 10-K (SEC EDGAR, CIK 0001734722)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472223000017/path-20230131.htm",
+      "publisher": "UiPath, Inc. (SEC EDGAR)",
+      "captured_values": {
+        "arr_usd": {
+          "2023-01-31": 1203800000,
+          "2022-01-31": 925300000
+        },
+        "arr_growth_rate": 0.3,
+        "net_new_arr_usd_fy2023": 278569000,
+        "net_new_arr_usd_fy2022": 344793000,
+        "dollar_based_net_retention_rate": {
+          "2023-01-31": 1.23,
+          "2022-01-31": 1.45
+        },
+        "customers_arr_gte_1mm": {
+          "2023-01-31": 229,
+          "2022-01-31": 158
+        },
+        "customers_arr_gte_100k": {
+          "2023-01-31": 1785,
+          "2022-01-31": 1493
+        },
+        "revenue_usd": {
+          "licenses": 497836000,
+          "subscription_services": 508823000,
+          "professional_services_and_other": 51922000,
+          "total": 1058581000
+        },
+        "revenue_usd_prior_year": {
+          "licenses": 481427000,
+          "subscription_services": 369867000,
+          "professional_services_and_other": 40958000,
+          "total": 892252000
+        },
+        "cost_of_revenue_usd": {
+          "licenses": 10421000,
+          "subscription_services": 87366000,
+          "professional_services_and_other": 82264000,
+          "total": 180051000
+        },
+        "gross_profit_usd": 878530000,
+        "gross_margin": 0.83,
+        "gross_margin_prior_year": 0.81,
+        "operating_expenses_usd": {
+          "sales_and_marketing": 701558000,
+          "research_and_development": 285750000,
+          "general_and_administrative": 239505000,
+          "total": 1226813000
+        },
+        "operating_loss_usd": -348283000,
+        "net_loss_usd": -328352000,
+        "remaining_performance_obligations_usd": 894000000,
+        "remaining_performance_obligations_as_of": "2023-01-31",
+        "capex_usd": 23815000
+      }
+    },
+    {
+      "name": "UiPath, Inc. FY2024 Form 10-K (SEC EDGAR, CIK 0001734722)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472224000011/path-20240131.htm",
+      "publisher": "UiPath, Inc. (SEC EDGAR)",
+      "captured_values": {
+        "dollar_based_net_retention_rate_fy2024": 1.19
+      }
+    }
+  ],
+  "snapshot_sha256": "d805d434c626534ce865332b4a71f97181b21edab4ec5c724cb76050d41b67a4"
+}
