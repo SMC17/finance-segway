@@ -1,0 +1,28 @@
+{
+  "dataset": "daily_treasury_bill_rates",
+  "dataset_label": "Daily Treasury Bill Rates",
+  "year": 2026,
+  "retrieved_utc": "20260817T225814Z",
+  "rows": [
+    {
+      "date": "2026-08-17",
+      "tenors": {
+        "4 WEEKS BANK DISCOUNT": 3.64,
+        "4 WEEKS COUPON EQUIVALENT": 3.7,
+        "6 WEEKS BANK DISCOUNT": 3.64,
+        "6 WEEKS COUPON EQUIVALENT": 3.7,
+        "8 WEEKS BANK DISCOUNT": 3.68,
+        "8 WEEKS COUPON EQUIVALENT": 3.75,
+        "13 WEEKS BANK DISCOUNT": 3.72,
+        "13 WEEKS COUPON EQUIVALENT": 3.81,
+        "17 WEEKS BANK DISCOUNT": 3.75,
+        "17 WEEKS COUPON EQUIVALENT": 3.85,
+        "26 WEEKS BANK DISCOUNT": 3.79,
+        "26 WEEKS COUPON EQUIVALENT": 3.92,
+        "52 WEEKS BANK DISCOUNT": 3.82,
+        "52 WEEKS COUPON EQUIVALENT": 3.99
+      }
+    }
+  ],
+  "row_count": 1
+}
