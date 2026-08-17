@@ -1,0 +1,543 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "fof-public-skybridge-fy2023-stress",
+  "as_of": "2023-03-31",
+  "manifest": "standards/public_cases/fof-public-skybridge-fy2023-stress.json",
+  "template": "29_Fund_of_Funds/_template_FOF.xlsx",
+  "output": "29_Fund_of_Funds/instances/public_skybridge_fy2023_stress.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Cover",
+      "cell": "C9",
+      "previous": "Base",
+      "value": "Downside",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "previous": 500,
+      "value": 2252.3,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "previous": 8,
+      "value": 8,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "NAV Rollforward & Fee Layering",
+      "cell": "C5",
+      "previous": 380,
+      "value": 2037.9,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "NAV Rollforward & Fee Layering",
+      "cell": "C6",
+      "previous": 45,
+      "value": 42.9,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "NAV Rollforward & Fee Layering",
+      "cell": "C7",
+      "previous": 38,
+      "value": 49.3,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "NAV Rollforward & Fee Layering",
+      "cell": "C10",
+      "previous": 28.13,
+      "value": -569.7,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "NAV Rollforward & Fee Layering",
+      "cell": "C12",
+      "previous": 411,
+      "value": 1207.8,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "NAV Rollforward & Fee Layering",
+      "cell": "C15",
+      "previous": 400,
+      "value": 2252.3,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "NAV Rollforward & Fee Layering",
+      "cell": "C16",
+      "previous": 165,
+      "value": 99.4,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "B5",
+      "previous": "[Fund A]",
+      "value": "Brevan Howard Digital Asset Multi-Strategy Fund, L.P. Class B",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "C5",
+      "previous": 2016,
+      "value": 2022,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "D5",
+      "previous": "Buyout",
+      "value": "Cryptocurrency and Digital Assets",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "E5",
+      "previous": 60,
+      "value": 165.61,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "F5",
+      "previous": 58,
+      "value": 165.61,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "G5",
+      "previous": 71,
+      "value": 0.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "H5",
+      "previous": 42,
+      "value": 146.5,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "B6",
+      "previous": "[Fund B]",
+      "value": "Point72 Capital International, Ltd.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "C6",
+      "previous": 2017,
+      "value": 2020,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "D6",
+      "previous": "Buyout",
+      "value": "Relative Value",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "E6",
+      "previous": 55,
+      "value": 156.29,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "F6",
+      "previous": 52,
+      "value": 156.29,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "G6",
+      "previous": 48,
+      "value": 0.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "H6",
+      "previous": 55,
+      "value": 215.22,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "B7",
+      "previous": "[Fund C]",
+      "value": "NYDIG Institutional Bitcoin Fund LP",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "C7",
+      "previous": 2018,
+      "value": 2020,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "D7",
+      "previous": "Growth equity",
+      "value": "Cryptocurrency and Digital Assets",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "E7",
+      "previous": 65,
+      "value": 120.7,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "F7",
+      "previous": 58,
+      "value": 120.7,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "G7",
+      "previous": 30,
+      "value": 0.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "H7",
+      "previous": 78,
+      "value": 131.05,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "B8",
+      "previous": "[Fund D]",
+      "value": "Third Point Offshore Fund, Ltd.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "C8",
+      "previous": 2019,
+      "value": 2020,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "D8",
+      "previous": "Venture",
+      "value": "Event Driven",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "E8",
+      "previous": 45,
+      "value": 96.4,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "F8",
+      "previous": 38,
+      "value": 96.4,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "G8",
+      "previous": 12,
+      "value": 0.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "H8",
+      "previous": 58,
+      "value": 91.84,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "B9",
+      "previous": "[Fund E]",
+      "value": "Millennium International, Ltd.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "C9",
+      "previous": 2019,
+      "value": 2015,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "D9",
+      "previous": "Buyout",
+      "value": "Relative Value",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "E9",
+      "previous": 70,
+      "value": 62.71,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "F9",
+      "previous": 63,
+      "value": 62.71,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "G9",
+      "previous": 25,
+      "value": 0.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "H9",
+      "previous": 82,
+      "value": 82.56,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "B10",
+      "previous": "[Fund F]",
+      "value": "Axonic Credit Opportunities Overseas Fund, Ltd.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "C10",
+      "previous": 2020,
+      "value": 2011,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "D10",
+      "previous": "Secondaries",
+      "value": "Event Driven",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "E10",
+      "previous": 50,
+      "value": 46.29,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "F10",
+      "previous": 44,
+      "value": 46.29,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "G10",
+      "previous": 18,
+      "value": 0.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "H10",
+      "previous": 56,
+      "value": 58.82,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "B11",
+      "previous": "[Fund G]",
+      "value": "Axonic Credit Opportunities Fund L.P.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "C11",
+      "previous": 2021,
+      "value": 2011,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "D11",
+      "previous": "Growth equity",
+      "value": "Event Driven",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "E11",
+      "previous": 60,
+      "value": 44.01,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "F11",
+      "previous": 41,
+      "value": 44.01,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "G11",
+      "previous": 4,
+      "value": 0.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "H11",
+      "previous": 51,
+      "value": 59.78,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "B12",
+      "previous": "[Fund H]",
+      "value": "FTX Trading Ltd.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "C12",
+      "previous": 2022,
+      "value": 2021,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "D12",
+      "previous": "Buyout",
+      "value": "Private Equity (direct, not a fund LP interest)",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "E12",
+      "previous": 65,
+      "value": 37.21,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "F12",
+      "previous": 32,
+      "value": 37.21,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "G12",
+      "previous": 0.5,
+      "value": 0.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "Underlying Fund Portfolio",
+      "cell": "H12",
+      "previous": 36,
+      "value": 0.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    }
+  ],
+  "workbook_sha256": "223ce120a76971b7cb3d0dfb839465fc8a5df5433851ec7066837170e4728fcd",
+  "generated_on": "2026-08-17",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false
+}
