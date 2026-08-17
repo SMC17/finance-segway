@@ -7,13 +7,13 @@
 - Archetype: SOFTWARE
 - Sector group: TMT · Subsector: software
 - Version: 1.0.0
-- As-of date: 2026-08-06
+- As-of date: 2026-08-17
 - Owner: SMC17 / repository owner
 - Developer: Claude Code
 - Independent validator: `tools/verify_reference_calcs.py::check_software_arr_rollforward` (pure-Python oracle, recalculated via LibreOffice)
 - Approver: **PENDING STAKEHOLDER SIGN-OFF**
 - Risk tier: Tier 1
-- Declared maturity: **M1** — engine complete and oracle-verified; no real public instance yet
+- Declared maturity: **M2** — engine complete and oracle-verified, two real sourced public instances (conventional and adversarial), independent reference checks, clear decision outputs
 - Intended horizon: corporate_5y
 
 ## Why this is a separate model, not a BASE instance
@@ -59,6 +59,11 @@ Three further drivers the BASE archetype does not represent:
 | `unit_economics` | `Unit Economics` | Implemented | Magic number, gross-profit-weighted CAC payback |
 | `rule_of_40` | `Rule of 40` | Implemented | Computed from model outputs, not quoted |
 
+## Public cases
+
+- `software-public-adobe-fy2025` (conventional/Base) — Adobe Inc. (NASDAQ: ADBE), FY2025. ARR flow rates and the RPO layer proxy revenue as ARR scale since no issuer discloses ARR; blended gross margin and net growth are pinned to disclosed facts. See model card's own "What's real" note in the case's snapshot for the full observed/derived/driver breakdown.
+- `software-public-uipath-fy2023-stress` (adversarial/Downside) — UiPath, Inc. (NYSE: PATH), FY2023 (year ended 2023-01-31), the year its dollar-based net retention rate first cratered (145% -> 123%), alongside a well-documented leadership crisis. UiPath discloses ARR directly (not a revenue proxy), and its FY2023 ARR growth (30%) decomposes cleanly into a new-customer component and a net-existing-customer-expansion component, both derived from two disclosed facts (net-new ARR in dollars, dollar-based net retention rate). The further split into gross Expansion/Contraction/Churn is not disclosed by any issuer; Contraction and Churn are declared drivers, Expansion carries the balancing residual. Realized outcome: net retention fell further the following year (123% -> 119%, both disclosed) -- the stress was not a one-off. UiPath's real FY2023 sales & marketing ratio (66.3% of revenue) exceeds even this template's own Downside-scenario illustrative default (42%). UiPath's revenue has a third category (Licenses, 47% of FY2023 revenue) that ARR by UiPath's own definition excludes and this ARR-driven template cannot represent -- a real, stated gap, not a rounding choice.
+
 ## Stakeholder perspectives
 
 | Perspective | Surface | What it reads |
@@ -91,13 +96,13 @@ subscription and services components (a mix or margin error breaks this).
 
 ## Limitations
 
-- No real public instance yet — the reason this is M1 and not M2.
 - Single ARR cohort, not a per-vintage cohort table; vintage-level retention
   decay is not modeled.
 - Services revenue is modeled as a ratio to subscription rather than
   independently contracted.
-- No deferred revenue or billings-versus-revenue bridge; RPO is not represented.
 - Annual periods only. Quarterly seasonality in bookings is not captured.
+- Neither public case's absolute ARR/RPO dollar levels are fully disclosure-grounded: Adobe's use a revenue-as-ARR-scale proxy (no issuer discloses ARR in XBRL); UiPath's beginning-RPO level is a template default even though UiPath's ARR figures themselves are directly disclosed and real.
+- Non-ARR revenue that a real issuer discloses but this template cannot represent is excluded, not force-fit: UiPath's License revenue (47% of FY2023 revenue) is the clearest example.
 
 ## Monitoring
 

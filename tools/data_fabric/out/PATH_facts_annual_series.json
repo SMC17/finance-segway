@@ -1,0 +1,1181 @@
+{
+  "ticker": "PATH",
+  "cik": "0001734722",
+  "retrieved_utc": "20260817T201506Z",
+  "dedupe_rule": "annual filings (amendments included); one value per fiscal period-end date; annual = >=10-month span, transition stubs >=5 months admitted when not inside an annual period; longer duration then latest filed wins (restatements win)",
+  "concepts": [
+    {
+      "concept": "Assets",
+      "resolved_tag": "us-gaap:Assets",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2021-01-31",
+          "value": 866461000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": 2572450000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": 2735206000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": 2954758000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": 2865270000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": 3179200000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "AssetsCurrent",
+      "resolved_tag": "us-gaap:AssetsCurrent",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2021-01-31",
+          "value": 734430000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": 2277301000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": 2344407000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": 2580412000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": 2338559000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": 2243945000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "Liabilities",
+      "resolved_tag": "us-gaap:Liabilities",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2021-01-31",
+          "value": 448197000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": 650533000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": 815048000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": 938644000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": 1019508000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": 1096613000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "LiabilitiesCurrent",
+      "resolved_tag": "us-gaap:LiabilitiesCurrent",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2021-01-31",
+          "value": 365156000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": 527501000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": 626452000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": 711691000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": 798920000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": 905423000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "StockholdersEquity",
+      "resolved_tag": "us-gaap:StockholdersEquity",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2019-01-31",
+          "value": -297943000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2020-01-31",
+          "value": -799511000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-01-31",
+          "value": -803704000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": 1921917000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": 1920158000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": 2016114000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": 1845762000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": 2082587000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "CashAndCashEquivalentsAtCarryingValue",
+      "resolved_tag": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2021-01-31",
+          "value": 357690000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": 1768723000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": 1402119000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": 1061678000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": 879196000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": 871157000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "resolved_tag": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2019-01-31",
+          "value": 172118000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2020-01-31",
+          "value": 234131000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-01-31",
+          "value": 371190000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": 1768723000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": 1402119000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": 1062116000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": 879634000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": 871595000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "resolved_tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2020-01-31",
+          "value": 336156000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-01-31",
+          "value": 607643000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": 892252000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": 1058581000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": 1308072000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": 1429664000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": 1610572000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "NetIncomeLoss",
+      "resolved_tag": "us-gaap:NetIncomeLoss",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2020-01-31",
+          "value": -519933000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-01-31",
+          "value": -92393000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": -525586000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": -328352000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": -89883000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": -73694000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": 282330000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "OperatingIncomeLoss",
+      "resolved_tag": "us-gaap:OperatingIncomeLoss",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2020-01-31",
+          "value": -517283000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-01-31",
+          "value": -110323000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": -500946000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": -348283000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": -164720000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": -162569000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": 56760000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "GrossProfit",
+      "resolved_tag": "us-gaap:GrossProfit",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2020-01-31",
+          "value": 276751000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-01-31",
+          "value": 541786000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": 723384000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": 878530000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": 1112148000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": 1182722000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": 1339588000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "IncomeTaxExpenseBenefit",
+      "resolved_tag": "us-gaap:IncomeTaxExpenseBenefit",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2020-01-31",
+          "value": 2794000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-01-31",
+          "value": -2265000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": 14703000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": 10791000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": 14068000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": -4406000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": -181702000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "EarningsPerShareBasic",
+      "resolved_tag": "us-gaap:EarningsPerShareBasic",
+      "unit": "USD/shares",
+      "observations": [
+        {
+          "end": "2020-01-31",
+          "value": -3.41,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-01-31",
+          "value": -0.55,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": -1.16,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": -0.6,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": -0.16,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": -0.13,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": 0.52,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "EarningsPerShareDiluted",
+      "resolved_tag": "us-gaap:EarningsPerShareDiluted",
+      "unit": "USD/shares",
+      "observations": [
+        {
+          "end": "2020-01-31",
+          "value": -3.41,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-01-31",
+          "value": -0.55,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": -1.16,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": -0.6,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": -0.16,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": -0.13,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": 0.52,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "NetCashProvidedByUsedInOperatingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2020-01-31",
+          "value": -359436000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-01-31",
+          "value": 29177000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": -54963000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": -9981000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": 299082000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": 320565000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": 371208000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "NetCashProvidedByUsedInInvestingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInInvestingActivities",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2020-01-31",
+          "value": -39506000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-01-31",
+          "value": -125991000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": -35442000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": -289143000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": -439569000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": -45503000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": -22466000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "NetCashProvidedByUsedInFinancingActivities",
+      "resolved_tag": "us-gaap:NetCashProvidedByUsedInFinancingActivities",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2020-01-31",
+          "value": 457765000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-01-31",
+          "value": 250418000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": 1469673000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": -60669000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": -196895000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": -450515000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": -372375000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+      "resolved_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "unit": "USD",
+      "observations": [
+        {
+          "end": "2020-01-31",
+          "value": 15748000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-01-31",
+          "value": 1953000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": 8879000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": 23815000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": 7342000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": 14923000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": 19048000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    },
+    {
+      "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+      "resolved_tag": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic",
+      "unit": "shares",
+      "observations": [
+        {
+          "end": "2020-01-31",
+          "value": 152382000,
+          "filed": "2022-04-04",
+          "form": "10-K",
+          "fy": 2022,
+          "fp": "FY"
+        },
+        {
+          "end": "2021-01-31",
+          "value": 168255000,
+          "filed": "2023-03-24",
+          "form": "10-K",
+          "fy": 2023,
+          "fp": "FY"
+        },
+        {
+          "end": "2022-01-31",
+          "value": 454625000,
+          "filed": "2024-03-27",
+          "form": "10-K",
+          "fy": 2024,
+          "fp": "FY"
+        },
+        {
+          "end": "2023-01-31",
+          "value": 548022000,
+          "filed": "2025-03-24",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "end": "2024-01-31",
+          "value": 563855000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2025-01-31",
+          "value": 559933000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        },
+        {
+          "end": "2026-01-31",
+          "value": 538125000,
+          "filed": "2026-03-25",
+          "form": "10-K",
+          "fy": 2026,
+          "fp": "FY"
+        }
+      ]
+    }
+  ]
+}
