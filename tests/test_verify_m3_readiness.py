@@ -155,10 +155,6 @@ class M3GateFailClosedTests(unittest.TestCase):
         self.assertEqual(("A", "B", "C", "D", "E", "F", "G", "H"), CRITERIA)
 
 
-if __name__ == "__main__":
-    unittest.main()
-
-
 class OracleTierTests(unittest.TestCase):
     def test_workbook_verified_models_count_as_oracle_backed(self) -> None:
         # Regression: criterion F originally consulted only the
@@ -179,3 +175,7 @@ class OracleTierTests(unittest.TestCase):
         for model_id in WORKBOOK_VERIFIED_MODELS:
             result = check_f_reference_agreement({"id": model_id}, backed)
             self.assertEqual("PASS", result["status"], msg=model_id)
+
+
+if __name__ == "__main__":
+    unittest.main()

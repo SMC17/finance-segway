@@ -1,10 +1,10 @@
 {
   "schema_version": "2.0",
-  "as_of": "2026-08-04",
+  "as_of": "2026-08-06",
   "classification": "external_historical_cases",
   "counts_toward_m4": false,
-  "case_count": 49,
-  "evidence_models": 25,
+  "case_count": 50,
+  "evidence_models": 26,
   "cases": [
     {
       "model_id": "01",
@@ -6189,6 +6189,343 @@
           }
         ],
         "workbook_sha256": "2bdc83dcfa95a118a156f10b0c02c950c28bb3fe66af7e3da2e19ba081eb7f87",
+        "generated_on": "2026-08-06",
+        "refresh_schema": "source-addressed-v2",
+        "classification": "external_historical_case",
+        "counts_toward_M4": false
+      }
+    },
+    {
+      "model_id": "31",
+      "domain": "Software & SaaS",
+      "case_id": "software-public-adobe-fy2025",
+      "case_type": "conventional",
+      "manifest": "standards/public_cases/software-public-adobe-fy2025.json",
+      "output": "31_Software_SaaS/instances/public_adobe_fy2025.xlsx",
+      "snapshot": "31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+      "snapshot_sha256": "88e70b1ecaa16349c2e9787ab97af768eaf942d9998c8e74d589ac750140a2ee",
+      "counts_toward_m4": false,
+      "outcome": {
+        "metric": "fy2026_total_revenue_usd_mm",
+        "forecast": 22637.0,
+        "realized": null,
+        "realized_source": "Adobe FY2026 Form 10-K, expected filing January 2027",
+        "status": "pending"
+      },
+      "receipt": {
+        "schema_version": "1.0",
+        "instance_id": "software-public-adobe-fy2025",
+        "as_of": "2026-01-15",
+        "manifest": "standards/public_cases/software-public-adobe-fy2025.json",
+        "template": "31_Software_SaaS/_template_SOFTWARE.xlsx",
+        "output": "31_Software_SaaS/instances/public_adobe_fy2025.xlsx",
+        "applied_inputs": [
+          {
+            "sheet": "Assumptions",
+            "cell": "C5",
+            "previous": 1000,
+            "value": 20878.6,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D5",
+            "previous": 1000,
+            "value": 20878.6,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C6",
+            "previous": 0.22,
+            "value": 0.1,
+            "source_url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D6",
+            "previous": 0.12,
+            "value": 0.1,
+            "source_url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C7",
+            "previous": 0.14,
+            "value": 0.09,
+            "source_url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D7",
+            "previous": 0.08,
+            "value": 0.09,
+            "source_url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C8",
+            "previous": 0.04,
+            "value": 0.03,
+            "source_url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D8",
+            "previous": 0.07,
+            "value": 0.03,
+            "source_url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C9",
+            "previous": 0.08,
+            "value": 0.054722,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D9",
+            "previous": 0.13,
+            "value": 0.057592,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C10",
+            "previous": 0.1,
+            "value": 0.03,
+            "source_url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D10",
+            "previous": 0.1,
+            "value": 0.03,
+            "source_url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C11",
+            "previous": 0.8,
+            "value": 0.908956,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D11",
+            "previous": 0.76,
+            "value": 0.894578,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C12",
+            "previous": 0.15,
+            "value": 0.35,
+            "source_url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D12",
+            "previous": 0.05,
+            "value": 0.35,
+            "source_url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C13",
+            "previous": 0.38,
+            "value": 0.272961,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D13",
+            "previous": 0.42,
+            "value": 0.275697,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C14",
+            "previous": 0.22,
+            "value": 0.187261,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D14",
+            "previous": 0.24,
+            "value": 0.237759,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C15",
+            "previous": 0.12,
+            "value": 0.066179,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D15",
+            "previous": 0.13,
+            "value": 0.072801,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C16",
+            "previous": 0.18,
+            "value": 0.081703,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D16",
+            "previous": 0.2,
+            "value": 0.088516,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C17",
+            "previous": 0.03,
+            "value": 0.007531,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D17",
+            "previous": 0.03,
+            "value": 0.018548,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C18",
+            "previous": 0.21,
+            "value": 0.18365,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D18",
+            "previous": 0.21,
+            "value": 0.201647,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C19",
+            "previous": 0.8,
+            "value": 0.89,
+            "source_url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D19",
+            "previous": 0.76,
+            "value": 0.89,
+            "source_url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C20",
+            "previous": 950,
+            "value": 19960.0,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D20",
+            "previous": 950,
+            "value": 19960.0,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C21",
+            "previous": 0.95,
+            "value": 0.947453,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D21",
+            "previous": 0.85,
+            "value": 0.887217,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C22",
+            "previous": 0.64,
+            "value": 0.64,
+            "source_url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D22",
+            "previous": 0.6,
+            "value": 0.64,
+            "source_url": "repo://31_Software_SaaS/sources/snapshots/software-public-adobe-fy2025.json",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C23",
+            "previous": 0.3,
+            "value": 0.295763,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D23",
+            "previous": 0.3,
+            "value": 0.306559,
+            "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+            "source_as_of": "2026-01-15"
+          }
+        ],
+        "workbook_sha256": "46d186e99deada0b4d3203303311ff8a7527af3bc35aac0c9ad70ec6eeff2dce",
         "generated_on": "2026-08-06",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
