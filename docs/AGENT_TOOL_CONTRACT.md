@@ -45,8 +45,8 @@ Output
 
 ## First tools to implement (order)
 
-1. `private_credit_underwrite` → 05  
-2. `lbo_underwrite` → 03  
+1. `private_credit_underwrite` → 05 — shipped, `tools/agents/private_credit_underwrite.py`
+2. `lbo_underwrite` → 03 — shipped, `tools/agents/lbo_underwrite.py`
 3. `restructuring_screen` → 24  
 4. `dcf_comps` → 01  
 
