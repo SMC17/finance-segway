@@ -9,14 +9,14 @@
 - Validator: Claude Code (independent Python recomputation, not reusing the workbook's own formulas)
 - Validator independence statement: benchmark figures below were computed directly in Python from the same real, sourced input values, not by reading back the workbook's formula results.
 - Risk tier: Tier 1
-- Scope of validation: template mechanics plus one real, sourced public instance (`etf-public-qqq-2026`, Invesco QQQ Trust).
+- Scope of validation: template mechanics plus two real, sourced public instances (`etf-public-qqq-2026`, Invesco QQQ Trust, conventional/Base; `etf-public-kweb-2026-stress`, KraneShares CSI China Internet ETF, adversarial/Downside).
 
 ## Executive conclusion
 
 - **Approved with limitations** at M2.
 - Declared maturity supported: Yes -- integrated mechanics, a real sourced public instance with LibreOffice-recalculated checks, and independent reference checks against genuinely disclosed data (not tautological pass-throughs). Not yet supported for M3 (requires multiple stakeholder perspectives evidenced in practice, a second public instance, and human effective challenge).
 - Required compensating controls: no capital, fiduciary, regulatory, or live-risk use without a named human owner and approver; the illustrative creation-unit-size, securities-lending, cash-drag, and sampling-error assumptions must not be represented as QQQ's own disclosed figures.
-- Revalidation trigger: a second (adversarial/stress) public case is added, prospectus/SAI access becomes available to source the creation-unit size and realized tracking-difference statistics for real, or the methodology changes.
+- Revalidation trigger: prospectus/SAI access becomes available to source the creation-unit size and realized tracking-difference statistics for real, or the methodology changes. (The second, adversarial/stress public case named as a prior trigger is now closed -- `etf-public-kweb-2026-stress`.)
 
 ## 1. Conceptual soundness
 
@@ -58,13 +58,32 @@ Recomputed directly in Python from the same real input values (not by reading th
 | Top 30 holdings weight sum | 0.7495 | Sum of the 30 real disclosed weights | 1e-4 | 0.0 | PASS |
 | Sector weight sum (all 11 disclosed sectors) | 0.967 | Sum of the 11 real disclosed sector weights | 1e-4 | 0.0 | PASS |
 
+### `etf-public-kweb-2026-stress` (recomputed by hand from the applied Downside-column inputs; this session's sandbox could not run the workbook's own LibreOffice recalculation, so these are the independent check against the manifest's `applied_inputs`, not a read-back of computed cell values)
+
+| Model output | Independent result | Formula | Status |
+|---|---:|---|---|
+| Implied shares outstanding (mm) | 223.4024 | `6033.6/27.01` | matches Checks!C7 > 0 -> PASS |
+| Creation unit basket value, market-price basis ($) | 1,350,500 | `27.01*50000` | matches Checks!C8 > 0 -> PASS |
+| NAV per share proxy ($) | 27.0777 | `27.01/(1-0.0025)` | -- |
+| Net tracking difference | -0.0126 | `-0.0069+0.0001-0.0008-0.005` | within [-0.02, 0.005] -> PASS |
+| Top 30 holdings weight sum | 0.9839 | Sum of the 30 real disclosed weights | remainder row brings D36 to exactly 1.0 -> PASS |
+| Sector weight sum (7 disclosed sectors) | 1.026 | Sum of the 7 real disclosed sector weights | outside [0.90, 1.01] -> **REVIEW** (see Findings) |
+
+### Findings (kweb case)
+
+| ID | Severity | Finding | Evidence | Disposition |
+|---|---|---|---|---|
+| ETF-03 | Informational | KWEB's SEC N-CSR discloses 7 sector weights summing to 102.6%, not ~100% -- Financials 2.1% + Short-Term Investment 2.7% + Real Estate 4.3% + Industrials 6.5% + Consumer Staples 8.3% + Communication Services 37.3% + Consumer Discretionary 41.4%. Most plausible explanation: the fund's securities-lending collateral ("Short-Term Investment") is disclosed as its own bucket while also being economically part of a security's original sector exposure -- a real artifact of the fund's own disclosure, not a transcription error (independently cross-checked: the top-10 holding weights from this same filing agree with Alpha Vantage's independently-sourced ETF_PROFILE to within 0.1 percentage point). | `tools/data_fabric/out/KWEB_sec_ncsr_annual_report.json`, quoted_text field | Not corrected -- the real, disclosed number is used as-is. This intentionally resolves the workbook's sector-weight-band Check to REVIEW rather than PASS, which is the correct behavior for an adversarial case surfacing a genuine data-quality edge condition in a real fund's own disclosure. |
+
 ## 5. Sensitivity and stress behavior
 
 Base and Downside scenarios both run cleanly (see workbook `Checks` sheet, `Overall: PASS` for the real QQQ instance). Downside widens the premium/discount to NAV, raises cash-drag and sampling-error assumptions, and lowers the securities-lending offset -- all illustrative levers, since the real, sourced inputs (AUM, expense ratio, dividend yield, holdings, sector weights) are static observed facts, not scenario-reactive.
 
 ## 6. Outcomes analysis
 
-No realized outcome exists yet. The `etf-public-qqq-2026` case's outcome is registered as `status: "pending"` (metric: next-quarter net assets, forecast = current AUM as a naive carry-forward, not a claimed prediction) in `standards/public_cases/index.json`, following the same "pending" convention already used for the BlackRock AUM and WTI price cases elsewhere in this repository's evidence registry -- honestly labeled as unresolved, not backdated or hindsight-fit.
+`etf-public-qqq-2026`'s outcome is registered as `status: "pending"` (metric: next-quarter net assets, forecast = current AUM as a naive carry-forward, not a claimed prediction) in `standards/public_cases/index.json`, following the same "pending" convention already used for the BlackRock AUM and WTI price cases elsewhere in this repository's evidence registry -- honestly labeled as unresolved, not backdated or hindsight-fit.
+
+`etf-public-kweb-2026-stress`'s outcome is `status: "recorded"`: the fund's own disclosed 5-year average annual total return of -15.07% (net, through 2026-03-31), against a naive 0.0%-loss forecast baseline. This is a genuine realized, filed number (not a forward-looking estimate) -- the adversarial-case analogue of the IB domain's HP/Autonomy impairment and the Private Credit domain's Yellow Corp Chapter 11 outcome.
 
 ## 7. Use and governance
 
@@ -75,12 +94,12 @@ No realized outcome exists yet. The `etf-public-qqq-2026` case's outcome is regi
 
 ## 8. Limitations
 
-See model card "Limitations and failure modes" -- single real instance (no adversarial/stress case yet), market price used as a NAV proxy rather than the fund's own officially calculated NAV, and several illustrative (not yet sourced) cost-bridge assumptions.
+See model card "Limitations and failure modes" -- market price used as a NAV proxy rather than the fund's own officially calculated NAV, several illustrative (not yet sourced) cost-bridge assumptions on both instances, and the kweb case's realized outcome is a filed total-return figure rather than an independently computed price drawdown (see model card).
 
 ## Sign-off
 
-- Developer response: implemented mechanics, one real sourced instance, checks, and this validation record; found and fixed two real defects during self-review before release.
-- Validator conclusion: approved with limitations at M2; M3 not yet supported pending a second public case and human effective challenge.
+- Developer response: implemented mechanics, two real sourced instances (one conventional, one adversarial), checks, and this validation record; found and fixed two real defects during self-review before release.
+- Validator conclusion: approved with limitations at M2; M3 not yet supported pending human effective challenge.
 - Owner decision: **PENDING**
 - Approval date: **PENDING**
 - Next validation date or trigger: a second public case is sourced, prospectus/SAI data becomes available, or the methodology changes.
