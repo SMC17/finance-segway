@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "model_id": "29",
+  "domain": "Fund of Funds",
+  "case_id": "fof-public-hlpaf-2026",
+  "case_type": "conventional",
+  "as_of": "2026-03-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "Hamilton Lane Private Assets Fund Consolidated Schedule of Investments and Statements of Changes in Net Assets (SEC Form N-CSR)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1803491/000121390026066804/ea0291054-01_ncsr.htm",
+      "publisher": "Hamilton Lane Advisors, L.L.C. (SEC EDGAR)",
+      "captured_values": {
+        "total_net_assets_usd": {
+          "2026-03-31": 5785749989,
+          "2025-03-31": 3621379842
+        },
+        "paid_in_capital_usd": 4737281755,
+        "total_distributable_earnings_usd": 1048468234,
+        "fy2026_net_realized_gain_usd": 118191082,
+        "fy2026_net_unrealized_appreciation_usd": 619446480,
+        "fy2026_net_unrealized_fx_depreciation_usd": -2290935,
+        "fy2026_distributions_to_investors_usd": 88161148,
+        "fy2025_distributions_to_investors_usd": 42458537,
+        "fy2026_net_capital_share_transactions_usd": 1630473919,
+        "portfolio_composition_pct_of_net_assets": {
+          "direct_credit": 0.014,
+          "direct_equity": 0.441,
+          "secondary_direct_equity": 0.015,
+          "secondary_funds": 0.497,
+          "short_term_investments": 0.092
+        },
+        "nav_per_share": {
+          "Class I": 19.77,
+          "Class R": 18.91,
+          "Class D": 19.53
+        },
+        "top_8_secondary_fund_positions_usd": [
+          {
+            "name": "OIP Lightning, L.P.",
+            "acquisition_date": "2025-12-09",
+            "cost": 87538751,
+            "fair_value": 94858964
+          },
+          {
+            "name": "A Capital Partners II, L.P.",
+            "acquisition_date": "2025-12-22",
+            "cost": 50000000,
+            "fair_value": 85684586
+          },
+          {
+            "name": "NewView Capital Special Opportunities Fund III, L.P.",
+            "acquisition_date": "2023-12-13",
+            "cost": 54261191,
+            "fair_value": 79426645
+          },
+          {
+            "name": "PSG Sequel-A L.P.",
+            "acquisition_date": "2025-03-18",
+            "cost": 63824882,
+            "fair_value": 72394173
+          },
+          {
+            "name": "KIA X Knight SPV (DE), L.P.",
+            "acquisition_date": "2024-06-10",
+            "cost": 47112030,
+            "fair_value": 71227582
+          },
+          {
+            "name": "The Resolute III Continuation Fund, L.P.",
+            "acquisition_date": "2024-09-27",
+            "cost": 66163885,
+            "fair_value": 70106275
+          },
+          {
+            "name": "Banner Capital Fund I, L.P.",
+            "acquisition_date": "2025-06-05",
+            "cost": 43063263,
+            "fair_value": 68580815
+          },
+          {
+            "name": "VSC EV3 (Parallel), L.P.",
+            "acquisition_date": "2023-12-19",
+            "cost": 23065089,
+            "fair_value": 67846064
+          }
+        ]
+      }
+    }
+  ],
+  "snapshot_sha256": "fd130a3071aa6d1c00b785a84a1cc2726408ec072542ff4cf24f7b79fac70f76"
+}
