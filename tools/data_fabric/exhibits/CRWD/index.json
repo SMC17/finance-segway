@@ -1,0 +1,39 @@
+{
+ "ticker": "CRWD",
+ "cik": "0001535527",
+ "source": "SEC EDGAR 8-K filings, Item 2.02 (Results of Operations), EX-99 exhibits",
+ "retrieved_utc": "20260807T173821Z",
+ "note": "Raw, uninterpreted earnings-release documents. No numbers are extracted here by design - a modeling agent reads the frozen file and cites it by path + sha256.",
+ "filings": [
+  {
+   "accession": "0001535527-26-000022",
+   "filed": "2026-06-03",
+   "items": "2.02,8.01,9.01",
+   "report_date": "2026-06-03",
+   "files": [
+    {
+     "name": "crwd-20260603xex991.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603xex991.htm",
+     "sha256": "689137b1d49987dfe3d47b6c54bbe634def83fb28e44647b662d54c851610a24",
+     "bytes": 401734
+    }
+   ]
+  },
+  {
+   "accession": "0001535527-26-000007",
+   "filed": "2026-03-03",
+   "items": "2.02,9.01",
+   "report_date": "2026-03-03",
+   "files": [
+    {
+     "name": "crwd-20260303xex991.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+     "sha256": "c7dd16d6f3c34840397fa9071548fb5658b8f7a73d7581200a83523b5edd8b54",
+     "bytes": 609310
+    }
+   ]
+  }
+ ]
+}

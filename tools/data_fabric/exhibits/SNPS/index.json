@@ -1,0 +1,39 @@
+{
+ "ticker": "SNPS",
+ "cik": "0000883241",
+ "source": "SEC EDGAR 8-K filings, Item 2.02 (Results of Operations), EX-99 exhibits",
+ "retrieved_utc": "20260807T173822Z",
+ "note": "Raw, uninterpreted earnings-release documents. No numbers are extracted here by design - a modeling agent reads the frozen file and cites it by path + sha256.",
+ "filings": [
+  {
+   "accession": "0001193125-26-241911",
+   "filed": "2026-05-27",
+   "items": "2.02,9.01",
+   "report_date": "2026-05-27",
+   "files": [
+    {
+     "name": "d126227dex991.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/883241/000119312526241911/d126227dex991.htm",
+     "sha256": "6032a9362c15fef99473f46896670008e3f6a10df0eb954759f1e6d405bd0c0f",
+     "bytes": 286901
+    }
+   ]
+  },
+  {
+   "accession": "0001193125-26-071601",
+   "filed": "2026-02-25",
+   "items": "2.02,8.01,9.01",
+   "report_date": "2026-02-25",
+   "files": [
+    {
+     "name": "d921168dex991.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/883241/000119312526071601/d921168dex991.htm",
+     "sha256": "56c69ae010b49e62e8305439f2a9ca0e1c76482ef91e21fbe780f053c13b3391",
+     "bytes": 218448
+    }
+   ]
+  }
+ ]
+}

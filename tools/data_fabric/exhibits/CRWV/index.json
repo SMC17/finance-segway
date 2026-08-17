@@ -1,0 +1,39 @@
+{
+ "ticker": "CRWV",
+ "cik": "0001769628",
+ "source": "SEC EDGAR 8-K filings, Item 2.02 (Results of Operations), EX-99 exhibits",
+ "retrieved_utc": "20260807T173822Z",
+ "note": "Raw, uninterpreted earnings-release documents. No numbers are extracted here by design - a modeling agent reads the frozen file and cites it by path + sha256.",
+ "filings": [
+  {
+   "accession": "0001769628-26-000220",
+   "filed": "2026-05-07",
+   "items": "2.02,9.01",
+   "report_date": "2026-05-07",
+   "files": [
+    {
+     "name": "coreweave1q26earningspress.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000220/coreweave1q26earningspress.htm",
+     "sha256": "e2daf270880994b120a0c20aa45b6a4291de83fc99d80ad8f7d838b026fe784b",
+     "bytes": 264155
+    }
+   ]
+  },
+  {
+   "accession": "0001769628-26-000094",
+   "filed": "2026-02-26",
+   "items": "2.02,9.01",
+   "report_date": "2026-02-26",
+   "files": [
+    {
+     "name": "coreweave4q25earningspress.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000094/coreweave4q25earningspress.htm",
+     "sha256": "9d9d3b8953fa94d4a677f7b3ca5c26ae97d8b8be0a03b151ad381df48a1d1fa8",
+     "bytes": 373405
+    }
+   ]
+  }
+ ]
+}

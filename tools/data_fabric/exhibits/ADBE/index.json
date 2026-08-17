@@ -1,0 +1,53 @@
+{
+ "ticker": "ADBE",
+ "cik": "0000796343",
+ "source": "SEC EDGAR 8-K filings, Item 2.02 (Results of Operations), EX-99 exhibits",
+ "retrieved_utc": "20260807T173821Z",
+ "note": "Raw, uninterpreted earnings-release documents. No numbers are extracted here by design - a modeling agent reads the frozen file and cites it by path + sha256.",
+ "filings": [
+  {
+   "accession": "0000796343-26-000109",
+   "filed": "2026-06-11",
+   "items": "2.02,5.02,9.01",
+   "report_date": "2026-06-08",
+   "files": [
+    {
+     "name": "adbeex991q226.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000109/adbeex991q226.htm",
+     "sha256": "1366e91ca09a9eb206d934f7e083280f683322d01e6ef8689c62b98bc6b3bfa2",
+     "bytes": 293419
+    }
+   ]
+  },
+  {
+   "accession": "0000796343-26-000048",
+   "filed": "2026-03-12",
+   "items": "2.02,5.02,7.01,9.01",
+   "report_date": "2026-03-09",
+   "files": [
+    {
+     "name": "adbeex991q126.htm",
+     "exhibit_type": "EX-99.1",
+     "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000048/adbeex991q126.htm",
+     "sha256": "1093c00117f239986f6f9d0a5e262bb99bdb7b2e68795d88b76f29b39923f994",
+     "bytes": 230169
+    },
+    {
+     "name": "adbeex992q126.htm",
+     "exhibit_type": "EX-99.2",
+     "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000048/adbeex992q126.htm",
+     "sha256": "5428f60fea7bc058ba9ec4a0779649b7b2ad1afe5d1b4055b1aaa2535fa8c7de",
+     "bytes": 6111
+    },
+    {
+     "name": "adbeex993q126.htm",
+     "exhibit_type": "EX-99.3",
+     "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000048/adbeex993q126.htm",
+     "sha256": "4415af7cb25effa2f87a8ee32132e097de2674454869d11a6817f54543702b12",
+     "bytes": 5525
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+{
+ "ticker": "CDNS",
+ "cik": "0000813672",
+ "source": "SEC EDGAR 8-K filings, Item 2.02 (Results of Operations), EX-99 exhibits",
+ "retrieved_utc": "20260807T173821Z",
+ "note": "Raw, uninterpreted earnings-release documents. No numbers are extracted here by design - a modeling agent reads the frozen file and cites it by path + sha256.",
+ "filings": [
+  {
+   "accession": "0000813672-26-000089",
+   "filed": "2026-07-27",
+   "items": "2.02,9.01",
+   "report_date": "2026-07-27",
+   "files": [
+    {
+     "name": "cdns07272026ex9901.htm",
+     "exhibit_type": "EX-99.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/813672/000081367226000089/cdns07272026ex9901.htm",
+     "sha256": "59fe15b91eb8b2fae42fc752b0840cb8ebd82e9db9768b2f584e92b0d9941525",
+     "bytes": 303385
+    },
+    {
+     "name": "cfocommentary07272026ex9902.htm",
+     "exhibit_type": "EX-99.02",
+     "url": "https://www.sec.gov/Archives/edgar/data/813672/000081367226000089/cfocommentary07272026ex9902.htm",
+     "sha256": "952ce861075b894600b269c3bcfcb0d8a34c85eb9d49583896ef2250a71ce9a6",
+     "bytes": 759731
+    }
+   ]
+  },
+  {
+   "accession": "0000813672-26-000044",
+   "filed": "2026-04-27",
+   "items": "2.02,9.01",
+   "report_date": "2026-04-27",
+   "files": [
+    {
+     "name": "cdns04272026ex9901.htm",
+     "exhibit_type": "EX-99.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/813672/000081367226000044/cdns04272026ex9901.htm",
+     "sha256": "e78391454096f0f6bf7325e18960b3b52bbcbb4ee0b063357a5f6de772d746db",
+     "bytes": 272163
+    },
+    {
+     "name": "cfocommentary04272026ex9902.htm",
+     "exhibit_type": "EX-99.02",
+     "url": "https://www.sec.gov/Archives/edgar/data/813672/000081367226000044/cfocommentary04272026ex9902.htm",
+     "sha256": "ff517810547bf265888593ed6d1f053caf7a6a2574251a9ff66aed1ccb2fe230",
+     "bytes": 758987
+    }
+   ]
+  }
+ ]
+}

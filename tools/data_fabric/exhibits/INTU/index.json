@@ -1,0 +1,46 @@
+{
+ "ticker": "INTU",
+ "cik": "0000896878",
+ "source": "SEC EDGAR 8-K filings, Item 2.02 (Results of Operations), EX-99 exhibits",
+ "retrieved_utc": "20260807T173822Z",
+ "note": "Raw, uninterpreted earnings-release documents. No numbers are extracted here by design - a modeling agent reads the frozen file and cites it by path + sha256.",
+ "filings": [
+  {
+   "accession": "0000896878-26-000024",
+   "filed": "2026-05-20",
+   "items": "2.02,2.05,7.01,8.01,9.01",
+   "report_date": "2026-05-20",
+   "files": [
+    {
+     "name": "fy26q3earningspressrelease.htm",
+     "exhibit_type": "EX-99.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000024/fy26q3earningspressrelease.htm",
+     "sha256": "bffc613930ca5c568a06ddb68455934d7b81a5163883589cbeaa51d9a9dd3862",
+     "bytes": 458080
+    },
+    {
+     "name": "fy26q3-ex9902.htm",
+     "exhibit_type": "EX-99.02",
+     "url": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000024/fy26q3-ex9902.htm",
+     "sha256": "bb7d106ecb23ccb991d98978c7dc5219a51bb7083d41ea2483df39c015204a03",
+     "bytes": 19111
+    }
+   ]
+  },
+  {
+   "accession": "0000896878-26-000012",
+   "filed": "2026-02-26",
+   "items": "2.02,8.01,9.01",
+   "report_date": "2026-02-26",
+   "files": [
+    {
+     "name": "fy26q2earningspressrelease.htm",
+     "exhibit_type": "EX-99.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000012/fy26q2earningspressrelease.htm",
+     "sha256": "c72015dd829a10839bf736731e7bdcb93622917d1f4272881b6154e916db5629",
+     "bytes": 451867
+    }
+   ]
+  }
+ ]
+}

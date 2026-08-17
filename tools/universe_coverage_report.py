@@ -21,6 +21,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 TAXONOMY = ROOT / "standards" / "universe" / "taxonomy.json"
 OUT_DIR = ROOT / "tools" / "data_fabric" / "out"
+EXHIBITS_DIR = ROOT / "tools" / "data_fabric" / "exhibits"
 
 CORE_CONCEPTS = ("Revenues", "NetIncomeLoss", "Assets")
 
@@ -72,6 +73,17 @@ def build_report(sector: str | None = None) -> dict:
         if sector and company.get("sector_id") != sector:
             continue
         summary = _series_summary(company["symbol"])
+        exhibits_index = EXHIBITS_DIR / company["symbol"] / "index.json"
+        earnings_materials = None
+        if exhibits_index.exists():
+            idx = json.loads(exhibits_index.read_text(encoding="utf-8"))
+            earnings_materials = {
+                "filings": len(idx.get("filings", [])),
+                "exhibits": sum(len(f["files"]) for f in idx.get("filings", [])),
+                "latest_filed": max(
+                    (f["filed"] for f in idx.get("filings", [])), default=None
+                ),
+            }
         row = {
             "symbol": company["symbol"],
             "cik": company.get("cik"),
@@ -79,6 +91,7 @@ def build_report(sector: str | None = None) -> dict:
             "sic": company.get("sic"),
             "weight_qqq": company["memberships"][0]["weight"],
             "series": summary,
+            "earnings_materials": earnings_materials,
         }
         problems = []
         if summary is None:
