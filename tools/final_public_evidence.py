@@ -115,6 +115,12 @@ def _sanitize_baseline(
     }
     for item in baseline.get("cases", []):
         case_id = item["case_id"]
+        if item["model_id"] not in EXPECTED_ALL_IDS:
+            # A domain added after the twenty-fourth: owned by its own builder,
+            # verified by the shared gates, and deliberately untouched here.
+            # Sanitizing it would rewrite its manifest against a registry that
+            # was never meant to describe it.
+            continue
         if case_id not in registry:
             raise ValueError(f"baseline case {case_id} is absent from evidence registries")
         model, case = registry[case_id]
@@ -150,13 +156,29 @@ def _sanitize_baseline(
 def materialize(generate_instances: bool) -> dict[str, Any]:
     materialized_registry()
     baseline = read_json(PUBLIC_INDEX)
-    if baseline.get("case_count") != 36:
+    # Shape is asserted over the cases this release path OWNS (models 01-24),
+    # derived from the registries.  Cases from later domains ride through
+    # untouched and are counted separately below, so adding a twenty-fifth
+    # domain can neither trip these guards nor be silently dropped by them.
+    baseline_models = EXPECTED_ORIGINAL_IDS | EXPECTED_FRONTIER_IDS
+    owned = [
+        item for item in baseline.get("cases", []) if item["model_id"] in baseline_models
+    ]
+    passthrough = [
+        item
+        for item in baseline.get("cases", [])
+        if item["model_id"] not in EXPECTED_ALL_IDS
+    ]
+    expected_owned = 2 * len(baseline_models)
+    if len(owned) != expected_owned:
         raise ValueError(
-            f"final evidence release must start from 36 public cases, found {baseline.get('case_count')}"
+            f"final evidence release must start from {expected_owned} baseline "
+            f"public cases, found {len(owned)}"
         )
-    if baseline.get("evidence_models") != 18:
+    if {item["model_id"] for item in owned} != baseline_models:
         raise ValueError(
-            f"final evidence release must start from 18 evidenced models, found {baseline.get('evidence_models')}"
+            f"final evidence release must start from {len(baseline_models)} evidenced "
+            f"baseline models, found {sorted({item['model_id'] for item in owned})}"
         )
     baseline = _sanitize_baseline(baseline, generate_instances)
     original_registry_path = m3_evidence.REGISTRY_PATH
@@ -166,13 +188,27 @@ def materialize(generate_instances: bool) -> dict[str, Any]:
     finally:
         m3_evidence.REGISTRY_PATH = original_registry_path
     combined = _merge_indexes(baseline, final_index)
-    if combined["case_count"] != 48:
+    released = [
+        item for item in combined["cases"] if item["model_id"] in EXPECTED_ALL_IDS
+    ]
+    expected_released = 2 * len(EXPECTED_ALL_IDS)
+    if len(released) != expected_released:
         raise ValueError(
-            f"expected 48 combined public cases, found {combined['case_count']}"
+            f"expected {expected_released} released public cases across the "
+            f"{len(EXPECTED_ALL_IDS)} release-owned models, found {len(released)}"
         )
-    if combined["evidence_models"] != 24:
+    if {item["model_id"] for item in released} != EXPECTED_ALL_IDS:
         raise ValueError(
-            f"expected 24 evidenced models, found {combined['evidence_models']}"
+            f"expected {len(EXPECTED_ALL_IDS)} evidenced models in the release cohort, "
+            f"found {sorted({item['model_id'] for item in released})}"
+        )
+    # Pass-through cases must survive the round trip intact: this is the guard
+    # that would have caught the ledger truncation the frozen counts hid.
+    if len(combined["cases"]) != len(released) + len(passthrough):
+        raise ValueError(
+            f"public cases outside the release cohort were lost: expected "
+            f"{len(passthrough)} to survive, found "
+            f"{len(combined['cases']) - len(released)}"
         )
     write_json(PUBLIC_INDEX, combined)
     return combined
