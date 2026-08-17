@@ -1,0 +1,885 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "etf-public-kweb-2026-stress",
+  "as_of": "2026-08-17",
+  "manifest": "standards/public_cases/etf-public-kweb-2026-stress.json",
+  "template": "30_ETF_Construction_Management/_template_ETF.xlsx",
+  "output": "30_ETF_Construction_Management/instances/public_kweb_2026_stress.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "Cover",
+      "cell": "C9",
+      "previous": "Base",
+      "value": "Downside",
+      "source_url": "repo://tools/build_etf_kweb_case.py",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "previous": 10000,
+      "value": 6033.6,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D6",
+      "previous": 0.005,
+      "value": 0.0069,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "previous": 0.015,
+      "value": 0.0743,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "previous": 100,
+      "value": 27.01,
+      "source_url": "https://www.alphavantage.co/documentation/#quote-endpoint",
+      "source_as_of": "2026-08-14"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B5",
+      "previous": "[Holding 1]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C5",
+      "previous": "[Issuer 1]",
+      "value": "TENCENT HOLDINGS LTD",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D5",
+      "previous": 0.08,
+      "value": 0.1009,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B6",
+      "previous": "[Holding 2]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C6",
+      "previous": "[Issuer 2]",
+      "value": "ALIBABA GROUP HOLDING LTD ORDINARY SHARES",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D6",
+      "previous": 0.07,
+      "value": 0.0879,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B7",
+      "previous": "[Holding 3]",
+      "value": "PDD",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C7",
+      "previous": "[Issuer 3]",
+      "value": "PDD HOLDINGS INC ADR",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D7",
+      "previous": 0.05,
+      "value": 0.08,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B8",
+      "previous": "[Holding 4]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C8",
+      "previous": "[Issuer 4]",
+      "value": "MEITUAN CLASS B",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D8",
+      "previous": 0.04,
+      "value": 0.0789,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B9",
+      "previous": "[Holding 5]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C9",
+      "previous": "[Issuer 5]",
+      "value": "NETEASE INC ORDINARY SHARES",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D9",
+      "previous": 0.04,
+      "value": 0.0606,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B10",
+      "previous": "[Holding 6]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C10",
+      "previous": "[Issuer 6]",
+      "value": "JD.COM INC ORDINARY SHARES CLASS A",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D10",
+      "previous": 0.03,
+      "value": 0.0427,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B11",
+      "previous": "[Holding 7]",
+      "value": "YMM",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C11",
+      "previous": "[Issuer 7]",
+      "value": "FULL TRUCK ALLIANCE CO LTD ADR",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D11",
+      "previous": 0.03,
+      "value": 0.0421,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B12",
+      "previous": "[Holding 8]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C12",
+      "previous": "[Issuer 8]",
+      "value": "KE HOLDINGS INC CLASS A",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D12",
+      "previous": 0.03,
+      "value": 0.0391,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B13",
+      "previous": "[Holding 9]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C13",
+      "previous": "[Issuer 9]",
+      "value": "KUAISHOU TECHNOLOGY ORDINARY SHARES CLASS B",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D13",
+      "previous": 0.02,
+      "value": 0.0374,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B14",
+      "previous": "[Holding 10]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C14",
+      "previous": "[Issuer 10]",
+      "value": "TRIP.COM GROUP LTD",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D14",
+      "previous": 0.02,
+      "value": 0.0365,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B15",
+      "previous": "[Holding 11]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C15",
+      "previous": "[Issuer 11]",
+      "value": "JD HEALTH INTERNATIONAL INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D15",
+      "previous": 0,
+      "value": 0.0359,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B16",
+      "previous": "[Holding 12]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C16",
+      "previous": "[Issuer 12]",
+      "value": "BAIDU INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D16",
+      "previous": 0,
+      "value": 0.0356,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B17",
+      "previous": "[Holding 13]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C17",
+      "previous": "[Issuer 13]",
+      "value": "BILIBILI INC CLASS Z",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D17",
+      "previous": 0,
+      "value": 0.0352,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B18",
+      "previous": "[Holding 14]",
+      "value": "BZ",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C18",
+      "previous": "[Issuer 14]",
+      "value": "KANZHUN LTD ADR",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D18",
+      "previous": 0,
+      "value": 0.0351,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B19",
+      "previous": "[Holding 15]",
+      "value": "TME",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C19",
+      "previous": "[Issuer 15]",
+      "value": "TENCENT MUSIC ENTERTAINMENT GROUP ADR",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D19",
+      "previous": 0,
+      "value": 0.0328,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B20",
+      "previous": "[Holding 16]",
+      "value": "TAL",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C20",
+      "previous": "[Issuer 16]",
+      "value": "TAL EDUCATION GROUP ADR",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D20",
+      "previous": 0,
+      "value": 0.0318,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B21",
+      "previous": "[Holding 17]",
+      "value": "VIPS",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C21",
+      "previous": "[Issuer 17]",
+      "value": "VIPSHOP HOLDINGS LTD ADR",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D21",
+      "previous": 0,
+      "value": 0.0244,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B22",
+      "previous": "[Holding 18]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C22",
+      "previous": "[Issuer 18]",
+      "value": "KINGSOFT CORP LTD",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D22",
+      "previous": 0,
+      "value": 0.0225,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B23",
+      "previous": "[Holding 19]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C23",
+      "previous": "[Issuer 19]",
+      "value": "ALIBABA HEALTH INFORMATION TECHNOLOGY LTD",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D23",
+      "previous": 0,
+      "value": 0.0167,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B24",
+      "previous": "[Holding 20]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C24",
+      "previous": "[Issuer 20]",
+      "value": "TONGCHENG TRAVEL HOLDINGS LTD",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D24",
+      "previous": 0,
+      "value": 0.0142,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B25",
+      "previous": "[Holding 21]",
+      "value": "JOYY",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C25",
+      "previous": "[Issuer 21]",
+      "value": "JOYY INC ADR",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D25",
+      "previous": 0,
+      "value": 0.0122,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B26",
+      "previous": "[Holding 22]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C26",
+      "previous": "[Issuer 22]",
+      "value": "CHINA RUYI HOLDINGS LTD",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D26",
+      "previous": 0,
+      "value": 0.0117,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B27",
+      "previous": "[Holding 23]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C27",
+      "previous": "[Issuer 23]",
+      "value": "MEITU INC REGISTERED SHS UNITARY 144A/REG S",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D27",
+      "previous": 0,
+      "value": 0.0108,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B28",
+      "previous": "[Holding 24]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C28",
+      "previous": "[Issuer 24]",
+      "value": "ZHONGAN ONLINE P&C INSURANCE CO LTD ORDINARY SHARES CLASS H",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D28",
+      "previous": 0,
+      "value": 0.0102,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B29",
+      "previous": "[Holding 25]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C29",
+      "previous": "[Issuer 25]",
+      "value": "XD INC ORDINARY SHARES",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D29",
+      "previous": 0,
+      "value": 0.0094,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B30",
+      "previous": "[Holding 26]",
+      "value": "ATHM",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C30",
+      "previous": "[Issuer 26]",
+      "value": "AUTOHOME INC ADR",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D30",
+      "previous": 0,
+      "value": 0.0088,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B31",
+      "previous": "[Holding 27]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C31",
+      "previous": "[Issuer 27]",
+      "value": "EAST BUY HOLDING LTD",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D31",
+      "previous": 0,
+      "value": 0.0085,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B32",
+      "previous": "[Holding 28]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C32",
+      "previous": "[Issuer 28]",
+      "value": "NETEASE CLOUD MUSIC INC",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D32",
+      "previous": 0,
+      "value": 0.0074,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B33",
+      "previous": "[Holding 29]",
+      "value": "n/a",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C33",
+      "previous": "[Issuer 29]",
+      "value": "CHINA LITERATURE LTD ORDINARY SHARES",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D33",
+      "previous": 0,
+      "value": 0.0074,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B34",
+      "previous": "[Holding 30]",
+      "value": "QFIN",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C34",
+      "previous": "[Issuer 30]",
+      "value": "QFIN HOLDINGS INC ADR",
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D34",
+      "previous": 0,
+      "value": 0.0072,
+      "source_url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "source_as_of": "2026-08-17"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B40",
+      "previous": "[Sector 1]",
+      "value": "CONSUMER DISCRETIONARY",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C40",
+      "previous": 0.3,
+      "value": 0.414,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B41",
+      "previous": "[Sector 2]",
+      "value": "COMMUNICATION SERVICES",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C41",
+      "previous": 0.2,
+      "value": 0.373,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B42",
+      "previous": "[Sector 3]",
+      "value": "CONSUMER STAPLES",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C42",
+      "previous": 0.15,
+      "value": 0.083,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B43",
+      "previous": "[Sector 4]",
+      "value": "INDUSTRIALS",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C43",
+      "previous": 0.1,
+      "value": 0.065,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B44",
+      "previous": "[Sector 5]",
+      "value": "REAL ESTATE",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C44",
+      "previous": 0.08,
+      "value": 0.043,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B45",
+      "previous": "[Sector 6]",
+      "value": "SHORT-TERM INVESTMENT",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C45",
+      "previous": 0,
+      "value": 0.027,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B46",
+      "previous": "[Sector 7]",
+      "value": "FINANCIALS",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C46",
+      "previous": 0,
+      "value": 0.021,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    }
+  ],
+  "workbook_sha256": "fba02fd26fe8215f3f3a195a62faf2f56cd2f76de42d1ecddfb7734356e95862",
+  "generated_on": "2026-08-17",
+  "counts_toward_M4": false
+}

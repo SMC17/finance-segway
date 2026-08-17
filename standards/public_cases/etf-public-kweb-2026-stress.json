@@ -1,0 +1,1363 @@
+{
+  "schema_version": "1.0",
+  "id": "etf-public-kweb-2026-stress",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "30_ETF_Construction_Management/_template_ETF.xlsx",
+  "output": "30_ETF_Construction_Management/instances/public_kweb_2026_stress.xlsx",
+  "as_of": "2026-08-17",
+  "scenario": "Downside",
+  "cover": {
+    "ETF / share class:": "KraneShares CSI China Internet ETF (NYSE Arca: KWEB)",
+    "Benchmark index:": "CSI Overseas China Internet Index"
+  },
+  "inputs": [
+    {
+      "sheet": "Cover",
+      "cell": "C9",
+      "value": "Downside",
+      "input_kind": "modeler",
+      "source": {
+        "name": "Case design decision",
+        "url": "repo://tools/build_etf_kweb_case.py",
+        "as_of": "2026-08-17",
+        "notes": "This case is the adversarial half of the pair; only the Downside column is populated with real data."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "value": 6033.6,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D6",
+      "value": 0.0069,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": 0.0743,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "value": 27.01,
+      "input_kind": "observed",
+      "source": {
+        "name": "KWEB market close price (Alpha Vantage GLOBAL_QUOTE, 2026-08-14)",
+        "url": "https://www.alphavantage.co/documentation/#quote-endpoint",
+        "as_of": "2026-08-14",
+        "notes": "Last daily close $27.01, retrieved via Alpha Vantage GLOBAL_QUOTE (symbol=KWEB)."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B5",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C5",
+      "value": "TENCENT HOLDINGS LTD",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D5",
+      "value": 0.1009,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B6",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C6",
+      "value": "ALIBABA GROUP HOLDING LTD ORDINARY SHARES",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D6",
+      "value": 0.0879,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B7",
+      "value": "PDD",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C7",
+      "value": "PDD HOLDINGS INC ADR",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D7",
+      "value": 0.08,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B8",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C8",
+      "value": "MEITUAN CLASS B",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D8",
+      "value": 0.0789,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B9",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C9",
+      "value": "NETEASE INC ORDINARY SHARES",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D9",
+      "value": 0.0606,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B10",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C10",
+      "value": "JD.COM INC ORDINARY SHARES CLASS A",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D10",
+      "value": 0.0427,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B11",
+      "value": "YMM",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C11",
+      "value": "FULL TRUCK ALLIANCE CO LTD ADR",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D11",
+      "value": 0.0421,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B12",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C12",
+      "value": "KE HOLDINGS INC CLASS A",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D12",
+      "value": 0.0391,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B13",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C13",
+      "value": "KUAISHOU TECHNOLOGY ORDINARY SHARES CLASS B",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D13",
+      "value": 0.0374,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B14",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C14",
+      "value": "TRIP.COM GROUP LTD",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D14",
+      "value": 0.0365,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B15",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C15",
+      "value": "JD HEALTH INTERNATIONAL INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D15",
+      "value": 0.0359,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B16",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C16",
+      "value": "BAIDU INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D16",
+      "value": 0.0356,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B17",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C17",
+      "value": "BILIBILI INC CLASS Z",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D17",
+      "value": 0.0352,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B18",
+      "value": "BZ",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C18",
+      "value": "KANZHUN LTD ADR",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D18",
+      "value": 0.0351,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B19",
+      "value": "TME",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C19",
+      "value": "TENCENT MUSIC ENTERTAINMENT GROUP ADR",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D19",
+      "value": 0.0328,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B20",
+      "value": "TAL",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C20",
+      "value": "TAL EDUCATION GROUP ADR",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D20",
+      "value": 0.0318,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B21",
+      "value": "VIPS",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C21",
+      "value": "VIPSHOP HOLDINGS LTD ADR",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D21",
+      "value": 0.0244,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B22",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C22",
+      "value": "KINGSOFT CORP LTD",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D22",
+      "value": 0.0225,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B23",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C23",
+      "value": "ALIBABA HEALTH INFORMATION TECHNOLOGY LTD",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D23",
+      "value": 0.0167,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B24",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C24",
+      "value": "TONGCHENG TRAVEL HOLDINGS LTD",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D24",
+      "value": 0.0142,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B25",
+      "value": "JOYY",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C25",
+      "value": "JOYY INC ADR",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D25",
+      "value": 0.0122,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B26",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C26",
+      "value": "CHINA RUYI HOLDINGS LTD",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D26",
+      "value": 0.0117,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B27",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C27",
+      "value": "MEITU INC REGISTERED SHS UNITARY 144A/REG S",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D27",
+      "value": 0.0108,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B28",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C28",
+      "value": "ZHONGAN ONLINE P&C INSURANCE CO LTD ORDINARY SHARES CLASS H",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D28",
+      "value": 0.0102,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B29",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C29",
+      "value": "XD INC ORDINARY SHARES",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D29",
+      "value": 0.0094,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B30",
+      "value": "ATHM",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C30",
+      "value": "AUTOHOME INC ADR",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D30",
+      "value": 0.0088,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B31",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C31",
+      "value": "EAST BUY HOLDING LTD",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D31",
+      "value": 0.0085,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B32",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C32",
+      "value": "NETEASE CLOUD MUSIC INC",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D32",
+      "value": 0.0074,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B33",
+      "value": "n/a",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C33",
+      "value": "CHINA LITERATURE LTD ORDINARY SHARES",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D33",
+      "value": 0.0074,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B34",
+      "value": "QFIN",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C34",
+      "value": "QFIN HOLDINGS INC ADR",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "D34",
+      "value": 0.0072,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+        "url": "https://www.alphavantage.co/documentation/#etf-profile",
+        "as_of": "2026-08-17",
+        "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B40",
+      "value": "CONSUMER DISCRETIONARY",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C40",
+      "value": 0.414,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B41",
+      "value": "COMMUNICATION SERVICES",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C41",
+      "value": 0.373,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B42",
+      "value": "CONSUMER STAPLES",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C42",
+      "value": 0.083,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B43",
+      "value": "INDUSTRIALS",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C43",
+      "value": 0.065,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B44",
+      "value": "REAL ESTATE",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C44",
+      "value": 0.043,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B45",
+      "value": "SHORT-TERM INVESTMENT",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C45",
+      "value": 0.027,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B46",
+      "value": "FINANCIALS",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C46",
+      "value": 0.021,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+      "url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "as_of": "2026-08-17",
+      "notes": "Fund net assets, net expense ratio, and trailing dividend yield, retrieved via Alpha Vantage ETF_PROFILE (symbol=KWEB). Sourced from the fund's own disclosed holdings/profile data. This endpoint returned no sector breakdown for this fund (unlike QQQ) -- sector weights below are sourced from the fund's SEC N-CSR instead."
+    },
+    {
+      "name": "KWEB market close price (Alpha Vantage GLOBAL_QUOTE, 2026-08-14)",
+      "url": "https://www.alphavantage.co/documentation/#quote-endpoint",
+      "as_of": "2026-08-14",
+      "notes": "Last daily close $27.01, retrieved via Alpha Vantage GLOBAL_QUOTE (symbol=KWEB)."
+    },
+    {
+      "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "as_of": "2026-03-31",
+      "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+    }
+  ],
+  "refresh": {
+    "date": "2026-08-17",
+    "trigger": "Adversarial-pair sourcing for the ETF Construction & Management domain (model_card.md thin-coverage gap)",
+    "source_snapshot": "repo://30_ETF_Construction_Management/sources/snapshots/etf-public-kweb-2026-stress.json",
+    "what_changed": "Generated public case etf-public-kweb-2026-stress from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "next_check": "On source revision, builder change, monitoring breach, or quarterly review"
+  },
+  "outcome": {
+    "metric": "five_year_average_annual_total_return",
+    "forecast": 0.0,
+    "realized": -0.1507,
+    "realized_source": "KraneShares CSI China Internet ETF N-CSR annual shareholder report, period ended 2026-03-31 (fund's own disclosed Average Annual Total Returns table)",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://30_ETF_Construction_Management/sources/snapshots/etf-public-kweb-2026-stress.json",
+    "synthetic_benchmark_inputs_allowed": false
+  }
+}
