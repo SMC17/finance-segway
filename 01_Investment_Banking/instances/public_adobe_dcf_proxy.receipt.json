@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "instance_id": "public_adobe_dcf_proxy",
+  "as_of": "2025-11-28",
+  "manifest": "01_Investment_Banking/instances/public_adobe_dcf_proxy.manifest.json",
+  "template": "01_Investment_Banking/_template_BASE.xlsx",
+  "output": "01_Investment_Banking/instances/public_adobe_dcf_proxy.xlsx",
+  "applied_inputs": [
+    {
+      "sheet": "IS",
+      "cell": "E5",
+      "previous": null,
+      "value": 23769.0,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+      "source_as_of": "2025-11-28"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "previous": 0,
+      "value": 0.1053,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+      "source_as_of": "2025-11-28"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "previous": 0,
+      "value": 0.8927,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+      "source_as_of": "2025-11-28"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "previous": 0,
+      "value": 0.492,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+      "source_as_of": "2025-11-28"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "previous": 0,
+      "value": 0.1837,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+      "source_as_of": "2025-11-28"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "previous": 0,
+      "value": 4.5698,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+      "source_as_of": "2025-11-28"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C10",
+      "previous": 0,
+      "value": 0.0075,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+      "source_as_of": "2025-11-28"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C12",
+      "previous": 0,
+      "value": 426.2,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+      "source_as_of": "2025-11-28"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I13",
+      "previous": 1,
+      "value": 426.2,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+      "source_as_of": "2025-11-28"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I11",
+      "previous": 0,
+      "value": 779.0,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+      "source_as_of": "2025-11-28"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I5",
+      "previous": 0.1,
+      "value": 0.09,
+      "source_url": null,
+      "source_as_of": "2025-11-28"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I6",
+      "previous": 0.025,
+      "value": 0.025,
+      "source_url": null,
+      "source_as_of": "2025-11-28"
+    }
+  ],
+  "workbook_sha256": "42af5a6662db4b25beec2294a0ac4eb067b03bf4bd696399a360912f1c1dbdd5",
+  "generated_on": "2026-08-17",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "agent_tool_draft",
+  "counts_toward_M4": false
+}

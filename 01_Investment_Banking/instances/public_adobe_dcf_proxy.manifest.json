@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0",
+  "id": "public_adobe_dcf_proxy",
+  "classification": "agent_tool_draft",
+  "counts_toward_M4": false,
+  "template": "01_Investment_Banking/_template_BASE.xlsx",
+  "output": "01_Investment_Banking/instances/public_adobe_dcf_proxy.xlsx",
+  "as_of": "2025-11-28",
+  "cover": {
+    "Title:": "Adobe Inc. (NASDAQ: ADBE), CIK 0000796343 -- DCF/Comps valuation (agent-drafted)"
+  },
+  "inputs": [
+    {
+      "sheet": "IS",
+      "cell": "E5",
+      "value": 23769.0,
+      "source": {
+        "name": "Adobe Inc. XBRL annual fact series (SEC EDGAR company facts, CIK 0000796343)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+        "as_of": "2025-11-28",
+        "notes": "Reused from tools/data_fabric/out/ADBE_facts_annual_series.json (same source as software-public-adobe-fy2025); ratios computed here from disclosed dollar figures."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 0.1053,
+      "source": {
+        "name": "Adobe Inc. XBRL annual fact series (SEC EDGAR company facts, CIK 0000796343)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+        "as_of": "2025-11-28",
+        "notes": "Reused from tools/data_fabric/out/ADBE_facts_annual_series.json (same source as software-public-adobe-fy2025); ratios computed here from disclosed dollar figures."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 0.8927,
+      "source": {
+        "name": "Adobe Inc. XBRL annual fact series (SEC EDGAR company facts, CIK 0000796343)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+        "as_of": "2025-11-28",
+        "notes": "Reused from tools/data_fabric/out/ADBE_facts_annual_series.json (same source as software-public-adobe-fy2025); ratios computed here from disclosed dollar figures."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.492,
+      "source": {
+        "name": "Adobe Inc. XBRL annual fact series (SEC EDGAR company facts, CIK 0000796343)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+        "as_of": "2025-11-28",
+        "notes": "Reused from tools/data_fabric/out/ADBE_facts_annual_series.json (same source as software-public-adobe-fy2025); ratios computed here from disclosed dollar figures."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "value": 0.1837,
+      "source": {
+        "name": "Adobe Inc. XBRL annual fact series (SEC EDGAR company facts, CIK 0000796343)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+        "as_of": "2025-11-28",
+        "notes": "Reused from tools/data_fabric/out/ADBE_facts_annual_series.json (same source as software-public-adobe-fy2025); ratios computed here from disclosed dollar figures."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "value": 4.5698,
+      "source": {
+        "name": "Adobe Inc. XBRL annual fact series (SEC EDGAR company facts, CIK 0000796343)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+        "as_of": "2025-11-28",
+        "notes": "Reused from tools/data_fabric/out/ADBE_facts_annual_series.json (same source as software-public-adobe-fy2025); ratios computed here from disclosed dollar figures."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C10",
+      "value": 0.0075,
+      "source": {
+        "name": "Adobe Inc. XBRL annual fact series (SEC EDGAR company facts, CIK 0000796343)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+        "as_of": "2025-11-28",
+        "notes": "Reused from tools/data_fabric/out/ADBE_facts_annual_series.json (same source as software-public-adobe-fy2025); ratios computed here from disclosed dollar figures."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C12",
+      "value": 426.2,
+      "source": {
+        "name": "Adobe Inc. XBRL annual fact series (SEC EDGAR company facts, CIK 0000796343)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+        "as_of": "2025-11-28",
+        "notes": "Reused from tools/data_fabric/out/ADBE_facts_annual_series.json (same source as software-public-adobe-fy2025); ratios computed here from disclosed dollar figures."
+      }
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I13",
+      "value": 426.2,
+      "source": {
+        "name": "Adobe Inc. XBRL annual fact series (SEC EDGAR company facts, CIK 0000796343)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+        "as_of": "2025-11-28",
+        "notes": "Reused from tools/data_fabric/out/ADBE_facts_annual_series.json (same source as software-public-adobe-fy2025); ratios computed here from disclosed dollar figures."
+      }
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I11",
+      "value": 779.0,
+      "source": {
+        "name": "Adobe Inc. XBRL annual fact series (SEC EDGAR company facts, CIK 0000796343)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
+        "as_of": "2025-11-28",
+        "notes": "Net debt = LongTermDebt - CashAndCashEquivalentsAtCarryingValue, both from the same XBRL series."
+      }
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I5",
+      "value": 0.09,
+      "source": {
+        "name": "Repo precedent: ib-public-microsoft-linkedin-2016 discount/growth assumptions",
+        "url": null,
+        "as_of": "2025-11-28",
+        "notes": "No issuer discloses WACC or terminal growth; reused this repo's own prior modeler_assumption values for a large-cap tech valuation rather than choosing a fresh unsourced number."
+      }
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I6",
+      "value": 0.025,
+      "source": {
+        "name": "Repo precedent: ib-public-microsoft-linkedin-2016 discount/growth assumptions",
+        "url": null,
+        "as_of": "2025-11-28",
+        "notes": "No issuer discloses WACC or terminal growth; reused this repo's own prior modeler_assumption values for a large-cap tech valuation rather than choosing a fresh unsourced number."
+      }
+    }
+  ],
+  "refresh": {
+    "date": "2025-11-28",
+    "trigger": "L3 agent tool: dcf_comps",
+    "what_changed": "Applied agent-submitted DCF/Comps facts for Adobe Inc. (NASDAQ: ADBE), CIK 0000796343",
+    "reviewer_notes": "Generated by tools/agents/dcf_comps.py -- not yet human-reviewed",
+    "next_check": "On next material fact refresh"
+  }
+}
