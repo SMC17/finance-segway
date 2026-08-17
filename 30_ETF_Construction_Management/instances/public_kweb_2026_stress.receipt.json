@@ -877,9 +877,29 @@
       "value": 0.021,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
       "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B47",
+      "previous": "[Sector 8]",
+      "value": "OTHER ASSETS LESS LIABILITIES",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C47",
+      "previous": 0,
+      "value": -0.026,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "source_as_of": "2026-03-31"
     }
   ],
-  "workbook_sha256": "fba02fd26fe8215f3f3a195a62faf2f56cd2f76de42d1ecddfb7734356e95862",
+  "workbook_sha256": "78cbc68b2c6ff65cf3228c02f98cb785e587a2e56bb210515e6c2d22d6c6452e",
   "generated_on": "2026-08-17",
-  "counts_toward_M4": false
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "hash_refreshed_on": "2026-08-17",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
 }
