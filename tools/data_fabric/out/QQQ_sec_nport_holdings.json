@@ -1,0 +1,623 @@
+{
+ "source": "SEC Form NPORT-P (fund-filed complete portfolio)",
+ "entity": "INVESCO QQQ TRUST, SERIES 1",
+ "accession": "0001067839-26-000024",
+ "filing_date": "2026-05-28",
+ "url": "https://www.sec.gov/Archives/edgar/data/1067839/000106783926000024/primary_doc.xml",
+ "report_period": "2026-03-31",
+ "note": "The regulator's copy of the portfolio, identified by name/CUSIP/LEI (no tickers). Reported as of the period end - months behind a live issuer profile by construction.",
+ "holdings": [
+  {
+   "name": "NVIDIA Corp.",
+   "pct": 8.681262560507,
+   "cusip": "67066G104",
+   "lei": "549300S4KLFTLO7GSQ80"
+  },
+  {
+   "name": "Apple Inc.",
+   "pct": 7.63245802839,
+   "cusip": "037833100",
+   "lei": "HWUPKR0MPOU8FGXBT394"
+  },
+  {
+   "name": "Microsoft Corp.",
+   "pct": 5.630727583614,
+   "cusip": "594918104",
+   "lei": "INR2EJN1ERAN0W5ZP974"
+  },
+  {
+   "name": "Amazon.com, Inc.",
+   "pct": 4.579897129475,
+   "cusip": "023135106",
+   "lei": "ZXTILKJKG63JELOEG630"
+  },
+  {
+   "name": "Tesla, Inc.",
+   "pct": 3.800814016512,
+   "cusip": "88160R101",
+   "lei": "54930043XZGB27CTOV49"
+  },
+  {
+   "name": "Meta Platforms, Inc.",
+   "pct": 3.456635837463,
+   "cusip": "30303M102",
+   "lei": "BQ4BKCS1HXDV9HN80Z93"
+  },
+  {
+   "name": "Walmart Inc.",
+   "pct": 3.434884728124,
+   "cusip": "931142103",
+   "lei": "Y87794H0US1R65VBXU25"
+  },
+  {
+   "name": "Alphabet Inc.",
+   "pct": 3.429501982436,
+   "cusip": "02079K305",
+   "lei": "5493006MHB84DD0ZWV18"
+  },
+  {
+   "name": "Alphabet Inc.",
+   "pct": 3.195505049648,
+   "cusip": "02079K107",
+   "lei": "5493006MHB84DD0ZWV18"
+  },
+  {
+   "name": "Broadcom Inc.",
+   "pct": 3.006076315987,
+   "cusip": "11135F101",
+   "lei": "549300WV6GIDOZJTV909"
+  },
+  {
+   "name": "Costco Wholesale Corp.",
+   "pct": 2.501202100384,
+   "cusip": "22160K105",
+   "lei": "29DX7H14B9S6O3FD6V18"
+  },
+  {
+   "name": "Netflix, Inc.",
+   "pct": 2.295788043582,
+   "cusip": "64110L106",
+   "lei": "549300Y7VHGU0I7CE873"
+  },
+  {
+   "name": "Micron Technology, Inc.",
+   "pct": 2.150341439123,
+   "cusip": "595112103",
+   "lei": "B3DXGBC8GAIYWI2Z0172"
+  },
+  {
+   "name": "Palantir Technologies Inc.",
+   "pct": 1.895602237765,
+   "cusip": "69608A108",
+   "lei": "549300UVN46B3BBDHO85"
+  },
+  {
+   "name": "Advanced Micro Devices, Inc.",
+   "pct": 1.875684474124,
+   "cusip": "007903107",
+   "lei": "R2I72C950HOYXII45366"
+  },
+  {
+   "name": "Cisco Systems, Inc.",
+   "pct": 1.733160761451,
+   "cusip": "17275R102",
+   "lei": "549300LKFJ962MZ46593"
+  },
+  {
+   "name": "Applied Materials, Inc.",
+   "pct": 1.53395875922,
+   "cusip": "038222105",
+   "lei": "41BNNE1AFPNAZELZ6K07"
+  },
+  {
+   "name": "Lam Research Corp.",
+   "pct": 1.508876214225,
+   "cusip": "512807306",
+   "lei": "549300I4GMO6D34U1T02"
+  },
+  {
+   "name": "T-Mobile US, Inc.",
+   "pct": 1.308749690469,
+   "cusip": "872590104",
+   "lei": "549300QHIJYOHPACPG31"
+  },
+  {
+   "name": "Linde PLC",
+   "pct": 1.299177414846,
+   "cusip": "G54950103",
+   "lei": "5299003QR1WT0EF88V51"
+  },
+  {
+   "name": "Intel Corp.",
+   "pct": 1.246570914349,
+   "cusip": "458140100",
+   "lei": "KNX4USFCNGPY45LOCE31"
+  },
+  {
+   "name": "PepsiCo, Inc.",
+   "pct": 1.200186105741,
+   "cusip": "713448108",
+   "lei": "FJSUNZKFNQ5YPJ5OT455"
+  },
+  {
+   "name": "KLA Corp.",
+   "pct": 1.091444701057,
+   "cusip": "482480100",
+   "lei": "549300H0BF5JCG96TJ81"
+  },
+  {
+   "name": "Amgen Inc.",
+   "pct": 1.072627549332,
+   "cusip": "031162100",
+   "lei": "62QBXGPJ34PQ72Z12S66"
+  },
+  {
+   "name": "Texas Instruments Inc.",
+   "pct": 0.996399081687,
+   "cusip": "882508104",
+   "lei": "WDJNR2L6D8RWOEB8T652"
+  },
+  {
+   "name": "Gilead Sciences, Inc.",
+   "pct": 0.978443626933,
+   "cusip": "375558103",
+   "lei": "549300WTZWR07K8MNV44"
+  },
+  {
+   "name": "Intuitive Surgical, Inc.",
+   "pct": 0.92578527435,
+   "cusip": "46120E602",
+   "lei": "54930052SRG011710797"
+  },
+  {
+   "name": "Analog Devices, Inc.",
+   "pct": 0.878350401701,
+   "cusip": "032654105",
+   "lei": "GYVOE5EZ4GDAVTU4CQ61"
+  },
+  {
+   "name": "Shopify Inc.",
+   "pct": 0.822449475005,
+   "cusip": "82509L107",
+   "lei": "549300HGQ43STJLLP808"
+  },
+  {
+   "name": "Honeywell International Inc.",
+   "pct": 0.812548199362,
+   "cusip": "438516106",
+   "lei": "ISRPG12PN4EIEOEMW547"
+  },
+  {
+   "name": "QUALCOMM Inc.",
+   "pct": 0.777071039866,
+   "cusip": "747525103",
+   "lei": "H1J8DDZKZP6H7RWC0H53"
+  },
+  {
+   "name": "Booking Holdings Inc.",
+   "pct": 0.754126424259,
+   "cusip": "09857L108",
+   "lei": "FXM8FAOHMYDIPD38UZ17"
+  },
+  {
+   "name": "Palo Alto Networks, Inc.",
+   "pct": 0.739820068147,
+   "cusip": "697435105",
+   "lei": "549300QXR2YVZV231H43"
+  },
+  {
+   "name": "AppLovin Corp.",
+   "pct": 0.691145978513,
+   "cusip": "03831W108",
+   "lei": "549300LLVXMUAOL3SQ07"
+  },
+  {
+   "name": "Intuit Inc.",
+   "pct": 0.676214663555,
+   "cusip": "461202103",
+   "lei": "VI90HBPH7XSFMB9E4M29"
+  },
+  {
+   "name": "ASML Holding N.V.",
+   "pct": 0.656496721842,
+   "cusip": "N07059210",
+   "lei": "724500Y6DUVHQD6OXN27"
+  },
+  {
+   "name": "Vertex Pharmaceuticals Inc.",
+   "pct": 0.641503444529,
+   "cusip": "92532F100",
+   "lei": "54930015RAQRRZ5ZGJ91"
+  },
+  {
+   "name": "Comcast Corp.",
+   "pct": 0.58261533152,
+   "cusip": "20030N101",
+   "lei": "51M0QTTNCGUN7KFCFZ59"
+  },
+  {
+   "name": "Starbucks Corp.",
+   "pct": 0.577121303413,
+   "cusip": "855244109",
+   "lei": "OQSJ1DU9TAOC51A47K68"
+  },
+  {
+   "name": "Constellation Energy Corp.",
+   "pct": 0.571660166712,
+   "cusip": "21037T109",
+   "lei": "549300F8Y20RYGNGV346"
+  },
+  {
+   "name": "Adobe Inc.",
+   "pct": 0.560362279396,
+   "cusip": "00724F101",
+   "lei": "FU4LY2G4933NH2E1CP29"
+  },
+  {
+   "name": "CrowdStrike Holdings, Inc.",
+   "pct": 0.556591641752,
+   "cusip": "22788C105",
+   "lei": "549300YBY08K9KM4HX32"
+  },
+  {
+   "name": "Western Digital Corp.",
+   "pct": 0.518615299943,
+   "cusip": "958102105",
+   "lei": "549300QQXOOYEF89IC56"
+  },
+  {
+   "name": "MercadoLibre, Inc.",
+   "pct": 0.495707041725,
+   "cusip": "58733R102",
+   "lei": "549300DKPDN9M5S8GB14"
+  },
+  {
+   "name": "Marriott International, Inc.",
+   "pct": 0.490125284032,
+   "cusip": "571903202",
+   "lei": "225YDZ14ZO8E1TXUSU86"
+  },
+  {
+   "name": "Marvell Technology, Inc.",
+   "pct": 0.487993611514,
+   "cusip": "573874104",
+   "lei": "254900WVU0BM7ZCJ9E93"
+  },
+  {
+   "name": "Seagate Technology Holdings PLC",
+   "pct": 0.483136931204,
+   "cusip": "G7997R103",
+   "lei": "635400RUXIFEZSRU8X70"
+  },
+  {
+   "name": "Automatic Data Processing, Inc.",
+   "pct": 0.462649131002,
+   "cusip": "053015103",
+   "lei": "HGBOLILQXWER4SAL2I23"
+  },
+  {
+   "name": "Regeneron Pharmaceuticals, Inc.",
+   "pct": 0.45399041855,
+   "cusip": "75886F107",
+   "lei": "549300RCBFWIRX3HYQ56"
+  },
+  {
+   "name": "O'Reilly Automotive, Inc.",
+   "pct": 0.437716439148,
+   "cusip": "67103H107",
+   "lei": "549300K2RLMQL149Q332"
+  },
+  {
+   "name": "Cadence Design Systems, Inc.",
+   "pct": 0.433853605713,
+   "cusip": "127387108",
+   "lei": "GCT7RXJOGLXPV0NXZY22"
+  },
+  {
+   "name": "CSX Corp.",
+   "pct": 0.431688463602,
+   "cusip": "126408103",
+   "lei": "549300JVQR4N1MMP3Q88"
+  },
+  {
+   "name": "Synopsys, Inc.",
+   "pct": 0.429513314102,
+   "cusip": "871607107",
+   "lei": "QG7T915N9S0NY5UKNE63"
+  },
+  {
+   "name": "Mondelez International, Inc.",
+   "pct": 0.417837425698,
+   "cusip": "609207105",
+   "lei": "549300DV9GIB88LZ5P30"
+  },
+  {
+   "name": "American Electric Power Co., Inc.",
+   "pct": 0.40093172263,
+   "cusip": "025537101",
+   "lei": "1B4S6S7G0TW5EE83BO58"
+  },
+  {
+   "name": "Monster Beverage Corp.",
+   "pct": 0.400871786624,
+   "cusip": "61174X109",
+   "lei": "52990090AP0E7HCB6F33"
+  },
+  {
+   "name": "Ross Stores, Inc.",
+   "pct": 0.396247985803,
+   "cusip": "778296103",
+   "lei": "549300ENZFLPGRDFZQ60"
+  },
+  {
+   "name": "PDD Holdings Inc.",
+   "pct": 0.385959645814,
+   "cusip": "722304102",
+   "lei": "5493000573DS7005T657"
+  },
+  {
+   "name": "Warner Bros. Discovery, Inc.",
+   "pct": 0.385112496153,
+   "cusip": "934423104",
+   "lei": "5493006ZCRFWKF6B1K26"
+  },
+  {
+   "name": "Cintas Corp.",
+   "pct": 0.382502130917,
+   "cusip": "172908105",
+   "lei": "549300E27V6N4OJCJ944"
+  },
+  {
+   "name": "DoorDash, Inc.",
+   "pct": 0.34811528205,
+   "cusip": "25809K105",
+   "lei": "549300NUQ43FGGSK5051"
+  },
+  {
+   "name": "PACCAR Inc.",
+   "pct": 0.343603404129,
+   "cusip": "693718108",
+   "lei": "KDTEY8BWE486IKZ3CC07"
+  },
+  {
+   "name": "Fortinet, Inc.",
+   "pct": 0.341950424647,
+   "cusip": "34959E109",
+   "lei": "549300O0QJWDBAS0QX03"
+  },
+  {
+   "name": "Baker Hughes Co.",
+   "pct": 0.341218343352,
+   "cusip": "05722G100",
+   "lei": "549300XU3XH6F05YEQ93"
+  },
+  {
+   "name": "Diamondback Energy, Inc.",
+   "pct": 0.315515428484,
+   "cusip": "25278X109",
+   "lei": "549300R22LSX6OHWEN64"
+  },
+  {
+   "name": "Monolithic Power Systems, Inc.",
+   "pct": 0.30370583349,
+   "cusip": "609839105",
+   "lei": "529900TB7O85LSZ1XU31"
+  },
+  {
+   "name": "Airbnb, Inc.",
+   "pct": 0.302488874223,
+   "cusip": "009066101",
+   "lei": "549300HMUDNO0RY56D37"
+  },
+  {
+   "name": "Fastenal Co.",
+   "pct": 0.30132261567,
+   "cusip": "311900104",
+   "lei": "529900PP0C7H2HHPSJ32"
+  },
+  {
+   "name": "Electronic Arts Inc.",
+   "pct": 0.288522275219,
+   "cusip": "285512109",
+   "lei": "549300O7A67PUEYKDL45"
+  },
+  {
+   "name": "Autodesk, Inc.",
+   "pct": 0.287017682284,
+   "cusip": "052769106",
+   "lei": "FRKKVKAIQEF3FCSTPG55"
+  },
+  {
+   "name": "Exelon Corp.",
+   "pct": 0.283564070903,
+   "cusip": "30161N101",
+   "lei": "3SOUA6IRML7435B56G12"
+  },
+  {
+   "name": "NXP Semiconductors N.V.",
+   "pct": 0.281316882162,
+   "cusip": "N6596X109",
+   "lei": "724500M9BY5293JDF951"
+  },
+  {
+   "name": "Xcel Energy Inc.",
+   "pct": 0.280275371852,
+   "cusip": "98389B100",
+   "lei": "LGJNMI9GH8XIDG5RCM61"
+  },
+  {
+   "name": "FERROVIAL SE",
+   "pct": 0.264666913432,
+   "cusip": "N/A",
+   "lei": "N/A"
+  },
+  {
+   "name": "IDEXX Laboratories, Inc.",
+   "pct": 0.253013123977,
+   "cusip": "45168D104",
+   "lei": "OGMTXK0LUU1HKV2P0J84"
+  },
+  {
+   "name": "Alnylam Pharmaceuticals, Inc.",
+   "pct": 0.248152962232,
+   "cusip": "02043Q107",
+   "lei": "529900S3ZI14OWRJII50"
+  },
+  {
+   "name": "PayPal Holdings, Inc.",
+   "pct": 0.235491939016,
+   "cusip": "70450Y103",
+   "lei": "5493005X2GO78EFZ3E94"
+  },
+  {
+   "name": "Coca-Cola Europacific Partners PLC",
+   "pct": 0.234945167276,
+   "cusip": "G25839104",
+   "lei": "549300LTH67W4GWMRF57"
+  },
+  {
+   "name": "Old Dominion Freight Line, Inc.",
+   "pct": 0.230316688686,
+   "cusip": "679580100",
+   "lei": "5299009TWK32WE417T96"
+  },
+  {
+   "name": "Thomson Reuters Corp.",
+   "pct": 0.22636067386,
+   "cusip": "884903808",
+   "lei": "549300561UZND4C7B569"
+  },
+  {
+   "name": "Strategy Inc.",
+   "pct": 0.221690371814,
+   "cusip": "594972408",
+   "lei": "549300WQTWEJUEHXQX21"
+  },
+  {
+   "name": "Datadog, Inc.",
+   "pct": 0.219294917872,
+   "cusip": "23804L103",
+   "lei": "549300F6JNO0KRPO1K63"
+  },
+  {
+   "name": "Take-Two Interactive Software, Inc.",
+   "pct": 0.206630043848,
+   "cusip": "874054109",
+   "lei": "BOMSTHHJK882EWYX3334"
+  },
+  {
+   "name": "Roper Technologies, Inc.",
+   "pct": 0.205973448769,
+   "cusip": "776696106",
+   "lei": "54930003T4SXCIWVXY35"
+  },
+  {
+   "name": "Keurig Dr Pepper Inc.",
+   "pct": 0.202307340525,
+   "cusip": "49271V100",
+   "lei": "DYTQ8KRTKO7Y2BVU5K74"
+  },
+  {
+   "name": "Insmed Inc.",
+   "pct": 0.199328814124,
+   "cusip": "457669307",
+   "lei": "529900Q55QAG41CCAC11"
+  },
+  {
+   "name": "Microchip Technology Inc.",
+   "pct": 0.197743464829,
+   "cusip": "595017104",
+   "lei": "5493007PTFULNYZJ1R12"
+  },
+  {
+   "name": "Axon Enterprise, Inc.",
+   "pct": 0.193093805858,
+   "cusip": "05464C101",
+   "lei": "549300QP2IEEGFE16681"
+  },
+  {
+   "name": "Paychex, Inc.",
+   "pct": 0.187006658707,
+   "cusip": "704326107",
+   "lei": "529900K900DW6SUBM174"
+  },
+  {
+   "name": "GE HealthCare Technologies Inc.",
+   "pct": 0.183456268773,
+   "cusip": "36266G107",
+   "lei": "549300OI9J7XOWZMUN85"
+  },
+  {
+   "name": "Copart, Inc.",
+   "pct": 0.181747459997,
+   "cusip": "217204106",
+   "lei": "549300KVYX3JWMYEHU61"
+  },
+  {
+   "name": "Cognizant Technology Solutions Corp.",
+   "pct": 0.165925849594,
+   "cusip": "192446102",
+   "lei": "5493006IEVQEFQO40L83"
+  },
+  {
+   "name": "Workday, Inc.",
+   "pct": 0.156624155154,
+   "cusip": "98138H101",
+   "lei": "549300J0DYC0N31V7G13"
+  },
+  {
+   "name": "Charter Communications, Inc.",
+   "pct": 0.154596314735,
+   "cusip": "16119P108",
+   "lei": "0J0XRGZE3PBRFEZ7MV65"
+  },
+  {
+   "name": "Kraft Heinz Co. (The)",
+   "pct": 0.150678166943,
+   "cusip": "500754106",
+   "lei": "9845007488EC87F5AF14"
+  },
+  {
+   "name": "Verisk Analytics, Inc.",
+   "pct": 0.148022625374,
+   "cusip": "92345Y106",
+   "lei": "549300I1YSWNIRKBWP67"
+  },
+  {
+   "name": "DexCom, Inc.",
+   "pct": 0.136683803516,
+   "cusip": "252131107",
+   "lei": "549300YSK3QDSFR5EU59"
+  },
+  {
+   "name": "Zscaler, Inc.",
+   "pct": 0.127564870918,
+   "cusip": "98980G102",
+   "lei": "529900MZ0RTK1BWRNF46"
+  },
+  {
+   "name": "ARM Holdings PLC",
+   "pct": 0.119471818488,
+   "cusip": "042068205",
+   "lei": "2138001E66EELTE7Y904"
+  },
+  {
+   "name": "CoStar Group, Inc.",
+   "pct": 0.095768021498,
+   "cusip": "22160N109",
+   "lei": "984500Q1D53D08E2E698"
+  },
+  {
+   "name": "Atlassian Corp.",
+   "pct": 0.065463987748,
+   "cusip": "049468101",
+   "lei": "549300V7ZY5P02D2MY38"
+  },
+  {
+   "name": "N/A",
+   "pct": -0.00322475199,
+   "cusip": "N/A",
+   "lei": "N/A"
+  }
+ ]
+}
