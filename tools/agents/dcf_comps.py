@@ -124,7 +124,27 @@ COMPS_COLUMNS = {"ticker": "B", "price": "C", "mkt_cap": "D", "ev": "E", "ev_rev
 # Writing only to Assumptions!C13/C14 would be a silent no-op on the real
 # calculation -- found the hard way by checking, not assumed. These two
 # labels route to DCF directly instead.
-_DIRECT_CELLS = {"WACC %": ("DCF", "I5"), "Terminal growth %": ("DCF", "I6")}
+#
+# "Base revenue (FY0A, $mm)" and "Net debt ($mm)" have no Assumptions row
+# at all: IS!F5 (FY1E revenue) is "=E5*(1+Assumptions!C5)" -- it grows
+# forward from IS!E5 (FY0A actual revenue), a raw input cell with no
+# Assumptions equivalent. Omitting it doesn't error, it silently zeroes
+# every projected year (0 * (1+growth) = 0 forever), cascading through
+# EBIT, unlevered FCF, and enterprise value all the way to an implied
+# value/share of exactly 0 -- caught by CI's real recalc after this
+# session's sandbox-blocked recalc couldn't run far enough to show it.
+# DCF!I11 ("Less: net debt") is a DCF-sheet-local input in the same vein
+# as I5/I6/I13; it defaults to 0 (equivalent to assuming no net debt),
+# which recalculates cleanly but silently, so it's included here as an
+# explicit real fact rather than left at a default that happens not to
+# error.
+_DIRECT_CELLS = {
+    "WACC %": ("DCF", "I5"),
+    "Terminal growth %": ("DCF", "I6"),
+    "Base revenue (FY0A, $mm)": ("IS", "E5"),
+    "Net debt ($mm)": ("DCF", "I11"),
+    "Diluted shares (mm)": ("DCF", "I13"),
+}
 
 
 def validate_provenance(inp: ToolInput) -> list[str]:
@@ -304,10 +324,12 @@ def demo() -> ToolOutput:
     01_Investment_Banking/instances/ corpus."""
     today = date.today().isoformat()
     facts = {
+        "Base revenue (FY0A, $mm)": 1000.0,
         "Revenue growth %": 0.10,
         "Gross margin %": 0.60,
         "Opex % of revenue": 0.35,
         "Tax rate %": 0.21,
+        "Diluted shares (mm)": 100.0,
         "WACC %": 0.09,
         "Terminal growth %": 0.025,
     }
@@ -330,11 +352,11 @@ def demo() -> ToolOutput:
 def adobe_dcf_fixture() -> ToolInput:
     """Real DCF Assumptions derived from Adobe's already-fetched XBRL
     annual series (same source as software-public-adobe-fy2025 -- no new
-    fetch). FY1 (most recent fiscal year, 2025-11-28) growth, margin, opex,
-    tax rate, D&A/capex ratio, capex %, diluted shares, and net debt are
-    all real, computed facts. WACC and terminal growth are not disclosed
-    by any issuer and are submitted as modeler_assumption at this repo's
-    own established precedent (0.09 / 0.025, same as
+    fetch). Base FY0A revenue, FY1 growth, margin, opex, tax rate,
+    D&A/capex ratio, capex %, diluted shares, and net debt are all real,
+    computed facts. WACC and terminal growth are not disclosed by any
+    issuer and are submitted as modeler_assumption at this repo's own
+    established precedent (0.09 / 0.025, same as
     ib-public-microsoft-linkedin-2016's discount/growth inputs).
 
     Comps peer data is deliberately NOT submitted here -- see this
@@ -362,8 +384,10 @@ def adobe_dcf_fixture() -> ToolInput:
     ebitda = operating_income + da
     opex = gross_profit - ebitda
     pretax_income = net_income + tax
+    net_debt = ltd - cash
 
     facts = {
+        "Base revenue (FY0A, $mm)": round(revenue / 1_000_000, 1),
         "Revenue growth %": round(revenue / revenue_prior - 1, 4),
         "Gross margin %": round(gross_profit / revenue, 4),
         "Opex % of revenue": round(opex / revenue, 4),
@@ -371,6 +395,8 @@ def adobe_dcf_fixture() -> ToolInput:
         "D&A % of capex": round(da / capex, 4),
         "Capex % of revenue": round(capex / revenue, 4),
         "Shares outstanding (mm)": round(shares / 1_000_000, 1),
+        "Diluted shares (mm)": round(shares / 1_000_000, 1),
+        "Net debt ($mm)": round(net_debt / 1_000_000, 1),
         "WACC %": 0.09,
         "Terminal growth %": 0.025,
     }
@@ -383,6 +409,11 @@ def adobe_dcf_fixture() -> ToolInput:
         source_url="https://data.sec.gov/api/xbrl/companyfacts/CIK0000796343.json",
         transformation="Reused from tools/data_fabric/out/ADBE_facts_annual_series.json (same source as software-public-adobe-fy2025); ratios computed here from disclosed dollar figures.",
     )
+    net_debt_source = Provenance(
+        source_name=xbrl_source.source_name, as_of_date=as_of, retrieval_date=retrieval_date,
+        source_url=xbrl_source.source_url,
+        transformation="Net debt = LongTermDebt - CashAndCashEquivalentsAtCarryingValue, both from the same XBRL series.",
+    )
     precedent_source = Provenance(
         source_name="Repo precedent: ib-public-microsoft-linkedin-2016 discount/growth assumptions",
         as_of_date=as_of,
@@ -391,14 +422,13 @@ def adobe_dcf_fixture() -> ToolInput:
         transformation="No issuer discloses WACC or terminal growth; reused this repo's own prior modeler_assumption values for a large-cap tech valuation rather than choosing a fresh unsourced number.",
     )
     provenance = {
-        f"Assumptions::{label}": (xbrl_source if label in real_labels else precedent_source)
+        f"Assumptions::{label}": (
+            precedent_source if label in ("WACC %", "Terminal growth %")
+            else net_debt_source if label == "Net debt ($mm)"
+            else xbrl_source
+        )
         for label in facts
     }
-    net_debt_prov = Provenance(
-        source_name=xbrl_source.source_name, as_of_date=as_of, retrieval_date=retrieval_date,
-        source_url=xbrl_source.source_url,
-        transformation="Net debt = LongTermDebt - CashAndCashEquivalentsAtCarryingValue, both from the same XBRL series.",
-    )
 
     return ToolInput(
         instance_slug="public_adobe_dcf_proxy",

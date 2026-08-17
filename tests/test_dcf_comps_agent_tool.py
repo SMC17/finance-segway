@@ -37,10 +37,12 @@ class DcfCompsAgentToolTests(unittest.TestCase):
     def make_input(self, **overrides) -> ToolInput:
         today = "2026-08-17"
         facts = {
+            "Base revenue (FY0A, $mm)": 1000.0,
             "Revenue growth %": 0.10,
             "Gross margin %": 0.60,
             "Opex % of revenue": 0.35,
             "Tax rate %": 0.21,
+            "Diluted shares (mm)": 100.0,
             "WACC %": 0.09,
             "Terminal growth %": 0.025,
         }
@@ -73,8 +75,13 @@ class DcfCompsAgentToolTests(unittest.TestCase):
         # recalculated workbook, not echoes of the submitted facts.
         self.assertEqual(result.headline["wacc"], 0.09)
         self.assertEqual(result.headline["terminal_growth"], 0.025)
-        self.assertIsInstance(result.headline["implied_value_per_share"], float)
-        self.assertIsInstance(result.headline["enterprise_value"], float)
+        # Regression coverage: omitting "Base revenue (FY0A, $mm)" left
+        # IS!E5 at its 0 default, silently zeroing every projected revenue
+        # year (0 * (1+growth) = 0 forever) and cascading to an implied
+        # value/share of exactly 0 -- a float, technically, so isinstance
+        # alone didn't catch it. Must be strictly positive on real inputs.
+        self.assertGreater(result.headline["implied_value_per_share"], 0)
+        self.assertGreater(result.headline["enterprise_value"], 0)
         source_names = {s["source_name"] for s in result.sources_written}
         self.assertIn("unit test fixture", source_names)
 
