@@ -9,7 +9,7 @@ See `docs/AGENT_TOOL_CONTRACT.md` and `docs/AI_NATIVE_GOLDMAN_ROADMAP.md`.
 | `private_credit_underwrite.py` | 05 Private Credit | **Wired** — provenance validated against live Assumptions-sheet labels; writes via the governed manifest path (`tools/model_instance_release.py`); recalculates for real via LibreOffice; reads Checks back |
 | `lbo_underwrite.py` | 03 Private Equity | **Wired** — same shape; real fixture reuses the already-sourced `pe-public-home-depot-2023` public case as a real-operating-profile proxy (not a real LBO -- Home Depot was never taken private, so deal-structure terms stay illustrative) |
 | `restructuring_screen.py` | 24 Distressed & Restructuring | **Wired** — input surface is genuinely sheet-scoped (no single Assumptions sheet); real fixture reuses the already-sourced `distressed-public-hertz-2021-reorganization` public case |
-| `dcf_comps` | 01 IB | Planned |
+| `dcf_comps.py` | 01 Investment Banking | **Wired** — DCF/Comps only (not Transaction Analysis/Accretion Dilution, which the domain's two existing real cases already cover); real fixture derives DCF Assumptions from already-fetched Adobe XBRL data, Comps peer data left genuinely unsourced |
 
 ## Private Credit
 
@@ -80,3 +80,30 @@ is PASS / REVIEW / BREACH rather than PASS / REVIEW / FAIL. A BREACH
 verdict from real submitted facts is a valid, honest reading (see
 `distressed-public-bbby-2022-liquidity`, which correctly shows distress)
 — only a literal recalculation failure is treated as a tool failure.
+
+## Investment Banking (DCF / Comps)
+
+```bash
+# Real DCF assumptions derived from already-fetched Adobe XBRL data (no new fetch)
+PYTHONPATH=. python tools/agents/dcf_comps.py --use-adobe-dcf-fixture
+
+# Demo path (fictional company, writes to .agent-tool-scratch/)
+PYTHONPATH=. python tools/agents/dcf_comps.py --demo
+```
+
+Scoped to DCF and Comps only — not Transaction Analysis or Accretion
+Dilution, which the domain's two existing real cases
+(`ib-public-hp-autonomy-2012-stress`, `ib-public-microsoft-linkedin-2016`)
+already cover, and neither of which touches DCF/Comps/Assumptions at all.
+No dedicated DCF/Comps row exists in `Decision & Checks` either (its
+checks are entirely Transaction-Analysis/Accretion-Dilution), so this
+tool sanity-checks the DCF output directly (numeric, non-negative implied
+value and enterprise value) rather than claiming a Checks status the
+template was never wired to compute for a standalone DCF/Comps run.
+
+`Assumptions!C13`/`C14` ("WACC %", "Terminal growth %") are labeled rows
+with no formula anywhere reading them — confirmed by grep, not assumed.
+`DCF!I5`/`I6` are the actual live control cells the discount-factor and
+terminal-value formulas reference; this tool routes those two labels
+there directly rather than writing an inert value into the Assumptions
+sheet.
