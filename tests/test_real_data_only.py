@@ -71,8 +71,18 @@ class RealDataOnlyTests(unittest.TestCase):
             )
         )
         cases = index["cases"]
-        self.assertEqual(50, len(cases))
-        self.assertEqual(26, len({case["model_id"] for case in cases}))
+        # Ratchet floors, not exact counts: the corpus grows as new domains and
+        # adversarial pairs land, so an exact assertEqual here breaks on every
+        # legitimate addition (this test itself was that stale assertion until
+        # the etf-public-kweb-2026-stress case tripped it). What must always
+        # hold: the index's own summary fields are not allowed to drift from
+        # what's actually in the list, and the corpus never shrinks.
+        self.assertGreaterEqual(len(cases), 50)
+        self.assertGreaterEqual(len({case["model_id"] for case in cases}), 26)
+        self.assertEqual(index["case_count"], len(cases))
+        self.assertEqual(
+            index["evidence_models"], len({case["model_id"] for case in cases})
+        )
         for case in cases:
             manifest = json.loads(
                 (ROOT / case["manifest"]).read_text(encoding="utf-8")

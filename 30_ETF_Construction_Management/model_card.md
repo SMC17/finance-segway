@@ -6,13 +6,13 @@
 - Domain: ETF Construction & Management
 - Archetype: ETF
 - Version: 1.0.0
-- As-of date: 2026-08-06
+- As-of date: 2026-08-17
 - Owner: SMC17 / repository owner
 - Developer: Claude Code
 - Independent validator: workbook-contract and LibreOffice recalculation checks (see Checks sheet); no independent-oracle coverage yet
 - Approver: **PENDING STAKEHOLDER SIGN-OFF**
 - Risk tier: Tier 1
-- Declared maturity: **M2** (integrated mechanics, one real sourced public instance, independent reference checks, clear decision outputs)
+- Declared maturity: **M2** (integrated mechanics, two real sourced public instances -- conventional and adversarial -- independent reference checks, clear decision outputs)
 - Intended horizon: perpetual (open-end, exchange-traded fund)
 
 ## Intended use
@@ -36,7 +36,7 @@
 - Reproducible builder: `tools/builders/build_etf_construction_institutional.py`
 - Methodology: standard open-end ETF mechanics -- (1) look-through portfolio construction from disclosed holdings and sector weights; (2) creation-unit basket valuation and AP arbitrage-profit sizing at a given premium/discount to NAV; (3) a fund-return-vs.-benchmark tracking-difference bridge (expense ratio drag, securities-lending revenue offset, cash-drag cost, sampling/optimization tracking error).
 - Time-step and timeline: `perpetual`, modeled as a single-period snapshot (most recent disclosed holdings and price) rather than a multi-year simulation -- matches how an ETF issuer's own fact sheet and holdings disclosure are structured.
-- Public cases: one real instance (`etf-public-qqq-2026`); a second (adversarial/stress -- e.g. a leveraged or thinly-traded ETF under a redemption-pressure scenario) is future work, tracked as a thin-coverage gap rather than silently ignored.
+- Public cases: two real instances -- `etf-public-qqq-2026` (conventional/Base, Invesco QQQ Trust) and `etf-public-kweb-2026-stress` (adversarial/Downside, KraneShares CSI China Internet ETF -- a real, sourced instance of the "concentrated ETF under real disclosed stress" case this card's earlier draft called out as future work).
 
 ## Inputs and sources
 
@@ -107,7 +107,8 @@
 
 ## Limitations and failure modes
 
-- Single real instance so far (`etf-public-qqq-2026`); no adversarial/stress case yet -- tracked as a thin-coverage gap, not hidden.
+- `etf-public-kweb-2026-stress`'s sector table (sourced from the fund's own N-CSR) sums to 102.6%, outside the workbook's own 90%-101% plausible band -- a real, disclosed artifact (securities-lending collateral appears to double-count against a sector bucket), not a sourcing error in this case. It correctly resolves the Checks sheet's sector-weight check to REVIEW rather than PASS; that is the expected, honest outcome for an adversarial case, exactly like the Private Credit domain's Yellow Corp REVIEW on covenant breach.
+- KWEB's realized outcome (5-year average annual total return) is a total-return figure the fund itself discloses, not an independently computed peak-to-trough price drawdown -- the free-tier market-data source used elsewhere in this repo only serves ~100 days of price history, insufficient to reach the 2021 peak.
 - Market price used as a NAV proxy, not the fund's own officially calculated daily NAV -- real (typically small) differences exist for a liquid ETF like QQQ and are not captured.
 - Creation unit size, securities-lending revenue, cash drag, and sampling error remain illustrative -- see "What's illustrative" above. A future pass with prospectus/SAI and annual-report access could source these for real.
 - Single-period snapshot, not a time-series tracking-difference backtest against the fund's actual realized return history.

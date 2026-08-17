@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "model_id": "30",
+  "domain": "ETF Construction & Management",
+  "case_id": "etf-public-kweb-2026-stress",
+  "case_type": "adversarial",
+  "as_of": "2026-08-17",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "KraneShares CSI China Internet ETF Profile (Alpha Vantage, fund-disclosed holdings/AUM/expense ratio)",
+      "url": "https://www.alphavantage.co/documentation/#etf-profile",
+      "publisher": "KraneShares (via Alpha Vantage)",
+      "captured_values": {
+        "net_expense_ratio": 0.0069,
+        "dividend_yield": 0.0743,
+        "inception_date": "2013-07-31",
+        "market_price_usd": 27.01,
+        "holdings_count_disclosed": 35
+      }
+    },
+    {
+      "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+      "publisher": "Krane Shares Trust (SEC EDGAR)",
+      "captured_values": {
+        "average_annual_total_returns_as_of_2026_03_31": {
+          "fund_net_return": {
+            "1_year": -0.1527,
+            "5_years": -0.1507,
+            "10_years": -0.0013
+          },
+          "csi_overseas_china_internet_index_price_return": {
+            "1_year": -0.1565,
+            "5_years": -0.1512,
+            "10_years": -0.001
+          },
+          "msci_china_all_shares_index_net_return": {
+            "1_year": 0.1036,
+            "5_years": -0.0347,
+            "10_years": 0.0449
+          }
+        },
+        "total_net_assets_usd": 6033567122,
+        "number_of_holdings": 32,
+        "total_advisory_fees_paid_usd": 52896988,
+        "portfolio_turnover_rate": 0.45,
+        "sector_weightings_pct_of_net_assets": {
+          "Consumer Discretionary": 0.414,
+          "Communication Services": 0.373,
+          "Consumer Staples": 0.083,
+          "Industrials": 0.065,
+          "Real Estate": 0.043,
+          "Short-Term Investment": 0.027,
+          "Financials": 0.021
+        },
+        "top_ten_holdings_pct_of_net_assets": {
+          "Tencent Holdings": 0.101,
+          "Alibaba Group Holding": 0.089,
+          "PDD Holdings ADR": 0.088,
+          "Meituan, Cl B": 0.074,
+          "NetEase": 0.059,
+          "JD.com, Cl A": 0.049,
+          "KE Holdings, Cl A": 0.043,
+          "Baidu, Cl A": 0.043,
+          "JD Health International": 0.04,
+          "Full Truck Alliance ADR": 0.036
+        }
+      }
+    }
+  ],
+  "snapshot_sha256": "300d638ffcdc175e2beb866f05503a24610f9251054a61bc6274a4abfe017a6e"
+}
