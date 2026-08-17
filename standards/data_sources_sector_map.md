@@ -5,6 +5,8 @@ Complements `tools/data_fabric/` and the Public Instance Program.
 
 **Primary rails**
 - **SEC / EDGAR** – US public company XBRL companyfacts, 10-K/10-Q, Form PF aggregates.
+- **U.S. Treasury** – daily par yield curve, bill rates, long-term rates, real (TIPS) curves. Discount/benchmark-rate input to Fixed Income, Options, Project Finance, and any DCF-adjacent domain.
+- **Damodaran (NYU Stern)** – industry-average beta, cost of equity/debt, WACC, margins, and PE/PBV/PS multiples (US + regional variants); global country equity risk premiums for cross-border WACC. Cost-of-capital and comps-benchmark input wherever a domain needs an industry or country number a single company's own filings can't supply.
 - **HVPE** – HarbourVest Global Private Equity Limited (listed FoF): monthly estimated NAV, annual reports, portfolio composition, cash-flow and allocation disclosures.
 - **FCA** – UK Product Sales Data (PSD), FIRDS instrument reference, STS securitisations, Public Ratings Database, NSM regulated disclosures, market-activity summaries.
 
@@ -19,14 +21,14 @@ All attachments must obey the real-data-only policy and carry full `source_regis
 
 | # | Domain | Primary public sources | Example / priority entities or datasets | Notes for sector analysis |
 |---|--------|------------------------|-----------------------------------------|---------------------------|
-| 01 | Investment Banking | SEC EDGAR companyfacts + filings | MSFT, AAPL, GOOGL, major M&A targets (LinkedIn historical, Autonomy stress) | 3-statement + DCF + comps; use prefer-annual for clean historicals |
-| 02 | Corporate Finance | SEC EDGAR | MSFT, INTC, sector peers by GICS | Capital structure, stress tests (Intel 2024-style) |
-| 03 | Private Equity | HVPE public NAV/portfolio + SEC of public sponsors & exits | HVPE monthly/annual; HD, Macy’s-style public cases already present | Look-through via HVPE allocations; LBO templates remain formula-driven |
+| 01 | Investment Banking | SEC EDGAR companyfacts + filings + Damodaran (industry PE/PBV/PS for comps, WACC for DCF discount rate) | MSFT, AAPL, GOOGL, major M&A targets (LinkedIn historical, Autonomy stress) | 3-statement + DCF + comps; use prefer-annual for clean historicals |
+| 02 | Corporate Finance | SEC EDGAR + Damodaran (industry WACC/beta for cost of capital) | MSFT, INTC, sector peers by GICS | Capital structure, stress tests (Intel 2024-style) |
+| 03 | Private Equity | HVPE public NAV/portfolio + SEC of public sponsors & exits + Damodaran (industry WACC as entry/exit discount-rate cross-check) | HVPE monthly/annual; HD, Macy’s-style public cases already present | Look-through via HVPE allocations; LBO templates remain formula-driven |
 | 04 | Merchant Banking | HVPE + SEC of principal-investing vehicles | Alleghany, WeWork historical public cases | Principal-investing LBO variant; same provenance rules |
 | 05 | Private Credit | SEC of BDCs + HVPE private-credit slice + FCA credit/PSD where relevant | ARCC (already exercised), Ares, Yellow stress | CFADS, covenants, yield/OID, recovery; expand BDC coverage |
 | 06 | Debt Finance | SEC issuer filings + FCA ratings / instrument data | Carnival (stress), MSFT debt, UK issuers via NSM | Maturity ladder, refinancing, rate risk |
 | 07 | Public Finance | Sovereign / municipal public disclosures + Fed series; FCA where UK local | Jamaica, Sri Lanka stress cases already present | DSA + operating / reserve / coverage lenses |
-| 08 | Asset Management | SEC of large managers + HVPE as FoF proxy | BLK (BlackRock 2022/23 cases) | NAV, fees, carry, attribution |
+| 08 | Asset Management | SEC of large managers + HVPE as FoF proxy + Damodaran (industry cost of capital for NAV/attribution benchmarks) | BLK (BlackRock 2022/23 cases) | NAV, fees, carry, attribution |
 | 09 | Risk Management | FRED / public market series + SEC for institutional holdings | FRED balanced / COVID adversarial cases | VaR / stress framework; regime citations |
 | 10 | Trade Finance | SEC of major exporters / aircraft / commodities houses | Boeing 2019/2020 cases | Cash conversion, LC, factoring |
 | 11 | Microfinance | Public MFI reports + FCA retail / protection PSD aggregates | ASA 2025 & Zambia stress cases | PAR, OSS/FSS; UK consumer-credit PSD for benchmarking |
@@ -39,7 +41,7 @@ All attachments must obey the real-data-only policy and carry full `source_regis
 | 18 | Insurance / Actuarial | SEC of insurers + FCA pure-protection PSD | AIG 2008 adversarial, CB 2023 | Loss ratio, triangle, EV |
 | 19 | Structured Finance / Securitization | Fed / agency mortgage data + FCA STS notifications | Fed mortgage 2009/2024 cases | Tranche waterfall, CPR, WAL |
 | 20 | Project Finance | Public project disclosures (NREL, utility filings) | NREL solar, Vogtle delay cases | Construction, CFADS, DSCR |
-| 21 | Fixed Income / Rates | Treasury / public curve data + SEC of issuers | Treasury 2022 shock, 2025-12-01 cases | Price, duration, curve |
+| 21 | Fixed Income / Rates | `treasury_public_facts.py` (par yield/bill/long-term/real curves) + SEC of issuers | Treasury 2022 shock, 2025-12-01 cases | Price, duration, curve. Existing cases were hand-captured from the same home.treasury.gov chart; the fabric script makes that fetch reproducible |
 | 22 | Quantitative / Systematic | Public equity / index series | SPX 2019-2023 & capacity cases | Performance, sizing; capacity constraints |
 | 23 | Fintech / Payments | SEC of processors + FCA retail-investment / payments-related | V, FIS/Worldpay cases | Unit economics, cohorts |
 | 24 | Distressed / Restructuring | SEC bankruptcy / liquidity filings | BBBY 2022, Hertz 2021 cases | Recovery, fulcrum waterfall |
@@ -72,4 +74,4 @@ When an academic dataset is used for an oracle or benchmark, record it in the do
 4. **Promotion** – New sources do not automatically raise maturity. M3/M4 still require model cards, independent validation, effective challenge, and (for M4) maintained instances with outcome monitoring.
 5. **CI** – Existing validators (`validate_model_inventory.py`, public-case checks, real-data-only tests) continue to gate any claims that rely on these sources.
 
-Last updated: 2026-08-05 (data-fabric expansion pass).
+Last updated: 2026-08-17 (Treasury + Damodaran data-fabric connectors).

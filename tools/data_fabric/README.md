@@ -6,6 +6,8 @@ facts plus `source_register`-compatible rows for governed workbooks.
 | Script | Purpose | Status |
 |--------|---------|--------|
 | `edgar_company_facts.py` | SEC companyfacts (XBRL) → selected US-GAAP + DEI values + provenance CSV. Ticker→CIK resolution via company_tickers.json. Prefer-annual option. | Production-ready seed (expanded concepts) |
+| `treasury_public_facts.py` | U.S. Treasury daily par yield curve / bill / long-term / real (TIPS) rates → dated CSV export (home.treasury.gov; not on the FiscalData REST API) + provenance CSV. | Production-ready |
+| `damodaran_public_facts.py` | Aswath Damodaran (NYU Stern) industry cost-of-capital/beta/margin/multiples datasets + global country equity risk premiums. `.xls` via `xlrd`, `.xlsx` via `openpyxl`. | Production-ready |
 | `hvpe_public_facts.py` | HarbourVest Global Private Equity (HVPE) public NAV / portfolio disclosures. Provenance recorder for monthly factsheets & annual reports. | Skeleton + recorder |
 | `fca_open_data.py` | FCA published datasets (Product Sales Data, FIRDS, STS, ratings, NSM pointers). Provenance recorder for aggregates and reference extracts. | Skeleton + recorder |
 
@@ -22,6 +24,15 @@ facts plus `source_register`-compatible rows for governed workbooks.
 # SEC – resolve CIK automatically and prefer annual facts
 python tools/data_fabric/edgar_company_facts.py --ticker AAPL --prefer-annual
 python tools/data_fabric/edgar_company_facts.py --ticker ARCC --cik 1287750
+
+# Treasury – daily par yield curve, one dated row or the full year
+python tools/data_fabric/treasury_public_facts.py --year 2026 --as-of 2026-08-17
+python tools/data_fabric/treasury_public_facts.py --year 2026 --type daily_treasury_bill_rates
+
+# Damodaran – industry cost of capital / multiples, and country risk premiums
+python tools/data_fabric/damodaran_public_facts.py --dataset wacc --industry "Software (Internet)"
+python tools/data_fabric/damodaran_public_facts.py --dataset pedata
+python tools/data_fabric/damodaran_public_facts.py --dataset ctryprem --country "United States"
 
 # HVPE – emit demo provenance template (then replace with real extracted numbers)
 python tools/data_fabric/hvpe_public_facts.py --demo
