@@ -75,24 +75,29 @@ class ReferenceCheckBindingTests(unittest.TestCase):
         from tools import verify_reference_calcs
 
         names = " ".join(check.__name__ for check in verify_reference_calcs.CHECKS)
+        # A model may carry more than one workbook oracle -- domain 31 has
+        # separate ARR and RPO roll-forward checks because they verify
+        # independent engines -- so each entry is a tuple of prefixes.
         expectations = {
-            "01": "check_base_archetype_integration",
-            "03": "check_lbo_sources_uses_and_debt_schedule",
-            "05": "check_credit_ecf_sweep_stepdown",
-            "13": "check_vc_",
-            "14": "check_black_scholes",
-            "21": "check_bond_duration",
-            "31": "check_software_arr_rollforward",
+            "01": ("check_base_archetype_integration",),
+            "03": ("check_lbo_sources_uses_and_debt_schedule",),
+            "05": ("check_credit_ecf_sweep_stepdown",),
+            "13": ("check_vc_",),
+            "14": ("check_black_scholes",),
+            "21": ("check_bond_duration",),
+            "31": ("check_software_arr_rollforward", "check_software_rpo_rollforward"),
         }
         self.assertEqual(set(expectations), WORKBOOK_VERIFIED_MODELS)
-        for model_id, fragment in expectations.items():
-            self.assertIn(fragment, names, f"model {model_id}: {fragment} missing")
+        for model_id, fragments in expectations.items():
+            for fragment in fragments:
+                self.assertIn(fragment, names, f"model {model_id}: {fragment} missing")
         # And the other direction, so a new check function cannot leave the
         # constant stale and silently under-report coverage (how "05" was
         # briefly missed): every check must match some expected fragment.
+        every_fragment = [f for fragments in expectations.values() for f in fragments]
         for check in verify_reference_calcs.CHECKS:
             self.assertTrue(
-                any(check.__name__.startswith(f) for f in expectations.values()),
+                any(check.__name__.startswith(f) for f in every_fragment),
                 f"{check.__name__} has no WORKBOOK_VERIFIED_MODELS entry",
             )
 

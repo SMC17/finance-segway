@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0",
+  "model_id": "31",
+  "domain": "Software & SaaS",
+  "case_id": "software-public-adobe-fy2025",
+  "case_type": "conventional",
+  "as_of": "2026-01-15",
+  "capture_method": "sec_xbrl_company_facts",
+  "sources": [
+    {
+      "name": "Adobe Inc. FY2025 Form 10-K (XBRL company facts, CIK 0000796343)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=10-K",
+      "publisher": "U.S. Securities and Exchange Commission (EDGAR company facts)",
+      "captured_values": {
+        "cik": "0000796343",
+        "fiscal_year_ends": [
+          "2025-11-28",
+          "2024-11-29",
+          "2023-12-01"
+        ],
+        "revenues_usd_mm": {
+          "2025-11-28": 23769.0,
+          "2024-11-29": 21505.0,
+          "2023-12-01": 19409.0
+        },
+        "gross_profit_usd_mm": {
+          "2025-11-28": 21218.0,
+          "2024-11-29": 19147.0,
+          "2023-12-01": 17055.0
+        },
+        "operating_income_usd_mm": {
+          "2025-11-28": 8706.0,
+          "2024-11-29": 6741.0,
+          "2023-12-01": 6650.0
+        },
+        "selling_and_marketing_usd_mm": {
+          "2025-11-28": 6488.0,
+          "2024-11-29": 5764.0,
+          "2023-12-01": 5351.0
+        },
+        "general_and_administrative_usd_mm": {
+          "2025-11-28": 1573.0,
+          "2024-11-29": 1529.0,
+          "2023-12-01": 1413.0
+        },
+        "share_based_compensation_usd_mm": {
+          "2025-11-28": 1942.0,
+          "2024-11-29": 1833.0,
+          "2023-12-01": 1718.0
+        },
+        "capex_usd_mm": {
+          "2025-11-28": 179.0,
+          "2024-11-29": 183.0,
+          "2023-12-01": 360.0
+        },
+        "remaining_performance_obligation_usd_mm": {
+          "2025-11-28": 22520.0,
+          "2024-11-29": 19960.0,
+          "2023-12-01": 17220.0
+        },
+        "contract_with_customer_liability_usd_mm": {
+          "2025-11-28": 7030.0,
+          "2024-11-29": 6260.0,
+          "2023-12-01": 5950.0
+        },
+        "income_tax_expense_usd_mm": {
+          "2025-11-28": 1604.0,
+          "2024-11-29": 1371.0,
+          "2023-12-01": 1371.0
+        },
+        "net_income_usd_mm": {
+          "2025-11-28": 7130.0,
+          "2024-11-29": 5560.0,
+          "2023-12-01": 5428.0
+        },
+        "revenue_growth_by_year": {
+          "2025-11-28": 0.105278,
+          "2024-11-29": 0.107991,
+          "2023-12-01": 0.102408
+        }
+      }
+    }
+  ],
+  "input_overrides": [],
+  "reconciliation_to_disclosure": {
+    "exact": {
+      "blended_gross_margin": 0.892675,
+      "gaap_operating_margin": 0.366275,
+      "rpo_coverage_of_revenue": 0.947453,
+      "note": "These tie to the filing by construction: margins are pinned to disclosed ratios and the R&D residual absorbs the difference, so modelled operating margin equals the disclosed one exactly."
+    },
+    "approximate": {
+      "modelled_year1_revenue_usd_mm": 22637.0,
+      "disclosed_fy2025_revenue_usd_mm": 23769.0,
+      "relative_error": -0.047625,
+      "cause": "The ARR scale is proxied from prior-year revenue because ARR is not disclosed. Revenue is a period-average flow and ARR is a point-in-time balance, so the proxy understates exit ARR for a growing business. This is the case's known, sized limitation."
+    }
+  },
+  "undisclosed_metrics": {
+    "note": "Concepts the software template needs that Adobe does not tag in XBRL. Recorded so the gap is auditable rather than implicit.",
+    "concepts": [
+      "annual recurring revenue (ARR)",
+      "net revenue retention / gross revenue retention",
+      "new, expansion, contraction, and churned ARR",
+      "subscription versus services revenue disaggregation",
+      "research and development expense (no us-gaap tag in this fact set)",
+      "portion of RPO expected to be recognised within twelve months",
+      "cash taxes paid"
+    ]
+  },
+  "outcome": {
+    "metric": "fy2026_total_revenue_usd_mm",
+    "forecast": 22637.0,
+    "realized": null,
+    "realized_source": "Adobe FY2026 Form 10-K, expected filing January 2027",
+    "status": "pending"
+  },
+  "counts_toward_m4": false,
+  "snapshot_sha256": "88e70b1ecaa16349c2e9787ab97af768eaf942d9998c8e74d589ac750140a2ee"
+}

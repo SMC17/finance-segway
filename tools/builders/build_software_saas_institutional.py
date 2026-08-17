@@ -24,6 +24,15 @@ What a software model must do that the BASE archetype does not:
     which buries it inside opex is not decision-useful.
   - Compute Rule of 40, the sector's standard growth-versus-profitability
     trade-off, from the model rather than as a quoted statistic.
+  - Roll remaining performance obligations forward alongside ARR. RPO is the
+    one forward-revenue quantity software companies actually file under XBRL
+    (RevenueRemainingPerformanceObligation), so it is the only piece of the
+    contracted-future-revenue picture that can be sourced rather than
+    assumed. Bookings fall out of the RPO roll-forward as a residual, and
+    splitting RPO against the contract liability separates the billed
+    portion (deferred revenue, on balance sheet) from the unbilled portion
+    (contracted but not yet invoiced, off balance sheet) -- a distinction
+    that materially changes how much of "backlog" is real cash timing.
 """
 from __future__ import annotations
 
@@ -44,7 +53,8 @@ from institutional_helpers import (  # noqa: E402
 YEARS = 5
 SHEETS = [
     "Cover", "Assumptions", "ARR Rollforward", "Operating Model",
-    "Unit Economics", "Rule of 40", "Checks", "Sources", "RefreshLog",
+    "RPO & Bookings", "Unit Economics", "Rule of 40", "Checks",
+    "Sources", "RefreshLog",
 ]
 
 
@@ -83,6 +93,10 @@ def build(output: Path) -> None:
         ("Capex (% of revenue)", 0.030, 0.030, "%", PCT),
         ("Cash tax rate", 0.210, 0.210, "%", PCT),
         ("Gross margin on new ARR (for CAC payback)", 0.800, 0.760, "%", PCT),
+        ("Beginning remaining performance obligation (RPO)", 950.0, 950.0, "$mm", CUR),
+        ("RPO coverage of revenue (ending RPO / revenue)", 0.950, 0.850, "x", MULT),
+        ("Current portion of RPO (recognised within 12 months)", 0.640, 0.600, "%", PCT),
+        ("Contract liability / deferred revenue (% of revenue)", 0.300, 0.300, "%", PCT),
     ]
     for row, (label, base, downside, units, number_format) in enumerate(assumptions, start=5):
         sheet.cell(row, 2, label)
@@ -184,6 +198,73 @@ def build(output: Path) -> None:
     set_widths(sheet, {"A": 4, "B": 38, **{get_column_letter(c): 14 for c in range(3, 3 + YEARS)}})
     sheet.freeze_panes = "C5"
 
+    # --- RPO and bookings -------------------------------------------------
+    # ARR is a management metric: no company files it, and the definitions
+    # differ enough between issuers that comparing two companies' ARR is
+    # often meaningless. RPO is the opposite -- it is a required disclosure
+    # under ASC 606 with a fixed definition, and it is tagged in XBRL. So
+    # this sheet is the part of the forward-revenue picture that an instance
+    # can actually ground in a filing, and it is deliberately driven off the
+    # roll-forward identity rather than off an assumed bookings number:
+    #   ending RPO = beginning RPO + gross bookings - revenue recognised
+    # Ending RPO is set from a coverage ratio and BOOKINGS is the residual,
+    # because coverage is observable from consecutive filings while gross
+    # bookings is never disclosed by anyone.
+    sheet = workbook["RPO & Bookings"]
+    title(sheet, "B2:H2", "Remaining Performance Obligations and Implied Bookings")
+    header(sheet, 4, 2, ["$mm", *[f"Year {year}" for year in range(1, YEARS + 1)]])
+    labels = [
+        "Revenue recognised", "Beginning RPO", "Ending RPO",
+        "Implied gross bookings (residual)", "Book-to-bill", "RPO growth",
+        "Current RPO (recognised within 12 months)", "Non-current RPO",
+        "Contract liability (deferred revenue)", "Unbilled RPO",
+        "Unbilled share of RPO", "Current RPO / following-year revenue",
+        "Ending RPO / ending ARR",
+    ]
+    for row, label in enumerate(labels, start=5):
+        sheet.cell(row, 2, label)
+
+    last_column = 2 + YEARS
+    for column in range(3, 3 + YEARS):
+        letter = get_column_letter(column)
+        previous = get_column_letter(column - 1)
+        sheet.cell(5, column, f"='Operating Model'!{letter}7")
+        if column == 3:
+            sheet.cell(6, column, "=Assumptions!$E$20")
+        else:
+            sheet.cell(6, column, f"={previous}7")
+        sheet.cell(7, column, f"={letter}5*Assumptions!$E$21")
+        # The residual. If a company's RPO grows faster than it recognises
+        # revenue, it booked more than it burned through -- that is the whole
+        # signal, and stating it as a residual keeps it honest.
+        sheet.cell(8, column, f"={letter}7-{letter}6+{letter}5")
+        sheet.cell(9, column, f"=IFERROR({letter}8/{letter}5,0)")
+        sheet.cell(10, column, f"=IFERROR({letter}7/{letter}6-1,0)")
+        sheet.cell(11, column, f"={letter}7*Assumptions!$E$22")
+        sheet.cell(12, column, f"={letter}7-{letter}11")
+        sheet.cell(13, column, f"={letter}5*Assumptions!$E$23")
+        # Unbilled RPO is contracted revenue the company has NOT yet
+        # invoiced, so it sits nowhere on the balance sheet. Deferred revenue
+        # is the billed half. Reporting only total RPO conflates the two.
+        sheet.cell(14, column, f"={letter}7-{letter}13")
+        sheet.cell(15, column, f"=IFERROR({letter}14/{letter}7,0)")
+        if column < last_column:
+            following = get_column_letter(column + 1)
+            sheet.cell(16, column, f"=IFERROR({letter}11/'Operating Model'!{following}7,0)")
+            sheet.cell(16, column).number_format = MULT
+        else:
+            sheet.cell(16, column, "n/a")
+        sheet.cell(17, column, f"=IFERROR({letter}7/'ARR Rollforward'!{letter}10,0)")
+        for row in (5, 6, 7, 8, 11, 12, 13, 14):
+            sheet.cell(row, column).number_format = CUR
+        for row in (9, 17):
+            sheet.cell(row, column).number_format = MULT
+        for row in (10, 15):
+            sheet.cell(row, column).number_format = PCT
+    total_row(sheet, 7, 2, 2 + YEARS, CUR)
+    set_widths(sheet, {"A": 4, "B": 44, **{get_column_letter(c): 14 for c in range(3, 3 + YEARS)}})
+    sheet.freeze_panes = "C5"
+
     # --- Unit economics ---------------------------------------------------
     sheet = workbook["Unit Economics"]
     title(sheet, "B2:H2", "Customer Acquisition Efficiency")
@@ -269,19 +350,34 @@ def build(output: Path) -> None:
          f'=IF(MIN(\'Unit Economics\'!C7:{last}7)>0,"PASS","REVIEW")'),
         ("Gross-profit CAC payback within 36 months",
          f'=IF(MAX(\'Unit Economics\'!C9:{last}9)<=36,"PASS","REVIEW")'),
+        ("RPO roll-forward reconciles (ending = beginning + bookings - revenue)",
+         f'=IF(MAX(ABS(\'RPO & Bookings\'!C7:{last}7-(\'RPO & Bookings\'!C6:{last}6+\'RPO & Bookings\'!C8:{last}8-\'RPO & Bookings\'!C5:{last}5)))<0.000001,"PASS","FAIL")'),
+        ("Current RPO does not exceed total RPO",
+         f'=IF(MIN(\'RPO & Bookings\'!C12:{last}12)>=-0.000001,"PASS","FAIL")'),
+        ("Contract liability does not exceed total RPO (unbilled RPO non-negative)",
+         f'=IF(MIN(\'RPO & Bookings\'!C14:{last}14)>=-0.000001,"PASS","REVIEW")'),
+        ("Implied gross bookings positive (no negative-bookings year)",
+         f'=IF(MIN(\'RPO & Bookings\'!C8:{last}8)>0,"PASS","REVIEW")'),
     ]
     for row, (label, formula) in enumerate(checks, start=5):
         sheet.cell(row, 2, label)
         sheet.cell(row, 3, formula)
-    sheet["B14"] = "Overall"
-    sheet["C14"] = '=IF(COUNTIF(C5:C13,"FAIL")>0,"FAIL",IF(COUNTIF(C5:C13,"REVIEW")>0,"REVIEW","PASS"))'
-    add_status_rules(sheet, "C5:C14")
+    overall = 5 + len(checks)
+    sheet.cell(overall, 2, "Overall")
+    sheet.cell(
+        overall, 3,
+        f'=IF(COUNTIF(C5:C{overall - 1},"FAIL")>0,"FAIL",'
+        f'IF(COUNTIF(C5:C{overall - 1},"REVIEW")>0,"REVIEW","PASS"))',
+    )
+    add_status_rules(sheet, f"C5:C{overall}")
     set_widths(sheet, {"A": 4, "B": 72, "C": 18})
 
     add_sources(workbook, [
         ("ARR and retention disclosures", "[10-K / 10-Q / shareholder letter]", "[period]", "Beginning/ending ARR, NRR, customer counts"),
         ("Revenue disaggregation", "[10-K revenue note]", "[period]", "Subscription versus services split and gross margin by type"),
         ("Stock-based compensation", "[10-K equity note]", "[period]", "SBC by expense line"),
+        ("Remaining performance obligations", "[10-K revenue note / XBRL RevenueRemainingPerformanceObligation]", "[period]", "Total RPO and the portion expected to be recognised within twelve months"),
+        ("Contract liabilities", "[10-K balance sheet / XBRL ContractWithCustomerLiability]", "[period]", "Deferred revenue, used to split billed from unbilled RPO"),
         ("Industry cost of capital and multiples", "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/data.html", "[annual]", "Software industry margins, betas, and multiple ranges for driver grounding"),
     ])
     add_refresh_log(workbook)

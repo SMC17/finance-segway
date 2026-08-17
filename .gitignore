@@ -29,3 +29,5 @@ builder-parity-report.json
 final-public-evidence-report.json
 all-domain-public-evidence-report.json
 frontier-program-report.json
+evidence-receipt-integrity-report.json
+m1-domain-hardening-report.json
