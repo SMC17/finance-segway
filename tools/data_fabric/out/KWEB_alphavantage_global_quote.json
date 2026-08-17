@@ -1,0 +1,15 @@
+{
+  "symbol": "KWEB",
+  "source": "Alpha Vantage GLOBAL_QUOTE MCP tool",
+  "retrieved_for": "30_ETF_Construction_Management etf-public-kweb-2026-stress public case",
+  "retrieved_at": "2026-08-17",
+  "open": 26.79,
+  "high": 27.085,
+  "low": 26.79,
+  "price": 27.01,
+  "volume": 16049323,
+  "latestDay": "2026-08-14",
+  "previousClose": 26.85,
+  "change": 0.16,
+  "changePercent": "0.5959%"
+}

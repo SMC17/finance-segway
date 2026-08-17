@@ -1,0 +1,48 @@
+{
+  "symbol": "KWEB",
+  "fund_name": "KraneShares CSI China Internet ETF",
+  "source": "SEC EDGAR full-text search + direct document fetch (curl, FinanceSegway UA), cross-checked against SEC full-text search index",
+  "form_type": "N-CSR",
+  "filer": "Krane Shares Trust",
+  "cik": "0001547576",
+  "accession_number": "0001829126-26-006162",
+  "period_covered": "2025-04-01 to 2026-03-31",
+  "filed_at": "2026-06-08",
+  "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+  "index_url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/index.json",
+  "retrieved_at": "2026-08-17",
+  "captured_values": {
+    "average_annual_total_returns_as_of_2026_03_31": {
+      "fund_net_return": {"1_year": -0.1527, "5_years": -0.1507, "10_years": -0.0013},
+      "csi_overseas_china_internet_index_price_return": {"1_year": -0.1565, "5_years": -0.1512, "10_years": -0.0010},
+      "msci_china_all_shares_index_net_return": {"1_year": 0.1036, "5_years": -0.0347, "10_years": 0.0449}
+    },
+    "total_net_assets_usd": 6033567122,
+    "number_of_holdings": 32,
+    "total_advisory_fees_paid_usd": 52896988,
+    "portfolio_turnover_rate": 0.45,
+    "sector_weightings_pct_of_net_assets": {
+      "Consumer Discretionary": 0.414,
+      "Communication Services": 0.373,
+      "Consumer Staples": 0.083,
+      "Industrials": 0.065,
+      "Real Estate": 0.043,
+      "Short-Term Investment": 0.027,
+      "Financials": 0.021
+    },
+    "top_ten_holdings_pct_of_net_assets": {
+      "Tencent Holdings": 0.101,
+      "Alibaba Group Holding": 0.089,
+      "PDD Holdings ADR": 0.088,
+      "Meituan, Cl B": 0.074,
+      "NetEase": 0.059,
+      "JD.com, Cl A": 0.049,
+      "KE Holdings, Cl A": 0.043,
+      "Baidu, Cl A": 0.043,
+      "JD Health International": 0.04,
+      "Full Truck Alliance ADR": 0.036
+    }
+  },
+  "quoted_text": "Average Annual Total Returns as of March 31, 2026 -- Fund/Index Name, 1 Year, 5 Years, 10 Years: KraneShares CSI China Internet ETF -15.27% -15.07% -0.13%; MSCI China All Shares Index (USD) (NR) 10.36% -3.47% 4.49%; CSI Overseas China Internet Index (USD) (PR) -15.65% -15.12% -0.10%. Key Fund Statistics as of March 31, 2026: Total Net Assets $6,033,567,122; Number of Holdings 32; Total Advisory Fees Paid $52,896,988; Portfolio Turnover Rate 45%.",
+  "notes": "The fund's own 5-year average annual total return (-15.07% net) is the realized adversarial outcome for this case: a buy-and-hold investor over the trailing 5 years to 2026-03-31 (a window spanning the fund's 2021 peak and the 2021-2022 China-tech regulatory-crackdown drawdown) lost money at a compounding annual rate, versus this repo's other public cases' illustrative forecast baseline of a 0.0% loss expectation. The fund tracked its own reference index tightly even through the stress (fund -15.07% vs CSI Overseas China Internet Index -15.12% over 5 years) -- the loss is a real, disclosed sector/security-selection outcome, not a tracking or wrapper-mechanics failure. Cross-validated against Alpha Vantage ETF_PROFILE: holdings count (32 real equity positions) and top-position weights (Tencent 10.09% AV vs 10.1% SEC; Alibaba 8.79% vs 8.9%; PDD 8.0% vs 8.8%) agree closely between the two independent sources."
+}
