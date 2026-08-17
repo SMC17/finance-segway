@@ -3,7 +3,7 @@
 ## Validation identity
 
 - Model ID and version: 29 / 1.0.0
-- Workbook checksum: see `29_Fund_of_Funds/_template_FOF.xlsx` at release time (no receipt yet — M1, no public instance)
+- Workbook checksum: see `29_Fund_of_Funds/_template_FOF.xlsx` at release time; real-case receipt at `standards/public_cases/fof-public-hlpaf-2026.json`
 - Builder commit: `tools/builders/build_fund_of_funds_institutional.py`
 - Validation date: 2026-08-05
 - Validator: Claude Code (independent Python recomputation, not reusing the workbook's own formulas)
@@ -13,11 +13,11 @@
 
 ## Executive conclusion
 
-- **Approved with limitations** at M1.
-- Declared maturity supported: Yes, for M1 (correct skeleton with at least one verified core identity). Not yet supported for M2 (requires a real, sourced public case — see model card, "Why M1, not M2").
-- Material findings: two real defects were found and fixed during this validation pass (see Finding IDs FOF-01 and FOF-02 below) — both caught by exactly the kind of independent recomputation this validation performs, not by the workbook's own internal checks alone.
-- Required compensating controls: no capital, fiduciary, regulatory, or live-risk use without a named human owner and approver; no M2+ claim until a real public case is sourced and passes `tools/verify_public_case_status.py`.
-- Revalidation trigger: a real public case is added, or the fee-layering / NAV roll-forward methodology changes.
+- **Approved with limitations** at M2.
+- Declared maturity supported: Yes, for M2 — one real, sourced, LibreOffice-recalculated public case (`fof-public-hlpaf-2026`) now exists in `standards/public_cases/index.json`.
+- Material findings: two real defects were found and fixed during template-mechanics validation (see Finding IDs FOF-01 and FOF-02 below), plus one real, honest signal from the case itself — its NAV roll-forward reconciliation check FAILs (Overall: BREACH), a genuine consequence of applying this template's simplified fee model to a real complex fund, documented rather than suppressed (see §2 and §6).
+- Required compensating controls: no capital, fiduciary, regulatory, or live-risk use without a named human owner and approver; the one real case's BREACH status must be understood (fee-model simplification, not a data defect) before any decision use.
+- Revalidation trigger: a second real public case is added, the fee-layering / NAV roll-forward methodology changes, or HLPAF's own filings are revised.
 
 ## 1. Conceptual soundness
 
@@ -34,7 +34,9 @@ One boundary condition is explicitly documented rather than silently accepted: t
 
 ## 2. Data and source validation
 
-No real source data exists yet (M1, template defaults only). `29_Fund_of_Funds/sources/source_register.csv` and `sources/snapshots/` are scaffolded and empty, ready for a real instance.
+One real, sourced case exists: `fof-public-hlpaf-2026`, from Hamilton Lane Private Assets Fund's N-CSR (SEC EDGAR, accession 0001213900-26-066804, filed 2026-06-09, period ended 2026-03-31). `29_Fund_of_Funds/sources/source_register.csv` and `sources/snapshots/fof-public-hlpaf-2026.json` are populated; the snapshot is hash-pinned (`snapshot_sha256` in the case's `standards/public_cases/index.json` entry).
+
+Real: top 8 (of 159 disclosed) secondary-fund positions by cost/fair value (Consolidated Schedule of Investments); FoF-level beginning/ending NAV, this-year realized/unrealized gain, this-year distributions, this-year net capital-share transactions, paid-in capital (Consolidated Statements of Changes in Net Assets). Not disclosed, not invented: per-position Commitment/Called/Distributed history and vintage year (Cost and acquisition date substitute, both labeled as proxies, not observed facts); cumulative distributions-to-date sums only the two most recent fiscal years. See model card, "Real public case," for the full accounting.
 
 ## 3. Implementation verification
 
@@ -62,7 +64,7 @@ Base and Downside scenarios both run cleanly (see workbook `Checks` sheet). Down
 
 ## 6. Outcomes analysis
 
-No outcomes exist yet — this model has no real instance and is not in `tools/frontier_evidence_registry.py` or `tools/final_public_evidence_registry.py`. Future test: once a real public case is sourced, its FoF net TVPI/DPI/RVPI as of the case date should be recorded as a same-period reproduction check (forecast and realized both equal to the sourced figures), following the pattern already established and corrected for the BlackRock 2023 AUM case elsewhere in this repository's evidence registry — not as a hindsight-restated "prediction."
+`fof-public-hlpaf-2026` is registered with `counts_toward_m4: false` and outcome status `pending` (`metric: next_fiscal_year_total_net_assets_usd_mm`, `forecast: 5785.7`, `realized: null`) — a genuine forward-looking check against HLPAF's next disclosed N-CSR, not yet resolvable since that filing does not exist yet. In the meantime, the case's own internal reconciliation check is the available evidence: NAV roll-forward reconciliation **FAILs** (residual ≈ $77.8mm, ~1.3% of ending NAV, Overall: BREACH) — attributable to this template's simplified two-line fee model (flat management fee + simple hurdle-then-carry) not reproducing HLPAF's real multi-share-class fee structure (management fee + incentive fee + per-class distribution fees), not to a data-sourcing error. This is the correct, informative signal for this case, following the same "honest imperfection over false precision" pattern established for the Private Credit domain's Yellow Corp REVIEW and the ETF domain's KWEB sector-band REVIEW elsewhere in this repository's evidence registry.
 
 ## 7. Use and governance
 
@@ -73,12 +75,12 @@ No outcomes exist yet — this model has no real instance and is not in `tools/f
 
 ## 8. Limitations
 
-See model card "Limitations and failure modes" — no real public instance, single-period snapshot rather than a full J-curve simulation, simplified hurdle-then-carry waterfall (no catch-up tranche), and the Downside-scenario scope boundary between the portfolio and roll-forward sheets.
+See model card "Limitations and failure modes" — the one real case trips the NAV roll-forward check (fee-model simplification, documented, not a defect), single-period snapshot rather than a full J-curve simulation, simplified hurdle-then-carry waterfall (no catch-up tranche), and the Downside-scenario scope boundary between the portfolio and roll-forward sheets.
 
 ## Sign-off
 
-- Developer response: implemented mechanics, checks, and this validation record; found and fixed two real defects during self-review.
-- Validator conclusion: approved with limitations at M1; M2 not yet supported pending real source data.
+- Developer response: implemented mechanics, checks, and this validation record; found and fixed two real defects during self-review; sourced one real public case and documented its honest reconciliation-check failure rather than adjusting inputs to force a PASS.
+- Validator conclusion: approved with limitations at M2.
 - Owner decision: **PENDING**
 - Approval date: **PENDING**
-- Next validation date or trigger: a real public case is sourced, or the methodology changes.
+- Next validation date or trigger: a second real public case is sourced, or the methodology changes.
