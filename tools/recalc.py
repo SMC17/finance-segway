@@ -85,8 +85,17 @@ def setup_libreoffice_macro(profile_dir: Path, timeout=30):
     if not macro_dir.exists():
         return None, "LibreOffice did not create a usable profile; formulas were NOT recalculated"
 
+    target = macro_dir / MACRO_FILENAME
     try:
-        (macro_dir / MACRO_FILENAME).write_text(RECALCULATE_MACRO)
+        # Some LibreOffice builds seed a stock Module1.xba into a fresh
+        # profile's Standard library as read-only (mode 444) -- writing
+        # over it in place then fails with EACCES even though we own the
+        # containing directory and the profile itself. Unlink first so a
+        # missing file (the common case) and a pre-seeded read-only one
+        # both end up freshly written, regardless of which LibreOffice
+        # build created the profile.
+        target.unlink(missing_ok=True)
+        target.write_text(RECALCULATE_MACRO)
     except OSError as e:
         return None, f"Could not install the recalculation macro: {e}"
 
