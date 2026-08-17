@@ -1,0 +1,261 @@
+{
+  "schema_version": "1.0",
+  "id": "software-public-uipath-fy2023-stress",
+  "classification": "external_historical_case",
+  "counts_toward_M4": false,
+  "template": "31_Software_SaaS/_template_SOFTWARE.xlsx",
+  "output": "31_Software_SaaS/instances/public_uipath_fy2023_stress.xlsx",
+  "as_of": "2023-01-31",
+  "scenario": "Downside",
+  "cover": {
+    "Title:": "UiPath, Inc. -- FY2023 net-retention deceleration case",
+    "Company / ticker:": "UiPath, Inc. (NYSE: PATH), CIK 0001734722",
+    "Subsector:": "application software -- SEC SIC 7372 (Services-Prepackaged Software), as filed by the registrant",
+    "Fiscal year end:": "2023-01-31 (FY2023)",
+    "Next filing / refresh:": "FY2024 10-K, filed 2024-03-27, already used for this case's realized outcome"
+  },
+  "inputs": [
+    {
+      "sheet": "Cover",
+      "cell": "C9",
+      "value": "Downside",
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case design decision",
+        "url": "repo://tools/build_software_uipath_case.py",
+        "as_of": "2023-01-31",
+        "notes": "This case is the adversarial half of the pair; only the Downside column is populated with real data."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "value": 925.3,
+      "input_kind": "observed",
+      "source": {
+        "name": "UiPath, Inc. FY2023 Form 10-K (SEC EDGAR, CIK 0001734722)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472223000017/path-20230131.htm",
+        "as_of": "2023-01-31",
+        "notes": "Filed 2023-03-24, accession 0001734722-23-000017. Source of ARR, net retention rate, revenue mix, cost structure, RPO, and capex for FY2023."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D6",
+      "value": 0.0711,
+      "input_kind": "derived",
+      "source": {
+        "name": "UiPath, Inc. FY2023 Form 10-K (SEC EDGAR, CIK 0001734722)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472223000017/path-20230131.htm",
+        "as_of": "2023-01-31",
+        "notes": "Filed 2023-03-24, accession 0001734722-23-000017. Source of ARR, net retention rate, revenue mix, cost structure, RPO, and capex for FY2023."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": 0.36,
+      "input_kind": "derived",
+      "source": {
+        "name": "UiPath, Inc. FY2023 Form 10-K (SEC EDGAR, CIK 0001734722)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472223000017/path-20230131.htm",
+        "as_of": "2023-01-31",
+        "notes": "Filed 2023-03-24, accession 0001734722-23-000017. Source of ARR, net retention rate, revenue mix, cost structure, RPO, and capex for FY2023."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "value": 0.05,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "UiPath, Inc. FY2023 Form 10-K (SEC EDGAR, CIK 0001734722)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472223000017/path-20230131.htm",
+        "as_of": "2023-01-31",
+        "notes": "Filed 2023-03-24, accession 0001734722-23-000017. Source of ARR, net retention rate, revenue mix, cost structure, RPO, and capex for FY2023."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "value": 0.08,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "UiPath, Inc. FY2023 Form 10-K (SEC EDGAR, CIK 0001734722)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472223000017/path-20230131.htm",
+        "as_of": "2023-01-31",
+        "notes": "Filed 2023-03-24, accession 0001734722-23-000017. Source of ARR, net retention rate, revenue mix, cost structure, RPO, and capex for FY2023."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 0.102,
+      "input_kind": "derived",
+      "source": {
+        "name": "UiPath, Inc. FY2023 Form 10-K (SEC EDGAR, CIK 0001734722)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472223000017/path-20230131.htm",
+        "as_of": "2023-01-31",
+        "notes": "Filed 2023-03-24, accession 0001734722-23-000017. Source of ARR, net retention rate, revenue mix, cost structure, RPO, and capex for FY2023."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "value": 0.8283,
+      "input_kind": "derived",
+      "source": {
+        "name": "UiPath, Inc. FY2023 Form 10-K (SEC EDGAR, CIK 0001734722)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472223000017/path-20230131.htm",
+        "as_of": "2023-01-31",
+        "notes": "Filed 2023-03-24, accession 0001734722-23-000017. Source of ARR, net retention rate, revenue mix, cost structure, RPO, and capex for FY2023."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D12",
+      "value": -0.5844,
+      "input_kind": "derived",
+      "source": {
+        "name": "UiPath, Inc. FY2023 Form 10-K (SEC EDGAR, CIK 0001734722)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472223000017/path-20230131.htm",
+        "as_of": "2023-01-31",
+        "notes": "Filed 2023-03-24, accession 0001734722-23-000017. Source of ARR, net retention rate, revenue mix, cost structure, RPO, and capex for FY2023."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D13",
+      "value": 0.6627,
+      "input_kind": "derived",
+      "source": {
+        "name": "UiPath, Inc. FY2023 Form 10-K (SEC EDGAR, CIK 0001734722)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472223000017/path-20230131.htm",
+        "as_of": "2023-01-31",
+        "notes": "Filed 2023-03-24, accession 0001734722-23-000017. Source of ARR, net retention rate, revenue mix, cost structure, RPO, and capex for FY2023."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D14",
+      "value": 0.2699,
+      "input_kind": "derived",
+      "source": {
+        "name": "UiPath, Inc. FY2023 Form 10-K (SEC EDGAR, CIK 0001734722)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472223000017/path-20230131.htm",
+        "as_of": "2023-01-31",
+        "notes": "Filed 2023-03-24, accession 0001734722-23-000017. Source of ARR, net retention rate, revenue mix, cost structure, RPO, and capex for FY2023."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D15",
+      "value": 0.2263,
+      "input_kind": "derived",
+      "source": {
+        "name": "UiPath, Inc. FY2023 Form 10-K (SEC EDGAR, CIK 0001734722)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472223000017/path-20230131.htm",
+        "as_of": "2023-01-31",
+        "notes": "Filed 2023-03-24, accession 0001734722-23-000017. Source of ARR, net retention rate, revenue mix, cost structure, RPO, and capex for FY2023."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D17",
+      "value": 0.0225,
+      "input_kind": "derived",
+      "source": {
+        "name": "UiPath, Inc. FY2023 Form 10-K (SEC EDGAR, CIK 0001734722)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472223000017/path-20230131.htm",
+        "as_of": "2023-01-31",
+        "notes": "Filed 2023-03-24, accession 0001734722-23-000017. Source of ARR, net retention rate, revenue mix, cost structure, RPO, and capex for FY2023."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D19",
+      "value": 0.8283,
+      "input_kind": "derived",
+      "source": {
+        "name": "UiPath, Inc. FY2023 Form 10-K (SEC EDGAR, CIK 0001734722)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472223000017/path-20230131.htm",
+        "as_of": "2023-01-31",
+        "notes": "Filed 2023-03-24, accession 0001734722-23-000017. Source of ARR, net retention rate, revenue mix, cost structure, RPO, and capex for FY2023."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D21",
+      "value": 0.8445,
+      "input_kind": "derived",
+      "source": {
+        "name": "UiPath, Inc. FY2023 Form 10-K (SEC EDGAR, CIK 0001734722)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472223000017/path-20230131.htm",
+        "as_of": "2023-01-31",
+        "notes": "Filed 2023-03-24, accession 0001734722-23-000017. Source of ARR, net retention rate, revenue mix, cost structure, RPO, and capex for FY2023."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "UiPath, Inc. FY2023 Form 10-K (SEC EDGAR, CIK 0001734722)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472223000017/path-20230131.htm",
+      "as_of": "2023-01-31",
+      "notes": "Filed 2023-03-24, accession 0001734722-23-000017. Source of ARR, net retention rate, revenue mix, cost structure, RPO, and capex for FY2023."
+    },
+    {
+      "name": "UiPath, Inc. FY2024 Form 10-K (SEC EDGAR, CIK 0001734722)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472224000011/path-20240131.htm",
+      "as_of": "2024-01-31",
+      "notes": "Filed 2024-03-27. Source of the realized outcome: FY2024 dollar-based net retention rate (119%), disclosed alongside the FY2023 comparative (123%)."
+    },
+    {
+      "name": "UiPath XBRL annual fact series (SEC EDGAR company facts, CIK 0001734722)",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001734722.json",
+      "as_of": "2023-01-31",
+      "notes": "Cross-check for revenue, gross profit, operating loss against the 10-K's own statement of operations (recorded at tools/data_fabric/out/PATH_facts_annual_series.json)."
+    }
+  ],
+  "refresh": {
+    "date": "2023-01-31",
+    "trigger": "Adversarial-pair sourcing for the Software & SaaS domain (model_card.md thin-coverage gap)",
+    "source_snapshot": "repo://31_Software_SaaS/sources/snapshots/software-public-uipath-fy2023-stress.json",
+    "what_changed": "Generated public case software-public-uipath-fy2023-stress from canonical release template",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending. License revenue (47% of FY2023 revenue) falls outside this ARR-driven template's scope and is not represented. Unlike software-public-adobe-fy2025 (which uses revenue AS an ARR proxy, by construction near-consistent with itself), this case uses UiPath's own REAL disclosed ARR as the scale driver. UiPath's ARR (annualized invoiced amounts from subscription + maintenance/support) and its GAAP Subscription-services revenue line are genuinely different bases -- the template's avg-ARR-times-(1+services%) revenue formula, applied to real ARR, implies Year-1 total revenue of ~$1,173.1mm against UiPath's actual disclosed FY2023 revenue of $1,058.6mm, a +10.8% gap. This is not a modeling error: it is the real, measurable distance between an ARR-native metric and GAAP revenue recognition timing for this specific company, disclosed here rather than papered over.",
+    "next_check": "On source revision, builder change, monitoring breach, or quarterly review"
+  },
+  "outcome": {
+    "metric": "next_fiscal_year_dollar_based_net_retention_rate",
+    "forecast": 1.23,
+    "realized": 1.19,
+    "realized_source": "UiPath FY2024 Form 10-K: dollar-based net retention rate of 119% at 2024-01-31, vs 123% at 2023-01-31 (both disclosed in that filing)",
+    "status": "recorded"
+  },
+  "lineage": {
+    "source_snapshot": "repo://31_Software_SaaS/sources/snapshots/software-public-uipath-fy2023-stress.json",
+    "synthetic_benchmark_inputs_allowed": false
+  },
+  "driver_declarations": [
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "UiPath discloses net retention (net of expansion/contraction/churn) but not gross contraction separately. Chosen at an order of magnitude typical for enterprise SaaS; does not affect the derived net-growth tie-out.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "UiPath discloses net retention but not gross churn separately. Set equal to this repo's own SOFTWARE template Base-scenario default (8%) as the most defensible anchor available.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "driver_type": "balancing_residual",
+      "rationale": "Expansion ARR is the balancing residual: Expansion = (net_retention - 1) + Contraction + Churn, so the four flow rates sum to exactly UiPath's disclosed 30% FY2023 ARR growth rate. This mirrors software-public-adobe-fy2025's use of gross churn as its own residual.",
+      "basis": {}
+    }
+  ]
+}
