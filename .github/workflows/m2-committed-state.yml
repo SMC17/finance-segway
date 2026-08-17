@@ -79,39 +79,10 @@ jobs:
           PYTHONPATH=.:tools python tools/workbook_engineering.py . \
             --report committed-workbook-engineering.json
 
-      - name: Enforce exact release shape
+      - name: Enforce release shape
         run: |
-          PYTHONPATH=. python - <<'PY'
-          import json
-          from pathlib import Path
-
-          inventory = json.loads(Path("standards/model_inventory.json").read_text())
-          public = json.loads(Path("standards/public_cases/index.json").read_text())
-          maturity = {}
-          for model in inventory["models"]:
-              maturity[model["declared_maturity"]] = maturity.get(model["declared_maturity"], 0) + 1
-          errors = []
-          # Ratchet floors, not exact counts: the frontier cohort (24 M2
-          # models, 2 public cases each) must never shrink, but new domains
-          # launching at their own honest maturity must not redden main
-          # (the exact-count form broke the day the 25th model landed at M1).
-          if maturity.get("M2", 0) < 24:
-              errors.append(f"M2 cohort regressed below 24: {maturity}")
-          below_m1 = {m for m in maturity if m not in {"M1", "M2", "M3", "M4"}}
-          if below_m1:
-              errors.append(f"invalid declared maturities: {sorted(below_m1)}")
-          cases = public.get("case_count", 0)
-          models = public.get("evidence_models", 0)
-          if cases < 48 or models < 24:
-              errors.append(f"public ledger regressed below 48 cases / 24 models: {cases}/{models}")
-          if cases != 2 * models:
-              errors.append(f"public ledger must stay two cases per evidence model: {cases} cases / {models} models")
-          if Path("standards/benchmark_cases").exists():
-              errors.append("retired synthetic benchmark directory was reintroduced")
-          if errors:
-              raise SystemExit(errors)
-          print({"maturity": maturity, "public_cases": public["case_count"]})
-          PY
+          PYTHONPATH=. python tools/verify_release_shape.py \
+            --report committed-release-shape.json
 
       - name: Recalculate all public workbooks
         run: |
@@ -149,6 +120,7 @@ jobs:
           name: committed-m2-real-data-${{ github.event_name }}
           path: |
             committed-public-receipts.json
+            committed-release-shape.json
             committed-model-inventory.json
             committed-builder-parity.json
             committed-workbook-engineering.json
