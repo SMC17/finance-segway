@@ -13,11 +13,11 @@
 
 ## Executive conclusion
 
-- **Approved with limitations** at M2.
-- Declared maturity supported: Yes, for M2 — one real, sourced, LibreOffice-recalculated public case (`fof-public-hlpaf-2026`) now exists in `standards/public_cases/index.json`.
+- **Approved with limitations** at M1.
+- Declared maturity supported: Yes, for M1 — one real, sourced, LibreOffice-recalculated public case (`fof-public-hlpaf-2026`) now exists in `standards/public_cases/index.json`. Not yet M2: `tools/verify_release_shape.py` (landed on `main` concurrently with this case) requires exactly two public cases per M2+ model; one real case is real progress but not sufficient.
 - Material findings: two real defects were found and fixed during template-mechanics validation (see Finding IDs FOF-01 and FOF-02 below), plus one real, honest signal from the case itself — its NAV roll-forward reconciliation check FAILs (Overall: BREACH), a genuine consequence of applying this template's simplified fee model to a real complex fund, documented rather than suppressed (see §2 and §6).
 - Required compensating controls: no capital, fiduciary, regulatory, or live-risk use without a named human owner and approver; the one real case's BREACH status must be understood (fee-model simplification, not a data defect) before any decision use.
-- Revalidation trigger: a second real public case is added, the fee-layering / NAV roll-forward methodology changes, or HLPAF's own filings are revised.
+- Revalidation trigger: a second real public case is added (required for M2), the fee-layering / NAV roll-forward methodology changes, or HLPAF's own filings are revised.
 
 ## 1. Conceptual soundness
 
@@ -80,7 +80,7 @@ See model card "Limitations and failure modes" — the one real case trips the N
 ## Sign-off
 
 - Developer response: implemented mechanics, checks, and this validation record; found and fixed two real defects during self-review; sourced one real public case and documented its honest reconciliation-check failure rather than adjusting inputs to force a PASS.
-- Validator conclusion: approved with limitations at M2.
+- Validator conclusion: approved with limitations at M1; M2 requires a second real public case per `tools/verify_release_shape.py`.
 - Owner decision: **PENDING**
 - Approval date: **PENDING**
-- Next validation date or trigger: a second real public case is sourced, or the methodology changes.
+- Next validation date or trigger: a second real public case is sourced (required for M2), or the methodology changes.

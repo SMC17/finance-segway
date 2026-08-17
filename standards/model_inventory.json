@@ -881,7 +881,7 @@
       "workbook": "29_Fund_of_Funds/_template_FOF.xlsx",
       "builder": "tools/builders/build_fund_of_funds_institutional.py",
       "horizon": "long_term_10y",
-      "declared_maturity": "M2",
+      "declared_maturity": "M1",
       "required_engines": [
         "look_through_portfolio",
         "nav_rollforward",
@@ -900,7 +900,7 @@
         "fee_layering_drag_nonnegative",
         "single_fund_concentration"
       ],
-      "target_maturity": "M3",
+      "target_maturity": "M2",
       "minimum_instances_for_M4": 2
     },
     {

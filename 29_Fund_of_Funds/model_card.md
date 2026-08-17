@@ -12,7 +12,7 @@
 - Independent validator: workbook-contract and LibreOffice recalculation checks (see Checks sheet); no independent-oracle coverage yet
 - Approver: **PENDING STAKEHOLDER SIGN-OFF**
 - Risk tier: Tier 1
-- Declared maturity: **M2** (one real, sourced, LibreOffice-recalculated public case — see "Real public case" below)
+- Declared maturity: **M1** (one real, sourced, LibreOffice-recalculated public case — see "Real public case" below; `tools/verify_release_shape.py` requires exactly two public cases before a model can declare M2+, so a second real case is still needed)
 - Intended horizon: long_term_10y
 
 ## Intended use
@@ -49,6 +49,8 @@ What's real: the top 8 (of 159 disclosed) secondary-fund positions by fair value
 What's not disclosed, and not invented: per-position Commitment/Called/Distributed history — a secondaries buyer reports only its own cost and fair value, not the original LP's commitment schedule — so Cost substitutes for both Commitment and Called (defensible: cost is what HLPAF itself paid), and per-position Distributed stays 0, a real, stated gap. Per-position vintage year is not disclosed either; HLPAF's own acquisition date is used as a labeled proxy, not a claim about the underlying fund's actual vintage. Cumulative "distributions to date" sums only the two most recently disclosed fiscal years, not a full since-inception figure. FoF management fee, carried interest, and hurdle stay at this template's own illustrative defaults — HLPAF's real fee structure (management fee + incentive fee + per-class distribution fees, applied across three share classes) does not map onto this template's simplified two-line fee model.
 
 That mismatch shows up honestly in the Checks sheet: **NAV roll-forward reconciles = FAIL** (Overall: BREACH), with a computed-vs-reported ending-NAV residual of roughly $77.8mm (~1.3% of ending NAV) — the simplified fee model applied to a real, complex multi-share-class fund's real gross investment gains does not reproduce the real reported ending NAV exactly. That is the correct, informative signal for this case, not a modeling bug — the same "honest imperfection" pattern already established elsewhere in this repo's evidence registry (Private Credit's Yellow Corp REVIEW, ETF's KWEB sector-band REVIEW).
+
+`tools/verify_release_shape.py` (landed on `main` concurrently with this case) requires exactly two public cases before a model can declare M2+ — one case alone is real progress but not enough. This domain stays at M1 until a second real, sourced case is added (ideally one showing genuine adversarial/distressed FoF conditions, following domain 30's KWEB/QQQ conventional+adversarial pairing).
 
 ## Inputs and sources
 

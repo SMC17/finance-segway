@@ -38,14 +38,16 @@ LEGACY_RELEASE_STAGED = "release_staged"
 # evidence program is built out -- see EXPECTED_INVENTORY_IDS below for the
 # check that any such addition is declared honestly, at its own actual
 # maturity, not silently folded into the frontier program's cohorts.
-# "29" (Fund of Funds) reached M2 once fof-public-hlpaf-2026 (Hamilton Lane
-# Private Assets Fund, real SEC N-CSR data) was sourced and recalculated;
-# "30" (ETF Construction & Management) launched at M2 with a real, sourced
-# public instance; "31" (Software & SaaS) remains M1. All three are counted
-# honestly below, not assumed to match the frontier cohort's own M2 claim.
+# "29" (Fund of Funds) has one real, sourced case (fof-public-hlpaf-2026,
+# Hamilton Lane Private Assets Fund, real SEC N-CSR data) but stays at M1:
+# tools/verify_release_shape.py requires exactly two public cases for M2+,
+# and a second real case hasn't been sourced yet. "30" (ETF Construction &
+# Management) launched at M2 with two real, sourced public instances; "31"
+# (Software & SaaS) remains M1. All three are counted honestly below, not
+# assumed to match the frontier cohort's own M2 claim.
 FRONTIER_PROGRAM_IDS = {f"{value:02d}" for value in range(1, 25)}
 EXPECTED_INVENTORY_IDS = FRONTIER_PROGRAM_IDS | {"29", "30", "31"}
-EXPECTED_MATURITY = Counter({"M2": 26, "M1": 1})
+EXPECTED_MATURITY = Counter({"M2": 25, "M1": 2})
 
 
 def _load(path: Path) -> dict[str, Any]:
