@@ -3,7 +3,7 @@
 ## Validation identity
 
 - Model ID and version: 29 / 1.0.0
-- Workbook checksum: see `29_Fund_of_Funds/_template_FOF.xlsx` at release time; real-case receipt at `standards/public_cases/fof-public-hlpaf-2026.json`
+- Workbook checksum: see `29_Fund_of_Funds/_template_FOF.xlsx` at release time; real-case receipts at `standards/public_cases/fof-public-hlpaf-2026.json` and `standards/public_cases/fof-public-skybridge-fy2023-stress.json`
 - Builder commit: `tools/builders/build_fund_of_funds_institutional.py`
 - Validation date: 2026-08-05
 - Validator: Claude Code (independent Python recomputation, not reusing the workbook's own formulas)
@@ -13,11 +13,11 @@
 
 ## Executive conclusion
 
-- **Approved with limitations** at M1.
-- Declared maturity supported: Yes, for M1 — one real, sourced, LibreOffice-recalculated public case (`fof-public-hlpaf-2026`) now exists in `standards/public_cases/index.json`. Not yet M2: `tools/verify_release_shape.py` (landed on `main` concurrently with this case) requires exactly two public cases per M2+ model; one real case is real progress but not sufficient.
-- Material findings: two real defects were found and fixed during template-mechanics validation (see Finding IDs FOF-01 and FOF-02 below), plus one real, honest signal from the case itself — its NAV roll-forward reconciliation check FAILs (Overall: BREACH), a genuine consequence of applying this template's simplified fee model to a real complex fund, documented rather than suppressed (see §2 and §6).
-- Required compensating controls: no capital, fiduciary, regulatory, or live-risk use without a named human owner and approver; the one real case's BREACH status must be understood (fee-model simplification, not a data defect) before any decision use.
-- Revalidation trigger: a second real public case is added (required for M2), the fee-layering / NAV roll-forward methodology changes, or HLPAF's own filings are revised.
+- **Approved with limitations** at M2.
+- Declared maturity supported: Yes, for M2 — two real, sourced, LibreOffice-recalculated public cases (`fof-public-hlpaf-2026`, conventional; `fof-public-skybridge-fy2023-stress`, adversarial) now exist in `standards/public_cases/index.json`, satisfying `tools/verify_release_shape.py`'s exactly-two-cases rule for M2+.
+- Material findings: two real defects were found and fixed during template-mechanics validation (see Finding IDs FOF-01 and FOF-02 below), plus honest signals from both real cases — HLPAF's NAV roll-forward check FAILs (fee-model simplification vs. a real multi-share-class fund); SkyBridge's Checks FAIL/BREACH more severely (no template slot for real redemptions, plus a real, disclosed single-fund concentration breach), all documented rather than suppressed (see §2 and §6).
+- Required compensating controls: no capital, fiduciary, regulatory, or live-risk use without a named human owner and approver; both cases' FAIL/BREACH statuses must be understood (structural template-vs-real-mechanics mismatches, not data defects) before any decision use.
+- Revalidation trigger: a third real public case is added, the fee-layering / NAV roll-forward methodology changes (e.g. adding a redemptions line), or either filing is revised.
 
 ## 1. Conceptual soundness
 
@@ -34,9 +34,11 @@ One boundary condition is explicitly documented rather than silently accepted: t
 
 ## 2. Data and source validation
 
-One real, sourced case exists: `fof-public-hlpaf-2026`, from Hamilton Lane Private Assets Fund's N-CSR (SEC EDGAR, accession 0001213900-26-066804, filed 2026-06-09, period ended 2026-03-31). `29_Fund_of_Funds/sources/source_register.csv` and `sources/snapshots/fof-public-hlpaf-2026.json` are populated; the snapshot is hash-pinned (`snapshot_sha256` in the case's `standards/public_cases/index.json` entry).
+Two real, sourced cases exist. `fof-public-hlpaf-2026`, from Hamilton Lane Private Assets Fund's N-CSR (SEC EDGAR, accession 0001213900-26-066804, filed 2026-06-09, period ended 2026-03-31): real top 8 (of 159 disclosed) secondary-fund positions by cost/fair value; FoF-level beginning/ending NAV, this-year realized/unrealized gain, this-year distributions, this-year net capital-share transactions, paid-in capital. Not disclosed, not invented: per-position Commitment/Called/Distributed history and vintage year (Cost and acquisition date substitute, both labeled as proxies).
 
-Real: top 8 (of 159 disclosed) secondary-fund positions by cost/fair value (Consolidated Schedule of Investments); FoF-level beginning/ending NAV, this-year realized/unrealized gain, this-year distributions, this-year net capital-share transactions, paid-in capital (Consolidated Statements of Changes in Net Assets). Not disclosed, not invented: per-position Commitment/Called/Distributed history and vintage year (Cost and acquisition date substitute, both labeled as proxies, not observed facts); cumulative distributions-to-date sums only the two most recent fiscal years. See model card, "Real public case," for the full accounting.
+`fof-public-skybridge-fy2023-stress`, from SkyBridge Multi-Adviser Hedge Fund Portfolios, LLC's N-CSR (SEC EDGAR, accession 0001193125-23-158901, filed 2023-06-01, period ended 2023-03-31): real top 8 positions by cost (not fair value, to keep the FTX write-off in the cut), each with real cost, fair value, disclosed strategy, and disclosed first acquisition date; FoF-level beginning/ending Shareholders' Capital, realized/unrealized loss, distributions (both FY2023 and FY2022, both disclosed in this one filing), paid-in capital. FTX Trading Ltd. real cost $37.2mm, real fair value $0. Fund's own disclosed one-year return: -30.29% vs. benchmark -1.93%.
+
+Both source registers and snapshots are populated: `29_Fund_of_Funds/sources/source_register.csv`, `sources/snapshots/fof-public-hlpaf-2026.json`, `sources/snapshots/fof-public-skybridge-fy2023-stress.json`; both snapshots are hash-pinned (`snapshot_sha256` in each case's `standards/public_cases/index.json` entry). See model card, "Real public cases," for the full accounting of each.
 
 ## 3. Implementation verification
 
@@ -64,7 +66,9 @@ Base and Downside scenarios both run cleanly (see workbook `Checks` sheet). Down
 
 ## 6. Outcomes analysis
 
-`fof-public-hlpaf-2026` is registered with `counts_toward_m4: false` and outcome status `pending` (`metric: next_fiscal_year_total_net_assets_usd_mm`, `forecast: 5785.7`, `realized: null`) — a genuine forward-looking check against HLPAF's next disclosed N-CSR, not yet resolvable since that filing does not exist yet. In the meantime, the case's own internal reconciliation check is the available evidence: NAV roll-forward reconciliation **FAILs** (residual ≈ $77.8mm, ~1.3% of ending NAV, Overall: BREACH) — attributable to this template's simplified two-line fee model (flat management fee + simple hurdle-then-carry) not reproducing HLPAF's real multi-share-class fee structure (management fee + incentive fee + per-class distribution fees), not to a data-sourcing error. This is the correct, informative signal for this case, following the same "honest imperfection over false precision" pattern established for the Private Credit domain's Yellow Corp REVIEW and the ETF domain's KWEB sector-band REVIEW elsewhere in this repository's evidence registry.
+`fof-public-hlpaf-2026` is registered with `counts_toward_m4: false` and outcome status `pending` (`metric: next_fiscal_year_total_net_assets_usd_mm`, `forecast: 5785.7`, `realized: null`) — a genuine forward-looking check against HLPAF's next disclosed N-CSR, not yet resolvable since that filing does not exist yet. In the meantime, the case's own internal reconciliation check is the available evidence: NAV roll-forward reconciliation **FAILs** (residual ≈ $77.8mm, ~1.3% of ending NAV, Overall: BREACH) — attributable to this template's simplified two-line fee model not reproducing HLPAF's real multi-share-class fee structure, not to a data-sourcing error.
+
+`fof-public-skybridge-fy2023-stress` is registered with `counts_toward_m4: false` and outcome status `recorded` (`metric: one_year_total_return`, `forecast: 0.0`, `realized: -0.3029`) — the fund's own disclosed, already-resolved one-year return, a same-period reproduction check rather than a forward-looking forecast. The case's Checks tab shows the real consequence: NAV roll-forward reconciliation **FAILs** (residual ≈ $250mm, largely this fund's real $213.5mm of FY2023 redemptions, which this template's capital-call-only mechanics have no line for), single-fund concentration **BREACHes** (Point72 at ~27.4% of the look-through portfolio vs. the 20% policy limit — real and disclosed, not manufactured), and FoF-level called-capital-vs-commitments **FAILs**; Overall: BREACH. Both cases follow the same "honest imperfection over false precision" pattern established for the Private Credit domain's Yellow Corp REVIEW and the ETF domain's KWEB sector-band REVIEW elsewhere in this repository's evidence registry.
 
 ## 7. Use and governance
 
@@ -75,12 +79,12 @@ Base and Downside scenarios both run cleanly (see workbook `Checks` sheet). Down
 
 ## 8. Limitations
 
-See model card "Limitations and failure modes" — the one real case trips the NAV roll-forward check (fee-model simplification, documented, not a defect), single-period snapshot rather than a full J-curve simulation, simplified hurdle-then-carry waterfall (no catch-up tranche), and the Downside-scenario scope boundary between the portfolio and roll-forward sheets.
+See model card "Limitations and failure modes" — both real cases trip the NAV roll-forward check (fee-model simplification for HLPAF; no redemptions line for SkyBridge, documented, not a defect), single-period snapshot rather than a full J-curve simulation, simplified hurdle-then-carry waterfall (no catch-up tranche), and the Downside-scenario scope boundary between the portfolio and roll-forward sheets.
 
 ## Sign-off
 
-- Developer response: implemented mechanics, checks, and this validation record; found and fixed two real defects during self-review; sourced one real public case and documented its honest reconciliation-check failure rather than adjusting inputs to force a PASS.
-- Validator conclusion: approved with limitations at M1; M2 requires a second real public case per `tools/verify_release_shape.py`.
+- Developer response: implemented mechanics, checks, and this validation record; found and fixed two real defects during self-review; sourced two real public cases (one conventional, one adversarial) and documented both cases' honest reconciliation-check failures rather than adjusting inputs to force a PASS.
+- Validator conclusion: approved with limitations at M2.
 - Owner decision: **PENDING**
 - Approval date: **PENDING**
-- Next validation date or trigger: a second real public case is sourced (required for M2), or the methodology changes.
+- Next validation date or trigger: a third real public case is sourced, or the methodology changes.

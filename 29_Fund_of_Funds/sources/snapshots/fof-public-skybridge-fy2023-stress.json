@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "model_id": "29",
+  "domain": "Fund of Funds",
+  "case_id": "fof-public-skybridge-fy2023-stress",
+  "case_type": "adversarial",
+  "as_of": "2023-03-31",
+  "capture_method": "curated_public_observation",
+  "sources": [
+    {
+      "name": "SkyBridge Multi-Adviser Hedge Fund Portfolios, LLC Consolidated Schedule of Investments and Statements of Changes in Shareholders' Capital (SEC Form N-CSR)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "publisher": "SkyBridge Capital II, LLC (SEC EDGAR)",
+      "captured_values": {
+        "one_year_total_return_series_g": -0.3029,
+        "one_year_total_return_hfri_fof_composite_benchmark": -0.0193,
+        "shareholders_capital_usd": {
+          "2023-03-31": 1207786301,
+          "2022-03-31": 2037935953
+        },
+        "nav_per_share_2023_03_31": 765.52,
+        "paid_in_capital_usd": 2252345640,
+        "distributable_earnings_loss_usd": -1044559339,
+        "fy2023_net_investment_loss_usd": -40571973,
+        "fy2023_net_realized_loss_investment_funds_usd": -56581286,
+        "fy2023_net_realized_loss_securities_usd": -63414063,
+        "fy2023_net_change_unrealized_depreciation_investment_funds_usd": -295094242,
+        "fy2023_net_change_unrealized_depreciation_securities_usd": -97689562,
+        "fy2023_net_change_unrealized_depreciation_related_party_securities_usd": -56907270,
+        "fy2023_net_decrease_shareholders_capital_from_operations_usd": -610258396,
+        "fy2023_distributions_from_distributable_earnings_usd": -49280881,
+        "fy2022_distributions_from_distributable_earnings_usd": -50106686,
+        "fy2023_capital_contributions_usd": 424303,
+        "fy2023_reinvestment_of_distributions_usd": 42500371,
+        "fy2023_capital_redemptions_usd": -213535049,
+        "top_8_positions_by_cost_usd": [
+          {
+            "name": "Brevan Howard Digital Asset Multi-Strategy Fund, L.P. Class B",
+            "strategy": "Cryptocurrency and Digital Assets",
+            "first_acquisition_date": "2022-04-01",
+            "cost": 165609449,
+            "fair_value": 146495961
+          },
+          {
+            "name": "Point72 Capital International, Ltd.",
+            "strategy": "Relative Value",
+            "first_acquisition_date": "2020-06-01",
+            "cost": 156293318,
+            "fair_value": 215215582
+          },
+          {
+            "name": "NYDIG Institutional Bitcoin Fund LP",
+            "strategy": "Cryptocurrency and Digital Assets",
+            "first_acquisition_date": "2020-12-11",
+            "cost": 120704591,
+            "fair_value": 131046906
+          },
+          {
+            "name": "Third Point Offshore Fund, Ltd.",
+            "strategy": "Event Driven",
+            "first_acquisition_date": "2020-09-01",
+            "cost": 96396715,
+            "fair_value": 91835200
+          },
+          {
+            "name": "Millennium International, Ltd.",
+            "strategy": "Relative Value",
+            "first_acquisition_date": "2015-08-01",
+            "cost": 62705349,
+            "fair_value": 82562454
+          },
+          {
+            "name": "Axonic Credit Opportunities Overseas Fund, Ltd.",
+            "strategy": "Event Driven",
+            "first_acquisition_date": "2011-08-01",
+            "cost": 46292270,
+            "fair_value": 58822623
+          },
+          {
+            "name": "Axonic Credit Opportunities Fund L.P.",
+            "strategy": "Event Driven",
+            "first_acquisition_date": "2011-08-01",
+            "cost": 44010007,
+            "fair_value": 59778330
+          },
+          {
+            "name": "FTX Trading Ltd.",
+            "strategy": "Private Equity (direct, not a fund LP interest)",
+            "first_acquisition_date": "2021-10-21",
+            "cost": 37206327,
+            "fair_value": 0
+          }
+        ]
+      }
+    }
+  ],
+  "snapshot_sha256": "8c26c03e10ebc4dd0804e7f695dd598471a5f973d0ff0608fcc41bf44ab08d31"
+}
