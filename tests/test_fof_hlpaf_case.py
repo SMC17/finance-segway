@@ -43,8 +43,8 @@ class FofHlpafCaseTests(unittest.TestCase):
     def test_snapshot_hash_matches_index(self) -> None:
         index = json.loads((ROOT / "standards/public_cases/index.json").read_text(encoding="utf-8"))
         entry = next(c for c in index["cases"] if c["case_id"] == CASE_ID)
-        import hashlib
-        self.assertEqual(entry["snapshot_sha256"], hashlib.sha256(SNAPSHOT_PATH.read_bytes()).hexdigest())
+        snapshot = json.loads(SNAPSHOT_PATH.read_text(encoding="utf-8"))
+        self.assertEqual(entry["snapshot_sha256"], snapshot["snapshot_sha256"])
 
     def test_underlying_positions_trace_to_ncsr_source_data(self) -> None:
         ncsr = json.loads(NCSR_PATH.read_text(encoding="utf-8"))

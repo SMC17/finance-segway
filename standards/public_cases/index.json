@@ -7594,7 +7594,7 @@
       "manifest": "standards/public_cases/fof-public-hlpaf-2026.json",
       "output": "29_Fund_of_Funds/instances/public_hlpaf_2026.xlsx",
       "snapshot": "29_Fund_of_Funds/sources/snapshots/fof-public-hlpaf-2026.json",
-      "snapshot_sha256": "783187428603f03742763351b835208a91e5f80fec7bbf7c130e6db49ea0e698",
+      "snapshot_sha256": "fd130a3071aa6d1c00b785a84a1cc2726408ec072542ff4cf24f7b79fac70f76",
       "counts_toward_m4": false,
       "outcome": {
         "metric": "next_fiscal_year_total_net_assets_usd_mm",
