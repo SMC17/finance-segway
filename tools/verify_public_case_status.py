@@ -104,6 +104,23 @@ KNOWN_THIN_CASES: frozenset[str] = frozenset({
 #   A conceptual mismatch between the case and the template's mechanic,
 #   not a data gap.
 #
+# - Fund of Funds: fof-public-hlpaf-2026 (conventional, Hamilton Lane
+#   Private Assets Fund) and fof-public-skybridge-fy2023-stress
+#   (adversarial, SkyBridge Multi-Adviser Hedge Fund Portfolios) both land
+#   on Overall BREACH, but for different, real, structural reasons -- not
+#   a thin manifest. HLPAF's NAV roll-forward residual (~$77.8mm, ~1.3% of
+#   NAV) comes from applying this template's simplified two-line fee model
+#   to a real fund's actual multi-share-class fee structure (management
+#   fee + incentive fee + per-class distribution fees). SkyBridge's is
+#   larger (~$250mm residual, plus a genuine single-fund concentration
+#   BREACH at ~27.4% vs. the 20% limit) because that fund uses real
+#   open-end subscription-redemption mechanics this template has no line
+#   for (capital-call mechanics only), on top of the fund's own real,
+#   disclosed FY2023 collapse (-30.29% return, FTX position marked to real
+#   fair value $0). Two different real vehicles, two different real
+#   mismatches -- not fixable by sourcing more data, since the gap is
+#   template-mechanics-vs-real-vehicle-structure, not missing inputs.
+#
 # Equity Finance's AMC/Tesla pair used to be here: both showed Overall
 # BREACH via a confirmed template defect (Cap Table & Dilution's derived
 # outputs -- rows 18-25 -- only formulaed the Active/E column, leaving C18
@@ -119,6 +136,7 @@ KNOWN_THIN_CASES: frozenset[str] = frozenset({
 KNOWN_REAL_CORRELATED_CASES: frozenset[str] = frozenset({
     "ib-public-hp-autonomy-2012-stress", "ib-public-microsoft-linkedin-2016",
     "vc-public-instacart-2023-down-round", "vc-public-snowflake-2020",
+    "fof-public-hlpaf-2026", "fof-public-skybridge-fy2023-stress",
 })
 
 
