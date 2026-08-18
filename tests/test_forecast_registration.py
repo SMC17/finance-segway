@@ -7,6 +7,7 @@ import unittest
 from datetime import date
 from pathlib import Path
 
+from tools import forecast_registration
 from tools.forecast_registration import (
     FORECAST_DIR,
     check_all,
@@ -331,6 +332,57 @@ class ForecastRegistrationTests(unittest.TestCase):
                 date.fromisoformat(record["resolve_by"]),
                 path.name,
             )
+
+
+class RestatesBaselineTests(unittest.TestCase):
+    """A forecast identical to its baseline scores 0.0 for every outcome.
+
+    Four of the registry's nine live registrations are in exactly that
+    shape. They cannot demonstrate skill, and averaging them in would
+    report a mean of 0.0 that looks like a measurement of forecasting
+    ability rather than an artefact of how they were written.
+    """
+
+    def record(self, point: float, baseline: float, **extra) -> dict:
+        base = {
+            "forecast_id": "t", "case_id": "c", "model_id": "21", "metric": "m",
+            "outcome_class": "out_of_sample_forecast", "point": point,
+            "interval": None, "basis": "modeled",
+            "baseline": {"kind": "naive_last_recorded", "value": baseline, "source": "s"},
+            "registered_on": "2026-01-05", "resolve_by": "2026-06-01",
+            "resolution_source_expected": "FRED DGS10", "resolution": None,
+        }
+        base.update(extra)
+        return base
+
+    def test_skill_is_zero_for_every_outcome(self) -> None:
+        record = self.record(0.0463, 0.0463)
+        for realized in (0.03, 0.0463, 0.08):
+            self.assertEqual(
+                0.0, forecast_registration.score(record, realized)["skill_vs_baseline"]
+            )
+
+    def test_detected_only_when_point_equals_baseline(self) -> None:
+        self.assertTrue(forecast_registration.restates_baseline(self.record(0.0463, 0.0463)))
+        self.assertFalse(forecast_registration.restates_baseline(self.record(0.0466, 0.0463)))
+
+    def test_a_new_registration_is_blocked(self) -> None:
+        errors = forecast_registration.validate_record(self.record(0.0463, 0.0463))
+        self.assertTrue(
+            any("can never demonstrate skill" in e for e in errors), errors
+        )
+
+    def test_an_already_registered_record_is_not_retroactively_invalidated(self) -> None:
+        # Registrations are immutable by design -- the whole point of the
+        # content hash. The rule blocks new ones; it does not rewrite history.
+        record = self.record(0.0463, 0.0463)
+        record["registration_sha256"] = forecast_registration.registration_sha256(record)
+        errors = forecast_registration.validate_record(record)
+        self.assertEqual([], [e for e in errors if "demonstrate skill" in e])
+
+    def test_a_forecast_with_an_edge_is_accepted(self) -> None:
+        errors = forecast_registration.validate_record(self.record(0.0466, 0.0463))
+        self.assertEqual([], errors)
 
 
 if __name__ == "__main__":
