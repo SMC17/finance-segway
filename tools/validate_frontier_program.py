@@ -47,7 +47,24 @@ LEGACY_RELEASE_STAGED = "release_staged"
 # cohort's own M2 claim.
 FRONTIER_PROGRAM_IDS = {f"{value:02d}" for value in range(1, 25)}
 EXPECTED_INVENTORY_IDS = FRONTIER_PROGRAM_IDS | {"29", "30", "31"}
-EXPECTED_MATURITY = Counter({"M2": 26, "M1": 1})
+VALID_MATURITIES = frozenset({"M1", "M2", "M3", "M4"})
+
+# The frontier program's claim is that the certified 01-24 cohort sits at
+# M2. That is checked directly below, per model.
+#
+# There used to be a hardcoded Counter here pinning the whole inventory's
+# maturity distribution -- M2: 25/M1: 2, then M2: 26/M1: 1. It had to be
+# hand-edited every time a domain launched or was promoted, which made it a
+# record of the decision rather than a check on it: the edit that changed a
+# model's maturity was the same edit that told this validator to expect the
+# change. Worse, a mis-set maturity propagates into a workbook cell, the
+# committed template, builder parity and the release-shape gate, so the one
+# place it was nominally guarded was the place guaranteed to agree.
+#
+# Whether a *later* domain's declared maturity is earned by its evidence is
+# tools/verify_release_shape.py's job -- it requires exactly two public
+# cases from any model at M2 or above, which is the substantive rule the
+# Counter never expressed.
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -92,11 +109,24 @@ def validate() -> dict[str, Any]:
             "model inventory must contain the certified 01-24 frontier program plus any "
             f"explicitly-declared later additions, found {sorted(inventory_ids)}"
         )
-    if maturity != EXPECTED_MATURITY:
+    declared = {item["id"]: item["declared_maturity"] for item in inventory["models"]}
+    demoted = sorted(
+        f"{model_id} ({declared[model_id]})"
+        for model_id in FRONTIER_PROGRAM_IDS & set(declared)
+        if declared[model_id] != "M2"
+    )
+    if demoted:
         errors.append(
-            "frontier program requires the certified 24-model M2 base plus any later "
-            f"additions at their own honestly-declared maturity, found {dict(maturity)}"
+            "the certified frontier cohort is declared at M2; found "
+            f"{demoted} outside it"
         )
+    invalid = sorted(
+        f"{model_id} ({level})"
+        for model_id, level in declared.items()
+        if level not in VALID_MATURITIES
+    )
+    if invalid:
+        errors.append(f"invalid declared maturities: {invalid}")
 
     flagship_ids = {item["model_id"] for item in flagships["flagships"]}
     cohorts = registry["cohorts"]
