@@ -38,7 +38,7 @@
     {
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C5",
-      "value": 3621.4,
+      "value": 3621.38,
       "input_kind": "observed",
       "source": {
         "name": "Hamilton Lane Private Assets Fund Consolidated Schedule of Investments and Statements of Changes in Net Assets (SEC Form N-CSR)",
@@ -50,7 +50,7 @@
     {
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C6",
-      "value": 1630.5,
+      "value": 1630.474,
       "input_kind": "observed",
       "source": {
         "name": "Hamilton Lane Private Assets Fund Consolidated Schedule of Investments and Statements of Changes in Net Assets (SEC Form N-CSR)",
@@ -62,7 +62,19 @@
     {
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C7",
-      "value": 88.2,
+      "value": 88.161,
+      "input_kind": "observed",
+      "source": {
+        "name": "Hamilton Lane Private Assets Fund Consolidated Schedule of Investments and Statements of Changes in Net Assets (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1803491/000121390026066804/ea0291054-01_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-09, accession 0001213900-26-066804, CIK 0001803491. Source of the underlying-fund look-through portfolio, FoF-level NAV roll-forward, and paid-in capital."
+      }
+    },
+    {
+      "sheet": "NAV Rollforward & Fee Layering",
+      "cell": "C14",
+      "value": 113.289,
       "input_kind": "observed",
       "source": {
         "name": "Hamilton Lane Private Assets Fund Consolidated Schedule of Investments and Statements of Changes in Net Assets (SEC Form N-CSR)",
@@ -74,7 +86,7 @@
     {
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C10",
-      "value": 735.3,
+      "value": 735.347,
       "input_kind": "derived",
       "source": {
         "name": "Hamilton Lane Private Assets Fund Consolidated Schedule of Investments and Statements of Changes in Net Assets (SEC Form N-CSR)",
@@ -86,7 +98,7 @@
     {
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C12",
-      "value": 5785.7,
+      "value": 5785.75,
       "input_kind": "observed",
       "source": {
         "name": "Hamilton Lane Private Assets Fund Consolidated Schedule of Investments and Statements of Changes in Net Assets (SEC Form N-CSR)",
