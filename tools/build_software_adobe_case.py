@@ -54,6 +54,11 @@ import hashlib
 import json
 from datetime import date
 from pathlib import Path
+
+try:
+    from tools.public_case_index import report_sync
+except ModuleNotFoundError:  # invoked with tools/ directly on sys.path
+    from public_case_index import report_sync
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -715,6 +720,7 @@ def main() -> int:
     print(f"saved {MANIFEST_PATH.relative_to(ROOT)}")
     print(f"saved {REGISTER_PATH.relative_to(ROOT)}")
     print(f"saved {SNAPSHOT_PATH.relative_to(ROOT)}  sha256={snapshot['snapshot_sha256'][:16]}...")
+    print(report_sync(CASE_ID, snapshot["snapshot_sha256"]))
     print(
         f"inputs={len(manifest['inputs'])} sourced cells, "
         f"drivers={len(manifest['driver_declarations'])} declared-but-ungrounded"
