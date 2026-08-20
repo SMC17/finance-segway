@@ -254,6 +254,31 @@ PYTHONPATH=. python tools/validate_consulting_catalog.py
 PYTHONPATH=. python -m unittest tests.test_consulting_real_data_policy -v
 ```
 
+## See one public case
+
+You do not need the modeling suite to inspect a real historical case. April 2020 WTI (oil settled below zero) is one public example:
+
+```bash
+git clone https://github.com/SMC17/finance-segway.git
+cd finance-segway
+
+# Case file: prices, storage, EIA sources, later outcome
+less 15_Commodities/sources/snapshots/commodities-public-wti-april-2020.json
+
+# Receipt: which cells were filled, from which URL, and the Excel fingerprint
+less 15_Commodities/instances/public_wti_april_2020.receipt.json
+
+# The spreadsheet bytes must still match workbook_sha256 in the receipt
+sha256sum 15_Commodities/instances/public_wti_april_2020.xlsx
+
+# Optional: check every public-case receipt against its workbook
+python3 tools/evidence_receipt_integrity.py --check --report /tmp/evidence-receipt-integrity-report.json
+```
+
+In the workbook, look at the Hedging sheet (`C7` is the EIA May settlement of -37.63). The Cover tab may still show template placeholders; the snapshot JSON is the case file.
+
+This is not a trading signal, price target, or investment recommendation. Public cases are frozen historical reconstructions (`external_historical_case`, `counts_toward_M4: false`). See the license disclaimer.
+
 ## Collaboration
 
 Claude Code and ChatGPT/Codex work in independent branches. Integration occurs component by component through a draft synthesis PR. A newer branch does not win automatically, and tests are never weakened to make a merge pass.
