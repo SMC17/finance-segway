@@ -13,8 +13,10 @@ script only reads and renders.
 
 Default case (etf-public-kweb-2026-stress) is the domain's adversarial
 case: KraneShares CSI China Internet ETF's real, disclosed 5-year average
-annual total return of -15.07%, and its own SEC N-CSR sector table
-summing to 102.6% (a real disclosure artifact, not smoothed over -- see
+annual total return of -15.07%, and its own SEC N-CSR composition table,
+which carries both halves the filing discloses -- investments at 102.6% of
+net assets and other assets less liabilities at (2.6)% -- so the grid
+reconciles to exactly 100% without smoothing anything (see
 30_ETF_Construction_Management/validation.md Finding ETF-03).
 
 Usage:
@@ -141,9 +143,9 @@ def build_etf_memo(case_id: str, output: Path) -> None:
         [
             f"Real, sourced: fund net assets, net expense ratio, dividend yield, and market price are "
             f"{fund_name.split('(')[0].strip()}'s own disclosed figures (Alpha Vantage fund profile + market quote).",
-            "Real, sourced: 30 disclosed holdings by weight and 7 sector weights are the fund's own SEC "
-            "Form N-CSR annual shareholder report — including a sector table that sums to 102.6%, not smoothed "
-            "to 100% (a real disclosure artifact from securities-lending collateral, see validation.md Finding ETF-03).",
+            "Real, sourced: 30 disclosed holdings by weight, 7 sector weights, and the fund's own "
+            "'other assets less liabilities' balancing line are all from its SEC Form N-CSR annual "
+            "shareholder report — nothing is smoothed (see validation.md Finding ETF-03).",
             "Illustrative: creation-unit size, securities-lending revenue offset, cash-drag cost, and "
             "sampling/optimization tracking error are template defaults, not the fund's own disclosed "
             "creation/redemption mechanics or realized tracking-cost bridge.",
@@ -186,15 +188,16 @@ def build_etf_memo(case_id: str, output: Path) -> None:
     )
     ph.add_text(
         slide, ph.Inches(8.2), ph.Inches(1.8), ph.Inches(4.5), ph.Inches(2.0),
-        f"Sector weights sum to {_fmt_pct(sector_total, 1)}, not 100% — the fund's own N-CSR disclosure, "
-        "most likely reflecting securities-lending collateral counted alongside its originating sector.",
+        f"Composition reconciles to {_fmt_pct(sector_total, 1)} of net assets. The filing's sector "
+        "weights cover investments only (102.6%); its disclosed 'other assets less liabilities' line "
+        "of (2.6)% is carried here as the balancing item, exactly as the fund reports it.",
         size=15, color=ph.ILLUSTRATIVE_TAG,
     )
     ph.add_footer(slide, f"Source: {ncsr_source['name']} — {ncsr_source['url']}")
     ph.add_disclosure_note(
         slide,
-        "Not corrected or smoothed to 100%: the real, disclosed number is used as-is, which correctly "
-        "trips this workbook's own sector-weight-band Check to REVIEW rather than PASS.",
+        "Nothing is smoothed: every figure above is disclosed, and the grid reconciles because the "
+        "fund's own balancing line is carried alongside its sector weights rather than dropped.",
     )
 
     # 5. Creation/redemption and tracking economics (mixed real/illustrative)
@@ -241,8 +244,8 @@ def build_etf_memo(case_id: str, output: Path) -> None:
             f"The fund tracked its own reference index tightly even under this stress "
             f"({outcome['realized_source']}) — a real sector/security outcome, not a tracking or "
             "wrapper-mechanics failure.",
-            "The sector-table disclosure gap (102.6% vs 100%) and the resulting Checks REVIEW are "
-            "genuine, disclosed imperfections kept in this deck rather than smoothed over.",
+            "The composition table carries the fund's own (2.6)% 'other assets less liabilities' line "
+            "beside its 102.6% of investments — the filing's identity, reproduced rather than rounded.",
             "A real allocation decision needs the fund's own realized tracking-difference statement and "
             "current premium/discount, neither of which is asserted here — both remain illustrative levers.",
         ],

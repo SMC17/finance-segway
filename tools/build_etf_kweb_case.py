@@ -97,12 +97,36 @@ def _holdings() -> list[dict[str, Any]]:
 
 
 def _sectors() -> list[tuple[str, float]]:
+    """Disclosed sector weights plus the fund's own balancing line.
+
+    An N-CSR's sector weightings are percent-of-net-assets applied to
+    *investments*, so they do not sum to 100% on their own -- KWEB's sum to
+    102.6% because the fund carries 2.6% of net liabilities. The Schedule of
+    Investments discloses both halves on adjacent lines:
+
+        TOTAL INVESTMENTS - 102.6%
+        OTHER ASSETS LESS LIABILITIES - (2.6)%
+        NET ASSETS - 100%
+
+    Carrying only the first half leaves the grid summing to 102.6%, which
+    resolves the Checks sheet to REVIEW and reads to any fund-reporting
+    audience as either an arithmetic error or unexplained leverage. Carrying
+    both is not smoothing -- it adds a second disclosed figure from the same
+    filing, and the grid then reconciles to exactly 100%.
+    """
     items = sorted(
         NCSR["captured_values"]["sector_weightings_pct_of_net_assets"].items(),
         key=lambda kv: kv[1],
         reverse=True,
     )
-    return items[:11]
+    items = items[:10]
+    items.append(
+        (
+            "Other assets less liabilities",
+            NCSR["captured_values"]["other_assets_less_liabilities_pct_of_net_assets"],
+        )
+    )
+    return items
 
 
 def build() -> tuple[dict[str, Any], dict[str, Any]]:
