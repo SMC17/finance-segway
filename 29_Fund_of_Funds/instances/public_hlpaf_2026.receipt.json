@@ -26,7 +26,7 @@
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C5",
       "previous": 380,
-      "value": 3621.4,
+      "value": 3621.38,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1803491/000121390026066804/ea0291054-01_ncsr.htm",
       "source_as_of": "2026-03-31"
     },
@@ -34,7 +34,7 @@
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C6",
       "previous": 45,
-      "value": 1630.5,
+      "value": 1630.474,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1803491/000121390026066804/ea0291054-01_ncsr.htm",
       "source_as_of": "2026-03-31"
     },
@@ -42,7 +42,15 @@
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C7",
       "previous": 38,
-      "value": 88.2,
+      "value": 88.161,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1803491/000121390026066804/ea0291054-01_ncsr.htm",
+      "source_as_of": "2026-03-31"
+    },
+    {
+      "sheet": "NAV Rollforward & Fee Layering",
+      "cell": "C14",
+      "previous": null,
+      "value": 113.289,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1803491/000121390026066804/ea0291054-01_ncsr.htm",
       "source_as_of": "2026-03-31"
     },
@@ -50,7 +58,7 @@
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C10",
       "previous": 28.13,
-      "value": 735.3,
+      "value": 735.347,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1803491/000121390026066804/ea0291054-01_ncsr.htm",
       "source_as_of": "2026-03-31"
     },
@@ -58,7 +66,7 @@
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C12",
       "previous": 411,
-      "value": 5785.7,
+      "value": 5785.75,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1803491/000121390026066804/ea0291054-01_ncsr.htm",
       "source_as_of": "2026-03-31"
     },
@@ -527,7 +535,7 @@
       "source_as_of": "2026-03-31"
     }
   ],
-  "workbook_sha256": "e24d3a9c16a683cda58ea30b6789ed0f4e2729a29058a821811d5b939365fc10",
+  "workbook_sha256": "cc03951301dad99626b5a75e8cc477e46108c5359e245b460910b879e2313d28",
   "generated_on": "2026-08-17",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
