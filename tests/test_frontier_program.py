@@ -2,9 +2,22 @@ from __future__ import annotations
 
 import json
 import unittest
+from unittest.mock import patch
 
 from tools import cross_domain_oracles
 from tools import validate_frontier_program
+
+
+def _loader(inventory: dict):
+    """Serve a mutated inventory, every other file untouched."""
+    real = validate_frontier_program._load
+
+    def load(path):
+        if path == validate_frontier_program.INVENTORY:
+            return inventory
+        return real(path)
+
+    return load
 
 
 class FrontierProgramTests(unittest.TestCase):
@@ -24,6 +37,50 @@ class FrontierProgramTests(unittest.TestCase):
         self.assertEqual(report["legacy_engine_hardening_models"], 6)
         self.assertEqual(report["cross_domain_engines"], 7)
         self.assertEqual(report["cross_domain_cases"], 14)
+
+    def test_a_demoted_cohort_model_is_named(self) -> None:
+        # What the hardcoded EXPECTED_MATURITY Counter was really guarding:
+        # a certified 01-24 model quietly dropping below M2. The Counter
+        # caught it only as a changed tally; this names the model.
+        inventory = json.loads(
+            validate_frontier_program.INVENTORY.read_text(encoding="utf-8")
+        )
+        for item in inventory["models"]:
+            if item["id"] == "07":
+                item["declared_maturity"] = "M1"
+        with patch.object(validate_frontier_program, "_load", side_effect=_loader(inventory)):
+            report = validate_frontier_program.validate()
+        self.assertEqual("FAIL", report["status"])
+        self.assertTrue(
+            any("07 (M1)" in error for error in report["errors"]), report["errors"]
+        )
+
+    def test_a_later_domain_may_declare_its_own_maturity(self) -> None:
+        # The Counter failed on every legitimate launch or promotion of a
+        # post-24 domain, which is why it had to be hand-edited each time.
+        inventory = json.loads(
+            validate_frontier_program.INVENTORY.read_text(encoding="utf-8")
+        )
+        for item in inventory["models"]:
+            if item["id"] == "31":
+                item["declared_maturity"] = "M2"
+        with patch.object(validate_frontier_program, "_load", side_effect=_loader(inventory)):
+            report = validate_frontier_program.validate()
+        self.assertEqual([], [e for e in report["errors"] if "maturit" in e or "cohort" in e])
+
+    def test_an_invalid_maturity_level_is_rejected(self) -> None:
+        inventory = json.loads(
+            validate_frontier_program.INVENTORY.read_text(encoding="utf-8")
+        )
+        for item in inventory["models"]:
+            if item["id"] == "31":
+                item["declared_maturity"] = "M9"
+        with patch.object(validate_frontier_program, "_load", side_effect=_loader(inventory)):
+            report = validate_frontier_program.validate()
+        self.assertTrue(
+            any("invalid declared maturities" in e for e in report["errors"]),
+            report["errors"],
+        )
 
     def test_exact_evidence_partition(self):
         cohorts = self.registry["cohorts"]
