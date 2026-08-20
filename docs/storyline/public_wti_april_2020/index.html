@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>April 2020 WTI — hashed public case</title>
+  <style>
+    :root { --ink:#1a1a1a; --muted:#5c5c5c; --paper:#f7f4ee; --line:#1f4e78; --rule:#d9d1c3; }
+    body { margin:0 auto; max-width:960px; padding:28px 20px 64px; font:18px/1.45 Georgia, "Times New Roman", serif; background:var(--paper); color:var(--ink); }
+    .kicker { text-transform:uppercase; letter-spacing:.08em; font:12px/1.2 ui-sans-serif, system-ui, sans-serif; color:var(--muted); margin:0 0 8px; }
+    h1 { font-size:32px; line-height:1.2; margin:0 0 12px; font-weight:normal; }
+    .dek { color:var(--muted); margin:0 0 24px; }
+    figure { margin:0 0 28px; }
+    svg { width:100%; height:auto; background:#fff; border:1px solid var(--rule); }
+    svg .bg { fill:#fff; }
+    svg .grid line { stroke:var(--rule); stroke-width:1; }
+    svg .grid text, svg .xlabels text, svg .ylabel, svg .markers text { font:11px/1 ui-sans-serif, system-ui, sans-serif; fill:var(--muted); }
+    svg .zero { stroke:#9b1c1c; stroke-dasharray:4 4; }
+    svg .series { stroke:var(--line); stroke-width:2; }
+    svg .markers circle { fill:var(--line); stroke:#fff; stroke-width:2; }
+    ol.cards { list-style:none; padding:0; margin:0 0 32px; display:grid; gap:16px; }
+    ol.cards li { background:#fff; border:1px solid var(--rule); padding:16px 16px 16px 48px; position:relative; }
+    ol.cards .n { position:absolute; left:14px; top:16px; font:700 14px/1 ui-sans-serif, system-ui, sans-serif; color:var(--line); }
+    ol.cards time { font:12px/1.2 ui-sans-serif, system-ui, sans-serif; color:var(--muted); }
+    ol.cards h2 { font-size:20px; margin:4px 0 8px; font-weight:normal; }
+    ol.cards p { margin:0 0 8px; }
+    ol.cards .meta { font:12px/1.2 ui-sans-serif, system-ui, sans-serif; color:var(--muted); margin:0; }
+    table { width:100%; border-collapse:collapse; font:14px/1.4 ui-sans-serif, system-ui, sans-serif; background:#fff; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid var(--rule); vertical-align:top; }
+    th { font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }
+    footer { margin-top:28px; font-size:14px; color:var(--muted); }
+    a { color:var(--line); }
+    code { font:13px/1.4 ui-monospace, monospace; }
+  </style>
+</head>
+<body>
+  <p class="kicker">Finance-Segway public case · Storyline visual · not a trading signal</p>
+  <h1>Oil settled below zero. Every plotted point and every model cell has a source.</h1>
+  <p class="dek">Line: EIA Cushing WTI <em>spot</em> (RWTC), pinned 2026-08-20.
+  Cards cite the hashed April 2020 public-case cells. Spot on 20 Apr 2020 is
+  <strong>-36.98</strong>; hashed <code>Hedging!C7</code> is the May futures
+  settlement <strong>-37.63</strong>. Matching bytes are not a correct model.</p>
+  <figure><svg viewBox="0 0 960 420" role="img" aria-label="EIA Cushing WTI spot, January to July 2020">
+  <rect class="bg" x="0" y="0" width="960" height="420" />
+  <g class="grid"><line x1="64" x2="936" y1="57.91" y2="57.91" /><text x="56" y="61.91" text-anchor="end">60</text><line x1="64" x2="936" y1="117.74" y2="117.74" /><text x="56" y="121.74" text-anchor="end">40</text><line x1="64" x2="936" y1="177.57" y2="177.57" /><text x="56" y="181.57" text-anchor="end">20</text><line x1="64" x2="936" y1="237.39" y2="237.39" /><text x="56" y="241.39" text-anchor="end">0</text><line x1="64" x2="936" y1="297.22" y2="297.22" /><text x="56" y="301.22" text-anchor="end">-20</text><line x1="64" x2="936" y1="357.04" y2="357.04" /><text x="56" y="361.04" text-anchor="end">-40</text></g>
+  <line class="zero" x1="64" x2="936" y1="237.39" y2="237.39" />
+  <polyline class="series" fill="none" points="64.00,48.13 68.57,49.84 73.13,58.96 77.70,59.23 82.26,60.84 95.96,63.39 100.52,62.88 105.09,64.31 109.65,62.34 114.22,62.25 132.48,63.15 137.05,67.60 141.61,71.34 146.18,75.59 159.87,78.58 164.44,77.87 169.01,77.98 173.57,81.28 178.14,83.10 191.83,87.65 196.40,89.05 200.96,85.22 205.53,85.01 210.09,86.81 223.79,89.05 228.36,87.83 232.92,84.45 237.49,83.61 242.05,81.75 260.31,81.54 264.88,77.92 269.45,76.55 274.01,77.78 287.71,83.76 292.27,88.48 296.84,91.80 301.40,96.29 305.97,103.29 319.66,97.46 324.23,95.99 328.80,97.46 333.36,100.09 337.93,114.33 351.62,144.51 356.19,134.28 360.75,138.29 365.32,142.99 369.88,142.51 383.58,150.76 388.15,156.75 392.71,176.13 397.28,162.34 401.84,179.12 415.54,167.60 420.10,174.48 424.67,175.32 429.24,187.74 433.80,191.09 447.50,195.21 452.06,176.04 456.63,176.73 461.19,162.07 465.76,152.56 479.46,158.99 484.02,166.98 488.59,162.70 493.15,168.89 511.41,170.51 515.98,177.12 520.54,177.68 525.11,178.10 529.68,182.62 543.37,348.01 547.94,210.74 552.50,196.59 557.07,192.34 561.63,189.56 575.33,200.99 579.90,200.30 584.46,192.40 589.03,179.87 593.59,178.40 607.29,176.16 611.85,163.92 616.42,165.96 620.98,166.56 625.55,163.42 639.25,165.54 643.81,160.34 648.38,161.50 652.94,155.43 657.51,149.33 671.20,142.18 675.77,140.77 680.34,137.00 684.90,134.79 689.47,137.21 707.73,133.59 712.29,139.28 716.86,136.67 721.42,130.99 735.12,131.23 739.69,127.07 744.25,125.73 748.82,125.46 753.38,119.26 767.08,123.21 771.64,120.79 776.21,119.12 780.77,128.42 785.34,128.99 799.04,126.50 803.60,122.94 808.17,123.99 812.73,121.36 817.30,118.58 830.99,115.94 835.56,116.54 840.13,123.99 844.69,121.75 849.26,122.14 862.95,118.73 867.52,119.92 872.08,118.10 876.65,116.03 894.91,116.21 899.48,115.97 904.04,115.02 908.61,118.82 913.17,116.06 926.87,117.56 931.43,116.84 936.00,114.15" />
+  <g class="markers"><circle cx="64.00" cy="48.13" r="5" /><text x="64.00" y="36.13" text-anchor="middle">1</text><circle cx="351.62" cy="144.51" r="5" /><text x="351.62" y="132.51" text-anchor="middle">2</text><circle cx="529.68" cy="182.62" r="5" /><text x="529.68" y="170.62" text-anchor="middle">3</text><circle cx="543.37" cy="348.01" r="5" /><text x="543.37" y="336.01" text-anchor="middle">4</text><circle cx="872.08" cy="118.10" r="5" /><text x="872.08" y="106.10" text-anchor="middle">5</text></g>
+  <g class="xlabels"><text x="64.00" y="404" text-anchor="middle">Jan</text><text x="191.83" y="404" text-anchor="middle">Feb</text><text x="319.66" y="404" text-anchor="middle">Mar</text><text x="456.63" y="404" text-anchor="middle">Apr</text><text x="593.59" y="404" text-anchor="middle">May</text><text x="735.12" y="404" text-anchor="middle">Jun</text><text x="872.08" y="404" text-anchor="middle">Jul</text></g>
+  <text class="ylabel" x="18" y="200.0" transform="rotate(-90 18,200.0)" text-anchor="middle">USD per barrel (Cushing spot)</text>
+</svg></figure>
+  <ol class="cards"><li><span class='n'>1</span><time datetime='2020-01-06'>6 Jan 2020</time><h2>Before the crash</h2><p>EIA Cushing WTI spot opened 2020 at $63.27/b (RWTCD). This line is the official spot series pinned from eia.gov, not a model forecast and not the hashed futures settlement.</p><p class='meta'>spot +63.27 USD/bbl</p></li><li><span class='n'>2</span><time datetime='2020-03-09'>9 Mar 2020</time><h2>Demand collapse</h2><p>Spot printed $31.05 on 9 Mar 2020 as COVID travel restrictions crushed petroleum demand. EIA later wrote that U.S. weekly refinery inputs then fell 20% (Today in Energy, 5 Jan 2021).</p><p class='meta'>spot +31.05 USD/bbl</p></li><li><span class='n'>3</span><time datetime='2020-04-17'>17 Apr 2020</time><h2>Cushing 76% full</h2><p>Spot still positive at $18.31. EIA: Cushing stocks 60 million barrels, 76% of working capacity. Hashed cells Physical Balance &amp; Carry!D14=60.0 and D18=0.76 come from that same article.</p><p class='meta'>spot +18.31 USD/bbl</p></li><li><span class='n'>4</span><time datetime='2020-04-20'>20 Apr 2020</time><h2>The negative print</h2><p>This series: -$36.98 Cushing spot. Hashed Hedging!C7 is the May futures settlement -$37.63. EIA also recorded an intraday low of -$40.32. Three public numbers, one day.</p><p class='meta'>spot -36.98 USD/bbl</p></li><li><span class='n'>5</span><time datetime='2020-07-01'>1 Jul 2020</time><h2>Back near $40</h2><p>EIA: WTI climbed to $40/b on 1 Jul 2020. This series: $39.88. The hashed case records 40.0 from that article. Frozen history, not a trade or a live hedge.</p><p class='meta'>spot +39.88 USD/bbl</p></li></ol>
+  <h2>Hashed model cells</h2>
+  <p>Workbook SHA-256 <code>fee53a78885874a3a99718217e2b1d33aee3218b216e38e8a7baecff2227ffa0</code></p>
+  <table>
+    <thead><tr><th>Cell</th><th>Value</th><th>Claim</th><th>Source</th></tr></thead>
+    <tbody><tr><td>Hedging!C7</td><td>-37.63</td><td>may_futures_settlement_usd_per_bbl</td><td><a href='https://www.eia.gov/todayinenergy/detail.php?id=43495'>https://www.eia.gov/todayinenergy/detail.php?id=43495</a></td></tr><tr><td>Hedging!C8</td><td>20.43</td><td>june_contract_price_usd_per_bbl</td><td><a href='https://www.eia.gov/todayinenergy/detail.php?id=43495'>https://www.eia.gov/todayinenergy/detail.php?id=43495</a></td></tr><tr><td>Physical Balance &amp; Carry!D14</td><td>60.0</td><td>cushing_stocks_mm_bbl</td><td><a href='https://www.eia.gov/todayinenergy/detail.php?id=43495'>https://www.eia.gov/todayinenergy/detail.php?id=43495</a></td></tr><tr><td>Physical Balance &amp; Carry!D18</td><td>0.76</td><td>storage_utilization</td><td><a href='https://www.eia.gov/todayinenergy/detail.php?id=43495'>https://www.eia.gov/todayinenergy/detail.php?id=43495</a></td></tr></tbody>
+  </table>
+  <footer>
+    <p>Classification: <code>external_historical_case_visual</code>.
+    Counts toward M4: false.
+    Case <code>commodities-public-wti-april-2020</code>.
+    Rebuild: <code>python3 tools/build_wti_storyline.py --check</code>.</p>
+    <p>Educational historical reconstruction only. Not financial, legal, tax,
+    accounting, actuarial, or investment advice. Not a Bloomberg terminal.</p>
+  </footer>
+</body>
+</html>
