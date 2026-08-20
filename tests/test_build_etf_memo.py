@@ -82,13 +82,15 @@ class EtfMemoDataGroundingTests(unittest.TestCase):
                 continue
             self.assertIn(f"{weight * 100:.2f}%", self.slide_text[2])
 
-    def test_sector_table_sums_to_the_real_disclosed_102_6_percent(self) -> None:
-        # This is the honest-gap regression: the real N-CSR sector table
-        # does NOT sum to 100%, and the deck must show that real number,
-        # not a smoothed one.
+    def test_composition_table_reconciles_to_100_percent_from_disclosed_lines(self) -> None:
+        # The regression this protects: the N-CSR's sector weights cover
+        # investments only and sum to 102.6%. The filing's own "other assets
+        # less liabilities" line of (2.6)% is carried alongside them, so the
+        # grid reconciles to exactly 100% -- reproduced from two disclosed
+        # figures, never smoothed to it.
         portfolio = self.wb["Portfolio Construction"]
         sector_total = portfolio["C51"].value
-        self.assertAlmostEqual(sector_total, 1.026, places=3)
+        self.assertAlmostEqual(sector_total, 1.0, places=3)
         self.assertIn(f"{sector_total * 100:.1f}%", self.slide_text[3])
 
     def test_real_vs_illustrative_labels_match_manifest_input_kinds(self) -> None:
@@ -113,10 +115,10 @@ class EtfMemoDataGroundingTests(unittest.TestCase):
         checks = self.wb["Checks"]
         overall = checks["C11"].value
         self.assertIn(f"Overall checks: {overall}", self.slide_text[5])
-        # This case's own sector-band Check should be REVIEW, not PASS --
-        # a regression here would mean the deck is describing a workbook
-        # state that doesn't match this case's known, expected REVIEW.
-        self.assertEqual(overall, "REVIEW")
+        # Every check on this case passes on its merits once the fund's own
+        # balancing line is carried: a regression to REVIEW would mean the
+        # composition grid stopped reconciling to the disclosed 100%.
+        self.assertEqual(overall, "PASS")
 
     @classmethod
     def tearDownClass(cls) -> None:

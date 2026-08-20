@@ -1319,6 +1319,30 @@
         "as_of": "2026-03-31",
         "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
       }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "B47",
+      "value": "OTHER ASSETS LESS LIABILITIES",
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
+    },
+    {
+      "sheet": "Portfolio Construction",
+      "cell": "C47",
+      "value": -0.026,
+      "input_kind": "observed",
+      "source": {
+        "name": "KraneShares CSI China Internet ETF Annual Shareholder Report (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1547576/000182912626006162/kraneshares_ncsr.htm",
+        "as_of": "2026-03-31",
+        "notes": "Filed 2026-06-08, accession 0001829126-26-006162, CIK 0001547576. Source of sector weightings, total net assets, holdings count, and the realized 5-year average annual total return used as this case's adversarial outcome."
+      }
     }
   ],
   "sources": [

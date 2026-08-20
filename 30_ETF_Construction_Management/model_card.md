@@ -107,7 +107,7 @@
 
 ## Limitations and failure modes
 
-- `etf-public-kweb-2026-stress`'s sector table (sourced from the fund's own N-CSR) sums to 102.6%, outside the workbook's own 90%-101% plausible band -- a real, disclosed artifact (securities-lending collateral appears to double-count against a sector bucket), not a sourcing error in this case. It correctly resolves the Checks sheet's sector-weight check to REVIEW rather than PASS; that is the expected, honest outcome for an adversarial case, exactly like the Private Credit domain's Yellow Corp REVIEW on covenant breach.
+- `etf-public-kweb-2026-stress`'s sector table (sourced from the fund's own N-CSR) covers investments only and sums to 102.6% of net assets. The filing discloses the balancing half on the adjacent line -- `OTHER ASSETS LESS LIABILITIES - (2.6)%` -- and both are carried in the composition grid, so it reconciles to exactly 100.0% and the sector-weight check resolves to PASS. Nothing is smoothed: the reconciliation is built from two disclosed figures.
 - KWEB's realized outcome (5-year average annual total return) is a total-return figure the fund itself discloses, not an independently computed peak-to-trough price drawdown -- the free-tier market-data source used elsewhere in this repo only serves ~100 days of price history, insufficient to reach the 2021 peak.
 - Market price used as a NAV proxy, not the fund's own officially calculated daily NAV -- real (typically small) differences exist for a liquid ETF like QQQ and are not captured.
 - Creation unit size, securities-lending revenue, cash drag, and sampling error remain illustrative -- see "What's illustrative" above. A future pass with prospectus/SAI and annual-report access could source these for real.

@@ -65,9 +65,11 @@
           "Baidu, Cl A": 0.043,
           "JD Health International": 0.04,
           "Full Truck Alliance ADR": 0.036
-        }
+        },
+        "other_assets_less_liabilities_pct_of_net_assets": -0.026,
+        "total_investments_pct_of_net_assets": 1.026
       }
     }
   ],
-  "snapshot_sha256": "300d638ffcdc175e2beb866f05503a24610f9251054a61bc6274a4abfe017a6e"
+  "snapshot_sha256": "1a1c3d604ae1904f67b6e93cc48aae7c7828c3393f8b780f4f95e5741c6c51de"
 }
