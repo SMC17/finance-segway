@@ -50,7 +50,7 @@
     {
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C5",
-      "value": 2037.9,
+      "value": 2037.936,
       "input_kind": "observed",
       "source": {
         "name": "SkyBridge Multi-Adviser Hedge Fund Portfolios, LLC Consolidated Schedule of Investments and Statements of Changes in Shareholders' Capital (SEC Form N-CSR)",
@@ -62,7 +62,7 @@
     {
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C6",
-      "value": 42.9,
+      "value": -170.61,
       "input_kind": "observed",
       "source": {
         "name": "SkyBridge Multi-Adviser Hedge Fund Portfolios, LLC Consolidated Schedule of Investments and Statements of Changes in Shareholders' Capital (SEC Form N-CSR)",
@@ -74,7 +74,19 @@
     {
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C7",
-      "value": 49.3,
+      "value": 49.281,
+      "input_kind": "observed",
+      "source": {
+        "name": "SkyBridge Multi-Adviser Hedge Fund Portfolios, LLC Consolidated Schedule of Investments and Statements of Changes in Shareholders' Capital (SEC Form N-CSR)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+        "as_of": "2023-03-31",
+        "notes": "Filed 2023-06-01, accession 0001193125-23-158901, CIK 0001181848. Source of the underlying-fund look-through portfolio (real strategy and acquisition-date fields, unlike fof-public-hlpaf-2026), the FoF-level NAV roll-forward, and paid-in capital. The fund's own -30.29% disclosed one-year return and FTX Trading Ltd. total write-off (real cost $37.2mm, real fair value $0) are the source of this case's adversarial content."
+      }
+    },
+    {
+      "sheet": "NAV Rollforward & Fee Layering",
+      "cell": "C14",
+      "value": 40.572,
       "input_kind": "observed",
       "source": {
         "name": "SkyBridge Multi-Adviser Hedge Fund Portfolios, LLC Consolidated Schedule of Investments and Statements of Changes in Shareholders' Capital (SEC Form N-CSR)",
@@ -86,7 +98,7 @@
     {
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C10",
-      "value": -569.7,
+      "value": -569.686,
       "input_kind": "derived",
       "source": {
         "name": "SkyBridge Multi-Adviser Hedge Fund Portfolios, LLC Consolidated Schedule of Investments and Statements of Changes in Shareholders' Capital (SEC Form N-CSR)",
@@ -98,7 +110,7 @@
     {
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C12",
-      "value": 1207.8,
+      "value": 1207.786,
       "input_kind": "observed",
       "source": {
         "name": "SkyBridge Multi-Adviser Hedge Fund Portfolios, LLC Consolidated Schedule of Investments and Statements of Changes in Shareholders' Capital (SEC Form N-CSR)",

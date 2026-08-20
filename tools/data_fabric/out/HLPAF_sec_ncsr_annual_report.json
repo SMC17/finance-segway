@@ -11,7 +11,10 @@
   "url": "https://www.sec.gov/Archives/edgar/data/1803491/000121390026066804/ea0291054-01_ncsr.htm",
   "retrieved_at": "2026-08-17",
   "captured_values": {
-    "total_net_assets_usd": {"2026-03-31": 5785749989, "2025-03-31": 3621379842},
+    "total_net_assets_usd": {
+      "2026-03-31": 5785749989,
+      "2025-03-31": 3621379842
+    },
     "paid_in_capital_usd": 4737281755,
     "total_distributable_earnings_usd": 1048468234,
     "fy2026_net_realized_gain_usd": 118191082,
@@ -27,18 +30,64 @@
       "secondary_funds": 0.497,
       "short_term_investments": 0.092
     },
-    "nav_per_share": {"Class I": 19.77, "Class R": 18.91, "Class D": 19.53},
+    "nav_per_share": {
+      "Class I": 19.77,
+      "Class R": 18.91,
+      "Class D": 19.53
+    },
     "top_8_secondary_fund_positions_usd": [
-      {"name": "OIP Lightning, L.P.", "acquisition_date": "2025-12-09", "cost": 87538751, "fair_value": 94858964},
-      {"name": "A Capital Partners II, L.P.", "acquisition_date": "2025-12-22", "cost": 50000000, "fair_value": 85684586},
-      {"name": "NewView Capital Special Opportunities Fund III, L.P.", "acquisition_date": "2023-12-13", "cost": 54261191, "fair_value": 79426645},
-      {"name": "PSG Sequel-A L.P.", "acquisition_date": "2025-03-18", "cost": 63824882, "fair_value": 72394173},
-      {"name": "KIA X Knight SPV (DE), L.P.", "acquisition_date": "2024-06-10", "cost": 47112030, "fair_value": 71227582},
-      {"name": "The Resolute III Continuation Fund, L.P.", "acquisition_date": "2024-09-27", "cost": 66163885, "fair_value": 70106275},
-      {"name": "Banner Capital Fund I, L.P.", "acquisition_date": "2025-06-05", "cost": 43063263, "fair_value": 68580815},
-      {"name": "VSC EV3 (Parallel), L.P.", "acquisition_date": "2023-12-19", "cost": 23065089, "fair_value": 67846064}
-    ]
+      {
+        "name": "OIP Lightning, L.P.",
+        "acquisition_date": "2025-12-09",
+        "cost": 87538751,
+        "fair_value": 94858964
+      },
+      {
+        "name": "A Capital Partners II, L.P.",
+        "acquisition_date": "2025-12-22",
+        "cost": 50000000,
+        "fair_value": 85684586
+      },
+      {
+        "name": "NewView Capital Special Opportunities Fund III, L.P.",
+        "acquisition_date": "2023-12-13",
+        "cost": 54261191,
+        "fair_value": 79426645
+      },
+      {
+        "name": "PSG Sequel-A L.P.",
+        "acquisition_date": "2025-03-18",
+        "cost": 63824882,
+        "fair_value": 72394173
+      },
+      {
+        "name": "KIA X Knight SPV (DE), L.P.",
+        "acquisition_date": "2024-06-10",
+        "cost": 47112030,
+        "fair_value": 71227582
+      },
+      {
+        "name": "The Resolute III Continuation Fund, L.P.",
+        "acquisition_date": "2024-09-27",
+        "cost": 66163885,
+        "fair_value": 70106275
+      },
+      {
+        "name": "Banner Capital Fund I, L.P.",
+        "acquisition_date": "2025-06-05",
+        "cost": 43063263,
+        "fair_value": 68580815
+      },
+      {
+        "name": "VSC EV3 (Parallel), L.P.",
+        "acquisition_date": "2023-12-19",
+        "cost": 23065089,
+        "fair_value": 67846064
+      }
+    ],
+    "fy2026_net_investment_loss_usd": -113289251,
+    "fy2026_total_expenses_usd": 175929631
   },
-  "quoted_text": "Direct Investments 45.5%; Secondary Investments: Secondary Direct Equity 1.5%, Secondary Funds 49.7%; Total Secondary Investments 51.2%; Short Term Investments 9.2%; Total Investments 105.9%; Total Net Assets 100.0%. Consolidated Statements of Changes in Net Assets: Net Assets Beginning of year $3,621,379,842; End of year $5,785,749,989.",
+  "quoted_text": "Direct Investments 45.5%; Secondary Investments: Secondary Direct Equity 1.5%, Secondary Funds 49.7%; Total Secondary Investments 51.2%; Short Term Investments 9.2%; Total Investments 105.9%; Total Net Assets 100.0%. Consolidated Statements of Changes in Net Assets: Net Assets Beginning of year $3,621,379,842; End of year $5,785,749,989. Consolidated Statements of Changes in Net Assets, Change in Net Assets Resulting from Operations: Net investment loss $(113,289,251) for the year ended March 31, 2026 (Statement of Operations: Total Expenses 175,929,631). This is the first line of the statement of changes and closes the NAV roll-forward exactly.",
   "notes": "Hamilton Lane Private Assets Fund (HLPAF, CIK 0001803491) is a real, SEC-registered (1940 Act), non-traded interval fund investing across direct PE/credit positions and secondary fund-of-funds positions -- a genuine fund-of-funds vehicle with public N-CSR disclosure, unlike the closed-end, London-listed funds (HarbourVest Global Private Equity, Pantheon International) a prior session attempted and could not reach (HTTP 403 on both the factsheet PDF and the UK FCA National Storage Mechanism). The top-8 Secondary Fund positions by fair value were extracted programmatically (regex over the Consolidated Schedule of Investments' 159 total secondary-fund line items) from the real filing text, not hand-typed or estimated. Position-level Commitment/Called/Distributed are NOT separately disclosed for secondary-market fund stakes (HLPAF reports only its own Cost and Fair Value per position, since it bought these LP interests after the original commitment vintage) -- Cost is used as both Commitment and Called (defensible: cost is literally what HLPAF paid/called for the position), and per-position Distributed is left at 0 as a genuine, stated gap (the schedule of investments does not disclose position-level distribution history). Vintage year is not disclosed per position; HLPAF's own acquisition date is used as a labeled proxy, not a claim about the underlying fund's actual vintage. Cumulative 'distributions to date' uses the sum of the two most recent disclosed fiscal years ($88,161,148 + $42,458,537 = $130,619,685), explicitly NOT a full since-inception figure (the fund launched in 2020 per its own MD&A and this session did not fetch all five prior years' N-CSRs to build a true since-inception sum) -- a real, partial, honestly-labeled figure rather than an invented since-inception total."
 }

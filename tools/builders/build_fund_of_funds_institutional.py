@@ -131,7 +131,7 @@ def build(output: Path) -> None:
         sheet.cell(row, 3).number_format = CUR
 
     sheet["B11"] = "Computed ending-of-period FoF NAV"
-    sheet["C11"] = "=C5+C6-C7-C8-C9+C10"
+    sheet["C11"] = "=C5+C6-C7-IF(ISBLANK(C14),C8,C14)-C9+C10"
     sheet["C11"].number_format = CUR
 
     sheet["B12"] = "Reported ending-of-period FoF NAV"
@@ -145,6 +145,16 @@ def build(output: Path) -> None:
     sheet["B13"] = "Reconciliation residual (computed vs. reported ending NAV)"
     sheet["C13"] = "=C11-C12"
     sheet["C13"].number_format = CUR
+
+    # A filed fund's expense load is never just its advisory fee: the
+    # Statement of Changes in Net Assets opens with net investment income
+    # (loss), which already contains the management fee plus every other
+    # operating expense. When a real case sources that figure here it
+    # supersedes the modelled fee in C8 -- substituting the fee for it is
+    # what leaves a real fund's roll-forward unreconciled. Left blank for
+    # illustrative cases, which fall back to the modelled fee.
+    sheet["B14"] = "- Disclosed net investment loss (supersedes modelled fee when sourced)"
+    input_cell(sheet.cell(14, 3), CUR)   # left blank: ISBLANK falls back to the modelled fee
 
     sheet["B15"] = "Total LP capital called to date"
     input_cell(sheet.cell(15, 3, 400.0), CUR)

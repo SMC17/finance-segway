@@ -106,9 +106,20 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
         + V["fy2023_net_change_unrealized_depreciation_securities_usd"]
         + V["fy2023_net_change_unrealized_depreciation_related_party_securities_usd"]
     ) / 1_000_000
+    # Net capital share transactions, the same basis the HLPAF case uses:
+    # redemptions are a disclosed component of the period's capital
+    # movement and dominate it here (-$213.5mm against $0.4mm of
+    # contributions), so omitting them leaves the roll-forward unable to
+    # reconcile no matter how good the rest of the sourcing is.
     capital_in_period_mm = (
-        V["fy2023_capital_contributions_usd"] + V["fy2023_reinvestment_of_distributions_usd"]
+        V["fy2023_capital_contributions_usd"]
+        + V["fy2023_reinvestment_of_distributions_usd"]
+        + V["fy2023_capital_redemptions_usd"]
     ) / 1_000_000
+    # Disclosed net investment loss -- the first line of the statement of
+    # changes, already containing the fund's management fee. Positive here
+    # because the template's C11 formula subtracts it.
+    net_investment_loss_mm = -V["fy2023_net_investment_loss_usd"] / 1_000_000
     distributions_period_mm = abs(V["fy2023_distributions_from_distributable_earnings_usd"]) / 1_000_000
     paid_in_capital_mm = V["paid_in_capital_usd"] / 1_000_000
     distributions_to_date_mm = (
@@ -120,11 +131,12 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
         {"sheet": "Cover", "cell": "C9", "value": "Downside", "input_kind": "observed", "source": NCSR_SOURCE},
         {"sheet": "Assumptions", "cell": "D5", "value": round(paid_in_capital_mm, 1), "input_kind": "derived", "source": NCSR_SOURCE},
         {"sheet": "Assumptions", "cell": "D9", "value": len(holdings), "input_kind": "observed", "source": NCSR_SOURCE},
-        {"sheet": "NAV Rollforward & Fee Layering", "cell": "C5", "value": round(net_assets_begin, 1), "input_kind": "observed", "source": NCSR_SOURCE},
-        {"sheet": "NAV Rollforward & Fee Layering", "cell": "C6", "value": round(capital_in_period_mm, 1), "input_kind": "observed", "source": NCSR_SOURCE},
-        {"sheet": "NAV Rollforward & Fee Layering", "cell": "C7", "value": round(distributions_period_mm, 1), "input_kind": "observed", "source": NCSR_SOURCE},
-        {"sheet": "NAV Rollforward & Fee Layering", "cell": "C10", "value": round(net_loss_mm, 1), "input_kind": "derived", "source": NCSR_SOURCE},
-        {"sheet": "NAV Rollforward & Fee Layering", "cell": "C12", "value": round(net_assets_end, 1), "input_kind": "observed", "source": NCSR_SOURCE},
+        {"sheet": "NAV Rollforward & Fee Layering", "cell": "C5", "value": round(net_assets_begin, 3), "input_kind": "observed", "source": NCSR_SOURCE},
+        {"sheet": "NAV Rollforward & Fee Layering", "cell": "C6", "value": round(capital_in_period_mm, 3), "input_kind": "observed", "source": NCSR_SOURCE},
+        {"sheet": "NAV Rollforward & Fee Layering", "cell": "C7", "value": round(distributions_period_mm, 3), "input_kind": "observed", "source": NCSR_SOURCE},
+        {"sheet": "NAV Rollforward & Fee Layering", "cell": "C14", "value": round(net_investment_loss_mm, 3), "input_kind": "observed", "source": NCSR_SOURCE},
+        {"sheet": "NAV Rollforward & Fee Layering", "cell": "C10", "value": round(net_loss_mm, 3), "input_kind": "derived", "source": NCSR_SOURCE},
+        {"sheet": "NAV Rollforward & Fee Layering", "cell": "C12", "value": round(net_assets_end, 3), "input_kind": "observed", "source": NCSR_SOURCE},
         {"sheet": "NAV Rollforward & Fee Layering", "cell": "C15", "value": round(paid_in_capital_mm, 1), "input_kind": "observed", "source": NCSR_SOURCE},
         {"sheet": "NAV Rollforward & Fee Layering", "cell": "C16", "value": round(distributions_to_date_mm, 1), "input_kind": "derived", "source": NCSR_SOURCE},
     ]

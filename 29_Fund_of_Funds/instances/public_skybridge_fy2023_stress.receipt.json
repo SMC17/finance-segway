@@ -34,7 +34,7 @@
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C5",
       "previous": 380,
-      "value": 2037.9,
+      "value": 2037.936,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
       "source_as_of": "2023-03-31"
     },
@@ -42,7 +42,7 @@
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C6",
       "previous": 45,
-      "value": 42.9,
+      "value": -170.61,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
       "source_as_of": "2023-03-31"
     },
@@ -50,7 +50,15 @@
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C7",
       "previous": 38,
-      "value": 49.3,
+      "value": 49.281,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
+      "source_as_of": "2023-03-31"
+    },
+    {
+      "sheet": "NAV Rollforward & Fee Layering",
+      "cell": "C14",
+      "previous": null,
+      "value": 40.572,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
       "source_as_of": "2023-03-31"
     },
@@ -58,7 +66,7 @@
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C10",
       "previous": 28.13,
-      "value": -569.7,
+      "value": -569.686,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
       "source_as_of": "2023-03-31"
     },
@@ -66,7 +74,7 @@
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C12",
       "previous": 411,
-      "value": 1207.8,
+      "value": 1207.786,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1181848/000119312523158901/d465929dncsr.htm",
       "source_as_of": "2023-03-31"
     },
@@ -535,7 +543,7 @@
       "source_as_of": "2023-03-31"
     }
   ],
-  "workbook_sha256": "223ce120a76971b7cb3d0dfb839465fc8a5df5433851ec7066837170e4728fcd",
+  "workbook_sha256": "5261ba49e6691e902a803b28733e69fb7d389c524b2e3cab37c98ee8cc3c2578",
   "generated_on": "2026-08-17",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",

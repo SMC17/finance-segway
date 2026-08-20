@@ -85,9 +85,11 @@
             "cost": 23065089,
             "fair_value": 67846064
           }
-        ]
+        ],
+        "fy2026_net_investment_loss_usd": -113289251,
+        "fy2026_total_expenses_usd": 175929631
       }
     }
   ],
-  "snapshot_sha256": "fd130a3071aa6d1c00b785a84a1cc2726408ec072542ff4cf24f7b79fac70f76"
+  "snapshot_sha256": "6b9d3a78cae44f4aa639100da197e65b61a13ad2f89f8b527c93bd4a49073849"
 }
