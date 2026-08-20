@@ -1,0 +1,45 @@
+{
+  "data": {
+    "url": "series.csv",
+    "datetime_column_name": "date",
+    "datetime_format": "%Y-%m-%d",
+    "data_column_name": "wti_usd_per_bbl"
+  },
+  "chart": {
+    "datetime_format": "%b %d",
+    "y_axis_label": "USD per barrel (Cushing spot)"
+  },
+  "start_at_card": 3,
+  "cards": [
+    {
+      "title": "Before the crash",
+      "text": "EIA Cushing WTI spot opened 2020 at $63.27/b (RWTCD). This line is the official spot series pinned from eia.gov, not a model forecast and not the hashed futures settlement.",
+      "row_number": 0,
+      "display_date": "6 Jan 2020"
+    },
+    {
+      "title": "Demand collapse",
+      "text": "Spot printed $31.05 on 9 Mar 2020 as COVID travel restrictions crushed petroleum demand. EIA later wrote that U.S. weekly refinery inputs then fell 20% (Today in Energy, 5 Jan 2021).",
+      "row_number": 43,
+      "display_date": "9 Mar 2020"
+    },
+    {
+      "title": "Cushing 76% full",
+      "text": "Spot still positive at $18.31. EIA: Cushing stocks 60 million barrels, 76% of working capacity. Hashed cells Physical Balance & Carry!D14=60.0 and D18=0.76 come from that same article.",
+      "row_number": 71,
+      "display_date": "17 Apr 2020"
+    },
+    {
+      "title": "The negative print",
+      "text": "This series: -$36.98 Cushing spot. Hashed Hedging!C7 is the May futures settlement -$37.63. EIA also recorded an intraday low of -$40.32. Three public numbers, one day.",
+      "row_number": 72,
+      "display_date": "20 Apr 2020"
+    },
+    {
+      "title": "Back near $40",
+      "text": "EIA: WTI climbed to $40/b on 1 Jul 2020. This series: $39.88. The hashed case records 40.0 from that article. Frozen history, not a trade or a live hedge.",
+      "row_number": 123,
+      "display_date": "1 Jul 2020"
+    }
+  ]
+}

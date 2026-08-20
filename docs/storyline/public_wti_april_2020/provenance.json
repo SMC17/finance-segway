@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "visual_id": "storyline-public-wti-april-2020",
+  "classification": "external_historical_case_visual",
+  "counts_toward_M4": false,
+  "primary_icp": "journalism_data_desk",
+  "not": [
+    "trading_signal",
+    "price_target",
+    "live_hedge",
+    "bloomberg_terminal_replacement",
+    "new_modeling_domain"
+  ],
+  "series": {
+    "path": "docs/storyline/public_wti_april_2020/series.csv",
+    "sha256": "a667b2a53db72b0ae777b3ae36a31e726a010dfcdc8b55aad59f706e50910732",
+    "metric": "eia_cushing_ok_wti_spot_fob_usd_per_bbl",
+    "series_id": "RWTC",
+    "source_url": "https://www.eia.gov/dnav/pet/hist/RWTCD.htm",
+    "publisher": "U.S. Energy Information Administration",
+    "captured_on": "2026-08-20",
+    "window": {
+      "start": "2020-01-06",
+      "end": "2020-07-15"
+    },
+    "point_count": 133,
+    "source_weeks_path": "docs/storyline/public_wti_april_2020/source_weeks.json",
+    "source_weeks_sha256": "3c8a42ceefef26443f61b2ced4ebe3c207b94027bbd3cff78dfef5123a888f3f",
+    "note": "Cushing spot is not the NYMEX May 2020 futures settlement. On 2020-04-20 this series is -36.98; hashed Hedging!C7 is -37.63."
+  },
+  "storyline": {
+    "path": "docs/storyline/public_wti_april_2020/storyline.json",
+    "sha256": "780cfb4cb1c75320d2cd27a9baaf60bfb36160b66020f288d04468bd70c72ee8",
+    "contract": "https://github.com/NUKnightLab/storyline",
+    "card_count": 5,
+    "start_at_card": 3
+  },
+  "linked_public_case": {
+    "case_id": "commodities-public-wti-april-2020",
+    "snapshot": "15_Commodities/sources/snapshots/commodities-public-wti-april-2020.json",
+    "snapshot_sha256": "da94912a719b505a4e1c78b5365171eafa25931568e27c6288bd4d71becbb24e",
+    "receipt": "15_Commodities/instances/public_wti_april_2020.receipt.json",
+    "workbook": "15_Commodities/instances/public_wti_april_2020.xlsx",
+    "workbook_sha256": "fee53a78885874a3a99718217e2b1d33aee3218b216e38e8a7baecff2227ffa0"
+  },
+  "cell_bindings": [
+    {
+      "claim": "may_futures_settlement_usd_per_bbl",
+      "plotted": false,
+      "value": -37.63,
+      "sheet": "Hedging",
+      "cell": "C7",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=43495"
+    },
+    {
+      "claim": "june_contract_price_usd_per_bbl",
+      "plotted": false,
+      "value": 20.43,
+      "sheet": "Hedging",
+      "cell": "C8",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=43495"
+    },
+    {
+      "claim": "cushing_stocks_mm_bbl",
+      "plotted": false,
+      "value": 60.0,
+      "sheet": "Physical Balance & Carry",
+      "cell": "D14",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=43495"
+    },
+    {
+      "claim": "storage_utilization",
+      "plotted": false,
+      "value": 0.76,
+      "sheet": "Physical Balance & Carry",
+      "cell": "D18",
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=43495"
+    }
+  ],
+  "annotation_only": [
+    {
+      "claim": "intraday_low_usd_per_bbl",
+      "value": -40.32,
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=43495",
+      "note": "EIA prose; not a row in series.csv and not a hashed model cell."
+    },
+    {
+      "claim": "wti_price_by_2020_07_01_usd_per_bbl",
+      "value": 40.0,
+      "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=46336",
+      "note": "Hashed case outcome. This series prints 39.88 on 2020-07-01."
+    }
+  ]
+}

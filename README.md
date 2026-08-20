@@ -277,6 +277,8 @@ python3 tools/evidence_receipt_integrity.py --check --report /tmp/evidence-recei
 
 In the workbook, look at the Hedging sheet (`C7` is the EIA May settlement of -37.63). The Cover tab may still show template placeholders; the snapshot JSON is the case file.
 
+The same case as a Storyline (annotated EIA Cushing *spot* series, cards citing those hashed cells): open `docs/storyline/public_wti_april_2020/index.html` in a browser. Spot on 20 Apr 2020 is **-36.98**; `Hedging!C7` is the May futures settlement **-37.63**. Both are labeled. Rebuild with `python3 tools/build_wti_storyline.py --check`. This is a view of hashed evidence, not a new domain.
+
 This is not a trading signal, price target, or investment recommendation. Public cases are frozen historical reconstructions (`external_historical_case`, `counts_toward_M4: false`). See the license disclaimer.
 
 ## Collaboration
