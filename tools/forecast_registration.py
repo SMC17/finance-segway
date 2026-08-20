@@ -143,6 +143,14 @@ def validate_record(record: dict[str, Any], *, today: date | None = None) -> lis
             "field was edited after registration"
         )
 
+    if restates_baseline(record) and record.get("registration_sha256") is None:
+        errors.append(
+            "point equals baseline.value, so Murphy skill is 0.0 for every "
+            "possible outcome and this record can never demonstrate skill - "
+            "register a forecast that differs from the naive baseline, or "
+            "record the no-edge judgement somewhere other than the registry"
+        )
+
     resolution = record.get("resolution")
     if resolution is not None:
         if not isinstance(resolution, dict):
@@ -167,6 +175,28 @@ def validate_record(record: dict[str, Any], *, today: date | None = None) -> lis
                             f"the registered payload gives {value!r}"
                         )
     return errors
+
+
+def restates_baseline(record: dict[str, Any]) -> bool:
+    """Is this forecast identical to the baseline it will be scored against?
+
+    Murphy skill is 1 - |forecast - realized| / |baseline - realized|. When
+    the forecast IS the baseline those errors are equal for every possible
+    outcome, so skill is exactly 0.0 no matter what happens -- the record
+    can never carry information about whether anyone can forecast. It is a
+    statement of "no edge" wearing a forecast's clothes.
+
+    Such a record is not dishonest, but it must not be averaged in with
+    forecasts that can move: a registry of guaranteed zeros reports a mean
+    skill of 0.0 and looks like a measurement.
+    """
+    point = record.get("point")
+    baseline = (record.get("baseline") or {}).get("value")
+    if not isinstance(point, (int, float)) or isinstance(point, bool):
+        return False
+    if not isinstance(baseline, (int, float)) or isinstance(baseline, bool):
+        return False
+    return float(point) == float(baseline)
 
 
 def score(record: dict[str, Any], realized: float) -> dict[str, Any]:
@@ -270,6 +300,7 @@ def check_all(directory: Path = FORECAST_DIR) -> dict[str, Any]:
     ids = [record.get("forecast_id") for record in records.values()]
     duplicate_ids = sorted({i for i in ids if ids.count(i) > 1})
     resolved = pending = overdue = 0
+    degenerate: list[str] = []
     skills: list[float] = []
     interval_hits: list[bool] = []
     today = date.today()
@@ -290,10 +321,15 @@ def check_all(directory: Path = FORECAST_DIR) -> dict[str, Any]:
                 )
         if errors:
             problems[path.name] = errors
+        if restates_baseline(record):
+            degenerate.append(record.get("forecast_id"))
         if record.get("resolution") is not None:
             resolved += 1
             skill = (record["resolution"] or {}).get("skill_vs_baseline")
-            if isinstance(skill, (int, float)):
+            # A forecast that restates its baseline scores 0.0 by
+            # construction. Averaging it in would dilute the mean toward
+            # zero and dress a structural artefact up as a measurement.
+            if isinstance(skill, (int, float)) and not restates_baseline(record):
                 skills.append(float(skill))
             hit = (record["resolution"] or {}).get("interval_hit")
             if isinstance(hit, bool):
@@ -306,7 +342,9 @@ def check_all(directory: Path = FORECAST_DIR) -> dict[str, Any]:
         "pending": pending,
         "overdue": overdue,
         "resolved": resolved,
+        "skill_scored": len(skills),
         "mean_skill_vs_baseline": (sum(skills) / len(skills)) if skills else None,
+        "restate_baseline_forecasts": sorted(f for f in degenerate if f),
         "interval_coverage": (
             sum(interval_hits) / len(interval_hits) if interval_hits else None
         ),
