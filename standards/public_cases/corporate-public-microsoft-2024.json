@@ -8,9 +8,1270 @@
   "as_of": "2024-06-30",
   "scenario": "Base",
   "cover": {
-    "Title:": "Microsoft FY2024 treasury and capital allocation"
+    "Title:": "Microsoft FY2024 treasury and capital allocation",
+    "Sector:": "Software -- SEC SIC 7372 (Services-Prepackaged Software), as filed by the registrant"
   },
   "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 0.145099,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Revenue growth. Fades linearly from the 4-year trailing mean (0.1451) in FY1 to the slowest year actually observed (0.0688) in FY5. Both endpoints are real: annual growth over FY2020-FY2024 was 0.1753, 0.1796, 0.0688, 0.1567, computed from tagged RevenueFromContractWithCustomerExcludingAssessedTax. Only the linear shape between them is a modeling choice. No fiscal year after the case's 2024-06-30 as-of date is used."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 0.697644,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Gross margin = GrossProfit / revenue, FY2024 = 0.6976. Held flat at the FY2024 actual across the forecast. Holding the most recent observed value is the assumption that requires the least invention; the FY2020-FY2024 range is recorded in the snapshot so the reader can see the variation this flat line suppresses."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.251201,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Operating expense / revenue = (GrossProfit - OperatingIncomeLoss) / revenue, FY2024 = 0.2512. Held flat at the FY2024 actual across the forecast. Holding the most recent observed value is the assumption that requires the least invention; the FY2020-FY2024 range is recorded in the snapshot so the reader can see the variation this flat line suppresses."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "value": 0.182313,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Effective tax rate = IncomeTaxExpenseBenefit / (NetIncomeLoss + IncomeTaxExpenseBenefit), FY2024 = 0.1823. This is the GAAP effective rate, not cash taxes paid, which are not in this fact set. Held flat at the FY2024 actual across the forecast. Holding the most recent observed value is the assumption that requires the least invention; the FY2020-FY2024 range is recorded in the snapshot so the reader can see the variation this flat line suppresses."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "value": 0.55,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Depreciation and amortization as a share of capex. Microsoft tags no DepreciationDepletionAndAmortization concept in this fact set, so there is nothing to derive it from. Held as a driver."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C10",
+      "value": 0.181448,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Capex / revenue = PaymentsToAcquirePropertyPlantAndEquipment / revenue, FY2024 = 0.1814. Note this ratio rose steeply over the window (0.1080, 0.1227, 0.1205, 0.1326, 0.1814), so holding the latest value flat is the higher-capex, lower-free-cash-flow choice rather than the flattering one."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "value": -0.556192,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Change in net working capital per dollar of revenue change, 4-year mean = -0.5562, where net working capital is tagged AssetsCurrent less LiabilitiesCurrent. CAVEAT: the yearly values (-0.5526, -0.7006, 0.4035, -1.3750) are highly unstable and change sign, so this mean is a weak central estimate and the line should be stress-tested rather than trusted as a point."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C12",
+      "value": 7400.1,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Shares outstanding. FY2024 tagged CommonStockSharesOutstanding = 7,434mm, carried forward at the observed FY2020-FY2024 buyback CAGR of -0.00455 (from 7,571mm). Both endpoints are tagged facts; the constant-rate extrapolation is the modeling choice."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C13",
+      "value": 0.085,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Weighted average cost of capital. A market-derived quantity -- it needs a risk-free rate, an equity risk premium, and a beta, none of which is an issuer disclosure and none of whose sources (FRED, Damodaran) is reachable from this environment. Held as a driver."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C14",
+      "value": 0.025,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Terminal growth rate. A judgment about the indefinite future, not a fact about Microsoft."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "value": 0.12603,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Revenue growth. Fades linearly from the 4-year trailing mean (0.1451) in FY1 to the slowest year actually observed (0.0688) in FY5. Both endpoints are real: annual growth over FY2020-FY2024 was 0.1753, 0.1796, 0.0688, 0.1567, computed from tagged RevenueFromContractWithCustomerExcludingAssessedTax. Only the linear shape between them is a modeling choice. No fiscal year after the case's 2024-06-30 as-of date is used."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D6",
+      "value": 0.697644,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Gross margin = GrossProfit / revenue, FY2024 = 0.6976. Held flat at the FY2024 actual across the forecast. Holding the most recent observed value is the assumption that requires the least invention; the FY2020-FY2024 range is recorded in the snapshot so the reader can see the variation this flat line suppresses."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": 0.251201,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Operating expense / revenue = (GrossProfit - OperatingIncomeLoss) / revenue, FY2024 = 0.2512. Held flat at the FY2024 actual across the forecast. Holding the most recent observed value is the assumption that requires the least invention; the FY2020-FY2024 range is recorded in the snapshot so the reader can see the variation this flat line suppresses."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "value": 0.182313,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Effective tax rate = IncomeTaxExpenseBenefit / (NetIncomeLoss + IncomeTaxExpenseBenefit), FY2024 = 0.1823. This is the GAAP effective rate, not cash taxes paid, which are not in this fact set. Held flat at the FY2024 actual across the forecast. Holding the most recent observed value is the assumption that requires the least invention; the FY2020-FY2024 range is recorded in the snapshot so the reader can see the variation this flat line suppresses."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "value": 0.55,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Depreciation and amortization as a share of capex. Microsoft tags no DepreciationDepletionAndAmortization concept in this fact set, so there is nothing to derive it from. Held as a driver."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 0.181448,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Capex / revenue = PaymentsToAcquirePropertyPlantAndEquipment / revenue, FY2024 = 0.1814. Note this ratio rose steeply over the window (0.1080, 0.1227, 0.1205, 0.1326, 0.1814), so holding the latest value flat is the higher-capex, lower-free-cash-flow choice rather than the flattering one."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "value": -0.556192,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Change in net working capital per dollar of revenue change, 4-year mean = -0.5562, where net working capital is tagged AssetsCurrent less LiabilitiesCurrent. CAVEAT: the yearly values (-0.5526, -0.7006, 0.4035, -1.3750) are highly unstable and change sign, so this mean is a weak central estimate and the line should be stress-tested rather than trusted as a point."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D12",
+      "value": 7366.4,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Shares outstanding. FY2024 tagged CommonStockSharesOutstanding = 7,434mm, carried forward at the observed FY2020-FY2024 buyback CAGR of -0.00455 (from 7,571mm). Both endpoints are tagged facts; the constant-rate extrapolation is the modeling choice."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D13",
+      "value": 0.085,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Weighted average cost of capital. A market-derived quantity -- it needs a risk-free rate, an equity risk premium, and a beta, none of which is an issuer disclosure and none of whose sources (FRED, Damodaran) is reachable from this environment. Held as a driver."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D14",
+      "value": 0.025,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Terminal growth rate. A judgment about the indefinite future, not a fact about Microsoft."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E5",
+      "value": 0.10696,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Revenue growth. Fades linearly from the 4-year trailing mean (0.1451) in FY1 to the slowest year actually observed (0.0688) in FY5. Both endpoints are real: annual growth over FY2020-FY2024 was 0.1753, 0.1796, 0.0688, 0.1567, computed from tagged RevenueFromContractWithCustomerExcludingAssessedTax. Only the linear shape between them is a modeling choice. No fiscal year after the case's 2024-06-30 as-of date is used."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E6",
+      "value": 0.697644,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Gross margin = GrossProfit / revenue, FY2024 = 0.6976. Held flat at the FY2024 actual across the forecast. Holding the most recent observed value is the assumption that requires the least invention; the FY2020-FY2024 range is recorded in the snapshot so the reader can see the variation this flat line suppresses."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E7",
+      "value": 0.251201,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Operating expense / revenue = (GrossProfit - OperatingIncomeLoss) / revenue, FY2024 = 0.2512. Held flat at the FY2024 actual across the forecast. Holding the most recent observed value is the assumption that requires the least invention; the FY2020-FY2024 range is recorded in the snapshot so the reader can see the variation this flat line suppresses."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E8",
+      "value": 0.182313,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Effective tax rate = IncomeTaxExpenseBenefit / (NetIncomeLoss + IncomeTaxExpenseBenefit), FY2024 = 0.1823. This is the GAAP effective rate, not cash taxes paid, which are not in this fact set. Held flat at the FY2024 actual across the forecast. Holding the most recent observed value is the assumption that requires the least invention; the FY2020-FY2024 range is recorded in the snapshot so the reader can see the variation this flat line suppresses."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E9",
+      "value": 0.55,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Depreciation and amortization as a share of capex. Microsoft tags no DepreciationDepletionAndAmortization concept in this fact set, so there is nothing to derive it from. Held as a driver."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E10",
+      "value": 0.181448,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Capex / revenue = PaymentsToAcquirePropertyPlantAndEquipment / revenue, FY2024 = 0.1814. Note this ratio rose steeply over the window (0.1080, 0.1227, 0.1205, 0.1326, 0.1814), so holding the latest value flat is the higher-capex, lower-free-cash-flow choice rather than the flattering one."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E11",
+      "value": -0.556192,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Change in net working capital per dollar of revenue change, 4-year mean = -0.5562, where net working capital is tagged AssetsCurrent less LiabilitiesCurrent. CAVEAT: the yearly values (-0.5526, -0.7006, 0.4035, -1.3750) are highly unstable and change sign, so this mean is a weak central estimate and the line should be stress-tested rather than trusted as a point."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E12",
+      "value": 7332.9,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Shares outstanding. FY2024 tagged CommonStockSharesOutstanding = 7,434mm, carried forward at the observed FY2020-FY2024 buyback CAGR of -0.00455 (from 7,571mm). Both endpoints are tagged facts; the constant-rate extrapolation is the modeling choice."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E13",
+      "value": 0.085,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Weighted average cost of capital. A market-derived quantity -- it needs a risk-free rate, an equity risk premium, and a beta, none of which is an issuer disclosure and none of whose sources (FRED, Damodaran) is reachable from this environment. Held as a driver."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E14",
+      "value": 0.025,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Terminal growth rate. A judgment about the indefinite future, not a fact about Microsoft."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F5",
+      "value": 0.08789,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Revenue growth. Fades linearly from the 4-year trailing mean (0.1451) in FY1 to the slowest year actually observed (0.0688) in FY5. Both endpoints are real: annual growth over FY2020-FY2024 was 0.1753, 0.1796, 0.0688, 0.1567, computed from tagged RevenueFromContractWithCustomerExcludingAssessedTax. Only the linear shape between them is a modeling choice. No fiscal year after the case's 2024-06-30 as-of date is used."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F6",
+      "value": 0.697644,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Gross margin = GrossProfit / revenue, FY2024 = 0.6976. Held flat at the FY2024 actual across the forecast. Holding the most recent observed value is the assumption that requires the least invention; the FY2020-FY2024 range is recorded in the snapshot so the reader can see the variation this flat line suppresses."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F7",
+      "value": 0.251201,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Operating expense / revenue = (GrossProfit - OperatingIncomeLoss) / revenue, FY2024 = 0.2512. Held flat at the FY2024 actual across the forecast. Holding the most recent observed value is the assumption that requires the least invention; the FY2020-FY2024 range is recorded in the snapshot so the reader can see the variation this flat line suppresses."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F8",
+      "value": 0.182313,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Effective tax rate = IncomeTaxExpenseBenefit / (NetIncomeLoss + IncomeTaxExpenseBenefit), FY2024 = 0.1823. This is the GAAP effective rate, not cash taxes paid, which are not in this fact set. Held flat at the FY2024 actual across the forecast. Holding the most recent observed value is the assumption that requires the least invention; the FY2020-FY2024 range is recorded in the snapshot so the reader can see the variation this flat line suppresses."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F9",
+      "value": 0.55,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Depreciation and amortization as a share of capex. Microsoft tags no DepreciationDepletionAndAmortization concept in this fact set, so there is nothing to derive it from. Held as a driver."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F10",
+      "value": 0.181448,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Capex / revenue = PaymentsToAcquirePropertyPlantAndEquipment / revenue, FY2024 = 0.1814. Note this ratio rose steeply over the window (0.1080, 0.1227, 0.1205, 0.1326, 0.1814), so holding the latest value flat is the higher-capex, lower-free-cash-flow choice rather than the flattering one."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F11",
+      "value": -0.556192,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Change in net working capital per dollar of revenue change, 4-year mean = -0.5562, where net working capital is tagged AssetsCurrent less LiabilitiesCurrent. CAVEAT: the yearly values (-0.5526, -0.7006, 0.4035, -1.3750) are highly unstable and change sign, so this mean is a weak central estimate and the line should be stress-tested rather than trusted as a point."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F12",
+      "value": 7299.5,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Shares outstanding. FY2024 tagged CommonStockSharesOutstanding = 7,434mm, carried forward at the observed FY2020-FY2024 buyback CAGR of -0.00455 (from 7,571mm). Both endpoints are tagged facts; the constant-rate extrapolation is the modeling choice."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F13",
+      "value": 0.085,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Weighted average cost of capital. A market-derived quantity -- it needs a risk-free rate, an equity risk premium, and a beta, none of which is an issuer disclosure and none of whose sources (FRED, Damodaran) is reachable from this environment. Held as a driver."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F14",
+      "value": 0.025,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Terminal growth rate. A judgment about the indefinite future, not a fact about Microsoft."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G5",
+      "value": 0.06882,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Revenue growth. Fades linearly from the 4-year trailing mean (0.1451) in FY1 to the slowest year actually observed (0.0688) in FY5. Both endpoints are real: annual growth over FY2020-FY2024 was 0.1753, 0.1796, 0.0688, 0.1567, computed from tagged RevenueFromContractWithCustomerExcludingAssessedTax. Only the linear shape between them is a modeling choice. No fiscal year after the case's 2024-06-30 as-of date is used."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G6",
+      "value": 0.697644,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Gross margin = GrossProfit / revenue, FY2024 = 0.6976. Held flat at the FY2024 actual across the forecast. Holding the most recent observed value is the assumption that requires the least invention; the FY2020-FY2024 range is recorded in the snapshot so the reader can see the variation this flat line suppresses."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G7",
+      "value": 0.251201,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Operating expense / revenue = (GrossProfit - OperatingIncomeLoss) / revenue, FY2024 = 0.2512. Held flat at the FY2024 actual across the forecast. Holding the most recent observed value is the assumption that requires the least invention; the FY2020-FY2024 range is recorded in the snapshot so the reader can see the variation this flat line suppresses."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G8",
+      "value": 0.182313,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Effective tax rate = IncomeTaxExpenseBenefit / (NetIncomeLoss + IncomeTaxExpenseBenefit), FY2024 = 0.1823. This is the GAAP effective rate, not cash taxes paid, which are not in this fact set. Held flat at the FY2024 actual across the forecast. Holding the most recent observed value is the assumption that requires the least invention; the FY2020-FY2024 range is recorded in the snapshot so the reader can see the variation this flat line suppresses."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G9",
+      "value": 0.55,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Depreciation and amortization as a share of capex. Microsoft tags no DepreciationDepletionAndAmortization concept in this fact set, so there is nothing to derive it from. Held as a driver."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G10",
+      "value": 0.181448,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Capex / revenue = PaymentsToAcquirePropertyPlantAndEquipment / revenue, FY2024 = 0.1814. Note this ratio rose steeply over the window (0.1080, 0.1227, 0.1205, 0.1326, 0.1814), so holding the latest value flat is the higher-capex, lower-free-cash-flow choice rather than the flattering one."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G11",
+      "value": -0.556192,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Change in net working capital per dollar of revenue change, 4-year mean = -0.5562, where net working capital is tagged AssetsCurrent less LiabilitiesCurrent. CAVEAT: the yearly values (-0.5526, -0.7006, 0.4035, -1.3750) are highly unstable and change sign, so this mean is a weak central estimate and the line should be stress-tested rather than trusted as a point."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G12",
+      "value": 7266.2,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Shares outstanding. FY2024 tagged CommonStockSharesOutstanding = 7,434mm, carried forward at the observed FY2020-FY2024 buyback CAGR of -0.00455 (from 7,571mm). Both endpoints are tagged facts; the constant-rate extrapolation is the modeling choice."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G13",
+      "value": 0.085,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Weighted average cost of capital. A market-derived quantity -- it needs a risk-free rate, an equity risk premium, and a beta, none of which is an issuer disclosure and none of whose sources (FRED, Damodaran) is reachable from this environment. Held as a driver."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G14",
+      "value": 0.025,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Terminal growth rate. A judgment about the indefinite future, not a fact about Microsoft."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B5",
+      "value": "ADBE",
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "ADOBE INC.. Peer selected by SEC-filed SIC code: Microsoft files SIC 7372 (Services-Prepackaged Software), and this issuer files the same code per tools/data_fabric/out/QQQ_sec_sic_classifications.json. Peer SELECTION is sourced; the peer's multiples are not (see the price columns)."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B6",
+      "value": "ADSK",
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Autodesk, Inc.. Peer selected by SEC-filed SIC code: Microsoft files SIC 7372 (Services-Prepackaged Software), and this issuer files the same code per tools/data_fabric/out/QQQ_sec_sic_classifications.json. Peer SELECTION is sourced; the peer's multiples are not (see the price columns)."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B7",
+      "value": "CDNS",
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "CADENCE DESIGN SYSTEMS INC. Peer selected by SEC-filed SIC code: Microsoft files SIC 7372 (Services-Prepackaged Software), and this issuer files the same code per tools/data_fabric/out/QQQ_sec_sic_classifications.json. Peer SELECTION is sourced; the peer's multiples are not (see the price columns)."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B8",
+      "value": "CRWD",
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "CrowdStrike Holdings, Inc.. Peer selected by SEC-filed SIC code: Microsoft files SIC 7372 (Services-Prepackaged Software), and this issuer files the same code per tools/data_fabric/out/QQQ_sec_sic_classifications.json. Peer SELECTION is sourced; the peer's multiples are not (see the price columns)."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B9",
+      "value": "CRWV",
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "CoreWeave, Inc.. Peer selected by SEC-filed SIC code: Microsoft files SIC 7372 (Services-Prepackaged Software), and this issuer files the same code per tools/data_fabric/out/QQQ_sec_sic_classifications.json. Peer SELECTION is sourced; the peer's multiples are not (see the price columns)."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B10",
+      "value": "DDOG",
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Datadog, Inc.. Peer selected by SEC-filed SIC code: Microsoft files SIC 7372 (Services-Prepackaged Software), and this issuer files the same code per tools/data_fabric/out/QQQ_sec_sic_classifications.json. Peer SELECTION is sourced; the peer's multiples are not (see the price columns)."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B11",
+      "value": "EA",
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "ELECTRONIC ARTS INC.. Peer selected by SEC-filed SIC code: Microsoft files SIC 7372 (Services-Prepackaged Software), and this issuer files the same code per tools/data_fabric/out/QQQ_sec_sic_classifications.json. Peer SELECTION is sourced; the peer's multiples are not (see the price columns)."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C5",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C6",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C7",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C8",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C9",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C10",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C11",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D5",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D6",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D7",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D8",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D9",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D10",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D11",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E5",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E6",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E7",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E8",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E9",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E10",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E11",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F5",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F6",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F7",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F8",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F9",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F10",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F11",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G5",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G6",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G7",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G8",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G9",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G10",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G11",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H5",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H6",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H7",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H8",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H9",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H10",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H11",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not."
+      }
+    },
+    {
+      "sheet": "Cover",
+      "cell": "B11",
+      "value": "Microsoft closed FY2024 with 245,122mm of revenue, a 69.8% gross margin and net cash of 8,416mm. The live question is capital intensity: capex rose from 10.8% of revenue in FY2020 to 18.1% in FY2024, so free cash flow now turns on whether that build sustains the growth rate that justifies it.",
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Thesis stated in terms of the disclosed FY2024 figures it rests on, so every number in it is traceable to a tagged fact."
+      }
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I5",
+      "value": 0.085,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Discount rate (WACC). Same reasoning as Assumptions row 13: market-derived, no reachable source."
+      }
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I6",
+      "value": 0.025,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Terminal growth rate. Same reasoning as Assumptions row 14."
+      }
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I11",
+      "value": -8416.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Net debt = disclosed FY2024 total debt 67,127 less cash and short-term investments 75,543 = -8,416.0 $mm, i.e. Microsoft carried NET CASH at FY2024. Both components are 10-K values already frozen in this repository (the debt figure in the domain-06 Microsoft case snapshot, the liquidity figure in this one)."
+      }
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I13",
+      "value": 7434.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Diluted share count proxied by tagged CommonStockSharesOutstanding at FY2024 (7,434mm). Microsoft's diluted weighted-average count is not separately tagged in this fact set; the basic weighted average (7,431mm) is, and the two differ by roughly the dilutive equity award overhang, so implied value per share is marginally overstated."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C5",
+      "value": 34704.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Opening cash = tagged CashAndCashEquivalentsAtCarryingValue at FY2023 (34,704 $mm). CAVEAT: the sheet's ending-cash identity is opening + operating cash flow - capex - dividends - buybacks + issuance - repayment. It omits net purchases and maturities of short-term investments, acquisitions, and FX, so the resulting ending-cash line is NOT comparable to the 10-K's cash and short-term investments; the difference is those omitted flows. The case's recorded outcome metric is a historical record of what was forecast at the time and is deliberately left unchanged."
+      }
+    },
     {
       "sheet": "Treasury & Liquidity",
       "cell": "C6",
@@ -93,6 +1354,78 @@
         "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
         "as_of": "2024-06-30",
         "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date"
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C13",
+      "value": 109400.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft FY2024 Form 10-K -- operating income $109.4bn, used as EBITDA proxy",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Real disclosed operating income; labeled proxy since precise D&A add-back to reach strict EBITDA was not separately sourced."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C14",
+      "value": 1700.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft FY2024 Form 10-K -- cash paid for interest on debt, $1.7bn",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Real disclosed cash interest paid."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C15",
+      "value": 20000.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Minimum operating cash balance. A treasury policy screen set by the analyst, not a Microsoft disclosure -- Microsoft is investment grade and discloses no maintenance covenant thresholds. Held as a driver."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C16",
+      "value": 2.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Maximum tolerated net leverage. A treasury policy screen set by the analyst, not a Microsoft disclosure -- Microsoft is investment grade and discloses no maintenance covenant thresholds. Held as a driver."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C17",
+      "value": 10.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Minimum tolerated interest coverage. A treasury policy screen set by the analyst, not a Microsoft disclosure -- Microsoft is investment grade and discloses no maintenance covenant thresholds. Held as a driver."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D5",
+      "value": 13576.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Opening cash = tagged CashAndCashEquivalentsAtCarryingValue at FY2023 (34,704 $mm). CAVEAT: the sheet's ending-cash identity is opening + operating cash flow - capex - dividends - buybacks + issuance - repayment. It omits net purchases and maturities of short-term investments, acquisitions, and FX, so the resulting ending-cash line is NOT comparable to the 10-K's cash and short-term investments; the difference is those omitted flows. The case's recorded outcome metric is a historical record of what was forecast at the time and is deliberately left unchanged. Adversarial column uses the lowest cash balance observed over FY2020-FY2024 (13,576 $mm)."
       }
     },
     {
@@ -181,18 +1514,6 @@
     },
     {
       "sheet": "Treasury & Liquidity",
-      "cell": "C13",
-      "value": 109400.0,
-      "input_kind": "observed",
-      "source": {
-        "name": "Microsoft FY2024 Form 10-K -- operating income $109.4bn, used as EBITDA proxy",
-        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
-        "as_of": "2024-06-30",
-        "notes": "Real disclosed operating income; labeled proxy since precise D&A add-back to reach strict EBITDA was not separately sourced."
-      }
-    },
-    {
-      "sheet": "Treasury & Liquidity",
       "cell": "D13",
       "value": 109400.0,
       "input_kind": "observed",
@@ -205,18 +1526,6 @@
     },
     {
       "sheet": "Treasury & Liquidity",
-      "cell": "C14",
-      "value": 1700.0,
-      "input_kind": "observed",
-      "source": {
-        "name": "Microsoft FY2024 Form 10-K -- cash paid for interest on debt, $1.7bn",
-        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
-        "as_of": "2024-06-30",
-        "notes": "Real disclosed cash interest paid."
-      }
-    },
-    {
-      "sheet": "Treasury & Liquidity",
       "cell": "D14",
       "value": 1700.0,
       "input_kind": "observed",
@@ -225,6 +1534,42 @@
         "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
         "as_of": "2024-06-30",
         "notes": "Mirrored onto the Adversarial column."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D15",
+      "value": 20000.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Minimum operating cash balance. A treasury policy screen set by the analyst, not a Microsoft disclosure -- Microsoft is investment grade and discloses no maintenance covenant thresholds. Held as a driver."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D16",
+      "value": 2.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Maximum tolerated net leverage. A treasury policy screen set by the analyst, not a Microsoft disclosure -- Microsoft is investment grade and discloses no maintenance covenant thresholds. Held as a driver."
+      }
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D17",
+      "value": 10.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Minimum tolerated interest coverage. A treasury policy screen set by the analyst, not a Microsoft disclosure -- Microsoft is investment grade and discloses no maintenance covenant thresholds. Held as a driver."
       }
     }
   ],
@@ -247,6 +1592,18 @@
       "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date"
     },
     {
+      "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "as_of": "2024-06-30",
+      "notes": "SEC XBRL company facts for CIK 0000789019, recorded at tools/data_fabric/out/MSFT_facts_annual_series.json. Only FY2020-FY2024 is used; FY2025 and FY2026 are present in the fact set and deliberately excluded as hindsight relative to this case's as-of date."
+    },
+    {
+      "name": "SEC EDGAR SIC classifications (peer selection)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=7372",
+      "as_of": "2024-06-30",
+      "notes": "Comparable-company selection by SIC 7372 (Services-Prepackaged Software) per tools/data_fabric/out/QQQ_sec_sic_classifications.json."
+    },
+    {
       "name": "Frozen source snapshot",
       "url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
       "as_of": "2024-06-30",
@@ -254,11 +1611,496 @@
     }
   ],
   "refresh": {
-    "date": "2026-08-04",
-    "trigger": "External historical evidence materialization",
+    "date": "2026-09-01",
+    "trigger": "Depth pass: full input accounting against recorded XBRL facts",
     "source_snapshot": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
-    "what_changed": "Generated public case corporate-public-microsoft-2024 from canonical release template",
-    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
-    "next_check": "On source revision, builder change, monitoring breach, or annual review"
-  }
+    "what_changed": "Filled the forward driver grid, the DCF bridge, the treasury policy screens, and the comparable-company peer set from Microsoft's recorded XBRL facts for FY2020-FY2024. The grid previously held literal zeros -- a zero revenue growth rate and a zero WACC read as data rather than as blanks. Every forward driver is derived only from fiscal years ending on or before the case's as-of date; FY2025 and FY2026 actuals are present in the fact set and excluded by an explicit assertion in the generator. The eighteen values already sourced from the 10-K are untouched, and two places where the 10-K and the XBRL tag disagree are recorded as open questions rather than silently reconciled.",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending. Comps multiples remain empty because no market-data source is reachable; the peer set itself is sourced by SIC code. The sheet's ending-cash identity omits non-capex investing flows and FX, so it is not comparable to the 10-K's cash and short-term investments.",
+    "next_check": "On Microsoft's next Form 10-K, builder change, or annual review"
+  },
+  "driver_declarations": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Depreciation and amortization as a share of capex. Microsoft tags no DepreciationDepletionAndAmortization concept in this fact set, so there is nothing to derive it from. Held as a driver.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C13",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weighted average cost of capital. A market-derived quantity -- it needs a risk-free rate, an equity risk premium, and a beta, none of which is an issuer disclosure and none of whose sources (FRED, Damodaran) is reachable from this environment. Held as a driver.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C14",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Terminal growth rate. A judgment about the indefinite future, not a fact about Microsoft.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Depreciation and amortization as a share of capex. Microsoft tags no DepreciationDepletionAndAmortization concept in this fact set, so there is nothing to derive it from. Held as a driver.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D13",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weighted average cost of capital. A market-derived quantity -- it needs a risk-free rate, an equity risk premium, and a beta, none of which is an issuer disclosure and none of whose sources (FRED, Damodaran) is reachable from this environment. Held as a driver.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D14",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Terminal growth rate. A judgment about the indefinite future, not a fact about Microsoft.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Depreciation and amortization as a share of capex. Microsoft tags no DepreciationDepletionAndAmortization concept in this fact set, so there is nothing to derive it from. Held as a driver.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E13",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weighted average cost of capital. A market-derived quantity -- it needs a risk-free rate, an equity risk premium, and a beta, none of which is an issuer disclosure and none of whose sources (FRED, Damodaran) is reachable from this environment. Held as a driver.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E14",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Terminal growth rate. A judgment about the indefinite future, not a fact about Microsoft.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Depreciation and amortization as a share of capex. Microsoft tags no DepreciationDepletionAndAmortization concept in this fact set, so there is nothing to derive it from. Held as a driver.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F13",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weighted average cost of capital. A market-derived quantity -- it needs a risk-free rate, an equity risk premium, and a beta, none of which is an issuer disclosure and none of whose sources (FRED, Damodaran) is reachable from this environment. Held as a driver.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F14",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Terminal growth rate. A judgment about the indefinite future, not a fact about Microsoft.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Depreciation and amortization as a share of capex. Microsoft tags no DepreciationDepletionAndAmortization concept in this fact set, so there is nothing to derive it from. Held as a driver.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G13",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weighted average cost of capital. A market-derived quantity -- it needs a risk-free rate, an equity risk premium, and a beta, none of which is an issuer disclosure and none of whose sources (FRED, Damodaran) is reachable from this environment. Held as a driver.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G14",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Terminal growth rate. A judgment about the indefinite future, not a fact about Microsoft.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C5",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C6",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C7",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C8",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C10",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C11",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D5",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D6",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D7",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D8",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D10",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D11",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E5",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E6",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E7",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E8",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E10",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E11",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F5",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F6",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F7",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F8",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F10",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F11",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G5",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G6",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G7",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G8",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G10",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G11",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H5",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H6",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H7",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H8",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H10",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H11",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Price, market capitalisation, enterprise value, and every multiple derived from them. XBRL carries no market data, and no market-data host is reachable from this environment, so these cannot be sourced. They are left as declared drivers at zero rather than filled with plausible-looking multiples: a comps table with real tickers and visibly empty multiples states honestly what is and is not known, whereas invented multiples would not.",
+      "basis": {}
+    },
+    {
+      "sheet": "Cover",
+      "cell": "B17",
+      "driver_type": "presentation_convention",
+      "rationale": "Colour-legend row, a presentation convention rather than an input. The coverage scanner's legend exclusion matches only the phrase 'Blue text / yellow fill'; this template writes 'Blue text', so the row is declared here instead.",
+      "basis": {}
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C5",
+      "driver_type": "presentation_convention",
+      "rationale": "Coverage start date: a repository fact about when this case was created, not a disclosure about Microsoft.",
+      "basis": {}
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C6",
+      "driver_type": "generated_metadata",
+      "rationale": "Populated automatically from the manifest as_of date; release metadata.",
+      "basis": {}
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C7",
+      "driver_type": "presentation_convention",
+      "rationale": "Next earnings date. Microsoft's future reporting calendar is announced in a press release, not tagged in XBRL, and is not derivable from the fact set.",
+      "basis": {}
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I5",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Discount rate (WACC). Same reasoning as Assumptions row 13: market-derived, no reachable source.",
+      "basis": {}
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I6",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Terminal growth rate. Same reasoning as Assumptions row 14.",
+      "basis": {}
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C15",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Minimum operating cash balance. A treasury policy screen set by the analyst, not a Microsoft disclosure -- Microsoft is investment grade and discloses no maintenance covenant thresholds. Held as a driver.",
+      "basis": {}
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C16",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Maximum tolerated net leverage. A treasury policy screen set by the analyst, not a Microsoft disclosure -- Microsoft is investment grade and discloses no maintenance covenant thresholds. Held as a driver.",
+      "basis": {}
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "C17",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Minimum tolerated interest coverage. A treasury policy screen set by the analyst, not a Microsoft disclosure -- Microsoft is investment grade and discloses no maintenance covenant thresholds. Held as a driver.",
+      "basis": {}
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D15",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Minimum operating cash balance. A treasury policy screen set by the analyst, not a Microsoft disclosure -- Microsoft is investment grade and discloses no maintenance covenant thresholds. Held as a driver.",
+      "basis": {}
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D16",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Maximum tolerated net leverage. A treasury policy screen set by the analyst, not a Microsoft disclosure -- Microsoft is investment grade and discloses no maintenance covenant thresholds. Held as a driver.",
+      "basis": {}
+    },
+    {
+      "sheet": "Treasury & Liquidity",
+      "cell": "D17",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Minimum tolerated interest coverage. A treasury policy screen set by the analyst, not a Microsoft disclosure -- Microsoft is investment grade and discloses no maintenance covenant thresholds. Held as a driver.",
+      "basis": {}
+    }
+  ]
 }
