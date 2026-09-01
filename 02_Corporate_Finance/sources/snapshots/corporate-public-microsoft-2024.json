@@ -5,7 +5,7 @@
   "case_id": "corporate-public-microsoft-2024",
   "case_type": "conventional",
   "as_of": "2024-06-30",
-  "capture_method": "curated_public_observation",
+  "capture_method": "sec_xbrl_company_facts_plus_curated_10k_observation",
   "sources": [
     {
       "name": "Microsoft 2024 Form 10-K",
@@ -21,6 +21,95 @@
         "cash_and_short_term_investments_usd_mm": 75543.0,
         "ending_debt_usd_mm": 67127.0,
         "derived_opening_debt_usd_mm": 71802.0
+      }
+    },
+    {
+      "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "publisher": "U.S. Securities and Exchange Commission (EDGAR company facts)",
+      "captured_values": {
+        "cik": "0000789019",
+        "fiscal_years_used": [
+          "2020-06-30",
+          "2021-06-30",
+          "2022-06-30",
+          "2023-06-30",
+          "2024-06-30"
+        ],
+        "hindsight_policy": "Only fiscal years ending on or before the case as_of date are used. FY2025 and FY2026 are present in the recorded fact set and deliberately excluded.",
+        "revenue_usd_mm": {
+          "2020-06-30": 143015.0,
+          "2021-06-30": 168088.0,
+          "2022-06-30": 198270.0,
+          "2023-06-30": 211915.0,
+          "2024-06-30": 245122.0
+        },
+        "revenue_growth": {
+          "2021-06-30": 0.175317,
+          "2022-06-30": 0.179561,
+          "2023-06-30": 0.06882,
+          "2024-06-30": 0.1567
+        },
+        "gross_margin": {
+          "2020-06-30": 0.67781,
+          "2021-06-30": 0.689258,
+          "2022-06-30": 0.684017,
+          "2023-06-30": 0.689201,
+          "2024-06-30": 0.697644
+        },
+        "capex_over_revenue": {
+          "2020-06-30": 0.107968,
+          "2021-06-30": 0.122686,
+          "2022-06-30": 0.120472,
+          "2023-06-30": 0.132633,
+          "2024-06-30": 0.181448
+        },
+        "effective_tax_rate": {
+          "2020-06-30": 0.165077,
+          "2021-06-30": 0.138266,
+          "2022-06-30": 0.131134,
+          "2023-06-30": 0.189786,
+          "2024-06-30": 0.182313
+        },
+        "net_working_capital_usd_mm": {
+          "2020-06-30": 109605.0,
+          "2021-06-30": 95749.0,
+          "2022-06-30": 74602.0,
+          "2023-06-30": 80108.0,
+          "2024-06-30": 34448.0
+        },
+        "shares_outstanding_mm": {
+          "2020-06-30": 7571.0,
+          "2021-06-30": 7519.0,
+          "2022-06-30": 7464.0,
+          "2023-06-30": 7432.0,
+          "2024-06-30": 7434.0
+        },
+        "cash_and_equivalents_usd_mm": {
+          "2020-06-30": 13576.0,
+          "2021-06-30": 14224.0,
+          "2022-06-30": 13931.0,
+          "2023-06-30": 34704.0,
+          "2024-06-30": 18315.0
+        }
+      }
+    },
+    {
+      "name": "SEC EDGAR SIC classifications (peer selection)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=7372",
+      "publisher": "U.S. Securities and Exchange Commission",
+      "captured_values": {
+        "microsoft_sic": "7372",
+        "microsoft_sic_description": "Services-Prepackaged Software",
+        "peers_same_sic": [
+          "ADBE",
+          "ADSK",
+          "CDNS",
+          "CRWD",
+          "CRWV",
+          "DDOG",
+          "EA"
+        ]
       }
     }
   ],
@@ -84,5 +173,35 @@
     "status": "recorded"
   },
   "counts_toward_m4": false,
-  "snapshot_sha256": "61628e0a406188921ba18146b62a91d6ef8994fc5df1d47cdef1cea6fda414e7"
+  "open_questions": {
+    "note": "Differences between values already sourced from the 10-K and the corresponding XBRL tags. Recorded rather than silently reconciled: this script cannot read the filing to adjudicate which definition each 10-K figure used, and overwriting a sourced number with a differently-defined one is not an improvement.",
+    "items": [
+      {
+        "cell": "Treasury & Liquidity!C14",
+        "existing_10k_value": 1700.0,
+        "xbrl_tag": "us-gaap:InterestExpense",
+        "xbrl_value": 2935.0,
+        "left_as": "existing 10-K value"
+      },
+      {
+        "cell": "Treasury & Liquidity!C13",
+        "existing_10k_value": 109400.0,
+        "xbrl_tag": "us-gaap:OperatingIncomeLoss",
+        "xbrl_value": 109433.0,
+        "left_as": "existing 10-K value"
+      }
+    ]
+  },
+  "undisclosed_terms": {
+    "note": "Model terms with no tagged disclosure, recorded so the gap is auditable.",
+    "items": [
+      "depreciation and amortization (no us-gaap tag in this fact set)",
+      "weighted average cost of capital",
+      "terminal growth rate",
+      "share price, market capitalisation, enterprise value, and all derived multiples",
+      "treasury policy thresholds (minimum cash, leverage and coverage screens)",
+      "future earnings calendar"
+    ]
+  },
+  "snapshot_sha256": "805451669a0ef253c7c15e915da095e99700cc69105f67b04848394be26314b2"
 }
