@@ -5,56 +5,96 @@
   "case_id": "debt-public-microsoft-2024",
   "case_type": "conventional",
   "as_of": "2024-06-30",
-  "capture_method": "curated_public_observation",
+  "capture_method": "sec_xbrl_company_facts_plus_curated_10k_observation",
   "sources": [
     {
       "name": "Microsoft 2024 Form 10-K",
       "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
       "publisher": "U.S. SEC / Microsoft",
       "captured_values": {
-        "operating_cash_flow_usd_mm": 118548.0,
-        "capital_expenditures_usd_mm": 44477.0,
-        "dividends_usd_mm": 21771.0,
-        "share_repurchases_usd_mm": 17254.0,
+        "ending_debt_usd_mm": 67127.0,
+        "derived_opening_debt_usd_mm": 71802.0,
         "debt_issued_usd_mm": 24395.0,
         "debt_repaid_usd_mm": 29070.0,
         "cash_and_short_term_investments_usd_mm": 75543.0,
-        "ending_debt_usd_mm": 67127.0,
-        "derived_opening_debt_usd_mm": 71802.0
+        "operating_cash_flow_usd_mm": 118548.0,
+        "capital_expenditures_usd_mm": 44477.0
+      }
+    },
+    {
+      "name": "Microsoft FY2024 XBRL company facts (CIK 0000789019)",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "publisher": "U.S. Securities and Exchange Commission (EDGAR company facts)",
+      "captured_values": {
+        "cik": "0000789019",
+        "fiscal_year_ends": [
+          "2024-06-30",
+          "2023-06-30",
+          "2022-06-30"
+        ],
+        "long_term_debt_usd_mm": {
+          "2024-06-30": 44937.0,
+          "2023-06-30": 47237.0,
+          "2022-06-30": 49781.0
+        },
+        "long_term_debt_current_usd_mm": {
+          "2024-06-30": 2249.0,
+          "2023-06-30": 5247.0,
+          "2022-06-30": 2749.0
+        },
+        "long_term_debt_noncurrent_usd_mm": {
+          "2024-06-30": 42688.0,
+          "2023-06-30": 41990.0,
+          "2022-06-30": 47032.0
+        },
+        "commercial_paper_usd_mm": {
+          "2024-06-30": 6693.0
+        },
+        "cash_and_equivalents_usd_mm": {
+          "2024-06-30": 18315.0,
+          "2023-06-30": 34704.0,
+          "2022-06-30": 13931.0
+        },
+        "operating_income_usd_mm": {
+          "2024-06-30": 109433.0,
+          "2023-06-30": 88523.0,
+          "2022-06-30": 83383.0
+        },
+        "interest_expense_usd_mm": {
+          "2024-06-30": 2935.0,
+          "2023-06-30": 1968.0,
+          "2022-06-30": 2063.0
+        }
       }
     }
   ],
-  "input_overrides": [
-    {
-      "sheet": "Refinancing & Rates",
-      "cell": "C5",
-      "value": 71802.0,
-      "kind": "derived",
-      "source": "Microsoft 2024 Form 10-K"
+  "input_overrides": [],
+  "reconciliation_to_disclosure": {
+    "exact": {
+      "gross_debt_usd_mm": 67127.0,
+      "disclosed_ending_debt_usd_mm": 67127.0,
+      "cash_interest_usd_mm": 2935.0,
+      "disclosed_interest_expense_usd_mm": 2935.0,
+      "weighted_cost_of_debt": 0.042252,
+      "note": "Gross debt ties to the disclosed total because other debt is carried as the residual; cash interest and weighted cost tie because the senior-notes coupon and tranche-2 rate are solved for, not chosen."
     },
-    {
-      "sheet": "Refinancing & Rates",
-      "cell": "C6",
-      "value": 24395.0,
-      "kind": "observed",
-      "source": "Microsoft 2024 Form 10-K"
-    },
-    {
-      "sheet": "Refinancing & Rates",
-      "cell": "C7",
-      "value": 29070.0,
-      "kind": "observed",
-      "source": "Microsoft 2024 Form 10-K"
-    },
-    {
-      "sheet": "Refinancing & Rates",
-      "cell": "C13",
-      "value": 75543.0,
-      "kind": "observed",
-      "source": "Microsoft 2024 Form 10-K"
+    "conservative_bias": {
+      "ebitda_proxy": "EBIT (OperatingIncomeLoss)",
+      "value_usd_mm": 109433.0,
+      "direction": "EBIT understates EBITDA, so modelled interest coverage is understated and modelled leverage overstated. The case cannot flatter Microsoft's credit; it can only understate it."
     }
-  ],
-  "series": null,
+  },
+  "undisclosed_terms": {
+    "note": "Debt-model terms Microsoft does not tag in XBRL. Recorded so the gap is auditable rather than implicit.",
+    "items": [
+      "per-instrument coupons and spreads",
+      "year-by-year maturity ladder beyond the current portion",
+      "revolving credit facility commitment size",
+      "maintenance covenant thresholds (investment grade; none exist)",
+      "depreciation and amortization (so EBITDA is not derivable)",
+      "finance lease balances as a separate tagged concept"
+    ]
+  },
   "outcome": {
     "metric": "ending_debt_usd_mm",
     "forecast": 70000.0,
@@ -63,5 +103,5 @@
     "status": "recorded"
   },
   "counts_toward_m4": false,
-  "snapshot_sha256": "548eb1da596855a67530ae163dd530e1e77363cfba3770dda6837c2485e58817"
+  "snapshot_sha256": "572021744fa0dbb9653a20e26ff17b811f2707faabd1954ba131894a4c6ff8a6"
 }
