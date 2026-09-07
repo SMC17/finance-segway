@@ -105,7 +105,7 @@ from .schema import (
     EvidenceRef,
     MetricDefinition,
     MetricObservation,
-    RiskTier,
+    ImpactSeverity,
 )
 
 __all__ = [
@@ -168,7 +168,7 @@ __all__ = [
     "RealizationPlan",
     "RelationEvaluation",
     "RelationOperator",
-    "RiskTier",
+    "ImpactSeverity",
     "Skill",
     "SkillRegistry",
     "ScheduledWorkstream",

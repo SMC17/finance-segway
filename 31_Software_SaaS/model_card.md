@@ -72,7 +72,7 @@ Three further drivers the BASE archetype does not represent:
 | public_investor | `Rule of 40` | Growth-versus-profitability trade-off on FCF, not just operating margin |
 | growth_equity_investor | `ARR Rollforward` | Installed-base durability: NRR excluding new logos, and GRR beneath it |
 
-## Material drivers
+## Inputs and sources
 
 All drivers ship as template defaults and are explicitly **not** any company's
 figures. Under the repository modeling standard, a real instance either sources
@@ -87,14 +87,18 @@ number with no traceable basis is not permitted.
 | S&M, R&D, G&A (% revenue) | 38% / 22% / 12% | 42% / 24% / 13% | Income statement; industry ranges |
 | Stock-based compensation (% revenue) | 18% | 20% | Equity compensation note |
 
-## Checks
+## Checks and controls
 
-Nine visible checks, including the two that catch the sector's classic errors:
+Thirteen visible checks. Four catch the errors this sector is most prone to:
 net revenue retention must exceed gross revenue retention (an NRR that silently
-includes new logos breaks this), and blended gross margin must sit between its
-subscription and services components (a mix or margin error breaks this).
+includes new logos breaks this); blended gross margin must sit between its
+subscription and services components (a mix or margin error breaks this); the
+RPO roll-forward must reconcile (ending = beginning + bookings - revenue, with
+bookings derived as the residual because no issuer discloses them); and the
+contract liability must not exceed total RPO, since the excess would be
+unbilled revenue below zero.
 
-## Limitations
+## Limitations and failure modes
 
 - Single ARR cohort, not a per-vintage cohort table; vintage-level retention
   decay is not modeled.

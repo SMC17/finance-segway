@@ -1,0 +1,81 @@
+name: Standards Conformance
+
+# Runs the conformance layer on every change. The point is that
+# standards/conformance/register.json cannot quietly become a list of things
+# that used to be true: --run-checks executes every check the register cites
+# and fails the build if any of them stops passing.
+
+on:
+  push:
+    branches: [main]
+  pull_request: {}
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  conformance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Notation conventions (ISO 8601, ISO 4217, SI, UCUM)
+        run: python tools/verify_data_conventions.py --report conventions-report.json
+
+      - name: Controlled vocabulary (ISO 704, ISO 25964, Z39.19, SKOS)
+        run: python tools/verify_controlled_vocabulary.py --report vocabulary-report.json
+
+      - name: Dataset catalogue is not stale (Dublin Core, DCAT, FAIR, ISO 11179)
+        run: python tools/verify_dataset_metadata.py --report metadata-report.json
+
+      - name: Accessibility (WCAG 2.2 SC 1.4.1 and 1.3.1)
+        run: python tools/verify_accessibility.py --report accessibility-report.json
+
+      - name: AI documentation (Model Cards, Datasheets for Datasets)
+        run: python tools/verify_ai_documentation.py --report ai-docs-report.json
+
+      - name: SKOS export is regenerable and unchanged
+        run: |
+          python tools/verify_controlled_vocabulary.py \
+            --emit-skos standards/vocabulary/glossary.skos.jsonld
+          git diff --exit-code -- standards/vocabulary/glossary.skos.jsonld
+
+      - name: Register refuses unsupported claims, and every cited check passes
+        run: |
+          python tools/verify_standards_conformance.py \
+            --run-checks --report conformance-report.json
+
+      - name: Conformance layer tests
+        run: PYTHONPATH=. python -m unittest tests.test_standards_conformance -v
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: standards-conformance-${{ github.event_name }}
+          path: |
+            conventions-report.json
+            vocabulary-report.json
+            metadata-report.json
+            accessibility-report.json
+            ai-docs-report.json
+            conformance-report.json
+            standards/conformance/register.json

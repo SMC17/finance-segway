@@ -17,7 +17,7 @@ from finance_segway.consulting import (
     MetricObservation,
     OperatingModel,
     ProcessRedesign,
-    RiskTier,
+    ImpactSeverity,
     Skill,
     SkillRegistry,
     evaluate_case,
@@ -48,7 +48,7 @@ class RuntimeTests(unittest.TestCase):
         registry.register(Skill(
             "quote",
             lambda request: {"quote_total": request["units"] * request["price"]},
-            risk_tier=RiskTier.HIGH,
+            impact_severity=ImpactSeverity.HIGH,
             required_autonomy=AutonomyLevel.DRAFT,
             required_evidence=frozenset({"price_book"}),
             read_scopes=frozenset({"catalog"}),
@@ -143,7 +143,7 @@ class PortfolioTests(unittest.TestCase):
         )
         risky = AutomationCase(
             "risky", "payment", BusinessFunction.FINANCE,
-            100, 0, annual_labor_savings=500, risk_tier=RiskTier.CRITICAL,
+            100, 0, annual_labor_savings=500, impact_severity=ImpactSeverity.CRITICAL,
         )
         self.assertGreater(evaluate_case(quoting).npv, 0)
         selection = select_portfolio([foundation, quoting, risky], budget=120, max_high_risk=0)

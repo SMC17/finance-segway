@@ -835,14 +835,14 @@
     {
       "sheet": "Underlying Fund Portfolio",
       "cell": "D5",
-      "driver_type": "not_disclosed",
+      "driver_type": "undisclosed_metric_driver",
       "rationale": "PE substrategy per underlying-fund position is not disclosed in the schedule of investments; labeled n/a rather than guessed.",
       "basis": {}
     },
     {
       "sheet": "Assumptions",
       "cell": "C6",
-      "driver_type": "modeler_assumption",
+      "driver_type": "structural_mismatch_driver",
       "rationale": "HLPAF's real fee structure (management fee + incentive fee + per-class distribution fees) does not decompose into this template's simplified management-fee/carry model from public disclosure alone; kept at template default.",
       "basis": {}
     }

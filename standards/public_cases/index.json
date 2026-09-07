@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "as_of": "2026-08-06",
-  "classification": "external_historical_cases",
+  "classification": "external_historical_case",
   "counts_toward_m4": false,
   "case_count": 54,
   "evidence_models": 27,

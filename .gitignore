@@ -38,3 +38,9 @@ m1-domain-hardening-report.json
 # tools/data_fabric/out/ (not this subdir) are the committed provenance
 # artifact, per tools/data_fabric/README.md.
 tools/data_fabric/out/_damodaran_raw/
+conventions-report.json
+vocabulary-report.json
+metadata-report.json
+accessibility-report.json
+ai-docs-report.json
+conformance-report.json

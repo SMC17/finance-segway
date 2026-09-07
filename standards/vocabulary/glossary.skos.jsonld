@@ -1,0 +1,1130 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/"
+  },
+  "@graph": [
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary",
+      "@type": "skos:ConceptScheme",
+      "dcterms:title": "Finance-Segway concept system and controlled vocabulary",
+      "dcterms:modified": "2026-09-07"
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#model-template",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "template",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A workbook holding a domain's calculation engines and no subject-specific data, from which every instance in that domain is generated.",
+        "@language": "en"
+      },
+      "skos:altLabel": [
+        {
+          "@value": "canonical workbook",
+          "@language": "en"
+        }
+      ],
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#model-builder"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#model-instance"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "Templates carry driver defaults so the engines can be exercised. Those defaults are not claims about any company.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#model-builder",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "builder",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A Python module that generates a template deterministically, and which is the sole authority for that template's contents.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#model-template"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#semantic-parity"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "A template edited by hand rather than regenerated breaks semantic parity and fails the build.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#model-instance",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "instance",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A workbook produced by applying one case manifest's inputs to a template.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#model-template"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#public-case"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#public-case",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "public case",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A dated, sourced study of one real subject, recorded as a manifest, a frozen source snapshot, and a generated instance.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#model-instance"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#source-snapshot"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#case-manifest"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "Every public case in this repository is external historical evidence. None is a production model output.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#case-manifest",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "case manifest",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "The machine-readable record of a public case's inputs, sources, cover metadata, and refresh history, and the only sanctioned way to set an instance's values.",
+        "@language": "en"
+      },
+      "skos:broader": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#public-case"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#input-kind"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#driver-declaration"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#source-snapshot",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "source snapshot",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "An immutable, hash-digested record of the observations a case rests on, captured at a stated date.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#public-case"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#provenance"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#provenance",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "provenance",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "The recorded chain from a value in a workbook back to the published document that disclosed it.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#source-snapshot"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#source-register"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#source-register",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "source register",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A per-domain table listing each case's sources with publisher, URL, as-of date, snapshot path, and snapshot digest.",
+        "@language": "en"
+      },
+      "skos:broader": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#provenance"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#source-snapshot"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#input-kind",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "input kind",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "The classification of how a manifest input's value was obtained.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#observed-input"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#derived-input"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#modeler-assumption"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "Recorded per input cell. Determines whether the cell earns real-data coverage credit.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#observed-input",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "observed",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "An input kind whose value is read directly from a disclosed figure without arithmetic.",
+        "@language": "en"
+      },
+      "skos:broader": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#input-kind"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#derived-input"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#derived-input",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "derived",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "An input kind whose value is computed from disclosed figures by arithmetic that the manifest states.",
+        "@language": "en"
+      },
+      "skos:broader": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#input-kind"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#observed-input"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "The arithmetic must be stated in the input's notes, so a reader can recompute it.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#modeler-assumption",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "modeler_assumption",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "An input kind whose value is chosen by the modeller because no disclosure of it exists.",
+        "@language": "en"
+      },
+      "skos:altLabel": [
+        {
+          "@value": "modeler",
+          "@language": "en"
+        },
+        {
+          "@value": "assumption",
+          "@language": "en"
+        }
+      ],
+      "skos:broader": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#input-kind"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#driver-declaration"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#grounded-driver"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "Earns no real-data coverage credit. The bare designation 'modeler' is a non-preferred variant and must not appear in data.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#driver-declaration",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "driver declaration",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A manifest record stating why a cell holds a chosen value rather than a sourced one, and what would ground it.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#modeler-assumption"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#grounded-driver"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#grounded-driver",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "grounded driver",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A driver declaration carrying a basis that names real published data bounding the driver's range.",
+        "@language": "en"
+      },
+      "skos:broader": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#driver-declaration"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#ungrounded-driver"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "Counts toward accounted coverage but never toward real coverage.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#ungrounded-driver",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "ungrounded driver",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A driver declaration whose basis is empty, so its range rests on nothing published.",
+        "@language": "en"
+      },
+      "skos:broader": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#driver-declaration"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#grounded-driver"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "Deliberately earns no coverage credit: a driver without a grounded range is still an ungrounded number in a model.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#real-coverage",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "real coverage",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "The share of a template's candidate input cells that a case fills with observed or derived values.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#accounted-coverage"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#candidate-cell"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#accounted-coverage",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "accounted coverage",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "The share of a template's candidate input cells that a case either fills with sourced values or declares as grounded drivers.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#real-coverage"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#candidate-cell",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "candidate cell",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A template cell styled as an input and therefore eligible to receive case data.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#real-coverage"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "Detected by input-blue font colour, ignoring the alpha channel.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#oracle",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "oracle",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A calculation written independently of a workbook that recomputes the workbook's result for comparison.",
+        "@language": "en"
+      },
+      "skos:altLabel": [
+        {
+          "@value": "independent oracle",
+          "@language": "en"
+        },
+        {
+          "@value": "reference engine",
+          "@language": "en"
+        }
+      ],
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#workbook-verified"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#identity-binding"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "Independence is the whole point: an oracle that reuses the workbook's formulas verifies nothing.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#workbook-verified",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "workbook-verified model",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A model whose recalculated workbook has been compared against a separate pure-Python computation of the same quantities.",
+        "@language": "en"
+      },
+      "skos:broader": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#oracle"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#identity-binding"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#identity-binding",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "identity binding",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A reference check bound to a named accounting or financial identity that an oracle evaluates on committed cases.",
+        "@language": "en"
+      },
+      "skos:broader": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#oracle"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#workbook-verified"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#semantic-parity",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "semantic parity",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "Agreement between a committed template and the output its builder produces, compared on cell values, formulas, and sheet structure.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#model-builder"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#presentation-parity"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#presentation-parity",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "presentation parity",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "Agreement between a committed template and its builder's output on formatting, column widths, and styling.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#semantic-parity"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "Recalculating a committed template in place breaks this, because the spreadsheet application rewrites presentation metadata.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#maturity-level",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "maturity level",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "The stage a model has reached on this repository's evidence ladder, from mechanical correctness through to independently challenged production use.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#m1"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#m2"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#m3"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#m4"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#m1",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "M1",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A maturity level at which a model builds reproducibly and its workbook checks pass.",
+        "@language": "en"
+      },
+      "skos:broader": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#maturity-level"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#m2"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#m2",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "M2",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A maturity level at which a model additionally carries sourced public cases, an independent oracle, and recorded outcomes.",
+        "@language": "en"
+      },
+      "skos:broader": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#maturity-level"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#m1"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#m3"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#m3",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "M3",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A maturity level at which a model additionally satisfies eight machine-checked criteria including human effective challenge.",
+        "@language": "en"
+      },
+      "skos:broader": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#maturity-level"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#m2"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#human-signoff"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "No model in this repository has reached M3. Criterion G cannot be satisfied by any agent.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#m4",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "M4",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A maturity level at which a model additionally holds evidence accumulated over time from live production use.",
+        "@language": "en"
+      },
+      "skos:broader": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#maturity-level"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#m3"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "No artifact in this repository counts toward M4.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#human-signoff",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "human sign-off",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A named person's recorded approval of a model, which no automated process may supply.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#m3"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#effective-challenge"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#effective-challenge",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "effective challenge",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "Critical review of a model by parties with the competence, influence, and independence to change it.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#human-signoff"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "The term is used here in the sense established by supervisory model-risk guidance.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#out-of-sample-forecast",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "out-of-sample forecast",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A dated, content-hashed prediction registered before the period it predicts has been reported.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#naive-baseline"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#forecast-skill"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "Distinguished from a retrospective reconstruction, which is authored knowing the answer.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#naive-baseline",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "naive baseline",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "The unskilled prediction a forecast must beat, frozen at registration from data already in the repository.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#out-of-sample-forecast"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#forecast-skill"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#forecast-skill",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "forecast skill",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "The proportional reduction in error a forecast achieves against its naive baseline, positive when the forecast is closer.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#naive-baseline"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "Murphy skill: 1 minus the ratio of forecast error to baseline error.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#model-risk-tier",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "model risk tier",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "The supervisory risk classification assigned to a model, governing how much validation evidence it must carry.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#maturity-level"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "An ordinal tier scale. Distinct from the consulting catalogue's impact severity scale; see homographs.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#impact-severity",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "impact severity",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "The consequence rating of a consulting capability's failure, on an ordered qualitative scale.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#model-risk-tier"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "A severity scale, not a tier scale. See homographs.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#annual-recurring-revenue",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "ARR",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "The annualised value of a software business's contracted recurring subscriptions at a point in time.",
+        "@language": "en"
+      },
+      "skos:altLabel": [
+        {
+          "@value": "annual recurring revenue",
+          "@language": "en"
+        }
+      ],
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#remaining-performance-obligation"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#net-revenue-retention"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "A management metric with no fixed definition and no XBRL tag. Never sourceable from a filing's tagged facts.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#remaining-performance-obligation",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "RPO",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "The transaction price allocated to contracted goods and services a business has not yet delivered.",
+        "@language": "en"
+      },
+      "skos:altLabel": [
+        {
+          "@value": "remaining performance obligation",
+          "@language": "en"
+        }
+      ],
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#annual-recurring-revenue"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#contract-liability"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "A required disclosure with a fixed definition and an XBRL tag, which is why this repository builds its forward-revenue engine on RPO rather than on ARR.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#contract-liability",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "contract liability",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "The portion of remaining performance obligations a business has already billed and carries on its balance sheet.",
+        "@language": "en"
+      },
+      "skos:altLabel": [
+        {
+          "@value": "deferred revenue",
+          "@language": "en"
+        }
+      ],
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#remaining-performance-obligation"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "Remaining performance obligations less contract liability is the unbilled portion, which appears on no balance sheet.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#net-revenue-retention",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "NRR",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "The proportion of a period's opening recurring revenue retained at its close after expansion, contraction, and churn, excluding revenue from customers won in the period.",
+        "@language": "en"
+      },
+      "skos:altLabel": [
+        {
+          "@value": "net revenue retention",
+          "@language": "en"
+        }
+      ],
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#annual-recurring-revenue"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#gross-revenue-retention"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "Excluding new logos is definitional. Including them inflates the figure in the direction a seller prefers.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#gross-revenue-retention",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "GRR",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "The proportion of a period's opening recurring revenue retained at its close after churn alone, giving no credit for expansion.",
+        "@language": "en"
+      },
+      "skos:altLabel": [
+        {
+          "@value": "gross revenue retention",
+          "@language": "en"
+        }
+      ],
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#net-revenue-retention"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "Never exceeds net revenue retention.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#structural-mismatch-driver",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "structural mismatch driver",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A driver declaration recording that a template line has no counterpart in the subject's real economics, so no disclosure could fill it.",
+        "@language": "en"
+      },
+      "skos:broader": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#driver-declaration"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#ungrounded-driver"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "Distinct from an undisclosed driver, and the distinction matters. An undisclosed driver could be filled if the subject disclosed more. A structural mismatch could not be filled by any disclosure, because the quantity the template asks for does not exist for this subject. Collapsing the two hides a modelling limitation behind a data-availability excuse. Three declarations in this repository were mislabelled 'not_disclosed' until the concept system was worked out.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#hindsight-forecast",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "hindsight forecast",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A forward projection built from data published after the date it claims to have been made on.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#out-of-sample-forecast"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "A defect, not a category of evidence. Named so it can be checked for.",
+        "@language": "en"
+      }
+    }
+  ]
+}

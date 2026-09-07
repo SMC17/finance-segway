@@ -1,0 +1,998 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-09-07",
+  "title": "External standards register",
+  "purpose": "One honest record of every external standard this project has been asked to follow: whether it applies here, what state we are actually in, and which automated check proves it. tools/verify_standards_conformance.py refuses any conformance claim that no passing check supports, so a status in this file is a testable assertion rather than a marketing line.",
+  "how_to_read_this": {
+    "status": {
+      "conformant": "A check exists, runs, and passes, and the requirement is one we can state confidently.",
+      "partial": "A check exists and passes for some of the standard. The parts not covered are listed in 'gaps'. Never rounded up to conformant.",
+      "not_applicable": "The standard addresses something this repository does not produce. A reason is required.",
+      "not_yet": "Applies, but nothing here checks it. No conformance is claimed."
+    },
+    "requirement_basis": {
+      "verified_by_check": "What we mean by this standard is pinned by a check in this repository, and the check's own docstring states it.",
+      "well_established": "A widely published specification whose relevant requirements we can state with confidence.",
+      "summary_only": "We know the standard's scope but not its clause-level requirements. Conformance may NOT be claimed on this basis.",
+      "unverified": "We could not confirm this standard's scope or content from inside this environment. No claim of any kind is made, and a human should confirm what it requires before anyone relies on this row."
+    },
+    "the_rule_that_matters": "A row may only reach 'conformant' or 'partial' if requirement_basis is verified_by_check or well_established AND evidence.check names a file that exists. The validator enforces this; it is not a convention."
+  },
+  "standards": [
+    {
+      "id": "iso-8601",
+      "title": "ISO 8601 - Date and time representation",
+      "family": "notation",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "conformant",
+      "evidence": {
+        "check": "tools/verify_data_conventions.py",
+        "asserts": "Every value under a date-semantic key across all 942 repository JSON files parses as ISO 8601. 115,281 values checked; 114,704 extended-format dates and 577 basic-format timestamps, zero malformed."
+      },
+      "gaps": [],
+      "notes": "Basic and extended formats are mixed. Both are valid ISO 8601, so this is a consistency warning rather than a conformance failure, and the checker reports it as such."
+    },
+    {
+      "id": "iso-4217",
+      "title": "ISO 4217 - Currency codes",
+      "family": "notation",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "conformant",
+      "evidence": {
+        "check": "tools/verify_data_conventions.py",
+        "asserts": "Every currency token embedded in a field name resolves to an allow-listed ISO 4217 alpha-3 code with its minor unit and numeric code recorded. 370 monetary field names checked, all resolving to USD or GBP."
+      },
+      "gaps": [],
+      "notes": "The allow-list is deliberately short rather than the full ISO 4217 table, so a typo fails instead of silently introducing a currency."
+    },
+    {
+      "id": "si-units",
+      "title": "SI - International System of Units (decimal multiples)",
+      "family": "notation",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "partial",
+      "evidence": {
+        "check": "tools/verify_data_conventions.py",
+        "asserts": "Every magnitude suffix used in a field name resolves to an exact multiplier declared in standards/conformance/unit_and_currency_registry.json, with its SI prefix equivalent."
+      },
+      "gaps": [
+        "The repository's own suffixes are finance conventions, not SI symbols: 'mm' for 10^6 and 'bn' for 10^9 are not SI. The registry maps each to its SI prefix and multiplier rather than changing the workbooks, because the suffixes match the source filings.",
+        "Two suffixes ('m' x13 and 'mm' x197) denote the same multiplier. The registry marks 'm' deprecated; the data is not yet migrated."
+      ],
+      "notes": "Money is not an SI quantity, so SI is cited for the decimal scale only."
+    },
+    {
+      "id": "ucum",
+      "title": "UCUM - Unified Code for Units of Measure",
+      "family": "notation",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "partial",
+      "evidence": {
+        "check": "tools/verify_data_conventions.py",
+        "asserts": "Each magnitude suffix records whether it is UCUM-safe and, where it is not, the UCUM-safe expression that means the same thing."
+      },
+      "gaps": [
+        "'mm' collides outright: UCUM reads it as millimetre, finance reads it as millions. The registry records the collision and the safe alternative ('10*6'); the field names themselves are unchanged.",
+        "No field name should ever be handed to a UCUM parser. That is documented, not enforced."
+      ],
+      "notes": "Recording a collision honestly is worth more than a false claim of UCUM compliance."
+    },
+    {
+      "id": "iso-3166",
+      "title": "ISO 3166 - Country codes",
+      "family": "notation",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "not_applicable",
+      "reason": "No field in this repository holds a country identifier. Country names appear only inside the Damodaran country-risk table, where they are the publisher's own row labels reproduced verbatim; substituting codes would make the file no longer a faithful record of what was published.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "An earlier reading of the data appeared to show 126 bare 'NA' country values, which would have been ambiguous with Namibia. On inspection those were risk-premium values in a column whose name merely contains the word 'Country'. The finding was withdrawn."
+    },
+    {
+      "id": "iso-704",
+      "title": "ISO 704 - Terminology work: principles and methods",
+      "family": "terminology",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "conformant",
+      "evidence": {
+        "check": "tools/verify_controlled_vocabulary.py",
+        "asserts": "42 concepts each carry a substitutable definition; no definition contains its own designation (circularity); no definition opens with a gloss construction; every broader chain terminates; no designation is both a preferred label and another concept's alternative label."
+      },
+      "gaps": [],
+      "notes": "Doing this work surfaced two real defects. One designation, 'risk_tier', carried two incompatible scales in two subsystems; the concepts were distinguished rather than merged, and the consulting subsystem's field and enum were renamed to 'impact_severity'. Separately, three driver declarations labelled 'not_disclosed' turned out to describe a structural mismatch between the template and the subject, which no disclosure could ever fill; a distinct concept was added for them."
+    },
+    {
+      "id": "iso-25964",
+      "title": "ISO 25964 - Thesauri and interoperability with other vocabularies",
+      "family": "terminology",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "partial",
+      "evidence": {
+        "check": "tools/verify_controlled_vocabulary.py",
+        "asserts": "Concepts carry preferred labels, alternative labels, broader relations, associative relations, and scope notes, and every relation target resolves."
+      },
+      "gaps": [
+        "No multilingual equivalence. The vocabulary is English only.",
+        "No mappings to external thesauri.",
+        "Hierarchies are shallow, at most two levels, because the domain concepts genuinely are."
+      ],
+      "notes": null
+    },
+    {
+      "id": "ansi-niso-z39-19",
+      "title": "ANSI/NISO Z39.19 - Monolingual controlled vocabularies",
+      "family": "terminology",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "conformant",
+      "evidence": {
+        "check": "tools/verify_controlled_vocabulary.py",
+        "asserts": "Seven enumerated fields have declared permitted value sets, and every value present anywhere in the repository's JSON is either permitted or flagged. Four deprecated values were found and corrected at source."
+      },
+      "gaps": [],
+      "notes": "The point of Z39.19 here is enforcement, not documentation. The check reads the repository's own data, so the vocabulary cannot silently drift from it."
+    },
+    {
+      "id": "skos",
+      "title": "SKOS - Simple Knowledge Organization System",
+      "family": "terminology",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "conformant",
+      "evidence": {
+        "check": "tools/verify_controlled_vocabulary.py",
+        "asserts": "The concept system exports to standards/vocabulary/glossary.skos.jsonld as a skos:ConceptScheme with 42 skos:Concept nodes, each with skos:prefLabel and skos:definition, and zero dangling skos:broader or skos:related references."
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "rdf",
+      "title": "RDF - Resource Description Framework",
+      "family": "terminology",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "conformant",
+      "evidence": {
+        "check": "tools/verify_controlled_vocabulary.py",
+        "asserts": "The SKOS export is RDF expressed in JSON-LD: every node carries an @id and @type, and the @context binds the skos and dcterms prefixes to their published namespace URIs."
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "owl",
+      "title": "OWL - Web Ontology Language",
+      "family": "terminology",
+      "applies": false,
+      "requirement_basis": "well_established",
+      "status": "not_applicable",
+      "reason": "The vocabulary is a concept scheme, not an ontology. It has no class axioms, property restrictions, or inference requirements, and SKOS covers what it actually needs. Publishing an OWL file would add a formalism nothing in this repository reasons over.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "iso-24613-lmf",
+      "title": "ISO 24613 - Lexical Markup Framework",
+      "family": "terminology",
+      "applies": false,
+      "requirement_basis": "well_established",
+      "status": "not_applicable",
+      "reason": "LMF models machine-readable lexical resources for natural language processing: lexical entries, senses, and their morphology. This repository publishes a domain concept scheme, not a lexicon, and nothing here consumes lexical data.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "iso-24611-maf",
+      "title": "ISO 24611 - Morpho-syntactic Annotation Framework",
+      "family": "terminology",
+      "applies": false,
+      "requirement_basis": "well_established",
+      "status": "not_applicable",
+      "reason": "MAF standardises morphosyntactic annotation of text corpora. This repository holds no annotated corpus.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "wcag-2-2",
+      "title": "WCAG 2.2 - Web Content Accessibility Guidelines",
+      "family": "accessibility",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "partial",
+      "evidence": {
+        "check": "tools/verify_accessibility.py",
+        "asserts": "SC 1.4.1 Use of Colour is enforced across all 27 workbooks: every one of 200 cells whose conditional formatting conveys a discrete status also states that status in words, so colour is never the only signal. SC 1.3.1 is reported: 384 populated status rows all carry text labels, none unlabelled."
+      },
+      "gaps": [
+        "Only three success criteria are evaluable against a spreadsheet file. The rest address web pages.",
+        "SC 1.4.3 Contrast is not checked, because a spreadsheet's rendered contrast depends on the reader's application, theme, and printer rather than on the file.",
+        "Keyboard, focus-order, and timing criteria have no meaning for a static document and are not claimed."
+      ],
+      "notes": "Colour-scale formatting over a grid of numbers is deliberately exempt: the number is visible in every cell, so colour is redundant emphasis rather than the sole means of conveying information."
+    },
+    {
+      "id": "iso-iec-40500",
+      "title": "ISO/IEC 40500 - Information technology: W3C WCAG 2.0",
+      "family": "accessibility",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "partial",
+      "evidence": {
+        "check": "tools/verify_accessibility.py",
+        "asserts": "SC 1.4.1 and 1.3.1 are Level A criteria carried unchanged from WCAG 2.0 into 2.2, so the WCAG 2.2 evidence applies directly."
+      },
+      "gaps": [
+        "ISO/IEC 40500:2012 is WCAG 2.0 specifically, not 2.2. Conformance is claimed only for the criteria common to both."
+      ],
+      "notes": "Stated precisely because 'ISO 40500' is often used loosely to mean whatever the current WCAG is."
+    },
+    {
+      "id": "en-301-549",
+      "title": "EN 301 549 - Accessibility requirements for ICT products and services",
+      "family": "accessibility",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "partial",
+      "evidence": {
+        "check": "tools/verify_accessibility.py",
+        "asserts": "The non-web-document requirements incorporate WCAG success criteria; the two criteria evaluable for a spreadsheet are enforced and reported respectively."
+      },
+      "gaps": [
+        "No formal accessibility conformance report has been produced.",
+        "Requirements for software user interfaces, hardware, and support documentation are out of scope for what this repository ships."
+      ],
+      "notes": null
+    },
+    {
+      "id": "iso-9241-210",
+      "title": "ISO 9241-210 - Human-centred design for interactive systems",
+      "family": "accessibility",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "not_yet",
+      "plan": "The standard requires understanding users and their context, specifying requirements from that understanding, and evaluating designs against it. None of that has been done here: there has been no user research, and the workbook layouts follow banking convention rather than evidence about who reads them.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "Claiming this would be the emptiest claim in the register, so it is not claimed."
+    },
+    {
+      "id": "iso-15836-dublin-core",
+      "title": "ISO 15836 - Dublin Core metadata element set",
+      "family": "metadata",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "conformant",
+      "evidence": {
+        "check": "tools/verify_dataset_metadata.py",
+        "asserts": "Each of the 6 catalogued datasets carries identifier, title, description, publisher, licence, modification date, and rights, and the checker fails if any is absent or empty."
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "dcat",
+      "title": "W3C DCAT - Data Catalog Vocabulary",
+      "family": "metadata",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "conformant",
+      "evidence": {
+        "check": "tools/verify_dataset_metadata.py",
+        "asserts": "One dcat:Catalog links to exactly the dcat:Dataset nodes present in the graph, with no dangling or unlinked datasets; each dataset carries at least one dcat:Distribution declaring a media type and an access URL."
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "schema-org",
+      "title": "Schema.org",
+      "family": "metadata",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "conformant",
+      "evidence": {
+        "check": "tools/verify_dataset_metadata.py",
+        "asserts": "Every dataset is typed as both dcat:Dataset and schema:Dataset, and the catalogue as schema:DataCatalog, with the schema prefix bound in @context."
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "json-ld",
+      "title": "JSON-LD",
+      "family": "metadata",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "conformant",
+      "evidence": {
+        "check": "tools/verify_dataset_metadata.py",
+        "asserts": "Both the catalogue and the SKOS vocabulary export are JSON-LD documents with an @context binding every prefix they use, and node identifiers throughout."
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "iso-iec-11179",
+      "title": "ISO/IEC 11179 - Metadata registries",
+      "family": "metadata",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "partial",
+      "evidence": {
+        "check": "tools/verify_dataset_metadata.py",
+        "asserts": "Every catalogued dataset defines its key data elements with a name, a definition, and a datatype, and any element citing a permitted-value source must cite one that exists."
+      },
+      "gaps": [
+        "Only the key elements of each dataset are registered, not every field.",
+        "No registration authority, no submitting organisation, and no administered-item lifecycle status, all of which the full standard specifies."
+      ],
+      "notes": "This work is what exposed that money fields encode their currency and scale inside the field name rather than declaring them, which is exactly the undefined-data-element problem the standard is about. The notation registry now declares both."
+    },
+    {
+      "id": "iso-19115",
+      "title": "ISO 19115 - Geographic information metadata",
+      "family": "metadata",
+      "applies": false,
+      "requirement_basis": "well_established",
+      "status": "not_applicable",
+      "reason": "No dataset here is geospatial. There are no coordinates, extents, projections, or reference systems to describe. The only geography present is country names as row labels in a published risk-premium table.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "fair",
+      "title": "FAIR Principles",
+      "family": "metadata",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "partial",
+      "evidence": {
+        "check": "tools/verify_dataset_metadata.py",
+        "asserts": "Every dataset states concretely what each of Findable, Accessible, Interoperable, and Reusable means for it. An unstated letter fails the check."
+      },
+      "gaps": [
+        "Identifiers are repository-relative, not globally resolvable persistent identifiers such as DOIs.",
+        "There is no metadata endpoint or catalogue harvesting protocol; discovery is by reading the repository."
+      ],
+      "notes": "Requiring each letter to be stated in prose is the point. Asserting the acronym is the failure mode the principles were written against."
+    },
+    {
+      "id": "llms-txt",
+      "title": "llms.txt",
+      "family": "metadata",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "conformant",
+      "evidence": {
+        "check": "tools/verify_standards_conformance.py",
+        "asserts": "llms.txt exists at the repository root with an H1 title, a blockquote summary, and link sections whose every repository-relative target resolves."
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "agents-md",
+      "title": "AGENTS.md",
+      "family": "metadata",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "conformant",
+      "evidence": {
+        "check": "tools/verify_standards_conformance.py",
+        "asserts": "AGENTS.md exists at the repository root and states the data-fabrication prohibition, the verification commands, and the gates no agent may pass."
+      },
+      "gaps": [],
+      "notes": "The most load-bearing document here: it is the contract that keeps automated contributors from inventing numbers."
+    },
+    {
+      "id": "json-schema",
+      "title": "JSON Schema",
+      "family": "interfaces",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "not_yet",
+      "plan": "Publish schemas for the case manifest, forecast registration, and model inventory shapes and validate every instance against them in CI. Today those shapes are enforced by hand-written Python validators, which work but are not machine-readable contracts.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "The 612 string sentinels in numeric fields would fail type validation the day a schema exists, which is an argument for writing one."
+    },
+    {
+      "id": "openapi",
+      "title": "OpenAPI Specification",
+      "family": "interfaces",
+      "applies": false,
+      "requirement_basis": "well_established",
+      "status": "not_applicable",
+      "reason": "This repository exposes no HTTP API. It is a corpus of files plus command-line tools; there are no endpoints, request bodies, or responses to describe.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "model-cards",
+      "title": "Model Cards for Model Reporting (Mitchell et al.)",
+      "family": "ai-documentation",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "partial",
+      "evidence": {
+        "check": "tools/verify_ai_documentation.py",
+        "asserts": "All 27 model cards answer the six framework sections that map onto this repository's card template, and a section that exists but holds fewer than twelve words counts as missing."
+      },
+      "gaps": [
+        "'Factors' and 'Quantitative Analyses' presume a statistical model whose performance varies across subgroups. These are deterministic spreadsheet engines evaluating accounting identities, so there is no subgroup performance to report.",
+        "'Training Data' presumes a fitted model. Nothing here is fitted."
+      ],
+      "notes": "Applying the check found that the newest model card had drifted to different heading names and claimed nine workbook checks when the workbook had thirteen. Both were corrected."
+    },
+    {
+      "id": "datasheets-for-datasets",
+      "title": "Datasheets for Datasets (Gebru et al.)",
+      "family": "ai-documentation",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "conformant",
+      "evidence": {
+        "check": "tools/verify_ai_documentation.py",
+        "asserts": "standards/metadata/datasheet_public_fact_corpus.md answers all seven framework sections substantively, including the composition, known errors, and universe bias of the 41,322-observation public-fact corpus."
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "factsheets",
+      "title": "FactSheets (IBM AI FactSheets 360)",
+      "family": "ai-documentation",
+      "applies": true,
+      "requirement_basis": "summary_only",
+      "status": "not_yet",
+      "plan": "FactSheets aggregates model, data, and service facts across a lifecycle. The underlying facts largely exist here already, spread across model cards, validation records, the case index, and the forecast registry. What is missing is the aggregation and a decision about which facts a consumer needs.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "clear-framework",
+      "title": "CLeAR Documentation Framework",
+      "family": "ai-documentation",
+      "applies": true,
+      "requirement_basis": "summary_only",
+      "status": "not_yet",
+      "plan": "Assess the existing documentation against the framework's principles once its clause-level guidance has been read by a human. Its emphasis on comparable, living documentation matches what the model cards and the maturity gate already try to do.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "Not claimed on a summary understanding."
+    },
+    {
+      "id": "nist-ai-rmf",
+      "title": "NIST AI Risk Management Framework 1.0",
+      "family": "ai-governance",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "not_yet",
+      "plan": "Map the four functions onto controls that already exist -- GOVERN to the model inventory and maturity gate, MAP to the model cards and intended-use statements, MEASURE to the oracles, parity checks, and coverage scanner, MANAGE to the monitoring thresholds and refresh cadence -- and write a checker that fails when a function has no live control behind it.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "Most of the substance is present and unmapped. Mapping it without a check would be a document, so it stays not_yet."
+    },
+    {
+      "id": "iso-iec-42001",
+      "title": "ISO/IEC 42001 - AI management system",
+      "family": "ai-governance",
+      "applies": true,
+      "requirement_basis": "summary_only",
+      "status": "not_yet",
+      "plan": "A management-system standard requires an audited management system, not a repository. Scope, policy, roles, and internal audit would all need to exist as organisational facts. For a project of this size that is a decision for its owner, not something a checker can produce.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "iso-iec-23894",
+      "title": "ISO/IEC 23894 - AI risk management guidance",
+      "family": "ai-governance",
+      "applies": true,
+      "requirement_basis": "summary_only",
+      "status": "not_yet",
+      "plan": "Produce a risk register naming this system's real risks -- fabricated inputs, silent model rot, hindsight in forecasts, over-trusted outputs -- each with the control that addresses it and a check that proves the control runs.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "The controls exist. The register that names the risks they answer does not."
+    },
+    {
+      "id": "iso-iec-23053",
+      "title": "ISO/IEC 23053 - Framework for AI systems using machine learning",
+      "family": "ai-governance",
+      "applies": false,
+      "requirement_basis": "summary_only",
+      "status": "not_applicable",
+      "reason": "No model in this repository uses machine learning. Every engine is a deterministic spreadsheet evaluating accounting identities and disclosed inputs. Nothing is trained, fitted, or inferred.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "AI is used to BUILD this repository. That is a different thing from the repository containing an ML system, and conflating the two would be the kind of claim this register exists to prevent."
+    },
+    {
+      "id": "iso-iec-5338",
+      "title": "ISO/IEC 5338 - AI system lifecycle processes",
+      "family": "ai-governance",
+      "applies": true,
+      "requirement_basis": "summary_only",
+      "status": "not_yet",
+      "plan": "Read the standard's process list and map it against the lifecycle this repository already runs: build, verify, case, register forecast, refresh quarterly, retire.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "iso-iec-25059",
+      "title": "ISO/IEC 25059 - Quality model for AI systems",
+      "family": "ai-governance",
+      "applies": true,
+      "requirement_basis": "summary_only",
+      "status": "not_yet",
+      "plan": "Extends the SQuaRE quality model with AI-specific characteristics. Assess once the characteristic list has been read; several likely map onto the existing maturity criteria.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "iso-iec-12792",
+      "title": "ISO/IEC 12792 - AI transparency taxonomy",
+      "family": "ai-governance",
+      "applies": true,
+      "requirement_basis": "summary_only",
+      "status": "not_yet",
+      "plan": "Use the taxonomy to check whether the transparency artefacts here cover the information needs it identifies, and for which stakeholders.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "iso-iec-42005",
+      "title": "ISO/IEC 42005 - AI system impact assessment",
+      "family": "ai-governance",
+      "applies": true,
+      "requirement_basis": "summary_only",
+      "status": "not_yet",
+      "plan": "The impact worth assessing is concrete: someone acting on a number from this repository as though it were validated. The prohibition is already stated in every model card and in llms.txt, but no structured impact assessment exists.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "iso-iec-38507",
+      "title": "ISO/IEC 38507 - Governance implications of the use of AI by organizations",
+      "family": "ai-governance",
+      "applies": true,
+      "requirement_basis": "summary_only",
+      "status": "not_yet",
+      "plan": "A governing-body standard. Relevant to whoever owns this project rather than to the code, and not something the repository can satisfy on its own.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "iso-iec-22989",
+      "title": "ISO/IEC 22989 - AI concepts and terminology",
+      "family": "ai-governance",
+      "applies": true,
+      "requirement_basis": "summary_only",
+      "status": "not_yet",
+      "plan": "Align the glossary's AI-related terms with the standard's definitions where they overlap, and record where this repository's usage differs and why.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "The glossary currently defines finance and evidence terms, not AI terms."
+    },
+    {
+      "id": "iso-iec-8183",
+      "title": "ISO/IEC 8183 - AI data lifecycle framework",
+      "family": "data-quality",
+      "applies": true,
+      "requirement_basis": "summary_only",
+      "status": "not_yet",
+      "plan": "The data fabric already implements a lifecycle -- acquire, record with provenance, freeze with a digest, refresh quarterly, retain prior snapshots. Mapping it to the standard's stages needs the standard's stage list.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "iso-8000",
+      "title": "ISO 8000 - Data quality",
+      "family": "data-quality",
+      "applies": true,
+      "requirement_basis": "summary_only",
+      "status": "not_yet",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "Downgraded from 'partial' by the register's own rule: a claim may not rest on a summary understanding of what a standard requires. The check behind it is real and is cited under ISO/IEC 25012, where the requirement basis is solid.",
+      "plan": "A real syntactic check already runs -- tools/verify_data_conventions.py validates dates, currencies, and magnitude scales against a declared specification and detects string sentinels in numeric fields. Conformance is still not claimed, because ISO 8000 is a large multi-part standard whose clause-level requirements we have not read. Confirm which parts apply, then re-assess this row."
+    },
+    {
+      "id": "iso-iec-25012",
+      "title": "ISO/IEC 25012 - Data quality model",
+      "family": "data-quality",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "partial",
+      "evidence": {
+        "check": "tools/verify_data_conventions.py",
+        "asserts": "Consistency is measured directly: two magnitude suffixes denoting one multiplier, and 612 string sentinels in numeric fields, are both reported with counts and locations."
+      },
+      "gaps": [
+        "Of the model's fifteen characteristics, only consistency and, through the vocabulary checker, part of understandability are measured.",
+        "Accuracy, completeness, credibility, and currentness are addressed by other machinery in this repository (the coverage scanner, the oracles, the quarterly clock) but are not yet expressed in the standard's terms."
+      ],
+      "notes": null
+    },
+    {
+      "id": "iso-iec-25024",
+      "title": "ISO/IEC 25024 - Measurement of data quality",
+      "family": "data-quality",
+      "applies": true,
+      "requirement_basis": "summary_only",
+      "status": "not_yet",
+      "plan": "Express the measures already produced -- real-data coverage, sentinel counts, suffix ambiguity -- as the standard's measurement functions, so the numbers are comparable to other projects rather than local inventions.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "iso-iec-5259",
+      "title": "ISO/IEC 5259 - Data quality for analytics and machine learning",
+      "family": "data-quality",
+      "applies": false,
+      "requirement_basis": "summary_only",
+      "status": "not_applicable",
+      "reason": "Addresses data quality for training and evaluating machine-learning systems. Nothing here is trained. The datasheet states plainly that the corpus should not be used as training data.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "iso-24495-1",
+      "title": "ISO 24495-1 - Plain language, Part 1: Governing principles",
+      "family": "plain-language",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "not_yet",
+      "plan": "The principles are that readers can find what they need, understand it, and use it. AGENTS.md now states the writing rules this repository follows, but nothing measures adherence. A checker could measure sentence length, passive constructions, and undefined jargon against the glossary.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "Deliberately not claimed. Readability metrics are proxies, and passing a proxy is not the same as a reader understanding the document."
+    },
+    {
+      "id": "iso-24495-2",
+      "title": "ISO 24495-2 - Plain language, legal communication",
+      "family": "plain-language",
+      "applies": true,
+      "requirement_basis": "unverified",
+      "status": "not_yet",
+      "plan": "A human should confirm this part's publication status and content before anything is claimed. This repository does produce quasi-legal text (licence, usage prohibitions, sign-off gates), so it plausibly applies.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "Listed as unverified rather than guessed at."
+    },
+    {
+      "id": "iso-24495-3",
+      "title": "ISO 24495-3 - Plain language, science writing",
+      "family": "plain-language",
+      "applies": true,
+      "requirement_basis": "unverified",
+      "status": "not_yet",
+      "plan": "A human should confirm this part's publication status and content. Method descriptions and the datasheet are the text it would govern.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "iso-24495-4",
+      "title": "ISO 24495-4 - Plain language, organizational implementation",
+      "family": "plain-language",
+      "applies": true,
+      "requirement_basis": "unverified",
+      "status": "not_yet",
+      "plan": "A human should confirm this part's publication status and content. It concerns how an organisation adopts plain language, which is an owner decision rather than a repository artefact.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "asd-ste100",
+      "title": "ASD-STE100 - Simplified Technical English",
+      "family": "plain-language",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "not_yet",
+      "plan": "STE constrains writers to an approved dictionary with one meaning per word and one word per meaning, plus rules on sentence length and voice. The controlled vocabulary here is the same idea applied to data values; extending it to prose would mean adopting the approved dictionary, which is licensed.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "The dictionary's licensing is a real obstacle to a full implementation, and it is better to say so than to claim a partial STE."
+    },
+    {
+      "id": "easy-to-read",
+      "title": "Inclusion Europe Easy-to-Read guidelines",
+      "family": "plain-language",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "not_yet",
+      "plan": "Easy-to-Read targets readers with intellectual disabilities and requires short sentences, one idea per sentence, no metaphor, and validation by people from the target group. The entry documents (README, llms.txt) could have an Easy-to-Read summary; the models themselves are irreducibly specialist.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "Validation by readers from the target group is a required part of the method and cannot be automated, which is why this is not_yet rather than partial."
+    },
+    {
+      "id": "dita",
+      "title": "DITA - Darwin Information Typing Architecture",
+      "family": "documentation-architecture",
+      "applies": false,
+      "requirement_basis": "well_established",
+      "status": "not_applicable",
+      "reason": "DITA is an XML architecture with a toolchain for topic-based authoring, conditional processing, and multi-channel publishing. This repository publishes Markdown, JSON, and spreadsheets from a Python build; adopting DITA would mean replacing that build to gain reuse features nothing here needs.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "The useful idea behind DITA -- typed information units -- is applied through the model card and datasheet section templates, which are checked."
+    },
+    {
+      "id": "s1000d",
+      "title": "S1000D - International specification for technical publications",
+      "family": "documentation-architecture",
+      "applies": false,
+      "requirement_basis": "well_established",
+      "status": "not_applicable",
+      "reason": "S1000D governs technical publications for complex equipment, chiefly in aerospace and defence, built from data modules in a common source database. This repository produces no equipment documentation.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "iirds",
+      "title": "iiRDS - Intelligent Information Request and Delivery Standard",
+      "family": "documentation-architecture",
+      "applies": false,
+      "requirement_basis": "well_established",
+      "status": "not_applicable",
+      "reason": "iiRDS packages technical documentation with an RDF metadata layer for delivery to users of a product. There is no product delivery channel here. The RDF metadata idea is served by the DCAT catalogue and the SKOS vocabulary, both of which exist.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "docbook",
+      "title": "DocBook",
+      "family": "documentation-architecture",
+      "applies": false,
+      "requirement_basis": "well_established",
+      "status": "not_applicable",
+      "reason": "A semantic XML schema for books and technical articles. This repository's documentation is short-form Markdown next to the code it describes; converting it to DocBook would add a toolchain without adding a reader.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "information-mapping",
+      "title": "Information Mapping",
+      "family": "documentation-architecture",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "partial",
+      "evidence": {
+        "check": "tools/verify_ai_documentation.py",
+        "asserts": "Model cards and the datasheet are chunked into labelled, typed sections, and a section that exists but holds fewer than twelve words is treated as absent -- the method's 'labelling' and 'chunking' principles made mechanical."
+      },
+      "gaps": [
+        "The method's information types (procedure, process, concept, structure, principle, fact) are not formally assigned.",
+        "Information Mapping is a proprietary method; what is applied here are its published principles, not a certified implementation."
+      ],
+      "notes": null
+    },
+    {
+      "id": "doclang",
+      "title": "DocLang",
+      "family": "documentation-architecture",
+      "applies": false,
+      "requirement_basis": "unverified",
+      "status": "not_yet",
+      "plan": "We could not identify an established specification under this name from inside this environment, and will not guess at what it requires. A human should supply a reference, after which this row can be assessed properly.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "Recorded as unverified rather than quietly dropped from the register or invented."
+    },
+    {
+      "id": "iso-30401",
+      "title": "ISO 30401 - Knowledge management systems",
+      "family": "management-systems",
+      "applies": true,
+      "requirement_basis": "summary_only",
+      "status": "not_yet",
+      "plan": "A management-system standard requiring organisational structures, not repository artefacts. The knowledge-conveyance parts -- a shared vocabulary, documented decisions, retained rationale -- are substantially present in the glossary, the model cards, and the case manifests.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": null
+    },
+    {
+      "id": "iso-15489",
+      "title": "ISO 15489 - Records management",
+      "family": "management-systems",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "partial",
+      "evidence": {
+        "check": "tools/verify_dataset_metadata.py",
+        "asserts": "Records carry the characteristics the standard requires of authoritative records: they are identified, dated, digest-pinned so alteration is detectable, and retained alongside their originals. Snapshot digests are re-derived and compared against the files on disk."
+      },
+      "gaps": [
+        "No retention schedule and no disposition authority.",
+        "No access-control or classification scheme; everything is public.",
+        "Integrity is enforced by content digests and Git history rather than by a records system."
+      ],
+      "notes": "Authenticity, reliability, integrity, and usability are the standard's four characteristics of a record. The first three are mechanised here; usability is asserted, not measured."
+    },
+    {
+      "id": "iso-10013",
+      "title": "ISO 10013 - Guidance for documented information",
+      "family": "management-systems",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "partial",
+      "evidence": {
+        "check": "tools/verify_standards_conformance.py",
+        "asserts": "The controlled documents in this register each carry an identifier, an as-of date, a stated purpose, and a named check, and the validator fails when a document a row cites does not exist."
+      },
+      "gaps": [
+        "No approval signatures or revision history fields on documents themselves; Git history serves that purpose but is not the standard's mechanism.",
+        "No document owner is named per document."
+      ],
+      "notes": null
+    },
+    {
+      "id": "iso-9001",
+      "title": "ISO 9001 - Quality management systems",
+      "family": "management-systems",
+      "applies": true,
+      "requirement_basis": "well_established",
+      "status": "not_applicable",
+      "reason": "ISO 9001 certifies an organisation's quality management system: context, leadership, planning, support, operation, performance evaluation, and improvement, verified by external audit. A repository cannot hold that certification, and no organisation is being audited here.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "The parts that do map onto software -- control of documented information, control of nonconforming output, corrective action -- are addressed under ISO 10013 and by the checks in this repository."
+    },
+    {
+      "id": "iso-24896",
+      "title": "ISO 24896 - Notation for business reporting",
+      "family": "interfaces",
+      "applies": true,
+      "requirement_basis": "unverified",
+      "status": "not_yet",
+      "plan": "We could not confirm this standard's scope or content from inside this environment, and will not describe requirements we have not read. Given the subject matter it is plausibly relevant to how figures in this repository are presented. A human should confirm the reference, after which this row can be assessed.",
+      "evidence": {
+        "check": null,
+        "asserts": null
+      },
+      "gaps": [],
+      "notes": "Listed with an explicit unverified basis rather than given a plausible-sounding assessment."
+    }
+  ]
+}
