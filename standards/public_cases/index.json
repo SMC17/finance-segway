@@ -192,13 +192,11 @@
             "source_as_of": "2012-10-31"
           }
         ],
-        "workbook_sha256": "6a50478ae6ddf17f6558cffd0f5070636b534b3fb72baa6ac7e686f973283e89",
-        "generated_on": "2026-08-05",
-        "refresh_schema": "source-addressed-v2",
-        "classification": "external_historical_case",
-        "counts_toward_M4": false,
-        "hash_refreshed_on": "2026-08-05",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
+        "workbook_sha256": "acb64eabea50b3a8f6844b85161519645284e4a7798859767f8d1328bc8b386d",
+        "generated_on": "2026-09-07",
+        "hash_refreshed_on": "2026-09-07",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -403,13 +401,11 @@
             "source_as_of": "2016-12-08"
           }
         ],
-        "workbook_sha256": "b43dc06de0cee9c41d67aa0bd2cb934a9eb3203fce260f554447d2c2d4cfc6ef",
-        "generated_on": "2026-08-05",
-        "refresh_schema": "source-addressed-v2",
-        "classification": "external_historical_case",
-        "counts_toward_M4": false,
-        "hash_refreshed_on": "2026-08-05",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
+        "workbook_sha256": "4fb97ff7ec81c42b0f660971c9186ecf73277b5a3928db10a64f1b1686536dbe",
+        "generated_on": "2026-09-07",
+        "hash_refreshed_on": "2026-09-07",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -502,13 +498,11 @@
             "source_as_of": "2024-12-31"
           }
         ],
-        "workbook_sha256": "ea03de4827d879c4b456b4741b7e2e135606212d42275c7496cf39f0b9be23a6",
-        "generated_on": "2026-08-05",
-        "refresh_schema": "source-addressed-v2",
-        "classification": "external_historical_case",
-        "counts_toward_M4": false,
-        "hash_refreshed_on": "2026-08-05",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
+        "workbook_sha256": "8a2dc6e7cc2bba76bf2aed247bd6ee6c5be10629056d7d732352eae9aecf22bb",
+        "generated_on": "2026-09-07",
+        "hash_refreshed_on": "2026-09-07",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -1577,13 +1571,11 @@
             "source_as_of": "2024-06-30"
           }
         ],
-        "workbook_sha256": "a022c8b7a4d6fe0cfd45559e2285bb449e663b60c5459ac7998ecd4a1a0c3383",
-        "generated_on": "2026-09-01",
-        "refresh_schema": "source-addressed-v2",
-        "classification": "external_historical_case",
-        "counts_toward_M4": false,
+        "workbook_sha256": "4e7b749418a7c25924d2ef5d5a6c9156305c4461260dee0b89cfdd739ea00f82",
+        "generated_on": "2026-09-07",
         "hash_refreshed_on": "2026-09-07",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       }
     },
     {
@@ -3985,13 +3977,11 @@
             "source_as_of": "2020-12-31"
           }
         ],
-        "workbook_sha256": "1f40c6fce0efdd88b96bd144a5cc78836e4fb92bef2e5bcb6fc0105e2ffdedad",
-        "generated_on": "2026-08-05",
-        "refresh_schema": "source-addressed-v2",
-        "classification": "external_historical_case",
-        "counts_toward_M4": false,
+        "workbook_sha256": "920ff0967323ea9c5acd831fc80417074e4c1bebf510beb1af937e169a8d6742",
+        "generated_on": "2026-09-07",
         "hash_refreshed_on": "2026-09-07",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       },
       "outcome": {
         "metric": "emergency_financing_completed",
@@ -4100,13 +4090,11 @@
             "source_as_of": "2020-02-14"
           }
         ],
-        "workbook_sha256": "937e0f1ad2c9c67e6b66d98ebf400ab75a545eafcd40d8ac052ed935923ac4f7",
-        "generated_on": "2026-08-05",
-        "refresh_schema": "source-addressed-v2",
-        "classification": "external_historical_case",
-        "counts_toward_M4": false,
+        "workbook_sha256": "2ff31a3b242149156e8387ae7d141364def52f8a79fc381f8c7e20e9baebdea7",
+        "generated_on": "2026-09-07",
         "hash_refreshed_on": "2026-09-07",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+        "counts_toward_M4": false
       },
       "outcome": {
         "metric": "net_proceeds_before_expenses_usd_mm",
