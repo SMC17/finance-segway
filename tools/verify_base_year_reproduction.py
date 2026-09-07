@@ -102,12 +102,26 @@ def permitted_exemption_codes() -> set[str]:
 
     A second copy of a controlled value set is how the two copies diverge, so
     the vocabulary lives in one file and this tool asks it.
+
+    Raises rather than returning an empty set when the glossary cannot answer.
+    An empty permitted set would make every exemption code acceptable, so a
+    missing or emptied vocabulary would silently turn the strictest part of
+    this gate into a rubber stamp -- the failure would look like a pass.
     """
     if not GLOSSARY.exists():
-        return set()
+        raise FileNotFoundError(
+            f"missing {GLOSSARY}: the permitted exemption codes cannot be read, and "
+            "an unreadable vocabulary must not be treated as permission"
+        )
     glossary = json.loads(GLOSSARY.read_text(encoding="utf-8"))
     field = glossary.get("controlled_fields", {}).get("reproduction_exemption", {})
-    return set(field.get("permitted_values", {}))
+    codes = set(field.get("permitted_values", {}))
+    if not codes:
+        raise ValueError(
+            "the glossary declares no permitted values for reproduction_exemption; "
+            "refusing to accept every code by default"
+        )
+    return codes
 
 
 def find_columns(sheet: Any) -> tuple[int, int, int] | None:
@@ -127,14 +141,25 @@ def find_columns(sheet: Any) -> tuple[int, int, int] | None:
     return None
 
 
-def disclosed_actuals(sheet: Any, header_row: int, base_column: int) -> dict[int, float]:
-    """The rows whose base-year cell carries a number we can compare against."""
+def disclosed_actuals(sheet: Any, header_row: int,
+                      base_column: int) -> tuple[dict[int, float], list[int]]:
+    """The rows whose base-year cell carries a literal number, and those skipped.
+
+    Only literals count. A base-year cell holding a formula is a line the model
+    DERIVES rather than a figure anyone sourced, and comparing a derived
+    historical line to a derived forecast line largely restates the arithmetic
+    that produced both. The skipped rows are returned so the narrowing can be
+    printed rather than left for a reader to infer from a shorter table.
+    """
     found: dict[int, float] = {}
+    skipped: list[int] = []
     for row in range(header_row + 1, header_row + LINE_SEARCH_ROWS):
         value = sheet.cell(row=row, column=base_column).value
         if isinstance(value, (int, float)) and not isinstance(value, bool):
             found[row] = float(value)
-    return found
+        elif value is not None:
+            skipped.append(row)
+    return found, skipped
 
 
 def revenue_row(sheet: Any, header_row: int) -> int | None:
@@ -153,20 +178,21 @@ def run_at_base_year(workbook_path: Path, header_row: int, base_column: int,
     committed with, so what comes back is the committed chain evaluated at a
     period whose answer is already known.
     """
-    scratch = Path(tempfile.mkdtemp(prefix="base_year_")) / workbook_path.name
-    shutil.copy(workbook_path, scratch)
-    book = openpyxl.load_workbook(scratch)
-    sheet = book[STATEMENT_SHEET]
-    sheet.cell(row=anchor_row, column=estimate_column).value = (
-        f"={get_column_letter(base_column)}{anchor_row}"
-    )
-    book.save(scratch)
-    recalc(str(scratch), force=True)
-    evaluated = openpyxl.load_workbook(scratch, data_only=True)[STATEMENT_SHEET]
-    return {
-        row: evaluated.cell(row=row, column=estimate_column).value
-        for row in range(header_row + 1, header_row + LINE_SEARCH_ROWS)
-    }
+    with tempfile.TemporaryDirectory(prefix="base_year_") as workspace:
+        scratch = Path(workspace) / workbook_path.name
+        shutil.copy(workbook_path, scratch)
+        book = openpyxl.load_workbook(scratch)
+        sheet = book[STATEMENT_SHEET]
+        sheet.cell(row=anchor_row, column=estimate_column).value = (
+            f"={get_column_letter(base_column)}{anchor_row}"
+        )
+        book.save(scratch)
+        recalc(str(scratch), force=True)
+        evaluated = openpyxl.load_workbook(scratch, data_only=True)[STATEMENT_SHEET]
+        return {
+            row: evaluated.cell(row=row, column=estimate_column).value
+            for row in range(header_row + 1, header_row + LINE_SEARCH_ROWS)
+        }
 
 
 def case_records() -> dict[str, dict[str, Any]]:
@@ -194,7 +220,7 @@ def declared_exemptions(record: dict[str, Any], permitted: set[str]) -> tuple[di
         if not isinstance(row, int):
             problems.append(f"exemption without an integer row: {entry!r}")
             continue
-        if permitted and code not in permitted:
+        if code not in permitted:
             problems.append(f"row {row}: reproduction_exemption {code!r} is not a permitted value")
             continue
         if not rationale:
@@ -269,12 +295,19 @@ def check_workbook(path: Path, record: dict[str, Any], permitted: set[str],
         return {**result, "outcome": "not_applicable",
                 "detail": "no actual/estimate column headers"}
     header_row, base_column, estimate_column = columns
+    if base_column >= estimate_column:
+        return {**result, "outcome": "unreadable",
+                "detail": f"the base-year column {get_column_letter(base_column)} is not "
+                          f"left of the first forecast column "
+                          f"{get_column_letter(estimate_column)}; the layout is not the "
+                          "one this probe understands"}
     result["base_column"] = get_column_letter(base_column)
     result["estimate_column"] = get_column_letter(estimate_column)
     anchor = revenue_row(sheet, header_row)
     if anchor is None:
         return {**result, "outcome": "not_applicable", "detail": "no revenue line to anchor"}
-    disclosed = disclosed_actuals(sheet, header_row, base_column)
+    disclosed, derived_rows = disclosed_actuals(sheet, header_row, base_column)
+    result["derived_base_year_rows"] = derived_rows
     if not disclosed:
         return {**result, "outcome": "no_actuals",
                 "detail": "the base-year column is empty, so the model cannot be "
@@ -347,9 +380,14 @@ def render(results: list[dict[str, Any]], tolerance_pct: float) -> None:
     for outcome in sorted(counts):
         print(f"  {outcome:16s} {counts[outcome]}")
 
+    derived = sum(len(r.get("derived_base_year_rows") or []) for r in results)
     print("\nAND HERE IS WHAT THIS DID NOT CHECK")
     print("  - Only the income statement, and only lines whose base-year cell carries")
-    print("    a number. A line the case never sourced is invisible here.")
+    print("    a literal number. A line the case never sourced is invisible here.")
+    if derived:
+        print(f"  - {derived} base-year cell(s) hold a FORMULA rather than a sourced")
+        print("    figure and are skipped: comparing a derived historical line to a")
+        print("    derived forecast line largely restates the arithmetic behind both.")
     print("  - Only the FIRST forecast column. A driver that fades across later columns")
     print("    is exercised at its first value alone.")
     print("  - Reproducing the base year does not make a forecast right. It establishes")
