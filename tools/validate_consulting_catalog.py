@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from finance_segway.consulting.schema import BusinessFunction, RiskTier
+from finance_segway.consulting.schema import BusinessFunction, ImpactSeverity
 
 
 REQUIRED_LISTS = (
@@ -49,10 +49,10 @@ def validate_catalog(root: Path, catalog_path: Path | None = None) -> list[str]:
         errors.append(f"missing_function:{function}")
     for function in sorted(actual_functions - expected_functions):
         errors.append(f"unknown_function:{function}")
-    valid_risks = set(RiskTier.__members__)
+    valid_risks = set(ImpactSeverity.__members__)
     for entry in entries:
         entry_id = entry.get("id") or "<missing>"
-        for field in ("executive_owner", "pnl_driver", "decision_rights", "maturity", "risk_tier"):
+        for field in ("executive_owner", "pnl_driver", "decision_rights", "maturity", "impact_severity"):
             if not entry.get(field):
                 errors.append(f"{entry_id}:missing:{field}")
         for field in REQUIRED_LISTS:
@@ -60,8 +60,8 @@ def validate_catalog(root: Path, catalog_path: Path | None = None) -> list[str]:
                 errors.append(f"{entry_id}:missing:{field}")
         if entry.get("maturity") not in maturities:
             errors.append(f"{entry_id}:invalid_maturity")
-        if entry.get("risk_tier") not in valid_risks:
-            errors.append(f"{entry_id}:invalid_risk_tier")
+        if entry.get("impact_severity") not in valid_risks:
+            errors.append(f"{entry_id}:invalid_impact_severity")
         if entry.get("maturity") in {"A1", "A2", "A3", "A4"}:
             test_path = root / str(entry.get("test_path", ""))
             if not test_path.is_file():
@@ -83,15 +83,15 @@ def validate_catalog(root: Path, catalog_path: Path | None = None) -> list[str]:
         errors.append("duplicate_platform_capability_id")
     for entry in platform_entries:
         entry_id = entry.get("id") or "<missing-platform>"
-        for field in ("purpose", "decision_rights", "maturity", "risk_tier"):
+        for field in ("purpose", "decision_rights", "maturity", "impact_severity"):
             if not entry.get(field):
                 errors.append(f"{entry_id}:missing:{field}")
         if not entry.get("core_engines"):
             errors.append(f"{entry_id}:missing:core_engines")
         if entry.get("maturity") not in maturities:
             errors.append(f"{entry_id}:invalid_maturity")
-        if entry.get("risk_tier") not in valid_risks:
-            errors.append(f"{entry_id}:invalid_risk_tier")
+        if entry.get("impact_severity") not in valid_risks:
+            errors.append(f"{entry_id}:invalid_impact_severity")
         test_path = root / str(entry.get("test_path", ""))
         if not test_path.is_file():
             errors.append(f"{entry_id}:missing_test_path")

@@ -1,0 +1,431 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-09-07",
+  "title": "Finance-Segway concept system and controlled vocabulary",
+  "purpose": "One authority for what this repository's terms mean and which values its enumerated fields may take. A vocabulary that is written down but not enforced is a document; tools/verify_controlled_vocabulary.py makes this one a control by checking the repository's own data against it.",
+  "conventions": {
+    "definition_style": "ISO 704. Each definition is a substitutable noun phrase: it names the superordinate concept and then the characteristics that delimit this concept from its siblings, so the definition can replace the term in a sentence without loss. Definitions do not open with 'is when', 'is where', or 'refers to', and no definition may depend on the term it defines.",
+    "relations": "ISO 25964 and SKOS. 'broader' is the superordinate concept (skos:broader), 'related' is an associative link (skos:related), 'altLabels' are non-preferred designations (skos:altLabel) that must never be used in data.",
+    "homographs": "Where one designation names two concepts, ISO 704 requires the designations be distinguished rather than the concepts merged. Such cases are recorded under 'homographs' with the resolution."
+  },
+  "concepts": [
+    {
+      "id": "model-template",
+      "prefLabel": "template",
+      "altLabels": ["canonical workbook"],
+      "definition": "A workbook holding a domain's calculation engines and no subject-specific data, from which every instance in that domain is generated.",
+      "broader": null,
+      "related": ["model-builder", "model-instance"],
+      "scopeNote": "Templates carry driver defaults so the engines can be exercised. Those defaults are not claims about any company."
+    },
+    {
+      "id": "model-builder",
+      "prefLabel": "builder",
+      "definition": "A Python module that generates a template deterministically, and which is the sole authority for that template's contents.",
+      "broader": null,
+      "related": ["model-template", "semantic-parity"],
+      "scopeNote": "A template edited by hand rather than regenerated breaks semantic parity and fails the build."
+    },
+    {
+      "id": "model-instance",
+      "prefLabel": "instance",
+      "definition": "A workbook produced by applying one case manifest's inputs to a template.",
+      "broader": null,
+      "related": ["model-template", "public-case"],
+      "scopeNote": null
+    },
+    {
+      "id": "public-case",
+      "prefLabel": "public case",
+      "definition": "A dated, sourced study of one real subject, recorded as a manifest, a frozen source snapshot, and a generated instance.",
+      "broader": null,
+      "related": ["model-instance", "source-snapshot", "case-manifest"],
+      "scopeNote": "Every public case in this repository is external historical evidence. None is a production model output."
+    },
+    {
+      "id": "case-manifest",
+      "prefLabel": "case manifest",
+      "definition": "The machine-readable record of a public case's inputs, sources, cover metadata, and refresh history, and the only sanctioned way to set an instance's values.",
+      "broader": "public-case",
+      "related": ["input-kind", "driver-declaration"],
+      "scopeNote": null
+    },
+    {
+      "id": "source-snapshot",
+      "prefLabel": "source snapshot",
+      "definition": "An immutable, hash-digested record of the observations a case rests on, captured at a stated date.",
+      "broader": null,
+      "related": ["public-case", "provenance"],
+      "scopeNote": null
+    },
+    {
+      "id": "provenance",
+      "prefLabel": "provenance",
+      "definition": "The recorded chain from a value in a workbook back to the published document that disclosed it.",
+      "broader": null,
+      "related": ["source-snapshot", "source-register"],
+      "scopeNote": null
+    },
+    {
+      "id": "source-register",
+      "prefLabel": "source register",
+      "definition": "A per-domain table listing each case's sources with publisher, URL, as-of date, snapshot path, and snapshot digest.",
+      "broader": "provenance",
+      "related": ["source-snapshot"],
+      "scopeNote": null
+    },
+    {
+      "id": "input-kind",
+      "prefLabel": "input kind",
+      "definition": "The classification of how a manifest input's value was obtained.",
+      "broader": null,
+      "related": ["observed-input", "derived-input", "modeler-assumption"],
+      "scopeNote": "Recorded per input cell. Determines whether the cell earns real-data coverage credit."
+    },
+    {
+      "id": "observed-input",
+      "prefLabel": "observed",
+      "definition": "An input kind whose value is read directly from a disclosed figure without arithmetic.",
+      "broader": "input-kind",
+      "related": ["derived-input"],
+      "scopeNote": null
+    },
+    {
+      "id": "derived-input",
+      "prefLabel": "derived",
+      "definition": "An input kind whose value is computed from disclosed figures by arithmetic that the manifest states.",
+      "broader": "input-kind",
+      "related": ["observed-input"],
+      "scopeNote": "The arithmetic must be stated in the input's notes, so a reader can recompute it."
+    },
+    {
+      "id": "modeler-assumption",
+      "prefLabel": "modeler_assumption",
+      "altLabels": ["modeler", "assumption"],
+      "definition": "An input kind whose value is chosen by the modeller because no disclosure of it exists.",
+      "broader": "input-kind",
+      "related": ["driver-declaration", "grounded-driver"],
+      "scopeNote": "Earns no real-data coverage credit. The bare designation 'modeler' is a non-preferred variant and must not appear in data."
+    },
+    {
+      "id": "driver-declaration",
+      "prefLabel": "driver declaration",
+      "definition": "A manifest record stating why a cell holds a chosen value rather than a sourced one, and what would ground it.",
+      "broader": null,
+      "related": ["modeler-assumption", "grounded-driver"],
+      "scopeNote": null
+    },
+    {
+      "id": "grounded-driver",
+      "prefLabel": "grounded driver",
+      "definition": "A driver declaration carrying a basis that names real published data bounding the driver's range.",
+      "broader": "driver-declaration",
+      "related": ["ungrounded-driver"],
+      "scopeNote": "Counts toward accounted coverage but never toward real coverage."
+    },
+    {
+      "id": "ungrounded-driver",
+      "prefLabel": "ungrounded driver",
+      "definition": "A driver declaration whose basis is empty, so its range rests on nothing published.",
+      "broader": "driver-declaration",
+      "related": ["grounded-driver"],
+      "scopeNote": "Deliberately earns no coverage credit: a driver without a grounded range is still an ungrounded number in a model."
+    },
+    {
+      "id": "real-coverage",
+      "prefLabel": "real coverage",
+      "definition": "The share of a template's candidate input cells that a case fills with observed or derived values.",
+      "broader": null,
+      "related": ["accounted-coverage", "candidate-cell"],
+      "scopeNote": null
+    },
+    {
+      "id": "accounted-coverage",
+      "prefLabel": "accounted coverage",
+      "definition": "The share of a template's candidate input cells that a case either fills with sourced values or declares as grounded drivers.",
+      "broader": null,
+      "related": ["real-coverage"],
+      "scopeNote": null
+    },
+    {
+      "id": "candidate-cell",
+      "prefLabel": "candidate cell",
+      "definition": "A template cell styled as an input and therefore eligible to receive case data.",
+      "broader": null,
+      "related": ["real-coverage"],
+      "scopeNote": "Detected by input-blue font colour, ignoring the alpha channel."
+    },
+    {
+      "id": "oracle",
+      "prefLabel": "oracle",
+      "altLabels": ["independent oracle", "reference engine"],
+      "definition": "A calculation written independently of a workbook that recomputes the workbook's result for comparison.",
+      "broader": null,
+      "related": ["workbook-verified", "identity-binding"],
+      "scopeNote": "Independence is the whole point: an oracle that reuses the workbook's formulas verifies nothing."
+    },
+    {
+      "id": "workbook-verified",
+      "prefLabel": "workbook-verified model",
+      "definition": "A model whose recalculated workbook has been compared against a separate pure-Python computation of the same quantities.",
+      "broader": "oracle",
+      "related": ["identity-binding"],
+      "scopeNote": null
+    },
+    {
+      "id": "identity-binding",
+      "prefLabel": "identity binding",
+      "definition": "A reference check bound to a named accounting or financial identity that an oracle evaluates on committed cases.",
+      "broader": "oracle",
+      "related": ["workbook-verified"],
+      "scopeNote": null
+    },
+    {
+      "id": "semantic-parity",
+      "prefLabel": "semantic parity",
+      "definition": "Agreement between a committed template and the output its builder produces, compared on cell values, formulas, and sheet structure.",
+      "broader": null,
+      "related": ["model-builder", "presentation-parity"],
+      "scopeNote": null
+    },
+    {
+      "id": "presentation-parity",
+      "prefLabel": "presentation parity",
+      "definition": "Agreement between a committed template and its builder's output on formatting, column widths, and styling.",
+      "broader": null,
+      "related": ["semantic-parity"],
+      "scopeNote": "Recalculating a committed template in place breaks this, because the spreadsheet application rewrites presentation metadata."
+    },
+    {
+      "id": "maturity-level",
+      "prefLabel": "maturity level",
+      "definition": "The stage a model has reached on this repository's evidence ladder, from mechanical correctness through to independently challenged production use.",
+      "broader": null,
+      "related": ["m1", "m2", "m3", "m4"],
+      "scopeNote": null
+    },
+    {
+      "id": "m1",
+      "prefLabel": "M1",
+      "definition": "A maturity level at which a model builds reproducibly and its workbook checks pass.",
+      "broader": "maturity-level",
+      "related": ["m2"],
+      "scopeNote": null
+    },
+    {
+      "id": "m2",
+      "prefLabel": "M2",
+      "definition": "A maturity level at which a model additionally carries sourced public cases, an independent oracle, and recorded outcomes.",
+      "broader": "maturity-level",
+      "related": ["m1", "m3"],
+      "scopeNote": null
+    },
+    {
+      "id": "m3",
+      "prefLabel": "M3",
+      "definition": "A maturity level at which a model additionally satisfies eight machine-checked criteria including human effective challenge.",
+      "broader": "maturity-level",
+      "related": ["m2", "human-signoff"],
+      "scopeNote": "No model in this repository has reached M3. Criterion G cannot be satisfied by any agent."
+    },
+    {
+      "id": "m4",
+      "prefLabel": "M4",
+      "definition": "A maturity level at which a model additionally holds evidence accumulated over time from live production use.",
+      "broader": "maturity-level",
+      "related": ["m3"],
+      "scopeNote": "No artifact in this repository counts toward M4."
+    },
+    {
+      "id": "human-signoff",
+      "prefLabel": "human sign-off",
+      "definition": "A named person's recorded approval of a model, which no automated process may supply.",
+      "broader": null,
+      "related": ["m3", "effective-challenge"],
+      "scopeNote": null
+    },
+    {
+      "id": "effective-challenge",
+      "prefLabel": "effective challenge",
+      "definition": "Critical review of a model by parties with the competence, influence, and independence to change it.",
+      "broader": null,
+      "related": ["human-signoff"],
+      "scopeNote": "The term is used here in the sense established by supervisory model-risk guidance."
+    },
+    {
+      "id": "out-of-sample-forecast",
+      "prefLabel": "out-of-sample forecast",
+      "definition": "A dated, content-hashed prediction registered before the period it predicts has been reported.",
+      "broader": null,
+      "related": ["naive-baseline", "forecast-skill"],
+      "scopeNote": "Distinguished from a retrospective reconstruction, which is authored knowing the answer."
+    },
+    {
+      "id": "naive-baseline",
+      "prefLabel": "naive baseline",
+      "definition": "The unskilled prediction a forecast must beat, frozen at registration from data already in the repository.",
+      "broader": null,
+      "related": ["out-of-sample-forecast", "forecast-skill"],
+      "scopeNote": null
+    },
+    {
+      "id": "forecast-skill",
+      "prefLabel": "forecast skill",
+      "definition": "The proportional reduction in error a forecast achieves against its naive baseline, positive when the forecast is closer.",
+      "broader": null,
+      "related": ["naive-baseline"],
+      "scopeNote": "Murphy skill: 1 minus the ratio of forecast error to baseline error."
+    },
+    {
+      "id": "model-risk-tier",
+      "prefLabel": "model risk tier",
+      "definition": "The supervisory risk classification assigned to a model, governing how much validation evidence it must carry.",
+      "broader": null,
+      "related": ["maturity-level"],
+      "scopeNote": "An ordinal tier scale. Distinct from the consulting catalogue's impact severity scale; see homographs."
+    },
+    {
+      "id": "impact-severity",
+      "prefLabel": "impact severity",
+      "definition": "The consequence rating of a consulting capability's failure, on an ordered qualitative scale.",
+      "broader": null,
+      "related": ["model-risk-tier"],
+      "scopeNote": "A severity scale, not a tier scale. See homographs."
+    },
+    {
+      "id": "annual-recurring-revenue",
+      "prefLabel": "ARR",
+      "altLabels": ["annual recurring revenue"],
+      "definition": "The annualised value of a software business's contracted recurring subscriptions at a point in time.",
+      "broader": null,
+      "related": ["remaining-performance-obligation", "net-revenue-retention"],
+      "scopeNote": "A management metric with no fixed definition and no XBRL tag. Never sourceable from a filing's tagged facts."
+    },
+    {
+      "id": "remaining-performance-obligation",
+      "prefLabel": "RPO",
+      "altLabels": ["remaining performance obligation"],
+      "definition": "The transaction price allocated to contracted goods and services a business has not yet delivered.",
+      "broader": null,
+      "related": ["annual-recurring-revenue", "contract-liability"],
+      "scopeNote": "A required disclosure with a fixed definition and an XBRL tag, which is why this repository builds its forward-revenue engine on RPO rather than on ARR."
+    },
+    {
+      "id": "contract-liability",
+      "prefLabel": "contract liability",
+      "altLabels": ["deferred revenue"],
+      "definition": "The portion of remaining performance obligations a business has already billed and carries on its balance sheet.",
+      "broader": null,
+      "related": ["remaining-performance-obligation"],
+      "scopeNote": "Remaining performance obligations less contract liability is the unbilled portion, which appears on no balance sheet."
+    },
+    {
+      "id": "net-revenue-retention",
+      "prefLabel": "NRR",
+      "altLabels": ["net revenue retention"],
+      "definition": "The proportion of a period's opening recurring revenue retained at its close after expansion, contraction, and churn, excluding revenue from customers won in the period.",
+      "broader": null,
+      "related": ["annual-recurring-revenue", "gross-revenue-retention"],
+      "scopeNote": "Excluding new logos is definitional. Including them inflates the figure in the direction a seller prefers."
+    },
+    {
+      "id": "gross-revenue-retention",
+      "prefLabel": "GRR",
+      "altLabels": ["gross revenue retention"],
+      "definition": "The proportion of a period's opening recurring revenue retained at its close after churn alone, giving no credit for expansion.",
+      "broader": null,
+      "related": ["net-revenue-retention"],
+      "scopeNote": "Never exceeds net revenue retention."
+    },
+    {
+      "id": "structural-mismatch-driver",
+      "prefLabel": "structural mismatch driver",
+      "definition": "A driver declaration recording that a template line has no counterpart in the subject's real economics, so no disclosure could fill it.",
+      "broader": "driver-declaration",
+      "related": ["ungrounded-driver"],
+      "scopeNote": "Distinct from an undisclosed driver, and the distinction matters. An undisclosed driver could be filled if the subject disclosed more. A structural mismatch could not be filled by any disclosure, because the quantity the template asks for does not exist for this subject. Collapsing the two hides a modelling limitation behind a data-availability excuse. Three declarations in this repository were mislabelled 'not_disclosed' until the concept system was worked out."
+    },
+    {
+      "id": "hindsight-forecast",
+      "prefLabel": "hindsight forecast",
+      "definition": "A forward projection built from data published after the date it claims to have been made on.",
+      "broader": null,
+      "related": ["out-of-sample-forecast"],
+      "scopeNote": "A defect, not a category of evidence. Named so it can be checked for."
+    }
+  ],
+  "homographs": [
+    {
+      "designation": "risk_tier",
+      "concepts": ["model-risk-tier", "impact-severity"],
+      "problem": "One field name carries two incompatible scales. Model governance registries record an ordinal tier ('Tier 1'); the consulting capability catalogue records a qualitative severity ('HIGH', 'MODERATE', 'CRITICAL'). A consumer reading risk_tier cannot tell which scale a value is on.",
+      "resolution": "The designation 'risk_tier' is reserved for the model risk tier concept. The consulting catalogue's field is renamed 'impact_severity'. ISO 704 requires distinguishing the designations rather than merging the concepts, because the concepts are genuinely different.",
+      "status": "resolved"
+    }
+  ],
+  "controlled_fields": {
+    "input_kind": {
+      "concept": "input-kind",
+      "authority": "ANSI/NISO Z39.19 controlled vocabulary; ISO/IEC 11179 permissible values",
+      "permitted_values": {
+        "observed": "observed-input",
+        "derived": "derived-input",
+        "modeler_assumption": "modeler-assumption"
+      }
+    },
+    "case_type": {
+      "concept": "public-case",
+      "permitted_values": {
+        "conventional": "A public case exercising a model on a subject behaving within its normal operating range.",
+        "adversarial": "A public case exercising a model on a subject under stress, chosen so the model's limits are visible."
+      }
+    },
+    "classification": {
+      "concept": "public-case",
+      "permitted_values": {
+        "external_historical_case": "public-case",
+        "external_historical_cases": "DEPRECATED plural variant of external_historical_case; must not be used in new data.",
+        "external_historical_case_visual": "A rendered presentation of an external historical case.",
+        "agent_tool_draft": "A draft produced by an agent tool, not yet a public case."
+      }
+    },
+    "outcome_class": {
+      "concept": "out-of-sample-forecast",
+      "permitted_values": {
+        "out_of_sample_forecast": "out-of-sample-forecast"
+      }
+    },
+    "basis": {
+      "concept": "out-of-sample-forecast",
+      "permitted_values": {
+        "modeled": "A forecast produced by a model rather than by carrying a value forward.",
+        "naive_last_recorded": "naive-baseline",
+        "naive_random_walk": "naive-baseline"
+      }
+    },
+    "declared_maturity": {
+      "concept": "maturity-level",
+      "permitted_values": {"M1": "m1", "M2": "m2", "M3": "m3", "M4": "m4"}
+    },
+    "driver_type": {
+      "concept": "driver-declaration",
+      "permitted_values": {
+        "undisclosed_term_driver": "A driver standing in for a contractual or structural term no filing discloses.",
+        "undisclosed_metric_driver": "A driver standing in for an operating metric or descriptive attribute no filing discloses.",
+        "scenario_lever": "A driver whose value is chosen to define a scenario rather than to describe the subject.",
+        "structuring_driver": "A driver describing a transaction that was never executed and therefore has no disclosed terms.",
+        "generated_metadata": "A cell populated automatically from the manifest rather than from any observation.",
+        "presentation_convention": "A cell carrying a display convention rather than a fact about the subject.",
+        "balancing_residual": "A driver whose value is determined by a constraint that pins it to disclosed data.",
+        "structural_mismatch_driver": "structural-mismatch-driver",
+        "not_disclosed": "DEPRECATED. Superseded by undisclosed_term_driver and undisclosed_metric_driver, which say which kind."
+      }
+    }
+  },
+  "deprecated_values": {
+    "$comment": "Values present in committed data that the vocabulary rejects for new use. Listed so the checker can distinguish legacy data from a new mistake, and so the cost of each is visible.",
+    "input_kind": {"modeler": "modeler_assumption"},
+    "driver_type": {"modeler_assumption": "undisclosed_term_driver", "not_disclosed": "structural_mismatch_driver or undisclosed_metric_driver, chosen per site: a mismatch cannot be filled by any disclosure, an undisclosed attribute could be"},
+    "classification": {"external_historical_cases": "external_historical_case"}
+  }
+}

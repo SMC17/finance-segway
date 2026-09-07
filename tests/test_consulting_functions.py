@@ -74,7 +74,7 @@ from finance_segway.consulting.functions.people_service import (
     rank_candidates,
     score_customer_health,
 )
-from finance_segway.consulting.schema import RiskTier
+from finance_segway.consulting.schema import ImpactSeverity
 
 
 NOW = datetime(2026, 8, 4, 12, 0, tzinfo=timezone.utc)
@@ -242,7 +242,7 @@ class KnowledgeDataTests(unittest.TestCase):
 class AssuranceTests(unittest.TestCase):
     def test_engineering_legal_it_access_and_creative(self):
         delegation = delegate_engineering_task(EngineeringTask(
-            "deps", True, True, False, False, True, RiskTier.LOW,
+            "deps", True, True, False, False, True, ImpactSeverity.LOW,
         ))
         self.assertEqual(delegation.mode, "autonomous_reversible")
         productivity = engineering_productivity(
@@ -268,7 +268,7 @@ class AssuranceTests(unittest.TestCase):
         self.assertEqual(access.status, "rejected")
 
         production = route_creative_brief(CreativeBrief(
-            "brief", "buyers", "explain", "web", ("saves time",), ("study-1",), True, RiskTier.HIGH,
+            "brief", "buyers", "explain", "web", ("saves time",), ("study-1",), True, ImpactSeverity.HIGH,
         ))
         self.assertEqual(production.production_tier, "human_origin")
         self.assertEqual(production.readiness_score, 100)

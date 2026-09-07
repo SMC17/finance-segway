@@ -29,7 +29,19 @@ class BusinessFunction(StrEnum):
     CREATIVE = "creative_production"
 
 
-class RiskTier(IntEnum):
+class ImpactSeverity(IntEnum):
+    """How bad it is when a capability fails.
+
+    Named ImpactSeverity rather than RiskTier because "risk tier" already
+    designates a different concept in this repository: the supervisory model
+    risk classification recorded in the evidence registries, whose values are
+    ordinal tiers ("Tier 1"), not severities. One designation carrying two
+    incompatible scales meant a consumer reading the field could not tell which
+    scale a value was on. ISO 704 requires distinguishing the designations
+    rather than merging the concepts, and standards/vocabulary/glossary.json
+    records both concepts and this resolution.
+    """
+
     LOW = 1
     MODERATE = 2
     HIGH = 3
@@ -125,7 +137,7 @@ class DiagnosticQuestion:
     question: str
     metric_ids: tuple[str, ...]
     required_evidence: tuple[str, ...]
-    risk_tier: RiskTier = RiskTier.MODERATE
+    impact_severity: ImpactSeverity = ImpactSeverity.MODERATE
 
     def __post_init__(self) -> None:
         if not self.question_id or not self.executive_owner or not self.question:
@@ -175,7 +187,7 @@ class AutomationCase:
     adoption_probability: float = 1.0
     evidence_confidence: float = 1.0
     delivery_months: float = 1.0
-    risk_tier: RiskTier = RiskTier.MODERATE
+    impact_severity: ImpactSeverity = ImpactSeverity.MODERATE
     dependencies: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
@@ -222,7 +234,7 @@ class DecisionRecord:
     metric_values: Mapping[str, float]
     evidence_ids: tuple[str, ...]
     owner: str
-    risk_tier: RiskTier
+    impact_severity: ImpactSeverity
     limitations: tuple[str, ...] = ()
     metadata: Mapping[str, Any] = field(default_factory=dict)
 
