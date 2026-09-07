@@ -1,0 +1,59 @@
+name: Research Tracks
+
+# The three test modules under research/ ran in NO CI job. Every workflow
+# that runs tests uses `unittest discover -s tests`, which cannot reach
+# them, and nothing else named them -- so they had been unexecuted since
+# they were written. One of them was failing.
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install repository dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile the research tracks
+        run: python -m compileall -q research
+
+      - name: Run the research test modules
+        run: PYTHONPATH=. python -m unittest discover -s research -t . -v
+
+      - name: Refuse to pass on an empty discovery
+        # A suite that discovers nothing exits 0 and reads exactly like a
+        # suite that discovered everything and passed. This is the whole
+        # reason the modules went unrun for a month, so the count is
+        # asserted rather than assumed.
+        run: |
+          PYTHONPATH=. python - <<'PY'
+          import unittest
+          count = unittest.defaultTestLoader.discover("research", top_level_dir=".").countTestCases()
+          print(f"research test modules discovered {count} tests")
+          if count < 15:
+              raise SystemExit(f"expected at least 15 discovered tests, found {count}")
+          PY
