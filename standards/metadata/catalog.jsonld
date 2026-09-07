@@ -69,13 +69,13 @@
           "dcat:accessURL": "https://github.com/SMC17/finance-segway/blob/main/standards/public_cases/index.json",
           "dcterms:extent": {
             "@type": "dcterms:SizeOrDuration",
-            "rdf:value": 405457,
+            "rdf:value": 414260,
             "unitText": "bytes (UCUM: By)"
           },
           "spdx:checksum": {
             "@type": "spdx:Checksum",
             "spdx:algorithm": "spdx:checksumAlgorithm_sha256",
-            "spdx:checksumValue": "2158b2e889df89bbf588796a5739423d43c9c58ae17c4af4f2bce582bc724407"
+            "spdx:checksumValue": "7667b463ec6679711d5b2d9a340a005ef58048b94152c52d70dc96571686364d"
           }
         }
       ],

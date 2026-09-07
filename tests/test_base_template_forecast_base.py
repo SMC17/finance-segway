@@ -39,7 +39,16 @@ BASE_TEMPLATES = (
     ROOT / "02_Corporate_Finance" / "_template_BASE.xlsx",
     ROOT / "12_Equity_Finance" / "_template_BASE.xlsx",
 )
-DEAD_CASE = ROOT / "02_Corporate_Finance" / "instances" / "public_microsoft_2024.xlsx"
+# The BASE-template case this suite exercises. It is a LIVE model, and the
+# dead fixture is derived from it by clearing IS!E5 rather than by pointing
+# at whichever committed case happens to be empty today.
+#
+# The earlier version did point at a committed dead case -- and then that
+# case was sourced, and five tests failed because the fixture had been fixed.
+# A control is a claim about the world and the world moves. Building both
+# fixtures from one workbook means the suite tests the mechanism, and keeps
+# working as more cases are filled in.
+BASE_CASE = ROOT / "02_Corporate_Finance" / "instances" / "public_microsoft_2024.xlsx"
 HISTORICAL_ROWS = range(5, 21)
 HISTORICAL_COLUMNS = range(3, 6)  # C, D, E -- FY-2A, FY-1A, FY0A
 
@@ -65,6 +74,24 @@ def _historical_inputs(sheet) -> list[str]:
                 continue
             found.append(cell.coordinate)
     return found
+
+
+class _DeadCopyMixin:
+    """A copy of the BASE case with its forecast base removed, living under
+    the repository root because build_dcf_memo resolves an instance path
+    relative to ROOT. Recalculated, so the DCF really evaluates."""
+
+    def _dead_copy(self) -> Path:
+        holder = tempfile.mkdtemp(dir=ROOT)
+        self.addCleanup(shutil.rmtree, holder, True)
+        path = Path(holder) / "dead_fixture.xlsx"
+        shutil.copyfile(BASE_CASE, path)
+        book = openpyxl.load_workbook(path)
+        book["IS"]["E5"] = None
+        book.save(path)
+        result = recalc(str(path), timeout=90)
+        assert result.get("status") == "success" and not result.get("total_errors", 1), result
+        return path
 
 
 class HistoricalBlockVisibilityTests(unittest.TestCase):
@@ -123,34 +150,36 @@ class ForecastBaseGuardTests(unittest.TestCase):
         cls._tmp = tempfile.TemporaryDirectory()
         tmp = Path(cls._tmp.name)
 
-        cls.dead = tmp / "dead.xlsx"
-        shutil.copyfile(DEAD_CASE, cls.dead)
-        result = recalc(str(cls.dead), timeout=90)
-        assert result.get("status") == "success" and not result.get("total_errors", 1), result
-        cls.dead_values = openpyxl.load_workbook(cls.dead, data_only=True)
-
-        # The same workbook with a forecast base supplied. A deliberately
-        # synthetic figure: this test is about the mechanism, not about
-        # Microsoft, and a real revenue here would look like a sourced fact.
+        # Live: the committed case, unmodified.
         cls.live = tmp / "live.xlsx"
-        shutil.copyfile(DEAD_CASE, cls.live)
-        book = openpyxl.load_workbook(cls.live)
-        book["IS"]["E5"] = 1000.0
-        book["IS"]["E7"] = 300.0
-        book.save(cls.live)
+        shutil.copyfile(BASE_CASE, cls.live)
         result = recalc(str(cls.live), timeout=90)
         assert result.get("status") == "success" and not result.get("total_errors", 1), result
         cls.live_values = openpyxl.load_workbook(cls.live, data_only=True)
+
+        # Dead: the same workbook with its forecast base removed. Net debt is
+        # left in place, because a negative net debt over a zero enterprise
+        # value is precisely what turned this model's silence into a price.
+        cls.dead = tmp / "dead.xlsx"
+        shutil.copyfile(BASE_CASE, cls.dead)
+        book = openpyxl.load_workbook(cls.dead)
+        book["IS"]["E5"] = None
+        book.save(cls.dead)
+        result = recalc(str(cls.dead), timeout=90)
+        assert result.get("status") == "success" and not result.get("total_errors", 1), result
+        cls.dead_values = openpyxl.load_workbook(cls.dead, data_only=True)
 
     @classmethod
     def tearDownClass(cls) -> None:
         cls._tmp.cleanup()
 
-    def test_the_fixture_really_has_no_forecast_base(self) -> None:
-        """A control. Without it the guard tests could pass because the
-        fixture changed rather than because the guard works."""
-        base = openpyxl.load_workbook(DEAD_CASE)["IS"]["E5"].value
-        self.assertIn(base, (None, "", 0), f"fixture now has a forecast base: {base!r}")
+    def test_the_two_fixtures_differ_only_in_the_forecast_base(self) -> None:
+        """The control. Both fixtures come from one workbook, so the only
+        thing that can explain a difference in verdict is IS!E5."""
+        self.assertIsNone(openpyxl.load_workbook(self.dead)["IS"]["E5"].value)
+        self.assertIsInstance(
+            openpyxl.load_workbook(self.live)["IS"]["E5"].value, (int, float)
+        )
 
     def test_a_dcf_with_no_base_publishes_no_price(self) -> None:
         dcf = self.dead_values["DCF"]
@@ -176,7 +205,7 @@ class ForecastBaseGuardTests(unittest.TestCase):
         self.assertLess(dcf["I11"].value, 0)
         self.assertGreater(dcf["I12"].value, 0)
 
-    def test_supplying_a_base_restores_a_real_price(self) -> None:
+    def test_the_live_case_publishes_a_real_price(self) -> None:
         """The discrimination that makes the guard a guard.
 
         A blanket 'n/a' would satisfy every test above and be useless.
@@ -202,7 +231,7 @@ if __name__ == "__main__":
     unittest.main()
 
 
-class AgentToolGuardTests(unittest.TestCase):
+class AgentToolGuardTests(_DeadCopyMixin, unittest.TestCase):
     """tools/agents/dcf_comps.py rejected a non-numeric or negative price
     and a non-numeric enterprise value. It did not reject an enterprise
     value of exactly zero, which is how $1.13 got past it."""
@@ -210,7 +239,7 @@ class AgentToolGuardTests(unittest.TestCase):
     def test_a_zero_enterprise_value_is_rejected(self) -> None:
         from tools.agents import dcf_comps
 
-        errors = dcf_comps._check_workbook_structurally_sound(DEAD_CASE)
+        errors = dcf_comps._check_workbook_structurally_sound(self._dead_copy())
         self.assertTrue(
             any("exactly 0" in error for error in errors),
             f"a model with no forecast base passed the structural check: {errors}",
@@ -226,7 +255,7 @@ class AgentToolGuardTests(unittest.TestCase):
         self.assertEqual([], dcf_comps._check_workbook_structurally_sound(proxy))
 
 
-class DcfMemoRefusalTests(unittest.TestCase):
+class DcfMemoRefusalTests(_DeadCopyMixin, unittest.TestCase):
     """The deck builder renders DCF!I14 with a currency format.
 
     Now that the cell is text when there is no forecast base, rendering a
@@ -252,7 +281,7 @@ class DcfMemoRefusalTests(unittest.TestCase):
 
         from tools.builders import build_dcf_memo as memo
 
-        dead = str(DEAD_CASE.relative_to(ROOT))
+        dead = str(self._dead_copy().relative_to(ROOT))
         with patch.object(memo, "_load_manifest", return_value=self._manifest_for(dead)):
             with self.assertRaises(SystemExit) as caught:
                 memo.build_dcf_memo("fixture", Path(tempfile.mkdtemp()) / "out.pptx")
