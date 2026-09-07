@@ -16,7 +16,7 @@
       "sheet": "Cover",
       "cell": "C9",
       "value": "Downside",
-      "input_kind": "modeler",
+      "input_kind": "modeler_assumption",
       "source": {
         "name": "Case design decision",
         "url": "repo://tools/build_etf_kweb_case.py",

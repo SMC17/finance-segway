@@ -6,19 +6,52 @@ A governed, multi-domain financial-modeling system: reproducible Excel archetype
 
 The repository is broad, formula-driven, and heavily checked. It is not yet a production-grade institutional model library.
 
-The machine-validated recovered baseline is:
+The machine-validated baseline, as of 2026-09-07:
 
-- **24** core spreadsheet archetypes
-- **24 M2 Decision Models**
-- **0 M1 Correct Skeletons**
+- **27** core spreadsheet archetypes
+- **26 M2 Decision Models**
+- **1 M1 Correct Skeleton**
 - **0 M3 Institutional Underwriting Models**
 - **0 M4 Maintained Production Systems**
-- **48 source-addressed public historical cases** across all 24 domains
+- **54 source-addressed public historical cases** across all 27 domains
+- **11 pre-registered out-of-sample forecasts**, none yet resolvable
 - **0 synthetic manifests, workbooks, or receipts**
 
 That distinction is deliberate. “The workbook opens” and “the core formula is correct” are necessary but not sufficient evidence of underwriting depth.
 
-The canonical inventory is `standards/model_inventory.json`. CI validates every maturity claim with `tools/validate_model_inventory.py`, validates the three reconciled builders with `tools/validate_reconciled_models.py`, and publishes governance evidence on each pull request.
+The canonical inventory is `standards/model_inventory.json`. CI validates every maturity claim with `tools/validate_model_inventory.py`, validates the three reconciled builders with `tools/validate_reconciled_models.py`, and publishes governance evidence on each pull request. The counts above are re-derived on every run into `standards/metadata/catalog.jsonld`, and `tools/verify_dataset_metadata.py` fails the build if that catalogue and the repository disagree.
+
+## Standards conformance
+
+Roughly sixty external standards apply to a system like this — notation,
+terminology, metadata, accessibility, data quality, AI governance. Rather than
+assert conformance to any of them, `standards/conformance/register.json` records
+all sixty-four with an honest status and, where a claim is made, the automated
+check that proves it.
+
+`tools/verify_standards_conformance.py` fails closed. A row may only reach
+`conformant` or `partial` if it names a check that exists, states what that
+check asserts, and rests on requirements we can actually state — a standard we
+only know the *scope* of cannot be one we claim to meet. `--run-checks`
+executes every cited check and fails if any stops passing, so the register
+cannot decay into a list of things that used to be true.
+
+Where that lands today: **13 conformant, 13 partial, 13 not applicable, 25 not
+yet**, and 5 rows flagged `unverified` because we could not confirm what the
+standard requires and will not guess. The gaps are the useful part.
+
+| Layer | Check | Standards |
+|---|---|---|
+| Notation | `verify_data_conventions.py` | ISO 8601, ISO 4217, SI, UCUM |
+| Terminology | `verify_controlled_vocabulary.py` | ISO 704, ISO 25964, ANSI/NISO Z39.19, SKOS, RDF |
+| Metadata | `verify_dataset_metadata.py` | ISO 15836, DCAT, schema.org, JSON-LD, FAIR, ISO/IEC 11179 |
+| Accessibility | `verify_accessibility.py` | WCAG 2.2, ISO/IEC 40500, EN 301 549 |
+| AI documentation | `verify_ai_documentation.py` | Model Cards, Datasheets for Datasets |
+
+Entry points for automated readers: [`llms.txt`](llms.txt) and
+[`AGENTS.md`](AGENTS.md). The concept system is at
+[`standards/vocabulary/glossary.json`](standards/vocabulary/glossary.json), with
+a SKOS export beside it.
 
 ## Maturity scale
 

@@ -24,7 +24,7 @@
       "purpose": "Discover variants, handoffs, rework, cycle time, bottlenecks, and conformance from normalized event logs.",
       "core_engines": ["finance_segway.consulting.process_mining:ProcessMiner"],
       "decision_rights": "Analysis only; observed sequence does not establish policy correctness or causal impact.",
-      "risk_tier": "MODERATE",
+      "impact_severity": "MODERATE",
       "maturity": "A1",
       "test_path": "tests/test_consulting_frontier.py",
       "evidence_paths": []
@@ -34,7 +34,7 @@
       "purpose": "Evaluate default-deny, deny-override, attribute, obligation, scoped approval, expiry, and segregation-of-duties rules.",
       "core_engines": ["finance_segway.consulting.policy:PolicyEngine"],
       "decision_rights": "The engine evaluates declared policy; it does not create authority or approve its own request.",
-      "risk_tier": "CRITICAL",
+      "impact_severity": "CRITICAL",
       "maturity": "A1",
       "test_path": "tests/test_consulting_frontier.py",
       "evidence_paths": []
@@ -44,7 +44,7 @@
       "purpose": "Run typed decision DAGs with bindings, budgets, retries, policy gates, compensation, receipts, and replay fingerprints.",
       "core_engines": ["finance_segway.consulting.orchestration:WorkflowExecutor"],
       "decision_rights": "Only registered local skills execute; the workflow cannot exceed the agent, context, policy, or approval authority supplied to it.",
-      "risk_tier": "HIGH",
+      "impact_severity": "HIGH",
       "maturity": "A1",
       "test_path": "tests/test_consulting_frontier.py",
       "evidence_paths": []
@@ -54,7 +54,7 @@
       "purpose": "Run reference, boundary, adversarial, and metamorphic tests and enforce a real-case A2 promotion gate.",
       "core_engines": ["finance_segway.consulting.evaluation:evaluate_suite", "finance_segway.consulting.evaluation:assess_a2_promotion"],
       "decision_rights": "Tests can establish deterministic correctness only; A2 additionally requires source-addressed real-case evidence and independent review.",
-      "risk_tier": "HIGH",
+      "impact_severity": "HIGH",
       "maturity": "A1",
       "test_path": "tests/test_consulting_frontier.py",
       "evidence_paths": []
@@ -64,7 +64,7 @@
       "purpose": "Underwrite initiative NPV distributions and simulate service-stage queues, capacity, waits, and rework with seeded reproducibility.",
       "core_engines": ["finance_segway.consulting.simulation:simulate_initiative", "finance_segway.consulting.simulation:simulate_service_pipeline"],
       "decision_rights": "Simulation outputs are scenario evidence, not forecasts or commitments; distribution assumptions remain named inputs.",
-      "risk_tier": "MODERATE",
+      "impact_severity": "MODERATE",
       "maturity": "A1",
       "test_path": "tests/test_consulting_frontier.py",
       "evidence_paths": []
@@ -74,7 +74,7 @@
       "purpose": "Freeze evidenced baselines, enforce outcome guardrails, bridge forecast to actual, and separate descriptive comparisons from controlled estimates.",
       "core_engines": ["finance_segway.consulting.value_realization:measure_realization", "finance_segway.consulting.value_realization:difference_in_differences"],
       "decision_rights": "Arithmetic never creates a causal claim; validated design assumptions and accountable review remain mandatory.",
-      "risk_tier": "HIGH",
+      "impact_severity": "HIGH",
       "maturity": "A1",
       "test_path": "tests/test_consulting_frontier.py",
       "evidence_paths": []
@@ -84,7 +84,7 @@
       "purpose": "Bridge operating initiatives into EBITDA, net debt, enterprise value, equity value, MOIC, IRR, and an evidence-gated 100-day plan.",
       "core_engines": ["finance_segway.consulting.value_creation:build_value_creation_bridge", "finance_segway.consulting.value_creation:schedule_100_day_plan"],
       "decision_rights": "The bridge is scenario analysis; transaction underwriting and investment approval remain separately governed decisions.",
-      "risk_tier": "HIGH",
+      "impact_severity": "HIGH",
       "maturity": "A1",
       "test_path": "tests/test_consulting_frontier.py",
       "evidence_paths": []
@@ -102,7 +102,7 @@
       "diagnostic_questions": ["Which work is actually being accelerated?", "Can assisted changes be independently tested and rolled back?"],
       "core_engines": ["finance_segway.consulting.functions.assurance:delegate_engineering_task", "finance_segway.consulting.functions.assurance:engineering_productivity"],
       "decision_rights": "Agents may draft or execute reversible low-risk work only within declared scopes; material changes require named approval.",
-      "risk_tier": "HIGH",
+      "impact_severity": "HIGH",
       "maturity": "A1",
       "test_path": "tests/test_consulting_functions.py"
     },
@@ -117,7 +117,7 @@
       "diagnostic_questions": ["Can a leader obtain a reproducible answer from governed data?", "Can every answer identify its owner and source fields?"],
       "core_engines": ["finance_segway.consulting.functions.knowledge_data:MetricCatalog"],
       "decision_rights": "Local evaluation only; no writes to source systems.",
-      "risk_tier": "MODERATE",
+      "impact_severity": "MODERATE",
       "maturity": "A1",
       "test_path": "tests/test_consulting_functions.py"
     },
@@ -132,7 +132,7 @@
       "diagnostic_questions": ["Are answers traceable to dated sources?", "Do material meetings retain decisions, owners, and due dates?"],
       "core_engines": ["finance_segway.consulting.functions.knowledge_data:KnowledgeBase", "finance_segway.consulting.functions.knowledge_data:parse_tagged_minutes"],
       "decision_rights": "Retrieval is constrained by document roles; parsed records do not imply transcription accuracy.",
-      "risk_tier": "MODERATE",
+      "impact_severity": "MODERATE",
       "maturity": "A1",
       "test_path": "tests/test_consulting_functions.py"
     },
@@ -147,7 +147,7 @@
       "diagnostic_questions": ["Is the ICP operationalized as measurable features?", "Can visibility claims be reproduced prompt by prompt?"],
       "core_engines": ["finance_segway.consulting.functions.commercial:score_accounts", "finance_segway.consulting.functions.commercial:geo_visibility", "finance_segway.consulting.functions.commercial:check_brand"],
       "decision_rights": "Analysis and quality control only; content publication remains external and human-approved.",
-      "risk_tier": "MODERATE",
+      "impact_severity": "MODERATE",
       "maturity": "A1",
       "test_path": "tests/test_consulting_functions.py"
     },
@@ -162,7 +162,7 @@
       "diagnostic_questions": ["How much qualified demand is lost to response delay?", "Are quotes constrained by inventory, margin, and approval policy?"],
       "core_engines": ["finance_segway.consulting.functions.commercial:sales_metrics", "finance_segway.consulting.functions.commercial:build_quote"],
       "decision_rights": "Quotes are drafts; material value, inventory, discount, or margin exceptions require approval.",
-      "risk_tier": "HIGH",
+      "impact_severity": "HIGH",
       "maturity": "A1",
       "test_path": "tests/test_consulting_functions.py"
     },
@@ -177,7 +177,7 @@
       "diagnostic_questions": ["Can the team explain unresolved demand by case type?", "Are at-risk renewals identified before the intervention window closes?"],
       "core_engines": ["finance_segway.consulting.functions.people_service:prioritize_service_cases", "finance_segway.consulting.functions.people_service:score_customer_health"],
       "decision_rights": "Prioritization only; customer communication and commercial concessions remain approved actions.",
-      "risk_tier": "MODERATE",
+      "impact_severity": "MODERATE",
       "maturity": "A1",
       "test_path": "tests/test_consulting_functions.py"
     },
@@ -192,7 +192,7 @@
       "diagnostic_questions": ["Are close blockers and missing controls visible before sign-off?", "How far forward can downside liquidity be observed?"],
       "core_engines": ["finance_segway.consulting.functions.finance_ops:rolling_cash_forecast", "finance_segway.consulting.functions.finance_ops:close_control", "finance_segway.consulting.functions.finance_ops:decide_spend", "finance_segway.consulting.functions.finance_ops:prioritize_collections"],
       "decision_rights": "Forecasting and control decisions are local; payments, journals, and collections messages are never executed.",
-      "risk_tier": "HIGH",
+      "impact_severity": "HIGH",
       "maturity": "A1",
       "test_path": "tests/test_consulting_functions.py"
     },
@@ -207,7 +207,7 @@
       "diagnostic_questions": ["How much spend bypasses policy?", "Can contractual value leakage be quantified invoice by invoice?"],
       "core_engines": ["finance_segway.consulting.functions.finance_ops:decide_spend", "finance_segway.consulting.functions.finance_ops:audit_invoice"],
       "decision_rights": "No purchase order or payment execution; exceptions and approvals are retained as evidence.",
-      "risk_tier": "HIGH",
+      "impact_severity": "HIGH",
       "maturity": "A1",
       "test_path": "tests/test_consulting_functions.py"
     },
@@ -222,7 +222,7 @@
       "diagnostic_questions": ["Does candidate ranking use job-relevant evidence rather than protected traits?", "Where do qualified candidates stall?"],
       "core_engines": ["finance_segway.consulting.functions.people_service:rank_candidates", "finance_segway.consulting.functions.people_service:hiring_funnel"],
       "decision_rights": "Decision support only; no autonomous rejection, interviewing, or offer action.",
-      "risk_tier": "CRITICAL",
+      "impact_severity": "CRITICAL",
       "maturity": "A1",
       "test_path": "tests/test_consulting_functions.py"
     },
@@ -237,7 +237,7 @@
       "diagnostic_questions": ["Which activity constrains throughput?", "Does dispatch respect skills, capacity, priority, and value?"],
       "core_engines": ["finance_segway.consulting.functions.operations:demand_forecast", "finance_segway.consulting.functions.operations:capacity_plan", "finance_segway.consulting.functions.operations:dispatch_work"],
       "decision_rights": "Local planning only; physical dispatch and schedule communication remain external actions.",
-      "risk_tier": "HIGH",
+      "impact_severity": "HIGH",
       "maturity": "A1",
       "test_path": "tests/test_consulting_functions.py"
     },
@@ -252,7 +252,7 @@
       "diagnostic_questions": ["Are quality losses visible at batch level?", "Are compliance exceptions prevented from disappearing into aggregate averages?"],
       "core_engines": ["finance_segway.consulting.functions.operations:quality_metrics"],
       "decision_rights": "Measurement and escalation only; regulated release decisions remain named human approvals.",
-      "risk_tier": "CRITICAL",
+      "impact_severity": "CRITICAL",
       "maturity": "A1",
       "test_path": "tests/test_consulting_functions.py"
     },
@@ -267,7 +267,7 @@
       "diagnostic_questions": ["Can deviations from approved terms be surfaced consistently?", "Is every exception routed to an accountable reviewer?"],
       "core_engines": ["finance_segway.consulting.functions.assurance:audit_contract"],
       "decision_rights": "Structured issue spotting only; it is not legal interpretation or autonomous contract approval.",
-      "risk_tier": "CRITICAL",
+      "impact_severity": "CRITICAL",
       "maturity": "A1",
       "test_path": "tests/test_consulting_functions.py"
     },
@@ -282,7 +282,7 @@
       "diagnostic_questions": ["Are security-related tickets separated from routine work?", "Does access remain least-privilege and time-bound?"],
       "core_engines": ["finance_segway.consulting.functions.assurance:route_it_ticket", "finance_segway.consulting.functions.assurance:decide_access"],
       "decision_rights": "No account creation, privilege grant, or infrastructure mutation.",
-      "risk_tier": "CRITICAL",
+      "impact_severity": "CRITICAL",
       "maturity": "A1",
       "test_path": "tests/test_consulting_functions.py"
     },
@@ -297,7 +297,7 @@
       "diagnostic_questions": ["Which content requires human originality?", "Are claims and sources complete before production begins?"],
       "core_engines": ["finance_segway.consulting.functions.assurance:route_creative_brief", "finance_segway.consulting.functions.commercial:check_brand"],
       "decision_rights": "No media generation or publication; the engine controls briefs, tiers, and review requirements.",
-      "risk_tier": "MODERATE",
+      "impact_severity": "MODERATE",
       "maturity": "A1",
       "test_path": "tests/test_consulting_functions.py"
     }

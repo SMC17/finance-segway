@@ -31,7 +31,7 @@ from finance_segway.consulting import (
     QueueStage,
     RealizationPlan,
     RelationOperator,
-    RiskTier,
+    ImpactSeverity,
     Skill,
     SkillRegistry,
     TriangularDistribution,
@@ -245,7 +245,7 @@ class WorkflowTests(unittest.TestCase):
         registry.register(Skill(
             "controlled-write",
             lambda request: {"written": request["value"]},
-            risk_tier=RiskTier.HIGH,
+            impact_severity=ImpactSeverity.HIGH,
         ))
         runtime = AgentRuntime(registry)
         agent = AgentSpec(

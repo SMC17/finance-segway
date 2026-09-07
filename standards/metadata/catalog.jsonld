@@ -1,0 +1,537 @@
+{
+  "@context": {
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "repo": "https://github.com/SMC17/finance-segway/standards/metadata#"
+  },
+  "@graph": [
+    {
+      "@id": "https://github.com/SMC17/finance-segway#catalog",
+      "@type": [
+        "dcat:Catalog",
+        "schema:DataCatalog"
+      ],
+      "dcterms:title": "Finance-Segway data catalogue",
+      "dcterms:description": "Machine-readable description of every dataset this repository publishes. Factual fields are computed from the filesystem at generation time and re-derived by tools/verify_dataset_metadata.py, so a stale catalogue fails the build instead of misleading a reader.",
+      "dcterms:publisher": "SMC17 / finance-segway",
+      "dcterms:license": {
+        "@id": "https://spdx.org/licenses/MIT.html"
+      },
+      "dcterms:modified": "2026-09-07",
+      "dcat:dataset": [
+        "https://github.com/SMC17/finance-segway#dataset-public-cases",
+        "https://github.com/SMC17/finance-segway#dataset-model-inventory",
+        "https://github.com/SMC17/finance-segway#dataset-forecast-registry",
+        "https://github.com/SMC17/finance-segway#dataset-vocabulary",
+        "https://github.com/SMC17/finance-segway#dataset-universe-taxonomy",
+        "https://github.com/SMC17/finance-segway#dataset-data-fabric"
+      ]
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway#dataset-public-cases",
+      "@type": [
+        "dcat:Dataset",
+        "schema:Dataset"
+      ],
+      "dcterms:identifier": "public-cases",
+      "dcterms:title": "Public case index",
+      "dcterms:description": "Every dated, sourced case study in the repository, with its manifest, frozen source snapshot, snapshot digest, generated instance, and recorded outcome. Each case applies one domain model to one real subject at one stated date.",
+      "dcterms:publisher": "SMC17 / finance-segway",
+      "dcterms:license": {
+        "@id": "https://spdx.org/licenses/MIT.html"
+      },
+      "dcterms:rights": "MIT licensed. Not investment advice and not validated for capital, fiduciary, or regulatory use.",
+      "dcterms:modified": "2026-09-07",
+      "dcterms:conformsTo": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/conformance/unit_and_currency_registry.json"
+        }
+      ],
+      "dcat:theme": "model evidence",
+      "dcat:keyword": [
+        "financial modelling",
+        "public filings",
+        "evidence",
+        "provenance"
+      ],
+      "dcat:distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "dcterms:title": "Public case index (JSON)",
+          "dcat:mediaType": "application/json",
+          "dcat:accessURL": "https://github.com/SMC17/finance-segway/blob/main/standards/public_cases/index.json",
+          "dcterms:extent": {
+            "@type": "dcterms:SizeOrDuration",
+            "rdf:value": 401635,
+            "unitText": "bytes (UCUM: By)"
+          },
+          "spdx:checksum": {
+            "@type": "spdx:Checksum",
+            "spdx:algorithm": "spdx:checksumAlgorithm_sha256",
+            "spdx:checksumValue": "e32df471c7493ca9bae2ba93461267cf51271f94b9a9efa4c8bbbb35eca6b298"
+          }
+        }
+      ],
+      "repo:path": "standards/public_cases/index.json",
+      "repo:recordUnit": "case",
+      "repo:recordCount": 54,
+      "repo:dataElements": [
+        {
+          "name": "case_id",
+          "definition": "The case's persistent identifier within this repository.",
+          "datatype": "string"
+        },
+        {
+          "name": "model_id",
+          "definition": "The two-digit identifier of the domain model the case exercises.",
+          "datatype": "string"
+        },
+        {
+          "name": "case_type",
+          "definition": "Whether the case exercises the model on a subject in its normal operating range (conventional) or under stress (adversarial).",
+          "datatype": "string",
+          "permitted_values_source": "standards/vocabulary/glossary.json#controlled_fields/case_type"
+        },
+        {
+          "name": "snapshot_sha256",
+          "definition": "SHA-256 digest of the frozen source snapshot the case rests on.",
+          "datatype": "string",
+          "format": "hex-64"
+        },
+        {
+          "name": "outcome",
+          "definition": "The recorded metric, forecast value, realised value, and resolution status for the case.",
+          "datatype": "object"
+        }
+      ],
+      "repo:fair": {
+        "findable": "Persistent identifier 'public-cases' and full metadata in this catalogue.",
+        "accessible": "Repository-relative path standards/public_cases/index.json under the MIT licence.",
+        "interoperable": "Enumerated values resolve into the SKOS concept scheme at standards/vocabulary/glossary.skos.jsonld; units and currencies resolve into standards/conformance/unit_and_currency_registry.json.",
+        "reusable": "Every record carries provenance to a named public source, and the stated usage limits are part of the metadata rather than a footnote."
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway#dataset-model-inventory",
+      "@type": [
+        "dcat:Dataset",
+        "schema:Dataset"
+      ],
+      "dcterms:identifier": "model-inventory",
+      "dcterms:title": "Model inventory",
+      "dcterms:description": "The governed register of domain models: builder, canonical workbook, required engines and stakeholder perspectives, declared maturity, and the reference checks each model claims.",
+      "dcterms:publisher": "SMC17 / finance-segway",
+      "dcterms:license": {
+        "@id": "https://spdx.org/licenses/MIT.html"
+      },
+      "dcterms:rights": "MIT licensed. Not investment advice and not validated for capital, fiduciary, or regulatory use.",
+      "dcterms:modified": "2026-09-07",
+      "dcterms:conformsTo": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/conformance/unit_and_currency_registry.json"
+        }
+      ],
+      "dcat:theme": "model governance",
+      "dcat:keyword": [
+        "model risk",
+        "governance",
+        "inventory"
+      ],
+      "dcat:distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "dcterms:title": "Model inventory (JSON)",
+          "dcat:mediaType": "application/json",
+          "dcat:accessURL": "https://github.com/SMC17/finance-segway/blob/main/standards/model_inventory.json",
+          "dcterms:extent": {
+            "@type": "dcterms:SizeOrDuration",
+            "rdf:value": 27239,
+            "unitText": "bytes (UCUM: By)"
+          },
+          "spdx:checksum": {
+            "@type": "spdx:Checksum",
+            "spdx:algorithm": "spdx:checksumAlgorithm_sha256",
+            "spdx:checksumValue": "205391cbc3912bfb30d4bd357988071cd90d8591498c58d464392f3a1495778c"
+          }
+        }
+      ],
+      "repo:path": "standards/model_inventory.json",
+      "repo:recordUnit": "model",
+      "repo:recordCount": 27,
+      "repo:dataElements": [
+        {
+          "name": "id",
+          "definition": "The model's two-digit identifier, matching its domain folder prefix.",
+          "datatype": "string"
+        },
+        {
+          "name": "declared_maturity",
+          "definition": "The evidence stage the model claims on this repository's ladder.",
+          "datatype": "string",
+          "permitted_values_source": "standards/vocabulary/glossary.json#controlled_fields/declared_maturity"
+        },
+        {
+          "name": "builder",
+          "definition": "Repository path of the module that deterministically generates the model's workbook.",
+          "datatype": "string"
+        },
+        {
+          "name": "workbook",
+          "definition": "Repository path of the committed canonical workbook.",
+          "datatype": "string"
+        },
+        {
+          "name": "reference_checks",
+          "definition": "Named identities the model claims an independent oracle verifies.",
+          "datatype": "array of string"
+        }
+      ],
+      "repo:fair": {
+        "findable": "Persistent identifier 'model-inventory' and full metadata in this catalogue.",
+        "accessible": "Repository-relative path standards/model_inventory.json under the MIT licence.",
+        "interoperable": "Enumerated values resolve into the SKOS concept scheme at standards/vocabulary/glossary.skos.jsonld; units and currencies resolve into standards/conformance/unit_and_currency_registry.json.",
+        "reusable": "Every record carries provenance to a named public source, and the stated usage limits are part of the metadata rather than a footnote."
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway#dataset-forecast-registry",
+      "@type": [
+        "dcat:Dataset",
+        "schema:Dataset"
+      ],
+      "dcterms:identifier": "forecast-registry",
+      "dcterms:title": "Out-of-sample forecast registry",
+      "dcterms:description": "Predictions registered and content-hashed before their outcome was reportable, each declaring the naive baseline it must beat. Registration precedes resolution by construction: editing a registered forecast breaks its hash.",
+      "dcterms:publisher": "SMC17 / finance-segway",
+      "dcterms:license": {
+        "@id": "https://spdx.org/licenses/MIT.html"
+      },
+      "dcterms:rights": "MIT licensed. Not investment advice and not validated for capital, fiduciary, or regulatory use.",
+      "dcterms:modified": "2026-09-07",
+      "dcterms:conformsTo": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/conformance/unit_and_currency_registry.json"
+        }
+      ],
+      "dcat:theme": "forward evidence",
+      "dcat:keyword": [
+        "forecasting",
+        "out-of-sample",
+        "skill scoring",
+        "pre-registration"
+      ],
+      "dcat:distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "dcterms:title": "Out-of-sample forecast registry (JSON)",
+          "dcat:mediaType": "application/json",
+          "dcat:accessURL": "https://github.com/SMC17/finance-segway/blob/main/standards/forecasts",
+          "dcterms:extent": {
+            "@type": "dcterms:SizeOrDuration",
+            "rdf:value": 9889,
+            "unitText": "bytes (UCUM: By)"
+          }
+        }
+      ],
+      "repo:path": "standards/forecasts",
+      "repo:recordUnit": "forecast",
+      "repo:recordCount": 11,
+      "repo:dataElements": [
+        {
+          "name": "forecast_id",
+          "definition": "The forecast's persistent identifier.",
+          "datatype": "string"
+        },
+        {
+          "name": "point",
+          "definition": "The predicted value of the metric.",
+          "datatype": "number"
+        },
+        {
+          "name": "interval",
+          "definition": "The predicted range, as a two-element low/high pair, or null where none was declared.",
+          "datatype": "array of number or null"
+        },
+        {
+          "name": "baseline",
+          "definition": "The unskilled prediction the forecast must beat, frozen at registration with its source.",
+          "datatype": "object"
+        },
+        {
+          "name": "resolve_by",
+          "definition": "The date by which the resolving disclosure is expected.",
+          "datatype": "string",
+          "format": "ISO 8601 date"
+        },
+        {
+          "name": "registration_sha256",
+          "definition": "Digest pinning the registered payload, so post-hoc edits are detectable.",
+          "datatype": "string",
+          "format": "hex-64"
+        }
+      ],
+      "repo:fair": {
+        "findable": "Persistent identifier 'forecast-registry' and full metadata in this catalogue.",
+        "accessible": "Repository-relative path standards/forecasts under the MIT licence.",
+        "interoperable": "Enumerated values resolve into the SKOS concept scheme at standards/vocabulary/glossary.skos.jsonld; units and currencies resolve into standards/conformance/unit_and_currency_registry.json.",
+        "reusable": "Every record carries provenance to a named public source, and the stated usage limits are part of the metadata rather than a footnote."
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway#dataset-vocabulary",
+      "@type": [
+        "dcat:Dataset",
+        "schema:Dataset"
+      ],
+      "dcterms:identifier": "vocabulary",
+      "dcterms:title": "Concept system and controlled vocabulary",
+      "dcterms:description": "The repository's terminology: concepts with ISO 704 definitions and SKOS relations, plus the permitted value set for every enumerated field.",
+      "dcterms:publisher": "SMC17 / finance-segway",
+      "dcterms:license": {
+        "@id": "https://spdx.org/licenses/MIT.html"
+      },
+      "dcterms:rights": "MIT licensed. Not investment advice and not validated for capital, fiduciary, or regulatory use.",
+      "dcterms:modified": "2026-09-07",
+      "dcterms:conformsTo": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/conformance/unit_and_currency_registry.json"
+        }
+      ],
+      "dcat:theme": "terminology",
+      "dcat:keyword": [
+        "terminology",
+        "SKOS",
+        "controlled vocabulary",
+        "ISO 704"
+      ],
+      "dcat:distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "dcterms:title": "Concept system and controlled vocabulary (JSON)",
+          "dcat:mediaType": "application/json",
+          "dcat:accessURL": "https://github.com/SMC17/finance-segway/blob/main/standards/vocabulary/glossary.json",
+          "dcterms:extent": {
+            "@type": "dcterms:SizeOrDuration",
+            "rdf:value": 21538,
+            "unitText": "bytes (UCUM: By)"
+          },
+          "spdx:checksum": {
+            "@type": "spdx:Checksum",
+            "spdx:algorithm": "spdx:checksumAlgorithm_sha256",
+            "spdx:checksumValue": "c36af12d3ece9cabb1ae9a7cbb6788e883d01dacdd81e60744b8558fa903b74e"
+          }
+        }
+      ],
+      "repo:path": "standards/vocabulary/glossary.json",
+      "repo:recordUnit": "concept",
+      "repo:recordCount": 42,
+      "repo:dataElements": [
+        {
+          "name": "id",
+          "definition": "The concept's identifier, used as the SKOS URI fragment.",
+          "datatype": "string"
+        },
+        {
+          "name": "prefLabel",
+          "definition": "The preferred designation for the concept.",
+          "datatype": "string"
+        },
+        {
+          "name": "definition",
+          "definition": "A substitutable noun phrase naming the superordinate concept and the characteristics delimiting this one.",
+          "datatype": "string"
+        },
+        {
+          "name": "broader",
+          "definition": "Identifier of the superordinate concept, or null at the top of a hierarchy.",
+          "datatype": "string or null"
+        }
+      ],
+      "repo:fair": {
+        "findable": "Persistent identifier 'vocabulary' and full metadata in this catalogue.",
+        "accessible": "Repository-relative path standards/vocabulary/glossary.json under the MIT licence.",
+        "interoperable": "Enumerated values resolve into the SKOS concept scheme at standards/vocabulary/glossary.skos.jsonld; units and currencies resolve into standards/conformance/unit_and_currency_registry.json.",
+        "reusable": "Every record carries provenance to a named public source, and the stated usage limits are part of the metadata rather than a footnote."
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway#dataset-universe-taxonomy",
+      "@type": [
+        "dcat:Dataset",
+        "schema:Dataset"
+      ],
+      "dcterms:identifier": "universe-taxonomy",
+      "dcterms:title": "Index universe taxonomy",
+      "dcterms:description": "The domain-to-sector-to-company backlog, built only from recorded index disclosures. A company carries no sector unless a classification source is cited for it.",
+      "dcterms:publisher": "SMC17 / finance-segway",
+      "dcterms:license": {
+        "@id": "https://spdx.org/licenses/MIT.html"
+      },
+      "dcterms:rights": "MIT licensed. Not investment advice and not validated for capital, fiduciary, or regulatory use.",
+      "dcterms:modified": "2026-09-07",
+      "dcterms:conformsTo": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/conformance/unit_and_currency_registry.json"
+        }
+      ],
+      "dcat:theme": "coverage universe",
+      "dcat:keyword": [
+        "index constituents",
+        "sector classification",
+        "SIC"
+      ],
+      "dcat:distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "dcterms:title": "Index universe taxonomy (JSON)",
+          "dcat:mediaType": "application/json",
+          "dcat:accessURL": "https://github.com/SMC17/finance-segway/blob/main/standards/universe/taxonomy.json",
+          "dcterms:extent": {
+            "@type": "dcterms:SizeOrDuration",
+            "rdf:value": 73264,
+            "unitText": "bytes (UCUM: By)"
+          },
+          "spdx:checksum": {
+            "@type": "spdx:Checksum",
+            "spdx:algorithm": "spdx:checksumAlgorithm_sha256",
+            "spdx:checksumValue": "3b95bcb8078e78d37cfaf09f7193c1f66907b3e0077870e540d997993681c968"
+          }
+        }
+      ],
+      "repo:path": "standards/universe/taxonomy.json",
+      "repo:recordUnit": "company",
+      "repo:recordCount": 105,
+      "repo:dataElements": [
+        {
+          "name": "symbol",
+          "definition": "The constituent's exchange ticker, or null where the issuer disclosure does not resolve to one.",
+          "datatype": "string or null"
+        },
+        {
+          "name": "cik",
+          "definition": "The issuer's SEC Central Index Key.",
+          "datatype": "string or null"
+        },
+        {
+          "name": "sector_id",
+          "definition": "Identifier of the assigned sector bucket, null until a classification source exists.",
+          "datatype": "string or null"
+        },
+        {
+          "name": "sector_source",
+          "definition": "The citation justifying the sector assignment; required whenever sector_id is set.",
+          "datatype": "string or null"
+        }
+      ],
+      "repo:fair": {
+        "findable": "Persistent identifier 'universe-taxonomy' and full metadata in this catalogue.",
+        "accessible": "Repository-relative path standards/universe/taxonomy.json under the MIT licence.",
+        "interoperable": "Enumerated values resolve into the SKOS concept scheme at standards/vocabulary/glossary.skos.jsonld; units and currencies resolve into standards/conformance/unit_and_currency_registry.json.",
+        "reusable": "Every record carries provenance to a named public source, and the stated usage limits are part of the metadata rather than a footnote."
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway#dataset-data-fabric",
+      "@type": [
+        "dcat:Dataset",
+        "schema:Dataset"
+      ],
+      "dcterms:identifier": "data-fabric",
+      "dcterms:title": "Recorded public-fact corpus",
+      "dcterms:description": "Structured facts recorded from public sources with provenance: SEC EDGAR XBRL company facts, U.S. Treasury par yield and bill curves, and Damodaran Online industry data. Each file is accompanied by a source-register row naming publisher, URL, retrieval time, and digest.",
+      "dcterms:publisher": "SMC17 / finance-segway",
+      "dcterms:license": {
+        "@id": "https://spdx.org/licenses/MIT.html"
+      },
+      "dcterms:rights": "MIT licensed. Not investment advice and not validated for capital, fiduciary, or regulatory use.",
+      "dcterms:modified": "2026-09-07",
+      "dcterms:conformsTo": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+        },
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/conformance/unit_and_currency_registry.json"
+        }
+      ],
+      "dcat:theme": "source data",
+      "dcat:keyword": [
+        "SEC EDGAR",
+        "XBRL",
+        "US Treasury",
+        "Damodaran",
+        "provenance"
+      ],
+      "dcat:distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "dcterms:title": "Recorded public-fact corpus (JSON)",
+          "dcat:mediaType": "application/json",
+          "dcat:accessURL": "https://github.com/SMC17/finance-segway/blob/main/tools/data_fabric/out",
+          "dcterms:extent": {
+            "@type": "dcterms:SizeOrDuration",
+            "rdf:value": 12890834,
+            "unitText": "bytes (UCUM: By)"
+          }
+        }
+      ],
+      "repo:path": "tools/data_fabric/out",
+      "repo:recordUnit": "file",
+      "repo:recordCount": 581,
+      "repo:dataElements": [
+        {
+          "name": "retrieved_utc",
+          "definition": "The instant the fetch was performed, in ISO 8601 basic format.",
+          "datatype": "string",
+          "format": "ISO 8601 basic datetime"
+        },
+        {
+          "name": "concept",
+          "definition": "The us-gaap or source-defined element name the observations belong to.",
+          "datatype": "string"
+        },
+        {
+          "name": "end",
+          "definition": "The period-end date an observation reports.",
+          "datatype": "string",
+          "format": "ISO 8601 date"
+        },
+        {
+          "name": "value",
+          "definition": "The reported figure, in the source's own units before any scaling.",
+          "datatype": "number"
+        },
+        {
+          "name": "filed",
+          "definition": "The date the filing supplying the observation was submitted.",
+          "datatype": "string",
+          "format": "ISO 8601 date"
+        }
+      ],
+      "repo:fair": {
+        "findable": "Persistent identifier 'data-fabric' and full metadata in this catalogue.",
+        "accessible": "Repository-relative path tools/data_fabric/out under the MIT licence.",
+        "interoperable": "Enumerated values resolve into the SKOS concept scheme at standards/vocabulary/glossary.skos.jsonld; units and currencies resolve into standards/conformance/unit_and_currency_registry.json.",
+        "reusable": "Every record carries provenance to a named public source, and the stated usage limits are part of the metadata rather than a footnote."
+      }
+    }
+  ]
+}
