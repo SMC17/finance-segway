@@ -217,3 +217,49 @@ class AgentToolGuardTests(unittest.TestCase):
         if not proxy.exists():
             self.skipTest("agent-tool draft not present")
         self.assertEqual([], dcf_comps._check_workbook_structurally_sound(proxy))
+
+
+class DcfMemoRefusalTests(unittest.TestCase):
+    """The deck builder renders DCF!I14 with a currency format.
+
+    Now that the cell is text when there is no forecast base, rendering a
+    dead model would fail as "Unknown format code 'f' for object of type
+    'str'" -- a correct refusal wearing a name that sends the reader to
+    python's formatter instead of to IS!E5. It refuses on its own terms
+    instead, and the message names the cell to fill.
+
+    Driven through the real build_dcf_memo with a synthetic manifest rather
+    than by writing a fixture manifest into the evidence directory.
+    """
+
+    def _manifest_for(self, output_rel: str) -> dict:
+        return {
+            "output": output_rel,
+            "as_of": "2026-01-01",
+            "cover": {"Title:": "Fixture Co -- test"},
+            "inputs": [],
+        }
+
+    def test_a_dead_model_refuses_with_the_cell_to_fill(self) -> None:
+        from unittest.mock import patch
+
+        from tools.builders import build_dcf_memo as memo
+
+        dead = str(DEAD_CASE.relative_to(ROOT))
+        with patch.object(memo, "_load_manifest", return_value=self._manifest_for(dead)):
+            with self.assertRaises(SystemExit) as caught:
+                memo.build_dcf_memo("fixture", Path(tempfile.mkdtemp()) / "out.pptx")
+        message = str(caught.exception)
+        self.assertIn("no valuation to render", message)
+        self.assertIn("IS!E5", message)
+
+    def test_a_live_model_still_renders(self) -> None:
+        """Discrimination again: the guard must only stop dead models."""
+        from tools.builders import build_dcf_memo as memo
+
+        proxy = ROOT / "01_Investment_Banking" / "instances" / "public_adobe_dcf_proxy.xlsx"
+        if not (proxy.parent / "public_adobe_dcf_proxy.manifest.json").exists():
+            self.skipTest("agent-tool draft manifest not present")
+        out = Path(tempfile.mkdtemp()) / "live.pptx"
+        memo.build_dcf_memo("public_adobe_dcf_proxy", out)
+        self.assertTrue(out.exists())
