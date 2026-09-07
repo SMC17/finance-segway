@@ -720,6 +720,58 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
             ),
             "next_check": "On Microsoft's next Form 10-K, builder change, or annual review",
         },
+        # Lines the forward chain is not claiming to reproduce at the base year,
+        # each with the reason it legitimately differs. Recorded here rather than
+        # left in prose because tools/verify_base_year_reproduction.py compares
+        # the chain to the disclosed actuals and has to be able to read which
+        # differences are by construction. EBIT is deliberately absent: it does
+        # not reproduce, and that is a defect rather than a design choice.
+        "base_year_reproduction": {
+            "sheet": "IS",
+            "exemptions": [
+                {
+                    "row": 16,
+                    "line": "Pre-tax income",
+                    "reproduction_exemption": "identity_omits_line",
+                    "rationale": (
+                        "The forward identity is pre-tax = EBIT - interest expense and "
+                        "the template carries no row for other income and expense, which "
+                        "the disclosure includes. For FY2024 that is 106,498 against a "
+                        "disclosed 107,787 $mm, a gap of 1,289. The two are different "
+                        "quantities, not one quantity computed twice."
+                    ),
+                },
+                {
+                    "row": 17,
+                    "line": "Tax",
+                    "reproduction_exemption": "identity_omits_line",
+                    "rationale": (
+                        "Tax is the effective rate applied to pre-tax income, so it "
+                        "inherits the 1,289 omission on row 16 in proportion."
+                    ),
+                },
+                {
+                    "row": 18,
+                    "line": "Net income",
+                    "reproduction_exemption": "identity_omits_line",
+                    "rationale": (
+                        "Net income is pre-tax less tax, so it inherits the same "
+                        "omission on row 16."
+                    ),
+                },
+                {
+                    "row": 19,
+                    "line": "Diluted shares",
+                    "reproduction_exemption": "forward_by_design",
+                    "rationale": (
+                        "Assumptions!C12 is a forward diluted share count net of "
+                        "repurchases, so FY1 is expected to sit below the FY2024 "
+                        "actual of 7,469.2mm. Reproducing the base year here would "
+                        "mean the buyback was not being modelled at all."
+                    ),
+                },
+            ],
+        },
         "driver_declarations": sorted(
             drivers,
             key=lambda item: (item["sheet"], item["cell"][0], int(item["cell"][1:])),

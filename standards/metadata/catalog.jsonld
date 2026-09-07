@@ -328,19 +328,19 @@
           "dcat:accessURL": "https://github.com/SMC17/finance-segway/blob/main/standards/vocabulary/glossary.json",
           "dcterms:extent": {
             "@type": "dcterms:SizeOrDuration",
-            "rdf:value": 21538,
+            "rdf:value": 22991,
             "unitText": "bytes (UCUM: By)"
           },
           "spdx:checksum": {
             "@type": "spdx:Checksum",
             "spdx:algorithm": "spdx:checksumAlgorithm_sha256",
-            "spdx:checksumValue": "c36af12d3ece9cabb1ae9a7cbb6788e883d01dacdd81e60744b8558fa903b74e"
+            "spdx:checksumValue": "ac4f141be2de51eda1364fa0b0ead6b01b0a666843bf161bb88e1f1aeb72ce20"
           }
         }
       ],
       "repo:path": "standards/vocabulary/glossary.json",
       "repo:recordUnit": "concept",
-      "repo:recordCount": 42,
+      "repo:recordCount": 44,
       "repo:dataElements": [
         {
           "name": "id",
