@@ -519,7 +519,7 @@
       "manifest": "standards/public_cases/corporate-public-microsoft-2024.json",
       "output": "02_Corporate_Finance/instances/public_microsoft_2024.xlsx",
       "snapshot": "02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
-      "snapshot_sha256": "61628e0a406188921ba18146b62a91d6ef8994fc5df1d47cdef1cea6fda414e7",
+      "snapshot_sha256": "805451669a0ef253c7c15e915da095e99700cc69105f67b04848394be26314b2",
       "counts_toward_m4": false,
       "outcome": {
         "metric": "ending_cash_and_short_term_investments_usd_mm",
@@ -536,6 +536,846 @@
         "template": "02_Corporate_Finance/_template_BASE.xlsx",
         "output": "02_Corporate_Finance/instances/public_microsoft_2024.xlsx",
         "applied_inputs": [
+          {
+            "sheet": "Assumptions",
+            "cell": "C5",
+            "previous": 0,
+            "value": 0.145099,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C6",
+            "previous": 0,
+            "value": 0.697644,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C7",
+            "previous": 0,
+            "value": 0.251201,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C8",
+            "previous": 0,
+            "value": 0.182313,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C9",
+            "previous": 0,
+            "value": 0.55,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C10",
+            "previous": 0,
+            "value": 0.181448,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C11",
+            "previous": 0,
+            "value": -0.556192,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C12",
+            "previous": 0,
+            "value": 7400.1,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C13",
+            "previous": 0,
+            "value": 0.085,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C14",
+            "previous": 0,
+            "value": 0.025,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D5",
+            "previous": 0,
+            "value": 0.12603,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D6",
+            "previous": 0,
+            "value": 0.697644,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D7",
+            "previous": 0,
+            "value": 0.251201,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D8",
+            "previous": 0,
+            "value": 0.182313,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D9",
+            "previous": 0,
+            "value": 0.55,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D10",
+            "previous": 0,
+            "value": 0.181448,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D11",
+            "previous": 0,
+            "value": -0.556192,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D12",
+            "previous": 0,
+            "value": 7366.4,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D13",
+            "previous": 0,
+            "value": 0.085,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D14",
+            "previous": 0,
+            "value": 0.025,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E5",
+            "previous": 0,
+            "value": 0.10696,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E6",
+            "previous": 0,
+            "value": 0.697644,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E7",
+            "previous": 0,
+            "value": 0.251201,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E8",
+            "previous": 0,
+            "value": 0.182313,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E9",
+            "previous": 0,
+            "value": 0.55,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E10",
+            "previous": 0,
+            "value": 0.181448,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E11",
+            "previous": 0,
+            "value": -0.556192,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E12",
+            "previous": 0,
+            "value": 7332.9,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E13",
+            "previous": 0,
+            "value": 0.085,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E14",
+            "previous": 0,
+            "value": 0.025,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F5",
+            "previous": 0,
+            "value": 0.08789,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F6",
+            "previous": 0,
+            "value": 0.697644,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F7",
+            "previous": 0,
+            "value": 0.251201,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F8",
+            "previous": 0,
+            "value": 0.182313,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F9",
+            "previous": 0,
+            "value": 0.55,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F10",
+            "previous": 0,
+            "value": 0.181448,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F11",
+            "previous": 0,
+            "value": -0.556192,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F12",
+            "previous": 0,
+            "value": 7299.5,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F13",
+            "previous": 0,
+            "value": 0.085,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F14",
+            "previous": 0,
+            "value": 0.025,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G5",
+            "previous": 0,
+            "value": 0.06882,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G6",
+            "previous": 0,
+            "value": 0.697644,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G7",
+            "previous": 0,
+            "value": 0.251201,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G8",
+            "previous": 0,
+            "value": 0.182313,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G9",
+            "previous": 0,
+            "value": 0.55,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G10",
+            "previous": 0,
+            "value": 0.181448,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G11",
+            "previous": 0,
+            "value": -0.556192,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G12",
+            "previous": 0,
+            "value": 7266.2,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G13",
+            "previous": 0,
+            "value": 0.085,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G14",
+            "previous": 0,
+            "value": 0.025,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "B5",
+            "previous": "[TICKER]",
+            "value": "ADBE",
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "B6",
+            "previous": "[TICKER]",
+            "value": "ADSK",
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "B7",
+            "previous": "[TICKER]",
+            "value": "CDNS",
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "B8",
+            "previous": "[TICKER]",
+            "value": "CRWD",
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "B9",
+            "previous": "[TICKER]",
+            "value": "CRWV",
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "B10",
+            "previous": "[TICKER]",
+            "value": "DDOG",
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "B11",
+            "previous": "[TICKER]",
+            "value": "EA",
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "C5",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "C6",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "C7",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "C8",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "C9",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "C10",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "C11",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "D5",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "D6",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "D7",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "D8",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "D9",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "D10",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "D11",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "E5",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "E6",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "E7",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "E8",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "E9",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "E10",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "E11",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "F5",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "F6",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "F7",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "F8",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "F9",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "F10",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "F11",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "G5",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "G6",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "G7",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "G8",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "G9",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "G10",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "G11",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "H5",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "H6",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "H7",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "H8",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "H9",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "H10",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "H11",
+            "previous": 0,
+            "value": 0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Cover",
+            "cell": "B11",
+            "previous": "[fill in]",
+            "value": "Microsoft closed FY2024 with 245,122mm of revenue, a 69.8% gross margin and net cash of 8,416mm. The live question is capital intensity: capex rose from 10.8% of revenue in FY2020 to 18.1% in FY2024, so free cash flow now turns on whether that build sustains the growth rate that justifies it.",
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "DCF",
+            "cell": "I5",
+            "previous": 0.1,
+            "value": 0.085,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "DCF",
+            "cell": "I6",
+            "previous": 0.025,
+            "value": 0.025,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "DCF",
+            "cell": "I11",
+            "previous": 0,
+            "value": -8416.0,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "DCF",
+            "cell": "I13",
+            "previous": 1,
+            "value": 7434.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "C5",
+            "previous": 100,
+            "value": 34704.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
           {
             "sheet": "Treasury & Liquidity",
             "cell": "C6",
@@ -589,6 +1429,54 @@
             "cell": "C12",
             "previous": 200,
             "value": 71802.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "C13",
+            "previous": 120,
+            "value": 109400.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "C14",
+            "previous": 10,
+            "value": 1700.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "C15",
+            "previous": 50,
+            "value": 20000.0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "C16",
+            "previous": 3.5,
+            "value": 2.0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "C17",
+            "previous": 2,
+            "value": 10.0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D5",
+            "previous": 50,
+            "value": 13576.0,
             "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
             "source_as_of": "2024-06-30"
           },
@@ -650,25 +1538,9 @@
           },
           {
             "sheet": "Treasury & Liquidity",
-            "cell": "C13",
-            "previous": 120,
-            "value": 109400.0,
-            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
-            "source_as_of": "2024-06-30"
-          },
-          {
-            "sheet": "Treasury & Liquidity",
             "cell": "D13",
             "previous": 60,
             "value": 109400.0,
-            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
-            "source_as_of": "2024-06-30"
-          },
-          {
-            "sheet": "Treasury & Liquidity",
-            "cell": "C14",
-            "previous": 10,
-            "value": 1700.0,
             "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
             "source_as_of": "2024-06-30"
           },
@@ -679,15 +1551,37 @@
             "value": 1700.0,
             "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
             "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D15",
+            "previous": 80,
+            "value": 20000.0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D16",
+            "previous": 3.5,
+            "value": 2.0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Treasury & Liquidity",
+            "cell": "D17",
+            "previous": 2,
+            "value": 10.0,
+            "source_url": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
           }
         ],
-        "workbook_sha256": "7466d22b2290b558824ff20ffc3cc02e97c3f3f5faf32c33b114dcd71a84dafb",
-        "generated_on": "2026-08-05",
+        "workbook_sha256": "aefc9c566c4a00cfeebac4421bf832c86eee1e302d2f4e644c7cb980bd3e9ec2",
+        "generated_on": "2026-09-01",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
-        "counts_toward_M4": false,
-        "hash_refreshed_on": "2026-08-05",
-        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
+        "counts_toward_M4": false
       }
     },
     {

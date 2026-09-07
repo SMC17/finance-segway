@@ -1,0 +1,23 @@
+{
+  "forecast_id": "corp-microsoft-fy2027-revenue",
+  "case_id": "corporate-public-microsoft-2024",
+  "model_id": "02",
+  "metric": "fy2027_total_revenue_usd_mm",
+  "outcome_class": "out_of_sample_forecast",
+  "point": 385365.5,
+  "interval": [
+    381389.7,
+    390868.8
+  ],
+  "basis": "modeled",
+  "baseline": {
+    "kind": "naive_last_recorded",
+    "value": 331839.0,
+    "source": "carry-forward of fy2027_total_revenue_usd_mm = 331839.0 at 2026-06-30 per us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax from Microsoft's SEC XBRL company facts, recorded at tools/data_fabric/out/MSFT_facts_annual_series.json (CIK 0000789019), fiscal years ending 2023-06-30 through 2026-06-30"
+  },
+  "registered_on": "2026-09-01",
+  "resolve_by": "2027-09-30",
+  "resolution_source_expected": "Microsoft FY2027 Form 10-K (us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax for the fiscal year ending 2027-06-30, USD mm). NOTE ON VINTAGE: the linked case is dated 2024-06-30 and its own forward grid deliberately excludes post-as-of data; this forecast is a separate, currently-dated projection anchored on the latest disclosed fiscal year (FY2026) so that it is genuinely out of sample.",
+  "resolution": null,
+  "registration_sha256": "0f51298cee08ca9e8864d8bad155ec861baf35287d269332ef2f9bb594fa07fc"
+}
