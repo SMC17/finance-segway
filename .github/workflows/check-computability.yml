@@ -1,0 +1,60 @@
+name: Check Computability
+
+# Not path-filtered. The defect arrives through a builder edit, a case
+# rebuild, or a data change that turns a computable metric uncomputable --
+# and the last of those touches no file a filter would name.
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  computability:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install repository dependencies
+        run: pip install -r requirements.txt
+
+      - name: No decision check may report PASS on a metric it could not compute
+        run: |
+          PYTHONPATH=. python tools/verify_check_computability.py \
+            --report check-computability-report.json
+
+      - name: Prove the gate still discriminates
+        # Three mutations are pinned by these tests: a detector that never
+        # flags, one that flags every non-numeric metric (which would make
+        # the gate noise and get it ignored), and one that reports an
+        # un-inspectable check as ok. A gate that cannot fail is theatre;
+        # so is one that fails on everything.
+        run: PYTHONPATH=. python -m unittest tests.test_check_computability -v
+
+      - name: Upload computability report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: check-computability-${{ github.event_name }}
+          path: check-computability-report.json
+          if-no-files-found: warn
+          retention-days: 30

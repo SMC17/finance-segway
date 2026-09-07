@@ -139,7 +139,7 @@ def enrich(workbook) -> None:
         (6, "Physical balance residual", "='Physical Balance & Carry'!E28", '=IF(ABS(C6)<0.000001,"PASS","FAIL")', "Inventory must conserve across beginning stock, flows, shrink, and reported ending stock."),
         (7, "Absolute basis", "=ABS('Physical Balance & Carry'!E25)", '=IF(C7<=\'Physical Balance & Carry\'!E17,"PASS","BREACH")', "Escalate material location, grade, quality, or timing basis risk."),
         (8, "Hedge ratio", "='Physical Balance & Carry'!E29", '=IF(C8<=\'Physical Balance & Carry\'!E18,"PASS","BREACH")', "Review over-hedging, contract multiplier, and beta-adjustment assumptions."),
-        (9, "Roll yield", "='Physical Balance & Carry'!E26", '=IF(C9<0,"REVIEW","PASS")', "Negative roll yield is expected in contango but must be included in return and hedge economics."),
+        (9, "Roll yield", "='Physical Balance & Carry'!E26", '=IF(ISNUMBER(C9),IF(C9<0,"REVIEW","PASS"),"REVIEW")', "Negative roll yield is expected in contango but must be included in return and hedge economics."),
         (10, "Ending inventory", "='Physical Balance & Carry'!E27", '=IF(C10>=0,"PASS","BREACH")', "Negative physical inventory indicates an impossible operating plan or missing purchase."),
     ]
     for row, label, metric, status, action in rows:
