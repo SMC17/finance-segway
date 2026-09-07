@@ -31,3 +31,10 @@ all-domain-public-evidence-report.json
 frontier-program-report.json
 evidence-receipt-integrity-report.json
 m1-domain-hardening-report.json
+
+# Raw downloaded source files (Damodaran .xls/.xlsx) cached by
+# damodaran_public_facts.py before parsing -- regenerable from the source
+# URL every run. The derived JSON snapshot + source_register CSV under
+# tools/data_fabric/out/ (not this subdir) are the committed provenance
+# artifact, per tools/data_fabric/README.md.
+tools/data_fabric/out/_damodaran_raw/

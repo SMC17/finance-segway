@@ -1,0 +1,777 @@
+{
+  "dataset": "psdata",
+  "dataset_label": "Price-to-sales by industry",
+  "source_filename": "psdata.xls",
+  "retrieved_utc": "20260817T230452Z",
+  "row_count": 96,
+  "rows": [
+    {
+      "Industry Name": "Advertising",
+      "Number of firms": 52.0,
+      "Price/Sales": 1.642596858745483,
+      "Net Margin": -0.0030178781818924268,
+      "EV/Sales": 2.1248944823347125,
+      "Pre-tax Operating Margin": 0.10045806228743916
+    },
+    {
+      "Industry Name": "Aerospace/Defense",
+      "Number of firms": 79.0,
+      "Price/Sales": 3.1727191450990215,
+      "Net Margin": 0.04989121339012427,
+      "EV/Sales": 3.570706581908985,
+      "Pre-tax Operating Margin": 0.08696762529366643
+    },
+    {
+      "Industry Name": "Air Transport",
+      "Number of firms": 23.0,
+      "Price/Sales": 0.5777204310691183,
+      "Net Margin": 0.025083018730598778,
+      "EV/Sales": 1.0259549224502678,
+      "Pre-tax Operating Margin": 0.04880951633944019
+    },
+    {
+      "Industry Name": "Apparel",
+      "Number of firms": 35.0,
+      "Price/Sales": 1.2728463334769382,
+      "Net Margin": 0.038475945106670836,
+      "EV/Sales": 1.594209821413011,
+      "Pre-tax Operating Margin": 0.09886973058225224
+    },
+    {
+      "Industry Name": "Auto & Truck",
+      "Number of firms": 33.0,
+      "Price/Sales": 3.344107144590721,
+      "Net Margin": 0.012913827594325342,
+      "EV/Sales": 3.883020426885024,
+      "Pre-tax Operating Margin": 0.023827109914991852
+    },
+    {
+      "Industry Name": "Auto Parts",
+      "Number of firms": 35.0,
+      "Price/Sales": 0.6423394983412541,
+      "Net Margin": 0.007202034312769674,
+      "EV/Sales": 0.822835978588616,
+      "Pre-tax Operating Margin": 0.05804588112690446
+    },
+    {
+      "Industry Name": "Bank (Money Center)",
+      "Number of firms": 15.0,
+      "Price/Sales": 4.0936392297248,
+      "Net Margin": 0.2888846768058161,
+      "EV/Sales": 8.30955725045144,
+      "Pre-tax Operating Margin": 0.0007750801437471605
+    },
+    {
+      "Industry Name": "Banks (Regional)",
+      "Number of firms": 568.0,
+      "Price/Sales": 3.674198460336103,
+      "Net Margin": 0.2749474644728205,
+      "EV/Sales": 4.276272252419073,
+      "Pre-tax Operating Margin": -0.0012057021094349254
+    },
+    {
+      "Industry Name": "Beverage (Alcoholic)",
+      "Number of firms": 14.0,
+      "Price/Sales": 1.7535078368746115,
+      "Net Margin": 0.005600811728555208,
+      "EV/Sales": 2.4539198950027634,
+      "Pre-tax Operating Margin": 0.2278728099033911
+    },
+    {
+      "Industry Name": "Beverage (Soft)",
+      "Number of firms": 27.0,
+      "Price/Sales": 3.569335598364522,
+      "Net Margin": 0.13397826583728403,
+      "EV/Sales": 4.156113450493375,
+      "Pre-tax Operating Margin": 0.20629192027049995
+    },
+    {
+      "Industry Name": "Broadcasting",
+      "Number of firms": 24.0,
+      "Price/Sales": 0.8265024443382478,
+      "Net Margin": 0.020595322975177813,
+      "EV/Sales": 1.395140428325257,
+      "Pre-tax Operating Margin": 0.12348868021987111
+    },
+    {
+      "Industry Name": "Brokerage & Investment Banking",
+      "Number of firms": 32.0,
+      "Price/Sales": 2.8710147299025977,
+      "Net Margin": 0.14448752194167302,
+      "EV/Sales": 5.782260395845316,
+      "Pre-tax Operating Margin": -0.0011834423605146533
+    },
+    {
+      "Industry Name": "Building Materials",
+      "Number of firms": 41.0,
+      "Price/Sales": 1.6768916491430081,
+      "Net Margin": 0.07422275694022355,
+      "EV/Sales": 2.0460612293412557,
+      "Pre-tax Operating Margin": 0.12797404500170892
+    },
+    {
+      "Industry Name": "Business & Consumer Services",
+      "Number of firms": 155.0,
+      "Price/Sales": 2.201714861062905,
+      "Net Margin": 0.07032930062638384,
+      "EV/Sales": 2.5297327118936694,
+      "Pre-tax Operating Margin": 0.12320450198119302
+    },
+    {
+      "Industry Name": "Cable TV",
+      "Number of firms": 9.0,
+      "Price/Sales": 0.8571505061156779,
+      "Net Margin": 0.07083622978758933,
+      "EV/Sales": 2.055485525649577,
+      "Pre-tax Operating Margin": 0.1824212201235962
+    },
+    {
+      "Industry Name": "Chemical (Basic)",
+      "Number of firms": 29.0,
+      "Price/Sales": 0.46546096376308627,
+      "Net Margin": -0.03726120799643747,
+      "EV/Sales": 0.8452190200844562,
+      "Pre-tax Operating Margin": 0.02857882521775042
+    },
+    {
+      "Industry Name": "Chemical (Diversified)",
+      "Number of firms": 4.0,
+      "Price/Sales": 0.3377644801499588,
+      "Net Margin": -0.05354718409440587,
+      "EV/Sales": 0.8416904259876704,
+      "Pre-tax Operating Margin": 0.034066924789341244
+    },
+    {
+      "Industry Name": "Chemical (Specialty)",
+      "Number of firms": 59.0,
+      "Price/Sales": 2.1214267689752835,
+      "Net Margin": 0.02907920798019631,
+      "EV/Sales": 2.6476145494545156,
+      "Pre-tax Operating Margin": 0.12407507162657973
+    },
+    {
+      "Industry Name": "Coal & Related Energy",
+      "Number of firms": 16.0,
+      "Price/Sales": 2.754218653089938,
+      "Net Margin": -0.02125757000356644,
+      "EV/Sales": 2.5369156934745063,
+      "Pre-tax Operating Margin": -0.03815594523633239
+    },
+    {
+      "Industry Name": "Computer Services",
+      "Number of firms": 64.0,
+      "Price/Sales": 1.2403016604204078,
+      "Net Margin": 0.044525069673165746,
+      "EV/Sales": 1.477094248399097,
+      "Pre-tax Operating Margin": 0.07627844466661073
+    },
+    {
+      "Industry Name": "Computers/Peripherals",
+      "Number of firms": 36.0,
+      "Price/Sales": 6.431547327339804,
+      "Net Margin": 0.1777744098144937,
+      "EV/Sales": 6.629803188728592,
+      "Pre-tax Operating Margin": 0.22489034296518012
+    },
+    {
+      "Industry Name": "Construction Supplies",
+      "Number of firms": 40.0,
+      "Price/Sales": 2.8307820751783144,
+      "Net Margin": 0.1078299971397084,
+      "EV/Sales": 3.231777696009379,
+      "Pre-tax Operating Margin": 0.1527303082978725
+    },
+    {
+      "Industry Name": "Diversified",
+      "Number of firms": 20.0,
+      "Price/Sales": 2.8485879588416343,
+      "Net Margin": 0.1636643436903824,
+      "EV/Sales": 3.0801449685443743,
+      "Pre-tax Operating Margin": 0.228234420750008
+    },
+    {
+      "Industry Name": "Drugs (Biotechnology)",
+      "Number of firms": 496.0,
+      "Price/Sales": 7.311661204603818,
+      "Net Margin": -0.04997144060722168,
+      "EV/Sales": 7.918045526205239,
+      "Pre-tax Operating Margin": 0.08760628593948759
+    },
+    {
+      "Industry Name": "Drugs (Pharmaceutical)",
+      "Number of firms": 228.0,
+      "Price/Sales": 5.625235313421631,
+      "Net Margin": 0.18537124465767768,
+      "EV/Sales": 6.239336284469536,
+      "Pre-tax Operating Margin": 0.295443503779666
+    },
+    {
+      "Industry Name": "Education",
+      "Number of firms": 32.0,
+      "Price/Sales": 1.7441040280276947,
+      "Net Margin": 0.08793646859020393,
+      "EV/Sales": 1.9902138121744768,
+      "Pre-tax Operating Margin": 0.13541694660731066
+    },
+    {
+      "Industry Name": "Electrical Equipment",
+      "Number of firms": 112.0,
+      "Price/Sales": 4.091459585374556,
+      "Net Margin": 0.009410003865224555,
+      "EV/Sales": 4.420754883373023,
+      "Pre-tax Operating Margin": 0.09751247065761166
+    },
+    {
+      "Industry Name": "Electronics (Consumer & Office)",
+      "Number of firms": 8.0,
+      "Price/Sales": 0.9609786323774342,
+      "Net Margin": -0.09420145713451261,
+      "EV/Sales": 0.9098334859666329,
+      "Pre-tax Operating Margin": -0.04251466186215604
+    },
+    {
+      "Industry Name": "Electronics (General)",
+      "Number of firms": 114.0,
+      "Price/Sales": 3.0171542035153585,
+      "Net Margin": 0.06472711881991938,
+      "EV/Sales": 3.206162776853793,
+      "Pre-tax Operating Margin": 0.10518041665675845
+    },
+    {
+      "Industry Name": "Engineering/Construction",
+      "Number of firms": 48.0,
+      "Price/Sales": 1.580919191660943,
+      "Net Margin": 0.0594404607933308,
+      "EV/Sales": 1.7350431497835168,
+      "Pre-tax Operating Margin": 0.06754108028713939
+    },
+    {
+      "Industry Name": "Entertainment",
+      "Number of firms": 92.0,
+      "Price/Sales": 3.868989130650021,
+      "Net Margin": 0.04428855045228182,
+      "EV/Sales": 4.333824657929714,
+      "Pre-tax Operating Margin": 0.1037808986261652
+    },
+    {
+      "Industry Name": "Environmental & Waste Services",
+      "Number of firms": 53.0,
+      "Price/Sales": 3.085675657448278,
+      "Net Margin": 0.08238089699765011,
+      "EV/Sales": 3.7006750073018577,
+      "Pre-tax Operating Margin": 0.14851622866272587
+    },
+    {
+      "Industry Name": "Farming/Agriculture",
+      "Number of firms": 35.0,
+      "Price/Sales": 0.9181237728548928,
+      "Net Margin": 0.03908612922158476,
+      "EV/Sales": 1.3401504823361046,
+      "Pre-tax Operating Margin": 0.05606764179932007
+    },
+    {
+      "Industry Name": "Financial Svcs. (Non-bank & Insurance)",
+      "Number of firms": 176.0,
+      "Price/Sales": 5.221074316001077,
+      "Net Margin": 0.2218853645963704,
+      "EV/Sales": 18.9059051763244,
+      "Pre-tax Operating Margin": 0.18536600836987463
+    },
+    {
+      "Industry Name": "Food Processing",
+      "Number of firms": 78.0,
+      "Price/Sales": 1.0483640122347244,
+      "Net Margin": 0.028162851559577935,
+      "EV/Sales": 1.4683157254855188,
+      "Pre-tax Operating Margin": 0.10765508966559474
+    },
+    {
+      "Industry Name": "Food Wholesalers",
+      "Number of firms": 13.0,
+      "Price/Sales": 0.3141862273451012,
+      "Net Margin": 0.011709648797144959,
+      "EV/Sales": 0.45685204851364397,
+      "Pre-tax Operating Margin": 0.02545614814527601
+    },
+    {
+      "Industry Name": "Furn/Home Furnishings",
+      "Number of firms": 27.0,
+      "Price/Sales": 0.9773713717553166,
+      "Net Margin": 0.011025376533084075,
+      "EV/Sales": 1.3327990096564892,
+      "Pre-tax Operating Margin": 0.06875747269347231
+    },
+    {
+      "Industry Name": "Green & Renewable Energy",
+      "Number of firms": 15.0,
+      "Price/Sales": 3.762478951905123,
+      "Net Margin": -0.10826421952871541,
+      "EV/Sales": 7.865692969599145,
+      "Pre-tax Operating Margin": 0.1838772563796854
+    },
+    {
+      "Industry Name": "Healthcare Products",
+      "Number of firms": 204.0,
+      "Price/Sales": 4.364745018197906,
+      "Net Margin": 0.09608358705927718,
+      "EV/Sales": 4.762600760397512,
+      "Pre-tax Operating Margin": 0.15469745078594013
+    },
+    {
+      "Industry Name": "Healthcare Support Services",
+      "Number of firms": 104.0,
+      "Price/Sales": 0.3654915300009084,
+      "Net Margin": 0.012531388303935671,
+      "EV/Sales": 0.45778331362617514,
+      "Pre-tax Operating Margin": 0.029903753130709358
+    },
+    {
+      "Industry Name": "Heathcare Information and Technology",
+      "Number of firms": 115.0,
+      "Price/Sales": 4.702911055510365,
+      "Net Margin": 0.07451051350115737,
+      "EV/Sales": 5.3091884213580105,
+      "Pre-tax Operating Margin": 0.1475254629887839
+    },
+    {
+      "Industry Name": "Homebuilding",
+      "Number of firms": 30.0,
+      "Price/Sales": 1.0674223258119053,
+      "Net Margin": 0.0947013341324965,
+      "EV/Sales": 1.1916269386724603,
+      "Pre-tax Operating Margin": 0.12633855565477978
+    },
+    {
+      "Industry Name": "Hospitals/Healthcare Facilities",
+      "Number of firms": 31.0,
+      "Price/Sales": 1.0811202513149862,
+      "Net Margin": 0.0629514925775366,
+      "EV/Sales": 1.6887450167827869,
+      "Pre-tax Operating Margin": 0.12855081802384957
+    },
+    {
+      "Industry Name": "Hotel/Gaming",
+      "Number of firms": 63.0,
+      "Price/Sales": 3.2578958226303185,
+      "Net Margin": 0.10381085334325345,
+      "EV/Sales": 4.327076142389566,
+      "Pre-tax Operating Margin": 0.16441242100933073
+    },
+    {
+      "Industry Name": "Household Products",
+      "Number of firms": 110.0,
+      "Price/Sales": 2.6734443296061743,
+      "Net Margin": 0.11678213022511653,
+      "EV/Sales": 3.059468148726035,
+      "Pre-tax Operating Margin": 0.1879000635250528
+    },
+    {
+      "Industry Name": "Information Services",
+      "Number of firms": 15.0,
+      "Price/Sales": 1.7046649321669063,
+      "Net Margin": 0.065253559509469,
+      "EV/Sales": 2.2125353891144477,
+      "Pre-tax Operating Margin": 0.12451459519593001
+    },
+    {
+      "Industry Name": "Insurance (General)",
+      "Number of firms": 21.0,
+      "Price/Sales": 3.530093202418245,
+      "Net Margin": 0.1236640957470145,
+      "EV/Sales": 4.324047602881805,
+      "Pre-tax Operating Margin": 0.21460520473886202
+    },
+    {
+      "Industry Name": "Insurance (Life)",
+      "Number of firms": 20.0,
+      "Price/Sales": 0.9522032568445712,
+      "Net Margin": 0.07798135819570415,
+      "EV/Sales": 1.2838249224747278,
+      "Pre-tax Operating Margin": 0.10647669164266632
+    },
+    {
+      "Industry Name": "Insurance (Prop/Cas.)",
+      "Number of firms": 57.0,
+      "Price/Sales": 1.3601061020692313,
+      "Net Margin": 0.1113297623048451,
+      "EV/Sales": 1.4887819132240936,
+      "Pre-tax Operating Margin": 0.15300408913331123
+    },
+    {
+      "Industry Name": "Investments & Asset Management",
+      "Number of firms": 283.0,
+      "Price/Sales": 4.589958862501353,
+      "Net Margin": 0.1836200178650786,
+      "EV/Sales": 5.486045625728951,
+      "Pre-tax Operating Margin": 0.25184466715220466
+    },
+    {
+      "Industry Name": "Machinery",
+      "Number of firms": 105.0,
+      "Price/Sales": 3.076904107731613,
+      "Net Margin": 0.10578747395309744,
+      "EV/Sales": 3.426131130289686,
+      "Pre-tax Operating Margin": 0.16059785335376017
+    },
+    {
+      "Industry Name": "Metals & Mining",
+      "Number of firms": 73.0,
+      "Price/Sales": 3.811745240474737,
+      "Net Margin": 0.10516719648470058,
+      "EV/Sales": 4.0344825480569595,
+      "Pre-tax Operating Margin": 0.23757192582315506
+    },
+    {
+      "Industry Name": "Office Equipment & Services",
+      "Number of firms": 14.0,
+      "Price/Sales": 1.0248687807987844,
+      "Net Margin": 0.04375087418121427,
+      "EV/Sales": 1.433663742966214,
+      "Pre-tax Operating Margin": 0.10879197361957307
+    },
+    {
+      "Industry Name": "Oil/Gas (Integrated)",
+      "Number of firms": 4.0,
+      "Price/Sales": 1.5784911917182605,
+      "Net Margin": 0.08297022462442774,
+      "EV/Sales": 1.7531762327331943,
+      "Pre-tax Operating Margin": 0.11567001874651796
+    },
+    {
+      "Industry Name": "Oil/Gas (Production and Exploration)",
+      "Number of firms": 142.0,
+      "Price/Sales": 2.00440454161324,
+      "Net Margin": 0.14630440788275073,
+      "EV/Sales": 2.6825885994843817,
+      "Pre-tax Operating Margin": 0.2582417593468005
+    },
+    {
+      "Industry Name": "Oil/Gas Distribution",
+      "Number of firms": 23.0,
+      "Price/Sales": 2.782540109527642,
+      "Net Margin": 0.13350862150393097,
+      "EV/Sales": 4.371783781882893,
+      "Pre-tax Operating Margin": 0.2605682356096842
+    },
+    {
+      "Industry Name": "Oilfield Svcs/Equip.",
+      "Number of firms": 97.0,
+      "Price/Sales": 0.571685348386922,
+      "Net Margin": 0.023377489888452334,
+      "EV/Sales": 0.7413518369384341,
+      "Pre-tax Operating Margin": 0.04846054806334578
+    },
+    {
+      "Industry Name": "Packaging & Container",
+      "Number of firms": 19.0,
+      "Price/Sales": 1.0339324738783697,
+      "Net Margin": 0.04476116596313847,
+      "EV/Sales": 1.5482237405985284,
+      "Pre-tax Operating Margin": 0.09793193765128692
+    },
+    {
+      "Industry Name": "Paper/Forest Products",
+      "Number of firms": 6.0,
+      "Price/Sales": 0.757509103622379,
+      "Net Margin": 0.03443484893889449,
+      "EV/Sales": 1.0203986001754877,
+      "Pre-tax Operating Margin": 0.06578644536478075
+    },
+    {
+      "Industry Name": "Power",
+      "Number of firms": 46.0,
+      "Price/Sales": 2.736049369214486,
+      "Net Margin": 0.12726847234883484,
+      "EV/Sales": 4.695806461850637,
+      "Pre-tax Operating Margin": 0.21356031922262156
+    },
+    {
+      "Industry Name": "Precious Metals",
+      "Number of firms": 56.0,
+      "Price/Sales": 5.840427032700466,
+      "Net Margin": 0.2858521770271587,
+      "EV/Sales": 5.981737028870388,
+      "Pre-tax Operating Margin": 0.40431075341190764
+    },
+    {
+      "Industry Name": "Publishing & Newspapers",
+      "Number of firms": 19.0,
+      "Price/Sales": 1.4704831295543945,
+      "Net Margin": 0.0818733439701034,
+      "EV/Sales": 1.6994070024135182,
+      "Pre-tax Operating Margin": 0.09837572856160526
+    },
+    {
+      "Industry Name": "R.E.I.T.",
+      "Number of firms": 190.0,
+      "Price/Sales": 5.886059843151316,
+      "Net Margin": 0.13233445003447902,
+      "EV/Sales": 10.650570831822968,
+      "Pre-tax Operating Margin": 0.2220948339155621
+    },
+    {
+      "Industry Name": "Real Estate (Development)",
+      "Number of firms": 14.0,
+      "Price/Sales": 1.7726819358714954,
+      "Net Margin": 0.07010407882293668,
+      "EV/Sales": 3.033511815931911,
+      "Pre-tax Operating Margin": 0.21191936700617578
+    },
+    {
+      "Industry Name": "Real Estate (General/Diversified)",
+      "Number of firms": 12.0,
+      "Price/Sales": 4.8229288916055415,
+      "Net Margin": 0.23765281173594135,
+      "EV/Sales": 6.826157864808295,
+      "Pre-tax Operating Margin": 0.22087621024942458
+    },
+    {
+      "Industry Name": "Real Estate (Operations & Services)",
+      "Number of firms": 54.0,
+      "Price/Sales": 1.2360415857459834,
+      "Net Margin": 0.011919902517228938,
+      "EV/Sales": 1.463930180972637,
+      "Pre-tax Operating Margin": 0.027622698469351146
+    },
+    {
+      "Industry Name": "Recreation",
+      "Number of firms": 49.0,
+      "Price/Sales": 1.2614359353455853,
+      "Net Margin": -0.04719687128002479,
+      "EV/Sales": 1.94042778252431,
+      "Pre-tax Operating Margin": 0.08056922435972133
+    },
+    {
+      "Industry Name": "Reinsurance",
+      "Number of firms": 1.0,
+      "Price/Sales": 0.5994485294117647,
+      "Net Margin": 0.038871951219512195,
+      "EV/Sales": 0.6526502811858702,
+      "Pre-tax Operating Margin": 0.0723402809220799
+    },
+    {
+      "Industry Name": "Restaurant/Dining",
+      "Number of firms": 64.0,
+      "Price/Sales": 3.340771846882716,
+      "Net Margin": 0.09368441736682119,
+      "EV/Sales": 4.165514392232257,
+      "Pre-tax Operating Margin": 0.137921604848594
+    },
+    {
+      "Industry Name": "Retail (Automotive)",
+      "Number of firms": 34.0,
+      "Price/Sales": 0.892653702855193,
+      "Net Margin": 0.03362763979070542,
+      "EV/Sales": 1.2705674096880286,
+      "Pre-tax Operating Margin": 0.058385963240031064
+    },
+    {
+      "Industry Name": "Retail (Building Supply)",
+      "Number of firms": 14.0,
+      "Price/Sales": 1.8471908099978955,
+      "Net Margin": 0.07844282005575029,
+      "EV/Sales": 2.2589926761243846,
+      "Pre-tax Operating Margin": 0.11819306915492038
+    },
+    {
+      "Industry Name": "Retail (Distributors)",
+      "Number of firms": 62.0,
+      "Price/Sales": 1.5133587330515794,
+      "Net Margin": 0.06054534730806162,
+      "EV/Sales": 1.894802191775475,
+      "Pre-tax Operating Margin": 0.1031823472685938
+    },
+    {
+      "Industry Name": "Retail (General)",
+      "Number of firms": 23.0,
+      "Price/Sales": 2.007898223342434,
+      "Net Margin": 0.05611346589050097,
+      "EV/Sales": 2.109214581658399,
+      "Pre-tax Operating Margin": 0.06501798019766843
+    },
+    {
+      "Industry Name": "Retail (Grocery and Food)",
+      "Number of firms": 15.0,
+      "Price/Sales": 0.34001497665240493,
+      "Net Margin": 0.013206284642467744,
+      "EV/Sales": 0.49009499125669137,
+      "Pre-tax Operating Margin": 0.018461572111635023
+    },
+    {
+      "Industry Name": "Retail (REITs)",
+      "Number of firms": 26.0,
+      "Price/Sales": 7.815058073451817,
+      "Net Margin": 0.2299755737717258,
+      "EV/Sales": 12.043634861795587,
+      "Pre-tax Operating Margin": 0.3864440865122347
+    },
+    {
+      "Industry Name": "Retail (Special Lines)",
+      "Number of firms": 94.0,
+      "Price/Sales": 1.4337562975354283,
+      "Net Margin": 0.05189818584789381,
+      "EV/Sales": 1.6260838705735732,
+      "Pre-tax Operating Margin": 0.0807616775541373
+    },
+    {
+      "Industry Name": "Rubber& Tires",
+      "Number of firms": 3.0,
+      "Price/Sales": 0.1380287826581182,
+      "Net Margin": -0.0949066630122806,
+      "EV/Sales": 0.5884475951540894,
+      "Pre-tax Operating Margin": 0.025711342188593223
+    },
+    {
+      "Industry Name": "Semiconductor",
+      "Number of firms": 66.0,
+      "Price/Sales": 15.46226750574735,
+      "Net Margin": 0.30446007427165983,
+      "EV/Sales": 15.70064938278062,
+      "Pre-tax Operating Margin": 0.3531021030174133
+    },
+    {
+      "Industry Name": "Semiconductor Equip",
+      "Number of firms": 31.0,
+      "Price/Sales": 7.489075007700587,
+      "Net Margin": 0.21315535906370506,
+      "EV/Sales": 7.607009043397782,
+      "Pre-tax Operating Margin": 0.26287667669074866
+    },
+    {
+      "Industry Name": "Shipbuilding & Marine",
+      "Number of firms": 8.0,
+      "Price/Sales": 1.4536264965439019,
+      "Net Margin": 0.0948059646207709,
+      "EV/Sales": 1.7362537616576743,
+      "Pre-tax Operating Margin": 0.13517329302988534
+    },
+    {
+      "Industry Name": "Shoe",
+      "Number of firms": 11.0,
+      "Price/Sales": 1.9530795030974162,
+      "Net Margin": 0.06271289597747094,
+      "EV/Sales": 2.0409765218719707,
+      "Pre-tax Operating Margin": 0.0913903063742826
+    },
+    {
+      "Industry Name": "Software (Entertainment)",
+      "Number of firms": 77.0,
+      "Price/Sales": 9.014628755312186,
+      "Net Margin": 0.29930348659906064,
+      "EV/Sales": 9.12764468187753,
+      "Pre-tax Operating Margin": 0.3366881234390564
+    },
+    {
+      "Industry Name": "Software (Internet)",
+      "Number of firms": 29.0,
+      "Price/Sales": 8.758755537218498,
+      "Net Margin": -0.009326071858346227,
+      "EV/Sales": 9.561036618683037,
+      "Pre-tax Operating Margin": 0.03738840189516249
+    },
+    {
+      "Industry Name": "Software (System & Application)",
+      "Number of firms": 309.0,
+      "Price/Sales": 11.007221329135833,
+      "Net Margin": 0.25492956311411463,
+      "EV/Sales": 11.408763673096576,
+      "Pre-tax Operating Margin": 0.3320749595853169
+    },
+    {
+      "Industry Name": "Steel",
+      "Number of firms": 19.0,
+      "Price/Sales": 0.9900586315727231,
+      "Net Margin": 0.01925417054710482,
+      "EV/Sales": 1.1692375062240556,
+      "Pre-tax Operating Margin": 0.04106984357461912
+    },
+    {
+      "Industry Name": "Telecom (Wireless)",
+      "Number of firms": 12.0,
+      "Price/Sales": 2.4788850514556793,
+      "Net Margin": 0.12238502087265377,
+      "EV/Sales": 3.717039475911651,
+      "Pre-tax Operating Margin": 0.19736568208594377
+    },
+    {
+      "Industry Name": "Telecom. Equipment",
+      "Number of firms": 57.0,
+      "Price/Sales": 6.130033623140206,
+      "Net Margin": 0.16089921740363985,
+      "EV/Sales": 6.5160940958665385,
+      "Pre-tax Operating Margin": 0.2091953506741483
+    },
+    {
+      "Industry Name": "Telecom. Services",
+      "Number of firms": 39.0,
+      "Price/Sales": 1.392285064367891,
+      "Net Margin": 0.14196223860576973,
+      "EV/Sales": 2.614800563000675,
+      "Pre-tax Operating Margin": 0.20823790500775086
+    },
+    {
+      "Industry Name": "Tobacco",
+      "Number of firms": 10.0,
+      "Price/Sales": 5.298208543770406,
+      "Net Margin": 0.2665422452740549,
+      "EV/Sales": 6.395192946988778,
+      "Pre-tax Operating Margin": 0.43683887646075187
+    },
+    {
+      "Industry Name": "Transportation",
+      "Number of firms": 19.0,
+      "Price/Sales": 1.266130090888278,
+      "Net Margin": 0.08233235401615857,
+      "EV/Sales": 1.6396952282383208,
+      "Pre-tax Operating Margin": 0.0764242458721698
+    },
+    {
+      "Industry Name": "Transportation (Railroads)",
+      "Number of firms": 4.0,
+      "Price/Sales": 5.2597489617988735,
+      "Net Margin": 0.24725938276703,
+      "EV/Sales": 6.665559703504334,
+      "Pre-tax Operating Margin": 0.37433505844987286
+    },
+    {
+      "Industry Name": "Trucking",
+      "Number of firms": 26.0,
+      "Price/Sales": 1.4219159219497337,
+      "Net Margin": 0.03791195275856305,
+      "EV/Sales": 1.7429114121474771,
+      "Pre-tax Operating Margin": 0.07313959318117265
+    },
+    {
+      "Industry Name": "Utility (General)",
+      "Number of firms": 14.0,
+      "Price/Sales": 2.9033881605887357,
+      "Net Margin": 0.1417862109301,
+      "EV/Sales": 5.251606084018362,
+      "Pre-tax Operating Margin": 0.23205483866166682
+    },
+    {
+      "Industry Name": "Utility (Water)",
+      "Number of firms": 14.0,
+      "Price/Sales": 4.42803232559641,
+      "Net Margin": 0.21162207154416784,
+      "EV/Sales": 7.156354779193479,
+      "Pre-tax Operating Margin": 0.33647640469294054
+    },
+    {
+      "Industry Name": "Total Market",
+      "Number of firms": 5994.0,
+      "Price/Sales": 3.072483850594801,
+      "Net Margin": 0.09738073539417771,
+      "EV/Sales": 3.966336026067594,
+      "Pre-tax Operating Margin": 0.12745254863225677
+    },
+    {
+      "Industry Name": "Total Market (without financials)",
+      "Number of firms": 4822.0,
+      "Price/Sales": 3.029109075401082,
+      "Net Margin": 0.08558425250283729,
+      "EV/Sales": 3.460309277512211,
+      "Pre-tax Operating Margin": 0.13055197406702723
+    }
+  ]
+}
