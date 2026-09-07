@@ -1,0 +1,62 @@
+name: Verdict Closure
+
+# Deliberately NOT path-filtered. This regresses from a builder change, a case
+# script, a template edit or a renamed sheet, and a gate that only fires on the
+# files someone thought of is a gate that stops firing.
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  closure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install repository dependencies
+        run: pip install -r requirements.txt
+
+      - name: Prove the gate can still fail
+        # Run FIRST and separately from the scan. These build a workbook whose
+        # verdict reaches a sourced sheet through two hops and require a pass,
+        # then sever one edge and require a fail. They also pin the sheet
+        # reference pattern's quoted alternative: sheet names with a space or an
+        # ampersand are always quoted, check sheets are exactly the ones with
+        # those names, and a pattern that loses that alternative finds nothing
+        # for them and reports it as absence.
+        run: PYTHONPATH=. python -m unittest tests.test_verdict_closure -v
+
+      - name: Every sourced sheet must be reachable from a verdict
+        run: |
+          PYTHONPATH=. python tools/verify_verdict_closure.py \
+            --report verdict-closure-report.json
+
+      - name: Upload closure report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verdict-closure-${{ github.event_name }}
+          path: verdict-closure-report.json
+          if-no-files-found: warn
+          retention-days: 30
