@@ -1261,6 +1261,378 @@
       }
     },
     {
+      "sheet": "IS",
+      "cell": "C5",
+      "value": 198270.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Revenue, tagged RevenueFromContractWithCustomerExcludingAssessedTax, FY ending 2022-06-30. Microsoft 2022-2024 as tagged in us-gaap XBRL, recorded at tools/data_fabric/out/MSFT_facts_annual_series.json. Every period ends on or before the 2024-06-30 as-of date."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "C7",
+      "value": 62650.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "COGS = revenue - GrossProfit for FY ending 2022-06-30. Microsoft tags no cost-of-revenue concept in this fact set, so it is the difference of two tagged values rather than a third tagged one."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "C8",
+      "value": 135620.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Gross profit, tagged GrossProfit, FY ending 2022-06-30. D8 and E8 carry the template's =revenue-COGS formula; C8 does not, because the builder writes that formula from column D rightward."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "C10",
+      "value": 52237.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Operating expense = GrossProfit - OperatingIncomeLoss for FY ending 2022-06-30. Ties to the tagged R&D, S&M and G&A lines."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "C14",
+      "value": 83383.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "EBIT, tagged OperatingIncomeLoss, FY ending 2022-06-30. Microsoft 2022-2024 as tagged in us-gaap XBRL, recorded at tools/data_fabric/out/MSFT_facts_annual_series.json. Every period ends on or before the 2024-06-30 as-of date."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "C15",
+      "value": 2063.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Interest expense, tagged InterestExpense, FY ending 2022-06-30."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "C16",
+      "value": 83716.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Pre-tax income = NetIncomeLoss + IncomeTaxExpenseBenefit for FY ending 2022-06-30. CAVEAT: the template's FORECAST identity is pre-tax = EBIT - interest, which omits other income and expense. For FY2024 that is 81,320 against a disclosed 83,716 $mm, a gap of 2,396. The historical column carries the disclosed figure; the forward columns carry the template identity. They are different quantities and the difference is real, not an error."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "C17",
+      "value": 10978.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Income tax expense, tagged IncomeTaxExpenseBenefit, FY ending 2022-06-30."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "C18",
+      "value": 72738.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Net income, tagged NetIncomeLoss, FY ending 2022-06-30. Microsoft 2022-2024 as tagged in us-gaap XBRL, recorded at tools/data_fabric/out/MSFT_facts_annual_series.json. Every period ends on or before the 2024-06-30 as-of date."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "C19",
+      "value": 7537.6,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Diluted weighted-average shares = NetIncomeLoss / EarningsPerShareDiluted for FY ending 2022-06-30. This fact set carries no WeightedAverageNumberOfDilutedSharesOutstanding concept, so the count is solved from two tagged values. It reproduces the figure Microsoft reports: FY2024 solves to 7,469.2mm against a disclosed 7,469mm, a 0.002% difference."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "C20",
+      "value": 9.65,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Diluted EPS, tagged EarningsPerShareDiluted, FY ending 2022-06-30."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "D5",
+      "value": 211915.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Revenue, tagged RevenueFromContractWithCustomerExcludingAssessedTax, FY ending 2023-06-30. Microsoft 2022-2024 as tagged in us-gaap XBRL, recorded at tools/data_fabric/out/MSFT_facts_annual_series.json. Every period ends on or before the 2024-06-30 as-of date."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "D7",
+      "value": 65863.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "COGS = revenue - GrossProfit for FY ending 2023-06-30. Microsoft tags no cost-of-revenue concept in this fact set, so it is the difference of two tagged values rather than a third tagged one."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "D10",
+      "value": 57529.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Operating expense = GrossProfit - OperatingIncomeLoss for FY ending 2023-06-30. Ties to the tagged R&D, S&M and G&A lines."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "D14",
+      "value": 88523.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "EBIT, tagged OperatingIncomeLoss, FY ending 2023-06-30. Microsoft 2022-2024 as tagged in us-gaap XBRL, recorded at tools/data_fabric/out/MSFT_facts_annual_series.json. Every period ends on or before the 2024-06-30 as-of date."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "D15",
+      "value": 1968.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Interest expense, tagged InterestExpense, FY ending 2023-06-30."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "D16",
+      "value": 89311.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Pre-tax income = NetIncomeLoss + IncomeTaxExpenseBenefit for FY ending 2023-06-30. CAVEAT: the template's FORECAST identity is pre-tax = EBIT - interest, which omits other income and expense. For FY2024 that is 86,555 against a disclosed 89,311 $mm, a gap of 2,756. The historical column carries the disclosed figure; the forward columns carry the template identity. They are different quantities and the difference is real, not an error."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "D17",
+      "value": 16950.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Income tax expense, tagged IncomeTaxExpenseBenefit, FY ending 2023-06-30."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "D18",
+      "value": 72361.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Net income, tagged NetIncomeLoss, FY ending 2023-06-30. Microsoft 2022-2024 as tagged in us-gaap XBRL, recorded at tools/data_fabric/out/MSFT_facts_annual_series.json. Every period ends on or before the 2024-06-30 as-of date."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "D19",
+      "value": 7475.3,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Diluted weighted-average shares = NetIncomeLoss / EarningsPerShareDiluted for FY ending 2023-06-30. This fact set carries no WeightedAverageNumberOfDilutedSharesOutstanding concept, so the count is solved from two tagged values. It reproduces the figure Microsoft reports: FY2024 solves to 7,469.2mm against a disclosed 7,469mm, a 0.002% difference."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "D20",
+      "value": 9.68,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Diluted EPS, tagged EarningsPerShareDiluted, FY ending 2023-06-30."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "E5",
+      "value": 245122.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Revenue, tagged RevenueFromContractWithCustomerExcludingAssessedTax, FY ending 2024-06-30. Microsoft 2022-2024 as tagged in us-gaap XBRL, recorded at tools/data_fabric/out/MSFT_facts_annual_series.json. Every period ends on or before the 2024-06-30 as-of date."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "E7",
+      "value": 74114.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "COGS = revenue - GrossProfit for FY ending 2024-06-30. Microsoft tags no cost-of-revenue concept in this fact set, so it is the difference of two tagged values rather than a third tagged one."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "E10",
+      "value": 61575.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Operating expense = GrossProfit - OperatingIncomeLoss for FY ending 2024-06-30. Ties to the tagged R&D, S&M and G&A lines."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "E14",
+      "value": 109433.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "EBIT, tagged OperatingIncomeLoss, FY ending 2024-06-30. Microsoft 2022-2024 as tagged in us-gaap XBRL, recorded at tools/data_fabric/out/MSFT_facts_annual_series.json. Every period ends on or before the 2024-06-30 as-of date."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "E15",
+      "value": 2935.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Interest expense, tagged InterestExpense, FY ending 2024-06-30."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "E16",
+      "value": 107787.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Pre-tax income = NetIncomeLoss + IncomeTaxExpenseBenefit for FY ending 2024-06-30. CAVEAT: the template's FORECAST identity is pre-tax = EBIT - interest, which omits other income and expense. For FY2024 that is 106,498 against a disclosed 107,787 $mm, a gap of 1,289. The historical column carries the disclosed figure; the forward columns carry the template identity. They are different quantities and the difference is real, not an error."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "E17",
+      "value": 19651.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Income tax expense, tagged IncomeTaxExpenseBenefit, FY ending 2024-06-30."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "E18",
+      "value": 88136.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Net income, tagged NetIncomeLoss, FY ending 2024-06-30. Microsoft 2022-2024 as tagged in us-gaap XBRL, recorded at tools/data_fabric/out/MSFT_facts_annual_series.json. Every period ends on or before the 2024-06-30 as-of date."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "E19",
+      "value": 7469.2,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft FY2020-FY2024 XBRL company facts (CIK 0000789019)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+        "as_of": "2024-06-30",
+        "notes": "Diluted weighted-average shares = NetIncomeLoss / EarningsPerShareDiluted for FY ending 2024-06-30. This fact set carries no WeightedAverageNumberOfDilutedSharesOutstanding concept, so the count is solved from two tagged values. It reproduces the figure Microsoft reports: FY2024 solves to 7,469.2mm against a disclosed 7,469mm, a 0.002% difference."
+      }
+    },
+    {
+      "sheet": "IS",
+      "cell": "E20",
+      "value": 11.8,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Diluted EPS, tagged EarningsPerShareDiluted, FY ending 2024-06-30."
+      }
+    },
+    {
       "sheet": "Treasury & Liquidity",
       "cell": "C5",
       "value": 34704.0,
@@ -1611,7 +1983,7 @@
     }
   ],
   "refresh": {
-    "date": "2026-09-01",
+    "date": "2026-09-07",
     "trigger": "Depth pass: full input accounting against recorded XBRL facts",
     "source_snapshot": "repo://02_Corporate_Finance/sources/snapshots/corporate-public-microsoft-2024.json",
     "what_changed": "Filled the forward driver grid, the DCF bridge, the treasury policy screens, and the comparable-company peer set from Microsoft's recorded XBRL facts for FY2020-FY2024. The grid previously held literal zeros -- a zero revenue growth rate and a zero WACC read as data rather than as blanks. Every forward driver is derived only from fiscal years ending on or before the case's as-of date; FY2025 and FY2026 actuals are present in the fact set and excluded by an explicit assertion in the generator. The eighteen values already sourced from the 10-K are untouched, and two places where the 10-K and the XBRL tag disagree are recorded as open questions rather than silently reconciled.",
@@ -2061,6 +2433,48 @@
       "basis": {}
     },
     {
+      "sheet": "IS",
+      "cell": "C11",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "EBITDA historical actual. Microsoft tags no depreciation or amortisation concept in this fact set (all four spellings checked), so this cannot be sourced from it and is left empty rather than plugged. The DCF does not read these cells: it takes D&A from the Assumptions grid in the forward columns.",
+      "basis": {}
+    },
+    {
+      "sheet": "IS",
+      "cell": "C13",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "D&A historical actual. Microsoft tags no depreciation or amortisation concept in this fact set (all four spellings checked), so this cannot be sourced from it and is left empty rather than plugged. The DCF does not read these cells: it takes D&A from the Assumptions grid in the forward columns.",
+      "basis": {}
+    },
+    {
+      "sheet": "IS",
+      "cell": "D11",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "EBITDA historical actual. Microsoft tags no depreciation or amortisation concept in this fact set (all four spellings checked), so this cannot be sourced from it and is left empty rather than plugged. The DCF does not read these cells: it takes D&A from the Assumptions grid in the forward columns.",
+      "basis": {}
+    },
+    {
+      "sheet": "IS",
+      "cell": "D13",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "D&A historical actual. Microsoft tags no depreciation or amortisation concept in this fact set (all four spellings checked), so this cannot be sourced from it and is left empty rather than plugged. The DCF does not read these cells: it takes D&A from the Assumptions grid in the forward columns.",
+      "basis": {}
+    },
+    {
+      "sheet": "IS",
+      "cell": "E11",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "EBITDA historical actual. Microsoft tags no depreciation or amortisation concept in this fact set (all four spellings checked), so this cannot be sourced from it and is left empty rather than plugged. The DCF does not read these cells: it takes D&A from the Assumptions grid in the forward columns.",
+      "basis": {}
+    },
+    {
+      "sheet": "IS",
+      "cell": "E13",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "D&A historical actual. Microsoft tags no depreciation or amortisation concept in this fact set (all four spellings checked), so this cannot be sourced from it and is left empty rather than plugged. The DCF does not read these cells: it takes D&A from the Assumptions grid in the forward columns.",
+      "basis": {}
+    },
+    {
       "sheet": "Treasury & Liquidity",
       "cell": "C15",
       "driver_type": "undisclosed_term_driver",
@@ -2102,5 +2516,34 @@
       "rationale": "Minimum tolerated interest coverage. A treasury policy screen set by the analyst, not a Microsoft disclosure -- Microsoft is investment grade and discloses no maintenance covenant thresholds. Held as a driver.",
       "basis": {}
     }
-  ]
+  ],
+  "base_year_reproduction": {
+    "sheet": "IS",
+    "exemptions": [
+      {
+        "row": 16,
+        "line": "Pre-tax income",
+        "reproduction_exemption": "identity_omits_line",
+        "rationale": "The forward identity is pre-tax = EBIT - interest expense and the template carries no row for other income and expense, which the disclosure includes. For FY2024 that is 106,498 against a disclosed 107,787 $mm, a gap of 1,289. The two are different quantities, not one quantity computed twice."
+      },
+      {
+        "row": 17,
+        "line": "Tax",
+        "reproduction_exemption": "identity_omits_line",
+        "rationale": "Tax is the effective rate applied to pre-tax income, so it inherits the 1,289 omission on row 16 in proportion."
+      },
+      {
+        "row": 18,
+        "line": "Net income",
+        "reproduction_exemption": "identity_omits_line",
+        "rationale": "Net income is pre-tax less tax, so it inherits the same omission on row 16."
+      },
+      {
+        "row": 19,
+        "line": "Diluted shares",
+        "reproduction_exemption": "forward_by_design",
+        "rationale": "Assumptions!C12 is a forward diluted share count net of repurchases, so FY1 is expected to sit below the FY2024 actual of 7,469.2mm. Reproducing the base year here would mean the buyback was not being modelled at all."
+      }
+    ]
+  }
 }

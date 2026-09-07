@@ -1,0 +1,61 @@
+name: Recalculation Persistence
+
+# Deliberately NOT path-filtered. A committed workbook can lose its stored
+# results from a change to a builder, a helper, a case script or a manifest,
+# and #112's regression arrived through a case rebuild rather than an edit to
+# any file a filter would have named. A gate that only fires on the files
+# someone thought of is a gate that stops firing.
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  persistence:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install repository dependencies
+        run: pip install -r requirements.txt
+
+      - name: Require every committed case workbook to carry its results
+        run: |
+          PYTHONPATH=. python tools/verify_recalc_persistence.py \
+            --report recalc-persistence-report.json
+
+      - name: Prove the gate can still fail
+        # A gate is only evidence while it can refuse. These tests strip a real
+        # workbook's stored results and require a FAIL, and mutate the ledger
+        # enumeration to empty and require a FAIL -- so a fail-open regression
+        # in the gate reddens here rather than passing quietly forever.
+        run: PYTHONPATH=. python -m unittest tests.test_recalc_persistence -v
+
+      - name: Upload persistence report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: recalc-persistence-${{ github.event_name }}
+          path: recalc-persistence-report.json
+          if-no-files-found: warn
+          retention-days: 30

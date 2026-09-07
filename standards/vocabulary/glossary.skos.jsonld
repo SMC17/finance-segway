@@ -362,6 +362,53 @@
       ]
     },
     {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#reproduction-exemption",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "reproduction exemption",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "A recorded statement that a named model line is not expected to reproduce its base year, giving the reason the line legitimately differs.",
+        "@language": "en"
+      },
+      "skos:broader": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#driver-declaration"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#base-year-reproduction"
+        }
+      ],
+      "skos:scopeNote": {
+        "@value": "An exemption excuses a line from comparison; it does not excuse the model from being compared.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#base-year-reproduction",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
+      },
+      "skos:prefLabel": {
+        "@value": "base-year reproduction",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "The result of evaluating a model's forecast chain at its own base period and comparing each line to the actual disclosed for that period.",
+        "@language": "en"
+      },
+      "skos:related": [
+        {
+          "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#reproduction-exemption"
+        }
+      ]
+    },
+    {
       "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary#grounded-driver",
       "@type": "skos:Concept",
       "skos:inScheme": {

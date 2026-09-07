@@ -1,0 +1,65 @@
+name: Base-Year Reproduction
+
+# Deliberately NOT path-filtered, for the same reason as the other gates here:
+# this can regress from a builder change, a case script, a driver value or a
+# template edit, and a gate that only fires on the files someone thought of is
+# a gate that stops firing.
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  reproduction:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout triggering revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install repository dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install LibreOffice
+        run: sudo apt-get update && sudo apt-get install -y libreoffice-calc
+
+      - name: Prove the gate can still fail
+        # Run FIRST and separately from the scan below. These tests build a
+        # sound synthetic model and require a pass, move one driver and require
+        # a fail, and require that a workbook whose only sourced actual is the
+        # revenue anchor -- which this probe holds equal by construction -- is
+        # NOT counted as reproducing. The gate is only evidence while a fail is
+        # reachable, and this step is what says so.
+        run: PYTHONPATH=. python -m unittest tests.test_base_year_reproduction -v
+
+      - name: Compare every model to the period it was calibrated on
+        run: |
+          PYTHONPATH=. python tools/verify_base_year_reproduction.py \
+            --report base-year-reproduction-report.json
+
+      - name: Upload reproduction report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: base-year-reproduction-${{ github.event_name }}
+          path: base-year-reproduction-report.json
+          if-no-files-found: warn
+          retention-days: 30

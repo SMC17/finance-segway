@@ -312,6 +312,110 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
         for column, value in zip(FORWARD_COLUMNS, values):
             emit(sheet, f"{column}{row}", round(value, 6) if abs(value) < 100 else round(value, 1), kind, note)
 
+    # --- IS: the historical block the whole model grows from ---------------
+    # IS!F5 is =E5*(1+Assumptions!C5). E5 was empty, so every projected year,
+    # the cash flow statement and the DCF evaluated from a base of zero -- and
+    # that did not surface as a zero valuation, because Equity value =
+    # Enterprise value - net debt and net debt is negative. The case published
+    # an implied $1.13 per share off an enterprise value of exactly 0.
+    #
+    # The forward grid above was already sourced. Nothing was driving it.
+    #
+    # Columns C/D/E are FY-2A/FY-1A/FY0A, so the last three fiscal years at or
+    # before the as-of date. assert_no_hindsight() already fixed HISTORY to
+    # periods ending on or before AS_OF.
+    is_history = HISTORY[-3:]
+    is_columns = ["C", "D", "E"]
+
+    def per_share(concept: str, end: str) -> float:
+        """load_xbrl divides every value by 1e6 to reach $mm. EPS is already
+        per share, so that division has to be undone rather than applied."""
+        return fact(concept, end) * 1e6
+
+    xbrl_note = (
+        f"Microsoft {is_history[0][:4]}-{is_history[-1][:4]} as tagged in "
+        "us-gaap XBRL, recorded at "
+        f"{FACTS.relative_to(ROOT)}. Every period ends on or before the "
+        f"{AS_OF} as-of date."
+    )
+    for column, end in zip(is_columns, is_history):
+        revenue_v = fact(REVENUE, end)
+        gross_v = fact("GrossProfit", end)
+        ebit_v = fact("OperatingIncomeLoss", end)
+        tax_v = fact("IncomeTaxExpenseBenefit", end)
+        net_v = fact("NetIncomeLoss", end)
+        eps_v = per_share("EarningsPerShareDiluted", end)
+
+        emit("IS", f"{column}5", round(revenue_v, 1), "observed",
+             f"Revenue, tagged {REVENUE}, FY ending {end}. {xbrl_note}")
+        emit("IS", f"{column}7", round(revenue_v - gross_v, 1), "derived",
+             f"COGS = revenue - GrossProfit for FY ending {end}. Microsoft tags "
+             "no cost-of-revenue concept in this fact set, so it is the "
+             "difference of two tagged values rather than a third tagged one.")
+        emit("IS", f"{column}10", round(gross_v - ebit_v, 1), "derived",
+             f"Operating expense = GrossProfit - OperatingIncomeLoss for FY "
+             f"ending {end}. Ties to the tagged R&D, S&M and G&A lines.")
+        emit("IS", f"{column}14", round(ebit_v, 1), "observed",
+             f"EBIT, tagged OperatingIncomeLoss, FY ending {end}. {xbrl_note}")
+        emit("IS", f"{column}15", round(fact("InterestExpense", end), 1), "observed",
+             f"Interest expense, tagged InterestExpense, FY ending {end}.")
+        emit("IS", f"{column}16", round(net_v + tax_v, 1), "derived",
+             f"Pre-tax income = NetIncomeLoss + IncomeTaxExpenseBenefit for FY "
+             f"ending {end}. CAVEAT: the template's FORECAST identity is pre-tax "
+             "= EBIT - interest, which omits other income and expense. For FY2024 "
+             f"that is {ebit_v - fact('InterestExpense', end):,.0f} against a "
+             f"disclosed {net_v + tax_v:,.0f} $mm, a gap of "
+             f"{net_v + tax_v - (ebit_v - fact('InterestExpense', end)):,.0f}. "
+             "The historical column carries the disclosed figure; the forward "
+             "columns carry the template identity. They are different quantities "
+             "and the difference is real, not an error.")
+        emit("IS", f"{column}17", round(tax_v, 1), "observed",
+             f"Income tax expense, tagged IncomeTaxExpenseBenefit, FY ending {end}.")
+        emit("IS", f"{column}18", round(net_v, 1), "observed",
+             f"Net income, tagged NetIncomeLoss, FY ending {end}. {xbrl_note}")
+        emit("IS", f"{column}19", round(net_v / eps_v, 1), "derived",
+             f"Diluted weighted-average shares = NetIncomeLoss / "
+             f"EarningsPerShareDiluted for FY ending {end}. This fact set carries "
+             "no WeightedAverageNumberOfDilutedSharesOutstanding concept, so the "
+             "count is solved from two tagged values. It reproduces the figure "
+             "Microsoft reports: FY2024 solves to 7,469.2mm against a disclosed "
+             "7,469mm, a 0.002% difference.")
+        emit("IS", f"{column}20", round(eps_v, 2), "observed",
+             f"Diluted EPS, tagged EarningsPerShareDiluted, FY ending {end}.")
+
+    # C8 alone: the builder writes the gross-profit formula from column D
+    # rightward, so C8 is the one historical cell in that row without one.
+    emit("IS", "C8", round(fact("GrossProfit", is_history[0]), 1), "observed",
+         f"Gross profit, tagged GrossProfit, FY ending {is_history[0]}. D8 and E8 "
+         "carry the template's =revenue-COGS formula; C8 does not, because the "
+         "builder writes that formula from column D rightward.")
+
+    # EBITDA and D&A stay empty, declared rather than invented. Microsoft tags
+    # no DepreciationDepletionAndAmortization, DepreciationAndAmortization,
+    # DepreciationAmortizationAndAccretionNet or Depreciation in this fact set
+    # -- checked, all four absent -- so EBITDA is not derivable from it, and a
+    # plugged D&A would make the EBITDA line look sourced when it is not. This
+    # is the same limitation #109 and #110 both recorded.
+    for column in is_columns:
+        for row, label in ((11, "EBITDA"), (13, "D&A")):
+            drivers.append({
+                "sheet": "IS", "cell": f"{column}{row}",
+                # undisclosed_metric_driver, not structural_mismatch_driver:
+                # Microsoft DOES disclose D&A in its cash flow statement. It is
+                # absent from THIS fact set, which is a source limitation, not a
+                # line item the template has no counterpart for. Checked against
+                # standards/vocabulary/glossary.json rather than guessed.
+                "driver_type": "undisclosed_metric_driver",
+                "rationale": (
+                    f"{label} historical actual. Microsoft tags no depreciation or "
+                    "amortisation concept in this fact set (all four spellings "
+                    "checked), so this cannot be sourced from it and is left empty "
+                    "rather than plugged. The DCF does not read these cells: it "
+                    "takes D&A from the Assumptions grid in the forward columns."
+                ),
+                "basis": {},
+            })
+
     # --- Treasury & Liquidity: only cells not already sourced ------------
     opening_cash = fact("CashAndCashEquivalentsAtCarryingValue", HISTORY[-2])
     worst_cash = min(fact("CashAndCashEquivalentsAtCarryingValue", e) for e in HISTORY)
@@ -423,14 +527,40 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
 
     existing = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
     preserved = existing["inputs"]
-    already = {(item["sheet"], item["cell"]) for item in preserved}
-    added = [item for item in inputs if (item["sheet"], item["cell"]) not in already]
-    collisions = [item for item in inputs if (item["sheet"], item["cell"]) in already]
+    prior = {(item["sheet"], item["cell"]): item.get("value") for item in preserved}
+
+    # A collision is a cell already carrying a DIFFERENT value, not one
+    # already carrying the value this script computes. Comparing on the key
+    # alone made the script single-use: its own previous output looked like a
+    # foreign source, so a second run raised on all 108 cells it had just
+    # written. A generator nobody can re-run cannot be checked, which is
+    # exactly what "generated end-to-end, nothing hand-typed" is claiming.
+    #
+    # Re-running with unchanged facts is now a no-op. A cell whose value has
+    # MOVED still raises, because that is a real change and wants a human --
+    # a refreshed fact set, or a hand edit, look identical here and only a
+    # person can say which happened.
+    def _same(a: Any, b: Any) -> bool:
+        if isinstance(a, (int, float)) and isinstance(b, (int, float)):
+            return abs(a - b) <= 1e-9 * max(1.0, abs(a), abs(b))
+        return a == b
+
+    collisions = [
+        item for item in inputs
+        if (item["sheet"], item["cell"]) in prior
+        and not _same(item.get("value"), prior[(item["sheet"], item["cell"])])
+    ]
     if collisions:
         raise ValueError(
-            "refusing to overwrite already-sourced cells: "
+            "refusing to overwrite already-sourced cells whose value differs: "
             f"{sorted((c['sheet'], c['cell']) for c in collisions)}"
         )
+    regenerated = {(item["sheet"], item["cell"]) for item in inputs}
+    preserved = [
+        item for item in preserved
+        if (item["sheet"], item["cell"]) not in regenerated
+    ]
+    added = list(inputs)
 
     snapshot_existing = json.loads(SNAPSHOT_PATH.read_text(encoding="utf-8"))
     snapshot = {
@@ -589,6 +719,58 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
                 "not comparable to the 10-K's cash and short-term investments."
             ),
             "next_check": "On Microsoft's next Form 10-K, builder change, or annual review",
+        },
+        # Lines the forward chain is not claiming to reproduce at the base year,
+        # each with the reason it legitimately differs. Recorded here rather than
+        # left in prose because tools/verify_base_year_reproduction.py compares
+        # the chain to the disclosed actuals and has to be able to read which
+        # differences are by construction. EBIT is deliberately absent: it does
+        # not reproduce, and that is a defect rather than a design choice.
+        "base_year_reproduction": {
+            "sheet": "IS",
+            "exemptions": [
+                {
+                    "row": 16,
+                    "line": "Pre-tax income",
+                    "reproduction_exemption": "identity_omits_line",
+                    "rationale": (
+                        "The forward identity is pre-tax = EBIT - interest expense and "
+                        "the template carries no row for other income and expense, which "
+                        "the disclosure includes. For FY2024 that is 106,498 against a "
+                        "disclosed 107,787 $mm, a gap of 1,289. The two are different "
+                        "quantities, not one quantity computed twice."
+                    ),
+                },
+                {
+                    "row": 17,
+                    "line": "Tax",
+                    "reproduction_exemption": "identity_omits_line",
+                    "rationale": (
+                        "Tax is the effective rate applied to pre-tax income, so it "
+                        "inherits the 1,289 omission on row 16 in proportion."
+                    ),
+                },
+                {
+                    "row": 18,
+                    "line": "Net income",
+                    "reproduction_exemption": "identity_omits_line",
+                    "rationale": (
+                        "Net income is pre-tax less tax, so it inherits the same "
+                        "omission on row 16."
+                    ),
+                },
+                {
+                    "row": 19,
+                    "line": "Diluted shares",
+                    "reproduction_exemption": "forward_by_design",
+                    "rationale": (
+                        "Assumptions!C12 is a forward diluted share count net of "
+                        "repurchases, so FY1 is expected to sit below the FY2024 "
+                        "actual of 7,469.2mm. Reproducing the base year here would "
+                        "mean the buyback was not being modelled at all."
+                    ),
+                },
+            ],
         },
         "driver_declarations": sorted(
             drivers,
