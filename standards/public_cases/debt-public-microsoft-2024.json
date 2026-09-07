@@ -8,9 +8,720 @@
   "as_of": "2024-06-30",
   "scenario": "Base",
   "cover": {
-    "Issuer:": "Microsoft FY2024 debt and liquidity profile"
+    "Issuer:": "Microsoft Corporation (NASDAQ: MSFT), CIK 0000789019",
+    "Transaction:": "FY2024 debt, liquidity, and refinancing profile -- general corporate, no transaction pending",
+    "Next maturity / launch:": "FY2025 (within twelve months of 2024-06-30): 8,942 $mm of tagged near-term maturities (LongTermDebtCurrent 2,249 + commercial paper 6,693)",
+    "Refresh cadence:": "Annual, on Microsoft's Form 10-K (fiscal year ends 30 June)"
   },
   "inputs": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 109433.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "EBIT (us-gaap:OperatingIncomeLoss), NOT EBITDA. Microsoft tags no DepreciationDepletionAndAmortization concept in this fact set, so EBITDA cannot be derived from it. EBIT is used as a conservative lower bound: it understates EBITDA, which understates interest coverage and overstates leverage, so the case errs toward making Microsoft's credit look worse than it is, never better. FY2024 OperatingIncomeLoss = 109,433 $mm. Downside is the lowest of FY2024, FY2023, FY2022 (83,383 $mm)."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 18315.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "us-gaap:CashAndCashEquivalentsAtCarryingValue at 2024-06-30 = 18,315 $mm. Strict cash and equivalents -- narrower than the liquidity figure on the refinancing sheet (75,543 $mm), which is cash AND short-term investments per the 10-K. Downside is the lowest of FY2024, FY2023, FY2022."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 6693.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "us-gaap:CommercialPaper at 2024-06-30 = 6,693 $mm. Mapped to the template's 'revolver drawn' line because commercial paper is the short-term borrowing Microsoft actually had outstanding and is the balance that must be rolled within twelve months; Microsoft's revolving credit facility itself was undrawn. Labelled here so the line is not misread as revolver borrowings."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "value": 0.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Zero. Microsoft's XBRL debt facts disclose no term-loan instrument -- the entire long-term balance is tagged under LongTermDebt / LongTermDebtNoncurrent, consistent with a notes-and-leases capital structure. The template's $300mm term-loan default is a generic mid-cap placeholder and is removed."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "value": 44937.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "us-gaap:LongTermDebt at 2024-06-30 = 44,937 $mm, carried on the senior-notes line because Microsoft's long-term debt is senior unsecured notes. Downside is the highest of FY2024, FY2023, FY2022 (49,781 $mm) -- more debt is the adverse direction."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C10",
+      "value": 15497.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Residual: disclosed total debt 67,127 - LongTermDebt 44,937 - CommercialPaper 6,693 = 15,497 $mm. Finance leases and other borrowings Microsoft does not tag separately in this fact set. Carrying it as the residual is what makes gross debt on the Capital Structure sheet tie EXACTLY to the disclosed total. Disclosed total debt of 67,127 $mm is BROADER than the XBRL LongTermDebt tag (44,937 $mm): it includes finance leases and other borrowings Microsoft reports outside that concept. Both figures are real and measure different things; the capital structure uses the broader disclosed total so gross debt ties to the filing."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "value": 0.0533,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Floating base rate. Not company data; it would come from a rates source (FRED), which is not reachable in this environment. It feeds only the term-loan line, which is zero for Microsoft, so it is inert here."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C12",
+      "value": 0.05,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "All-in cost of the commercial-paper balance. Microsoft does not tag a commercial-paper rate. Held as a driver -- and note the AGGREGATE it feeds is pinned: the senior-notes coupon is solved so total cash interest equals the disclosed InterestExpense of 2,935 $mm regardless of how this splits."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C13",
+      "value": 0.015,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Term-loan spread. Inert: Microsoft has no term loan."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C14",
+      "value": 0.04302793,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Solved so Capital Structure cash interest equals the disclosed us-gaap:InterestExpense of 2,935 $mm for FY2024. The template charges both the senior-notes and other-debt lines at this rate, so coupon = (InterestExpense - CommercialPaper x revolver spread) / (LongTermDebt + other debt) = 0.043028. Per-instrument coupons are in the 10-K debt note as tabular HTML, not as tagged facts; the weighted burden is what is disclosed, and it is what is pinned."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C15",
+      "value": 0.009,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "New-issue spread for hypothetical refinancing. Forward pricing is not a disclosed fact about any issuer."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C16",
+      "value": 0.0035,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Original issue discount and fees on hypothetical new issuance. Not disclosed."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C17",
+      "value": 10000.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Minimum operating cash. A modeler-set policy floor, not a Microsoft disclosure."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C18",
+      "value": 3.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Maximum leverage screen. Microsoft is investment grade and its credit agreement carries no maintenance leverage covenant, so there is no disclosed threshold to source. This is an analyst screen, not a covenant, and the template's 5.5x leveraged-mid-cap default is removed."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C19",
+      "value": 8.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Minimum interest-coverage screen. Same reasoning as the leverage screen: no maintenance covenant exists to disclose."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C20",
+      "value": 12.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Recovery/EV multiple for the recovery analysis. Not a disclosed fact."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C21",
+      "value": 0.35,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Distress haircut to enterprise value. A modeler-chosen severity, not a disclosure."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "value": 83383.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "EBIT (us-gaap:OperatingIncomeLoss), NOT EBITDA. Microsoft tags no DepreciationDepletionAndAmortization concept in this fact set, so EBITDA cannot be derived from it. EBIT is used as a conservative lower bound: it understates EBITDA, which understates interest coverage and overstates leverage, so the case errs toward making Microsoft's credit look worse than it is, never better. FY2024 OperatingIncomeLoss = 109,433 $mm. Downside is the lowest of FY2024, FY2023, FY2022 (83,383 $mm)."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D6",
+      "value": 13931.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "us-gaap:CashAndCashEquivalentsAtCarryingValue at 2024-06-30 = 18,315 $mm. Strict cash and equivalents -- narrower than the liquidity figure on the refinancing sheet (75,543 $mm), which is cash AND short-term investments per the 10-K. Downside is the lowest of FY2024, FY2023, FY2022."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": 6693.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "us-gaap:CommercialPaper at 2024-06-30 = 6,693 $mm. Mapped to the template's 'revolver drawn' line because commercial paper is the short-term borrowing Microsoft actually had outstanding and is the balance that must be rolled within twelve months; Microsoft's revolving credit facility itself was undrawn. Labelled here so the line is not misread as revolver borrowings."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "value": 0.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Zero. Microsoft's XBRL debt facts disclose no term-loan instrument -- the entire long-term balance is tagged under LongTermDebt / LongTermDebtNoncurrent, consistent with a notes-and-leases capital structure. The template's $300mm term-loan default is a generic mid-cap placeholder and is removed."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "value": 49781.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "us-gaap:LongTermDebt at 2024-06-30 = 44,937 $mm, carried on the senior-notes line because Microsoft's long-term debt is senior unsecured notes. Downside is the highest of FY2024, FY2023, FY2022 (49,781 $mm) -- more debt is the adverse direction."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 15497.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Residual: disclosed total debt 67,127 - LongTermDebt 44,937 - CommercialPaper 6,693 = 15,497 $mm. Finance leases and other borrowings Microsoft does not tag separately in this fact set. Carrying it as the residual is what makes gross debt on the Capital Structure sheet tie EXACTLY to the disclosed total. Disclosed total debt of 67,127 $mm is BROADER than the XBRL LongTermDebt tag (44,937 $mm): it includes finance leases and other borrowings Microsoft reports outside that concept. Both figures are real and measure different things; the capital structure uses the broader disclosed total so gross debt ties to the filing."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "value": 0.0533,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Floating base rate. Not company data; it would come from a rates source (FRED), which is not reachable in this environment. It feeds only the term-loan line, which is zero for Microsoft, so it is inert here."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D12",
+      "value": 0.05,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "All-in cost of the commercial-paper balance. Microsoft does not tag a commercial-paper rate. Held as a driver -- and note the AGGREGATE it feeds is pinned: the senior-notes coupon is solved so total cash interest equals the disclosed InterestExpense of 2,935 $mm regardless of how this splits."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D13",
+      "value": 0.015,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Term-loan spread. Inert: Microsoft has no term loan."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D14",
+      "value": 0.04302793,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Solved so Capital Structure cash interest equals the disclosed us-gaap:InterestExpense of 2,935 $mm for FY2024. The template charges both the senior-notes and other-debt lines at this rate, so coupon = (InterestExpense - CommercialPaper x revolver spread) / (LongTermDebt + other debt) = 0.043028. Per-instrument coupons are in the 10-K debt note as tabular HTML, not as tagged facts; the weighted burden is what is disclosed, and it is what is pinned."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D15",
+      "value": 0.009,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "New-issue spread for hypothetical refinancing. Forward pricing is not a disclosed fact about any issuer."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D16",
+      "value": 0.0035,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Original issue discount and fees on hypothetical new issuance. Not disclosed."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D17",
+      "value": 10000.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Minimum operating cash. A modeler-set policy floor, not a Microsoft disclosure."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D18",
+      "value": 3.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Maximum leverage screen. Microsoft is investment grade and its credit agreement carries no maintenance leverage covenant, so there is no disclosed threshold to source. This is an analyst screen, not a covenant, and the template's 5.5x leveraged-mid-cap default is removed."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D19",
+      "value": 8.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Minimum interest-coverage screen. Same reasoning as the leverage screen: no maintenance covenant exists to disclose."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D20",
+      "value": 12.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Recovery/EV multiple for the recovery analysis. Not a disclosed fact."
+      }
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D21",
+      "value": 0.35,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Distress haircut to enterprise value. A modeler-chosen severity, not a disclosure."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "C5",
+      "value": 6693.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Commercial paper 6,693 $mm matures inside twelve months by definition, so it sits entirely in Year 1 and the later columns are zero. Microsoft's revolving facility itself was undrawn."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "C6",
+      "value": 0.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Zero across every year: Microsoft's XBRL debt facts disclose no term-loan instrument."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "C7",
+      "value": 2249.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Year 1 is us-gaap:LongTermDebtCurrent = 2,249 $mm, a tagged fact. The remaining 42,688 $mm of long-term notes is spread across later years by a SHAPE driver -- Microsoft's year-by-year maturity table is untagged HTML in the debt note -- but the row total is pinned to tagged us-gaap:LongTermDebt."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "C8",
+      "value": 4649.1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Finance leases and other borrowings, 15,497 $mm in total. Neither the balance nor its maturity profile is tagged separately; the balance is the residual against disclosed total debt and the profile is a shape driver. The row total is pinned."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "C16",
+      "value": 75543.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Cash and short-term investments 75,543 $mm per the FY2024 10-K, the same disclosed liquidity used on the refinancing sheet."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "D5",
+      "value": 0.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Commercial paper 6,693 $mm matures inside twelve months by definition, so it sits entirely in Year 1 and the later columns are zero. Microsoft's revolving facility itself was undrawn."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "D6",
+      "value": 0.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Zero across every year: Microsoft's XBRL debt facts disclose no term-loan instrument."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "D7",
+      "value": 8537.6,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Year 1 is us-gaap:LongTermDebtCurrent = 2,249 $mm, a tagged fact. The remaining 42,688 $mm of long-term notes is spread across later years by a SHAPE driver -- Microsoft's year-by-year maturity table is untagged HTML in the debt note -- but the row total is pinned to tagged us-gaap:LongTermDebt."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "D8",
+      "value": 3409.3,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Finance leases and other borrowings, 15,497 $mm in total. Neither the balance nor its maturity profile is tagged separately; the balance is the residual against disclosed total debt and the profile is a shape driver. The row total is pinned."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "E5",
+      "value": 0.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Commercial paper 6,693 $mm matures inside twelve months by definition, so it sits entirely in Year 1 and the later columns are zero. Microsoft's revolving facility itself was undrawn."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "E6",
+      "value": 0.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Zero across every year: Microsoft's XBRL debt facts disclose no term-loan instrument."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "E7",
+      "value": 6830.1,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Year 1 is us-gaap:LongTermDebtCurrent = 2,249 $mm, a tagged fact. The remaining 42,688 $mm of long-term notes is spread across later years by a SHAPE driver -- Microsoft's year-by-year maturity table is untagged HTML in the debt note -- but the row total is pinned to tagged us-gaap:LongTermDebt."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "E8",
+      "value": 2479.5,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Finance leases and other borrowings, 15,497 $mm in total. Neither the balance nor its maturity profile is tagged separately; the balance is the residual against disclosed total debt and the profile is a shape driver. The row total is pinned."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "F5",
+      "value": 0.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Commercial paper 6,693 $mm matures inside twelve months by definition, so it sits entirely in Year 1 and the later columns are zero. Microsoft's revolving facility itself was undrawn."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "F6",
+      "value": 0.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Zero across every year: Microsoft's XBRL debt facts disclose no term-loan instrument."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "F7",
+      "value": 5976.3,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Year 1 is us-gaap:LongTermDebtCurrent = 2,249 $mm, a tagged fact. The remaining 42,688 $mm of long-term notes is spread across later years by a SHAPE driver -- Microsoft's year-by-year maturity table is untagged HTML in the debt note -- but the row total is pinned to tagged us-gaap:LongTermDebt."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "F8",
+      "value": 1859.6,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Finance leases and other borrowings, 15,497 $mm in total. Neither the balance nor its maturity profile is tagged separately; the balance is the residual against disclosed total debt and the profile is a shape driver. The row total is pinned."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "G5",
+      "value": 0.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Commercial paper 6,693 $mm matures inside twelve months by definition, so it sits entirely in Year 1 and the later columns are zero. Microsoft's revolving facility itself was undrawn."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "G6",
+      "value": 0.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Zero across every year: Microsoft's XBRL debt facts disclose no term-loan instrument."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "G7",
+      "value": 5122.6,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Year 1 is us-gaap:LongTermDebtCurrent = 2,249 $mm, a tagged fact. The remaining 42,688 $mm of long-term notes is spread across later years by a SHAPE driver -- Microsoft's year-by-year maturity table is untagged HTML in the debt note -- but the row total is pinned to tagged us-gaap:LongTermDebt."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "G8",
+      "value": 1549.7,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Finance leases and other borrowings, 15,497 $mm in total. Neither the balance nor its maturity profile is tagged separately; the balance is the residual against disclosed total debt and the profile is a shape driver. The row total is pinned."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "H5",
+      "value": 0.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Commercial paper 6,693 $mm matures inside twelve months by definition, so it sits entirely in Year 1 and the later columns are zero. Microsoft's revolving facility itself was undrawn."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "H6",
+      "value": 0.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Zero across every year: Microsoft's XBRL debt facts disclose no term-loan instrument."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "H7",
+      "value": 16221.4,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Year 1 is us-gaap:LongTermDebtCurrent = 2,249 $mm, a tagged fact. The remaining 42,688 $mm of long-term notes is spread across later years by a SHAPE driver -- Microsoft's year-by-year maturity table is untagged HTML in the debt note -- but the row total is pinned to tagged us-gaap:LongTermDebt."
+      }
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "H8",
+      "value": 1549.8,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Finance leases and other borrowings, 15,497 $mm in total. Neither the balance nor its maturity profile is tagged separately; the balance is the residual against disclosed total debt and the profile is a shape driver. The row total is pinned."
+      }
+    },
     {
       "sheet": "Refinancing & Rates",
       "cell": "C5",
@@ -20,7 +731,7 @@
         "name": "Microsoft 2024 Form 10-K",
         "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
         "as_of": "2024-06-30",
-        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date"
+        "notes": "Opening total debt 71,802 $mm, derived from the FY2024 10-K as ending debt 67,127 + repayments 29,070 - issuance 24,395. Retained from the case's existing frozen snapshot."
       }
     },
     {
@@ -32,7 +743,7 @@
         "name": "Microsoft 2024 Form 10-K",
         "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
         "as_of": "2024-06-30",
-        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date"
+        "notes": "Debt issued during FY2024 per the 10-K financing-activities section. Retained from the case's existing frozen snapshot."
       }
     },
     {
@@ -44,7 +755,67 @@
         "name": "Microsoft 2024 Form 10-K",
         "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
         "as_of": "2024-06-30",
-        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date"
+        "notes": "Debt repaid during FY2024 per the 10-K financing-activities section. Retained from the case's existing frozen snapshot."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C8",
+      "value": 8942.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Contractual maturities inside twelve months: LongTermDebtCurrent 2,249 + CommercialPaper 6,693 = 8,942 $mm. This is the one rung of the maturity ladder that IS tagged in XBRL; years 2-5 are disclosed only in the 10-K debt note's maturity table, which is untagged HTML."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C9",
+      "value": 12800.7,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Years 2-5 of the maturity ladder. The SHAPE is a driver -- Microsoft's year-by-year maturity table is in the 10-K debt note as untagged HTML -- but the TOTAL is pinned: these four rungs sum to 58,185.0 $mm, which is disclosed total debt 67,127 less the 8,942 $mm of tagged year-1 maturities, so no debt is created or lost by the ladder."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C10",
+      "value": 13964.4,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Years 2-5 of the maturity ladder. The SHAPE is a driver -- Microsoft's year-by-year maturity table is in the 10-K debt note as untagged HTML -- but the TOTAL is pinned: these four rungs sum to 58,185.0 $mm, which is disclosed total debt 67,127 less the 8,942 $mm of tagged year-1 maturities, so no debt is created or lost by the ladder."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C11",
+      "value": 11637.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Years 2-5 of the maturity ladder. The SHAPE is a driver -- Microsoft's year-by-year maturity table is in the 10-K debt note as untagged HTML -- but the TOTAL is pinned: these four rungs sum to 58,185.0 $mm, which is disclosed total debt 67,127 less the 8,942 $mm of tagged year-1 maturities, so no debt is created or lost by the ladder."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C12",
+      "value": 19782.9,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Years 2-5 of the maturity ladder. The SHAPE is a driver -- Microsoft's year-by-year maturity table is in the 10-K debt note as untagged HTML -- but the TOTAL is pinned: these four rungs sum to 58,185.0 $mm, which is disclosed total debt 67,127 less the 8,942 $mm of tagged year-1 maturities, so no debt is created or lost by the ladder. This rung is the balancing residual and therefore carries the constraint."
       }
     },
     {
@@ -56,7 +827,331 @@
         "name": "Microsoft 2024 Form 10-K",
         "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
         "as_of": "2024-06-30",
-        "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date"
+        "notes": "Cash and short-term investments 75,543 $mm per the FY2024 10-K. Retained from the case's existing frozen snapshot."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C14",
+      "value": 15000.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Committed revolving-credit capacity. Disclosed in the 10-K debt note as narrative text rather than a tagged fact."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C15",
+      "value": 44937.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Tranche 1 = us-gaap:LongTermDebt at 2024-06-30 = 44,937 $mm."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C16",
+      "value": 0.035,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Tranche-1 rate. Per-instrument coupons are untagged. Held as a driver; the weighted cost this feeds IS pinned to disclosure via tranche 2."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C17",
+      "value": 22190.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Tranche 2 = disclosed total debt 67,127 - LongTermDebt 44,937 = 22,190 $mm (commercial paper, finance leases, and other borrowings)."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C18",
+      "value": 0.05693742,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Solved so the sheet's weighted cost equals Microsoft's disclosed effective rate: InterestExpense 2,935 / average debt 69,464 = 0.042252. Gross bookings of rate detail are not disclosed per instrument; the blended cost is, so the blended cost is what the model reproduces."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C19",
+      "value": 109433.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "EBIT (us-gaap:OperatingIncomeLoss), NOT EBITDA. Microsoft tags no DepreciationDepletionAndAmortization concept in this fact set, so EBITDA cannot be derived from it. EBIT is used as a conservative lower bound: it understates EBITDA, which understates interest coverage and overstates leverage, so the case errs toward making Microsoft's credit look worse than it is, never better. Downside is the lowest of FY2024, FY2023, FY2022."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C20",
+      "value": 0.4,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Maximum tolerated share of debt maturing in any single year. An analyst screen, not a disclosed covenant."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C21",
+      "value": 8.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Minimum interest coverage screen. No maintenance covenant exists to source."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C22",
+      "value": 0.06,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Maximum tolerated weighted cost of debt. An analyst screen."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D5",
+      "value": 71802.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Opening total debt 71,802 $mm, derived from the FY2024 10-K as ending debt 67,127 + repayments 29,070 - issuance 24,395. Retained from the case's existing frozen snapshot."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D6",
+      "value": 24395.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Debt issued during FY2024 per the 10-K financing-activities section. Retained from the case's existing frozen snapshot."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D7",
+      "value": 29070.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Debt repaid during FY2024 per the 10-K financing-activities section. Retained from the case's existing frozen snapshot."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D8",
+      "value": 8942.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Contractual maturities inside twelve months: LongTermDebtCurrent 2,249 + CommercialPaper 6,693 = 8,942 $mm. This is the one rung of the maturity ladder that IS tagged in XBRL; years 2-5 are disclosed only in the 10-K debt note's maturity table, which is untagged HTML."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D9",
+      "value": 12800.7,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Years 2-5 of the maturity ladder. The SHAPE is a driver -- Microsoft's year-by-year maturity table is in the 10-K debt note as untagged HTML -- but the TOTAL is pinned: these four rungs sum to 58,185.0 $mm, which is disclosed total debt 67,127 less the 8,942 $mm of tagged year-1 maturities, so no debt is created or lost by the ladder."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D10",
+      "value": 13964.4,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Years 2-5 of the maturity ladder. The SHAPE is a driver -- Microsoft's year-by-year maturity table is in the 10-K debt note as untagged HTML -- but the TOTAL is pinned: these four rungs sum to 58,185.0 $mm, which is disclosed total debt 67,127 less the 8,942 $mm of tagged year-1 maturities, so no debt is created or lost by the ladder."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D11",
+      "value": 11637.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Years 2-5 of the maturity ladder. The SHAPE is a driver -- Microsoft's year-by-year maturity table is in the 10-K debt note as untagged HTML -- but the TOTAL is pinned: these four rungs sum to 58,185.0 $mm, which is disclosed total debt 67,127 less the 8,942 $mm of tagged year-1 maturities, so no debt is created or lost by the ladder."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D12",
+      "value": 19782.9,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Years 2-5 of the maturity ladder. The SHAPE is a driver -- Microsoft's year-by-year maturity table is in the 10-K debt note as untagged HTML -- but the TOTAL is pinned: these four rungs sum to 58,185.0 $mm, which is disclosed total debt 67,127 less the 8,942 $mm of tagged year-1 maturities, so no debt is created or lost by the ladder. This rung is the balancing residual and therefore carries the constraint."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D13",
+      "value": 75543.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Cash and short-term investments 75,543 $mm per the FY2024 10-K. Retained from the case's existing frozen snapshot."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D14",
+      "value": 15000.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Committed revolving-credit capacity. Disclosed in the 10-K debt note as narrative text rather than a tagged fact."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D15",
+      "value": 44937.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Tranche 1 = us-gaap:LongTermDebt at 2024-06-30 = 44,937 $mm."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D16",
+      "value": 0.035,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Tranche-1 rate. Per-instrument coupons are untagged. Held as a driver; the weighted cost this feeds IS pinned to disclosure via tranche 2."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D17",
+      "value": 22190.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Tranche 2 = disclosed total debt 67,127 - LongTermDebt 44,937 = 22,190 $mm (commercial paper, finance leases, and other borrowings)."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D18",
+      "value": 0.05693742,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "Solved so the sheet's weighted cost equals Microsoft's disclosed effective rate: InterestExpense 2,935 / average debt 69,464 = 0.042252. Gross bookings of rate detail are not disclosed per instrument; the blended cost is, so the blended cost is what the model reproduces."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D19",
+      "value": 83383.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Microsoft 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "as_of": "2024-06-30",
+        "notes": "EBIT (us-gaap:OperatingIncomeLoss), NOT EBITDA. Microsoft tags no DepreciationDepletionAndAmortization concept in this fact set, so EBITDA cannot be derived from it. EBIT is used as a conservative lower bound: it understates EBITDA, which understates interest coverage and overstates leverage, so the case errs toward making Microsoft's credit look worse than it is, never better. Downside is the lowest of FY2024, FY2023, FY2022."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D20",
+      "value": 0.4,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Maximum tolerated share of debt maturing in any single year. An analyst screen, not a disclosed covenant."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D21",
+      "value": 8.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Minimum interest coverage screen. No maintenance covenant exists to source."
+      }
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D22",
+      "value": 0.06,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no tagged disclosure exists)",
+        "url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+        "as_of": "2024-06-30",
+        "notes": "Maximum tolerated weighted cost of debt. An analyst screen."
       }
     }
   ],
@@ -76,7 +1171,13 @@
       "name": "Microsoft 2024 Form 10-K",
       "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
       "as_of": "2024-06-30",
-      "notes": "U.S. SEC / Microsoft; frozen curated observation as of case date"
+      "notes": "Cash-flow and liquidity disclosures frozen in the case snapshot: debt issued, debt repaid, ending debt, cash and short-term investments, operating cash flow, capex."
+    },
+    {
+      "name": "Microsoft FY2024 XBRL company facts (CIK 0000789019)",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "as_of": "2024-06-30",
+      "notes": "SEC XBRL company facts for CIK 0000789019, recorded at tools/data_fabric/out/MSFT_facts_annual_series.json. Supplies the debt balances, current/non-current split, commercial paper, cash, operating income, and interest expense for FY2024, FY2023, FY2022."
     },
     {
       "name": "Frozen source snapshot",
@@ -86,11 +1187,363 @@
     }
   ],
   "refresh": {
-    "date": "2026-08-04",
-    "trigger": "External historical evidence materialization",
+    "date": "2026-09-01",
+    "trigger": "Depth pass: full input accounting against recorded XBRL facts",
     "source_snapshot": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
-    "what_changed": "Generated public case debt-public-microsoft-2024 from canonical release template",
-    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
-    "next_check": "On source revision, builder change, monitoring breach, or annual review"
-  }
+    "what_changed": "Rebuilt the case from Microsoft's recorded SEC XBRL facts. It previously carried four sourced cells out of 102 candidates (4.9%) with every other input left at a generic leveraged-mid-cap template default -- a $300mm term loan Microsoft does not have, a 5.5x leverage covenant it is not subject to, a 5.5% coupon. Capital structure now ties exactly to disclosed total debt, cash interest and weighted cost are solved to disclosed interest expense, and every remaining cell is a declared driver with a stated reason.",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending. EBITDA is proxied by EBIT because Microsoft tags no D&A concept; the bias is conservative (understates coverage, overstates leverage).",
+    "next_check": "On Microsoft's next Form 10-K, builder change, or annual review"
+  },
+  "driver_declarations": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Floating base rate. Not company data; it would come from a rates source (FRED), which is not reachable in this environment. It feeds only the term-loan line, which is zero for Microsoft, so it is inert here.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C12",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "All-in cost of the commercial-paper balance. Microsoft does not tag a commercial-paper rate. Held as a driver -- and note the AGGREGATE it feeds is pinned: the senior-notes coupon is solved so total cash interest equals the disclosed InterestExpense of 2,935 $mm regardless of how this splits.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C13",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Term-loan spread. Inert: Microsoft has no term loan.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C15",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "New-issue spread for hypothetical refinancing. Forward pricing is not a disclosed fact about any issuer.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C16",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Original issue discount and fees on hypothetical new issuance. Not disclosed.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C17",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Minimum operating cash. A modeler-set policy floor, not a Microsoft disclosure.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C18",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Maximum leverage screen. Microsoft is investment grade and its credit agreement carries no maintenance leverage covenant, so there is no disclosed threshold to source. This is an analyst screen, not a covenant, and the template's 5.5x leveraged-mid-cap default is removed.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C19",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Minimum interest-coverage screen. Same reasoning as the leverage screen: no maintenance covenant exists to disclose.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C20",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Recovery/EV multiple for the recovery analysis. Not a disclosed fact.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C21",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Distress haircut to enterprise value. A modeler-chosen severity, not a disclosure.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Floating base rate. Not company data; it would come from a rates source (FRED), which is not reachable in this environment. It feeds only the term-loan line, which is zero for Microsoft, so it is inert here.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D12",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "All-in cost of the commercial-paper balance. Microsoft does not tag a commercial-paper rate. Held as a driver -- and note the AGGREGATE it feeds is pinned: the senior-notes coupon is solved so total cash interest equals the disclosed InterestExpense of 2,935 $mm regardless of how this splits.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D13",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Term-loan spread. Inert: Microsoft has no term loan.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D15",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "New-issue spread for hypothetical refinancing. Forward pricing is not a disclosed fact about any issuer.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D16",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Original issue discount and fees on hypothetical new issuance. Not disclosed.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D17",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Minimum operating cash. A modeler-set policy floor, not a Microsoft disclosure.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D18",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Maximum leverage screen. Microsoft is investment grade and its credit agreement carries no maintenance leverage covenant, so there is no disclosed threshold to source. This is an analyst screen, not a covenant, and the template's 5.5x leveraged-mid-cap default is removed.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D19",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Minimum interest-coverage screen. Same reasoning as the leverage screen: no maintenance covenant exists to disclose.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D20",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Recovery/EV multiple for the recovery analysis. Not a disclosed fact.",
+      "basis": {}
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D21",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Distress haircut to enterprise value. A modeler-chosen severity, not a disclosure.",
+      "basis": {}
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C6",
+      "driver_type": "generated_metadata",
+      "rationale": "Populated from the manifest as_of date; release metadata.",
+      "basis": {}
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C9",
+      "driver_type": "generated_metadata",
+      "rationale": "Populated from the manifest scenario selection.",
+      "basis": {}
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C10",
+      "driver_type": "presentation_convention",
+      "rationale": "Presentation convention ($ in millions), not a fact.",
+      "basis": {}
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "C8",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Finance leases and other borrowings, 15,497 $mm in total. Neither the balance nor its maturity profile is tagged separately; the balance is the residual against disclosed total debt and the profile is a shape driver. The row total is pinned.",
+      "basis": {}
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "D7",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Year 1 is us-gaap:LongTermDebtCurrent = 2,249 $mm, a tagged fact. The remaining 42,688 $mm of long-term notes is spread across later years by a SHAPE driver -- Microsoft's year-by-year maturity table is untagged HTML in the debt note -- but the row total is pinned to tagged us-gaap:LongTermDebt.",
+      "basis": {}
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "D8",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Finance leases and other borrowings, 15,497 $mm in total. Neither the balance nor its maturity profile is tagged separately; the balance is the residual against disclosed total debt and the profile is a shape driver. The row total is pinned.",
+      "basis": {}
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "E7",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Year 1 is us-gaap:LongTermDebtCurrent = 2,249 $mm, a tagged fact. The remaining 42,688 $mm of long-term notes is spread across later years by a SHAPE driver -- Microsoft's year-by-year maturity table is untagged HTML in the debt note -- but the row total is pinned to tagged us-gaap:LongTermDebt.",
+      "basis": {}
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "E8",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Finance leases and other borrowings, 15,497 $mm in total. Neither the balance nor its maturity profile is tagged separately; the balance is the residual against disclosed total debt and the profile is a shape driver. The row total is pinned.",
+      "basis": {}
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "F7",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Year 1 is us-gaap:LongTermDebtCurrent = 2,249 $mm, a tagged fact. The remaining 42,688 $mm of long-term notes is spread across later years by a SHAPE driver -- Microsoft's year-by-year maturity table is untagged HTML in the debt note -- but the row total is pinned to tagged us-gaap:LongTermDebt.",
+      "basis": {}
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "F8",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Finance leases and other borrowings, 15,497 $mm in total. Neither the balance nor its maturity profile is tagged separately; the balance is the residual against disclosed total debt and the profile is a shape driver. The row total is pinned.",
+      "basis": {}
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "G7",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Year 1 is us-gaap:LongTermDebtCurrent = 2,249 $mm, a tagged fact. The remaining 42,688 $mm of long-term notes is spread across later years by a SHAPE driver -- Microsoft's year-by-year maturity table is untagged HTML in the debt note -- but the row total is pinned to tagged us-gaap:LongTermDebt.",
+      "basis": {}
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "G8",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Finance leases and other borrowings, 15,497 $mm in total. Neither the balance nor its maturity profile is tagged separately; the balance is the residual against disclosed total debt and the profile is a shape driver. The row total is pinned.",
+      "basis": {}
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "H7",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Year 1 is us-gaap:LongTermDebtCurrent = 2,249 $mm, a tagged fact. The remaining 42,688 $mm of long-term notes is spread across later years by a SHAPE driver -- Microsoft's year-by-year maturity table is untagged HTML in the debt note -- but the row total is pinned to tagged us-gaap:LongTermDebt.",
+      "basis": {}
+    },
+    {
+      "sheet": "Maturity Ladder",
+      "cell": "H8",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Finance leases and other borrowings, 15,497 $mm in total. Neither the balance nor its maturity profile is tagged separately; the balance is the residual against disclosed total debt and the profile is a shape driver. The row total is pinned.",
+      "basis": {}
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Years 2-5 of the maturity ladder. The SHAPE is a driver -- Microsoft's year-by-year maturity table is in the 10-K debt note as untagged HTML -- but the TOTAL is pinned: these four rungs sum to 58,185.0 $mm, which is disclosed total debt 67,127 less the 8,942 $mm of tagged year-1 maturities, so no debt is created or lost by the ladder.",
+      "basis": {}
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C10",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Years 2-5 of the maturity ladder. The SHAPE is a driver -- Microsoft's year-by-year maturity table is in the 10-K debt note as untagged HTML -- but the TOTAL is pinned: these four rungs sum to 58,185.0 $mm, which is disclosed total debt 67,127 less the 8,942 $mm of tagged year-1 maturities, so no debt is created or lost by the ladder.",
+      "basis": {}
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C11",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Years 2-5 of the maturity ladder. The SHAPE is a driver -- Microsoft's year-by-year maturity table is in the 10-K debt note as untagged HTML -- but the TOTAL is pinned: these four rungs sum to 58,185.0 $mm, which is disclosed total debt 67,127 less the 8,942 $mm of tagged year-1 maturities, so no debt is created or lost by the ladder.",
+      "basis": {}
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C14",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Committed revolving-credit capacity. Disclosed in the 10-K debt note as narrative text rather than a tagged fact.",
+      "basis": {}
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C16",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Tranche-1 rate. Per-instrument coupons are untagged. Held as a driver; the weighted cost this feeds IS pinned to disclosure via tranche 2.",
+      "basis": {}
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C20",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Maximum tolerated share of debt maturing in any single year. An analyst screen, not a disclosed covenant.",
+      "basis": {}
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C21",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Minimum interest coverage screen. No maintenance covenant exists to source.",
+      "basis": {}
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "C22",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Maximum tolerated weighted cost of debt. An analyst screen.",
+      "basis": {}
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Years 2-5 of the maturity ladder. The SHAPE is a driver -- Microsoft's year-by-year maturity table is in the 10-K debt note as untagged HTML -- but the TOTAL is pinned: these four rungs sum to 58,185.0 $mm, which is disclosed total debt 67,127 less the 8,942 $mm of tagged year-1 maturities, so no debt is created or lost by the ladder.",
+      "basis": {}
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D10",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Years 2-5 of the maturity ladder. The SHAPE is a driver -- Microsoft's year-by-year maturity table is in the 10-K debt note as untagged HTML -- but the TOTAL is pinned: these four rungs sum to 58,185.0 $mm, which is disclosed total debt 67,127 less the 8,942 $mm of tagged year-1 maturities, so no debt is created or lost by the ladder.",
+      "basis": {}
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D11",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Years 2-5 of the maturity ladder. The SHAPE is a driver -- Microsoft's year-by-year maturity table is in the 10-K debt note as untagged HTML -- but the TOTAL is pinned: these four rungs sum to 58,185.0 $mm, which is disclosed total debt 67,127 less the 8,942 $mm of tagged year-1 maturities, so no debt is created or lost by the ladder.",
+      "basis": {}
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D14",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Committed revolving-credit capacity. Disclosed in the 10-K debt note as narrative text rather than a tagged fact.",
+      "basis": {}
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D16",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Tranche-1 rate. Per-instrument coupons are untagged. Held as a driver; the weighted cost this feeds IS pinned to disclosure via tranche 2.",
+      "basis": {}
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D20",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Maximum tolerated share of debt maturing in any single year. An analyst screen, not a disclosed covenant.",
+      "basis": {}
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D21",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Minimum interest coverage screen. No maintenance covenant exists to source.",
+      "basis": {}
+    },
+    {
+      "sheet": "Refinancing & Rates",
+      "cell": "D22",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Maximum tolerated weighted cost of debt. An analyst screen.",
+      "basis": {}
+    }
+  ]
 }

@@ -1137,7 +1137,7 @@
       "manifest": "standards/public_cases/debt-public-microsoft-2024.json",
       "output": "06_Debt_Finance/instances/public_microsoft_2024.xlsx",
       "snapshot": "06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
-      "snapshot_sha256": "548eb1da596855a67530ae163dd530e1e77363cfba3770dda6837c2485e58817",
+      "snapshot_sha256": "572021744fa0dbb9653a20e26ff17b811f2707faabd1954ba131894a4c6ff8a6",
       "counts_toward_m4": false,
       "outcome": {
         "metric": "ending_debt_usd_mm",
@@ -1154,6 +1154,478 @@
         "template": "06_Debt_Finance/_template_CREDIT.xlsx",
         "output": "06_Debt_Finance/instances/public_microsoft_2024.xlsx",
         "applied_inputs": [
+          {
+            "sheet": "Assumptions",
+            "cell": "C5",
+            "previous": 120,
+            "value": 109433.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C6",
+            "previous": 40,
+            "value": 18315.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C7",
+            "previous": 25,
+            "value": 6693.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C8",
+            "previous": 300,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C9",
+            "previous": 250,
+            "value": 44937.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C10",
+            "previous": 50,
+            "value": 15497.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C11",
+            "previous": 0.045,
+            "value": 0.0533,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C12",
+            "previous": 0.025,
+            "value": 0.05,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C13",
+            "previous": 0.04,
+            "value": 0.015,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C14",
+            "previous": 0.055,
+            "value": 0.04302793,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C15",
+            "previous": 0.045,
+            "value": 0.009,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C16",
+            "previous": 0.02,
+            "value": 0.0035,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C17",
+            "previous": 25,
+            "value": 10000.0,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C18",
+            "previous": 5.5,
+            "value": 3.0,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C19",
+            "previous": 2,
+            "value": 8.0,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C20",
+            "previous": 5,
+            "value": 12.0,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C21",
+            "previous": 0.2,
+            "value": 0.35,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D5",
+            "previous": 95,
+            "value": 83383.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D6",
+            "previous": 25,
+            "value": 13931.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D7",
+            "previous": 75,
+            "value": 6693.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D8",
+            "previous": 300,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D9",
+            "previous": 250,
+            "value": 49781.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D10",
+            "previous": 50,
+            "value": 15497.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D11",
+            "previous": 0.06,
+            "value": 0.0533,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D12",
+            "previous": 0.04,
+            "value": 0.05,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D13",
+            "previous": 0.06,
+            "value": 0.015,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D14",
+            "previous": 0.07,
+            "value": 0.04302793,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D15",
+            "previous": 0.075,
+            "value": 0.009,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D16",
+            "previous": 0.03,
+            "value": 0.0035,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D17",
+            "previous": 30,
+            "value": 10000.0,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D18",
+            "previous": 5,
+            "value": 3.0,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D19",
+            "previous": 1.75,
+            "value": 8.0,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D20",
+            "previous": 4,
+            "value": 12.0,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D21",
+            "previous": 0.35,
+            "value": 0.35,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "C5",
+            "previous": 0,
+            "value": 6693.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "C6",
+            "previous": 3,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "C7",
+            "previous": 0,
+            "value": 2249.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "C8",
+            "previous": 10,
+            "value": 4649.1,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "C16",
+            "previous": 150,
+            "value": 75543.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "D5",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "D6",
+            "previous": 3,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "D7",
+            "previous": 0,
+            "value": 8537.6,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "D8",
+            "previous": 10,
+            "value": 3409.3,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "E5",
+            "previous": 25,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "E6",
+            "previous": 3,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "E7",
+            "previous": 0,
+            "value": 6830.1,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "E8",
+            "previous": 10,
+            "value": 2479.5,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "F5",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "F6",
+            "previous": 3,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "F7",
+            "previous": 0,
+            "value": 5976.3,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "F8",
+            "previous": 10,
+            "value": 1859.6,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "G5",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "G6",
+            "previous": 288,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "G7",
+            "previous": 0,
+            "value": 5122.6,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "G8",
+            "previous": 10,
+            "value": 1549.7,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "H5",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "H6",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "H7",
+            "previous": 250,
+            "value": 16221.4,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Maturity Ladder",
+            "cell": "H8",
+            "previous": 0,
+            "value": 1549.8,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
           {
             "sheet": "Refinancing & Rates",
             "cell": "C5",
@@ -1180,15 +1652,271 @@
           },
           {
             "sheet": "Refinancing & Rates",
+            "cell": "C8",
+            "previous": 50,
+            "value": 8942.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C9",
+            "previous": 75,
+            "value": 12800.7,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C10",
+            "previous": 100,
+            "value": 13964.4,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C11",
+            "previous": 100,
+            "value": 11637.0,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C12",
+            "previous": 125,
+            "value": 19782.9,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
             "cell": "C13",
             "previous": 100,
             "value": 75543.0,
             "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
             "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C14",
+            "previous": 50,
+            "value": 15000.0,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C15",
+            "previous": 300,
+            "value": 44937.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C16",
+            "previous": 0.06,
+            "value": 0.035,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C17",
+            "previous": 150,
+            "value": 22190.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C18",
+            "previous": 0.07,
+            "value": 0.05693742,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C19",
+            "previous": 150,
+            "value": 109433.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C20",
+            "previous": 0.4,
+            "value": 0.4,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C21",
+            "previous": 2,
+            "value": 8.0,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "C22",
+            "previous": 0.1,
+            "value": 0.06,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D5",
+            "previous": 500,
+            "value": 71802.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D6",
+            "previous": 300,
+            "value": 24395.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D7",
+            "previous": 50,
+            "value": 29070.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D8",
+            "previous": 300,
+            "value": 8942.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D9",
+            "previous": 250,
+            "value": 12800.7,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D10",
+            "previous": 100,
+            "value": 13964.4,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D11",
+            "previous": 50,
+            "value": 11637.0,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D12",
+            "previous": 50,
+            "value": 19782.9,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D13",
+            "previous": 50,
+            "value": 75543.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D14",
+            "previous": 50,
+            "value": 15000.0,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D15",
+            "previous": 500,
+            "value": 44937.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D16",
+            "previous": 0.12,
+            "value": 0.035,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D17",
+            "previous": 250,
+            "value": 22190.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D18",
+            "previous": 0.15,
+            "value": 0.05693742,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D19",
+            "previous": 80,
+            "value": 83383.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D20",
+            "previous": 0.35,
+            "value": 0.4,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D21",
+            "previous": 2,
+            "value": 8.0,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
+          },
+          {
+            "sheet": "Refinancing & Rates",
+            "cell": "D22",
+            "previous": 0.1,
+            "value": 0.06,
+            "source_url": "repo://06_Debt_Finance/sources/snapshots/debt-public-microsoft-2024.json",
+            "source_as_of": "2024-06-30"
           }
         ],
-        "workbook_sha256": "fa1c16b2ac301a05b272efd059e51fe0811baf1104a3b18d8eaa6052a0760a68",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "401d147dbda6218acd16e7b37016350700f86eb581887595ccb54576fafe62a1",
+        "generated_on": "2026-09-01",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
         "counts_toward_M4": false

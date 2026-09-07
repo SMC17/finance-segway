@@ -52,7 +52,23 @@ def build(output:Path)->None:
 
     ws=wb["Refinancing"]; title(ws,"B2:G2","Refinancing Sources & Uses"); header(ws,4,2,["Uses","Amount","Sources","Amount","Pricing / note","Status"])
     uses=[("Refinance current debt","='Capital Structure'!C10"),("Minimum cash funding","=MAX(0,Assumptions!E17-Assumptions!E6)"),("Fees / OID","=C5*Assumptions!E16")]
-    sources=[("New term debt","=SUM(C5:C7)"),("Existing cash","=MAX(0,Assumptions!E6-Assumptions!E17)"),("Equity / other","=MAX(0,C8-E5-E6)")]
+    # Sources must FUND the uses, so exactly one line is the residual and the
+    # others are constrained. The prior formulation made "New term debt" equal
+    # total uses and then ADDED surplus cash and an equity plug on top, so
+    # sources exceeded uses by the surplus cash for any issuer holding more
+    # than its minimum cash balance -- the check below failed on the template's
+    # own defaults, and every instance inherited that FAIL.
+    #
+    # Correct waterfall: apply surplus cash first (capped at total uses), raise
+    # new term debt for the rest but only up to the leverage limit, and let
+    # equity be the true residual. Equity above zero is then a real signal --
+    # debt capacity was insufficient to fund the refinancing -- rather than an
+    # artifact.
+    sources=[
+        ("New term debt","=MIN(MAX(0,C8-E6),Assumptions!E18*Assumptions!E5)"),
+        ("Existing cash","=MIN(MAX(0,Assumptions!E6-Assumptions!E17),C8)"),
+        ("Equity / other","=MAX(0,C8-E5-E6)"),
+    ]
     for r,(l,f) in enumerate(uses,5): ws.cell(r,2,l); ws.cell(r,3,f).number_format=CUR
     for r,(l,f) in enumerate(sources,5): ws.cell(r,4,l); ws.cell(r,5,f).number_format=CUR
     ws["B8"]="Total uses"; ws["C8"]="=SUM(C5:C7)"; ws["C8"].number_format=CUR
@@ -98,9 +114,15 @@ def build(output:Path)->None:
     checks=[("Sources equal uses",'=IF(Refinancing!G8="PASS","PASS","FAIL")'),("Debt nonnegative",'=IF(\'Capital Structure\'!C10>=0,"PASS","FAIL")'),
             ("Maturities reconcile",'=IF(ABS(SUM(\'Maturity Ladder\'!C10:H10)-\'Capital Structure\'!C10)<0.01,"PASS","REVIEW")'),
             ("Recovery bounded",'=IF(AND(MIN(Recovery!C12:D12)>=0,MAX(Recovery!C12:D12)<=1),"PASS","FAIL")'),
-            ("Overall",'=IF(COUNTIF(C5:C8,"FAIL")+COUNTIF(C5:C8,"REVIEW")=0,"PASS","REVIEW")')]
+            # The sources/uses identity above now holds by construction, which
+            # makes it a structural guard rather than a finding. This is the
+            # check that can actually fail: it asks whether the refinancing is
+            # fundable from debt capacity and cash at all. Equity above zero
+            # means the leverage limit binds before the uses are covered.
+            ("Refinancing funded without equity plug",'=IF(Refinancing!E7<=0.01,"PASS","BREACH")'),
+            ("Overall",'=IF(COUNTIF(C5:C9,"FAIL")+COUNTIF(C5:C9,"BREACH")>0,"FAIL",IF(COUNTIF(C5:C9,"REVIEW")>0,"REVIEW","PASS"))')]
     for r,(l,f) in enumerate(checks,5): ws.cell(r,2,l); ws.cell(r,3,f)
-    add_status_rules(ws,"C5:C9"); set_widths(ws,{"A":4,"B":42,"C":18})
+    add_status_rules(ws,"C5:C10"); set_widths(ws,{"A":4,"B":42,"C":18})
     add_sources(wb,[("Debt instruments","Credit agreements, indentures, or filings","[date]","Balance, rate, maturity, collateral and covenants"),
                     ("Market pricing","Treasury / swap curve and comparable new issues","[date]","Freeze base-rate and spread assumptions"),
                     ("Financial statements","Audited statements or filing","[period]","EBITDA, cash and debt reconciliation"),
