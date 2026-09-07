@@ -181,7 +181,18 @@ def check_case(record: dict[str, Any]) -> dict[str, Any]:
     sourced, numeric = sourced_sheets(record)
     # A sheet the case wrote a NUMBER into is a sheet the case says is part of
     # the model. Sourcing a prose title into a cover page is not that claim.
-    required = {name for name in numeric if name in scanned["names"]}
+    #
+    # A name the workbook does not have is refused rather than dropped. Filtering
+    # it out silently would mean a renamed or deleted sheet removes its own
+    # requirement -- the record would still claim the model needs it, the gate
+    # would stop asking, and nothing would say so. No case does this today, which
+    # is exactly when an allowance like that gets written and never revisited.
+    unknown = sorted(name for name in numeric if name not in scanned["names"])
+    if unknown:
+        return {**result, "outcome": "unreadable",
+                "detail": "the case sources numbers into sheet(s) this workbook does "
+                          f"not have: {', '.join(unknown)}"}
+    required = set(numeric)
     stranded = sorted(required - seen)
 
     result.update({

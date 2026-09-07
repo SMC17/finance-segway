@@ -176,3 +176,32 @@ class RecordSelectionTests(unittest.TestCase):
         records, skipped = gate.case_records()
         self.assertEqual(skipped, [])
         self.assertEqual(gate.check_case(records[0])["outcome"], "unreadable")
+
+
+class UnknownSheetTests(unittest.TestCase):
+    """A requirement must not be able to delete itself.
+
+    No case in the repository sources into a sheet its workbook lacks, which is
+    precisely the situation in which a silent filter gets written and never
+    revisited. If a sheet is later renamed, dropping the name would mean the
+    record still claims the model needs that sheet while the gate quietly stops
+    asking -- a fail-open with no symptom.
+    """
+
+    def setUp(self) -> None:
+        self.tmp = Path(tempfile.mkdtemp(prefix="closure_unknown_"))
+        self.original = gate.ROOT
+        gate.ROOT = self.tmp
+        self.addCleanup(setattr, gate, "ROOT", self.original)
+
+    def test_sourcing_into_a_sheet_the_workbook_lacks_fails(self):
+        path = workbook(self.tmp)
+        result = gate.check_case(record(path, [("Model", "C5"), ("Renamed Model", "C5")]))
+        self.assertEqual(result["outcome"], "unreadable")
+        self.assertIn("Renamed Model", result["detail"])
+
+    def test_a_prose_only_input_on_an_unknown_sheet_does_not_fail(self):
+        """Only a sourced NUMBER is a claim about the model."""
+        path = workbook(self.tmp)
+        result = gate.check_case(record(path, [("Model", "C5"), ("Cover", "B2")]))
+        self.assertEqual(result["outcome"], "reachable", result)
