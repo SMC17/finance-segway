@@ -31,8 +31,9 @@ import openpyxl
 
 from recalc import recalc
 
+from tools.verify_template_exhaustion import INPUT_FONT_RGB, _rgb
+
 ROOT = Path(__file__).resolve().parents[1]
-INPUT_FONT_RGB = "000000FF"
 BASE_TEMPLATES = (
     ROOT / "01_Investment_Banking" / "_template_BASE.xlsx",
     ROOT / "02_Corporate_Finance" / "_template_BASE.xlsx",
@@ -43,9 +44,15 @@ HISTORICAL_ROWS = range(5, 21)
 HISTORICAL_COLUMNS = range(3, 6)  # C, D, E -- FY-2A, FY-1A, FY0A
 
 
-def _rgb(cell) -> str | None:
-    color = cell.font.color if cell.font else None
-    return getattr(color, "rgb", None) if color is not None else None
+# _rgb and INPUT_FONT_RGB are imported from the scanner rather than
+# restated here. openpyxl's aRGB alpha byte is not stable across how a
+# Font was constructed -- "000000FF" and "FF0000FF" are the same blue --
+# and the scanner already normalises that (it is why domain 31 once
+# reported zero candidate cells). A second copy of the rule in the test
+# would agree with the scanner today and drift from it later, and a test
+# that disagrees with the tool it is testing is worse than no test.
+def _cell_rgb(cell) -> str | None:
+    return _rgb(cell.font.color if cell.font else None)
 
 
 def _historical_inputs(sheet) -> list[str]:
@@ -71,7 +78,7 @@ class HistoricalBlockVisibilityTests(unittest.TestCase):
                 self.assertGreaterEqual(
                     len(inputs), 40, "the historical block has stopped offering inputs"
                 )
-                unmarked = [c for c in inputs if _rgb(sheet[c]) != INPUT_FONT_RGB]
+                unmarked = [c for c in inputs if _cell_rgb(sheet[c]) != INPUT_FONT_RGB]
                 self.assertEqual(
                     [], unmarked,
                     f"{len(unmarked)} historical input cells are invisible to every "
@@ -93,7 +100,7 @@ class HistoricalBlockVisibilityTests(unittest.TestCase):
                     and str(sheet.cell(row=r, column=c).value).startswith("=")
                 ]
                 self.assertGreater(len(formulas), 0, "no derived cells to discriminate against")
-                mismarked = [c for c in formulas if _rgb(sheet[c]) == INPUT_FONT_RGB]
+                mismarked = [c for c in formulas if _cell_rgb(sheet[c]) == INPUT_FONT_RGB]
                 self.assertEqual([], mismarked)
 
     def test_the_coverage_scanner_now_sees_them(self) -> None:
