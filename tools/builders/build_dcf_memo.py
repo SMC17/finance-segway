@@ -94,6 +94,20 @@ def build_dcf_memo(instance_slug: str, output: Path) -> None:
     net_debt = dcf["I11"].value
     diluted_shares = dcf["I13"].value
 
+    # DCF!I14 is text when the model has no forecast base, so that a dead
+    # workbook cannot publish a price (see build_template.py). This deck
+    # renders that cell with a currency format, which would otherwise fail
+    # as "Unknown format code 'f' for object of type 'str'" -- a real
+    # refusal wearing a confusing name. Refuse here instead, and say what
+    # to fill in.
+    if not isinstance(implied_value_per_share, (int, float)):
+        raise SystemExit(
+            f"{manifest['output']}: no valuation to render -- "
+            f"DCF!I15 reports {dcf['I15'].value!r}. "
+            "Fill IS!E5 with the FY0A actual revenue and recalculate; every "
+            "projected year, the DCF and the per-share output derive from it."
+        )
+
     prs = ph.new_presentation()
 
     # 1. Title
