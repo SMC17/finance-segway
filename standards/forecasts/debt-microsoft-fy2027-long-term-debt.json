@@ -1,0 +1,23 @@
+{
+  "forecast_id": "debt-microsoft-fy2027-long-term-debt",
+  "case_id": "debt-public-microsoft-2024",
+  "model_id": "06",
+  "metric": "fy2027_long_term_debt_usd_mm",
+  "outcome_class": "out_of_sample_forecast",
+  "point": 37979.7,
+  "interval": [
+    37437.0,
+    38508.0
+  ],
+  "basis": "modeled",
+  "baseline": {
+    "kind": "naive_last_recorded",
+    "value": 40294.0,
+    "source": "carry-forward of fy2027_long_term_debt_usd_mm = 40294.0 at 2026-06-30 per us-gaap:LongTermDebt from Microsoft's SEC XBRL company facts, recorded at tools/data_fabric/out/MSFT_facts_annual_series.json (CIK 0000789019), fiscal years ending 2023-06-30 through 2026-06-30"
+  },
+  "registered_on": "2026-09-01",
+  "resolve_by": "2027-09-30",
+  "resolution_source_expected": "Microsoft FY2027 Form 10-K (us-gaap:LongTermDebt at fiscal year end, USD mm); Microsoft's fiscal year ends 30 June and it has filed its 10-K in late July in each of the last three years",
+  "resolution": null,
+  "registration_sha256": "2175b3c8f7a3c79b891a7c1c3f9925095f7806f4e2c807d8ab9162a5066258ae"
+}
