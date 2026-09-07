@@ -116,6 +116,22 @@
       "scopeNote": null
     },
     {
+      "id": "reproduction-exemption",
+      "prefLabel": "reproduction exemption",
+      "definition": "A recorded statement that a named model line is not expected to reproduce its base year, giving the reason the line legitimately differs.",
+      "broader": "driver-declaration",
+      "related": ["base-year-reproduction"],
+      "scopeNote": "An exemption excuses a line from comparison; it does not excuse the model from being compared."
+    },
+    {
+      "id": "base-year-reproduction",
+      "prefLabel": "base-year reproduction",
+      "definition": "The result of evaluating a model's forecast chain at its own base period and comparing each line to the actual disclosed for that period.",
+      "broader": null,
+      "related": ["reproduction-exemption"],
+      "scopeNote": null
+    },
+    {
       "id": "grounded-driver",
       "prefLabel": "grounded driver",
       "definition": "A driver declaration carrying a basis that names real published data bounding the driver's range.",
@@ -419,6 +435,14 @@
         "balancing_residual": "A driver whose value is determined by a constraint that pins it to disclosed data.",
         "structural_mismatch_driver": "structural-mismatch-driver",
         "not_disclosed": "DEPRECATED. Superseded by undisclosed_term_driver and undisclosed_metric_driver, which say which kind."
+      }
+    },
+    "reproduction_exemption": {
+      "concept": "reproduction-exemption",
+      "permitted_values": {
+        "forward_by_design": "A line whose forecast value is meant to differ from the base year, because its driver describes a change the base year has not yet undergone.",
+        "identity_omits_line": "A line the template's forward identity computes from fewer components than the disclosure reports, making the two different quantities rather than one quantity computed twice.",
+        "driver_spans_multiple_years": "A line driven by a value derived from several periods, and therefore reproducing no single one of them."
       }
     }
   },
