@@ -1,0 +1,28 @@
+{
+  "dataset": "daily_treasury_yield_curve",
+  "dataset_label": "Daily Treasury Par Yield Curve Rates",
+  "year": 2026,
+  "retrieved_utc": "20260817T225800Z",
+  "rows": [
+    {
+      "date": "2026-08-17",
+      "tenors": {
+        "1 Mo": 3.79,
+        "1.5 Month": 3.8,
+        "2 Mo": 3.82,
+        "3 Mo": 3.87,
+        "4 Mo": 3.89,
+        "6 Mo": 3.95,
+        "1 Yr": 4.0,
+        "2 Yr": 4.19,
+        "3 Yr": 4.25,
+        "5 Yr": 4.38,
+        "7 Yr": 4.54,
+        "10 Yr": 4.72,
+        "20 Yr": 5.3,
+        "30 Yr": 5.31
+      }
+    }
+  ],
+  "row_count": 1
+}

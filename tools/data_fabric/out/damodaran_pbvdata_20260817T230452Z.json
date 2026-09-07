@@ -1,0 +1,777 @@
+{
+  "dataset": "pbvdata",
+  "dataset_label": "Price-to-book by industry",
+  "source_filename": "pbvdata.xls",
+  "retrieved_utc": "20260817T230452Z",
+  "row_count": 96,
+  "rows": [
+    {
+      "Industry Name": "Advertising",
+      "Number of firms": 52.0,
+      "PBV": 4.551214997456897,
+      "ROE": -0.013422566300720232,
+      "EV/ Invested Capital": 4.65562868803632,
+      "ROIC": 0.2772269074749548
+    },
+    {
+      "Industry Name": "Aerospace/Defense",
+      "Number of firms": 79.0,
+      "PBV": 7.880460504324958,
+      "ROE": 0.15268987249879978,
+      "EV/ Invested Capital": 6.392874344440189,
+      "ROIC": 0.16012360749257398
+    },
+    {
+      "Industry Name": "Air Transport",
+      "Number of firms": 23.0,
+      "PBV": 2.8414228484458723,
+      "ROE": 0.1419484078609557,
+      "EV/ Invested Capital": 1.794940557143841,
+      "ROIC": 0.07929312533704834
+    },
+    {
+      "Industry Name": "Apparel",
+      "Number of firms": 35.0,
+      "PBV": 3.893952784961127,
+      "ROE": 0.10420771437290409,
+      "EV/ Invested Capital": 2.885003227828631,
+      "ROIC": 0.15768515602445898
+    },
+    {
+      "Industry Name": "Auto & Truck",
+      "Number of firms": 33.0,
+      "PBV": 7.724731802119622,
+      "ROE": 0.03159322520026207,
+      "EV/ Invested Capital": 3.460927501603948,
+      "ROIC": 0.022474128513756082
+    },
+    {
+      "Industry Name": "Auto Parts",
+      "Number of firms": 35.0,
+      "PBV": 1.865455398537074,
+      "ROE": 0.021741488211912706,
+      "EV/ Invested Capital": 1.4258794138422561,
+      "ROIC": 0.08975948273328078
+    },
+    {
+      "Industry Name": "Bank (Money Center)",
+      "Number of firms": 15.0,
+      "PBV": 1.6223296378573757,
+      "ROE": 0.12860334221749448,
+      "EV/ Invested Capital": 1.3104850786807016,
+      "ROIC": "NA"
+    },
+    {
+      "Industry Name": "Banks (Regional)",
+      "Number of firms": 568.0,
+      "PBV": 1.1380354084653936,
+      "ROE": 0.09754318761860904,
+      "EV/ Invested Capital": 1.3285542551682668,
+      "ROIC": "NA"
+    },
+    {
+      "Industry Name": "Beverage (Alcoholic)",
+      "Number of firms": 14.0,
+      "PBV": 1.9141066446274413,
+      "ROE": 0.0056819180842404,
+      "EV/ Invested Capital": 1.9090505750593965,
+      "ROIC": 0.15744765776572892
+    },
+    {
+      "Industry Name": "Beverage (Soft)",
+      "Number of firms": 27.0,
+      "PBV": 6.869060540041212,
+      "ROE": 0.30915585095530196,
+      "EV/ Invested Capital": 5.391887087939862,
+      "ROIC": 0.2902563541349132
+    },
+    {
+      "Industry Name": "Broadcasting",
+      "Number of firms": 24.0,
+      "PBV": 1.664721591780748,
+      "ROE": 0.03985249661675879,
+      "EV/ Invested Capital": 1.6908002013952046,
+      "ROIC": 0.14567294791803095
+    },
+    {
+      "Industry Name": "Brokerage & Investment Banking",
+      "Number of firms": 32.0,
+      "PBV": 2.8085918563185617,
+      "ROE": 0.17767908407709018,
+      "EV/ Invested Capital": 1.5184885294703463,
+      "ROIC": "NA"
+    },
+    {
+      "Industry Name": "Building Materials",
+      "Number of firms": 41.0,
+      "PBV": 3.61632689588609,
+      "ROE": 0.15997617762076355,
+      "EV/ Invested Capital": 3.679083129200056,
+      "ROIC": 0.20164568716545334
+    },
+    {
+      "Industry Name": "Business & Consumer Services",
+      "Number of firms": 155.0,
+      "PBV": 5.299415367043293,
+      "ROE": 0.18195761920089848,
+      "EV/ Invested Capital": 6.003002538181318,
+      "ROIC": 0.28297691435712685
+    },
+    {
+      "Industry Name": "Cable TV",
+      "Number of firms": 9.0,
+      "PBV": 1.3131997350000801,
+      "ROE": 0.11059819032478371,
+      "EV/ Invested Capital": 1.5278903521172753,
+      "ROIC": 0.12062120565621212
+    },
+    {
+      "Industry Name": "Chemical (Basic)",
+      "Number of firms": 29.0,
+      "PBV": 1.1171922155683638,
+      "ROE": -0.08289888731246041,
+      "EV/ Invested Capital": 1.183615521003241,
+      "ROIC": 0.037245953068641535
+    },
+    {
+      "Industry Name": "Chemical (Diversified)",
+      "Number of firms": 4.0,
+      "PBV": 1.0834547900004152,
+      "ROE": -0.15302086015967034,
+      "EV/ Invested Capital": 1.0297070523178309,
+      "ROIC": 0.040542644509719825
+    },
+    {
+      "Industry Name": "Chemical (Specialty)",
+      "Number of firms": 59.0,
+      "PBV": 2.4497397359053896,
+      "ROE": 0.034987853971055624,
+      "EV/ Invested Capital": 2.5336469837691364,
+      "ROIC": 0.10949443918503624
+    },
+    {
+      "Industry Name": "Coal & Related Energy",
+      "Number of firms": 16.0,
+      "PBV": 2.2473251040452182,
+      "ROE": -0.02513240711000554,
+      "EV/ Invested Capital": 2.18379327403667,
+      "ROIC": -0.04759627013362316
+    },
+    {
+      "Industry Name": "Computer Services",
+      "Number of firms": 64.0,
+      "PBV": 4.728265307993433,
+      "ROE": 0.1825059226961266,
+      "EV/ Invested Capital": 5.198242922692005,
+      "ROIC": 0.26348563236851774
+    },
+    {
+      "Industry Name": "Computers/Peripherals",
+      "Number of firms": 36.0,
+      "PBV": 34.08206122543692,
+      "ROE": -0.0017413160406024974,
+      "EV/ Invested Capital": 13.400824787237276,
+      "ROIC": 0.4476035274383902
+    },
+    {
+      "Industry Name": "Construction Supplies",
+      "Number of firms": 40.0,
+      "PBV": 5.455603344493196,
+      "ROE": 0.22855656826808135,
+      "EV/ Invested Capital": 3.8800823593872185,
+      "ROIC": 0.16706062867511484
+    },
+    {
+      "Industry Name": "Diversified",
+      "Number of firms": 20.0,
+      "PBV": 1.7829541657731918,
+      "ROE": 0.11373244135744745,
+      "EV/ Invested Capital": 1.9449535934685174,
+      "ROIC": 0.14821356557111473
+    },
+    {
+      "Industry Name": "Drugs (Biotechnology)",
+      "Number of firms": 496.0,
+      "PBV": 8.216863751697744,
+      "ROE": -0.0567224880686716,
+      "EV/ Invested Capital": 3.206099428236447,
+      "ROIC": 0.03525374326558564
+    },
+    {
+      "Industry Name": "Drugs (Pharmaceutical)",
+      "Number of firms": 228.0,
+      "PBV": 6.64396392026399,
+      "ROE": 0.24044099573432734,
+      "EV/ Invested Capital": 3.8320402021563376,
+      "ROIC": 0.16949548287090127
+    },
+    {
+      "Industry Name": "Education",
+      "Number of firms": 32.0,
+      "PBV": 2.6032866615094417,
+      "ROE": 0.15904839202146528,
+      "EV/ Invested Capital": 3.048745203634685,
+      "ROIC": 0.15944153901851482
+    },
+    {
+      "Industry Name": "Electrical Equipment",
+      "Number of firms": 112.0,
+      "PBV": 6.506731641045638,
+      "ROE": 0.015254544403730292,
+      "EV/ Invested Capital": 6.374684860240658,
+      "ROIC": 0.15595603913111394
+    },
+    {
+      "Industry Name": "Electronics (Consumer & Office)",
+      "Number of firms": 8.0,
+      "PBV": 3.8520329061857304,
+      "ROE": -0.2880927953264372,
+      "EV/ Invested Capital": 1.2833131418627897,
+      "ROIC": -0.0834551474050309
+    },
+    {
+      "Industry Name": "Electronics (General)",
+      "Number of firms": 114.0,
+      "PBV": 4.968967691522418,
+      "ROE": 0.12615730756275645,
+      "EV/ Invested Capital": 5.343862924388787,
+      "ROIC": 0.17911725405258233
+    },
+    {
+      "Industry Name": "Engineering/Construction",
+      "Number of firms": 48.0,
+      "PBV": 5.49046865935612,
+      "ROE": 0.2613749950535173,
+      "EV/ Invested Capital": 6.141380648160246,
+      "ROIC": 0.2531760347582192
+    },
+    {
+      "Industry Name": "Entertainment",
+      "Number of firms": 92.0,
+      "PBV": 4.798101501048052,
+      "ROE": 0.06092763111377839,
+      "EV/ Invested Capital": 4.9699065378412595,
+      "ROIC": 0.12420599801084616
+    },
+    {
+      "Industry Name": "Environmental & Waste Services",
+      "Number of firms": 53.0,
+      "PBV": 6.585458523984577,
+      "ROE": 0.1973829594869194,
+      "EV/ Invested Capital": 7.102656367102807,
+      "ROIC": 0.31754796538384716
+    },
+    {
+      "Industry Name": "Farming/Agriculture",
+      "Number of firms": 35.0,
+      "PBV": 2.4228669519202914,
+      "ROE": 0.1204025921309046,
+      "EV/ Invested Capital": 1.739879407713775,
+      "ROIC": 0.07277942934792668
+    },
+    {
+      "Industry Name": "Financial Svcs. (Non-bank & Insurance)",
+      "Number of firms": 176.0,
+      "PBV": 3.660922776908981,
+      "ROE": 0.28817318153849353,
+      "EV/ Invested Capital": 1.2892623341307086,
+      "ROIC": "NA"
+    },
+    {
+      "Industry Name": "Food Processing",
+      "Number of firms": 78.0,
+      "PBV": 1.7958937888478672,
+      "ROE": 0.04604119204406767,
+      "EV/ Invested Capital": 2.4101019138143664,
+      "ROIC": 0.15949707214923414
+    },
+    {
+      "Industry Name": "Food Wholesalers",
+      "Number of firms": 13.0,
+      "PBV": 4.878554826122564,
+      "ROE": 0.18220724511066666,
+      "EV/ Invested Capital": 3.1925554726597816,
+      "ROIC": 0.17837019301943033
+    },
+    {
+      "Industry Name": "Furn/Home Furnishings",
+      "Number of firms": 27.0,
+      "PBV": 2.453188499334264,
+      "ROE": 0.03107415077303208,
+      "EV/ Invested Capital": 2.2361845794872326,
+      "ROIC": 0.1058742891265975
+    },
+    {
+      "Industry Name": "Green & Renewable Energy",
+      "Number of firms": 15.0,
+      "PBV": 1.262866011273322,
+      "ROE": -0.07357137161316149,
+      "EV/ Invested Capital": 1.1285590602678557,
+      "ROIC": 0.036367416094179386
+    },
+    {
+      "Industry Name": "Healthcare Products",
+      "Number of firms": 204.0,
+      "PBV": 4.435103809290801,
+      "ROE": 0.11260003642281874,
+      "EV/ Invested Capital": 4.701919963995857,
+      "ROIC": 0.16980778635574598
+    },
+    {
+      "Industry Name": "Healthcare Support Services",
+      "Number of firms": 104.0,
+      "PBV": 2.7955721569283822,
+      "ROE": 0.09891791288541897,
+      "EV/ Invested Capital": 4.8284606238691286,
+      "ROIC": 0.3119296654846798
+    },
+    {
+      "Industry Name": "Heathcare Information and Technology",
+      "Number of firms": 115.0,
+      "PBV": 4.002238560460353,
+      "ROE": 0.06397363703274217,
+      "EV/ Invested Capital": 5.2179999738410485,
+      "ROIC": 0.13716783348113318
+    },
+    {
+      "Industry Name": "Homebuilding",
+      "Number of firms": 30.0,
+      "PBV": 1.6330949800418872,
+      "ROE": 0.14231430358554786,
+      "EV/ Invested Capital": 1.6383963040099436,
+      "ROIC": 0.1490812879349228
+    },
+    {
+      "Industry Name": "Hospitals/Healthcare Facilities",
+      "Number of firms": 31.0,
+      "PBV": 5.622736292515395,
+      "ROE": 0.5083628028154341,
+      "EV/ Invested Capital": 2.792393948964676,
+      "ROIC": 0.22163970318779982
+    },
+    {
+      "Industry Name": "Hotel/Gaming",
+      "Number of firms": 63.0,
+      "PBV": 12.303472671975985,
+      "ROE": 0.4538326736020845,
+      "EV/ Invested Capital": 3.856400575449465,
+      "ROIC": 0.14575119045322596
+    },
+    {
+      "Industry Name": "Household Products",
+      "Number of firms": 110.0,
+      "PBV": 5.847090055850471,
+      "ROE": 0.2702119723935352,
+      "EV/ Invested Capital": 5.667477731436032,
+      "ROIC": 0.34419837512001855
+    },
+    {
+      "Industry Name": "Information Services",
+      "Number of firms": 15.0,
+      "PBV": 3.7949389473221435,
+      "ROE": 0.149460900440439,
+      "EV/ Invested Capital": 4.919610806003205,
+      "ROIC": 0.2217430042193927
+    },
+    {
+      "Industry Name": "Insurance (General)",
+      "Number of firms": 21.0,
+      "PBV": 3.451731948410647,
+      "ROE": 0.190716563362503,
+      "EV/ Invested Capital": 6.54607170829479,
+      "ROIC": 0.4450609958826383
+    },
+    {
+      "Industry Name": "Insurance (Life)",
+      "Number of firms": 20.0,
+      "PBV": 1.4341165046725473,
+      "ROE": 0.12873529635151773,
+      "EV/ Invested Capital": 1.3722815327524163,
+      "ROIC": 0.1076576568830416
+    },
+    {
+      "Industry Name": "Insurance (Prop/Cas.)",
+      "Number of firms": 57.0,
+      "PBV": 2.0238527600266036,
+      "ROE": 0.18714725400678406,
+      "EV/ Invested Capital": 2.0327825733230998,
+      "ROIC": 0.18488979223477825
+    },
+    {
+      "Industry Name": "Investments & Asset Management",
+      "Number of firms": 283.0,
+      "PBV": 2.4896160129666742,
+      "ROE": 0.15880676782898712,
+      "EV/ Invested Capital": 2.4179217016233405,
+      "ROIC": 0.14253207300518655
+    },
+    {
+      "Industry Name": "Machinery",
+      "Number of firms": 105.0,
+      "PBV": 4.501410024095517,
+      "ROE": 0.16423121638505028,
+      "EV/ Invested Capital": 5.679842762204511,
+      "ROIC": 0.24408325788322105
+    },
+    {
+      "Industry Name": "Metals & Mining",
+      "Number of firms": 73.0,
+      "PBV": 4.336765520107329,
+      "ROE": 0.17794348748808222,
+      "EV/ Invested Capital": 3.6474120588723915,
+      "ROIC": 0.2704361776786952
+    },
+    {
+      "Industry Name": "Office Equipment & Services",
+      "Number of firms": 14.0,
+      "PBV": 2.9240789608547852,
+      "ROE": 0.1322566194736466,
+      "EV/ Invested Capital": 2.2551096444110814,
+      "ROIC": 0.18260160203320722
+    },
+    {
+      "Industry Name": "Oil/Gas (Integrated)",
+      "Number of firms": 4.0,
+      "PBV": 1.7075523310467329,
+      "ROE": 0.09957502140399105,
+      "EV/ Invested Capital": 1.5966429959222146,
+      "ROIC": 0.0844906040235468
+    },
+    {
+      "Industry Name": "Oil/Gas (Production and Exploration)",
+      "Number of firms": 142.0,
+      "PBV": 1.355720743666191,
+      "ROE": 0.12211066139642923,
+      "EV/ Invested Capital": 1.2552743357812066,
+      "ROIC": 0.13731095270967508
+    },
+    {
+      "Industry Name": "Oil/Gas Distribution",
+      "Number of firms": 23.0,
+      "PBV": 2.8822710208384796,
+      "ROE": 0.18032702415722426,
+      "EV/ Invested Capital": 1.9175535095202336,
+      "ROIC": 0.12351055159122301
+    },
+    {
+      "Industry Name": "Oilfield Svcs/Equip.",
+      "Number of firms": 97.0,
+      "PBV": 1.9183893473343103,
+      "ROE": 0.08646041260503463,
+      "EV/ Invested Capital": 1.8210752625538462,
+      "ROIC": 0.11937951003115008
+    },
+    {
+      "Industry Name": "Packaging & Container",
+      "Number of firms": 19.0,
+      "PBV": 2.1839676063332765,
+      "ROE": 0.12293731853965369,
+      "EV/ Invested Capital": 2.2191806404819276,
+      "ROIC": 0.14816927195835602
+    },
+    {
+      "Industry Name": "Paper/Forest Products",
+      "Number of firms": 6.0,
+      "PBV": 1.8281319307473152,
+      "ROE": 0.07013649983353679,
+      "EV/ Invested Capital": 1.6770826856122116,
+      "ROIC": 0.1041420566237548
+    },
+    {
+      "Industry Name": "Power",
+      "Number of firms": 46.0,
+      "PBV": 2.275661991140573,
+      "ROE": 0.12399093984234143,
+      "EV/ Invested Capital": 1.5679489454085094,
+      "ROIC": 0.06921872420290816
+    },
+    {
+      "Industry Name": "Precious Metals",
+      "Number of firms": 56.0,
+      "PBV": 3.6400986846215324,
+      "ROE": 0.23523056888876692,
+      "EV/ Invested Capital": 3.580674266281066,
+      "ROIC": 0.25451637862422194
+    },
+    {
+      "Industry Name": "Publishing & Newspapers",
+      "Number of firms": 19.0,
+      "PBV": 2.28394156252412,
+      "ROE": 0.13834733920348685,
+      "EV/ Invested Capital": 3.183836337073647,
+      "ROIC": 0.17632773244458913
+    },
+    {
+      "Industry Name": "R.E.I.T.",
+      "Number of firms": 190.0,
+      "PBV": 1.9915152243761973,
+      "ROE": 0.05037954337741777,
+      "EV/ Invested Capital": 1.4257353015642504,
+      "ROIC": 0.03203080280639824
+    },
+    {
+      "Industry Name": "Real Estate (Development)",
+      "Number of firms": 14.0,
+      "PBV": 0.9934847852491724,
+      "ROE": 0.05060545910919269,
+      "EV/ Invested Capital": 0.9992298469908114,
+      "ROIC": 0.07043355884782262
+    },
+    {
+      "Industry Name": "Real Estate (General/Diversified)",
+      "Number of firms": 12.0,
+      "PBV": 1.1639630713249574,
+      "ROE": 0.10767597507500577,
+      "EV/ Invested Capital": 1.1372161329315413,
+      "ROIC": 0.05194923071492735
+    },
+    {
+      "Industry Name": "Real Estate (Operations & Services)",
+      "Number of firms": 54.0,
+      "PBV": 3.0641343506139327,
+      "ROE": 0.03303284726431277,
+      "EV/ Invested Capital": 3.264672091533495,
+      "ROIC": 0.059426974075348735
+    },
+    {
+      "Industry Name": "Recreation",
+      "Number of firms": 49.0,
+      "PBV": 4.027683457299504,
+      "ROE": -0.1276115597172532,
+      "EV/ Invested Capital": 2.2618450086269903,
+      "ROIC": 0.08024512691065157
+    },
+    {
+      "Industry Name": "Reinsurance",
+      "Number of firms": 1.0,
+      "PBV": 1.02311753902663,
+      "ROE": 0.07791857643569695,
+      "EV/ Invested Capital": 1.021193141049496,
+      "ROIC": 0.10144338115914428
+    },
+    {
+      "Industry Name": "Restaurant/Dining",
+      "Number of firms": 64.0,
+      "PBV": 74.73531863615672,
+      "ROE": 0.0010275118300474612,
+      "EV/ Invested Capital": 5.636310840445788,
+      "ROIC": 0.18360436293768279
+    },
+    {
+      "Industry Name": "Retail (Automotive)",
+      "Number of firms": 34.0,
+      "PBV": 7.478670033250118,
+      "ROE": 0.34384064730254443,
+      "EV/ Invested Capital": 2.8925660514729326,
+      "ROIC": 0.12190476293616061
+    },
+    {
+      "Industry Name": "Retail (Building Supply)",
+      "Number of firms": 14.0,
+      "PBV": 132.2044071168642,
+      "ROE": "NA",
+      "EV/ Invested Capital": 6.713321747347243,
+      "ROIC": 0.3494656524485739
+    },
+    {
+      "Industry Name": "Retail (Distributors)",
+      "Number of firms": 62.0,
+      "PBV": 4.041707359923413,
+      "ROE": 0.1833373242733274,
+      "EV/ Invested Capital": 3.2029835666183732,
+      "ROIC": 0.1611399066695283
+    },
+    {
+      "Industry Name": "Retail (General)",
+      "Number of firms": 23.0,
+      "PBV": 7.192707124449913,
+      "ROE": 0.26052308288353043,
+      "EV/ Invested Capital": 4.264486543142304,
+      "ROIC": 0.13590825384807578
+    },
+    {
+      "Industry Name": "Retail (Grocery and Food)",
+      "Number of firms": 15.0,
+      "PBV": 3.934869386323708,
+      "ROE": 0.12897574047835317,
+      "EV/ Invested Capital": 2.2405790812007775,
+      "ROIC": 0.06763219560214334
+    },
+    {
+      "Industry Name": "Retail (REITs)",
+      "Number of firms": 26.0,
+      "PBV": 2.0756544756447797,
+      "ROE": 0.06364375400351006,
+      "EV/ Invested Capital": 1.5438203578388037,
+      "ROIC": 0.051639531083079775
+    },
+    {
+      "Industry Name": "Retail (Special Lines)",
+      "Number of firms": 94.0,
+      "PBV": 7.254263339516967,
+      "ROE": 0.30115075589442497,
+      "EV/ Invested Capital": 4.442803201341381,
+      "ROIC": 0.21539093465658196
+    },
+    {
+      "Industry Name": "Rubber& Tires",
+      "Number of firms": 3.0,
+      "PBV": 0.7891497065800975,
+      "ROE": -0.3640800083778406,
+      "EV/ Invested Capital": 0.8494104779895444,
+      "ROIC": 0.03168147259457092
+    },
+    {
+      "Industry Name": "Semiconductor",
+      "Number of firms": 66.0,
+      "PBV": 13.312176209461422,
+      "ROE": 0.31364715776513896,
+      "EV/ Invested Capital": 11.192771024801678,
+      "ROIC": 0.27226966835133587
+    },
+    {
+      "Industry Name": "Semiconductor Equip",
+      "Number of firms": 31.0,
+      "PBV": 9.702593586231997,
+      "ROE": 0.3577797316274757,
+      "EV/ Invested Capital": 7.875960156098843,
+      "ROIC": 0.28404463068412095
+    },
+    {
+      "Industry Name": "Shipbuilding & Marine",
+      "Number of firms": 8.0,
+      "PBV": 1.4992122096709357,
+      "ROE": 0.10153624613557122,
+      "EV/ Invested Capital": 1.5053356963956552,
+      "ROIC": 0.11992332943837858
+    },
+    {
+      "Industry Name": "Shoe",
+      "Number of firms": 11.0,
+      "PBV": 6.060299460491326,
+      "ROE": 0.1948971193415638,
+      "EV/ Invested Capital": 5.220758192299851,
+      "ROIC": 0.20929696659653424
+    },
+    {
+      "Industry Name": "Software (Entertainment)",
+      "Number of firms": 77.0,
+      "PBV": 9.098095158592308,
+      "ROE": 0.36508850605050824,
+      "EV/ Invested Capital": 6.045833424686676,
+      "ROIC": 0.2701916640773067
+    },
+    {
+      "Industry Name": "Software (Internet)",
+      "Number of firms": 29.0,
+      "PBV": 10.855737135544949,
+      "ROE": -0.01469962217495586,
+      "EV/ Invested Capital": 5.691850809249184,
+      "ROIC": 0.034347801967415575
+    },
+    {
+      "Industry Name": "Software (System & Application)",
+      "Number of firms": 309.0,
+      "PBV": 9.137089676994028,
+      "ROE": 0.2962489469128928,
+      "EV/ Invested Capital": 7.8458737427628105,
+      "ROIC": 0.2931842949283384
+    },
+    {
+      "Industry Name": "Steel",
+      "Number of firms": 19.0,
+      "PBV": 1.875816282053751,
+      "ROE": 0.03679172566231069,
+      "EV/ Invested Capital": 1.8892141810930665,
+      "ROIC": 0.06720259161412713
+    },
+    {
+      "Industry Name": "Telecom (Wireless)",
+      "Number of firms": 12.0,
+      "PBV": 3.47189936412773,
+      "ROE": 0.16061396496184466,
+      "EV/ Invested Capital": 2.056757730391815,
+      "ROIC": 0.10372019614469251
+    },
+    {
+      "Industry Name": "Telecom. Equipment",
+      "Number of firms": 57.0,
+      "PBV": 8.371116364967031,
+      "ROE": 0.2495656053027011,
+      "EV/ Invested Capital": 7.900906674491287,
+      "ROIC": 0.2547374909112715
+    },
+    {
+      "Industry Name": "Telecom. Services",
+      "Number of firms": 39.0,
+      "PBV": 1.6363123432712194,
+      "ROE": 0.19817526096196145,
+      "EV/ Invested Capital": 1.4688343637611438,
+      "ROIC": 0.12036566743047672
+    },
+    {
+      "Industry Name": "Tobacco",
+      "Number of firms": 10.0,
+      "PBV": "NA",
+      "ROE": "NA",
+      "EV/ Invested Capital": 10.0012118170076,
+      "ROIC": 0.6307780350577148
+    },
+    {
+      "Industry Name": "Transportation",
+      "Number of firms": 19.0,
+      "PBV": 4.787260376058109,
+      "ROE": 0.3658208748571981,
+      "EV/ Invested Capital": 2.842463821985803,
+      "ROIC": 0.1300079849084052
+    },
+    {
+      "Industry Name": "Transportation (Railroads)",
+      "Number of firms": 4.0,
+      "PBV": 5.834457605365392,
+      "ROE": 0.29067477582274653,
+      "EV/ Invested Capital": 2.9006734632399946,
+      "ROIC": 0.14236959522310544
+    },
+    {
+      "Industry Name": "Trucking",
+      "Number of firms": 26.0,
+      "PBV": 2.857861050952057,
+      "ROE": 0.07602721205023472,
+      "EV/ Invested Capital": 2.4474270847998465,
+      "ROIC": 0.0929945748076969
+    },
+    {
+      "Industry Name": "Utility (General)",
+      "Number of firms": 14.0,
+      "PBV": 1.8101871360291144,
+      "ROE": 0.10415514586399638,
+      "EV/ Invested Capital": 1.3783029682022443,
+      "ROIC": 0.05994651585116697
+    },
+    {
+      "Industry Name": "Utility (Water)",
+      "Number of firms": 14.0,
+      "PBV": 1.9952183180116347,
+      "ROE": 0.10281440787691666,
+      "EV/ Invested Capital": 1.5736039126378143,
+      "ROIC": 0.07250660955174709
+    },
+    {
+      "Industry Name": "Total Market",
+      "Number of firms": 5994.0,
+      "PBV": 4.605157981124835,
+      "ROE": 0.17212372991864594,
+      "EV/ Invested Capital": 2.741101433856074,
+      "ROIC": 0.08955910414193033
+    },
+    {
+      "Industry Name": "Total Market (without financials)",
+      "Number of firms": 4935.0,
+      "PBV": 5.0970317355598365,
+      "ROE": 0.16407375407096406,
+      "EV/ Invested Capital": 3.6229768440317214,
+      "ROIC": 0.15008472975146017
+    }
+  ]
+}
