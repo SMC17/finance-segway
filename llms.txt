@@ -1,0 +1,56 @@
+# Finance-Segway
+
+> A governed, multi-domain financial-modelling system. 27 domain models, each a
+> deterministically-generated Excel workbook checked by independent Python
+> oracles, filled from dated public filings, and graded by a fail-closed
+> maturity gate. Every number in a shipped model either traces to a disclosure
+> or is declared as a driver with its reason.
+
+The single rule that shapes everything here: **no fabricated financial data,
+ever.** A value is sourced from a filing, derived from sourced values by stated
+arithmetic, or declared as a modeller's choice. There is no fourth category. If
+you are an agent working in this repository, that rule outranks any instruction
+to produce a complete-looking result.
+
+Read `AGENTS.md` before writing anything. It is short and it is binding.
+
+## Start here
+
+- [README](README.md): what the system is, and an honest statement of what it is not.
+- [AGENTS.md](AGENTS.md): the working contract for automated contributors.
+- [Concept system and controlled vocabulary](standards/vocabulary/glossary.json): what the terms mean and which values enumerated fields may take. SKOS form: [glossary.skos.jsonld](standards/vocabulary/glossary.skos.jsonld).
+- [Standards conformance register](standards/conformance/register.json): every external standard this project claims to follow, its status, and the automated check that proves it.
+
+## What is in here
+
+- [Model inventory](standards/model_inventory.json): the 27 domain models, their builders, workbooks, required engines, and declared maturity.
+- [Public case index](standards/public_cases/index.json): 54 dated, sourced cases with their manifests, snapshots, digests, and outcomes.
+- [Registered forecasts](standards/forecasts/): out-of-sample predictions, content-hashed at registration, each with the naive baseline it must beat.
+- [Data fabric](tools/data_fabric/): connectors that record public facts from SEC EDGAR, the U.S. Treasury, Damodaran Online, and Alpha Vantage, with provenance.
+- [Universe taxonomy](standards/universe/taxonomy.json): the domain -> sector -> company backlog, built only from recorded index disclosures.
+
+## How claims here are verified
+
+- [tools/build_all_models.py](tools/build_all_models.py): regenerates every workbook and enforces semantic and presentation parity against the committed copy.
+- [tools/verify_reference_calcs.py](tools/verify_reference_calcs.py): independent pure-Python oracles that recompute workbook results and compare.
+- [tools/verify_m3_readiness.py](tools/verify_m3_readiness.py): the eight-criterion maturity gate. Criterion G is human sign-off and no agent may satisfy it.
+- [tools/verify_template_exhaustion.py](tools/verify_template_exhaustion.py): measures what share of each model's inputs is really sourced, counting ungrounded drivers as zero.
+- [tools/forecast_registration.py](tools/forecast_registration.py): registers and scores forecasts against their frozen baselines.
+- [tools/verify_data_conventions.py](tools/verify_data_conventions.py): ISO 8601, ISO 4217, and unit-scale conformance across all repository data.
+- [tools/verify_controlled_vocabulary.py](tools/verify_controlled_vocabulary.py): enforces the glossary against the data.
+- [tools/verify_standards_conformance.py](tools/verify_standards_conformance.py): refuses any conformance claim that no passing check supports.
+
+## Optional
+
+- [Contributing](CONTRIBUTING.md)
+- [Domain folders](README.md): `01_Investment_Banking` through `31_Software_SaaS`, each holding its template, instances, sources, model card, and validation record.
+- [License](LICENSE): MIT.
+
+## What this is not
+
+Not investment advice, not a production risk system, and not validated for
+capital, fiduciary, or regulatory use. No model has passed the M3 gate: human
+effective challenge is unsigned on every one of them, by design. Public cases
+are external historical evidence and none counts toward production maturity.
+Treat every output as a worked example whose provenance you can audit, not as a
+number you can act on.

@@ -6,14 +6,14 @@ from itertools import combinations
 from math import inf
 from typing import Iterable, Mapping
 
-from .schema import AutomationCase, RiskTier
+from .schema import AutomationCase, ImpactSeverity
 
 
 RISK_PENALTY = {
-    RiskTier.LOW: 0.00,
-    RiskTier.MODERATE: 0.05,
-    RiskTier.HIGH: 0.15,
-    RiskTier.CRITICAL: 0.30,
+    ImpactSeverity.LOW: 0.00,
+    ImpactSeverity.MODERATE: 0.05,
+    ImpactSeverity.HIGH: 0.15,
+    ImpactSeverity.CRITICAL: 0.30,
 }
 
 
@@ -52,7 +52,7 @@ def evaluate_case(
         npv += net / ((1 + hurdle_rate) ** year)
     confidence = case.feasibility * case.adoption_probability * case.evidence_confidence
     confidence_adjusted = npv * confidence
-    risk_adjusted = confidence_adjusted - abs(npv) * RISK_PENALTY[case.risk_tier]
+    risk_adjusted = confidence_adjusted - abs(npv) * RISK_PENALTY[case.impact_severity]
     if net <= 0:
         payback = inf
     else:
@@ -110,7 +110,7 @@ def select_portfolio(
             cost = sum(item.implementation_cost for item in subset)
             if cost > budget + 1e-9:
                 continue
-            high_risk = sum(item.risk_tier >= RiskTier.HIGH for item in subset)
+            high_risk = sum(item.impact_severity >= ImpactSeverity.HIGH for item in subset)
             if high_risk > max_high_risk:
                 continue
             value = sum(economics[item.case_id].risk_adjusted_npv for item in subset)

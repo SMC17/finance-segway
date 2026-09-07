@@ -7,7 +7,7 @@ from time import perf_counter
 from typing import Any, Callable, Mapping
 
 from .evidence import EvidenceLedger, sha256_payload
-from .schema import AgentSpec, AutonomyLevel, RiskTier
+from .schema import AgentSpec, AutonomyLevel, ImpactSeverity
 
 
 SkillHandler = Callable[[Mapping[str, Any]], Mapping[str, Any]]
@@ -17,7 +17,7 @@ SkillHandler = Callable[[Mapping[str, Any]], Mapping[str, Any]]
 class Skill:
     skill_id: str
     handler: SkillHandler
-    risk_tier: RiskTier = RiskTier.LOW
+    impact_severity: ImpactSeverity = ImpactSeverity.LOW
     required_autonomy: AutonomyLevel = AutonomyLevel.ANALYZE
     required_evidence: frozenset[str] = field(default_factory=frozenset)
     read_scopes: frozenset[str] = field(default_factory=frozenset)
@@ -99,7 +99,7 @@ class AgentRuntime:
             reasons.append("context_read_scope_violation")
         if not skill.write_scopes.issubset(context.granted_write_scopes):
             reasons.append("context_write_scope_violation")
-        if skill.risk_tier >= RiskTier.HIGH and not context.approved:
+        if skill.impact_severity >= ImpactSeverity.HIGH and not context.approved:
             reasons.append("approval_required")
         if context.approved and not context.approval_reference:
             reasons.append("approval_reference_required")
@@ -132,7 +132,7 @@ class AgentRuntime:
         if "approval_required" in reasons:
             entry = self.ledger.append(
                 "approval_requested",
-                {"agent_id": agent.agent_id, "skill_id": skill_id, "request_hash": request_hash, "risk_tier": skill.risk_tier.name},
+                {"agent_id": agent.agent_id, "skill_id": skill_id, "request_hash": request_hash, "impact_severity": skill.impact_severity.name},
                 actor=context.actor,
                 timestamp=context.timestamp,
             )

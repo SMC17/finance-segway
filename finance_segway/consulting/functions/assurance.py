@@ -4,7 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Iterable, Mapping
 
-from ..schema import RiskTier
+from ..schema import ImpactSeverity
 
 
 @dataclass(frozen=True)
@@ -15,7 +15,7 @@ class EngineeringTask:
     production_write: bool
     handles_sensitive_data: bool
     reversible: bool
-    risk_tier: RiskTier
+    impact_severity: ImpactSeverity
 
 
 @dataclass(frozen=True)
@@ -35,7 +35,7 @@ def delegate_engineering_task(task: EngineeringTask) -> DelegationDecision:
     if task.production_write:
         controls.extend(["named_approval", "rollback_plan"])
         rationale.append("production_write")
-    if task.risk_tier >= RiskTier.HIGH:
+    if task.impact_severity >= ImpactSeverity.HIGH:
         controls.extend(["independent_review", "change_window"])
         rationale.append("high_risk")
     if not task.tests_available:
@@ -45,7 +45,7 @@ def delegate_engineering_task(task: EngineeringTask) -> DelegationDecision:
         controls.append("human_execution")
         rationale.append("irreversible")
 
-    if task.risk_tier >= RiskTier.HIGH or not task.reversible or task.handles_sensitive_data:
+    if task.impact_severity >= ImpactSeverity.HIGH or not task.reversible or task.handles_sensitive_data:
         mode = "human_led"
     elif task.repetitive and task.tests_available and not task.production_write:
         mode = "autonomous_reversible"
@@ -199,7 +199,7 @@ class CreativeBrief:
     claims: tuple[str, ...]
     sources: tuple[str, ...]
     external_facing: bool
-    brand_risk: RiskTier
+    brand_risk: ImpactSeverity
     cinematic_quality_required: bool = False
 
 
@@ -227,9 +227,9 @@ def route_creative_brief(brief: CreativeBrief) -> ProductionDecision:
         reviews.append("claims_substantiation")
     if brief.external_facing:
         reviews.append("external_release_review")
-    if brief.brand_risk >= RiskTier.HIGH:
+    if brief.brand_risk >= ImpactSeverity.HIGH:
         reviews.append("senior_creative_review")
-    if brief.cinematic_quality_required or brief.brand_risk >= RiskTier.HIGH:
+    if brief.cinematic_quality_required or brief.brand_risk >= ImpactSeverity.HIGH:
         tier = "human_origin"
     elif brief.external_facing:
         tier = "agent_assisted_human_finish"

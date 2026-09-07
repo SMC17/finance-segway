@@ -847,14 +847,14 @@
     {
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C6",
-      "driver_type": "not_disclosed",
+      "driver_type": "structural_mismatch_driver",
       "rationale": "This fund's real capital inflow mechanics (contributions + reinvested distributions) don't map 1:1 onto this template's PE-style 'capital called' concept; the two real inflow line items are summed as the closest honest analog.",
       "basis": {}
     },
     {
       "sheet": "NAV Rollforward & Fee Layering",
       "cell": "C7",
-      "driver_type": "not_disclosed",
+      "driver_type": "structural_mismatch_driver",
       "rationale": "This template has no redemptions line -- $213.5mm of real FY2023 capital redemptions are not represented anywhere in the roll-forward, a genuine structural mismatch expected to inflate the reconciliation residual honestly rather than being forced to zero.",
       "basis": {}
     }
