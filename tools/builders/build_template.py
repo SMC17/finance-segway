@@ -172,6 +172,25 @@ for c in range(6, 10):
     ws.cell(row=ni_row, column=c, value=f"={col}{pretax_row}-{col}{tax_row}")
     ws.cell(row=shares_row, column=c, value=f"=Assumptions!{a}12")
     ws.cell(row=eps_row, column=c, value=f"=IFERROR({col}{ni_row}/{col}{shares_row},\"-\")")
+
+# The historical block (C:E) is the model's only hardcoded input surface, and
+# it was styled BLACK -- the convention for "same-sheet formula". Every
+# coverage and provenance tool in this repo identifies an input by its blue
+# font (see tools/verify_template_exhaustion.py), so 42 real input cells per
+# instance were invisible to all of them: they could be left empty without
+# anything reporting a gap, and IS!E5 being empty zeroes every projected
+# year, the DCF, and the implied value per share. Style is applied here,
+# after the formulas above are placed, so the rule is exactly the one the
+# scanner uses -- a cell in the historical block that carries no formula is
+# an input, and is marked as one.
+for r_hist in range(first_data_row, last_data_row + 1):
+    for c_hist in range(3, 6):
+        cell = ws.cell(row=r_hist, column=c_hist)
+        if isinstance(cell.value, str) and cell.value.startswith("="):
+            continue
+        cell.font = BLUE
+        cell.fill = YELLOW_FILL
+
 ws.sheet_view.showGridLines = False
 ws.freeze_panes = "C5"
 
@@ -302,7 +321,21 @@ ws["H10"] = "Enterprise value"; ws["I10"] = "=I8+I9"; ws["I10"].font = BOLD; ws[
 ws["H11"] = "Less: net debt"; ws["I11"] = 0; ws["I11"].font = BLUE; ws["I11"].number_format = CUR
 ws["H12"] = "Equity value"; ws["I12"] = "=I10-I11"; ws["I12"].font = BOLD; ws["I12"].number_format = CUR
 ws["H13"] = "Diluted shares (mm)"; ws["I13"] = 1; ws["I13"].font = BLUE; ws["I13"].number_format = CUR
-ws["H14"] = "Implied value/share"; ws["I14"] = "=I12/I13"; ws["I14"].font = BOLD; ws["I14"].number_format = CUR
+# A DCF whose forecast base is empty does not produce a zero -- it produces
+# whatever -net debt / shares happens to be. On the committed Microsoft
+# FY2024 corporate-finance case that was a published $1.13 per share, from
+# an enterprise value of exactly 0 and net debt of -8,416. Zero is a tell a
+# reader notices; $1.13 is not. So the published per-share output states the
+# absence instead of pricing it, and the base is surfaced as its own row
+# rather than left as something a reader has to infer from the IS sheet.
+NO_BASE = 'OR(IS!E5="",IS!E5=0)'
+ws["H14"] = "Implied value/share"
+ws["I14"] = f'=IF({NO_BASE},"n/a - no forecast base",I12/I13)'
+ws["I14"].font = BOLD
+ws["I14"].number_format = CUR
+ws["H15"] = "Forecast base (IS!E5)"
+ws["I15"] = f'=IF({NO_BASE},"MISSING - the DCF cannot value anything","present")'
+ws["I15"].font = BOLD
 ws.sheet_view.showGridLines = False
 
 # ---------------- COMPS ----------------

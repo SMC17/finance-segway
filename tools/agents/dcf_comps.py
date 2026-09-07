@@ -254,6 +254,23 @@ def _check_workbook_structurally_sound(workbook_path: Path) -> list[str]:
     ev = dcf["I10"].value
     if not isinstance(ev, (int, float)):
         errors.append(f"enterprise value is not numeric: {ev!r}")
+    elif ev == 0:
+        # The gap this check used to have. The comment above _DIRECT_CELLS
+        # records the cascade an empty IS!E5 produces and expects it to end
+        # in "an implied value/share of exactly 0", which the negative and
+        # non-numeric branches would both catch. It does not end there:
+        # Equity value = EV - net debt, and net debt is routinely negative,
+        # so a dead model publishes a small POSITIVE price. The committed
+        # Microsoft FY2024 corporate-finance case published $1.13 from an
+        # enterprise value of exactly 0 -- numeric, positive, and past both
+        # existing branches. An enterprise value of exactly zero is never a
+        # valuation, so it is rejected on its own terms rather than left to
+        # be inferred from whatever the bridge does with it downstream.
+        errors.append(
+            "enterprise value is exactly 0: the DCF has no forecast base "
+            f"(DCF!I15 says {dcf['I15'].value!r}); any per-share figure "
+            "derived from it is an artefact of net debt, not a valuation"
+        )
     return errors
 
 
