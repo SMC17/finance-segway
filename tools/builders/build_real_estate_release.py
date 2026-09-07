@@ -190,7 +190,7 @@ def enrich(workbook) -> None:
         (6, "FFO bridge residual", "='REIT FFO-AFFO'!C7-('REIT FFO-AFFO'!C4+'REIT FFO-AFFO'!C5-'REIT FFO-AFFO'!C6)", '=IF(ABS(C6)<0.01,"PASS","FAIL")', "FFO must reconcile from GAAP net income under the disclosed Nareit-style definition."),
         (7, "AFFO bridge residual", "='REIT FFO-AFFO'!C11-('REIT FFO-AFFO'!C7-'REIT FFO-AFFO'!C9-'REIT FFO-AFFO'!C10)", '=IF(ABS(C7)<0.01,"PASS","FAIL")', "AFFO is non-GAAP; recurring capex and straight-line rent adjustments must be explicit."),
         (8, "Minimum five-year DSCR", "=MIN('Debt Schedule'!I8:I12)", '=IF(C8>=\'Debt Schedule\'!C5,"PASS",IF(C8>=1,"REVIEW","BREACH"))', "Escalate covenant pressure and refinance dependency."),
-        (9, "Loan-to-value", "=IFERROR('Cap Rate & Valuation'!C10/'Cap Rate & Valuation'!C8,0)", '=IF(C9<=0.75,"PASS",IF(C9<=0.85,"REVIEW","BREACH"))', "High leverage magnifies cap-rate and NOI shocks."),
+        (9, "Loan-to-value", "=IFERROR('Cap Rate & Valuation'!C10/'Cap Rate & Valuation'!C8,\"-\")", '=IF(ISNUMBER(C9),IF(C9<=0.75,"PASS",IF(C9<=0.85,"REVIEW","BREACH")),"REVIEW")', "High leverage magnifies cap-rate and NOI shocks."),
         (10, "Minimum economic occupancy", "=MIN('Lease Roll'!K5:K9)", '=IF(C10>=0.90,"PASS",IF(C10>=0.80,"REVIEW","BREACH"))', "Review tenant rollover, downtime, leasing costs, and concentration."),
         (11, "Year-one levered cash flow", "='Property Pro Forma'!C14", '=IF(C11>=0,"PASS","BREACH")', "Negative cash flow requires funded reserves or a restructuring plan."),
         (12, "Exit cap spread vs going-in", "='5-Year Hold & IRR'!C6-'Cap Rate & Valuation'!C9", '=IF(C12>=0,"PASS","REVIEW")', "Cap-rate compression should never be an unchallenged base-case return driver."),
