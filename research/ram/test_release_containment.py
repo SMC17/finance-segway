@@ -77,13 +77,20 @@ class ReleaseContainmentTests(unittest.TestCase):
 
     def test_an_artifact_outside_the_release_root_is_refused(self) -> None:
         """The guard still contains. A receipt naming a path that escapes
-        the root must be rejected, and told apart from a missing file."""
+        the root must be rejected, and told apart from a missing file.
+
+        The release root is nested one level down so the escaped file has
+        somewhere contained to live. Writing it to root.parent would put a
+        fixed filename in the shared system temp directory, where two runs
+        collide and a crash leaves litter behind.
+        """
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
+            outer = Path(directory)
+            root = outer / "release"
+            root.mkdir()
             _write_release(root)
-            outside = root.parent / "escaped_artifact.csv"
+            outside = outer / "escaped_artifact.csv"
             outside.write_text("not part of this release\n", encoding="utf-8")
-            self.addCleanup(outside.unlink)
 
             path = _receipt_path(root)
             receipt = json.loads(path.read_text(encoding="utf-8"))
@@ -122,13 +129,14 @@ class ReleaseContainmentTests(unittest.TestCase):
         reasons = set()
         for scenario in ("escape", "missing", "tamper"):
             with tempfile.TemporaryDirectory() as directory:
-                root = Path(directory)
+                outer = Path(directory)
+                root = outer / "release"
+                root.mkdir()
                 receipt = _write_release(root)
                 first = next(iter(receipt["artifacts"]))
                 if scenario == "escape":
-                    outside = root.parent / "escaped_reason.csv"
+                    outside = outer / "escaped_reason.csv"
                     outside.write_text("x\n", encoding="utf-8")
-                    self.addCleanup(lambda p=outside: p.unlink(missing_ok=True))
                     path = _receipt_path(root)
                     data = json.loads(path.read_text(encoding="utf-8"))
                     digest = data["artifacts"].pop(first)
