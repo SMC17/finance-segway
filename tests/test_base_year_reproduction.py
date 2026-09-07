@@ -240,3 +240,57 @@ class RecalculationTests(unittest.TestCase):
         result = self.check(path, record)
         self.assertEqual(result["outcome"], "unreadable")
         self.assertIn("not a permitted value", result["detail"])
+
+
+class FailClosedTests(unittest.TestCase):
+    """The vocabulary is a control only while it can refuse."""
+
+    def test_an_unreadable_glossary_raises_rather_than_permitting_everything(self):
+        """An empty permitted set would accept every invented code.
+
+        This is the shape a gate fails open in: nothing errors, nothing is
+        logged, and the strictest part of the check quietly becomes a rubber
+        stamp. The tool must refuse to run instead.
+        """
+        original = gate.GLOSSARY
+        try:
+            gate.GLOSSARY = Path(tempfile.mkdtemp()) / "absent.json"
+            with self.assertRaises(FileNotFoundError):
+                gate.permitted_exemption_codes()
+        finally:
+            gate.GLOSSARY = original
+
+    def test_a_glossary_with_no_codes_raises(self):
+        original = gate.GLOSSARY
+        empty = Path(tempfile.mkdtemp()) / "glossary.json"
+        empty.write_text(json.dumps(
+            {"controlled_fields": {"reproduction_exemption": {"permitted_values": {}}}}
+        ), encoding="utf-8")
+        try:
+            gate.GLOSSARY = empty
+            with self.assertRaises(ValueError):
+                gate.permitted_exemption_codes()
+        finally:
+            gate.GLOSSARY = original
+
+    def test_an_empty_permitted_set_rejects_every_code(self):
+        """Belt and braces: even handed an empty set, nothing is waved through."""
+        record = {"base_year_reproduction": {"exemptions": [
+            {"row": 19, "reproduction_exemption": "forward_by_design",
+             "rationale": "shares are net of buybacks"}]}}
+        exemptions, problems = gate.declared_exemptions(record, set())
+        self.assertEqual(exemptions, {})
+        self.assertTrue(problems)
+
+
+class LayoutTests(unittest.TestCase):
+    def test_derived_base_year_rows_are_reported_not_silently_dropped(self):
+        book = openpyxl.Workbook()
+        sheet = book.active
+        sheet.title = "IS"
+        sheet["B4"], sheet["C4"], sheet["D4"] = "Line item", "FY-1A", "FY0A"
+        sheet["E4"] = "FY1E"
+        sheet["D5"], sheet["D8"] = 1000.0, "=D5-D7"
+        found, skipped = gate.disclosed_actuals(sheet, 4, 4)
+        self.assertEqual(found, {5: 1000.0})
+        self.assertEqual(skipped, [8])
