@@ -71,11 +71,9 @@
       "source_as_of": "2024-12-31"
     }
   ],
-  "workbook_sha256": "ea03de4827d879c4b456b4741b7e2e135606212d42275c7496cf39f0b9be23a6",
-  "generated_on": "2026-08-05",
-  "refresh_schema": "source-addressed-v2",
-  "classification": "external_historical_case",
-  "counts_toward_M4": false,
-  "hash_refreshed_on": "2026-08-05",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
+  "workbook_sha256": "8a2dc6e7cc2bba76bf2aed247bd6ee6c5be10629056d7d732352eae9aecf22bb",
+  "generated_on": "2026-09-07",
+  "hash_refreshed_on": "2026-09-07",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "counts_toward_M4": false
 }
