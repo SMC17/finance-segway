@@ -1,0 +1,23 @@
+{
+  "forecast_id": "equity-tesla-fy2026-revenue",
+  "case_id": "equity-public-tesla-2020-offering",
+  "model_id": "12",
+  "metric": "fy2026_total_revenue_usd_mm",
+  "outcome_class": "out_of_sample_forecast",
+  "point": 111883.6,
+  "interval": [
+    101519.8,
+    121926.1
+  ],
+  "basis": "modeled",
+  "baseline": {
+    "kind": "naive_last_recorded",
+    "value": 94827.0,
+    "source": "carry-forward of fy2026_total_revenue_usd_mm = 94827.0 at 2025-12-31 per us-gaap:Revenues from Tesla's SEC XBRL company facts (CIK 0001318605), recorded at tools/data_fabric/out/TSLA_facts_annual_series.json; the fiscal years ending 2023-12-31, 2024-12-31 and 2025-12-31 were all filed 2026-01-29, so the three sit on one basis"
+  },
+  "registered_on": "2026-10-01",
+  "resolve_by": "2027-03-31",
+  "resolution_source_expected": "Tesla, Inc. FY2026 Form 10-K (us-gaap:Revenues for the fiscal year ending 2026-12-31, USD mm). Tesla filed its FY2021 through FY2025 10-Ks between 2024-01-29 and 2026-01-29, so the figure should be public well before the resolve_by date; 2027-03-31 allows for the 60-day large-accelerated-filer deadline plus slack. METHOD: forecast = observed H1 FY2026 revenue of 50,623.0 USD mm (Q1 ending 2026-03-31 plus Q2 ending 2026-06-30, from tools/data_fabric/out/TSLA_alphavantage_income_statement_quarterly.json) multiplied by 1 + 1.210133, the mean of the observed second-half-to-first-half revenue ratios for FY2021 through FY2025 (FY2021 1.4085, FY2022 1.2825, FY2023 1.0054, FY2024 1.0873, FY2025 1.2669). The interval applies the weakest and strongest of those five ratios and is an envelope of observed seasonality, not a calibrated confidence interval. VERIFICATION OF THE QUARTERLY SOURCE: the four recorded quarters sum to the vendor's own annual revenue to the dollar in every one of FY2021 through FY2025, and the FY2025 annual figure of 94,827 USD mm matches the SEC EDGAR observation exactly. NOTE ON VINTAGE: the linked case is dated 2020-02-14 and its forward grid excludes post-as-of data; this is a separately dated projection anchored on reported fiscal 2026 quarters, and it does not feed the case workbook. WHY REVENUE AND NOT A PER-SHARE METRIC: Tesla's recorded share-count series mixes stock-split bases, as verify_share_series_integrity.py reports, so a per-share forecast would be scored against an artefact.",
+  "resolution": null,
+  "registration_sha256": "7edbbc792e149fb0fefed145ae99f39738d2d88428216a978c5bfae72eb3ecc7"
+}

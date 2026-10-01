@@ -1,0 +1,23 @@
+{
+  "forecast_id": "equity-tesla-fy2026-revenue",
+  "generator": "tools/register_equity_finance_tesla_forecast.py",
+  "formula": "point = H1_2026_observed * (1 + mean(H2/H1 over FY2021..FY2025))",
+  "interval_formula": "the same arithmetic at the smallest and the largest of those five ratios",
+  "h1_2026_observed_usd_mm": 50623.0,
+  "seasonality_ratios": {
+    "FY2021": 1.408511,
+    "FY2022": 1.282488,
+    "FY2023": 1.005409,
+    "FY2024": 1.087349,
+    "FY2025": 1.266907
+  },
+  "mean_ratio": 1.210133,
+  "implied_growth_vs_fy2025": 0.179871,
+  "point": 111883.6,
+  "interval": [
+    101519.8,
+    121926.1
+  ],
+  "baseline": 94827.0,
+  "what_would_falsify_it": "Tesla's FY2026 Form 10-K reporting total revenue outside [101519.8, 121926.1] USD mm means the second half of 2026 fell outside every seasonal pattern the company has shown since 2021. A realized figure closer to the frozen baseline of 94,827 than to the point estimate scores negative Murphy skill, which is the honest outcome to record."
+}

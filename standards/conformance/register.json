@@ -693,12 +693,16 @@
       "requirement_basis": "well_established",
       "status": "partial",
       "evidence": {
-        "check": "tools/verify_data_conventions.py",
-        "asserts": "Consistency is measured directly: two magnitude suffixes denoting one multiplier, and 612 string sentinels in numeric fields, are both reported with counts and locations."
+        "check": [
+          "tools/verify_data_conventions.py",
+          "tools/verify_share_series_integrity.py"
+        ],
+        "asserts": "Consistency is measured directly, at two levels. Within a value: two magnitude suffixes denoting one multiplier, and 612 string sentinels in numeric fields, are reported with counts and locations. Across a series: 266 share-count series over 103 companies are tested for comparability, and 182 breaks are reported and classified -- 120 changes of stock-split basis, 29 changes of unit scale, and 33 that match no clean multiple and are left for a person to judge. A new unit-scale break fails the check; the 29 already recorded in standards/conformance/known_data_defects.json are reported without failing it, and an entry that stops matching is reported as stale so it gets deleted."
       },
       "gaps": [
         "Of the model's fifteen characteristics, only consistency and, through the vocabulary checker, part of understandability are measured.",
-        "Accuracy, completeness, credibility, and currentness are addressed by other machinery in this repository (the coverage scanner, the oracles, the quarterly clock) but are not yet expressed in the standard's terms."
+        "Accuracy, completeness, credibility, and currentness are addressed by other machinery in this repository (the coverage scanner, the oracles, the quarterly clock) but are not yet expressed in the standard's terms.",
+        "The 29 recorded unit-scale defects are accepted rather than repaired. Repair needs a fresh harvest from data.sec.gov, which this environment's network policy denies."
       ],
       "notes": null
     },
