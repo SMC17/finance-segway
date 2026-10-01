@@ -18,6 +18,45 @@
         "underwriting_discount_usd_mm": 23.9,
         "net_before_expenses_usd_mm": 2008.65
       }
+    },
+    {
+      "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+      "publisher": "U.S. Securities and Exchange Commission (EDGAR company facts)",
+      "captured_values": {
+        "periods": [
+          "2017-12-31",
+          "2018-12-31",
+          "2019-12-31"
+        ],
+        "shares_outstanding_fy2017": 168797000,
+        "shares_outstanding_fy2017_filed": "2019-02-19",
+        "revenue_fy2017_usd": 11759000000,
+        "cost_of_revenue_fy2017_usd": 9536000000,
+        "gross_profit_fy2017_usd": 2223000000,
+        "operating_income_fy2017_usd": -1632000000,
+        "interest_expense_fy2017_usd": 471000000,
+        "income_tax_fy2017_usd": 32000000,
+        "shares_outstanding_fy2018": 173000000,
+        "shares_outstanding_fy2018_filed": "2020-02-13",
+        "revenue_fy2018_usd": 21461000000,
+        "cost_of_revenue_fy2018_usd": 17419000000,
+        "gross_profit_fy2018_usd": 4042000000,
+        "operating_income_fy2018_usd": -388000000,
+        "interest_expense_fy2018_usd": 663000000,
+        "income_tax_fy2018_usd": 58000000,
+        "revenue_fy2019_usd": 24578000000,
+        "cost_of_revenue_fy2019_usd": 20509000000,
+        "gross_profit_fy2019_usd": 4069000000,
+        "operating_income_fy2019_usd": -69000000,
+        "interest_expense_fy2019_usd": 685000000,
+        "income_tax_fy2019_usd": 110000000,
+        "capex_fy2017_usd": 4081354000.0,
+        "capex_fy2018_usd": 2319000000.0,
+        "capex_fy2019_usd": 1437000000.0,
+        "net_debt_fy2019_usd_mm_from_alpha_vantage": -6105.0
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
     }
   ],
   "input_overrides": [
@@ -59,5 +98,15 @@
     "status": "recorded"
   },
   "counts_toward_m4": false,
-  "snapshot_sha256": "b62e89b30083ddbf1178187034378dac0cfd5b60e9212cd3aa2bb2f9b923791e"
+  "dating_rules": {
+    "hindsight": "Only observations FILED on or before the case date 2020-02-14 are used. Filtering on the filing date rather than the period end is the stricter test and is what a reader on the case date actually had.",
+    "split_basis": "Tesla split 5:1 in August 2020 and 3:1 in August 2022. Because the corpus keeps the latest restatement per period, adjacent share counts sit on different bases. The filed-by-case-date filter selects only pre-split filings, so every share count here is on one basis."
+  },
+  "not_available": {
+    "note": "Facts this case needed and could not get on a usable basis. Recorded so the gap is auditable rather than implicit.",
+    "items": [
+      "CommonStockSharesOutstanding FY2019 as filed (superseded by a post-split restatement)"
+    ]
+  },
+  "snapshot_sha256": "b17c6d56abda03a7f9af7dda4f03638875370ab0e667df63cf63ae947dd888e5"
 }

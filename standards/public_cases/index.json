@@ -3987,7 +3987,7 @@
       "manifest": "standards/public_cases/equity-public-tesla-2020-offering.json",
       "output": "12_Equity_Finance/instances/public_tesla_2020_offering.xlsx",
       "snapshot": "12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
-      "snapshot_sha256": "b62e89b30083ddbf1178187034378dac0cfd5b60e9212cd3aa2bb2f9b923791e",
+      "snapshot_sha256": "b17c6d56abda03a7f9af7dda4f03638875370ab0e667df63cf63ae947dd888e5",
       "counts_toward_m4": false,
       "receipt": {
         "schema_version": "1.0",
