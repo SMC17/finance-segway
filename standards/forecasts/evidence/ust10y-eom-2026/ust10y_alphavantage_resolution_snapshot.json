@@ -1,0 +1,243 @@
+{
+  "series": "Alpha Vantage TREASURY_YIELD, maturity 10year, interval daily",
+  "series_name_as_reported": "10-Year Treasury Constant Maturity Rate",
+  "unit": "percent",
+  "retrieved_utc": "20261101T142111Z",
+  "observations_in_source": 16192,
+  "earliest_observation": "1962-01-02",
+  "latest_observation": "2026-10-29",
+  "purpose": "Resolve rates-ust10y-eom-2026-09. The registered record names FRED DGS10 as the resolution source. Neither fred.stlouisfed.org nor home.treasury.gov is reachable from this environment: the agent proxy answers 403 to CONNECT for both, recorded as a policy denial. This source is used instead, and the substitution is verified rather than asserted.",
+  "why_this_is_the_same_series": "Alpha Vantage reports it as the 10-Year Treasury Constant Maturity Rate, which is what FRED publishes as DGS10. The verification below compares the two source-by-source over the whole window the forecast was registered against.",
+  "verification_against_frozen_fred_snapshot": {
+    "reference": "standards/forecasts/evidence/ust10y-eom-2026/dgs10_eom_snapshot.json",
+    "method": "For each month-end the frozen FRED snapshot records, take this source's last business day of that month and compare the two values.",
+    "month_ends_compared": 31,
+    "month_ends_agreeing_exactly": 31,
+    "month_ends_disagreeing": 0,
+    "baseline_observation": {
+      "date": "2026-08-04",
+      "fred_pct": 4.63,
+      "alpha_vantage_pct": 4.63,
+      "agrees": true
+    },
+    "conclusion": "All 31 month-ends agree to the basis point, and so does the single observation the forecast's naive baseline was frozen from. The two sources are the same series over this window.",
+    "per_month": {
+      "2024-01": {
+        "date": "2024-01-31",
+        "alpha_vantage_pct": 3.99,
+        "fred_pct": 3.99,
+        "agrees": true
+      },
+      "2024-02": {
+        "date": "2024-02-29",
+        "alpha_vantage_pct": 4.25,
+        "fred_pct": 4.25,
+        "agrees": true
+      },
+      "2024-03": {
+        "date": "2024-03-28",
+        "alpha_vantage_pct": 4.2,
+        "fred_pct": 4.2,
+        "agrees": true
+      },
+      "2024-04": {
+        "date": "2024-04-30",
+        "alpha_vantage_pct": 4.69,
+        "fred_pct": 4.69,
+        "agrees": true
+      },
+      "2024-05": {
+        "date": "2024-05-31",
+        "alpha_vantage_pct": 4.51,
+        "fred_pct": 4.51,
+        "agrees": true
+      },
+      "2024-06": {
+        "date": "2024-06-28",
+        "alpha_vantage_pct": 4.36,
+        "fred_pct": 4.36,
+        "agrees": true
+      },
+      "2024-07": {
+        "date": "2024-07-31",
+        "alpha_vantage_pct": 4.09,
+        "fred_pct": 4.09,
+        "agrees": true
+      },
+      "2024-08": {
+        "date": "2024-08-30",
+        "alpha_vantage_pct": 3.91,
+        "fred_pct": 3.91,
+        "agrees": true
+      },
+      "2024-09": {
+        "date": "2024-09-30",
+        "alpha_vantage_pct": 3.81,
+        "fred_pct": 3.81,
+        "agrees": true
+      },
+      "2024-10": {
+        "date": "2024-10-31",
+        "alpha_vantage_pct": 4.28,
+        "fred_pct": 4.28,
+        "agrees": true
+      },
+      "2024-11": {
+        "date": "2024-11-29",
+        "alpha_vantage_pct": 4.18,
+        "fred_pct": 4.18,
+        "agrees": true
+      },
+      "2024-12": {
+        "date": "2024-12-31",
+        "alpha_vantage_pct": 4.58,
+        "fred_pct": 4.58,
+        "agrees": true
+      },
+      "2025-01": {
+        "date": "2025-01-31",
+        "alpha_vantage_pct": 4.58,
+        "fred_pct": 4.58,
+        "agrees": true
+      },
+      "2025-02": {
+        "date": "2025-02-28",
+        "alpha_vantage_pct": 4.24,
+        "fred_pct": 4.24,
+        "agrees": true
+      },
+      "2025-03": {
+        "date": "2025-03-31",
+        "alpha_vantage_pct": 4.23,
+        "fred_pct": 4.23,
+        "agrees": true
+      },
+      "2025-04": {
+        "date": "2025-04-30",
+        "alpha_vantage_pct": 4.17,
+        "fred_pct": 4.17,
+        "agrees": true
+      },
+      "2025-05": {
+        "date": "2025-05-30",
+        "alpha_vantage_pct": 4.41,
+        "fred_pct": 4.41,
+        "agrees": true
+      },
+      "2025-06": {
+        "date": "2025-06-30",
+        "alpha_vantage_pct": 4.24,
+        "fred_pct": 4.24,
+        "agrees": true
+      },
+      "2025-07": {
+        "date": "2025-07-31",
+        "alpha_vantage_pct": 4.37,
+        "fred_pct": 4.37,
+        "agrees": true
+      },
+      "2025-08": {
+        "date": "2025-08-29",
+        "alpha_vantage_pct": 4.23,
+        "fred_pct": 4.23,
+        "agrees": true
+      },
+      "2025-09": {
+        "date": "2025-09-30",
+        "alpha_vantage_pct": 4.16,
+        "fred_pct": 4.16,
+        "agrees": true
+      },
+      "2025-10": {
+        "date": "2025-10-31",
+        "alpha_vantage_pct": 4.11,
+        "fred_pct": 4.11,
+        "agrees": true
+      },
+      "2025-11": {
+        "date": "2025-11-28",
+        "alpha_vantage_pct": 4.02,
+        "fred_pct": 4.02,
+        "agrees": true
+      },
+      "2025-12": {
+        "date": "2025-12-31",
+        "alpha_vantage_pct": 4.18,
+        "fred_pct": 4.18,
+        "agrees": true
+      },
+      "2026-01": {
+        "date": "2026-01-30",
+        "alpha_vantage_pct": 4.26,
+        "fred_pct": 4.26,
+        "agrees": true
+      },
+      "2026-02": {
+        "date": "2026-02-27",
+        "alpha_vantage_pct": 3.97,
+        "fred_pct": 3.97,
+        "agrees": true
+      },
+      "2026-03": {
+        "date": "2026-03-31",
+        "alpha_vantage_pct": 4.3,
+        "fred_pct": 4.3,
+        "agrees": true
+      },
+      "2026-04": {
+        "date": "2026-04-30",
+        "alpha_vantage_pct": 4.4,
+        "fred_pct": 4.4,
+        "agrees": true
+      },
+      "2026-05": {
+        "date": "2026-05-29",
+        "alpha_vantage_pct": 4.45,
+        "fred_pct": 4.45,
+        "agrees": true
+      },
+      "2026-06": {
+        "date": "2026-06-30",
+        "alpha_vantage_pct": 4.44,
+        "fred_pct": 4.44,
+        "agrees": true
+      },
+      "2026-07": {
+        "date": "2026-07-31",
+        "alpha_vantage_pct": 4.75,
+        "fred_pct": 4.75,
+        "agrees": true
+      }
+    }
+  },
+  "resolution_values": {
+    "2026-09": {
+      "last_business_day": "2026-09-30",
+      "weekday": "Wednesday",
+      "business_days_in_month_in_source": 21,
+      "value_pct": 5.29,
+      "value_decimal": 0.0529
+    }
+  },
+  "october_is_not_resolvable_yet": {
+    "forecast_id": "rates-ust10y-eom-2026-10",
+    "last_business_day_of_october_2026": "2026-10-30",
+    "weekday": "Friday",
+    "latest_observation_in_source": "2026-10-29",
+    "reason": "The source's latest observation is 2026-10-29, a Thursday. The last business day of October 2026 is Friday 2026-10-30 and is not yet published here. That forecast's resolve_by is 2026-11-06, so it is not overdue, and resolving it from 2026-10-29 would resolve it against the wrong day."
+  },
+  "recent_days_pct": {
+    "2026-08": {
+      "last_business_day": "2026-08-31",
+      "value_pct": 4.75
+    },
+    "2026-09": {
+      "last_business_day": "2026-09-30",
+      "value_pct": 5.29
+    },
+    "2026-10": {
+      "last_business_day": "2026-10-29",
+      "value_pct": 4.98
+    }
+  }
+}

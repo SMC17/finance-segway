@@ -135,11 +135,57 @@ last_data_row = r - 1
 (rev_row, growth_row, cogs_row, gp_row, gm_row, opex_row, ebitda_row, ebitdam_row,
  da_row, ebit_row, int_row, pretax_row, tax_row, ni_row, shares_row, eps_row) = range(5, 21)
 
-# Historical columns (C,D,E = FY-2A/FY-1A/FY0A) are hardcoded actuals the user
-# enters — growth%/gross profit/gross margin% are still derived from them.
-for c in range(4, 10):
+# Historical columns (C,D,E = FY-2A/FY-1A/FY0A) hold reported actuals the user
+# enters. They were previously left unstyled AND without derived formulas,
+# which had two consequences worth stating plainly, because both were silent:
+#
+#   1. The cells carried no input marker, so neither the coverage scanner nor a
+#      reader looking for blue cells could see that they existed. A whole
+#      column of required entry looked like empty space.
+#   2. Every projection column chains off E5 (FY0A revenue). With E5 blank the
+#      income statement, the DCF, and diluted EPS all evaluated to zero in
+#      every BASE-template domain. A model returning zero is not a model.
+#
+# So the entry rows are now marked as inputs, and the derived rows get the same
+# formulas their projection counterparts have. Marking them raises each
+# template's candidate-input count, which LOWERS reported real-data coverage
+# for any case that has not filled them -- that is the scanner telling the truth
+# about work that was always outstanding.
+HISTORICAL_ENTRY_ROWS = (
+    rev_row,     # Revenue
+    cogs_row,    # COGS
+    opex_row,    # Opex, excluding D&A to match the projection convention
+    da_row,      # D&A
+    int_row,     # Interest expense
+    tax_row,     # Tax, as a reported amount rather than a rate
+    shares_row,  # Diluted shares
+)
+for c in range(3, 6):
     col_letter = get_column_letter(c)
-    prev_letter = get_column_letter(c-1)
+    prev_letter = get_column_letter(c - 1)
+    for row in HISTORICAL_ENTRY_ROWS:
+        cell = ws.cell(row=row, column=c)
+        cell.font = BLUE
+        cell.fill = YELLOW_FILL
+        cell.number_format = CUR if row != shares_row else "#,##0.0"
+    # Derived rows, mirroring the projection columns so a historical column
+    # computes the same way a forecast column does.
+    ws.cell(row=gp_row, column=c, value=f"={col_letter}{rev_row}-{col_letter}{cogs_row}")
+    ws.cell(row=gm_row, column=c, value=f"=IFERROR({col_letter}{gp_row}/{col_letter}{rev_row},\"-\")")
+    ws.cell(row=ebitda_row, column=c, value=f"={col_letter}{gp_row}-{col_letter}{opex_row}")
+    ws.cell(row=ebitdam_row, column=c, value=f"=IFERROR({col_letter}{ebitda_row}/{col_letter}{rev_row},\"-\")")
+    ws.cell(row=ebit_row, column=c, value=f"={col_letter}{ebitda_row}-{col_letter}{da_row}")
+    ws.cell(row=pretax_row, column=c, value=f"={col_letter}{ebit_row}-{col_letter}{int_row}")
+    ws.cell(row=ni_row, column=c, value=f"={col_letter}{pretax_row}-{col_letter}{tax_row}")
+    ws.cell(row=eps_row, column=c, value=f"=IFERROR({col_letter}{ni_row}/{col_letter}{shares_row},\"-\")")
+    # Growth needs a prior year, so column C (the earliest) has none.
+    if c > 3:
+        ws.cell(row=growth_row, column=c, value=f"=IFERROR({col_letter}{rev_row}/{prev_letter}{rev_row}-1,\"-\")")
+
+# Growth, gross profit and gross margin for the projection columns.
+for c in range(6, 10):
+    col_letter = get_column_letter(c)
+    prev_letter = get_column_letter(c - 1)
     ws.cell(row=growth_row, column=c, value=f"=IFERROR({col_letter}{rev_row}/{prev_letter}{rev_row}-1,\"-\")")
     ws.cell(row=gp_row, column=c, value=f"={col_letter}{rev_row}-{col_letter}{cogs_row}")
     ws.cell(row=gm_row, column=c, value=f"=IFERROR({col_letter}{gp_row}/{col_letter}{rev_row},\"-\")")

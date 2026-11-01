@@ -125,6 +125,33 @@ class RegisterFailsClosedTests(unittest.TestCase):
         self.assertEqual("FAIL", result["status"])
         self.assertTrue(any("no plan" in f for f in result["failures"]))
 
+    def test_a_row_may_cite_several_checks_and_each_one_is_policed(self) -> None:
+        # A standard is often backed by more than one checker. If only one could
+        # be cited, the others would go unexecuted by --run-checks, and the
+        # register would be claiming conformance on evidence nothing verifies.
+        register = load_register()
+        row = next(r for r in register["standards"] if r["id"] == "iso-iec-25012")
+        self.assertIsInstance(row["evidence"]["check"], list)
+        self.assertGreater(len(row["evidence"]["check"]), 1)
+        self.assertEqual("PASS", self._run_with(register)["status"])
+
+        row["evidence"]["check"] = row["evidence"]["check"] + [
+            "tools/no_such_checker.py"
+        ]
+        result = self._run_with(register)
+        self.assertEqual("FAIL", result["status"])
+        self.assertTrue(any("no_such_checker.py" in f for f in result["failures"]))
+
+    def test_a_malformed_check_field_is_refused(self) -> None:
+        register = load_register()
+        row = next(r for r in register["standards"] if r["id"] == "iso-iec-25012")
+        row["evidence"]["check"] = {"path": "tools/verify_data_conventions.py"}
+        result = self._run_with(register)
+        self.assertEqual("FAIL", result["status"])
+        self.assertTrue(
+            any("must be a path or a list of paths" in f for f in result["failures"])
+        )
+
     def test_unverified_rows_are_always_surfaced(self) -> None:
         result = conformance.run(execute_checks=False)
         unverified = [
@@ -146,11 +173,15 @@ class RegisterFailsClosedTests(unittest.TestCase):
     def test_every_claim_is_backed_by_a_check_that_exists(self) -> None:
         for row in load_register()["standards"]:
             if row["status"] in {"conformant", "partial"}:
-                check = (row.get("evidence") or {}).get("check")
-                self.assertTrue(check, f"{row['id']} claims {row['status']} with no check")
-                self.assertTrue(
-                    (ROOT / check).exists(), f"{row['id']} names missing check {check}"
-                )
+                cited = (row.get("evidence") or {}).get("check")
+                self.assertTrue(cited, f"{row['id']} claims {row['status']} with no check")
+                # A row may cite one check or several; every one must exist.
+                checks = [cited] if isinstance(cited, str) else cited
+                for check in checks:
+                    self.assertTrue(
+                        (ROOT / check).exists(),
+                        f"{row['id']} names missing check {check}",
+                    )
 
 
 class EntryPointTests(unittest.TestCase):

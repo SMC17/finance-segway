@@ -102,8 +102,13 @@ def find_candidate_cells(template_path: Path) -> dict[str, set[str]]:
     yellow (FFF2CC) while the older legacy_frontier_release archetype uses
     pure yellow (FFFF00), and some legacy cells carry no fill at all --
     checking fill would silently miss real input cells in whichever
-    convention isn't matched. Verified empirically to produce zero false
-    positives from formula cells across both conventions.
+    convention isn't matched.
+
+    Formula cells are excluded. An earlier note here claimed blue font
+    produced no false positives from formulas; that was verified against one
+    template only, and it was not true of the others. Equity Finance styles
+    its share-count row as an input while linking it to the cap table, so five
+    cells sat in the denominator that no case could ever fill.
 
     Both Base and Downside columns count as candidates (no column-label
     filtering): an adversarial/stress case's whole point is that its
@@ -129,6 +134,14 @@ def find_candidate_cells(template_path: Path) -> dict[str, set[str]]:
                 if cell.value is not None and str(cell.value) == LEGEND_EXCLUDE_TEXT:
                     continue
                 if _rgb(cell.font.color if cell.font else None) != INPUT_FONT_RGB:
+                    continue
+                # A blue-font cell holding a FORMULA is not fillable:
+                # model_instances.py refuses to overwrite a formula, so no case
+                # can ever put data there. Counting it inflates the denominator
+                # and permanently depresses that domain's measurable coverage.
+                # Equity Finance links its share-count row to the cap table and
+                # styles it as an input, which is exactly this case.
+                if isinstance(cell.value, str) and cell.value.startswith("="):
                     continue
                 candidates.add(cell.coordinate)
         if candidates:

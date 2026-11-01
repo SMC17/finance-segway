@@ -12,6 +12,976 @@
   },
   "inputs": [
     {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 0.445733,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Revenue growth, fading from the FY2017-FY2019 trailing compound rate (0.4457) to the slowest year actually observed in the window (0.1452). Both endpoints are real; only the linear path between them is a modelling choice. No fiscal year after the case date is used."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 0.165555,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Gross margin held at the FY2019 actual, GrossProfit / Revenues = 0.1656. The FY2017-FY2019 range was 0.1656 to 0.1890, so holding the most recent value is the lower end of recent experience."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.080723,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Operating expense EXCLUDING depreciation and amortisation, over revenue, held at the FY2019 actual: (GrossProfit - OperatingIncomeLoss - D&A) / Revenues = 0.0807. D&A is excluded here because the template charges it separately on row 9, and leaving it in both places would charge it twice. This ratio fell steeply across the window as revenue scaled, so holding the latest value assumes that operating leverage stops improving."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "value": 0.21,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Tax rate. No meaningful effective rate exists in the window: Tesla reported tax EXPENSE against pre-tax LOSSES in all three years, which gives a negative rate that would make the model add income on the way down. Held at the then prevailing US federal statutory rate as a declared driver."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "value": 1.498956,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Depreciation and amortisation as a share of capital expenditure, at the FY2019 actual = 1.4990 (2,154 $mm of D&A over 1,437 $mm of capex). Both terms come from the same cash flow statement, recorded at tools/data_fabric/out/TSLA_alphavantage_cash_flow.json; taking them from different sources would make the ratio meaningless, because the two sources scope capex differently. Together with row 10 this reproduces the observed FY2019 D&A of 0.0876 of revenue exactly, since 0.058467 x 1.498956 = 0.087639. CAVEAT, and it matters: this ratio is unstable across the window (0.40, 0.82, 1.50), because Tesla's capex fell by two thirds while its asset base kept depreciating. The pairing is chosen so that the product ties to the one quantity that is stable -- D&A as a share of revenue, which ran 0.1391, 0.0886 and 0.0876 across the window. Read row 9 and row 10 as a pair, not separately."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C10",
+      "value": 0.058467,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Capital expenditure over revenue held at the FY2019 actual, 1,437 / 24,578 = 0.0585, from the cash flow statement recorded at tools/data_fabric/out/TSLA_alphavantage_cash_flow.json. Capex fell in absolute terms across the window while revenue more than doubled, so this is the lowest ratio of the three years and therefore the most favourable to free cash flow -- stated because it flatters the case. This source scopes capex about 10% wider than EDGAR's PaymentsToAcquirePropertyPlantAndEquipment, which makes the ratio slightly LESS favourable than the EDGAR-based figure this driver previously carried; it is used because row 9 needs capex and D&A on one basis."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "value": 0.470816,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Change in net working capital per dollar of revenue change, mean of the FY2017-FY2019 steps = 0.4708, where net working capital is AssetsCurrent less LiabilitiesCurrent. CAVEAT: the two yearly values (-0.0600 and 1.0016) differ by an order of magnitude and Tesla's working capital crossed from negative to positive inside the window, so this mean is a weak central estimate."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C13",
+      "value": 0.095,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Weighted average cost of capital. A market-derived quantity requiring a risk-free rate, an equity risk premium, and a beta as of February 2020. None is an issuer disclosure, and no market-data source for that date is reachable from this environment."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C14",
+      "value": 0.025,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Terminal growth rate. A judgment about the indefinite future, not a fact."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "value": 0.37061,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Revenue growth, fading from the FY2017-FY2019 trailing compound rate (0.4457) to the slowest year actually observed in the window (0.1452). Both endpoints are real; only the linear path between them is a modelling choice. No fiscal year after the case date is used."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D6",
+      "value": 0.165555,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Gross margin held at the FY2019 actual, GrossProfit / Revenues = 0.1656. The FY2017-FY2019 range was 0.1656 to 0.1890, so holding the most recent value is the lower end of recent experience."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": 0.080723,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Operating expense EXCLUDING depreciation and amortisation, over revenue, held at the FY2019 actual: (GrossProfit - OperatingIncomeLoss - D&A) / Revenues = 0.0807. D&A is excluded here because the template charges it separately on row 9, and leaving it in both places would charge it twice. This ratio fell steeply across the window as revenue scaled, so holding the latest value assumes that operating leverage stops improving."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "value": 0.21,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Tax rate. No meaningful effective rate exists in the window: Tesla reported tax EXPENSE against pre-tax LOSSES in all three years, which gives a negative rate that would make the model add income on the way down. Held at the then prevailing US federal statutory rate as a declared driver."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "value": 1.498956,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Depreciation and amortisation as a share of capital expenditure, at the FY2019 actual = 1.4990 (2,154 $mm of D&A over 1,437 $mm of capex). Both terms come from the same cash flow statement, recorded at tools/data_fabric/out/TSLA_alphavantage_cash_flow.json; taking them from different sources would make the ratio meaningless, because the two sources scope capex differently. Together with row 10 this reproduces the observed FY2019 D&A of 0.0876 of revenue exactly, since 0.058467 x 1.498956 = 0.087639. CAVEAT, and it matters: this ratio is unstable across the window (0.40, 0.82, 1.50), because Tesla's capex fell by two thirds while its asset base kept depreciating. The pairing is chosen so that the product ties to the one quantity that is stable -- D&A as a share of revenue, which ran 0.1391, 0.0886 and 0.0876 across the window. Read row 9 and row 10 as a pair, not separately."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 0.058467,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Capital expenditure over revenue held at the FY2019 actual, 1,437 / 24,578 = 0.0585, from the cash flow statement recorded at tools/data_fabric/out/TSLA_alphavantage_cash_flow.json. Capex fell in absolute terms across the window while revenue more than doubled, so this is the lowest ratio of the three years and therefore the most favourable to free cash flow -- stated because it flatters the case. This source scopes capex about 10% wider than EDGAR's PaymentsToAcquirePropertyPlantAndEquipment, which makes the ratio slightly LESS favourable than the EDGAR-based figure this driver previously carried; it is used because row 9 needs capex and D&A on one basis."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "value": 0.470816,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Change in net working capital per dollar of revenue change, mean of the FY2017-FY2019 steps = 0.4708, where net working capital is AssetsCurrent less LiabilitiesCurrent. CAVEAT: the two yearly values (-0.0600 and 1.0016) differ by an order of magnitude and Tesla's working capital crossed from negative to positive inside the window, so this mean is a weak central estimate."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D13",
+      "value": 0.095,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Weighted average cost of capital. A market-derived quantity requiring a risk-free rate, an equity risk premium, and a beta as of February 2020. None is an issuer disclosure, and no market-data source for that date is reachable from this environment."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D14",
+      "value": 0.025,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Terminal growth rate. A judgment about the indefinite future, not a fact."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E5",
+      "value": 0.295487,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Revenue growth, fading from the FY2017-FY2019 trailing compound rate (0.4457) to the slowest year actually observed in the window (0.1452). Both endpoints are real; only the linear path between them is a modelling choice. No fiscal year after the case date is used."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E6",
+      "value": 0.165555,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Gross margin held at the FY2019 actual, GrossProfit / Revenues = 0.1656. The FY2017-FY2019 range was 0.1656 to 0.1890, so holding the most recent value is the lower end of recent experience."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E7",
+      "value": 0.080723,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Operating expense EXCLUDING depreciation and amortisation, over revenue, held at the FY2019 actual: (GrossProfit - OperatingIncomeLoss - D&A) / Revenues = 0.0807. D&A is excluded here because the template charges it separately on row 9, and leaving it in both places would charge it twice. This ratio fell steeply across the window as revenue scaled, so holding the latest value assumes that operating leverage stops improving."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E8",
+      "value": 0.21,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Tax rate. No meaningful effective rate exists in the window: Tesla reported tax EXPENSE against pre-tax LOSSES in all three years, which gives a negative rate that would make the model add income on the way down. Held at the then prevailing US federal statutory rate as a declared driver."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E9",
+      "value": 1.498956,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Depreciation and amortisation as a share of capital expenditure, at the FY2019 actual = 1.4990 (2,154 $mm of D&A over 1,437 $mm of capex). Both terms come from the same cash flow statement, recorded at tools/data_fabric/out/TSLA_alphavantage_cash_flow.json; taking them from different sources would make the ratio meaningless, because the two sources scope capex differently. Together with row 10 this reproduces the observed FY2019 D&A of 0.0876 of revenue exactly, since 0.058467 x 1.498956 = 0.087639. CAVEAT, and it matters: this ratio is unstable across the window (0.40, 0.82, 1.50), because Tesla's capex fell by two thirds while its asset base kept depreciating. The pairing is chosen so that the product ties to the one quantity that is stable -- D&A as a share of revenue, which ran 0.1391, 0.0886 and 0.0876 across the window. Read row 9 and row 10 as a pair, not separately."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E10",
+      "value": 0.058467,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Capital expenditure over revenue held at the FY2019 actual, 1,437 / 24,578 = 0.0585, from the cash flow statement recorded at tools/data_fabric/out/TSLA_alphavantage_cash_flow.json. Capex fell in absolute terms across the window while revenue more than doubled, so this is the lowest ratio of the three years and therefore the most favourable to free cash flow -- stated because it flatters the case. This source scopes capex about 10% wider than EDGAR's PaymentsToAcquirePropertyPlantAndEquipment, which makes the ratio slightly LESS favourable than the EDGAR-based figure this driver previously carried; it is used because row 9 needs capex and D&A on one basis."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E11",
+      "value": 0.470816,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Change in net working capital per dollar of revenue change, mean of the FY2017-FY2019 steps = 0.4708, where net working capital is AssetsCurrent less LiabilitiesCurrent. CAVEAT: the two yearly values (-0.0600 and 1.0016) differ by an order of magnitude and Tesla's working capital crossed from negative to positive inside the window, so this mean is a weak central estimate."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E13",
+      "value": 0.095,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Weighted average cost of capital. A market-derived quantity requiring a risk-free rate, an equity risk premium, and a beta as of February 2020. None is an issuer disclosure, and no market-data source for that date is reachable from this environment."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E14",
+      "value": 0.025,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Terminal growth rate. A judgment about the indefinite future, not a fact."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F5",
+      "value": 0.220363,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Revenue growth, fading from the FY2017-FY2019 trailing compound rate (0.4457) to the slowest year actually observed in the window (0.1452). Both endpoints are real; only the linear path between them is a modelling choice. No fiscal year after the case date is used."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F6",
+      "value": 0.165555,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Gross margin held at the FY2019 actual, GrossProfit / Revenues = 0.1656. The FY2017-FY2019 range was 0.1656 to 0.1890, so holding the most recent value is the lower end of recent experience."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F7",
+      "value": 0.080723,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Operating expense EXCLUDING depreciation and amortisation, over revenue, held at the FY2019 actual: (GrossProfit - OperatingIncomeLoss - D&A) / Revenues = 0.0807. D&A is excluded here because the template charges it separately on row 9, and leaving it in both places would charge it twice. This ratio fell steeply across the window as revenue scaled, so holding the latest value assumes that operating leverage stops improving."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F8",
+      "value": 0.21,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Tax rate. No meaningful effective rate exists in the window: Tesla reported tax EXPENSE against pre-tax LOSSES in all three years, which gives a negative rate that would make the model add income on the way down. Held at the then prevailing US federal statutory rate as a declared driver."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F9",
+      "value": 1.498956,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Depreciation and amortisation as a share of capital expenditure, at the FY2019 actual = 1.4990 (2,154 $mm of D&A over 1,437 $mm of capex). Both terms come from the same cash flow statement, recorded at tools/data_fabric/out/TSLA_alphavantage_cash_flow.json; taking them from different sources would make the ratio meaningless, because the two sources scope capex differently. Together with row 10 this reproduces the observed FY2019 D&A of 0.0876 of revenue exactly, since 0.058467 x 1.498956 = 0.087639. CAVEAT, and it matters: this ratio is unstable across the window (0.40, 0.82, 1.50), because Tesla's capex fell by two thirds while its asset base kept depreciating. The pairing is chosen so that the product ties to the one quantity that is stable -- D&A as a share of revenue, which ran 0.1391, 0.0886 and 0.0876 across the window. Read row 9 and row 10 as a pair, not separately."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F10",
+      "value": 0.058467,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Capital expenditure over revenue held at the FY2019 actual, 1,437 / 24,578 = 0.0585, from the cash flow statement recorded at tools/data_fabric/out/TSLA_alphavantage_cash_flow.json. Capex fell in absolute terms across the window while revenue more than doubled, so this is the lowest ratio of the three years and therefore the most favourable to free cash flow -- stated because it flatters the case. This source scopes capex about 10% wider than EDGAR's PaymentsToAcquirePropertyPlantAndEquipment, which makes the ratio slightly LESS favourable than the EDGAR-based figure this driver previously carried; it is used because row 9 needs capex and D&A on one basis."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F11",
+      "value": 0.470816,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Change in net working capital per dollar of revenue change, mean of the FY2017-FY2019 steps = 0.4708, where net working capital is AssetsCurrent less LiabilitiesCurrent. CAVEAT: the two yearly values (-0.0600 and 1.0016) differ by an order of magnitude and Tesla's working capital crossed from negative to positive inside the window, so this mean is a weak central estimate."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F13",
+      "value": 0.095,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Weighted average cost of capital. A market-derived quantity requiring a risk-free rate, an equity risk premium, and a beta as of February 2020. None is an issuer disclosure, and no market-data source for that date is reachable from this environment."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F14",
+      "value": 0.025,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Terminal growth rate. A judgment about the indefinite future, not a fact."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G5",
+      "value": 0.14524,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Revenue growth, fading from the FY2017-FY2019 trailing compound rate (0.4457) to the slowest year actually observed in the window (0.1452). Both endpoints are real; only the linear path between them is a modelling choice. No fiscal year after the case date is used."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G6",
+      "value": 0.165555,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Gross margin held at the FY2019 actual, GrossProfit / Revenues = 0.1656. The FY2017-FY2019 range was 0.1656 to 0.1890, so holding the most recent value is the lower end of recent experience."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G7",
+      "value": 0.080723,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Operating expense EXCLUDING depreciation and amortisation, over revenue, held at the FY2019 actual: (GrossProfit - OperatingIncomeLoss - D&A) / Revenues = 0.0807. D&A is excluded here because the template charges it separately on row 9, and leaving it in both places would charge it twice. This ratio fell steeply across the window as revenue scaled, so holding the latest value assumes that operating leverage stops improving."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G8",
+      "value": 0.21,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Tax rate. No meaningful effective rate exists in the window: Tesla reported tax EXPENSE against pre-tax LOSSES in all three years, which gives a negative rate that would make the model add income on the way down. Held at the then prevailing US federal statutory rate as a declared driver."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G9",
+      "value": 1.498956,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Depreciation and amortisation as a share of capital expenditure, at the FY2019 actual = 1.4990 (2,154 $mm of D&A over 1,437 $mm of capex). Both terms come from the same cash flow statement, recorded at tools/data_fabric/out/TSLA_alphavantage_cash_flow.json; taking them from different sources would make the ratio meaningless, because the two sources scope capex differently. Together with row 10 this reproduces the observed FY2019 D&A of 0.0876 of revenue exactly, since 0.058467 x 1.498956 = 0.087639. CAVEAT, and it matters: this ratio is unstable across the window (0.40, 0.82, 1.50), because Tesla's capex fell by two thirds while its asset base kept depreciating. The pairing is chosen so that the product ties to the one quantity that is stable -- D&A as a share of revenue, which ran 0.1391, 0.0886 and 0.0876 across the window. Read row 9 and row 10 as a pair, not separately."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G10",
+      "value": 0.058467,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Capital expenditure over revenue held at the FY2019 actual, 1,437 / 24,578 = 0.0585, from the cash flow statement recorded at tools/data_fabric/out/TSLA_alphavantage_cash_flow.json. Capex fell in absolute terms across the window while revenue more than doubled, so this is the lowest ratio of the three years and therefore the most favourable to free cash flow -- stated because it flatters the case. This source scopes capex about 10% wider than EDGAR's PaymentsToAcquirePropertyPlantAndEquipment, which makes the ratio slightly LESS favourable than the EDGAR-based figure this driver previously carried; it is used because row 9 needs capex and D&A on one basis."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G11",
+      "value": 0.470816,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Change in net working capital per dollar of revenue change, mean of the FY2017-FY2019 steps = 0.4708, where net working capital is AssetsCurrent less LiabilitiesCurrent. CAVEAT: the two yearly values (-0.0600 and 1.0016) differ by an order of magnitude and Tesla's working capital crossed from negative to positive inside the window, so this mean is a weak central estimate."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G13",
+      "value": 0.095,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Weighted average cost of capital. A market-derived quantity requiring a risk-free rate, an equity risk premium, and a beta as of February 2020. None is an issuer disclosure, and no market-data source for that date is reachable from this environment."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G14",
+      "value": 0.025,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Terminal growth rate. A judgment about the indefinite future, not a fact."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "C5",
+      "value": 179.7,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla shares outstanding entering the February 2020 offering (~179.7mm, pre-split)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+        "as_of": "2020-02-14",
+        "notes": "Real, widely-corroborated share count (pre the August 2020 5-for-1 and 2022 3-for-1 splits -- this case is dated at the original 2020 offering, so pre-split figures are the correct real scale)."
+      }
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "C7",
+      "value": 2.65,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla February 2020 offering -- approximately 2.65mm new shares issued",
+        "url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+        "as_of": "2020-02-14",
+        "notes": "Real disclosed primary share issuance."
+      }
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "C8",
+      "value": 0.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla's February 2020 raise was a single underwritten primary offering -- no separate rights offering occurred, so no shares were issued through a rights mechanism",
+        "url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+        "as_of": "2020-02-14",
+        "notes": "Left at the template default of 25 (placeholder rights-shares-issued) before this fix. The 'Rights Offering' sheet's own C6 ('Rights shares offered') reads 'Cap Table & Dilution'!C8, not C7 -- so despite C7 already correctly holding the real 2.65mm primary share count, the Rights Offering sheet's downstream computation (C16-C19) was pulling 25mm phantom rights shares, producing an 'Expected net rights proceeds' of ~$19.175bn on the Decision & Checks dashboard (row 23) for a transaction that raised about $2bn total. Setting this to 0 correctly reflects that no rights offering happened, without touching the already-correct C7/C11-driven primary-offering figures (Cap Table 'Gross/Net primary proceeds', matching the case's recorded forecast/realized)."
+      }
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "C11",
+      "value": 767.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla February 2020 offering price, $767.00/share",
+        "url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
+        "as_of": "2020-02-14",
+        "notes": "Matches the existing Rights Offering sheet's real disclosed price; mirrored here since Cap Table & Dilution uses its own separate input cells."
+      }
+    },
+    {
+      "sheet": "Cap Table & Dilution",
+      "cell": "C12",
+      "value": 40.6,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Estimated underwriting fees (~2% of ~$2.03bn gross proceeds, typical for a well-oversubscribed large-cap offering)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Order-of-magnitude estimate -- precise disclosed fee not found via available search."
+      }
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I5",
+      "value": 0.095,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Discount rate, same reasoning as Assumptions row 13."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I6",
+      "value": 0.025,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Case driver (no disclosure exists)",
+        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
+        "as_of": "2020-02-14",
+        "notes": "Terminal growth rate, same reasoning as Assumptions row 14."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I11",
+      "value": -6105.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla FY2019 balance sheet via Alpha Vantage",
+        "url": "https://www.alphavantage.co/documentation/#balance-sheet",
+        "as_of": "2020-02-14",
+        "notes": "Net debt as of FY2019 year-end, computed from Alpha Vantage's balance sheet for Tesla: shortLongTermDebtTotal 13,279 less cash and short-term investments 19,384 = -6,105.0 $mm, i.e. Tesla carried net cash. Taken from Alpha Vantage because EDGAR's retained concept set for Tesla has no single total-debt tag. Note Alpha Vantage's totalShareholderEquity excludes noncontrolling interests and the vendor exposes no NCI field, so its balance sheet does not foot: assets 52,148 less liabilities 28,469 less equity 22,225 leaves 1,454 of unreported noncontrolling interest."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I13",
+      "value": 179.7,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla February 2020 Final Prospectus (424(b)(5))",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001318605&type=424",
+        "as_of": "2020-02-14",
+        "notes": "Diluted share count 179.7mm, the prospectus pre-offering count already sourced on the cap table."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C5",
+      "value": 11759.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "us-gaap:Revenues for FY2017 = 11,759 $mm, carried by the filing of 2020-02-13. Corroborated against Alpha Vantage, an independent vendor, which reports the same figure."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C7",
+      "value": 9536.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "us-gaap:CostOfRevenue for FY2017 = 9,536 $mm, carried by the filing of 2020-02-13. Revenues less this equals the disclosed GrossProfit of 2,223 $mm exactly, which is asserted before the value is used."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C10",
+      "value": 2219.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Operating expense for FY2017 EXCLUDING depreciation and amortisation, derived as GrossProfit 2,223 less OperatingIncomeLoss -1,632 less D&A 1,636 = 2,219 $mm. The first two terms were filed 2020-02-13. Taking D&A out here is what makes the EBITDA row a real EBITDA and leaves EBIT equal to the disclosed operating income: 2,223 - 2,219 - 1,636 = -1,632."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C13",
+      "value": 1636.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla, Inc. cash flow statement, FY2017-FY2019 (D&A and capital expenditure)",
+        "url": "https://www.alphavantage.co/documentation/#cash-flow",
+        "as_of": "2020-02-14",
+        "notes": "Depreciation, amortisation and impairment for FY2017 = 1,636 $mm, from Tesla's cash flow statement as recorded at tools/data_fabric/out/TSLA_alphavantage_cash_flow.json. Tesla disclosed all three years of this line in the Form 10-K filed 2020-02-13, one day before the case date. WHY NOT EDGAR: Tesla tagged DepreciationDepletionAndAmortization in one filing only, with a narrower figure (769 $mm for FY2017 against 1,636 $mm here), and did not tag it at all for FY2018 or FY2019. The recorded snapshot states that disagreement and what is unresolved about it."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C15",
+      "value": 471.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "us-gaap:InterestExpense for FY2017 = 471 $mm, filed 2020-02-13."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C17",
+      "value": 32.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "us-gaap:IncomeTaxExpenseBenefit for FY2017 = 32 $mm, filed 2020-02-13. A reported amount, not a rate."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C19",
+      "value": 168.8,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "us-gaap:CommonStockSharesOutstanding at FY2017 year-end = 168.8mm, from the filing of 2019-02-19, which predates the case date and is therefore PRE-SPLIT (Tesla split 5:1 in August 2020 and 3:1 in August 2022). Two caveats. First, the template row is 'diluted shares' and this is period-end shares outstanding: Tesla's weighted-average diluted count is not tagged, and its weighted BASIC series in this corpus mixes split bases (FY2017 reads 166mm pre-split, FY2019 reads 887mm post-split), so it is unusable as a series. Second, year-end outstanding exceeds the weighted average in a year with issuance, which understates earnings per share."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D5",
+      "value": 21461.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "us-gaap:Revenues for FY2018 = 21,461 $mm, carried by the filing of 2021-02-08. Corroborated against Alpha Vantage, an independent vendor, which reports the same figure."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D7",
+      "value": 17419.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "us-gaap:CostOfRevenue for FY2018 = 17,419 $mm, carried by the filing of 2021-02-08. Revenues less this equals the disclosed GrossProfit of 4,042 $mm exactly, which is asserted before the value is used."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D10",
+      "value": 2529.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Operating expense for FY2018 EXCLUDING depreciation and amortisation, derived as GrossProfit 4,042 less OperatingIncomeLoss -388 less D&A 1,901 = 2,529 $mm. The first two terms were filed 2021-02-08. Taking D&A out here is what makes the EBITDA row a real EBITDA and leaves EBIT equal to the disclosed operating income: 4,042 - 2,529 - 1,901 = -388."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D13",
+      "value": 1901.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla, Inc. cash flow statement, FY2017-FY2019 (D&A and capital expenditure)",
+        "url": "https://www.alphavantage.co/documentation/#cash-flow",
+        "as_of": "2020-02-14",
+        "notes": "Depreciation, amortisation and impairment for FY2018 = 1,901 $mm, from Tesla's cash flow statement as recorded at tools/data_fabric/out/TSLA_alphavantage_cash_flow.json. Tesla disclosed all three years of this line in the Form 10-K filed 2020-02-13, one day before the case date. WHY NOT EDGAR: Tesla tagged DepreciationDepletionAndAmortization in one filing only, with a narrower figure (769 $mm for FY2017 against 1,636 $mm here), and did not tag it at all for FY2018 or FY2019. The recorded snapshot states that disagreement and what is unresolved about it."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D15",
+      "value": 663.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "us-gaap:InterestExpense for FY2018 = 663 $mm, filed 2021-02-08."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D17",
+      "value": 58.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "us-gaap:IncomeTaxExpenseBenefit for FY2018 = 58 $mm, filed 2021-02-08. A reported amount, not a rate."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D19",
+      "value": 173.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "us-gaap:CommonStockSharesOutstanding at FY2018 year-end = 173.0mm, from the filing of 2020-02-13, which predates the case date and is therefore PRE-SPLIT (Tesla split 5:1 in August 2020 and 3:1 in August 2022). Two caveats. First, the template row is 'diluted shares' and this is period-end shares outstanding: Tesla's weighted-average diluted count is not tagged, and its weighted BASIC series in this corpus mixes split bases (FY2017 reads 166mm pre-split, FY2019 reads 887mm post-split), so it is unusable as a series. Second, year-end outstanding exceeds the weighted average in a year with issuance, which understates earnings per share."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E5",
+      "value": 24578.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "us-gaap:Revenues for FY2019 = 24,578 $mm, carried by the filing of 2022-02-07. Corroborated against Alpha Vantage, an independent vendor, which reports the same figure."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E7",
+      "value": 20509.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "us-gaap:CostOfRevenue for FY2019 = 20,509 $mm, carried by the filing of 2022-02-07. Revenues less this equals the disclosed GrossProfit of 4,069 $mm exactly, which is asserted before the value is used."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E10",
+      "value": 1984.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "Operating expense for FY2019 EXCLUDING depreciation and amortisation, derived as GrossProfit 4,069 less OperatingIncomeLoss -69 less D&A 2,154 = 1,984 $mm. The first two terms were filed 2022-02-07. Taking D&A out here is what makes the EBITDA row a real EBITDA and leaves EBIT equal to the disclosed operating income: 4,069 - 1,984 - 2,154 = -69."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E13",
+      "value": 2154.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla, Inc. cash flow statement, FY2017-FY2019 (D&A and capital expenditure)",
+        "url": "https://www.alphavantage.co/documentation/#cash-flow",
+        "as_of": "2020-02-14",
+        "notes": "Depreciation, amortisation and impairment for FY2019 = 2,154 $mm, from Tesla's cash flow statement as recorded at tools/data_fabric/out/TSLA_alphavantage_cash_flow.json. Tesla disclosed all three years of this line in the Form 10-K filed 2020-02-13, one day before the case date. WHY NOT EDGAR: Tesla tagged DepreciationDepletionAndAmortization in one filing only, with a narrower figure (769 $mm for FY2017 against 1,636 $mm here), and did not tag it at all for FY2018 or FY2019. The recorded snapshot states that disagreement and what is unresolved about it."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E15",
+      "value": 685.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "us-gaap:InterestExpense for FY2019 = 685 $mm, filed 2022-02-07."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E17",
+      "value": 110.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+        "as_of": "2020-02-14",
+        "notes": "us-gaap:IncomeTaxExpenseBenefit for FY2019 = 110 $mm, filed 2022-02-07. A reported amount, not a rate."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E19",
+      "value": 179.7,
+      "input_kind": "derived",
+      "source": {
+        "name": "Tesla February 2020 Final Prospectus (424(b)(5))",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001318605&type=424",
+        "as_of": "2020-02-14",
+        "notes": "Shares outstanding for FY2019 taken as 179.7mm, the pre-offering count disclosed in the February 2020 prospectus and already sourced on this case's Cap Table & Dilution sheet. The as-filed FY2019 year-end count is NOT recoverable from this corpus: the dedupe rule keeps one value per period and the FY2020 10-K restated this one onto a post-5:1-split basis (905mm), so the pre-split original is gone. The prospectus figure is six weeks later than year-end and therefore slightly higher, which understates earnings per share. Recovering the original requires re-harvesting the FY2019 10-K as filed."
+      },
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
       "sheet": "Rights Offering",
       "cell": "C7",
       "value": 767.0,
@@ -60,54 +1030,6 @@
       }
     },
     {
-      "sheet": "Cap Table & Dilution",
-      "cell": "C5",
-      "value": 179.7,
-      "input_kind": "observed",
-      "source": {
-        "name": "Tesla shares outstanding entering the February 2020 offering (~179.7mm, pre-split)",
-        "url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
-        "as_of": "2020-02-14",
-        "notes": "Real, widely-corroborated share count (pre the August 2020 5-for-1 and 2022 3-for-1 splits -- this case is dated at the original 2020 offering, so pre-split figures are the correct real scale)."
-      }
-    },
-    {
-      "sheet": "Cap Table & Dilution",
-      "cell": "C7",
-      "value": 2.65,
-      "input_kind": "observed",
-      "source": {
-        "name": "Tesla February 2020 offering -- approximately 2.65mm new shares issued",
-        "url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
-        "as_of": "2020-02-14",
-        "notes": "Real disclosed primary share issuance."
-      }
-    },
-    {
-      "sheet": "Cap Table & Dilution",
-      "cell": "C11",
-      "value": 767.0,
-      "input_kind": "observed",
-      "source": {
-        "name": "Tesla February 2020 offering price, $767.00/share",
-        "url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
-        "as_of": "2020-02-14",
-        "notes": "Matches the existing Rights Offering sheet's real disclosed price; mirrored here since Cap Table & Dilution uses its own separate input cells."
-      }
-    },
-    {
-      "sheet": "Cap Table & Dilution",
-      "cell": "C12",
-      "value": 40.6,
-      "input_kind": "modeler_assumption",
-      "source": {
-        "name": "Estimated underwriting fees (~2% of ~$2.03bn gross proceeds, typical for a well-oversubscribed large-cap offering)",
-        "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
-        "as_of": "2020-02-14",
-        "notes": "Order-of-magnitude estimate -- precise disclosed fee not found via available search."
-      }
-    },
-    {
       "sheet": "Rights Offering",
       "cell": "D9",
       "value": 1.0,
@@ -117,18 +1039,6 @@
         "url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
         "as_of": "2020-02-14",
         "notes": "Mirrors the real Base-column participation rate onto the Adversarial column, which is what the 'Adversarial rights participation' check reads regardless of case framing -- the original manifest only set C9, leaving D9 at the template default (0.45)."
-      }
-    },
-    {
-      "sheet": "Cap Table & Dilution",
-      "cell": "C8",
-      "value": 0.0,
-      "input_kind": "observed",
-      "source": {
-        "name": "Tesla's February 2020 raise was a single underwritten primary offering -- no separate rights offering occurred, so no shares were issued through a rights mechanism",
-        "url": "https://www.sec.gov/Archives/edgar/data/1318605/000119312520036491/d861752d424b5.htm",
-        "as_of": "2020-02-14",
-        "notes": "Left at the template default of 25 (placeholder rights-shares-issued) before this fix. The 'Rights Offering' sheet's own C6 ('Rights shares offered') reads 'Cap Table & Dilution'!C8, not C7 -- so despite C7 already correctly holding the real 2.65mm primary share count, the Rights Offering sheet's downstream computation (C16-C19) was pulling 25mm phantom rights shares, producing an 'Expected net rights proceeds' of ~$19.175bn on the Decision & Checks dashboard (row 23) for a transaction that raised about $2bn total. Setting this to 0 correctly reflects that no rights offering happened, without touching the already-correct C7/C11-driven primary-offering figures (Cap Table 'Gross/Net primary proceeds', matching the case's recorded forecast/realized)."
       }
     }
   ],
@@ -144,15 +1054,36 @@
       "url": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
       "as_of": "2020-02-14",
       "notes": "Immutable curated observation package with SHA-256 digest"
+    },
+    {
+      "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+      "as_of": "2020-02-14",
+      "notes": "SEC XBRL company facts for CIK 0001318605, recorded at tools/data_fabric/out/TSLA_facts_annual_series.json. Only observations filed on or before 2020-02-14 are used, which excludes both hindsight and the post-split restatements.",
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "name": "Tesla, Inc. cash flow statement, FY2017-FY2019 (D&A and capital expenditure)",
+      "url": "https://www.alphavantage.co/documentation/#cash-flow",
+      "as_of": "2020-02-14",
+      "notes": "Depreciation, amortisation and impairment, and capital expenditure, for FY2017-FY2019, recorded at tools/data_fabric/out/TSLA_alphavantage_cash_flow.json. Used instead of EDGAR because Tesla tagged DepreciationDepletionAndAmortization in one filing only, with a narrower figure, and not at all for FY2018 or FY2019. The vendor's income statement and cash flow statement agree on D&A for all three years, and its FY2016 figure matches Tesla's reported total. The snapshot records the disagreement with EDGAR, which scope question is unresolved, and that the vendor reports no filing date.",
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "name": "Tesla, Inc. income statement, FY2017-FY2019 (second-vendor cross-check)",
+      "url": "https://www.alphavantage.co/documentation/#income-statement",
+      "as_of": "2020-02-14",
+      "notes": "Second-vendor corroboration of the FY2017-FY2019 income lines, recorded at tools/data_fabric/out/TSLA_alphavantage_income_statement.json. Fifteen of eighteen compared items match SEC EDGAR exactly; the three differences are precision, because EDGAR's retained FY2018 observation comes from a later filing that rounded to millions. Share counts are not taken from this vendor: it reports them on the latest split basis, which is unusable for a case dated before a split.",
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
     }
   ],
   "refresh": {
-    "date": "2026-08-04",
-    "trigger": "External historical evidence materialization",
+    "date": "2026-10-01",
+    "trigger": "Historical actuals block filled after the BASE template fix",
     "source_snapshot": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
-    "what_changed": "Generated public case equity-public-tesla-2020-offering from canonical release template",
-    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
-    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+    "what_changed": "The BASE template's income-statement historical block carried no input marker and no derived formulas, so the income statement, the DCF, and diluted EPS all evaluated to zero. With the template fixed, this fills FY2017-FY2019 revenue, cost of revenue, operating expense, depreciation and amortisation, interest, tax, and share count. Depreciation comes from the cash flow statement rather than EDGAR, because Tesla tagged EDGAR's D&A concept in one filing only and with a narrower figure. With D&A real and taken out of the operating expense row, the EBITDA line is a real EBITDA and EBIT ties exactly to the disclosed operating income in all three years.",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending. Read three things before using any number here. First, the share counts are period-end outstanding rather than weighted diluted, which understates earnings per share. Second, the forward D&A driver is the product of a capex ratio and a D&A-to-capex ratio, and the second of those is unstable across the window; the pair is set so the product ties to D&A as a share of revenue, which is stable, and the two rows must be read together. Third, the discounted cash flow values the equity at roughly a quarter of the price the February 2020 offering actually cleared at. That is not a defect in the arithmetic. It is what a cash flow model built on Tesla's FY2019 operating margins produces, and the gap between the two was the whole argument about Tesla at the time. The case exists to show the offering mechanics, not to settle that argument.",
+    "next_check": "On builder change or annual review"
   },
   "outcome": {
     "metric": "net_proceeds_before_expenses_usd_mm",
@@ -164,5 +1095,143 @@
   "lineage": {
     "source_snapshot": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
     "synthetic_benchmark_inputs_allowed": false
-  }
+  },
+  "driver_declarations": [
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Tax rate. No meaningful effective rate exists in the window: Tesla reported tax EXPENSE against pre-tax LOSSES in all three years, which gives a negative rate that would make the model add income on the way down. Held at the then prevailing US federal statutory rate as a declared driver.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C13",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weighted average cost of capital. A market-derived quantity requiring a risk-free rate, an equity risk premium, and a beta as of February 2020. None is an issuer disclosure, and no market-data source for that date is reachable from this environment.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C14",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Terminal growth rate. A judgment about the indefinite future, not a fact.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Tax rate. No meaningful effective rate exists in the window: Tesla reported tax EXPENSE against pre-tax LOSSES in all three years, which gives a negative rate that would make the model add income on the way down. Held at the then prevailing US federal statutory rate as a declared driver.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D13",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weighted average cost of capital. A market-derived quantity requiring a risk-free rate, an equity risk premium, and a beta as of February 2020. None is an issuer disclosure, and no market-data source for that date is reachable from this environment.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D14",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Terminal growth rate. A judgment about the indefinite future, not a fact.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E8",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Tax rate. No meaningful effective rate exists in the window: Tesla reported tax EXPENSE against pre-tax LOSSES in all three years, which gives a negative rate that would make the model add income on the way down. Held at the then prevailing US federal statutory rate as a declared driver.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E13",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weighted average cost of capital. A market-derived quantity requiring a risk-free rate, an equity risk premium, and a beta as of February 2020. None is an issuer disclosure, and no market-data source for that date is reachable from this environment.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E14",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Terminal growth rate. A judgment about the indefinite future, not a fact.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F8",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Tax rate. No meaningful effective rate exists in the window: Tesla reported tax EXPENSE against pre-tax LOSSES in all three years, which gives a negative rate that would make the model add income on the way down. Held at the then prevailing US federal statutory rate as a declared driver.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F13",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weighted average cost of capital. A market-derived quantity requiring a risk-free rate, an equity risk premium, and a beta as of February 2020. None is an issuer disclosure, and no market-data source for that date is reachable from this environment.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F14",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Terminal growth rate. A judgment about the indefinite future, not a fact.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G8",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Tax rate. No meaningful effective rate exists in the window: Tesla reported tax EXPENSE against pre-tax LOSSES in all three years, which gives a negative rate that would make the model add income on the way down. Held at the then prevailing US federal statutory rate as a declared driver.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G13",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weighted average cost of capital. A market-derived quantity requiring a risk-free rate, an equity risk premium, and a beta as of February 2020. None is an issuer disclosure, and no market-data source for that date is reachable from this environment.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G14",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Terminal growth rate. A judgment about the indefinite future, not a fact.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I5",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Discount rate, same reasoning as Assumptions row 13.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I6",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Terminal growth rate, same reasoning as Assumptions row 14.",
+      "basis": {},
+      "emitted_by": "tools/deepen_equity_finance_tesla.py"
+    }
+  ]
 }
