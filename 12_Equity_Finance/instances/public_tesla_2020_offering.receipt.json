@@ -648,5 +648,6 @@
     }
   ],
   "workbook_sha256": "3f34ee7571a8daad138f728dda80ce20c5c517f04577c981035667085284e4ef",
-  "generated_on": "2026-10-01"
+  "generated_on": "2026-10-01",
+  "counts_toward_M4": false
 }
