@@ -15,6 +15,15 @@
   "registered_on": "2026-08-05",
   "resolve_by": "2026-10-07",
   "resolution_source_expected": "FRED DGS10, last business day of September 2026, expressed as a decimal (percent / 100)",
-  "resolution": null,
+  "resolution": {
+    "realized": 0.0529,
+    "realized_source": "10-Year Treasury Constant Maturity Rate for 2026-09-30 (Wednesday, the last business day of September 2026) = 5.29 percent, i.e. 0.0529 as a decimal. Source: Alpha Vantage TREASURY_YIELD, maturity 10year, interval daily, recorded at standards/forecasts/evidence/ust10y-eom-2026/ust10y_alphavantage_resolution_snapshot.json (sha256 f26260561d0a8552c8485deb45cec8421a9e69d013260b3ec1a3467290bc0b3c, recorded in that folder's source_register.csv for the recorded digest). SUBSTITUTED SOURCE: the registration names FRED DGS10. Neither fred.stlouisfed.org nor home.treasury.gov is reachable from this environment -- the agent proxy answers 403 to CONNECT for both. The substitution is verified, not assumed: Alpha Vantage reports this as the 10-Year Treasury Constant Maturity Rate, which is the series FRED publishes as DGS10, and it agrees to the basis point with all 31 month-ends in the FRED snapshot frozen at registration, including the 2026-08-04 observation this forecast's naive baseline was frozen from (4.63 percent in both).",
+    "resolved_on": "2026-11-01",
+    "error": -0.0063,
+    "abs_error": 0.0063,
+    "baseline_abs_error": 0.006600000000000002,
+    "skill_vs_baseline": 0.04545454545454575,
+    "interval_hit": null
+  },
   "registration_sha256": "7ffeaa810fd8ba7bd578d6e496f17892d7e9b10bb88b8b725db06e58fd8ea964"
 }
