@@ -311,9 +311,11 @@
       "source_as_of": "2026-01-15"
     }
   ],
-  "workbook_sha256": "46d186e99deada0b4d3203303311ff8a7527af3bc35aac0c9ad70ec6eeff2dce",
+  "workbook_sha256": "2dc0aa6e721a65811b4bee196d0fdc4f751a520fd7a0785e445b18ec70a907e7",
   "generated_on": "2026-08-06",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
-  "counts_toward_M4": false
+  "counts_toward_M4": false,
+  "hash_refreshed_on": "2026-09-07",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
 }
