@@ -29,7 +29,7 @@ from pathlib import Path
 
 import openpyxl
 
-from recalc import recalc
+from tools.recalc import recalc
 
 from tools.verify_template_exhaustion import INPUT_FONT_RGB, _rgb
 
