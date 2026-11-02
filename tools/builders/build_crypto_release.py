@@ -251,7 +251,7 @@ def enrich(workbook) -> None:
         (10, "Downside operating runway", "='Treasury & Runway'!D19", '=IF(C10>=\'Treasury & Runway\'!D12,"PASS","BREACH")', "Treasury-token marks and restricted funds do not fund payroll or obligations by themselves."),
         (11, "Downside liquid coverage", "='Treasury & Runway'!D20", '=IF(C11>=\'Treasury & Runway\'!D13,"PASS","BREACH")', "Haircut-adjusted liquid resources must cover near-term obligations."),
         (12, "Custody / liquidity exceptions", '=COUNTIF(\'Custody & Liquidity\'!D5:D12,"<>PASS")', '=IF(C12=0,"PASS","REVIEW")', "Valuation and tokenomics do not override unresolved key, venue, bridge, or incident risk."),
-        (13, "FDV / circulating market cap", "=IFERROR(Valuation!C12/Valuation!C11,0)", '=IF(C13<=2,"PASS",IF(C13<=5,"REVIEW","BREACH"))', "Large FDV overhang requires explicit unlock, liquidity, and incentive analysis."),
+        (13, "FDV / circulating market cap", "=IFERROR(Valuation!C12/Valuation!C11,\"-\")", '=IF(ISNUMBER(C13),IF(C13<=2,"PASS",IF(C13<=5,"REVIEW","BREACH")),"REVIEW")', "Large FDV overhang requires explicit unlock, liquidity, and incentive analysis."),
     ]
     for row, label, formula, status, action in rows:
         checks.cell(row, 2, label)

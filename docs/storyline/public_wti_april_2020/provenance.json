@@ -41,7 +41,7 @@
     "snapshot_sha256": "da94912a719b505a4e1c78b5365171eafa25931568e27c6288bd4d71becbb24e",
     "receipt": "15_Commodities/instances/public_wti_april_2020.receipt.json",
     "workbook": "15_Commodities/instances/public_wti_april_2020.xlsx",
-    "workbook_sha256": "574f448f377a817f450b08d8aea531f3d5fd96ef5a440e90c8822749ca6af7de"
+    "workbook_sha256": "08996ea62cec178cf63c19d67e241e677c5c8e0daeeef969202c8fa732bf4312"
   },
   "cell_bindings": [
     {
