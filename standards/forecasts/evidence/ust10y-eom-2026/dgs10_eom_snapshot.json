@@ -32,10 +32,21 @@
     "2026-04": 4.4,
     "2026-05": 4.45,
     "2026-06": 4.44,
-    "2026-07": 4.75
+    "2026-07": 4.75,
+    "2026-08": 4.75,
+    "2026-09": 5.29
   },
   "last_observation": {
+    "date": "2026-10-29",
+    "value_pct": 4.98,
+    "note": "Latest print in the refreshed FRED series. Not an October month-end: the series has no 2026-10-30 observation, and that date is a published Treasury business day."
+  },
+  "refreshed": "2026-11-02",
+  "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=2024-01-01",
+  "source_sha256": "449c0d3c608223bace1e0b1e1b95c5633934ac2cb426770ef1b2e831f295fdbb",
+  "registration_last_observation": {
     "date": "2026-08-04",
-    "value_pct": 4.63
+    "value_pct": 4.63,
+    "retrieved": "2026-08-05"
   }
 }
