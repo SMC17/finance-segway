@@ -18,7 +18,10 @@ So the rules are mechanical and they fail closed:
   1. Every standard the project has been asked to address must appear. A
      standard cannot be made to go away by deleting its row.
   2. "conformant" and "partial" require evidence.check to name a file that
-     exists, and (with --run-checks) that file must exit zero.
+     exists, and (with --run-checks) that file must exit zero. A row may name
+     several checks as a list, and then every one of them must exist and pass:
+     a standard backed by two checkers would otherwise have to leave one
+     uncited and therefore unexecuted.
   3. "conformant" and "partial" additionally require a requirement_basis of
      verified_by_check or well_established. A standard we only know the scope of
      cannot be one we claim to conform to -- that is the honest constraint, and
@@ -177,7 +180,20 @@ def run(execute_checks: bool = False) -> dict[str, Any]:
             continue
 
         evidence = row.get("evidence") or {}
-        check = evidence.get("check")
+        raw_check = evidence.get("check")
+        # One string or a list of them; a list means every check must pass.
+        if raw_check is None:
+            cited: list[str] = []
+        elif isinstance(raw_check, str):
+            cited = [raw_check]
+        elif isinstance(raw_check, list) and all(isinstance(c, str) for c in raw_check):
+            cited = list(raw_check)
+        else:
+            cited = []
+            failures.append(
+                f"{name}: evidence.check must be a path or a list of paths, "
+                f"not {type(raw_check).__name__}"
+            )
 
         if status in CLAIMING:
             if basis not in BASIS_PERMITTING_CLAIM:
@@ -185,17 +201,18 @@ def run(execute_checks: bool = False) -> dict[str, Any]:
                     f"{name}: claims {status!r} on a {basis!r} basis. A standard whose "
                     "requirements we have not confirmed cannot be one we claim to meet"
                 )
-            if not check:
+            if not cited:
                 failures.append(
                     f"{name}: claims {status!r} but names no check. Conformance without "
                     "evidence is the thing this register exists to prevent"
                 )
-            elif not (ROOT / check).exists():
-                failures.append(
-                    f"{name}: names check {check!r}, which does not exist"
-                )
-            else:
-                checks_to_run.setdefault(check, []).append(name)
+            for check in cited:
+                if not (ROOT / check).exists():
+                    failures.append(
+                        f"{name}: names check {check!r}, which does not exist"
+                    )
+                else:
+                    checks_to_run.setdefault(check, []).append(name)
             if not str(evidence.get("asserts", "")).strip():
                 failures.append(
                     f"{name}: names a check but does not say what it asserts, so a "
