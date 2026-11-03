@@ -2,9 +2,9 @@
   "series": "DGS10",
   "series_label": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity",
   "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=2024-01-01",
-  "retrieved_utc": "20261102T082445Z",
-  "sha256": "449c0d3c608223bace1e0b1e1b95c5633934ac2cb426770ef1b2e831f295fdbb",
-  "observation_count": 707,
+  "retrieved_utc": "20261103T203856Z",
+  "sha256": "98ceaa8dfd9102783140c4ad4ec0268ce923c577fb2cfb0bef08168c04f00a2f",
+  "observation_count": 708,
   "observations": [
     {
       "date": "2024-01-02",
@@ -2833,6 +2833,10 @@
     {
       "date": "2026-10-29",
       "value_pct": 4.98
+    },
+    {
+      "date": "2026-10-30",
+      "value_pct": 4.94
     }
   ],
   "month_end": {
@@ -2967,6 +2971,10 @@
     "2026-09": {
       "date": "2026-09-30",
       "value_pct": 5.29
+    },
+    "2026-10": {
+      "date": "2026-10-30",
+      "value_pct": 4.94
     }
   }
 }
