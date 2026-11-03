@@ -56,9 +56,19 @@ def load_release(as_of: date) -> tuple[dict[str, Any], list[list[float]], list[d
     artifacts = receipt.get("artifacts", {})
     if len(artifacts) < 4:
         raise ValueError("receipt does not cover the complete release")
+    # ROOT is resolved before comparing, and the two conditions are split.
+    # Both matter. On macOS the temp directory the tests build a release in
+    # is /var/..., a symlink to /private/var/..., so `(ROOT / relative)
+    # .resolve()` returned a real, present file that `is_relative_to(ROOT)`
+    # then rejected -- and the shared message reported it as "missing",
+    # which is the one thing it was not. A containment failure and an absent
+    # file are different findings and only one of them is about the file.
+    release_root = ROOT.resolve()
     for relative, expected in artifacts.items():
-        path = (ROOT / relative).resolve()
-        if not path.is_relative_to(ROOT) or not path.is_file():
+        path = (release_root / relative).resolve()
+        if not path.is_relative_to(release_root):
+            raise ValueError(f"receipted artifact escapes the release root: {relative}")
+        if not path.is_file():
             raise FileNotFoundError(f"receipted artifact is missing: {relative}")
         actual = sha256_file(path)
         if actual != expected:
