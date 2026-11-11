@@ -140,6 +140,81 @@ def extract_annual(
     return rows
 
 
+def extract_quarterly(
+    payload: dict[str, Any],
+    statement: str,
+    *,
+    from_period: str | None = None,
+    to_period: str | None = None,
+    fields: list[str] | None = None,
+) -> list[dict[str, Any]]:
+    """Pull the quarterlyReports entries into the same row shape as
+    extract_annual, for a closed period range.
+
+    A quarter is what makes a forecast of the current fiscal year possible
+    before that year is filed: two reported quarters plus a projection of the
+    remainder is a far better estimate than extrapolating the last annual
+    figure. extract_annual cannot supply that, because the current year has no
+    annualReports entry until the 10-K lands.
+
+    `from_period` and `to_period` are inclusive fiscalDateEnding bounds, so a
+    caller states the window rather than taking whatever depth the vendor
+    happens to return that day. `fp` is the quarter's position inside the
+    fiscal year, derived from the fiscal year end that annualReports reports.
+
+    `form` stays None. Alpha Vantage does not say which document a quarter
+    came from, and guessing "10-Q" would be wrong for the fourth quarter,
+    which is first disclosed in the 10-K.
+    """
+    reports = payload.get("quarterlyReports", [])
+    if not reports:
+        raise ValueError(f"no quarterlyReports in {statement} payload for {payload.get('symbol')}")
+
+    annual = payload.get("annualReports") or []
+    fiscal_end_month: int | None = None
+    if annual and annual[0].get("fiscalDateEnding"):
+        fiscal_end_month = int(annual[0]["fiscalDateEnding"].split("-")[1])
+
+    known_fields = set(AV_TO_EDGAR_CONCEPT) | CASH_FLOW_FIELDS
+    rows = []
+    for report in sorted(reports, key=lambda r: r.get("fiscalDateEnding") or ""):
+        end = report.get("fiscalDateEnding")
+        if not end:
+            continue
+        if from_period and end < from_period:
+            continue
+        if to_period and end > to_period:
+            continue
+        quarter = None
+        if fiscal_end_month is not None:
+            month = int(end.split("-")[1])
+            # Months after the fiscal year end start the next fiscal year.
+            quarter = ((month - fiscal_end_month - 1) % 12) // 3 + 1
+        wanted = fields or [f for f in report if f in known_fields]
+        for field in wanted:
+            value = report.get(field)
+            if value in (None, "None"):
+                continue
+            rows.append(
+                {
+                    "concept": AV_TO_EDGAR_CONCEPT.get(field, field),
+                    "av_field": field,
+                    "value": float(value),
+                    "end": end,
+                    "filed": None,  # Alpha Vantage does not report a filing date
+                    "form": None,
+                    "fy": None,
+                    "fp": f"Q{quarter}" if quarter else None,
+                    "frame": None,
+                }
+            )
+    if not rows:
+        raise ValueError(
+            f"no quarterlyReports entries between {from_period!r} and {to_period!r}"
+        )
+    return rows
+
+
 def record_company_facts(
     ticker: str,
     cik: str | None,
@@ -204,7 +279,9 @@ def record_company_facts(
                         "Alpha Vantage normalized cash-flow-statement classification, "
                         "not cross-mapped to an SEC XBRL concept -- see module docstring"
                         if row["av_field"] in CASH_FLOW_FIELDS
-                        else "Alpha Vantage normalized annual fact, mapped to equivalent SEC us-gaap concept name"
+                        else "Alpha Vantage normalized "
+                        + ("annual" if (row.get("fp") or "FY") == "FY" else "quarterly")
+                        + " fact, mapped to equivalent SEC us-gaap concept name"
                     ),
                     "workbook_destination": "Assumptions / historicals (any domain covering a public issuer)",
                     "license_or_restriction": "Alpha Vantage API terms of use; underlying data derived from public SEC filings",
