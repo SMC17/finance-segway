@@ -1,0 +1,249 @@
+{
+  "ticker": "TSLA",
+  "cik": "0001318605",
+  "statement": "INCOME_STATEMENT",
+  "retrieved_utc": "20261001T145405Z",
+  "facts": [
+    {
+      "concept": "GrossProfit",
+      "av_field": "grossProfit",
+      "value": 2223000000.0,
+      "end": "2017-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "Revenues",
+      "av_field": "totalRevenue",
+      "value": 11759000000.0,
+      "end": "2017-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "OperatingIncomeLoss",
+      "av_field": "operatingIncome",
+      "value": -1632000000.0,
+      "end": "2017-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "InterestExpense",
+      "av_field": "interestExpense",
+      "value": 471000000.0,
+      "end": "2017-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "IncomeTaxExpenseBenefit",
+      "av_field": "incomeTaxExpense",
+      "value": 32000000.0,
+      "end": "2017-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "EBITDA",
+      "av_field": "ebitda",
+      "value": -102000000.0,
+      "end": "2017-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "NetIncomeLoss",
+      "av_field": "netIncome",
+      "value": -1962000000.0,
+      "end": "2017-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "GrossProfit",
+      "av_field": "grossProfit",
+      "value": 4042021000.0,
+      "end": "2018-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "Revenues",
+      "av_field": "totalRevenue",
+      "value": 21461268000.0,
+      "end": "2018-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "OperatingIncomeLoss",
+      "av_field": "operatingIncome",
+      "value": -388000000.0,
+      "end": "2018-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "InterestExpense",
+      "av_field": "interestExpense",
+      "value": 663000000.0,
+      "end": "2018-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "IncomeTaxExpenseBenefit",
+      "av_field": "incomeTaxExpense",
+      "value": 58000000.0,
+      "end": "2018-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "EBITDA",
+      "av_field": "ebitda",
+      "value": 1559000000.0,
+      "end": "2018-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "NetIncomeLoss",
+      "av_field": "netIncome",
+      "value": -976000000.0,
+      "end": "2018-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "GrossProfit",
+      "av_field": "grossProfit",
+      "value": 4069000000.0,
+      "end": "2019-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "Revenues",
+      "av_field": "totalRevenue",
+      "value": 24578000000.0,
+      "end": "2019-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "OperatingIncomeLoss",
+      "av_field": "operatingIncome",
+      "value": -69000000.0,
+      "end": "2019-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "InterestExpense",
+      "av_field": "interestExpense",
+      "value": 685000000.0,
+      "end": "2019-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "IncomeTaxExpenseBenefit",
+      "av_field": "incomeTaxExpense",
+      "value": 110000000.0,
+      "end": "2019-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "EBITDA",
+      "av_field": "ebitda",
+      "value": 2172000000.0,
+      "end": "2019-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    },
+    {
+      "concept": "NetIncomeLoss",
+      "av_field": "netIncome",
+      "value": -862000000.0,
+      "end": "2019-12-31",
+      "filed": null,
+      "form": "10-K",
+      "fy": null,
+      "fp": "FY",
+      "frame": null
+    }
+  ],
+  "meta": {
+    "purpose": "Independent second-vendor corroboration of the SEC EDGAR values used by equity-public-tesla-2020-offering.",
+    "fiscal_years": [
+      "2017-12-31",
+      "2018-12-31",
+      "2019-12-31"
+    ],
+    "cross_check_result": "15 of 18 compared line items match SEC EDGAR exactly. The three FY2018 differences are precision, not disagreement: Alpha Vantage carries the as-filed figures to the thousand (revenue 21,461,268,000) while EDGAR's retained observation comes from a later filing that rounded to millions (21,461,000,000), a gap of 0.00125%.",
+    "limitation": "Share counts are deliberately NOT taken from this vendor. Alpha Vantage, like EDGAR, reports share counts on the latest split basis, so they are unusable for a case dated before a split."
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-10-01",
+  "purpose": "Data defects present in the recorded corpus that are accepted as known rather than corrected. Listing one here downgrades it from a failure to a reported known issue, so tools/verify_share_series_integrity.py still fails closed on any NEW defect. Nothing here is corrected in place: inferring the missing scale and writing a number back would be inventing data, which this repository does not do.",
+  "share_series_unit_scale": {
+    "defect": "One observation in a share-count series sits three or more orders of magnitude from its neighbours because the filing reported shares in thousands or millions and the harvest kept the bare number without its XBRL decimals attribute. A few are degenerate cover-page placeholders (Fastenal at 1 share, GE HealthCare at 100).",
+    "consequence": "Any per-share figure or share-count growth rate spanning one of these periods is wrong by a factor of roughly 1,000 or 1,000,000. The affected periods must not be used in a model.",
+    "remedy": "Re-harvest the affected concepts from SEC EDGAR carrying the decimals attribute, then delete the entry here. The check reports any entry that no longer matches a real defect as stale, so the list cannot outlive the problem. Requires network access to data.sec.gov, which is denied in some environments including the one where this was written.",
+    "accepted": [
+      {
+        "ticker": "ADSK",
+        "concept": "CommonStockSharesOutstanding",
+        "from_period": "2010-01-31",
+        "to_period": "2011-01-31",
+        "from_value": 228900000,
+        "to_value": 227
+      },
+      {
+        "ticker": "ADSK",
+        "concept": "CommonStockSharesOutstanding",
+        "from_period": "2011-01-31",
+        "to_period": "2012-01-31",
+        "from_value": 227,
+        "to_value": 225900000
+      },
+      {
+        "ticker": "CPRT",
+        "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+        "from_period": "2011-07-31",
+        "to_period": "2012-07-31",
+        "from_value": 151298000,
+        "to_value": 128120
+      },
+      {
+        "ticker": "CPRT",
+        "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+        "from_period": "2012-07-31",
+        "to_period": "2013-07-31",
+        "from_value": 128120,
+        "to_value": 124912000
+      },
+      {
+        "ticker": "CSX",
+        "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+        "from_period": "2007-12-28",
+        "to_period": "2008-12-26",
+        "from_value": 430433,
+        "to_value": 400740000
+      },
+      {
+        "ticker": "FAST",
+        "concept": "CommonStockSharesIssued",
+        "from_period": "2018-12-31",
+        "to_period": "2019-05-22",
+        "from_value": 571803838,
+        "to_value": 1
+      },
+      {
+        "ticker": "FAST",
+        "concept": "CommonStockSharesIssued",
+        "from_period": "2019-05-22",
+        "to_period": "2019-12-31",
+        "from_value": 1,
+        "to_value": 574128911
+      },
+      {
+        "ticker": "GEHC",
+        "concept": "CommonStockSharesOutstanding",
+        "from_period": "2022-12-31",
+        "to_period": "2023-01-03",
+        "from_value": 100,
+        "to_value": 454000000
+      },
+      {
+        "ticker": "GEHC",
+        "concept": "CommonStockSharesIssued",
+        "from_period": "2022-12-31",
+        "to_period": "2023-12-31",
+        "from_value": 100,
+        "to_value": 455342290
+      },
+      {
+        "ticker": "LIN",
+        "concept": "CommonStockSharesIssued",
+        "from_period": "2017-12-31",
+        "to_period": "2018-10-31",
+        "from_value": 25000,
+        "to_value": 551055000
+      },
+      {
+        "ticker": "MPWR",
+        "concept": "CommonStockSharesOutstanding",
+        "from_period": "2011-12-31",
+        "to_period": "2012-12-31",
+        "from_value": 33826032,
+        "to_value": 35673
+      },
+      {
+        "ticker": "MPWR",
+        "concept": "CommonStockSharesOutstanding",
+        "from_period": "2012-12-31",
+        "to_period": "2013-12-31",
+        "from_value": 35673,
+        "to_value": 38291000
+      },
+      {
+        "ticker": "MPWR",
+        "concept": "CommonStockSharesIssued",
+        "from_period": "2011-12-31",
+        "to_period": "2012-12-31",
+        "from_value": 33826032,
+        "to_value": 35673
+      },
+      {
+        "ticker": "MPWR",
+        "concept": "CommonStockSharesIssued",
+        "from_period": "2012-12-31",
+        "to_period": "2013-12-31",
+        "from_value": 35673,
+        "to_value": 38291000
+      },
+      {
+        "ticker": "MPWR",
+        "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+        "from_period": "2009-12-31",
+        "to_period": "2010-12-31",
+        "from_value": 34310000,
+        "to_value": 35830
+      },
+      {
+        "ticker": "MPWR",
+        "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+        "from_period": "2010-12-31",
+        "to_period": "2011-12-31",
+        "from_value": 35830,
+        "to_value": 34050000
+      },
+      {
+        "ticker": "NVDA",
+        "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+        "from_period": "2009-01-25",
+        "to_period": "2010-01-31",
+        "from_value": 548126,
+        "to_value": 549574000
+      },
+      {
+        "ticker": "PCAR",
+        "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+        "from_period": "2015-12-31",
+        "to_period": "2016-12-31",
+        "from_value": 354600000,
+        "to_value": 351.1
+      },
+      {
+        "ticker": "PCAR",
+        "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+        "from_period": "2016-12-31",
+        "to_period": "2017-12-31",
+        "from_value": 351.1,
+        "to_value": 351900000
+      },
+      {
+        "ticker": "PDD",
+        "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+        "from_period": "2021-12-31",
+        "to_period": "2022-12-31",
+        "from_value": 5012651334,
+        "to_value": 5057540
+      },
+      {
+        "ticker": "PDD",
+        "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+        "from_period": "2022-12-31",
+        "to_period": "2023-12-31",
+        "from_value": 5057540,
+        "to_value": 5416106000
+      },
+      {
+        "ticker": "ROP",
+        "concept": "CommonStockSharesOutstanding",
+        "from_period": "2012-12-31",
+        "to_period": "2013-12-31",
+        "from_value": 98604000,
+        "to_value": 99312
+      },
+      {
+        "ticker": "ROP",
+        "concept": "CommonStockSharesOutstanding",
+        "from_period": "2015-12-31",
+        "to_period": "2016-12-31",
+        "from_value": 100870,
+        "to_value": 101672000
+      },
+      {
+        "ticker": "ROP",
+        "concept": "CommonStockSharesIssued",
+        "from_period": "2012-12-31",
+        "to_period": "2013-12-31",
+        "from_value": 100588000,
+        "to_value": 101276
+      },
+      {
+        "ticker": "ROP",
+        "concept": "CommonStockSharesIssued",
+        "from_period": "2015-12-31",
+        "to_period": "2016-12-31",
+        "from_value": 102795,
+        "to_value": 103578000
+      },
+      {
+        "ticker": "TER",
+        "concept": "CommonStockSharesOutstanding",
+        "from_period": "2019-12-31",
+        "to_period": "2020-12-31",
+        "from_value": 166410000,
+        "to_value": 166123
+      },
+      {
+        "ticker": "TER",
+        "concept": "CommonStockSharesOutstanding",
+        "from_period": "2020-12-31",
+        "to_period": "2021-12-31",
+        "from_value": 166123,
+        "to_value": 162251000
+      },
+      {
+        "ticker": "TER",
+        "concept": "CommonStockSharesIssued",
+        "from_period": "2019-12-31",
+        "to_period": "2020-12-31",
+        "from_value": 166410000,
+        "to_value": 166123
+      },
+      {
+        "ticker": "TER",
+        "concept": "CommonStockSharesIssued",
+        "from_period": "2020-12-31",
+        "to_period": "2021-12-31",
+        "from_value": 166123,
+        "to_value": 162251000
+      }
+    ]
+  }
+}
