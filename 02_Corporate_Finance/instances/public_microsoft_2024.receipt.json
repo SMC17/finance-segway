@@ -857,7 +857,7 @@
     {
       "sheet": "IS",
       "cell": "C8",
-      "previous": null,
+      "previous": "=C5-C7",
       "value": 135620.0,
       "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
       "source_as_of": "2024-06-30"
@@ -873,7 +873,7 @@
     {
       "sheet": "IS",
       "cell": "C14",
-      "previous": null,
+      "previous": "=C8-C10",
       "value": 83383.0,
       "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
       "source_as_of": "2024-06-30"
@@ -889,7 +889,7 @@
     {
       "sheet": "IS",
       "cell": "C16",
-      "previous": null,
+      "previous": "=C14-C15",
       "value": 83716.0,
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
       "source_as_of": "2024-06-30"
@@ -905,7 +905,7 @@
     {
       "sheet": "IS",
       "cell": "C18",
-      "previous": null,
+      "previous": "=C16-C17",
       "value": 72738.0,
       "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
       "source_as_of": "2024-06-30"
@@ -921,7 +921,7 @@
     {
       "sheet": "IS",
       "cell": "C20",
-      "previous": null,
+      "previous": "=IFERROR(C18/C19,\"-\")",
       "value": 9.65,
       "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
       "source_as_of": "2024-06-30"
@@ -953,7 +953,7 @@
     {
       "sheet": "IS",
       "cell": "D14",
-      "previous": null,
+      "previous": "=D8-D10",
       "value": 88523.0,
       "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
       "source_as_of": "2024-06-30"
@@ -969,7 +969,7 @@
     {
       "sheet": "IS",
       "cell": "D16",
-      "previous": null,
+      "previous": "=D14-D15",
       "value": 89311.0,
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
       "source_as_of": "2024-06-30"
@@ -985,7 +985,7 @@
     {
       "sheet": "IS",
       "cell": "D18",
-      "previous": null,
+      "previous": "=D16-D17",
       "value": 72361.0,
       "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
       "source_as_of": "2024-06-30"
@@ -1001,7 +1001,7 @@
     {
       "sheet": "IS",
       "cell": "D20",
-      "previous": null,
+      "previous": "=IFERROR(D18/D19,\"-\")",
       "value": 9.68,
       "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
       "source_as_of": "2024-06-30"
@@ -1033,7 +1033,7 @@
     {
       "sheet": "IS",
       "cell": "E14",
-      "previous": null,
+      "previous": "=E8-E10",
       "value": 109433.0,
       "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
       "source_as_of": "2024-06-30"
@@ -1049,7 +1049,7 @@
     {
       "sheet": "IS",
       "cell": "E16",
-      "previous": null,
+      "previous": "=E14-E15",
       "value": 107787.0,
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
       "source_as_of": "2024-06-30"
@@ -1065,7 +1065,7 @@
     {
       "sheet": "IS",
       "cell": "E18",
-      "previous": null,
+      "previous": "=E16-E17",
       "value": 88136.0,
       "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
       "source_as_of": "2024-06-30"
@@ -1081,7 +1081,7 @@
     {
       "sheet": "IS",
       "cell": "E20",
-      "previous": null,
+      "previous": "=IFERROR(E18/E19,\"-\")",
       "value": 11.8,
       "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
       "source_as_of": "2024-06-30"
@@ -1295,9 +1295,9 @@
       "source_as_of": "2024-06-30"
     }
   ],
-  "workbook_sha256": "547dc898d2acab8ac89db607784ae50dc81ae6058b582bbb9b52efb65d3fe32c",
-  "generated_on": "2026-09-07",
-  "hash_refreshed_on": "2026-09-07",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "workbook_sha256": "efd014ab6a102f1782d967e41d330c97d64ffcce71aeb348ae56c94b6fa3a79b",
+  "generated_on": "2026-11-11",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }

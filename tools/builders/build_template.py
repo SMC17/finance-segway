@@ -113,7 +113,7 @@ for i, h in enumerate(per_headers, start=1):
 style_header_row(ws, 4, len(per_headers))
 
 is_rows = ["Revenue", "  Revenue growth %", "COGS", "Gross profit", "  Gross margin %",
-           "Opex", "EBITDA", "  EBITDA margin %", "D&A", "EBIT", "Interest expense",
+           "Reported Opex", "EBITDA", "  EBITDA margin %", "D&A", "EBIT", "Interest expense",
            "Pre-tax income", "Tax", "Net income", "Diluted shares", "Diluted EPS"]
 r = 5
 first_data_row = r
@@ -154,7 +154,7 @@ last_data_row = r - 1
 HISTORICAL_ENTRY_ROWS = (
     rev_row,     # Revenue
     cogs_row,    # COGS
-    opex_row,    # Opex, excluding D&A to match the projection convention
+    opex_row,    # Reported operating expense (D&A stays embedded in total costs)
     da_row,      # D&A
     int_row,     # Interest expense
     tax_row,     # Tax, as a reported amount rather than a rate
@@ -172,15 +172,17 @@ for c in range(3, 6):
     # computes the same way a forecast column does.
     ws.cell(row=gp_row, column=c, value=f"={col_letter}{rev_row}-{col_letter}{cogs_row}")
     ws.cell(row=gm_row, column=c, value=f"=IFERROR({col_letter}{gp_row}/{col_letter}{rev_row},\"-\")")
-    ws.cell(row=ebitda_row, column=c, value=f"={col_letter}{gp_row}-{col_letter}{opex_row}")
+    ws.cell(row=ebitda_row, column=c, value=f"={col_letter}{gp_row}-{col_letter}{opex_row}+{col_letter}{da_row}")
     ws.cell(row=ebitdam_row, column=c, value=f"=IFERROR({col_letter}{ebitda_row}/{col_letter}{rev_row},\"-\")")
-    ws.cell(row=ebit_row, column=c, value=f"={col_letter}{ebitda_row}-{col_letter}{da_row}")
+    ws.cell(row=ebit_row, column=c, value=f"={col_letter}{gp_row}-{col_letter}{opex_row}")
     ws.cell(row=pretax_row, column=c, value=f"={col_letter}{ebit_row}-{col_letter}{int_row}")
     ws.cell(row=ni_row, column=c, value=f"={col_letter}{pretax_row}-{col_letter}{tax_row}")
     ws.cell(row=eps_row, column=c, value=f"=IFERROR({col_letter}{ni_row}/{col_letter}{shares_row},\"-\")")
     # Growth needs a prior year, so column C (the earliest) has none.
     if c > 3:
         ws.cell(row=growth_row, column=c, value=f"=IFERROR({col_letter}{rev_row}/{prev_letter}{rev_row}-1,\"-\")")
+    else:
+        ws.cell(row=growth_row, column=c, value='="n/a (no prior year)"')
 
 # Growth, gross profit and gross margin for the projection columns.
 for c in range(6, 10):
@@ -201,13 +203,13 @@ for c in range(6, 10):
     ws.cell(row=rev_row, column=c, value=f"={prev}{rev_row}*(1+Assumptions!{a}5)")
     ws.cell(row=cogs_row, column=c, value=f"={col}{rev_row}*(1-Assumptions!{a}6)")
     ws.cell(row=opex_row, column=c, value=f"={col}{rev_row}*Assumptions!{a}7")
-    ws.cell(row=ebitda_row, column=c, value=f"={col}{gp_row}-{col}{opex_row}")
+    ws.cell(row=ebitda_row, column=c, value=f"={col}{gp_row}-{col}{opex_row}+{col}{da_row}")
     ws.cell(row=ebitdam_row, column=c, value=f"=IFERROR({col}{ebitda_row}/{col}{rev_row},\"-\")")
     # D&A driven off capex (capex itself isn't its own IS row — computed inline
     # as revenue x capex%, then x D&A-as-%-of-capex, per the Assumptions design).
     ws.cell(row=da_row, column=c,
             value=f"={col}{rev_row}*Assumptions!{a}10*Assumptions!{a}9")
-    ws.cell(row=ebit_row, column=c, value=f"={col}{ebitda_row}-{col}{da_row}")
+    ws.cell(row=ebit_row, column=c, value=f"={col}{gp_row}-{col}{opex_row}")
     # Interest held flat at the last actual (FY0A, column E) — avoids a
     # circular reference to the Balance Sheet's debt balance, which this
     # simplified template doesn't otherwise schedule. Deals with real debt

@@ -357,6 +357,10 @@ def enrich_corporate_finance(workbook) -> None:
             ("Net leverage", "='Treasury & Liquidity'!D24", '=IF(C8<=\'Treasury & Liquidity\'!D16,"PASS","BREACH")', "Leverage must remain within the approved capital-structure limit."),
             ("Interest coverage", "='Treasury & Liquidity'!D25", '=IF(C9>=\'Treasury & Liquidity\'!D17,"PASS","BREACH")', "Cash interest must remain covered by operating earnings."),
             ("Distribution funding", "='Capital Allocation'!D13", '=IF(C10<0.01,"PASS","BREACH")', "Dividends and buybacks cannot rely on uncovered liquidity."),
+            ("Forecast base", "=IS!E5", '=IF(AND(ISNUMBER(C11),C11>0),"PASS","REVIEW")', "A valuation needs a disclosed nonzero revenue base; an empty model is not a valuation."),
+            ("Discount less terminal growth", "=DCF!I5-DCF!I6", '=IF(AND(ISNUMBER(C12),C12>0),"PASS","FAIL")', "The terminal-value denominator must be positive before a valuation is usable."),
+            ("DCF value computability", "=DCF!I14", '=IF(AND(ISNUMBER(C13),IS!E5>0,DCF!I13>0),"PASS","REVIEW")', "The DCF must compute from a real forecast base and positive shares; negative equity is not silently called a data gap."),
+            ("Peer multiple availability", '=COUNTIF(Comps!F5:H11,">0")', '=IF(C14>0,"PASS","REVIEW")', "A named peer set without any positive populated valuation multiple requires review."),
         ],
     )
 

@@ -26,7 +26,7 @@
       "sheet": "Assumptions",
       "cell": "C7",
       "previous": 0,
-      "value": 0.080723,
+      "value": 0.168362,
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
       "source_as_of": "2020-02-14"
     },
@@ -98,7 +98,7 @@
       "sheet": "Assumptions",
       "cell": "D7",
       "previous": 0,
-      "value": 0.080723,
+      "value": 0.168362,
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
       "source_as_of": "2020-02-14"
     },
@@ -170,7 +170,7 @@
       "sheet": "Assumptions",
       "cell": "E7",
       "previous": 0,
-      "value": 0.080723,
+      "value": 0.168362,
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
       "source_as_of": "2020-02-14"
     },
@@ -242,7 +242,7 @@
       "sheet": "Assumptions",
       "cell": "F7",
       "previous": 0,
-      "value": 0.080723,
+      "value": 0.168362,
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
       "source_as_of": "2020-02-14"
     },
@@ -314,7 +314,7 @@
       "sheet": "Assumptions",
       "cell": "G7",
       "previous": 0,
-      "value": 0.080723,
+      "value": 0.168362,
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
       "source_as_of": "2020-02-14"
     },
@@ -458,7 +458,7 @@
       "sheet": "IS",
       "cell": "C10",
       "previous": null,
-      "value": 2219.0,
+      "value": 3855.0,
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
       "source_as_of": "2020-02-14"
     },
@@ -514,7 +514,7 @@
       "sheet": "IS",
       "cell": "D10",
       "previous": null,
-      "value": 2529.0,
+      "value": 4430.0,
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
       "source_as_of": "2020-02-14"
     },
@@ -570,7 +570,7 @@
       "sheet": "IS",
       "cell": "E10",
       "previous": null,
-      "value": 1984.0,
+      "value": 4138.0,
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
       "source_as_of": "2020-02-14"
     },
@@ -647,9 +647,9 @@
       "source_as_of": "2020-02-14"
     }
   ],
-  "workbook_sha256": "0752ed43c6ba4cbb03b303a8731e06f5afc99e7edbff89794a0815cab2390a69",
-  "generated_on": "2026-11-03",
-  "hash_refreshed_on": "2026-11-03",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "workbook_sha256": "94d11ad93f2214c043c10b16ff882d42726d3f9091255cc5aee28eeb0a0e74ce",
+  "generated_on": "2026-11-11",
+  "refresh_schema": "source-addressed-v2",
+  "classification": "external_historical_case",
   "counts_toward_M4": false
 }
