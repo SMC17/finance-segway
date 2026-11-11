@@ -478,21 +478,30 @@ def check_base_archetype_integration():
 
     reference_revenue = []
     reference_net_income = []
+    reference_ebitda = []
     revenue = initial_revenue
     for growth_rate in growth[:4]:
         revenue *= 1 + growth_rate
         gross_profit = revenue * gross_margin
-        ebitda = gross_profit - revenue * opex_percent
+        # Reported aggregate operating costs already include depreciation.
+        # Independently reconstruct EBIT from those costs, then add D&A back
+        # once for EBITDA. Subtracting it from EBIT again double charges it.
+        operating_income = gross_profit - revenue * opex_percent
         depreciation = revenue * capex_percent * da_percent
-        pretax_income = ebitda - depreciation - initial_interest
+        pretax_income = operating_income - initial_interest
         net_income = pretax_income * (1 - tax_rate)
         reference_revenue.append(revenue)
         reference_net_income.append(net_income)
+        reference_ebitda.append(operating_income + depreciation)
 
     ok = all(close(actual, expected) for actual, expected in zip(sheet_revenue, reference_revenue))
     ok = ok and all(
         close(actual, expected) for actual, expected in zip(sheet_net_income, reference_net_income)
     )
+    sheet_ebitda = [income_statement.cell(row=11, column=column).value
+                    for column in range(6, 10)]
+    ok = ok and all(close(actual, expected)
+                    for actual, expected in zip(sheet_ebitda, reference_ebitda))
     cash_flow_net_income = [
         workbook["CF"].cell(row=5, column=column).value for column in range(5, 8)
     ]
@@ -503,6 +512,7 @@ def check_base_archetype_integration():
     detail = (
         f"revenue sheet={sheet_revenue}, oracle={reference_revenue}; "
         f"net income sheet={sheet_net_income}, oracle={reference_net_income}; "
+        f"EBITDA sheet={sheet_ebitda}, oracle={reference_ebitda}; "
         f"cash-flow linked net income={cash_flow_net_income}"
     )
     return "BASE: projected income statement and cash-flow linkage", ok, detail

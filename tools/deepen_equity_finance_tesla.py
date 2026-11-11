@@ -26,15 +26,13 @@ TWO DATING RULES, BOTH ENFORCED BELOW
    not a coincidence -- as-filed-at-the-case-date is the correct basis for a
    historical case, and it is split-safe for the same reason.
 
-WHAT CANNOT BE FILLED, AND WHY
-------------------------------
-Depreciation and amortisation. EDGAR tags it for Tesla's FY2017 (769) but not
-for FY2018 or FY2019. Using the one available year would give a D&A series of
-769, 0, 0, and an EBITDA series whose year-on-year change is pure artefact --
-the same defect tools/verify_share_series_integrity.py exists to catch. So D&A
-is declared as a driver at zero across all three years, which makes the EBITDA
-line equal EBIT and understate true EBITDA. The direction is stated rather
-than hidden: understating EBITDA understates every coverage ratio built on it.
+DEPRECIATION SOURCE LIMIT
+-------------------------
+The recorded cash-flow snapshot supplies total depreciation and amortisation.
+The XBRL tag has a narrower FY2017 value and lacks later periods. The snapshot
+retains that disagreement. Reported COGS and operating expense keep their
+original basis; the BASE template adds total D&A back once to compute EBITDA.
+No functional allocation of D&A between those reported costs is invented.
 
 Usage:
     python tools/deepen_equity_finance_tesla.py
@@ -273,10 +271,9 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
              "before the value is used.",
              xbrl)
 
-        # The template reads row 10 as the expense between gross profit and
-        # EBITDA, and row 13 as D&A between EBITDA and EBIT. For EBITDA to mean
-        # what its label says, row 10 must EXCLUDE D&A. So D&A is sourced first
-        # and row 10 is the residual, which keeps EBIT tied to the filing.
+        # Keep reported operating expense on the same basis as the Microsoft
+        # case. The BASE builder adds total D&A back once for EBITDA; it does
+        # not subtract it from reported operating expense or charge it twice.
         da_value = round(cash_flow["depreciationDepletionAndAmortization"][end] / 1e6, 1)
         emit(f"{column}{ROW['da']}", da_value, "observed",
              f"Depreciation, amortisation and impairment for FY{year} = "
@@ -289,25 +286,14 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
              "snapshot states that disagreement and what is unresolved about it.",
              av_cash)
 
-        opex = round(
-            (gross["value"] - operating["value"]) / 1e6 - da_value, 1
-        )
-        if opex <= 0:
-            raise ValueError(
-                f"FY{year}: operating expense net of D&A came out at {opex:,.1f} $mm. "
-                "A non-positive residual means more D&A was charged than sits above "
-                "operating income, so the two sources are not on compatible bases."
-            )
+        opex = round((gross["value"] - operating["value"]) / 1e6, 1)
         emit(f"{column}{ROW['opex']}", opex, "derived",
-             f"Operating expense for FY{year} EXCLUDING depreciation and amortisation, "
-             f"derived as GrossProfit {millions(gross):,.0f} less OperatingIncomeLoss "
-             f"{millions(operating):,.0f} less D&A {da_value:,.0f} = {opex:,.0f} $mm. "
-             f"The first two terms were filed {gross['filed']}. Taking D&A out here is "
-             "what makes the EBITDA row a real EBITDA and leaves EBIT equal to the "
-             "disclosed operating income: "
-             f"{millions(gross):,.0f} - {opex:,.0f} - {da_value:,.0f} = "
-             f"{millions(operating):,.0f}.",
-             xbrl)
+             f"Reported operating expense for FY{year} = GrossProfit "
+             f"{millions(gross):,.0f} less OperatingIncomeLoss "
+             f"{millions(operating):,.0f} = {opex:,.0f} $mm. "
+             "D&A remains embedded in reported costs. The BASE builder adds "
+             "total D&A back once to calculate EBITDA; EBIT is gross profit "
+             "less reported operating expense, matching the disclosure.", xbrl)
 
         emit(f"{column}{ROW['interest']}", millions(interest), "observed",
              f"us-gaap:InterestExpense for FY{year} = {millions(interest):,.0f} $mm, "
@@ -388,7 +374,7 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
         revenues[i + 1] / revenues[i] - 1 for i in range(len(revenues) - 1)
     )
     gross_margin = gross_profits[-1] / revenues[-1]
-    opex_ratio = (gross_profits[-1] - operating[-1] - da_series[-1]) / revenues[-1]
+    opex_ratio = (gross_profits[-1] - operating[-1]) / revenues[-1]
     capex_ratio = capex[-1] / revenues[-1]
     da_over_capex = da_series[-1] / capex[-1]
     da_over_revenue = da_series[-1] / revenues[-1]
@@ -451,12 +437,11 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
          f"{gross_margin:.4f}. The {window} range was 0.1656 to 0.1890, so holding the "
          "most recent value is the lower end of recent experience."),
         (7, [opex_ratio] * 5, "derived",
-         f"Operating expense EXCLUDING depreciation and amortisation, over revenue, "
-         f"held at the FY2019 actual: (GrossProfit - OperatingIncomeLoss - D&A) / "
-         f"Revenues = {opex_ratio:.4f}. D&A is excluded here because the template "
-         "charges it separately on row 9, and leaving it in both places would charge it "
-         "twice. This ratio fell steeply across the window as revenue scaled, so "
-         "holding the latest value assumes that operating leverage stops improving."),
+         f"Reported operating expense over revenue, held at the FY2019 "
+         f"actual: (GrossProfit - OperatingIncomeLoss) / Revenues = "
+         f"{opex_ratio:.4f}. D&A remains embedded in reported costs and is "
+         "added back once for EBITDA; no allocation between cost of revenue "
+         "and operating expense is invented."),
         (8, [0.21] * 5, "driver",
          "Tax rate. No meaningful effective rate exists in the window: Tesla reported "
          "tax EXPENSE against pre-tax LOSSES in all three years, which gives a negative "
@@ -630,8 +615,9 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
                 "and amortisation, interest, tax, and share count. Depreciation comes "
                 "from the cash flow statement rather than EDGAR, because Tesla tagged "
                 "EDGAR's D&A concept in one filing only and with a narrower figure. With "
-                "D&A real and taken out of the operating expense row, the EBITDA line is "
-                "a real EBITDA and EBIT ties exactly to the disclosed operating income "
+                "the vendor's D&A and impairment added back once to reported EBIT, "
+                "the EBITDA line is a proxy that also adds back impairment; it is "
+                "not pure EBITDA. EBIT ties exactly to the disclosed operating income "
                 "in all three years."
             ),
             "reviewer_notes": (
@@ -651,6 +637,32 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
                 "that argument."
             ),
             "next_check": "On builder change or annual review",
+        },
+        "base_year_reproduction": {
+            "sheet": "IS",
+            "exemptions": [
+                {
+                    "row": 17, "line": "Tax",
+                    "reproduction_exemption": "forward_by_design",
+                    "rationale": (
+                        "The declared forward tax-rate driver is 21%, rather than the "
+                        "negative historical effective rate created by tax expense on "
+                        "a pre-tax loss. It intentionally does not reproduce FY2019 tax "
+                        "expense of 110 $mm. No historical tax observation is changed."
+                    ),
+                },
+                {
+                    "row": 19, "line": "Diluted shares",
+                    "reproduction_exemption": "forward_by_design",
+                    "rationale": (
+                        "Forward shares link to the post-offering cap table, while the "
+                        "historical input is a pre-offering period-end observation. "
+                        "Issuance and the case's contingent securities deliberately "
+                        "increase the denominator; reproducing the old count would "
+                        "omit the financing this case models."
+                    ),
+                },
+            ],
         },
         "driver_declarations": sorted(
             (existing.get("driver_declarations") or []) + drivers,

@@ -69,13 +69,13 @@
           "dcat:accessURL": "https://github.com/SMC17/finance-segway/blob/main/standards/public_cases/index.json",
           "dcterms:extent": {
             "@type": "dcterms:SizeOrDuration",
-            "rdf:value": 413436,
+            "rdf:value": 432799,
             "unitText": "bytes (UCUM: By)"
           },
           "spdx:checksum": {
             "@type": "spdx:Checksum",
             "spdx:algorithm": "spdx:checksumAlgorithm_sha256",
-            "spdx:checksumValue": "2b0251cbd30877f33fbfb711e673929a9a41b528278458a2a20a4a371bab3791"
+            "spdx:checksumValue": "41e4f9cb3b80f632a42a36b85b355fb9f08acdad442c5489579fc267a466a35c"
           }
         }
       ],
@@ -241,14 +241,14 @@
           "dcat:accessURL": "https://github.com/SMC17/finance-segway/blob/main/standards/forecasts",
           "dcterms:extent": {
             "@type": "dcterms:SizeOrDuration",
-            "rdf:value": 10512,
+            "rdf:value": 12976,
             "unitText": "bytes (UCUM: By)"
           }
         }
       ],
       "repo:path": "standards/forecasts",
       "repo:recordUnit": "forecast",
-      "repo:recordCount": 11,
+      "repo:recordCount": 12,
       "repo:dataElements": [
         {
           "name": "forecast_id",
@@ -488,14 +488,14 @@
           "dcat:accessURL": "https://github.com/SMC17/finance-segway/blob/main/tools/data_fabric/out",
           "dcterms:extent": {
             "@type": "dcterms:SizeOrDuration",
-            "rdf:value": 12939764,
+            "rdf:value": 13015108,
             "unitText": "bytes (UCUM: By)"
           }
         }
       ],
       "repo:path": "tools/data_fabric/out",
       "repo:recordUnit": "file",
-      "repo:recordCount": 582,
+      "repo:recordCount": 588,
       "repo:dataElements": [
         {
           "name": "retrieved_utc",

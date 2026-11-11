@@ -40,13 +40,13 @@
     {
       "sheet": "Assumptions",
       "cell": "C7",
-      "value": 0.080723,
+      "value": 0.168362,
       "input_kind": "derived",
       "source": {
         "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
         "as_of": "2020-02-14",
-        "notes": "Operating expense EXCLUDING depreciation and amortisation, over revenue, held at the FY2019 actual: (GrossProfit - OperatingIncomeLoss - D&A) / Revenues = 0.0807. D&A is excluded here because the template charges it separately on row 9, and leaving it in both places would charge it twice. This ratio fell steeply across the window as revenue scaled, so holding the latest value assumes that operating leverage stops improving."
+        "notes": "Reported operating expense over revenue, held at the FY2019 actual: (GrossProfit - OperatingIncomeLoss) / Revenues = 0.1684. D&A remains embedded in reported costs and is added back once for EBITDA; no allocation between cost of revenue and operating expense is invented."
       },
       "emitted_by": "tools/deepen_equity_finance_tesla.py"
     },
@@ -157,13 +157,13 @@
     {
       "sheet": "Assumptions",
       "cell": "D7",
-      "value": 0.080723,
+      "value": 0.168362,
       "input_kind": "derived",
       "source": {
         "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
         "as_of": "2020-02-14",
-        "notes": "Operating expense EXCLUDING depreciation and amortisation, over revenue, held at the FY2019 actual: (GrossProfit - OperatingIncomeLoss - D&A) / Revenues = 0.0807. D&A is excluded here because the template charges it separately on row 9, and leaving it in both places would charge it twice. This ratio fell steeply across the window as revenue scaled, so holding the latest value assumes that operating leverage stops improving."
+        "notes": "Reported operating expense over revenue, held at the FY2019 actual: (GrossProfit - OperatingIncomeLoss) / Revenues = 0.1684. D&A remains embedded in reported costs and is added back once for EBITDA; no allocation between cost of revenue and operating expense is invented."
       },
       "emitted_by": "tools/deepen_equity_finance_tesla.py"
     },
@@ -274,13 +274,13 @@
     {
       "sheet": "Assumptions",
       "cell": "E7",
-      "value": 0.080723,
+      "value": 0.168362,
       "input_kind": "derived",
       "source": {
         "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
         "as_of": "2020-02-14",
-        "notes": "Operating expense EXCLUDING depreciation and amortisation, over revenue, held at the FY2019 actual: (GrossProfit - OperatingIncomeLoss - D&A) / Revenues = 0.0807. D&A is excluded here because the template charges it separately on row 9, and leaving it in both places would charge it twice. This ratio fell steeply across the window as revenue scaled, so holding the latest value assumes that operating leverage stops improving."
+        "notes": "Reported operating expense over revenue, held at the FY2019 actual: (GrossProfit - OperatingIncomeLoss) / Revenues = 0.1684. D&A remains embedded in reported costs and is added back once for EBITDA; no allocation between cost of revenue and operating expense is invented."
       },
       "emitted_by": "tools/deepen_equity_finance_tesla.py"
     },
@@ -391,13 +391,13 @@
     {
       "sheet": "Assumptions",
       "cell": "F7",
-      "value": 0.080723,
+      "value": 0.168362,
       "input_kind": "derived",
       "source": {
         "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
         "as_of": "2020-02-14",
-        "notes": "Operating expense EXCLUDING depreciation and amortisation, over revenue, held at the FY2019 actual: (GrossProfit - OperatingIncomeLoss - D&A) / Revenues = 0.0807. D&A is excluded here because the template charges it separately on row 9, and leaving it in both places would charge it twice. This ratio fell steeply across the window as revenue scaled, so holding the latest value assumes that operating leverage stops improving."
+        "notes": "Reported operating expense over revenue, held at the FY2019 actual: (GrossProfit - OperatingIncomeLoss) / Revenues = 0.1684. D&A remains embedded in reported costs and is added back once for EBITDA; no allocation between cost of revenue and operating expense is invented."
       },
       "emitted_by": "tools/deepen_equity_finance_tesla.py"
     },
@@ -508,13 +508,13 @@
     {
       "sheet": "Assumptions",
       "cell": "G7",
-      "value": 0.080723,
+      "value": 0.168362,
       "input_kind": "derived",
       "source": {
         "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
         "as_of": "2020-02-14",
-        "notes": "Operating expense EXCLUDING depreciation and amortisation, over revenue, held at the FY2019 actual: (GrossProfit - OperatingIncomeLoss - D&A) / Revenues = 0.0807. D&A is excluded here because the template charges it separately on row 9, and leaving it in both places would charge it twice. This ratio fell steeply across the window as revenue scaled, so holding the latest value assumes that operating leverage stops improving."
+        "notes": "Reported operating expense over revenue, held at the FY2019 actual: (GrossProfit - OperatingIncomeLoss) / Revenues = 0.1684. D&A remains embedded in reported costs and is added back once for EBITDA; no allocation between cost of revenue and operating expense is invented."
       },
       "emitted_by": "tools/deepen_equity_finance_tesla.py"
     },
@@ -737,13 +737,13 @@
     {
       "sheet": "IS",
       "cell": "C10",
-      "value": 2219.0,
+      "value": 3855.0,
       "input_kind": "derived",
       "source": {
         "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
         "as_of": "2020-02-14",
-        "notes": "Operating expense for FY2017 EXCLUDING depreciation and amortisation, derived as GrossProfit 2,223 less OperatingIncomeLoss -1,632 less D&A 1,636 = 2,219 $mm. The first two terms were filed 2020-02-13. Taking D&A out here is what makes the EBITDA row a real EBITDA and leaves EBIT equal to the disclosed operating income: 2,223 - 2,219 - 1,636 = -1,632."
+        "notes": "Reported operating expense for FY2017 = GrossProfit 2,223 less OperatingIncomeLoss -1,632 = 3,855 $mm. D&A remains embedded in reported costs. The BASE builder adds total D&A back once to calculate EBITDA; EBIT is gross profit less reported operating expense, matching the disclosure."
       },
       "emitted_by": "tools/deepen_equity_finance_tesla.py"
     },
@@ -828,13 +828,13 @@
     {
       "sheet": "IS",
       "cell": "D10",
-      "value": 2529.0,
+      "value": 4430.0,
       "input_kind": "derived",
       "source": {
         "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
         "as_of": "2020-02-14",
-        "notes": "Operating expense for FY2018 EXCLUDING depreciation and amortisation, derived as GrossProfit 4,042 less OperatingIncomeLoss -388 less D&A 1,901 = 2,529 $mm. The first two terms were filed 2021-02-08. Taking D&A out here is what makes the EBITDA row a real EBITDA and leaves EBIT equal to the disclosed operating income: 4,042 - 2,529 - 1,901 = -388."
+        "notes": "Reported operating expense for FY2018 = GrossProfit 4,042 less OperatingIncomeLoss -388 = 4,430 $mm. D&A remains embedded in reported costs. The BASE builder adds total D&A back once to calculate EBITDA; EBIT is gross profit less reported operating expense, matching the disclosure."
       },
       "emitted_by": "tools/deepen_equity_finance_tesla.py"
     },
@@ -919,13 +919,13 @@
     {
       "sheet": "IS",
       "cell": "E10",
-      "value": 1984.0,
+      "value": 4138.0,
       "input_kind": "derived",
       "source": {
         "name": "Tesla, Inc. SEC XBRL company facts (CIK 0001318605)",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
         "as_of": "2020-02-14",
-        "notes": "Operating expense for FY2019 EXCLUDING depreciation and amortisation, derived as GrossProfit 4,069 less OperatingIncomeLoss -69 less D&A 2,154 = 1,984 $mm. The first two terms were filed 2022-02-07. Taking D&A out here is what makes the EBITDA row a real EBITDA and leaves EBIT equal to the disclosed operating income: 4,069 - 1,984 - 2,154 = -69."
+        "notes": "Reported operating expense for FY2019 = GrossProfit 4,069 less OperatingIncomeLoss -69 = 4,138 $mm. D&A remains embedded in reported costs. The BASE builder adds total D&A back once to calculate EBITDA; EBIT is gross profit less reported operating expense, matching the disclosure."
       },
       "emitted_by": "tools/deepen_equity_finance_tesla.py"
     },
@@ -1078,10 +1078,10 @@
     }
   ],
   "refresh": {
-    "date": "2026-10-01",
+    "date": "2026-11-11",
     "trigger": "Historical actuals block filled after the BASE template fix",
     "source_snapshot": "repo://12_Equity_Finance/sources/snapshots/equity-public-tesla-2020-offering.json",
-    "what_changed": "The BASE template's income-statement historical block carried no input marker and no derived formulas, so the income statement, the DCF, and diluted EPS all evaluated to zero. With the template fixed, this fills FY2017-FY2019 revenue, cost of revenue, operating expense, depreciation and amortisation, interest, tax, and share count. Depreciation comes from the cash flow statement rather than EDGAR, because Tesla tagged EDGAR's D&A concept in one filing only and with a narrower figure. With D&A real and taken out of the operating expense row, the EBITDA line is a real EBITDA and EBIT ties exactly to the disclosed operating income in all three years.",
+    "what_changed": "The BASE template's income-statement historical block carried no input marker and no derived formulas, so the income statement, the DCF, and diluted EPS all evaluated to zero. With the template fixed, this fills FY2017-FY2019 revenue, cost of revenue, operating expense, depreciation and amortisation, interest, tax, and share count. Depreciation comes from the cash flow statement rather than EDGAR, because Tesla tagged EDGAR's D&A concept in one filing only and with a narrower figure. With the vendor's D&A and impairment added back once to reported EBIT, the EBITDA line is a proxy that also adds back impairment; it is not pure EBITDA. EBIT ties exactly to the disclosed operating income in all three years.",
     "reviewer_notes": "External historical case; human stakeholder approval remains pending. Read three things before using any number here. First, the share counts are period-end outstanding rather than weighted diluted, which understates earnings per share. Second, the forward D&A driver is the product of a capex ratio and a D&A-to-capex ratio, and the second of those is unstable across the window; the pair is set so the product ties to D&A as a share of revenue, which is stable, and the two rows must be read together. Third, the discounted cash flow values the equity at roughly a quarter of the price the February 2020 offering actually cleared at. That is not a defect in the arithmetic. It is what a cash flow model built on Tesla's FY2019 operating margins produces, and the gap between the two was the whole argument about Tesla at the time. The case exists to show the offering mechanics, not to settle that argument.",
     "next_check": "On builder change or annual review"
   },
@@ -1233,5 +1233,22 @@
       "basis": {},
       "emitted_by": "tools/deepen_equity_finance_tesla.py"
     }
-  ]
+  ],
+  "base_year_reproduction": {
+    "sheet": "IS",
+    "exemptions": [
+      {
+        "row": 17,
+        "line": "Tax",
+        "reproduction_exemption": "forward_by_design",
+        "rationale": "The declared forward tax-rate driver is 21%, rather than the negative historical effective rate created by tax expense on a pre-tax loss. It intentionally does not reproduce FY2019 tax expense of 110 $mm. No historical tax observation is changed."
+      },
+      {
+        "row": 19,
+        "line": "Diluted shares",
+        "reproduction_exemption": "forward_by_design",
+        "rationale": "Forward shares link to the post-offering cap table, while the historical input is a pre-offering period-end observation. Issuance and the case's contingent securities deliberately increase the denominator; reproducing the old count would omit the financing this case models."
+      }
+    ]
+  }
 }

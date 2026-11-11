@@ -301,6 +301,14 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
             return
         inputs.append({
             "sheet": sheet, "cell": cell, "value": value, "input_kind": kind,
+            # The BASE template derives historical subtotals by default. This
+            # case carries the issuer's disclosed actuals instead, including
+            # non-operating income that the simplified forward identity omits.
+            # Keep those observations visible to the base-year reproduction
+            # probe; never grant this exception to a forecast cell.
+            **({"allow_formula_override": True} if sheet == "IS"
+               and cell[0] in "CDE" and cell[1:] in {"8", "14", "16", "18", "20"}
+               else {}),
             "source": {
                 "name": TEN_K_NAME if kind == "observed" else XBRL_NAME,
                 "url": TEN_K_URL if kind == "observed" else XBRL_URL,
@@ -383,12 +391,12 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
         emit("IS", f"{column}20", round(eps_v, 2), "observed",
              f"Diluted EPS, tagged EarningsPerShareDiluted, FY ending {end}.")
 
-    # C8 alone: the builder writes the gross-profit formula from column D
-    # rightward, so C8 is the one historical cell in that row without one.
+    # Gross profit is derived by the template in all historical columns. Keep
+    # the separately reported C8 observation as a sourced historical override.
     emit("IS", "C8", round(fact("GrossProfit", is_history[0]), 1), "observed",
-         f"Gross profit, tagged GrossProfit, FY ending {is_history[0]}. D8 and E8 "
-         "carry the template's =revenue-COGS formula; C8 does not, because the "
-         "builder writes that formula from column D rightward.")
+         f"Gross profit, tagged GrossProfit, FY ending {is_history[0]}. "
+         "This disclosed historical observation replaces the template subtotal; "
+         "D8 and E8 retain the revenue-minus-COGS formula.")
 
     # EBITDA and D&A stay empty, declared rather than invented. Microsoft tags
     # no DepreciationDepletionAndAmortization, DepreciationAndAmortization,
@@ -768,6 +776,17 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
                         "repurchases, so FY1 is expected to sit below the FY2024 "
                         "actual of 7,469.2mm. Reproducing the base year here would "
                         "mean the buyback was not being modelled at all."
+                    ),
+                },
+                {
+                    "row": 20,
+                    "line": "Diluted EPS",
+                    "reproduction_exemption": "forward_by_design",
+                    "rationale": (
+                        "EPS inherits the disclosed forward share-count change on row 19 "
+                        "and the other-income omission on row 16. It is not expected to "
+                        "equal historical EPS when those forward assumptions are held fixed. "
+                        "EBIT remains non-exempt and must reproduce the disclosed base year."
                     ),
                 },
             ],

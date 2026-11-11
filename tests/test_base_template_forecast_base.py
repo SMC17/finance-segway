@@ -102,9 +102,12 @@ class HistoricalBlockVisibilityTests(unittest.TestCase):
                 inputs = _historical_inputs(sheet)
                 # Control: if the block ever stops being input-shaped this
                 # test must fail loudly rather than pass over an empty set.
-                self.assertGreaterEqual(
-                    len(inputs), 40, "the historical block has stopped offering inputs"
-                )
+                expected_inputs = {
+                    f"{column}{row}" for column in "CDE"
+                    for row in (5, 7, 10, 13, 15, 17, 19)
+                }
+                self.assertEqual(expected_inputs, set(inputs),
+                                 "historical source inputs must match the BASE schema")
                 unmarked = [c for c in inputs if _cell_rgb(sheet[c]) != INPUT_FONT_RGB]
                 self.assertEqual(
                     [], unmarked,
@@ -139,7 +142,8 @@ class HistoricalBlockVisibilityTests(unittest.TestCase):
             coord for coord in candidates.get("IS", set())
             if coord[0] in "CDE" and coord[1:].isdigit() and 5 <= int(coord[1:]) <= 20
         }
-        self.assertGreaterEqual(len(historical), 40)
+        self.assertEqual({f"{col}{row}" for col in "CDE"
+                          for row in (5, 7, 10, 13, 15, 17, 19)}, historical)
 
 
 class ForecastBaseGuardTests(unittest.TestCase):
