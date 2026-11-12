@@ -102,8 +102,13 @@ def find_candidate_cells(template_path: Path) -> dict[str, set[str]]:
     yellow (FFF2CC) while the older legacy_frontier_release archetype uses
     pure yellow (FFFF00), and some legacy cells carry no fill at all --
     checking fill would silently miss real input cells in whichever
-    convention isn't matched. Verified empirically to produce zero false
-    positives from formula cells across both conventions.
+    convention isn't matched.
+
+    Formula cells are excluded. An earlier note here claimed blue font
+    produced no false positives from formulas; that was verified against one
+    template only, and it was not true of the others. Equity Finance styles
+    its share-count row as an input while linking it to the cap table, so five
+    cells sat in the denominator that no case could ever fill.
 
     Both Base and Downside columns count as candidates (no column-label
     filtering): an adversarial/stress case's whole point is that its
@@ -129,6 +134,14 @@ def find_candidate_cells(template_path: Path) -> dict[str, set[str]]:
                 if cell.value is not None and str(cell.value) == LEGEND_EXCLUDE_TEXT:
                     continue
                 if _rgb(cell.font.color if cell.font else None) != INPUT_FONT_RGB:
+                    continue
+                # A blue-font cell holding a FORMULA is not fillable:
+                # model_instances.py refuses to overwrite a formula, so no case
+                # can ever put data there. Counting it inflates the denominator
+                # and permanently depresses that domain's measurable coverage.
+                # Equity Finance links its share-count row to the cap table and
+                # styles it as an input, which is exactly this case.
+                if isinstance(cell.value, str) and cell.value.startswith("="):
                     continue
                 candidates.add(cell.coordinate)
         if candidates:
@@ -170,12 +183,40 @@ def _cover_real_cells(manifest: dict[str, Any], template_path: Path) -> set[tupl
     return cells
 
 
+def _formula_override_cells(manifest: dict[str, Any], template_path: Path) -> set[tuple[str, str]]:
+    marked = [item for item in manifest.get("inputs", [])
+              if item.get("allow_formula_override") is True]
+    if not marked:
+        return set()
+    workbook = load_workbook(template_path, data_only=False)
+    found = set()
+    for item in marked:
+        source = item.get("source") or {}
+        if item.get("input_kind") not in {"observed", "derived"} or not source.get("url"):
+            continue
+        sheet, cell = item["sheet"], item["cell"]
+        if sheet not in workbook.sheetnames:
+            continue
+        value = workbook[sheet][cell].value
+        if isinstance(value, str) and value.startswith("="):
+            found.add((sheet, cell))
+    workbook.close()
+    return found
+
+
 def case_coverage(case: dict[str, Any]) -> dict[str, Any]:
     manifest_path = ROOT / case["manifest"]
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     template_path = ROOT / manifest["template"]
 
     candidates_by_sheet = find_candidate_cells(template_path)
+    # An explicitly sourced replacement of a template formula creates a new
+    # case-specific input surface. Count it in BOTH numerator and denominator.
+    # Requiring the target to be a real template formula preserves detection of
+    # typos, missing sheets, and arbitrary cells outside the input surface.
+    overrides = _formula_override_cells(manifest, template_path)
+    for sheet, cell in overrides:
+        candidates_by_sheet.setdefault(sheet, set()).add(cell)
     total_candidates = sum(len(cells) for cells in candidates_by_sheet.values())
 
     real_cells: set[tuple[str, str]] = {
@@ -271,6 +312,7 @@ def case_coverage(case: dict[str, Any]) -> dict[str, Any]:
         "domain": case["domain"],
         "case_type": case["case_type"],
         "total_candidate_cells": total_candidates,
+        "formula_override_cells": sorted(f"{sheet}!{cell}" for sheet, cell in overrides),
         "real_cells": len(real_in_candidates),
         "sourced_driver_cells": len(sourced_driver_cells),
         "unsourced_driver_cells": len(unsourced_driver_cells),

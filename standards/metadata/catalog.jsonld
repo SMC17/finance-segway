@@ -21,7 +21,7 @@
       "dcterms:license": {
         "@id": "https://spdx.org/licenses/MIT.html"
       },
-      "dcterms:modified": "2026-09-07",
+      "dcterms:modified": "2026-11-11",
       "dcat:dataset": [
         "https://github.com/SMC17/finance-segway#dataset-public-cases",
         "https://github.com/SMC17/finance-segway#dataset-model-inventory",
@@ -45,7 +45,7 @@
         "@id": "https://spdx.org/licenses/MIT.html"
       },
       "dcterms:rights": "MIT licensed. Not investment advice and not validated for capital, fiduciary, or regulatory use.",
-      "dcterms:modified": "2026-09-07",
+      "dcterms:modified": "2026-11-11",
       "dcterms:conformsTo": [
         {
           "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
@@ -69,13 +69,13 @@
           "dcat:accessURL": "https://github.com/SMC17/finance-segway/blob/main/standards/public_cases/index.json",
           "dcterms:extent": {
             "@type": "dcterms:SizeOrDuration",
-            "rdf:value": 406075,
+            "rdf:value": 432799,
             "unitText": "bytes (UCUM: By)"
           },
           "spdx:checksum": {
             "@type": "spdx:Checksum",
             "spdx:algorithm": "spdx:checksumAlgorithm_sha256",
-            "spdx:checksumValue": "eb650af69cee19ef49a54e22585aca3268d4ded845066d0a9506afc2e6ef1e35"
+            "spdx:checksumValue": "41e4f9cb3b80f632a42a36b85b355fb9f08acdad442c5489579fc267a466a35c"
           }
         }
       ],
@@ -132,7 +132,7 @@
         "@id": "https://spdx.org/licenses/MIT.html"
       },
       "dcterms:rights": "MIT licensed. Not investment advice and not validated for capital, fiduciary, or regulatory use.",
-      "dcterms:modified": "2026-09-07",
+      "dcterms:modified": "2026-11-11",
       "dcterms:conformsTo": [
         {
           "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
@@ -217,7 +217,7 @@
         "@id": "https://spdx.org/licenses/MIT.html"
       },
       "dcterms:rights": "MIT licensed. Not investment advice and not validated for capital, fiduciary, or regulatory use.",
-      "dcterms:modified": "2026-09-07",
+      "dcterms:modified": "2026-11-11",
       "dcterms:conformsTo": [
         {
           "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
@@ -241,14 +241,14 @@
           "dcat:accessURL": "https://github.com/SMC17/finance-segway/blob/main/standards/forecasts",
           "dcterms:extent": {
             "@type": "dcterms:SizeOrDuration",
-            "rdf:value": 9889,
+            "rdf:value": 12976,
             "unitText": "bytes (UCUM: By)"
           }
         }
       ],
       "repo:path": "standards/forecasts",
       "repo:recordUnit": "forecast",
-      "repo:recordCount": 11,
+      "repo:recordCount": 12,
       "repo:dataElements": [
         {
           "name": "forecast_id",
@@ -304,7 +304,7 @@
         "@id": "https://spdx.org/licenses/MIT.html"
       },
       "dcterms:rights": "MIT licensed. Not investment advice and not validated for capital, fiduciary, or regulatory use.",
-      "dcterms:modified": "2026-09-07",
+      "dcterms:modified": "2026-11-11",
       "dcterms:conformsTo": [
         {
           "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
@@ -328,19 +328,19 @@
           "dcat:accessURL": "https://github.com/SMC17/finance-segway/blob/main/standards/vocabulary/glossary.json",
           "dcterms:extent": {
             "@type": "dcterms:SizeOrDuration",
-            "rdf:value": 21538,
+            "rdf:value": 22991,
             "unitText": "bytes (UCUM: By)"
           },
           "spdx:checksum": {
             "@type": "spdx:Checksum",
             "spdx:algorithm": "spdx:checksumAlgorithm_sha256",
-            "spdx:checksumValue": "c36af12d3ece9cabb1ae9a7cbb6788e883d01dacdd81e60744b8558fa903b74e"
+            "spdx:checksumValue": "ac4f141be2de51eda1364fa0b0ead6b01b0a666843bf161bb88e1f1aeb72ce20"
           }
         }
       ],
       "repo:path": "standards/vocabulary/glossary.json",
       "repo:recordUnit": "concept",
-      "repo:recordCount": 42,
+      "repo:recordCount": 44,
       "repo:dataElements": [
         {
           "name": "id",
@@ -384,7 +384,7 @@
         "@id": "https://spdx.org/licenses/MIT.html"
       },
       "dcterms:rights": "MIT licensed. Not investment advice and not validated for capital, fiduciary, or regulatory use.",
-      "dcterms:modified": "2026-09-07",
+      "dcterms:modified": "2026-11-11",
       "dcterms:conformsTo": [
         {
           "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
@@ -463,7 +463,7 @@
         "@id": "https://spdx.org/licenses/MIT.html"
       },
       "dcterms:rights": "MIT licensed. Not investment advice and not validated for capital, fiduciary, or regulatory use.",
-      "dcterms:modified": "2026-09-07",
+      "dcterms:modified": "2026-11-11",
       "dcterms:conformsTo": [
         {
           "@id": "https://github.com/SMC17/finance-segway/standards/vocabulary"
@@ -488,14 +488,14 @@
           "dcat:accessURL": "https://github.com/SMC17/finance-segway/blob/main/tools/data_fabric/out",
           "dcterms:extent": {
             "@type": "dcterms:SizeOrDuration",
-            "rdf:value": 12890834,
+            "rdf:value": 13015108,
             "unitText": "bytes (UCUM: By)"
           }
         }
       ],
       "repo:path": "tools/data_fabric/out",
       "repo:recordUnit": "file",
-      "repo:recordCount": 581,
+      "repo:recordCount": 588,
       "repo:dataElements": [
         {
           "name": "retrieved_utc",

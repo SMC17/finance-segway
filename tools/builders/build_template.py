@@ -113,7 +113,7 @@ for i, h in enumerate(per_headers, start=1):
 style_header_row(ws, 4, len(per_headers))
 
 is_rows = ["Revenue", "  Revenue growth %", "COGS", "Gross profit", "  Gross margin %",
-           "Opex", "EBITDA", "  EBITDA margin %", "D&A", "EBIT", "Interest expense",
+           "Reported Opex", "EBITDA", "  EBITDA margin %", "D&A", "EBIT", "Interest expense",
            "Pre-tax income", "Tax", "Net income", "Diluted shares", "Diluted EPS"]
 r = 5
 first_data_row = r
@@ -135,11 +135,59 @@ last_data_row = r - 1
 (rev_row, growth_row, cogs_row, gp_row, gm_row, opex_row, ebitda_row, ebitdam_row,
  da_row, ebit_row, int_row, pretax_row, tax_row, ni_row, shares_row, eps_row) = range(5, 21)
 
-# Historical columns (C,D,E = FY-2A/FY-1A/FY0A) are hardcoded actuals the user
-# enters — growth%/gross profit/gross margin% are still derived from them.
-for c in range(4, 10):
+# Historical columns (C,D,E = FY-2A/FY-1A/FY0A) hold reported actuals the user
+# enters. They were previously left unstyled AND without derived formulas,
+# which had two consequences worth stating plainly, because both were silent:
+#
+#   1. The cells carried no input marker, so neither the coverage scanner nor a
+#      reader looking for blue cells could see that they existed. A whole
+#      column of required entry looked like empty space.
+#   2. Every projection column chains off E5 (FY0A revenue). With E5 blank the
+#      income statement, the DCF, and diluted EPS all evaluated to zero in
+#      every BASE-template domain. A model returning zero is not a model.
+#
+# So the entry rows are now marked as inputs, and the derived rows get the same
+# formulas their projection counterparts have. Marking them raises each
+# template's candidate-input count, which LOWERS reported real-data coverage
+# for any case that has not filled them -- that is the scanner telling the truth
+# about work that was always outstanding.
+HISTORICAL_ENTRY_ROWS = (
+    rev_row,     # Revenue
+    cogs_row,    # COGS
+    opex_row,    # Reported operating expense (D&A stays embedded in total costs)
+    da_row,      # D&A
+    int_row,     # Interest expense
+    tax_row,     # Tax, as a reported amount rather than a rate
+    shares_row,  # Diluted shares
+)
+for c in range(3, 6):
     col_letter = get_column_letter(c)
-    prev_letter = get_column_letter(c-1)
+    prev_letter = get_column_letter(c - 1)
+    for row in HISTORICAL_ENTRY_ROWS:
+        cell = ws.cell(row=row, column=c)
+        cell.font = BLUE
+        cell.fill = YELLOW_FILL
+        cell.number_format = CUR if row != shares_row else "#,##0.0"
+    # Derived rows, mirroring the projection columns so a historical column
+    # computes the same way a forecast column does.
+    ws.cell(row=gp_row, column=c, value=f"={col_letter}{rev_row}-{col_letter}{cogs_row}")
+    ws.cell(row=gm_row, column=c, value=f"=IFERROR({col_letter}{gp_row}/{col_letter}{rev_row},\"-\")")
+    ws.cell(row=ebitda_row, column=c, value=f"={col_letter}{gp_row}-{col_letter}{opex_row}+{col_letter}{da_row}")
+    ws.cell(row=ebitdam_row, column=c, value=f"=IFERROR({col_letter}{ebitda_row}/{col_letter}{rev_row},\"-\")")
+    ws.cell(row=ebit_row, column=c, value=f"={col_letter}{gp_row}-{col_letter}{opex_row}")
+    ws.cell(row=pretax_row, column=c, value=f"={col_letter}{ebit_row}-{col_letter}{int_row}")
+    ws.cell(row=ni_row, column=c, value=f"={col_letter}{pretax_row}-{col_letter}{tax_row}")
+    ws.cell(row=eps_row, column=c, value=f"=IFERROR({col_letter}{ni_row}/{col_letter}{shares_row},\"-\")")
+    # Growth needs a prior year, so column C (the earliest) has none.
+    if c > 3:
+        ws.cell(row=growth_row, column=c, value=f"=IFERROR({col_letter}{rev_row}/{prev_letter}{rev_row}-1,\"-\")")
+    else:
+        ws.cell(row=growth_row, column=c, value='="n/a (no prior year)"')
+
+# Growth, gross profit and gross margin for the projection columns.
+for c in range(6, 10):
+    col_letter = get_column_letter(c)
+    prev_letter = get_column_letter(c - 1)
     ws.cell(row=growth_row, column=c, value=f"=IFERROR({col_letter}{rev_row}/{prev_letter}{rev_row}-1,\"-\")")
     ws.cell(row=gp_row, column=c, value=f"={col_letter}{rev_row}-{col_letter}{cogs_row}")
     ws.cell(row=gm_row, column=c, value=f"=IFERROR({col_letter}{gp_row}/{col_letter}{rev_row},\"-\")")
@@ -155,13 +203,13 @@ for c in range(6, 10):
     ws.cell(row=rev_row, column=c, value=f"={prev}{rev_row}*(1+Assumptions!{a}5)")
     ws.cell(row=cogs_row, column=c, value=f"={col}{rev_row}*(1-Assumptions!{a}6)")
     ws.cell(row=opex_row, column=c, value=f"={col}{rev_row}*Assumptions!{a}7")
-    ws.cell(row=ebitda_row, column=c, value=f"={col}{gp_row}-{col}{opex_row}")
+    ws.cell(row=ebitda_row, column=c, value=f"={col}{gp_row}-{col}{opex_row}+{col}{da_row}")
     ws.cell(row=ebitdam_row, column=c, value=f"=IFERROR({col}{ebitda_row}/{col}{rev_row},\"-\")")
     # D&A driven off capex (capex itself isn't its own IS row — computed inline
     # as revenue x capex%, then x D&A-as-%-of-capex, per the Assumptions design).
     ws.cell(row=da_row, column=c,
             value=f"={col}{rev_row}*Assumptions!{a}10*Assumptions!{a}9")
-    ws.cell(row=ebit_row, column=c, value=f"={col}{ebitda_row}-{col}{da_row}")
+    ws.cell(row=ebit_row, column=c, value=f"={col}{gp_row}-{col}{opex_row}")
     # Interest held flat at the last actual (FY0A, column E) — avoids a
     # circular reference to the Balance Sheet's debt balance, which this
     # simplified template doesn't otherwise schedule. Deals with real debt
@@ -172,6 +220,25 @@ for c in range(6, 10):
     ws.cell(row=ni_row, column=c, value=f"={col}{pretax_row}-{col}{tax_row}")
     ws.cell(row=shares_row, column=c, value=f"=Assumptions!{a}12")
     ws.cell(row=eps_row, column=c, value=f"=IFERROR({col}{ni_row}/{col}{shares_row},\"-\")")
+
+# The historical block (C:E) is the model's only hardcoded input surface, and
+# it was styled BLACK -- the convention for "same-sheet formula". Every
+# coverage and provenance tool in this repo identifies an input by its blue
+# font (see tools/verify_template_exhaustion.py), so 42 real input cells per
+# instance were invisible to all of them: they could be left empty without
+# anything reporting a gap, and IS!E5 being empty zeroes every projected
+# year, the DCF, and the implied value per share. Style is applied here,
+# after the formulas above are placed, so the rule is exactly the one the
+# scanner uses -- a cell in the historical block that carries no formula is
+# an input, and is marked as one.
+for r_hist in range(first_data_row, last_data_row + 1):
+    for c_hist in range(3, 6):
+        cell = ws.cell(row=r_hist, column=c_hist)
+        if isinstance(cell.value, str) and cell.value.startswith("="):
+            continue
+        cell.font = BLUE
+        cell.fill = YELLOW_FILL
+
 ws.sheet_view.showGridLines = False
 ws.freeze_panes = "C5"
 
@@ -302,7 +369,21 @@ ws["H10"] = "Enterprise value"; ws["I10"] = "=I8+I9"; ws["I10"].font = BOLD; ws[
 ws["H11"] = "Less: net debt"; ws["I11"] = 0; ws["I11"].font = BLUE; ws["I11"].number_format = CUR
 ws["H12"] = "Equity value"; ws["I12"] = "=I10-I11"; ws["I12"].font = BOLD; ws["I12"].number_format = CUR
 ws["H13"] = "Diluted shares (mm)"; ws["I13"] = 1; ws["I13"].font = BLUE; ws["I13"].number_format = CUR
-ws["H14"] = "Implied value/share"; ws["I14"] = "=I12/I13"; ws["I14"].font = BOLD; ws["I14"].number_format = CUR
+# A DCF whose forecast base is empty does not produce a zero -- it produces
+# whatever -net debt / shares happens to be. On the committed Microsoft
+# FY2024 corporate-finance case that was a published $1.13 per share, from
+# an enterprise value of exactly 0 and net debt of -8,416. Zero is a tell a
+# reader notices; $1.13 is not. So the published per-share output states the
+# absence instead of pricing it, and the base is surfaced as its own row
+# rather than left as something a reader has to infer from the IS sheet.
+NO_BASE = 'OR(IS!E5="",IS!E5=0)'
+ws["H14"] = "Implied value/share"
+ws["I14"] = f'=IF({NO_BASE},"n/a - no forecast base",I12/I13)'
+ws["I14"].font = BOLD
+ws["I14"].number_format = CUR
+ws["H15"] = "Forecast base (IS!E5)"
+ws["I15"] = f'=IF({NO_BASE},"MISSING - the DCF cannot value anything","present")'
+ws["I15"].font = BOLD
 ws.sheet_view.showGridLines = False
 
 # ---------------- COMPS ----------------

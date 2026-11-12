@@ -39,6 +39,7 @@ python tools/build_all_models.py         # regenerate + parity, must be 27/27
 python tools/verify_reference_calcs.py   # independent oracles
 python tools/verify_data_conventions.py  # ISO 8601 / 4217 / unit scale
 python tools/verify_controlled_vocabulary.py
+python tools/verify_share_series_integrity.py  # split-basis / unit-scale breaks
 python tools/verify_standards_conformance.py
 python tools/forecast_registration.py --check
 ```
@@ -66,6 +67,18 @@ apt-get install -y libreoffice-calc
 - **Coverage numbers move when you fix a scanner.** Making previously-invisible
   input cells visible *lowers* reported coverage. That is the scanner working,
   and the PR should say so rather than hiding it.
+- **Never read a share count as a series.** The corpus keeps one observation per
+  period and resolves collisions by latest-filed, so adjacent periods were last
+  restated in different filings and can sit on different stock-split bases.
+  Tesla's basic weighted-average count reads as a 414% jump in 2018 and a 215%
+  jump in 2020; neither happened. Source a per-share series from one filing, and
+  never use a per-share metric as a forecast target.
+  `verify_share_series_integrity.py` reports every break it can see.
+- **Make a case generator idempotent.** The emitters refuse to overwrite an
+  already-sourced cell, so a script that appends to a manifest runs exactly once
+  and then fails. Tag what you write with an `emitted_by` marker and strip your
+  own previous entries before merging; otherwise the only way to correct a driver
+  is to hand-edit the manifest, which is what the builders exist to avoid.
 
 ## Vocabulary
 
@@ -84,6 +97,16 @@ values do not cover it.
   never describe a model as validated for use.
 - **Merging your own work over a red `independent-approval` check.** That check
   asks for review by someone other than the author. Ask; do not self-approve.
+
+### Owner-directed acceptance of PR #125
+
+On 12 November 2026 the owner accepted ChatGPT as the secondary technical
+reviewer of the Claude-assisted project and explicitly directed finalization
+of PR #125. The disclosed review and owner decision are recorded in
+`docs/reviews/PR125_SECONDARY_TECHNICAL_REVIEW.md`. This scoped decision permits
+that engineering merge without claiming a non-author GitHub approval. It does
+not waive M3/human-use sign-off, change model maturity, or authorize agents to
+self-approve other PRs. The normal rule above remains in force elsewhere.
 
 ## Data sources
 

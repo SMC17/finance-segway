@@ -283,6 +283,9 @@ def enrich(workbook) -> None:
         (12, "Adversarial rights participation", "='Rights Offering'!D9", '=IF(C12>=0.75,"PASS",IF(C12>=0.50,"REVIEW","BREACH"))', "Low participation creates rump-placement, backstop, execution, and control risk."),
         (13, "Converted-share reconciliation", "='Convertible Securities'!C14-'Cap Table & Dilution'!C18", '=IF(ABS(C13)<0.000001,"PASS","FAIL")', "Cap table and convertible schedule must use the same principal and conversion price."),
         (14, "Incremental anti-dilution shares", "='Convertible Securities'!D19", '=IF(C14<=0,"PASS","REVIEW")', "Reset and anti-dilution provisions can materially expand fully diluted shares in downside cases."),
+        (15, "Forecast base", "=IS!E5", '=IF(AND(ISNUMBER(C15),C15>0),"PASS","REVIEW")', "A DCF requires a disclosed nonzero revenue base."),
+        (16, "Discount less terminal growth", "=DCF!I5-DCF!I6", '=IF(AND(ISNUMBER(C16),C16>0),"PASS","FAIL")', "Terminal value requires discount rate greater than terminal growth."),
+        (17, "DCF value computability", "=DCF!I14", '=IF(AND(ISNUMBER(C17),IS!E5>0,DCF!I13>0),"PASS","REVIEW")', "The valuation must compute from a real base and positive shares before it can inform an issuance decision."),
     ]
     for row, label, formula, status, action in rows:
         checks.cell(row, 2, label)
@@ -291,14 +294,14 @@ def enrich(workbook) -> None:
         checks.cell(row, 4, status)
         checks.cell(row, 4).border = BORDER
         checks.cell(row, 5, action)
-    checks["B16"] = "Overall model status"
-    checks["B16"].font = BOLD
-    checks["C16"] = _overall("D5:D14")
-    checks["C16"].font = BOLD
-    checks["C16"].border = BORDER
-    checks["B18"] = "Primary decision outputs"
-    checks["B18"].font = BOLD
-    checks["B18"].fill = GRAY_FILL
+    checks["B19"] = "Overall model status"
+    checks["B19"].font = BOLD
+    checks["C19"] = _overall("D5:D17")
+    checks["C19"].font = BOLD
+    checks["C19"].border = BORDER
+    checks["B21"] = "Primary decision outputs"
+    checks["B21"].font = BOLD
+    checks["B21"].fill = GRAY_FILL
     outputs = [
         (19, "Fully diluted shares", "='Cap Table & Dilution'!E19", NUM),
         (20, "Existing-holder dilution", "='Cap Table & Dilution'!E21", PCT),
@@ -310,6 +313,7 @@ def enrich(workbook) -> None:
         (26, "Adversarial redemption value", "='Convertible Securities'!D17", CUR),
     ]
     for row, label, formula, number_format in outputs:
+        row += 3
         checks.cell(row, 2, label)
         checks.cell(row, 3, formula)
         checks.cell(row, 3).number_format = number_format

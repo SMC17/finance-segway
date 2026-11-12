@@ -839,6 +839,254 @@
       "source_as_of": "2024-06-30"
     },
     {
+      "sheet": "IS",
+      "cell": "C5",
+      "previous": null,
+      "value": 198270.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C7",
+      "previous": null,
+      "value": 62650.0,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C8",
+      "previous": "=C5-C7",
+      "value": 135620.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C10",
+      "previous": null,
+      "value": 52237.0,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C14",
+      "previous": "=C8-C10",
+      "value": 83383.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C15",
+      "previous": null,
+      "value": 2063.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C16",
+      "previous": "=C14-C15",
+      "value": 83716.0,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C17",
+      "previous": null,
+      "value": 10978.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C18",
+      "previous": "=C16-C17",
+      "value": 72738.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C19",
+      "previous": null,
+      "value": 7537.6,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C20",
+      "previous": "=IFERROR(C18/C19,\"-\")",
+      "value": 9.65,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D5",
+      "previous": null,
+      "value": 211915.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D7",
+      "previous": null,
+      "value": 65863.0,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D10",
+      "previous": null,
+      "value": 57529.0,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D14",
+      "previous": "=D8-D10",
+      "value": 88523.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D15",
+      "previous": null,
+      "value": 1968.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D16",
+      "previous": "=D14-D15",
+      "value": 89311.0,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D17",
+      "previous": null,
+      "value": 16950.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D18",
+      "previous": "=D16-D17",
+      "value": 72361.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D19",
+      "previous": null,
+      "value": 7475.3,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D20",
+      "previous": "=IFERROR(D18/D19,\"-\")",
+      "value": 9.68,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E5",
+      "previous": null,
+      "value": 245122.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E7",
+      "previous": null,
+      "value": 74114.0,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E10",
+      "previous": null,
+      "value": 61575.0,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E14",
+      "previous": "=E8-E10",
+      "value": 109433.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E15",
+      "previous": null,
+      "value": 2935.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E16",
+      "previous": "=E14-E15",
+      "value": 107787.0,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E17",
+      "previous": null,
+      "value": 19651.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E18",
+      "previous": "=E16-E17",
+      "value": 88136.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E19",
+      "previous": null,
+      "value": 7469.2,
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "source_as_of": "2024-06-30"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E20",
+      "previous": "=IFERROR(E18/E19,\"-\")",
+      "value": 11.8,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "source_as_of": "2024-06-30"
+    },
+    {
       "sheet": "Treasury & Liquidity",
       "cell": "C5",
       "previous": 100,
@@ -1047,11 +1295,9 @@
       "source_as_of": "2024-06-30"
     }
   ],
-  "workbook_sha256": "a022c8b7a4d6fe0cfd45559e2285bb449e663b60c5459ac7998ecd4a1a0c3383",
-  "generated_on": "2026-09-01",
+  "workbook_sha256": "efd014ab6a102f1782d967e41d330c97d64ffcce71aeb348ae56c94b6fa3a79b",
+  "generated_on": "2026-11-11",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
-  "counts_toward_M4": false,
-  "hash_refreshed_on": "2026-09-07",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
+  "counts_toward_M4": false
 }

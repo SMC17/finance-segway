@@ -15,6 +15,15 @@
   "registered_on": "2026-08-05",
   "resolve_by": "2026-10-07",
   "resolution_source_expected": "FRED DGS10, last business day of September 2026, expressed as a decimal (percent / 100)",
-  "resolution": null,
+  "resolution": {
+    "realized": 0.0529,
+    "realized_source": "FRED DGS10, 2026-09-30 (last business day of 2026-09)",
+    "resolved_on": "2026-11-02",
+    "error": -0.0063,
+    "abs_error": 0.0063,
+    "baseline_abs_error": 0.006600000000000002,
+    "skill_vs_baseline": 0.04545454545454575,
+    "interval_hit": null
+  },
   "registration_sha256": "7ffeaa810fd8ba7bd578d6e496f17892d7e9b10bb88b8b725db06e58fd8ea964"
 }
