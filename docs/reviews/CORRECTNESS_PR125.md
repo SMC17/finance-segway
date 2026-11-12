@@ -1,5 +1,10 @@
 # Correctness integration: reviewer packet
 
+**Acceptance update, 12 November 2026:** the owner accepted the secondary
+ChatGPT review and directed this engineering integration. See
+[the disclosed review and acceptance record](PR125_SECONDARY_TECHNICAL_REVIEW.md).
+The original challenge packet below is retained. M3/use sign-off remains separate.
+
 PR: https://github.com/SMC17/finance-segway/pull/125
 
 This packet supports independent challenge. It is prepared by the contributor,
