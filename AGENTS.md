@@ -98,6 +98,16 @@ values do not cover it.
 - **Merging your own work over a red `independent-approval` check.** That check
   asks for review by someone other than the author. Ask; do not self-approve.
 
+### Owner-directed acceptance of PR #125
+
+On 12 November 2026 the owner accepted ChatGPT as the secondary technical
+reviewer of the Claude-assisted project and explicitly directed finalization
+of PR #125. The disclosed review and owner decision are recorded in
+`docs/reviews/PR125_SECONDARY_TECHNICAL_REVIEW.md`. This scoped decision permits
+that engineering merge without claiming a non-author GitHub approval. It does
+not waive M3/human-use sign-off, change model maturity, or authorize agents to
+self-approve other PRs. The normal rule above remains in force elsewhere.
+
 ## Data sources
 
 Public and citable only, recorded with provenance under `tools/data_fabric/out/`
