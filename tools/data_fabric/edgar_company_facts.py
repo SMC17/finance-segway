@@ -18,6 +18,7 @@ Examples:
 from __future__ import annotations
 
 import argparse
+import os
 import csv
 import json
 from datetime import date, datetime, timezone
@@ -31,7 +32,8 @@ OUT_DIR = ROOT / "tools" / "data_fabric" / "out"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # SEC fair-access: identify application + contact
-UA = "FinanceSegway/1.0 (research; seancollins2027@u.northwestern.edu)"
+# SEC requires a real contact: export SEC_USER_AGENT="Name/1.0 (you@example.org)"
+UA = os.environ.get("SEC_USER_AGENT", "FinanceSegway/1.0 (research; set SEC_USER_AGENT)")
 
 # Expanded but still conservative concept list. Prefer items that appear
 # consistently across large-cap and financial issuers. Domain-specific

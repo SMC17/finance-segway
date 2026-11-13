@@ -18,6 +18,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import os
 import json
 import time
 from datetime import date
@@ -30,7 +31,8 @@ OUT_DIR = ROOT / "tools" / "data_fabric" / "out"
 PROFILE = OUT_DIR / "QQQ_alphavantage_etf_profile.json"
 SNAPSHOT = OUT_DIR / "QQQ_sec_sic_classifications.json"
 
-UA = "FinanceSegway/1.0 (research; seancollins2027@u.northwestern.edu)"
+# SEC requires a real contact: export SEC_USER_AGENT="Name/1.0 (you@example.org)"
+UA = os.environ.get("SEC_USER_AGENT", "FinanceSegway/1.0 (research; set SEC_USER_AGENT)")
 
 # SEC-registered issuers missing from company_tickers.json, keyed by ticker.
 CIK_OVERRIDES = {"AEP": "0000004904"}

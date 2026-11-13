@@ -21,6 +21,7 @@ both the profile description and the SEC-registered name.
 from __future__ import annotations
 
 import argparse
+import os
 import json
 import re
 import xml.etree.ElementTree as ET
@@ -32,7 +33,8 @@ ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = ROOT / "tools" / "data_fabric" / "out"
 TAXONOMY = ROOT / "standards" / "universe" / "taxonomy.json"
 
-UA = "FinanceSegway/1.0 (research; seancollins2027@u.northwestern.edu)"
+# SEC requires a real contact: export SEC_USER_AGENT="Name/1.0 (you@example.org)"
+UA = os.environ.get("SEC_USER_AGENT", "FinanceSegway/1.0 (research; set SEC_USER_AGENT)")
 
 STOPWORDS = {
     "INC", "CORP", "CO", "LTD", "PLC", "SA", "NV", "SE", "TRUST", "COMPANY",
