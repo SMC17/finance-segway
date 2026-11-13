@@ -1,5 +1,7 @@
 # Finance-Segway
 
+**[Status](STATUS.md) · [Roadmap](ROADMAP.md) · [Contributing](CONTRIBUTING.md) · [Issues](https://github.com/SMC17/finance-segway/issues) · [All SMC17 work](https://github.com/users/SMC17/projects/16)**
+
 A governed, multi-domain financial-modeling system: reproducible Excel archetypes, independent reference engines, explicit model-risk controls, and a maintenance pipeline designed to prevent model rot.
 
 ## Current state
