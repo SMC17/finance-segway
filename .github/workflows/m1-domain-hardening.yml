@@ -118,7 +118,7 @@ jobs:
 
       - name: Upload hardening workbooks and reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: m1-domain-hardening-${{ github.event_name }}
           path: |

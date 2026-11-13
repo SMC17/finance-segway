@@ -52,7 +52,7 @@ jobs:
 
       - name: Upload computability report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: check-computability-${{ github.event_name }}
           path: check-computability-report.json
