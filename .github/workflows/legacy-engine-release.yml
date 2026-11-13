@@ -134,7 +134,7 @@ jobs:
 
       - name: Upload executable release evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: legacy-release-workbooks-${{ github.event_name }}
           path: |
