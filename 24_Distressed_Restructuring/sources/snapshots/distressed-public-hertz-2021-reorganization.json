@@ -5,28 +5,877 @@
   "case_id": "distressed-public-hertz-2021-reorganization",
   "case_type": "conventional",
   "as_of": "2021-06-30",
-  "capture_method": "curated_public_observation",
+  "capture_method": "curated_public_observation_from_edgar_filings_public_by_as_of",
   "sources": [
     {
-      "name": "Hertz 2021 Form 10-K",
-      "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785322000012/htz-20211231.htm",
-      "publisher": "U.S. SEC / Hertz",
+      "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+      "publisher": "U.S. SEC / Hertz Global Holdings, Inc. (CIK 0001657853)",
+      "period": "2021-03-31",
+      "filed": "2021-05-07",
       "captured_values": {
-        "emergence_cash_usd_bn": 7.5,
-        "sponsor_common_equity_usd_bn": 2.8,
-        "rights_offering_usd_bn": 1.6,
-        "preferred_equity_usd_bn": 1.5,
-        "term_loan_usd_bn": 1.5
+        "dip_outstanding_usd_mm": {
+          "value": 750.0,
+          "where": "Note 6 debt table, DIP Credit Agreement, 2021-03-31"
+        },
+        "dip_rate": {
+          "value": 0.0825,
+          "where": "Note 6, DIP weighted-average interest rate 8.25% at 2021-03-31 (LIBOR + 7.25%, 1.00% floor per the 2020-11-03 8-K)"
+        },
+        "non_vehicle_unamortized_costs_usd_mm": {
+          "value": 26.0,
+          "where": "Note 6, unamortized debt issuance costs on non-vehicle debt not subject to compromise, 2021-03-31"
+        },
+        "unrestricted_cash_2020_12_31_usd_mm": {
+          "value": 1096.0,
+          "where": "Balance sheet, cash and cash equivalents, 2020-12-31"
+        },
+        "unrestricted_cash_2021_03_31_usd_mm": {
+          "value": 1087.0,
+          "where": "Balance sheet, cash and cash equivalents, 2021-03-31"
+        },
+        "dip_min_liquidity_usd_mm": {
+          "value": 275.0,
+          "where": "Note 6, DIP liquidity maintenance test of $275 million"
+        },
+        "q1_2021_total_revenues_usd_mm": {
+          "value": 1289.0,
+          "where": "Statement of operations, total revenues, three months ended 2021-03-31"
+        },
+        "q1_2021_interest_paid_vehicle_usd_mm": {
+          "value": 69.0,
+          "where": "Cash flow supplemental, interest paid, vehicle"
+        },
+        "q1_2021_interest_paid_non_vehicle_usd_mm": {
+          "value": 30.0,
+          "where": "Cash flow supplemental, interest paid, non-vehicle"
+        },
+        "q1_2021_reorganization_items_paid_usd_mm": {
+          "value": 58.0,
+          "where": "Note 16, cash payments for reorganization items, three months ended 2021-03-31"
+        },
+        "dip_outstanding_2020_12_31_usd_mm": {
+          "value": 250.0,
+          "where": "Note 6 debt table, DIP Credit Agreement, 2020-12-31"
+        },
+        "total_assets_usd_mm": {
+          "value": 16610.0,
+          "where": "Balance sheet, total assets, 2021-03-31"
+        },
+        "liabilities_not_subject_to_compromise_usd_mm": {
+          "value": 11342.0,
+          "where": "Balance sheet, total liabilities not subject to compromise, 2021-03-31"
+        },
+        "non_vehicle_debt_not_subject_to_compromise_usd_mm": {
+          "value": 740.0,
+          "where": "Note 6, total non-vehicle debt not subject to compromise (DIP 750 + other 16 - costs 26), 2021-03-31"
+        },
+        "goodwill_usd_mm": {
+          "value": 1045.0,
+          "where": "Balance sheet, goodwill, 2021-03-31"
+        },
+        "intangibles_usd_mm": {
+          "value": 2969.0,
+          "where": "Balance sheet, intangible assets, net, 2021-03-31"
+        },
+        "prof_fees_accrued_usd_mm": {
+          "value": 57.0,
+          "where": "Note 16, reorganization charges recorded in accrued liabilities at 2021-03-31"
+        },
+        "prof_fees_payable_usd_mm": {
+          "value": 7.0,
+          "where": "Note 16, reorganization charges recorded in accounts payable at 2021-03-31"
+        },
+        "revenue_earning_vehicles_net_usd_mm": {
+          "value": 6360.0,
+          "where": "Balance sheet, total revenue earning vehicles, net, 2021-03-31"
+        }
       }
+    },
+    {
+      "name": "Hertz Global Holdings 2020 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000006/htz-20201231.htm",
+      "publisher": "U.S. SEC / Hertz Global Holdings, Inc. (CIK 0001657853)",
+      "period": "2020-12-31",
+      "filed": "2021-02-26",
+      "captured_values": {
+        "dip_draw_2021_02_16_usd_mm": {
+          "value": 250.0,
+          "where": "On February 16, 2021, Hertz borrowed an additional $250 million"
+        },
+        "fy2020_vehicle_disposal_proceeds_usd_mm": {
+          "value": 10098.0,
+          "where": "Cash flow statement, proceeds from disposal of revenue earning vehicles, 2020"
+        }
+      }
+    },
+    {
+      "name": "Hertz Form 8-K: DIP Credit Agreement (Item 1.01)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785320000106/htz-20201030.htm",
+      "publisher": "U.S. SEC / Hertz Global Holdings, Inc. (CIK 0001657853)",
+      "period": "2020-10-30",
+      "filed": "2020-11-03",
+      "captured_values": {
+        "dip_commitment_usd_mm": {
+          "value": 1650.0,
+          "where": "delayed-draw term loans in an aggregate amount of up to $1.65 billion"
+        },
+        "dip_closing_date": {
+          "value": "2020-10-30",
+          "where": "DIP Credit Agreement entered into on October 30, 2020"
+        },
+        "dip_maturity_date": {
+          "value": "2021-12-31",
+          "where": "The DIP Facility matures on December 31, 2021"
+        }
+      }
+    },
+    {
+      "name": "Hertz Form 8-K/A: Plan Sponsor selection and Proposed Plan terms",
+      "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921066944/tm2116104d2_8k.htm",
+      "publisher": "U.S. SEC / Hertz Global Holdings, Inc. (CIK 0001657853)",
+      "period": "2021-05-11",
+      "filed": "2021-05-14",
+      "captured_values": {
+        "equity_new_common_share": {
+          "value": 0.03,
+          "where": "Proposed Plan: common stock representing 3% of the reorganized Company"
+        },
+        "plan_equity_value_usd_mm": {
+          "value": 4700.0,
+          "where": "Rights Offering and sponsor price based on an equity value of approximately $4.7 billion"
+        }
+      }
+    },
+    {
+      "name": "Hertz Form 8-K: Plan confirmation (Item 1.03)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_8k.htm",
+      "publisher": "U.S. SEC / Hertz Global Holdings, Inc. (CIK 0001657853)",
+      "period": "2021-06-10",
+      "filed": "2021-06-16",
+      "captured_values": {
+        "petition_date": {
+          "value": "2020-05-22",
+          "where": "On May 22, 2020 (the Petition Date)"
+        },
+        "confirmation_date": {
+          "value": "2021-06-10",
+          "where": "On June 10, 2021, the Bankruptcy Court entered the Confirmation Order"
+        },
+        "targeted_effective_date": {
+          "value": "2021-06-30",
+          "where": "targeting occurrence of the Effective Date by the end of June 2021"
+        },
+        "shares_outstanding": {
+          "value": 156206478,
+          "where": "156,206,478 shares of existing common stock outstanding as of June 10, 2021"
+        }
+      }
+    },
+    {
+      "name": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+      "publisher": "U.S. SEC / Hertz Global Holdings, Inc. (CIK 0001657853)",
+      "period": "2021-06-10",
+      "filed": "2021-06-16",
+      "captured_values": {
+        "first_lien_allowed_usd": {
+          "value": 1271932486.0,
+          "where": "Art. III.B.3(b), Class 3 First Lien Claims allowed amount"
+        },
+        "second_lien_allowed_usd": {
+          "value": 362750694.0,
+          "where": "Art. III.B.4(b), Class 4 Second Lien Note Claims allowed amount"
+        },
+        "notes_5500_allowed_usd": {
+          "value": 804522222.0,
+          "where": "Art. III.B.5(b)(i), 5.500% Unsecured Note Claims"
+        },
+        "notes_6000_allowed_usd": {
+          "value": 926700000.0,
+          "where": "Art. III.B.5(b)(i), 6.000% Unsecured Note Claims"
+        },
+        "notes_6250_allowed_usd": {
+          "value": 503211806.0,
+          "where": "Art. III.B.5(b)(i), 6.250% Unsecured Note Claims"
+        },
+        "notes_7125_allowed_usd": {
+          "value": 511083333.0,
+          "where": "Art. III.B.5(b)(i), 7.125% Unsecured Note Claims"
+        },
+        "equity_cash_per_share_usd": {
+          "value": 1.53,
+          "where": "Art. III.B.11(b)(i), Class 11: Cash in an amount equal to $1.53 per share of Existing Hertz Parent Interests"
+        }
+      }
+    },
+    {
+      "name": "11 U.S.C. 326(a), limitation on compensation of a Chapter 7 trustee",
+      "url": "https://www.law.cornell.edu/uscode/text/11/326",
+      "publisher": "U.S. Code (Legal Information Institute)",
+      "period": "2021-06-10",
+      "filed": "1994-10-22",
+      "captured_values": {}
     }
   ],
   "input_overrides": [
     {
+      "sheet": "Recovery Waterfall",
+      "cell": "C5",
+      "value": 750.0,
+      "kind": "observed",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C6",
+      "value": 1271.932486,
+      "kind": "observed",
+      "source": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C7",
+      "value": 362.750694,
+      "kind": "observed",
+      "source": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C8",
+      "value": 2745.517361,
+      "kind": "derived",
+      "source": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C9",
+      "value": 0.0,
+      "kind": "observed",
+      "source": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C10",
+      "value": 379.995911,
+      "kind": "derived",
+      "source": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C12",
+      "value": 5510.196452,
+      "kind": "derived",
+      "source": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D5",
+      "value": 1,
+      "kind": "observed",
+      "source": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D6",
+      "value": 2,
+      "kind": "observed",
+      "source": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D7",
+      "value": 3,
+      "kind": "observed",
+      "source": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D8",
+      "value": 4,
+      "kind": "observed",
+      "source": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D10",
+      "value": 6,
+      "kind": "observed",
+      "source": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D9",
+      "value": 5,
+      "kind": "modeler_assumption",
+      "source": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)"
+    },
+    {
       "sheet": "New Money",
       "cell": "C5",
-      "value": 7500.0,
+      "value": 1650.0,
       "kind": "observed",
-      "source": "Hertz 2021 Form 10-K"
+      "source": "Hertz Form 8-K: DIP Credit Agreement (Item 1.01)"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C7",
+      "value": 0.034667,
+      "kind": "modeler_assumption",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C8",
+      "value": 0.0825,
+      "kind": "observed",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C9",
+      "value": 1.169863,
+      "kind": "derived",
+      "source": "Hertz Form 8-K: DIP Credit Agreement (Item 1.01)"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C10",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Hertz Form 8-K: DIP Credit Agreement (Item 1.01)"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C11",
+      "value": 1.0,
+      "kind": "observed",
+      "source": "Hertz Form 8-K: DIP Credit Agreement (Item 1.01)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "C3",
+      "value": 1096.0,
+      "kind": "observed",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "C4",
+      "value": 275.0,
+      "kind": "observed",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D7",
+      "value": 99.153846,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E7",
+      "value": 126.230769,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F7",
+      "value": 7.615385,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G7",
+      "value": 4.461538,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H7",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D8",
+      "value": 99.153846,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E8",
+      "value": 126.230769,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F8",
+      "value": 7.615385,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G8",
+      "value": 4.461538,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H8",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D9",
+      "value": 99.153846,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E9",
+      "value": 126.230769,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F9",
+      "value": 7.615385,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G9",
+      "value": 4.461538,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H9",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D10",
+      "value": 99.153846,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E10",
+      "value": 126.230769,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F10",
+      "value": 7.615385,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G10",
+      "value": 4.461538,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H10",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D11",
+      "value": 99.153846,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E11",
+      "value": 126.230769,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F11",
+      "value": 7.615385,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G11",
+      "value": 4.461538,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H11",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D12",
+      "value": 99.153846,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E12",
+      "value": 126.230769,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F12",
+      "value": 7.615385,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G12",
+      "value": 4.461538,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H12",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D13",
+      "value": 99.153846,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E13",
+      "value": 126.230769,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F13",
+      "value": 7.615385,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G13",
+      "value": 4.461538,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H13",
+      "value": 250.0,
+      "kind": "observed",
+      "source": "Hertz Global Holdings 2020 Form 10-K"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D14",
+      "value": 99.153846,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E14",
+      "value": 126.230769,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F14",
+      "value": 7.615385,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G14",
+      "value": 4.461538,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H14",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D15",
+      "value": 99.153846,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E15",
+      "value": 126.230769,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F15",
+      "value": 7.615385,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G15",
+      "value": 4.461538,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H15",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D16",
+      "value": 99.153846,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E16",
+      "value": 126.230769,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F16",
+      "value": 7.615385,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G16",
+      "value": 4.461538,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H16",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D17",
+      "value": 99.153846,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E17",
+      "value": 126.230769,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F17",
+      "value": 7.615385,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G17",
+      "value": 4.461538,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H17",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D18",
+      "value": 99.153846,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E18",
+      "value": 126.230769,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F18",
+      "value": 7.615385,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G18",
+      "value": 4.461538,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H18",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D19",
+      "value": 99.153846,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E19",
+      "value": 126.230769,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F19",
+      "value": 7.615385,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G19",
+      "value": 4.461538,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H19",
+      "value": 250.0,
+      "kind": "modeler_assumption",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C5",
+      "value": 6008.0,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D5",
+      "value": 5510.196452,
+      "kind": "derived",
+      "source": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C6",
+      "value": 4014.0,
+      "kind": "modeler_assumption",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C7",
+      "value": 59.84325,
+      "kind": "modeler_assumption",
+      "source": "11 U.S.C. 326(a), limitation on compensation of a Chapter 7 trustee"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D7",
+      "value": 64.0,
+      "kind": "derived",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C8",
+      "value": 7.557932,
+      "kind": "modeler_assumption",
+      "source": "Hertz Global Holdings 2020 Form 10-K"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D8",
+      "value": 0.657534,
+      "kind": "derived",
+      "source": "Hertz Form 8-K: Plan confirmation (Item 1.03)"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C9",
+      "value": 0.0825,
+      "kind": "modeler_assumption",
+      "source": "Hertz Global Holdings Q1 2021 Form 10-Q"
     }
   ],
   "series": null,
@@ -38,5 +887,15 @@
     "status": "recorded"
   },
   "counts_toward_m4": false,
-  "snapshot_sha256": "fcb0669ea127a18435a92a0fa1b446ff69664e64607e9a100c202aa61ab73519"
+  "hindsight_policy": "Every input source was filed on or before 2021-06-30. The FY2021 Form 10-K (filed 2022-02-24) is used only for the realized outcome.",
+  "unreachable_sources": {
+    "note": "Primary documents that would source the declared drivers but refused automated retrieval.",
+    "items": [
+      "Disclosure Statement (valuation analysis and liquidation analysis) -- restructuring.primeclerk.com/hertz, HTTP 403",
+      "DIP Credit Agreement and fee letter -- restructuring.primeclerk.com/hertz, HTTP 403",
+      "Monthly operating reports (weekly cash detail) -- restructuring.primeclerk.com/hertz, HTTP 403",
+      "CourtListener RECAP docket 20-11218 -- HTTP 403"
+    ]
+  },
+  "snapshot_sha256": "6950a5804e4541eb120e67d338413fbb00f677425304110b456c89936cf9f5ed"
 }

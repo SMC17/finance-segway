@@ -7,10 +7,12 @@ recalculated instance workbook plus its governed manifest
 independent of the model.
 
 The default case (`distressed-public-hertz-2021-reorganization`) sources
-exactly one real fact -- the disclosed Chapter 11 exit-financing commitment.
-This deck says so explicitly rather than dressing up the Recovery Waterfall,
-13-Week Liquidity, and Liquidation-vs-Reorg sheets' untouched template
-defaults as if they were analysis.
+every input from filings public on or before 2021-06-30: Allowed claim
+amounts from the confirmed Plan, DIP terms, Q1 2021 cash flows and the Q1
+2021 balance sheet. The deck states how many inputs are observed or derived
+and how many are declared drivers, read from the manifest, and labels the
+waterfall's distributable value as the Plan's distribution rather than an
+independent valuation.
 
 ## Regenerating
 
@@ -22,6 +24,6 @@ python tools/builders/build_restructuring_memo.py --case-id distressed-public-he
 ## Verification
 
 `tests/test_build_restructuring_memo.py` independently re-recalculates the
-source workbook, asserts the real commitment figure matches exactly, and
-specifically guards against the deck ever implying more real coverage than
-the case's own manifest actually sources.
+source workbook, asserts the DIP commitment and every waterfall claim match
+it exactly, and checks that the deck's real-versus-driver counts equal the
+case's own manifest.
