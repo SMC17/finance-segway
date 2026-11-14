@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "generated_by": "tools/data_fabric/edgar_corporate_events.py",
+  "as_of": "2026-11-14",
+  "source": {
+    "name": "SEC EDGAR submissions bulk archive",
+    "url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+    "sha256": "78a52d91e2631b43237e3fdf11358c28167dfeac1de85118ef8e32dd7a8ae596",
+    "bytes": 1574923503
+  },
+  "universe": "every EDGAR entity that has filed at least one periodic report (10-K, 10-Q, 20-F, 40-F and their small-business and transition variants)",
+  "entity_count": 46594,
+  "status_counts": {
+    "ceased:deregistered": 24737,
+    "reporting": 8545,
+    "ceased:undisclosed": 7505,
+    "ceased:merged_into": 3331,
+    "ceased:bankruptcy_filed": 1594,
+    "ceased:delisted": 882
+  },
+  "event_counts": {
+    "ceased_reporting": 38049,
+    "deregistered": 36392,
+    "renamed": 22188,
+    "delisted": 17179,
+    "combination_filing": 9102,
+    "bankruptcy_filed": 3567,
+    "merged_into": 3448,
+    "form10_registered": 3297
+  },
+  "basis_counts": {
+    "observed": 91725,
+    "derived": 41497
+  },
+  "rules": {
+    "merged_into": "Entities A and B share a business-combination accession (425, DEFM14A, PREM14A, DEFM14C, PREM14C, DEFA14M, SC TO-T, SC TO-T/A, SC 14D9, SC 14D9/A, SC14D1F, SC 14D1). A files Form 15 or Form 25 within 730 days after their last shared filing, files no periodic report more than 120 days after that termination, and B files a periodic report after it. Direction is left unassigned when both or neither entity passes. When A passes against several counterparties, the one with the latest shared filing is the survivor; a tie leaves A unassigned.",
+    "spun_off_from": "A Form 10-12B/10-12G accession lists a second entity that files periodic reports; that entity is the parent.",
+    "ceased_reporting": "No periodic report in the 548 days before the as-of date, after at least one. Reason = latest terminal event (merged_into, bankruptcy_filed, deregistered, delisted), else undisclosed."
+  },
+  "coverage_limits": [
+    "EDGAR electronic filing began in 1993 and became mandatory for all domestic filers in May 1996; earlier history is absent.",
+    "8-K item numbers start in August 2004, so bankruptcy_filed misses earlier filings and any bankruptcy not reported on an 8-K.",
+    "merged_into needs a shared EDGAR accession. Acquisitions of private companies, and deals filed without one (for example a cash merger where only the target files a proxy), leave the target's exit undisclosed.",
+    "SIC codes are SEC's current assignment for each entity, not the code it held in each historical year."
+  ]
+}
