@@ -41,7 +41,7 @@ The model is accepted only for the approved uses in `model_card.md`; prohibited 
 | Case | Type | As-of | Outcome status |
 |---|---|---|---|
 | distressed-public-hertz-2021-reorganization | conventional | 2021-06-30 | recorded |
-| distressed-public-bbby-2022-liquidity | adversarial | 2022-08-27 | recorded |
+| distressed-public-bbby-2022-liquidity | adversarial | 2022-09-30 | recorded |
 
 ## 5. Sensitivity and stress behavior
 
