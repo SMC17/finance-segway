@@ -1,7 +1,7 @@
 {
   "ticker": "VRTX",
   "cik": "0000875320",
-  "retrieved_utc": "20260806T143417Z",
+  "retrieved_utc": "20261114T070810Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -110,6 +110,30 @@
       "fy": 2011,
       "fp": "Q3",
       "frame": "CY2011Q3I"
+    },
+    {
+      "concept": "LongTermDebtNoncurrent",
+      "resolved_tag": "us-gaap:LongTermDebtNoncurrent",
+      "unit": "USD",
+      "value": 3497000000,
+      "end": "2026-09-30",
+      "filed": "2026-11-03",
+      "form": "10-Q",
+      "fy": 2026,
+      "fp": "Q3",
+      "frame": "CY2026Q3I"
+    },
+    {
+      "concept": "LongTermDebtCurrent",
+      "resolved_tag": "us-gaap:LongTermDebtCurrent",
+      "unit": "USD",
+      "value": 999600000,
+      "end": "2026-09-30",
+      "filed": "2026-11-03",
+      "form": "10-Q",
+      "fy": 2026,
+      "fp": "Q3",
+      "frame": "CY2026Q3I"
     },
     {
       "concept": "Revenues",

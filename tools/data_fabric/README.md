@@ -10,6 +10,20 @@ facts plus `source_register`-compatible rows for governed workbooks.
 | `damodaran_public_facts.py` | Aswath Damodaran (NYU Stern) industry cost-of-capital/beta/margin/multiples datasets + global country equity risk premiums. `.xls` via `xlrd`, `.xlsx` via `openpyxl`. | Production-ready |
 | `hvpe_public_facts.py` | HarbourVest Global Private Equity (HVPE) public NAV / portfolio disclosures. Provenance recorder for monthly factsheets & annual reports. | Skeleton + recorder |
 | `fca_open_data.py` | FCA published datasets (Product Sales Data, FIRDS, STS, ratings, NSM pointers). Provenance recorder for aggregates and reference extracts. | Skeleton + recorder |
+| `edgar_bulk_export.py` | Every EDGAR quarterly master index from 1993 Q1, plus the `submissions.zip` and `companyfacts.zip` bulk archives, to `.sec-export/` (git-ignored, ~3.4 GB). The committed manifest `out/edgar_export/manifest.json` records each file's SHA-256. | Production-ready |
+| `edgar_corporate_events.py` | Corporate lineage for every company that ever filed a periodic report: renames, 8-K Item 1.03 bankruptcies, Form 15/25 exits, business-combination pairings (observed), and merger direction and exit reasons (derived, by stated rules). Writes `out/edgar_lineage/`. | Production-ready |
+| `edgar_lineage_page_data.py` | Packs `out/edgar_lineage/` into the single JSON the interactive lineage page loads. Adds no values. | Production-ready |
+
+## Daily ingest
+
+`tools/sec_daily_ingest.py` reads one business day's EDGAR master index, logs
+it to `out/edgar_daily/<year>/<date>.json`, re-pulls company facts for every
+tracked company that filed a periodic report, and lists the public cases whose
+subject appeared on a material filing. It never rewrites a case: every case is
+pinned to a historical as-of date. `.github/workflows/sec-daily-ingest.yml`
+runs it Tuesday to Saturday, rebuilds the lineage dataset on Sundays, and opens
+a pull request for review instead of pushing to `main`. It needs the
+`SEC_USER_AGENT` repository secret.
 
 ## Rules
 

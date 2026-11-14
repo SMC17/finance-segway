@@ -1,0 +1,937 @@
+{
+ "schema_version": "1.0",
+ "generated_by": "tools/sec_daily_ingest.py",
+ "date": "2026-11-09",
+ "published": true,
+ "source": "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/master.20261109.idx",
+ "filing_count": 4891,
+ "entity_count": 2907,
+ "form_counts": {
+  "4": 983,
+  "424B2": 693,
+  "144": 426,
+  "8-K": 400,
+  "13F-HR": 320,
+  "10-Q": 319,
+  "SCHEDULE 13G": 142,
+  "SCHEDULE 13G/A": 138,
+  "D": 136,
+  "6-K": 135,
+  "FWP": 113,
+  "424B3": 83,
+  "3": 78,
+  "SCHEDULE 13D/A": 68,
+  "13F-NT": 60,
+  "D/A": 56,
+  "485APOS": 44,
+  "CORRESP": 41,
+  "485BXT": 38,
+  "424B5": 37,
+  "4/A": 32,
+  "N-CEN": 29,
+  "DEFA14A": 29,
+  "13F-HR/A": 29,
+  "497": 25,
+  "40-APP/A": 24,
+  "N-CSR": 23,
+  "497K": 20,
+  "EFFECT": 19,
+  "425": 18,
+  "25-NSE": 16,
+  "ABS-15G": 16,
+  "MA-I/A": 16,
+  "AW": 16,
+  "SCHEDULE 13D": 12,
+  "N-CSRS": 11,
+  "8-A12B": 11,
+  "485BPOS": 10,
+  "305B2": 9,
+  "8-K/A": 9,
+  "497J": 9,
+  "144/A": 8,
+  "DEF 14A": 8,
+  "S-6": 8,
+  "PRE 14A": 7,
+  "S-3": 6,
+  "10-K": 6,
+  "40-17G": 6,
+  "NT 10-Q": 6,
+  "N-1A/A": 6,
+  "S-8": 5,
+  "S-3ASR": 5,
+  "C/A": 4,
+  "ARS": 4,
+  "S-4/A": 4,
+  "UPLOAD": 4,
+  "SC TO-I/A": 4,
+  "10-Q/A": 4,
+  "N-2/A": 4,
+  "DEFM14A": 3,
+  "N-14": 3,
+  "424B7": 3,
+  "POS AMI": 3,
+  "ATS-N/MA": 3,
+  "15-15D": 3,
+  "SC TO-C": 3,
+  "F-1/A": 3,
+  "C": 3,
+  "S-1": 3,
+  "N-PX": 2,
+  "10-D": 2,
+  "424H": 2,
+  "ABS-EE": 2,
+  "SC TO-T/A": 2,
+  "6-K/A": 2,
+  "15-12G": 2,
+  "CERT": 2,
+  "DEF 14C": 2,
+  "MA-I": 2,
+  "S-1/A": 2,
+  "DFAN14A": 2,
+  "486BPOS": 2,
+  "3/A": 2,
+  "N-2": 2,
+  "N-4/A": 2,
+  "N-4": 2,
+  "25": 2,
+  "24F-2NT": 1,
+  "NPORT-P": 1,
+  "N-30B-2": 1,
+  "SD": 1,
+  "SC 14D9/A": 1,
+  "SBSE-A/A": 1,
+  "SC TO-I": 1,
+  "F-3": 1,
+  "20-F": 1,
+  "ATS-N/UA": 1,
+  "SC14D9C": 1,
+  "1-K": 1,
+  "PRER14A": 1,
+  "1-A/A": 1,
+  "253G2": 1,
+  "F-3/A": 1,
+  "8-A12B/A": 1,
+  "TA-1/A": 1,
+  "10-K/A": 1,
+  "DEFR14A": 1,
+  "N-23C3A": 1,
+  "POS AM": 1,
+  "SP 15D2": 1,
+  "RW": 1,
+  "10-12B/A": 1,
+  "DEL AM": 1,
+  "N-14/A": 1,
+  "487": 1,
+  "1-A": 1,
+  "N-8F": 1,
+  "18-K": 1,
+  "N-14 8C/A": 1,
+  "MA/A": 1
+ },
+ "tracked_filings": [
+  {
+   "cik": "0001050446",
+   "name": "Strategy Inc",
+   "form": "8-K",
+   "filed": "2026-11-09",
+   "accession": "0001193125-26-452693",
+   "ticker": "MSTR"
+  },
+  {
+   "cik": "0001065280",
+   "name": "NETFLIX INC",
+   "form": "144",
+   "filed": "2026-11-09",
+   "accession": "0001628280-26-072200",
+   "ticker": "NFLX"
+  },
+  {
+   "cik": "0001075531",
+   "name": "Booking Holdings Inc.",
+   "form": "424B5",
+   "filed": "2026-11-09",
+   "accession": "0001104659-26-124112",
+   "ticker": "BKNG"
+  },
+  {
+   "cik": "0001075531",
+   "name": "Booking Holdings Inc.",
+   "form": "FWP",
+   "filed": "2026-11-09",
+   "accession": "0001104659-26-124551",
+   "ticker": "BKNG"
+  },
+  {
+   "cik": "0001318605",
+   "name": "Tesla, Inc.",
+   "form": "DEFA14A",
+   "filed": "2026-11-09",
+   "accession": "0001104659-26-124575",
+   "ticker": "TSLA"
+  },
+  {
+   "cik": "0001326801",
+   "name": "Meta Platforms, Inc.",
+   "form": "144",
+   "filed": "2026-11-09",
+   "accession": "0001921094-26-001151",
+   "ticker": "META"
+  },
+  {
+   "cik": "0001413447",
+   "name": "NXP Semiconductors N.V.",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0001341767-26-000010",
+   "ticker": "NXPI"
+  },
+  {
+   "cik": "0001413447",
+   "name": "NXP Semiconductors N.V.",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0001812730-26-000010",
+   "ticker": "NXPI"
+  },
+  {
+   "cik": "0001413447",
+   "name": "NXP Semiconductors N.V.",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0001831914-26-000011",
+   "ticker": "NXPI"
+  },
+  {
+   "cik": "0001413447",
+   "name": "NXP Semiconductors N.V.",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0001888543-26-000004",
+   "ticker": "NXPI"
+  },
+  {
+   "cik": "0001413447",
+   "name": "NXP Semiconductors N.V.",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0002054266-26-000010",
+   "ticker": "NXPI"
+  },
+  {
+   "cik": "0001413447",
+   "name": "NXP Semiconductors N.V.",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0002066642-26-000006",
+   "ticker": "NXPI"
+  },
+  {
+   "cik": "0001413447",
+   "name": "NXP Semiconductors N.V.",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0002141713-26-000009",
+   "ticker": "NXPI"
+  },
+  {
+   "cik": "0001418135",
+   "name": "Keurig Dr Pepper Inc.",
+   "form": "10-Q",
+   "filed": "2026-11-09",
+   "accession": "0001418135-26-000066",
+   "ticker": "KDP"
+  },
+  {
+   "cik": "0001539838",
+   "name": "Diamondback Energy, Inc.",
+   "form": "SCHEDULE 13D/A",
+   "filed": "2026-11-09",
+   "accession": "0001104659-26-124538",
+   "ticker": "FANG"
+  },
+  {
+   "cik": "0001559720",
+   "name": "Airbnb, Inc.",
+   "form": "144",
+   "filed": "2026-11-09",
+   "accession": "0001959173-26-007847",
+   "ticker": "ABNB"
+  },
+  {
+   "cik": "0001561550",
+   "name": "Datadog, Inc.",
+   "form": "144",
+   "filed": "2026-11-09",
+   "accession": "0001950047-26-010849",
+   "ticker": "DDOG"
+  },
+  {
+   "cik": "0001633978",
+   "name": "Lumentum Holdings Inc.",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001193125-26-453776",
+   "ticker": "LITE"
+  },
+  {
+   "cik": "0001650107",
+   "name": "COCA-COLA EUROPACIFIC PARTNERS plc",
+   "form": "6-K",
+   "filed": "2026-11-09",
+   "accession": "0001650107-26-000145",
+   "ticker": "CCEP"
+  },
+  {
+   "cik": "0001707925",
+   "name": "LINDE PLC",
+   "form": "144",
+   "filed": "2026-11-09",
+   "accession": "0001959173-26-007859",
+   "ticker": "LIN"
+  },
+  {
+   "cik": "0001734722",
+   "name": "UiPath, Inc.",
+   "form": "144",
+   "filed": "2026-11-09",
+   "accession": "0001950047-26-010872",
+   "ticker": "PATH"
+  },
+  {
+   "cik": "0001736297",
+   "name": "Astera Labs, Inc.",
+   "form": "144/A",
+   "filed": "2026-11-09",
+   "accession": "0001973251-26-000043",
+   "ticker": "ALAB"
+  },
+  {
+   "cik": "0001736297",
+   "name": "Astera Labs, Inc.",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0001484394-26-000017",
+   "ticker": "ALAB"
+  },
+  {
+   "cik": "0001769628",
+   "name": "CoreWeave, Inc.",
+   "form": "144",
+   "filed": "2026-11-09",
+   "accession": "0001950047-26-010854",
+   "ticker": "CRWV"
+  },
+  {
+   "cik": "0001769628",
+   "name": "CoreWeave, Inc.",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0001769628-26-000457",
+   "ticker": "CRWV"
+  },
+  {
+   "cik": "0001819994",
+   "name": "Rocket Lab Corp",
+   "form": "10-Q",
+   "filed": "2026-11-09",
+   "accession": "0001819994-26-000074",
+   "ticker": "RKLB"
+  },
+  {
+   "cik": "0001819994",
+   "name": "Rocket Lab Corp",
+   "form": "8-K",
+   "filed": "2026-11-09",
+   "accession": "0001819994-26-000073",
+   "ticker": "RKLB"
+  },
+  {
+   "cik": "0001868275",
+   "name": "Constellation Energy Corp",
+   "form": "10-Q",
+   "filed": "2026-11-09",
+   "accession": "0001868275-26-000119",
+   "ticker": "CEG"
+  },
+  {
+   "cik": "0001868275",
+   "name": "Constellation Energy Corp",
+   "form": "8-K",
+   "filed": "2026-11-09",
+   "accession": "0001868275-26-000116",
+   "ticker": "CEG"
+  },
+  {
+   "cik": "0000318154",
+   "name": "AMGEN INC",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0000318154-26-000160",
+   "ticker": "AMGN"
+  },
+  {
+   "cik": "0000318154",
+   "name": "AMGEN INC",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0000318154-26-000161",
+   "ticker": "AMGN"
+  },
+  {
+   "cik": "0000318154",
+   "name": "AMGEN INC",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0000318154-26-000162",
+   "ticker": "AMGN"
+  },
+  {
+   "cik": "0000318154",
+   "name": "AMGEN INC",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0000318154-26-000163",
+   "ticker": "AMGN"
+  },
+  {
+   "cik": "0000320193",
+   "name": "Apple Inc.",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0001354457-26-001062",
+   "ticker": "AAPL"
+  },
+  {
+   "cik": "0000320193",
+   "name": "Apple Inc.",
+   "form": "8-K",
+   "filed": "2026-11-09",
+   "accession": "0001140361-26-042798",
+   "ticker": "AAPL"
+  },
+  {
+   "cik": "0000004904",
+   "name": "AMERICAN ELECTRIC POWER CO INC",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0001628280-26-072059",
+   "ticker": "AEP"
+  },
+  {
+   "cik": "0000006281",
+   "name": "ANALOG DEVICES INC",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0000006281-26-000084",
+   "ticker": "ADI"
+  },
+  {
+   "cik": "0000707549",
+   "name": "LAM RESEARCH CORP",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0000707549-26-000059",
+   "ticker": "LRCX"
+  },
+  {
+   "cik": "0000707549",
+   "name": "LAM RESEARCH CORP",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0001190639-26-000009",
+   "ticker": "LRCX"
+  },
+  {
+   "cik": "0000707549",
+   "name": "LAM RESEARCH CORP",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0001191534-26-000002",
+   "ticker": "LRCX"
+  },
+  {
+   "cik": "0000707549",
+   "name": "LAM RESEARCH CORP",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0001316065-26-000014",
+   "ticker": "LRCX"
+  },
+  {
+   "cik": "0000707549",
+   "name": "LAM RESEARCH CORP",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0001494211-26-000003",
+   "ticker": "LRCX"
+  },
+  {
+   "cik": "0000707549",
+   "name": "LAM RESEARCH CORP",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0001591933-26-000009",
+   "ticker": "LRCX"
+  },
+  {
+   "cik": "0000707549",
+   "name": "LAM RESEARCH CORP",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0001645270-26-000010",
+   "ticker": "LRCX"
+  },
+  {
+   "cik": "0000707549",
+   "name": "LAM RESEARCH CORP",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0001892841-26-000002",
+   "ticker": "LRCX"
+  },
+  {
+   "cik": "0000707549",
+   "name": "LAM RESEARCH CORP",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0001965462-26-000004",
+   "ticker": "LRCX"
+  },
+  {
+   "cik": "0000723125",
+   "name": "MICRON TECHNOLOGY INC",
+   "form": "144",
+   "filed": "2026-11-09",
+   "accession": "0001950047-26-010899",
+   "ticker": "MU"
+  },
+  {
+   "cik": "0000789019",
+   "name": "MICROSOFT CORP",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0000789019-26-000230",
+   "ticker": "MSFT"
+  },
+  {
+   "cik": "0000789019",
+   "name": "MICROSOFT CORP",
+   "form": "DEFA14A",
+   "filed": "2026-11-09",
+   "accession": "0001193125-26-453698",
+   "ticker": "MSFT"
+  },
+  {
+   "cik": "0000804328",
+   "name": "QUALCOMM INC/DE",
+   "form": "144",
+   "filed": "2026-11-09",
+   "accession": "0001959173-26-007839",
+   "ticker": "QCOM"
+  },
+  {
+   "cik": "0000804328",
+   "name": "QUALCOMM INC/DE",
+   "form": "424B2",
+   "filed": "2026-11-09",
+   "accession": "0001104659-26-124219",
+   "ticker": "QCOM"
+  },
+  {
+   "cik": "0000804328",
+   "name": "QUALCOMM INC/DE",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0000804328-26-000132",
+   "ticker": "QCOM"
+  },
+  {
+   "cik": "0000804328",
+   "name": "QUALCOMM INC/DE",
+   "form": "FWP",
+   "filed": "2026-11-09",
+   "accession": "0001104659-26-124597",
+   "ticker": "QCOM"
+  },
+  {
+   "cik": "0000813672",
+   "name": "CADENCE DESIGN SYSTEMS INC",
+   "form": "144",
+   "filed": "2026-11-09",
+   "accession": "0001950047-26-010845",
+   "ticker": "CDNS"
+  },
+  {
+   "cik": "0000829224",
+   "name": "STARBUCKS CORP",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0000829224-26-000158",
+   "ticker": "SBUX"
+  },
+  {
+   "cik": "0000008670",
+   "name": "AUTOMATIC DATA PROCESSING INC",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0001225208-26-008778",
+   "ticker": "ADP"
+  },
+  {
+   "cik": "0000882095",
+   "name": "GILEAD SCIENCES, INC.",
+   "form": "4",
+   "filed": "2026-11-09",
+   "accession": "0002110603-26-000015",
+   "ticker": "GILD"
+  },
+  {
+   "cik": "0000946581",
+   "name": "TAKE TWO INTERACTIVE SOFTWARE INC",
+   "form": "10-Q",
+   "filed": "2026-11-09",
+   "accession": "0001628280-26-072254",
+   "ticker": "TTWO"
+  },
+  {
+   "cik": "0000946581",
+   "name": "TAKE TWO INTERACTIVE SOFTWARE INC",
+   "form": "8-K",
+   "filed": "2026-11-09",
+   "accession": "0001628280-26-072175",
+   "ticker": "TTWO"
+  },
+  {
+   "cik": "0000097476",
+   "name": "TEXAS INSTRUMENTS INC",
+   "form": "8-K",
+   "filed": "2026-11-09",
+   "accession": "0001193125-26-453606",
+   "ticker": "TXN"
+  }
+ ],
+ "lineage_filings": [
+  {
+   "cik": "0001014739",
+   "name": "Option Care Health, Inc.",
+   "form": "DEFM14A",
+   "filed": "2026-11-09",
+   "accession": "0001140361-26-042547"
+  },
+  {
+   "cik": "0001089113",
+   "name": "HSBC HOLDINGS PLC",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0000876661-26-000906"
+  },
+  {
+   "cik": "0001354457",
+   "name": "Nasdaq Stock Market LLC",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0001354457-26-001059"
+  },
+  {
+   "cik": "0001354457",
+   "name": "Nasdaq Stock Market LLC",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0001354457-26-001060"
+  },
+  {
+   "cik": "0001354457",
+   "name": "Nasdaq Stock Market LLC",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0001354457-26-001062"
+  },
+  {
+   "cik": "0001467760",
+   "name": "Apollo Commercial Real Estate Finance, Inc.",
+   "form": "15-12G",
+   "filed": "2026-11-09",
+   "accession": "0001193125-26-453706"
+  },
+  {
+   "cik": "0001542447",
+   "name": "RREEF Property Trust, Inc.",
+   "form": "DEFM14A",
+   "filed": "2026-11-09",
+   "accession": "0001542447-26-000119"
+  },
+  {
+   "cik": "0001569455",
+   "name": "J.P. Morgan Chase Commercial Mortgage Securities Trust 2013-C10",
+   "form": "15-15D",
+   "filed": "2026-11-09",
+   "accession": "0001888524-26-020471"
+  },
+  {
+   "cik": "0001574235",
+   "name": "Pulmatrix, Inc.",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001493152-26-050616"
+  },
+  {
+   "cik": "0001579091",
+   "name": "Maplebear Inc.",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001193125-26-453853"
+  },
+  {
+   "cik": "0001633978",
+   "name": "Lumentum Holdings Inc.",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001193125-26-453776"
+  },
+  {
+   "cik": "0001655846",
+   "name": "TRIGEMX BIO, INC.",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001193125-26-452777"
+  },
+  {
+   "cik": "0001726726",
+   "name": "tZERO Group, Inc.",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001213900-26-117529"
+  },
+  {
+   "cik": "0001727116",
+   "name": "OLD ROBOT HOLDINGS, INC.",
+   "form": "15-15D",
+   "filed": "2026-11-09",
+   "accession": "0001213900-26-117606"
+  },
+  {
+   "cik": "0001742912",
+   "name": "Tidal Trust I",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0001354457-26-001059"
+  },
+  {
+   "cik": "0001823652",
+   "name": "Eve Holding, Inc.",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0000876661-26-000904"
+  },
+  {
+   "cik": "0001849635",
+   "name": "Trump Media & Technology Group Corp.",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001437749-26-035888"
+  },
+  {
+   "cik": "0001854963",
+   "name": "SHF Holdings, Inc.",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001493152-26-050638"
+  },
+  {
+   "cik": "0001872525",
+   "name": "Stran & Company, Inc.",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0001354457-26-001060"
+  },
+  {
+   "cik": "0001935951",
+   "name": "World Omni Auto Receivables Trust 2022-C",
+   "form": "15-15D",
+   "filed": "2026-11-09",
+   "accession": "0001104659-26-124145"
+  },
+  {
+   "cik": "0001997296",
+   "name": "Medicus Pharma Ltd.",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001062993-26-005847"
+  },
+  {
+   "cik": "0002028699",
+   "name": "Dynamix Corp",
+   "form": "15-12G",
+   "filed": "2026-11-09",
+   "accession": "0001213900-26-117407"
+  },
+  {
+   "cik": "0002090452",
+   "name": "FG Imperii Acquisition Corp.",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001104659-26-124057"
+  },
+  {
+   "cik": "0002090452",
+   "name": "FG Imperii Acquisition Corp.",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001104659-26-124563"
+  },
+  {
+   "cik": "0002090452",
+   "name": "FG Imperii Acquisition Corp.",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001213900-26-117529"
+  },
+  {
+   "cik": "0002102041",
+   "name": "Inflection Point Acquisition Corp. VI",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001213900-26-117277"
+  },
+  {
+   "cik": "0002102041",
+   "name": "Inflection Point Acquisition Corp. VI",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001213900-26-117280"
+  },
+  {
+   "cik": "0002112446",
+   "name": "JATT II Acquisition Corp.",
+   "form": "DEFM14A",
+   "filed": "2026-11-09",
+   "accession": "0001193125-26-453744"
+  },
+  {
+   "cik": "0002137965",
+   "name": "TCGX Acquisition Corp.",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001193125-26-452777"
+  },
+  {
+   "cik": "0002145371",
+   "name": "IPFX Pubco, Inc.",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001213900-26-117278"
+  },
+  {
+   "cik": "0002149780",
+   "name": "Quantum Space, LLC",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001213900-26-117278"
+  },
+  {
+   "cik": "0002149780",
+   "name": "Quantum Space, LLC",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001213900-26-117280"
+  },
+  {
+   "cik": "0000029905",
+   "name": "DOVER Corp",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0000876661-26-000897"
+  },
+  {
+   "cik": "0000320193",
+   "name": "Apple Inc.",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0001354457-26-001062"
+  },
+  {
+   "cik": "0000039263",
+   "name": "CULLEN/FROST BANKERS, INC.",
+   "form": "25",
+   "filed": "2026-11-09",
+   "accession": "0000039263-26-000061"
+  },
+  {
+   "cik": "0000066740",
+   "name": "3M CO",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0000876661-26-000899"
+  },
+  {
+   "cik": "0000763744",
+   "name": "LCI INDUSTRIES",
+   "form": "425",
+   "filed": "2026-11-09",
+   "accession": "0001213900-26-117551"
+  },
+  {
+   "cik": "0000876661",
+   "name": "NEW YORK STOCK EXCHANGE LLC",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0000876661-26-000897"
+  },
+  {
+   "cik": "0000876661",
+   "name": "NEW YORK STOCK EXCHANGE LLC",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0000876661-26-000899"
+  },
+  {
+   "cik": "0000876661",
+   "name": "NEW YORK STOCK EXCHANGE LLC",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0000876661-26-000902"
+  },
+  {
+   "cik": "0000876661",
+   "name": "NEW YORK STOCK EXCHANGE LLC",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0000876661-26-000904"
+  },
+  {
+   "cik": "0000876661",
+   "name": "NEW YORK STOCK EXCHANGE LLC",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0000876661-26-000906"
+  },
+  {
+   "cik": "0000891478",
+   "name": "Banco Santander, S.A.",
+   "form": "25-NSE",
+   "filed": "2026-11-09",
+   "accession": "0000876661-26-000902"
+  },
+  {
+   "cik": "0000944075",
+   "name": "SOCKET MOBILE, INC.",
+   "form": "25",
+   "filed": "2026-11-09",
+   "accession": "0000944075-26-000084"
+  }
+ ],
+ "facts_refreshed": [],
+ "cases_with_new_filings": [
+  {
+   "case_id": "vc-public-instacart-2023-down-round",
+   "as_of": "2023-09-18",
+   "ciks": [
+    "0001579091"
+   ],
+   "forms": [
+    "425"
+   ],
+   "action": "none: the case is pinned to its as-of date, so a later filing is hindsight for it"
+  }
+ ]
+}

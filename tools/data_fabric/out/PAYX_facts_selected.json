@@ -1,7 +1,7 @@
 {
   "ticker": "PAYX",
   "cik": "0000723531",
-  "retrieved_utc": "20260806T143410Z",
+  "retrieved_utc": "20261114T070805Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -13,7 +13,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "AssetsCurrent",
@@ -25,7 +25,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "Liabilities",
@@ -37,7 +37,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "LiabilitiesCurrent",
@@ -49,7 +49,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "StockholdersEquity",
@@ -61,7 +61,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "CashAndCashEquivalentsAtCarryingValue",
@@ -73,7 +73,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
@@ -85,7 +85,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "LongTermDebt",
@@ -97,7 +97,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "LongTermDebtNoncurrent",
@@ -109,7 +109,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "LongTermDebtCurrent",
@@ -169,7 +169,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2025"
+      "frame": null
     },
     {
       "concept": "OperatingIncomeLoss",
@@ -301,7 +301,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "CommonStockSharesIssued",
@@ -313,7 +313,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
@@ -361,7 +361,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "ContractWithCustomerLiability",
@@ -373,19 +373,19 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "RevenueRemainingPerformanceObligation",
       "resolved_tag": "us-gaap:RevenueRemainingPerformanceObligation",
       "unit": "USD",
-      "value": 92300000,
-      "end": "2026-02-28",
-      "filed": "2026-03-26",
+      "value": 90800000,
+      "end": "2026-08-31",
+      "filed": "2026-09-24",
       "form": "10-Q",
-      "fy": 2026,
-      "fp": "Q3",
-      "frame": "CY2026Q1I"
+      "fy": 2027,
+      "fp": "Q1",
+      "frame": "CY2026Q3I"
     },
     {
       "concept": "RevenueFromContractWithCustomerIncludingAssessedTax",

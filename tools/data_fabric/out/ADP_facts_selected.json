@@ -1,7 +1,7 @@
 {
   "ticker": "ADP",
   "cik": "0000008670",
-  "retrieved_utc": "20260806T143353Z",
+  "retrieved_utc": "20261114T070750Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -13,7 +13,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "AssetsCurrent",
@@ -25,7 +25,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "Liabilities",
@@ -37,7 +37,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "LiabilitiesCurrent",
@@ -49,7 +49,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "StockholdersEquity",
@@ -61,7 +61,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
@@ -85,7 +85,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
@@ -97,7 +97,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "LongTermDebt",
@@ -121,7 +121,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "LongTermDebtCurrent",
@@ -145,7 +145,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "ShortTermBorrowings",
@@ -169,7 +169,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "Revenues",
@@ -205,7 +205,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026"
+      "frame": null
     },
     {
       "concept": "GrossProfit",
@@ -325,7 +325,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "CommonStockSharesIssued",
@@ -337,7 +337,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
@@ -385,7 +385,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "ContractWithCustomerLiability",
@@ -397,7 +397,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "AccountsReceivableNetCurrent",
@@ -409,7 +409,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     }
   ],
   "meta": {

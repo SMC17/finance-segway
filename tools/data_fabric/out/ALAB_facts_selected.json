@@ -1,7 +1,7 @@
 {
   "ticker": "ALAB",
   "cik": "0001736297",
-  "retrieved_utc": "20260806T143353Z",
+  "retrieved_utc": "20261114T070751Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -211,12 +211,12 @@
       "concept": "DepreciationDepletionAndAmortization",
       "resolved_tag": "us-gaap:DepreciationDepletionAndAmortization",
       "unit": "USD",
-      "value": 7600000,
-      "end": "2026-06-30",
-      "filed": "2026-08-05",
+      "value": 12700000,
+      "end": "2026-09-30",
+      "filed": "2026-11-04",
       "form": "10-Q",
       "fy": 2026,
-      "fp": "Q2",
+      "fp": "Q3",
       "frame": null
     },
     {

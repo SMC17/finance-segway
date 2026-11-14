@@ -1,7 +1,7 @@
 {
   "ticker": "ODFL",
   "cik": "0000878927",
-  "retrieved_utc": "20260806T143410Z",
+  "retrieved_utc": "20261114T070804Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -104,12 +104,12 @@
       "resolved_tag": "us-gaap:LongTermDebtNoncurrent",
       "unit": "USD",
       "value": 0,
-      "end": "2026-06-30",
-      "filed": "2026-08-05",
+      "end": "2026-09-30",
+      "filed": "2026-11-04",
       "form": "10-Q",
       "fy": 2026,
-      "fp": "Q2",
-      "frame": "CY2026Q2I"
+      "fp": "Q3",
+      "frame": "CY2026Q3I"
     },
     {
       "concept": "LongTermDebtCurrent",

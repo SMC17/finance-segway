@@ -1,7 +1,7 @@
 {
   "ticker": "PYPL",
   "cik": "0001633917",
-  "retrieved_utc": "20260806T143412Z",
+  "retrieved_utc": "20261114T070806Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -103,13 +103,13 @@
       "concept": "LongTermDebt",
       "resolved_tag": "us-gaap:LongTermDebt",
       "unit": "USD",
-      "value": 10876000000,
-      "end": "2026-03-31",
-      "filed": "2026-05-05",
+      "value": 13353000000,
+      "end": "2026-09-30",
+      "filed": "2026-10-27",
       "form": "10-Q",
       "fy": 2026,
-      "fp": "Q1",
-      "frame": "CY2026Q1I"
+      "fp": "Q3",
+      "frame": "CY2026Q3I"
     },
     {
       "concept": "LongTermDebtNoncurrent",
@@ -122,6 +122,18 @@
       "fy": 2025,
       "fp": "FY",
       "frame": null
+    },
+    {
+      "concept": "LongTermDebtCurrent",
+      "resolved_tag": "us-gaap:LongTermDebtCurrent",
+      "unit": "USD",
+      "value": 2333000000,
+      "end": "2026-09-30",
+      "filed": "2026-10-27",
+      "form": "10-Q",
+      "fy": 2026,
+      "fp": "Q3",
+      "frame": "CY2026Q3I"
     },
     {
       "concept": "DebtCurrent",

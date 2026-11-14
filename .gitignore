@@ -44,3 +44,7 @@ metadata-report.json
 accessibility-report.json
 ai-docs-report.json
 conformance-report.json
+
+# SEC EDGAR bulk export (tools/data_fabric/edgar_bulk_export.py): multi-GB raw
+# files; the committed manifest records their SHA-256 digests instead.
+.sec-export/

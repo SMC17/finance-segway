@@ -1,7 +1,7 @@
 {
   "ticker": "FTNT",
   "cik": "0001262039",
-  "retrieved_utc": "20260806T143400Z",
+  "retrieved_utc": "20261114T070757Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -283,12 +283,12 @@
       "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
       "resolved_tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
       "unit": "USD",
-      "value": 148600000,
-      "end": "2026-06-30",
-      "filed": "2026-07-30",
+      "value": 212800000,
+      "end": "2026-09-30",
+      "filed": "2026-10-30",
       "form": "10-Q",
       "fy": 2026,
-      "fp": "Q2",
+      "fp": "Q3",
       "frame": null
     },
     {

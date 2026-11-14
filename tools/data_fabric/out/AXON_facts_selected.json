@@ -1,7 +1,7 @@
 {
   "ticker": "AXON",
   "cik": "0001069183",
-  "retrieved_utc": "20260806T143355Z",
+  "retrieved_utc": "20261114T070753Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -355,13 +355,13 @@
       "concept": "RevenueRemainingPerformanceObligation",
       "resolved_tag": "us-gaap:RevenueRemainingPerformanceObligation",
       "unit": "USD",
-      "value": 7700000000,
-      "end": "2024-09-30",
-      "filed": "2024-11-08",
+      "value": 10200000000,
+      "end": "2026-09-30",
+      "filed": "2026-11-06",
       "form": "10-Q",
-      "fy": 2024,
+      "fy": 2026,
       "fp": "Q3",
-      "frame": "CY2024Q3I"
+      "frame": "CY2026Q3I"
     },
     {
       "concept": "InventoryNet",

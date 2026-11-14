@@ -35,7 +35,11 @@ SNAPSHOT = OUT_DIR / "QQQ_sec_sic_classifications.json"
 UA = os.environ.get("SEC_USER_AGENT", "FinanceSegway/1.0 (research; set SEC_USER_AGENT)")
 
 # SEC-registered issuers missing from company_tickers.json, keyed by ticker.
-CIK_OVERRIDES = {"AEP": "0000004904"}
+# Tickers SEC's company_tickers.json no longer carries. EA and WBD were QQQ
+# constituents in the 2026-08-06 universe snapshot, then completed
+# acquisitions and delisted: EA filed an 8-K (Item 2.01) and Form 25-NSE on
+# 2026-08-04, WBD on 2026-10-06. Their CIKs still resolve on EDGAR.
+CIK_OVERRIDES = {"AEP": "0000004904", "EA": "0000712515", "WBD": "0001437107"}
 
 
 def _session() -> requests.Session:

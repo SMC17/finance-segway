@@ -1,7 +1,7 @@
 {
   "ticker": "META",
   "cik": "0001326801",
-  "retrieved_utc": "20260806T143408Z",
+  "retrieved_utc": "20261114T070802Z",
   "dedupe_rule": "annual filings (amendments included); one value per fiscal period-end date; annual = >=10-month span, transition stubs >=5 months admitted when not inside an annual period; longer duration then latest filed wins (restatements win)",
   "concepts": [
     {

@@ -1,7 +1,7 @@
 {
   "ticker": "CDNS",
   "cik": "0000813672",
-  "retrieved_utc": "20260806T143355Z",
+  "retrieved_utc": "20261114T070754Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -76,16 +76,40 @@
       "frame": null
     },
     {
+      "concept": "LongTermDebt",
+      "resolved_tag": "us-gaap:LongTermDebt",
+      "unit": "USD",
+      "value": 2483242000,
+      "end": "2026-09-30",
+      "filed": "2026-10-28",
+      "form": "10-Q",
+      "fy": 2026,
+      "fp": "Q3",
+      "frame": "CY2026Q3I"
+    },
+    {
+      "concept": "LongTermDebtNoncurrent",
+      "resolved_tag": "us-gaap:LongTermDebtNoncurrent",
+      "unit": "USD",
+      "value": 1984433000,
+      "end": "2026-09-30",
+      "filed": "2026-10-28",
+      "form": "10-Q",
+      "fy": 2026,
+      "fp": "Q3",
+      "frame": "CY2026Q3I"
+    },
+    {
       "concept": "LongTermDebtCurrent",
       "resolved_tag": "us-gaap:LongTermDebtCurrent",
       "unit": "USD",
-      "value": 299879000,
-      "end": "2018-06-30",
-      "filed": "2018-07-23",
+      "value": 498809000,
+      "end": "2026-09-30",
+      "filed": "2026-10-28",
       "form": "10-Q",
-      "fy": 2018,
-      "fp": "Q2",
-      "frame": "CY2018Q2I"
+      "fy": 2026,
+      "fp": "Q3",
+      "frame": "CY2026Q3I"
     },
     {
       "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
@@ -271,13 +295,13 @@
       "concept": "ResearchAndDevelopmentExpense",
       "resolved_tag": "us-gaap:ResearchAndDevelopmentExpense",
       "unit": "USD",
-      "value": 508437000,
-      "end": "2026-03-31",
-      "filed": "2026-05-01",
+      "value": 1577251000,
+      "end": "2026-09-30",
+      "filed": "2026-10-28",
       "form": "10-Q",
       "fy": 2026,
-      "fp": "Q1",
-      "frame": "CY2026Q1"
+      "fp": "Q3",
+      "frame": null
     },
     {
       "concept": "SellingAndMarketingExpense",
@@ -319,13 +343,13 @@
       "concept": "ContractWithCustomerLiabilityCurrent",
       "resolved_tag": "us-gaap:ContractWithCustomerLiabilityCurrent",
       "unit": "USD",
-      "value": 873598000,
-      "end": "2026-03-31",
-      "filed": "2026-05-01",
+      "value": 1012305000,
+      "end": "2026-09-30",
+      "filed": "2026-10-28",
       "form": "10-Q",
       "fy": 2026,
-      "fp": "Q1",
-      "frame": "CY2026Q1I"
+      "fp": "Q3",
+      "frame": "CY2026Q3I"
     },
     {
       "concept": "ContractWithCustomerLiability",

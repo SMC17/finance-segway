@@ -1,0 +1,111 @@
+name: SEC Daily Ingest
+
+# Pulls each business day's EDGAR filings, re-pulls XBRL facts for tracked
+# companies that filed a periodic report, and once a week rebuilds the
+# corporate lineage dataset from SEC's submissions bulk archive.
+#
+# It never pushes to main. Refreshed sourced values must be reviewed
+# (tools/quarterly_refresh.py, standards/universe/REFRESH.md), so each run
+# with changes opens a pull request for a person to merge.
+#
+# Requires:
+#   - repository secret SEC_USER_AGENT, e.g. "Finance-Segway contact@example.org"
+#     (SEC fair-access rules reject anonymous automated requests)
+#   - Settings > Actions > General > "Allow GitHub Actions to create and
+#     approve pull requests" enabled
+
+on:
+  schedule:
+    # SEC posts each day's index that evening (US Eastern). 06:41 UTC Tue-Sat
+    # picks up Monday through Friday.
+    - cron: "41 6 * * 2-6"
+    # Sunday: full lineage rebuild from the weekly-fresh bulk archive.
+    - cron: "23 8 * * 0"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Filing date to ingest (YYYY-MM-DD); blank = previous business day"
+        required: false
+      lineage:
+        description: "Also rebuild the lineage dataset"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sec-daily-ingest
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check SEC user agent
+        run: |
+          if [ -z "$SEC_USER_AGENT" ]; then
+            echo "::error::Set the SEC_USER_AGENT repository secret (\"Name contact@example.org\")."
+            exit 1
+          fi
+
+      - name: Ingest daily filings and refresh tracked facts
+        if: github.event.schedule != '23 8 * * 0'
+        run: |
+          args=()
+          if [ -n "${{ inputs.date }}" ]; then args+=(--date "${{ inputs.date }}"); fi
+          python tools/sec_daily_ingest.py "${args[@]}" | tee ingest.log
+
+      - name: Rebuild corporate lineage
+        if: github.event.schedule == '23 8 * * 0' || inputs.lineage
+        run: |
+          python tools/data_fabric/edgar_bulk_export.py --since "$(date -u +%Y)" --bulk submissions --out .sec-export
+          python tools/data_fabric/edgar_corporate_events.py --submissions .sec-export/bulk/submissions.zip | tee -a ingest.log
+
+      - name: Corpus integrity checks
+        run: |
+          python tools/verify_share_series_integrity.py | tail -20 | tee -a ingest.log
+          python tools/verify_data_conventions.py
+          python tools/quarterly_refresh.py | tee -a ingest.log
+
+      - name: Open a pull request with the changes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git add tools/data_fabric/out
+          if git diff --cached --quiet; then
+            echo "No corpus changes."
+            exit 0
+          fi
+          stamp="$(date -u +%Y-%m-%d)"
+          branch="sec-ingest/${stamp}-${{ github.run_id }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git commit -m "SEC ingest ${stamp}"
+          git push origin "$branch"
+          {
+            echo "Automated SEC EDGAR ingest, run ${{ github.run_id }}."
+            echo
+            echo "Every value is read from SEC EDGAR. No public case is rewritten: each one is pinned to its as-of date."
+            echo "Review the refreshed company facts before merging."
+            echo
+            echo '```'
+            tail -c 60000 ingest.log
+            echo '```'
+          } > pr-body.md
+          gh pr create --base main --head "$branch" --title "SEC ingest ${stamp}" --body-file pr-body.md

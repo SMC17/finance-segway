@@ -1,7 +1,7 @@
 {
   "ticker": "ABNB",
   "cik": "0001559720",
-  "retrieved_utc": "20260806T143352Z",
+  "retrieved_utc": "20261114T070750Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -319,13 +319,13 @@
       "concept": "AccountsReceivableNetCurrent",
       "resolved_tag": "us-gaap:AccountsReceivableNetCurrent",
       "unit": "USD",
-      "value": 191000000,
-      "end": "2026-03-31",
-      "filed": "2026-05-07",
+      "value": 214000000,
+      "end": "2026-09-30",
+      "filed": "2026-11-05",
       "form": "10-Q",
       "fy": 2026,
-      "fp": "Q1",
-      "frame": "CY2026Q1I"
+      "fp": "Q3",
+      "frame": "CY2026Q3I"
     }
   ],
   "meta": {

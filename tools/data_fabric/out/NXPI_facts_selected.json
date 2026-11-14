@@ -1,7 +1,7 @@
 {
   "ticker": "NXPI",
   "cik": "0001413447",
-  "retrieved_utc": "20260806T143409Z",
+  "retrieved_utc": "20261114T070804Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -31,13 +31,13 @@
       "concept": "Liabilities",
       "resolved_tag": "us-gaap:Liabilities",
       "unit": "USD",
-      "value": 15839000000,
-      "end": "2026-03-29",
-      "filed": "2026-04-28",
+      "value": 15142000000,
+      "end": "2026-09-27",
+      "filed": "2026-10-27",
       "form": "10-Q",
       "fy": 2026,
-      "fp": "Q1",
-      "frame": "CY2026Q1I"
+      "fp": "Q3",
+      "frame": "CY2026Q3I"
     },
     {
       "concept": "LiabilitiesCurrent",

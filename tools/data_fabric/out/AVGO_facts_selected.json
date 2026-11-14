@@ -1,7 +1,7 @@
 {
   "ticker": "AVGO",
   "cik": "0001730168",
-  "retrieved_utc": "20260806T143355Z",
+  "retrieved_utc": "20261114T070752Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -140,12 +140,12 @@
       "resolved_tag": "us-gaap:DebtCurrent",
       "unit": "USD",
       "value": 2252000000,
-      "end": "2026-05-03",
-      "filed": "2026-06-09",
+      "end": "2026-08-02",
+      "filed": "2026-09-10",
       "form": "10-Q",
       "fy": 2026,
-      "fp": "Q2",
-      "frame": "CY2026Q1I"
+      "fp": "Q3",
+      "frame": "CY2026Q2I"
     },
     {
       "concept": "CommercialPaper",

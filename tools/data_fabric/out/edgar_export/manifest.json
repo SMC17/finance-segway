@@ -1,0 +1,1254 @@
+{
+  "schema_version": "1.0",
+  "generated_by": "tools/data_fabric/edgar_bulk_export.py",
+  "exported_utc": "2026-11-14T07:09:37Z",
+  "source": "SEC EDGAR public archive (https://www.sec.gov/Archives/edgar)",
+  "license_or_restriction": "Public SEC data; SEC website terms and fair-access policy apply",
+  "scope": "Quarterly master indexes from 1993 Q1 list every EDGAR filing; the submissions and companyfacts bulk archives carry entity metadata, filing histories, and every reported XBRL fact. Filing documents themselves are not copied: each index row carries the archive path to fetch one.",
+  "raw_location": "not committed; re-run this tool to reproduce, then compare sha256",
+  "quarter_count": 136,
+  "files": [
+    {
+      "url": "https://www.sec.gov/Archives/edgar/daily-index/xbrl/companyfacts.zip",
+      "status": 200,
+      "bytes": 1426608261,
+      "sha256": "92356aaca39e7fc8074b056eb5a53ec882b43165d68cbd51c70a8a1823586c69",
+      "last_modified": "Sat, 14 Nov 2026 05:23:46 GMT",
+      "path": "bulk/companyfacts.zip",
+      "kind": "bulk_companyfacts"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+      "status": 200,
+      "bytes": 1574923503,
+      "sha256": "78a52d91e2631b43237e3fdf11358c28167dfeac1de85118ef8e32dd7a8ae596",
+      "last_modified": "Sat, 14 Nov 2026 05:30:59 GMT",
+      "path": "bulk/submissions.zip",
+      "kind": "bulk_submissions"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1993/QTR1/master.gz",
+      "status": 200,
+      "bytes": 444,
+      "sha256": "f137a4f9b40c5559710b2434ff17069eb12688b6563362f42781ae6ea9b63dc0",
+      "last_modified": "Sat, 14 Nov 2026 06:00:38 GMT",
+      "path": "full-index/1993/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1993/QTR2/master.gz",
+      "status": 200,
+      "bytes": 419,
+      "sha256": "5054e86826900fbbd6021cebb4b36d10dd45c942b58ecba1355a8c2ad29ffbe4",
+      "last_modified": "Sat, 14 Nov 2026 06:00:42 GMT",
+      "path": "full-index/1993/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1993/QTR3/master.gz",
+      "status": 200,
+      "bytes": 593,
+      "sha256": "4f6d0bd03306d26750a0d7c67a02c80b5a1a246fdb0771633eb5ae3a4ee927c3",
+      "last_modified": "Sat, 14 Nov 2026 06:00:46 GMT",
+      "path": "full-index/1993/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1993/QTR4/master.gz",
+      "status": 200,
+      "bytes": 939,
+      "sha256": "b22314a43f322f568a28c59e79b64dcf26e555d1bb0c40299c72a011c5c3d354",
+      "last_modified": "Sat, 14 Nov 2026 06:00:49 GMT",
+      "path": "full-index/1993/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1994/QTR1/master.gz",
+      "status": 200,
+      "bytes": 282703,
+      "sha256": "68c86a4f795ffe45b81ddb60c01556b825d3430cbd2d3357470d293d19e31324",
+      "last_modified": "Sat, 14 Nov 2026 06:01:02 GMT",
+      "path": "full-index/1994/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1994/QTR2/master.gz",
+      "status": 200,
+      "bytes": 238920,
+      "sha256": "b0373bb704d92ef002dd5ab00deb2f121aaeba4d3a50f144745d898b9e4ca164",
+      "last_modified": "Sat, 14 Nov 2026 06:01:09 GMT",
+      "path": "full-index/1994/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1994/QTR3/master.gz",
+      "status": 200,
+      "bytes": 201344,
+      "sha256": "967f522a881e68a10bbd181395e11945b386b1148dedb195bc112276640ea805",
+      "last_modified": "Sat, 14 Nov 2026 06:01:16 GMT",
+      "path": "full-index/1994/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1994/QTR4/master.gz",
+      "status": 200,
+      "bytes": 219844,
+      "sha256": "22eddb3c24eb1551817574611424656b4b0d095ceb2856e40d0dfd686b16b7f6",
+      "last_modified": "Sat, 14 Nov 2026 06:01:23 GMT",
+      "path": "full-index/1994/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1995/QTR1/master.gz",
+      "status": 200,
+      "bytes": 425714,
+      "sha256": "1f0ed42986ed26341f7e8d57e5477cf8df32f308202fe2a81fd294772a1db4e0",
+      "last_modified": "Sat, 14 Nov 2026 06:01:33 GMT",
+      "path": "full-index/1995/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1995/QTR2/master.gz",
+      "status": 200,
+      "bytes": 387927,
+      "sha256": "da56341f91c3e39fcc186ed85d9dee957978a29c6744d0c093b1963f70868bc9",
+      "last_modified": "Sat, 14 Nov 2026 06:01:44 GMT",
+      "path": "full-index/1995/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1995/QTR3/master.gz",
+      "status": 200,
+      "bytes": 417942,
+      "sha256": "08a8dd62c41044347d4f6f70ffea01f98a3b157aedf4a0f2c638ccbe10cfd861",
+      "last_modified": "Sat, 14 Nov 2026 06:01:53 GMT",
+      "path": "full-index/1995/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1995/QTR4/master.gz",
+      "status": 200,
+      "bytes": 446746,
+      "sha256": "07f4ccd75e9774735a67e3dbd6306ae18946760e8f6ce82c9ea9610e4d3534b2",
+      "last_modified": "Sat, 14 Nov 2026 06:02:03 GMT",
+      "path": "full-index/1995/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1996/QTR1/master.gz",
+      "status": 200,
+      "bytes": 681943,
+      "sha256": "c14248a898eff8fff2de06ba4754a77166122430e31ad79213ac11e04c3eb854",
+      "last_modified": "Sat, 14 Nov 2026 06:02:17 GMT",
+      "path": "full-index/1996/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1996/QTR2/master.gz",
+      "status": 200,
+      "bytes": 736473,
+      "sha256": "0eb830f496d4f1fef1b067c8d5180e5a02f4677e5e851007c13cb1b5b8ba33ce",
+      "last_modified": "Sat, 14 Nov 2026 06:02:33 GMT",
+      "path": "full-index/1996/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1996/QTR3/master.gz",
+      "status": 200,
+      "bytes": 794981,
+      "sha256": "9a4ba40af7e4e09da4784906fe8b18186745860678ce65dce596ecbb902fdb94",
+      "last_modified": "Sat, 14 Nov 2026 06:02:47 GMT",
+      "path": "full-index/1996/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1996/QTR4/master.gz",
+      "status": 200,
+      "bytes": 838063,
+      "sha256": "8de3b0bf60c357e4a732a35a03c1cee0a0ae56854fdc6e777083e8320ff0f6cc",
+      "last_modified": "Sat, 14 Nov 2026 06:03:03 GMT",
+      "path": "full-index/1996/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1997/QTR1/master.gz",
+      "status": 200,
+      "bytes": 1239768,
+      "sha256": "ae37e94c19467310b6d37cf4ea48ff071670f9da330c5ed1b46729f46d1ec9e6",
+      "last_modified": "Sat, 14 Nov 2026 06:03:28 GMT",
+      "path": "full-index/1997/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1997/QTR2/master.gz",
+      "status": 200,
+      "bytes": 980092,
+      "sha256": "d3e2b58224bfa0f9307c1fd19e87387defd8fd49839e3ee591aa87ea6a94298f",
+      "last_modified": "Sat, 14 Nov 2026 06:03:46 GMT",
+      "path": "full-index/1997/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1997/QTR3/master.gz",
+      "status": 200,
+      "bytes": 924231,
+      "sha256": "cd10fab1fc3c016da600e2dd1925841d8088926e3ace4f6b1e281ce3bd88e886",
+      "last_modified": "Sat, 14 Nov 2026 06:04:04 GMT",
+      "path": "full-index/1997/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1997/QTR4/master.gz",
+      "status": 200,
+      "bytes": 961954,
+      "sha256": "cca19100bb84ec8011714f7bf7cdd6752100d23139150d36742213fcee2e9b56",
+      "last_modified": "Sat, 14 Nov 2026 06:04:23 GMT",
+      "path": "full-index/1997/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1998/QTR1/master.gz",
+      "status": 200,
+      "bytes": 1437065,
+      "sha256": "80f695850e38648ea4887e45ff1f356eb617b0c5b86979daeea7af93791ffd11",
+      "last_modified": "Sat, 14 Nov 2026 06:04:53 GMT",
+      "path": "full-index/1998/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1998/QTR2/master.gz",
+      "status": 200,
+      "bytes": 1094630,
+      "sha256": "5534e2e29abaf1eaf3ae55226570d3d1cc3078e705b879ebd3144e43b053fa1f",
+      "last_modified": "Sat, 14 Nov 2026 06:05:14 GMT",
+      "path": "full-index/1998/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1998/QTR3/master.gz",
+      "status": 200,
+      "bytes": 1016507,
+      "sha256": "c73814a389a1fc370dae9ac4b67d4ac03282019c58ae681500a364930dc7ec75",
+      "last_modified": "Sat, 14 Nov 2026 06:05:33 GMT",
+      "path": "full-index/1998/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1998/QTR4/master.gz",
+      "status": 200,
+      "bytes": 991724,
+      "sha256": "4db88f5bd56ad44d259b2fb139b7f2ffb7b0bb357a1022189733223421842563",
+      "last_modified": "Sat, 14 Nov 2026 06:05:52 GMT",
+      "path": "full-index/1998/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1999/QTR1/master.gz",
+      "status": 200,
+      "bytes": 1433093,
+      "sha256": "f08a26148d258cfbe9cb871107d9ef1d932215003fad32fee3ea809c0e4f3c7c",
+      "last_modified": "Sat, 14 Nov 2026 06:06:21 GMT",
+      "path": "full-index/1999/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1999/QTR2/master.gz",
+      "status": 200,
+      "bytes": 1173106,
+      "sha256": "b87b6e5bfe5890392c06bc7218c8c2be946def63352d29da76ead5ace41a145a",
+      "last_modified": "Sat, 14 Nov 2026 06:06:44 GMT",
+      "path": "full-index/1999/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1999/QTR3/master.gz",
+      "status": 200,
+      "bytes": 1072720,
+      "sha256": "ab7efabaca216fe49e6afba2b6d7c9438c88df335aab3183aa68e7e0551ab7db",
+      "last_modified": "Sat, 14 Nov 2026 06:07:04 GMT",
+      "path": "full-index/1999/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/1999/QTR4/master.gz",
+      "status": 200,
+      "bytes": 1075960,
+      "sha256": "aedb669cd8f46c404973b3bddf30c1b5f02fb485b57b45f67c295bb93655c63e",
+      "last_modified": "Sat, 14 Nov 2026 06:07:23 GMT",
+      "path": "full-index/1999/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2000/QTR1/master.gz",
+      "status": 200,
+      "bytes": 1610125,
+      "sha256": "9fd3741fa3325581e263a1e898724182e55b210285fe1f553c5f4984ac146c2f",
+      "last_modified": "Sat, 14 Nov 2026 06:07:57 GMT",
+      "path": "full-index/2000/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2000/QTR2/master.gz",
+      "status": 200,
+      "bytes": 1222437,
+      "sha256": "60eacc04c5b2ff2bada7319621628427cd7c21bdbe6fedf8471220190b88c9e9",
+      "last_modified": "Sat, 14 Nov 2026 06:08:20 GMT",
+      "path": "full-index/2000/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2000/QTR3/master.gz",
+      "status": 200,
+      "bytes": 1127320,
+      "sha256": "475b05a4265688fb7b9ea5c225a6f75293922f95f59a0df7d46646349fafd8d2",
+      "last_modified": "Sat, 14 Nov 2026 06:08:40 GMT",
+      "path": "full-index/2000/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2000/QTR4/master.gz",
+      "status": 200,
+      "bytes": 1115641,
+      "sha256": "1d64d3970ecfc0e4c719ec805fd508fd5411d563e07541805b4017dcd3e19469",
+      "last_modified": "Sat, 14 Nov 2026 06:09:00 GMT",
+      "path": "full-index/2000/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2001/QTR1/master.gz",
+      "status": 200,
+      "bytes": 1548645,
+      "sha256": "f524b7bf0763b23b2e6adb5137f9bb2736ef354f38947dc51ef0dabac062b61f",
+      "last_modified": "Sat, 14 Nov 2026 06:09:32 GMT",
+      "path": "full-index/2001/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2001/QTR2/master.gz",
+      "status": 200,
+      "bytes": 1328681,
+      "sha256": "204c337d9435616e1f7d2ca87865fb7b0b81c921c6614252d864a6e7246adc9f",
+      "last_modified": "Sat, 14 Nov 2026 06:09:58 GMT",
+      "path": "full-index/2001/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2001/QTR3/master.gz",
+      "status": 200,
+      "bytes": 1139549,
+      "sha256": "cdafe5145e84f6e4b73191a906c6f41a23fe1fc740d479ce326b9f2897a5b7c9",
+      "last_modified": "Sat, 14 Nov 2026 06:10:18 GMT",
+      "path": "full-index/2001/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2001/QTR4/master.gz",
+      "status": 200,
+      "bytes": 1148806,
+      "sha256": "7de53ead2a9b17ee684e15c6f2878272f184ced1827d6ff09d356f094f5864fa",
+      "last_modified": "Sat, 14 Nov 2026 06:10:39 GMT",
+      "path": "full-index/2001/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2002/QTR1/master.gz",
+      "status": 200,
+      "bytes": 1844778,
+      "sha256": "28cbab84b9c56da1d74cfc2e4e3f97f05447942e086ace145ceb726aecfb1e64",
+      "last_modified": "Sat, 14 Nov 2026 06:11:15 GMT",
+      "path": "full-index/2002/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2002/QTR2/master.gz",
+      "status": 200,
+      "bytes": 1608503,
+      "sha256": "854c84ae6d187b250df4101e8aff018d81f4b0ba12e075ca8a90dc6bc7cceb57",
+      "last_modified": "Sat, 14 Nov 2026 06:11:46 GMT",
+      "path": "full-index/2002/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2002/QTR3/master.gz",
+      "status": 200,
+      "bytes": 1487024,
+      "sha256": "f8f0d08dab8e685ebfe40a64db141a4128121ab9faf76de9b614e531fe673d1d",
+      "last_modified": "Sat, 14 Nov 2026 06:12:14 GMT",
+      "path": "full-index/2002/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2002/QTR4/master.gz",
+      "status": 200,
+      "bytes": 1698304,
+      "sha256": "a180b2aac50f6874b3a05a317af6c779b98233ed48e6281fefb3aa3aca7cd12e",
+      "last_modified": "Sat, 14 Nov 2026 06:12:50 GMT",
+      "path": "full-index/2002/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2003/QTR1/master.gz",
+      "status": 200,
+      "bytes": 2463229,
+      "sha256": "d4ff897e369c024376a9385bb9550b1602c268f22b9d8c8680553a1eac9d33f5",
+      "last_modified": "Sat, 14 Nov 2026 06:13:50 GMT",
+      "path": "full-index/2003/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2003/QTR2/master.gz",
+      "status": 200,
+      "bytes": 2272079,
+      "sha256": "5000d153454df636b98aee20bdb98edd54264f6cf901e2f3207af9e63d89adff",
+      "last_modified": "Sat, 14 Nov 2026 06:14:43 GMT",
+      "path": "full-index/2003/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2003/QTR3/master.gz",
+      "status": 200,
+      "bytes": 2767390,
+      "sha256": "e46da2f812eaa35c80584679b9a876955eff8f0a3ee3fb727841ef2427750ad1",
+      "last_modified": "Sat, 14 Nov 2026 06:15:57 GMT",
+      "path": "full-index/2003/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2003/QTR4/master.gz",
+      "status": 200,
+      "bytes": 2923623,
+      "sha256": "059dd7f9a340274769a038529a128132551aad9a0b3b934a849e10f4d5622671",
+      "last_modified": "Sat, 14 Nov 2026 06:17:18 GMT",
+      "path": "full-index/2003/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2004/QTR1/master.gz",
+      "status": 200,
+      "bytes": 3874091,
+      "sha256": "37fb9477efd4b0e7968546d9a69d5778ffb2b3d26dbe1928f0fe71b6769d5421",
+      "last_modified": "Sat, 14 Nov 2026 06:19:26 GMT",
+      "path": "full-index/2004/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2004/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3254488,
+      "sha256": "c75f1f85cac64154c96754c01b01e821ed79068c6356858e344a933b797937d3",
+      "last_modified": "Sat, 14 Nov 2026 06:21:02 GMT",
+      "path": "full-index/2004/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2004/QTR3/master.gz",
+      "status": 200,
+      "bytes": 2898325,
+      "sha256": "55f60bb9d0277bebe9600342e1af94ae330f4c2296760c4116d525c6436b166c",
+      "last_modified": "Sat, 14 Nov 2026 06:22:20 GMT",
+      "path": "full-index/2004/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2004/QTR4/master.gz",
+      "status": 200,
+      "bytes": 3134162,
+      "sha256": "75e2ba6c7ad1158cc7be6c5e351db775ab52878a2735cde53d0d86515b8a4c85",
+      "last_modified": "Sat, 14 Nov 2026 06:23:51 GMT",
+      "path": "full-index/2004/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2005/QTR1/master.gz",
+      "status": 200,
+      "bytes": 3996812,
+      "sha256": "8f849a1e26be56efde4350c69850885496e4b6dfbf44a567abdb21c6257992ca",
+      "last_modified": "Sat, 14 Nov 2026 06:26:03 GMT",
+      "path": "full-index/2005/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2005/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3514038,
+      "sha256": "591673a23ff65cecde3c1140568ccb96ef4b8d6db0d6398a1f0487ecb0cda531",
+      "last_modified": "Sat, 14 Nov 2026 06:27:48 GMT",
+      "path": "full-index/2005/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2005/QTR3/master.gz",
+      "status": 200,
+      "bytes": 3186887,
+      "sha256": "e4de26740e2209163d88c61aab26d6e530fefccc41a8cf59901419d8e35a1c39",
+      "last_modified": "Sat, 14 Nov 2026 06:29:15 GMT",
+      "path": "full-index/2005/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2005/QTR4/master.gz",
+      "status": 200,
+      "bytes": 3151453,
+      "sha256": "9457f5451f47e55282654c474d9a1a52af3ac472bba8869ad5909d56a977bc91",
+      "last_modified": "Sat, 14 Nov 2026 06:30:41 GMT",
+      "path": "full-index/2005/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2006/QTR1/master.gz",
+      "status": 200,
+      "bytes": 4209950,
+      "sha256": "9266dc447af9e778948876f5994bcec2d2e2f43d7c4e8edc1905996ff7134c97",
+      "last_modified": "Sat, 14 Nov 2026 06:33:06 GMT",
+      "path": "full-index/2006/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2006/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3598257,
+      "sha256": "c40f30739f603822deebe4f2df7c5e24cb2071fa70ea83abbb9c4074176c7a1e",
+      "last_modified": "Sat, 14 Nov 2026 06:34:55 GMT",
+      "path": "full-index/2006/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2006/QTR3/master.gz",
+      "status": 200,
+      "bytes": 3097607,
+      "sha256": "cd7dc1d67abf597657acaf6cb3fe592afc97c3f1147e5ed476b1a653dd718549",
+      "last_modified": "Sat, 14 Nov 2026 06:36:18 GMT",
+      "path": "full-index/2006/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2006/QTR4/master.gz",
+      "status": 200,
+      "bytes": 3293276,
+      "sha256": "8c9b6a142b4fbce34bccaa5f9786a3853376e5df9e01d917ca973b1fc4bb99eb",
+      "last_modified": "Sat, 14 Nov 2026 06:37:50 GMT",
+      "path": "full-index/2006/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2007/QTR1/master.gz",
+      "status": 200,
+      "bytes": 4281886,
+      "sha256": "bb3afea5f3f0c91fee80cc8704e09a205d6458af432d319445bf2b5a94042e9c",
+      "last_modified": "Sat, 14 Nov 2026 06:40:18 GMT",
+      "path": "full-index/2007/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2007/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3755310,
+      "sha256": "d104a0dcf2bb47c1ba1e1703f009fa3eec3e1dd8aa1d881f75e299f71bef8b40",
+      "last_modified": "Sat, 14 Nov 2026 06:42:13 GMT",
+      "path": "full-index/2007/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2007/QTR3/master.gz",
+      "status": 200,
+      "bytes": 3329272,
+      "sha256": "a1d22030d18621e75ed8490446f40bcd95bad6da12f48d0039c1ea9bd4f5a524",
+      "last_modified": "Sat, 14 Nov 2026 06:43:45 GMT",
+      "path": "full-index/2007/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2007/QTR4/master.gz",
+      "status": 200,
+      "bytes": 3353102,
+      "sha256": "c33e1e28687f45e312e532f97f26ffa42d5d396ead24d57a3f6df25edea5f066",
+      "last_modified": "Sat, 14 Nov 2026 06:45:20 GMT",
+      "path": "full-index/2007/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2008/QTR1/master.gz",
+      "status": 200,
+      "bytes": 4148242,
+      "sha256": "85ef32e0450e2549ba6a6c88fe9905de47d0156a99d0d47a43d554f3ae09ab94",
+      "last_modified": "Sat, 14 Nov 2026 06:47:38 GMT",
+      "path": "full-index/2008/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2008/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3473401,
+      "sha256": "65c5eb6a921eec5b28da5f3ec76577accf5e094c71381c3f4219419003983c37",
+      "last_modified": "Sat, 14 Nov 2026 06:49:19 GMT",
+      "path": "full-index/2008/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2008/QTR3/master.gz",
+      "status": 200,
+      "bytes": 2991867,
+      "sha256": "c9715d013199f40ac20e397e3754c8329a2e741b98b41c51de285720cf6acc90",
+      "last_modified": "Sat, 14 Nov 2026 06:50:34 GMT",
+      "path": "full-index/2008/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2008/QTR4/master.gz",
+      "status": 200,
+      "bytes": 2954144,
+      "sha256": "82ea8b24c5fb26fac4e61afea113862bc6194e443f1fad2b667895b400cd1528",
+      "last_modified": "Sat, 14 Nov 2026 06:51:50 GMT",
+      "path": "full-index/2008/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2009/QTR1/master.gz",
+      "status": 200,
+      "bytes": 3902323,
+      "sha256": "a65536178abd6fd5de1559f9a7e9b4a1f0247c8e59934d5a012f3b8b46e1b657",
+      "last_modified": "Sat, 14 Nov 2026 06:53:50 GMT",
+      "path": "full-index/2009/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2009/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3069139,
+      "sha256": "3f9ac0e8f9e2022fb9034a136a3858e923f8d5310ec9fcb8919f71ba8b38cdb1",
+      "last_modified": "Sat, 14 Nov 2026 06:55:10 GMT",
+      "path": "full-index/2009/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2009/QTR3/master.gz",
+      "status": 200,
+      "bytes": 2750371,
+      "sha256": "340346918bcfb72af524135b37a993984a9815ccb649db6c3377a6754f64ce48",
+      "last_modified": "Sat, 07 Nov 2026 06:55:33 GMT",
+      "path": "full-index/2009/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2009/QTR4/master.gz",
+      "status": 200,
+      "bytes": 2823205,
+      "sha256": "4ed67f2037ec7f53570448b8782fd364be3b2cd9f1b5f3cfd66a5460dae847b7",
+      "last_modified": "Sat, 07 Nov 2026 06:56:42 GMT",
+      "path": "full-index/2009/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2010/QTR1/master.gz",
+      "status": 200,
+      "bytes": 3886380,
+      "sha256": "3fa7e45ab51f5ead02b5ffa2321d54e71321271993fb16bdd5ce4aec1b10fcf1",
+      "last_modified": "Sat, 07 Nov 2026 06:58:42 GMT",
+      "path": "full-index/2010/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2010/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3312513,
+      "sha256": "65d3f371478e318ec87b8474c3aa8642df5b95474c7b6ff2ebd694625dfab384",
+      "last_modified": "Sat, 07 Nov 2026 07:00:15 GMT",
+      "path": "full-index/2010/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2010/QTR3/master.gz",
+      "status": 200,
+      "bytes": 2772573,
+      "sha256": "1a57544814fbea32d7950f4b14be38614c0c290e72b526eef72e9cf863d765d3",
+      "last_modified": "Sat, 07 Nov 2026 07:01:24 GMT",
+      "path": "full-index/2010/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2010/QTR4/master.gz",
+      "status": 200,
+      "bytes": 2932564,
+      "sha256": "1f7e99477ec647fe81dadc90b73cead7a6c9b42dc0377c09cfa2e3e5963b60a3",
+      "last_modified": "Sat, 07 Nov 2026 07:02:38 GMT",
+      "path": "full-index/2010/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2011/QTR1/master.gz",
+      "status": 200,
+      "bytes": 3938911,
+      "sha256": "7646201ebb3b82d8ac9c37293baf97d500326294ea32e308047c406b6289e748",
+      "last_modified": "Sat, 07 Nov 2026 07:04:42 GMT",
+      "path": "full-index/2011/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2011/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3386880,
+      "sha256": "6fc5ddf1754eeb293c2dde5b4e9bbd35218dbd80770dd3b6564a618a048a55f6",
+      "last_modified": "Sat, 07 Nov 2026 07:06:19 GMT",
+      "path": "full-index/2011/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2011/QTR3/master.gz",
+      "status": 200,
+      "bytes": 2806277,
+      "sha256": "1c43a13dc9f0e74bb6afa78b040e9ae5c43fe3c170dfa0075655a263815143a1",
+      "last_modified": "Sat, 07 Nov 2026 07:07:28 GMT",
+      "path": "full-index/2011/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2011/QTR4/master.gz",
+      "status": 200,
+      "bytes": 2744136,
+      "sha256": "9c7d82df4ca580804a877379f7c167815961c174f8da61d94cb733cca2ce0cc9",
+      "last_modified": "Sat, 07 Nov 2026 07:08:34 GMT",
+      "path": "full-index/2011/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2012/QTR1/master.gz",
+      "status": 200,
+      "bytes": 3964856,
+      "sha256": "5060148a371f6a180d268adb66121fb236bde057a20fca1178b7e91107eda732",
+      "last_modified": "Sat, 07 Nov 2026 07:10:43 GMT",
+      "path": "full-index/2012/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2012/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3236938,
+      "sha256": "9dc1d2b9805aff840222136371194d43314ac6922b1d4648daa2966aab2da5b2",
+      "last_modified": "Sat, 07 Nov 2026 07:12:12 GMT",
+      "path": "full-index/2012/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2012/QTR3/master.gz",
+      "status": 200,
+      "bytes": 2769865,
+      "sha256": "7aacf151861079feabed432b54784a5011ed4df5827e1788c9054ef272ab9bb3",
+      "last_modified": "Sat, 07 Nov 2026 07:13:20 GMT",
+      "path": "full-index/2012/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2012/QTR4/master.gz",
+      "status": 200,
+      "bytes": 2869604,
+      "sha256": "e43910b28cfc365598b675f786decf8aeec5ad1b6edba1a36201b03e26983a48",
+      "last_modified": "Sat, 07 Nov 2026 07:14:32 GMT",
+      "path": "full-index/2012/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2013/QTR1/master.gz",
+      "status": 200,
+      "bytes": 3887505,
+      "sha256": "f06ee82bbc243c7bb9c0ac239495cc82cf615a2197f09d31fdf0a62db7234edb",
+      "last_modified": "Sat, 07 Nov 2026 07:16:34 GMT",
+      "path": "full-index/2013/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2013/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3374836,
+      "sha256": "02f1dbe8ed7a4c856127b577ecf2e9fb0c2bd6687998598d111e4572be0747c5",
+      "last_modified": "Sat, 07 Nov 2026 07:18:07 GMT",
+      "path": "full-index/2013/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2013/QTR3/master.gz",
+      "status": 200,
+      "bytes": 2877501,
+      "sha256": "bce289f48fa5eb917d08729ddad92dcabd9865b32c11e3a14c0904e2f4126b25",
+      "last_modified": "Sat, 07 Nov 2026 07:19:18 GMT",
+      "path": "full-index/2013/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2013/QTR4/master.gz",
+      "status": 200,
+      "bytes": 2912980,
+      "sha256": "68812b5385ccac5b84cf7ad01101a058400e61f822f701b598cea08fc7ab1916",
+      "last_modified": "Sat, 07 Nov 2026 07:20:31 GMT",
+      "path": "full-index/2013/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2014/QTR1/master.gz",
+      "status": 200,
+      "bytes": 3982218,
+      "sha256": "6f3e319b2289f88040ff7f30427ee2ce350856eb4758e00b0e584c5a40c0b0e1",
+      "last_modified": "Sat, 07 Nov 2026 07:22:40 GMT",
+      "path": "full-index/2014/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2014/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3325862,
+      "sha256": "13289fd3cb3655fc0bf556c4ee594146fbd8129feaa1a18fee72ad7a8d28f19c",
+      "last_modified": "Sat, 07 Nov 2026 07:24:13 GMT",
+      "path": "full-index/2014/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2014/QTR3/master.gz",
+      "status": 200,
+      "bytes": 2887509,
+      "sha256": "5a9aa6be053b6ae68d68b5eb50d0005465b2e8cb709492006192e3f6feea8fa1",
+      "last_modified": "Sat, 07 Nov 2026 07:25:25 GMT",
+      "path": "full-index/2014/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2014/QTR4/master.gz",
+      "status": 200,
+      "bytes": 2986782,
+      "sha256": "8bdbeea11a3f6de71ec705fe3302843b3694022283ea1f558d0fddbb7027ec68",
+      "last_modified": "Sat, 07 Nov 2026 07:26:40 GMT",
+      "path": "full-index/2014/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2015/QTR1/master.gz",
+      "status": 200,
+      "bytes": 4076206,
+      "sha256": "7b435139ad5d48637db7a831f8c95461e3c54d519ea78a098febc26467eec93c",
+      "last_modified": "Sat, 07 Nov 2026 07:28:51 GMT",
+      "path": "full-index/2015/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2015/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3443429,
+      "sha256": "c1d97e29713e2645fdfa7eb9666059a1636983428dcbd1bcbd408f967fdb7cff",
+      "last_modified": "Sat, 07 Nov 2026 07:30:27 GMT",
+      "path": "full-index/2015/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2015/QTR3/master.gz",
+      "status": 200,
+      "bytes": 2835918,
+      "sha256": "f902d8caaa2f538c0f7e597a085f7ffd54ae02bd160e421068f723f6e1cd663e",
+      "last_modified": "Sat, 07 Nov 2026 07:31:36 GMT",
+      "path": "full-index/2015/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2015/QTR4/master.gz",
+      "status": 200,
+      "bytes": 2862387,
+      "sha256": "a5639d6d2c51a709ae6cbb0aa6ad1d75ba9d171fc7340024a72eaaaa4854d227",
+      "last_modified": "Sat, 07 Nov 2026 07:32:46 GMT",
+      "path": "full-index/2015/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2016/QTR1/master.gz",
+      "status": 200,
+      "bytes": 4030283,
+      "sha256": "b611a93a0c9ae1689eab196bcf68961c3927493d3e92f4705e2e1e337080ff48",
+      "last_modified": "Sat, 07 Nov 2026 07:34:51 GMT",
+      "path": "full-index/2016/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2016/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3271206,
+      "sha256": "86bb46f9bb51343493bc7f2e80b4e0f5e89070472c7af2d12b36cede4022f723",
+      "last_modified": "Sat, 07 Nov 2026 07:36:19 GMT",
+      "path": "full-index/2016/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2016/QTR3/master.gz",
+      "status": 200,
+      "bytes": 2785100,
+      "sha256": "7ac7cbf88ebb8a16475ca46c8cf606cc88fe2d8f65d6c2e8e4ffa347a213650f",
+      "last_modified": "Sat, 07 Nov 2026 07:37:25 GMT",
+      "path": "full-index/2016/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2016/QTR4/master.gz",
+      "status": 200,
+      "bytes": 2723699,
+      "sha256": "88e605a5928bfc047afceb7769b7d1b41207834bd599de7fe2cfe5925f6f8bee",
+      "last_modified": "Sat, 07 Nov 2026 07:38:29 GMT",
+      "path": "full-index/2016/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2017/QTR1/master.gz",
+      "status": 200,
+      "bytes": 3992439,
+      "sha256": "f87886a386250f91742500d0f362f4df5a21725d05031a27439fdd4187eb1578",
+      "last_modified": "Sat, 07 Nov 2026 07:40:36 GMT",
+      "path": "full-index/2017/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2017/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3366093,
+      "sha256": "e69882116194f679476b57a41381390e68d24273f176da96767e03765dbe7f85",
+      "last_modified": "Sat, 07 Nov 2026 07:42:10 GMT",
+      "path": "full-index/2017/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2017/QTR3/master.gz",
+      "status": 200,
+      "bytes": 2747680,
+      "sha256": "5c7443ddf7ff8481230347c8528e23f57da9181f1a0b6a8b0d45095d19733985",
+      "last_modified": "Sat, 07 Nov 2026 07:43:16 GMT",
+      "path": "full-index/2017/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2017/QTR4/master.gz",
+      "status": 200,
+      "bytes": 2779472,
+      "sha256": "cdf787dd0dfbd27dba7d444d53d660fa81473b98b31bc647ebd08ca1b8f40ab6",
+      "last_modified": "Sat, 07 Nov 2026 07:44:23 GMT",
+      "path": "full-index/2017/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2018/QTR1/master.gz",
+      "status": 200,
+      "bytes": 3891114,
+      "sha256": "b8214c4dfdc733bd7d4ce687c2d34e07235a233b2386d37dcaa9f7ab73ff5944",
+      "last_modified": "Sat, 07 Nov 2026 07:46:25 GMT",
+      "path": "full-index/2018/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2018/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3287471,
+      "sha256": "f68829059aff3967985125afd5f6480406860efd4470c0bc6148fe3bbeab499a",
+      "last_modified": "Sat, 07 Nov 2026 07:47:55 GMT",
+      "path": "full-index/2018/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2018/QTR3/master.gz",
+      "status": 200,
+      "bytes": 2700781,
+      "sha256": "1715050976d27d3187e1d6f3ffc9d9ff448692f74a200e22ec35f432025116f5",
+      "last_modified": "Sat, 07 Nov 2026 07:48:59 GMT",
+      "path": "full-index/2018/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2018/QTR4/master.gz",
+      "status": 200,
+      "bytes": 2706251,
+      "sha256": "aad43d174df881e2ecddc3daf2c8348f0632fa57b846bdfb68fe6b4ac2b7f590",
+      "last_modified": "Sat, 07 Nov 2026 07:50:04 GMT",
+      "path": "full-index/2018/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2019/QTR1/master.gz",
+      "status": 200,
+      "bytes": 3801198,
+      "sha256": "c8bc51e2d3c7aaf362da05aa559413fadb1b1213818779b2b7c42ae164bbb432",
+      "last_modified": "Sat, 07 Nov 2026 07:52:00 GMT",
+      "path": "full-index/2019/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2019/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3285007,
+      "sha256": "9372c7d9206ebff7cab4e2ab121e83e7d2702e2a4d04e14efc0e02c5115ec301",
+      "last_modified": "Sat, 07 Nov 2026 07:53:30 GMT",
+      "path": "full-index/2019/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2019/QTR3/master.gz",
+      "status": 200,
+      "bytes": 2712100,
+      "sha256": "62361aa920590182a49259c432698510199a27506961e2c1a20f3d72343dcd12",
+      "last_modified": "Sat, 07 Nov 2026 07:54:36 GMT",
+      "path": "full-index/2019/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2019/QTR4/master.gz",
+      "status": 200,
+      "bytes": 2751834,
+      "sha256": "3772dc85211e63c704a3d276e98d09c7123c5e15de81c1ec8e31e58c39a7716f",
+      "last_modified": "Sat, 07 Nov 2026 07:55:47 GMT",
+      "path": "full-index/2019/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2020/QTR1/master.gz",
+      "status": 200,
+      "bytes": 4000734,
+      "sha256": "98573034c593af018cfd66c6293b7cfcae709a54d8bbe6d35c800f4ebc11219f",
+      "last_modified": "Sat, 07 Nov 2026 07:58:02 GMT",
+      "path": "full-index/2020/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2020/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3358436,
+      "sha256": "509faa660938cf72ef55027a8122e3f8b5d5f551e3f99b7e8cbb64b99222c4d8",
+      "last_modified": "Sat, 07 Nov 2026 07:59:40 GMT",
+      "path": "full-index/2020/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2020/QTR3/master.gz",
+      "status": 200,
+      "bytes": 2917217,
+      "sha256": "ba1832ee7d279a0c7439a604aad67ace111f5a8c2801b465bd5efdd8f38f5b8b",
+      "last_modified": "Sat, 07 Nov 2026 08:00:56 GMT",
+      "path": "full-index/2020/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2020/QTR4/master.gz",
+      "status": 200,
+      "bytes": 3051770,
+      "sha256": "01bcf2737e4d79725669c6b907c3a6e6bdd8b14109ed1f724230cf0329f061f3",
+      "last_modified": "Sat, 07 Nov 2026 08:02:21 GMT",
+      "path": "full-index/2020/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2021/QTR1/master.gz",
+      "status": 200,
+      "bytes": 4473075,
+      "sha256": "56da865fcdfab5ecbd681c47c2041e8f179ac0b519b988e4a0e396f275757bc7",
+      "last_modified": "Sat, 07 Nov 2026 08:05:05 GMT",
+      "path": "full-index/2021/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2021/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3840651,
+      "sha256": "31ea2cc626b5c4b13ee7fc0863cb7a75cbde85091c198a714aba15ca0113e279",
+      "last_modified": "Sat, 07 Nov 2026 08:07:08 GMT",
+      "path": "full-index/2021/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2021/QTR3/master.gz",
+      "status": 200,
+      "bytes": 3327979,
+      "sha256": "7485a0de49a0da7aa88bbcdd8826edff880fb60f91d02a9a1880c6fe93c9be29",
+      "last_modified": "Sat, 07 Nov 2026 08:08:43 GMT",
+      "path": "full-index/2021/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2021/QTR4/master.gz",
+      "status": 200,
+      "bytes": 3388535,
+      "sha256": "cf37bfaa26beabb8df184481e086c33803e039ca263ab1c6a5574cffd4fe411b",
+      "last_modified": "Sat, 07 Nov 2026 08:10:21 GMT",
+      "path": "full-index/2021/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2022/QTR1/master.gz",
+      "status": 200,
+      "bytes": 4464050,
+      "sha256": "cd83d0c1b06b301b0555034f38aad979cdec439decf1c19a0fd50184bee9255e",
+      "last_modified": "Sat, 07 Nov 2026 08:13:01 GMT",
+      "path": "full-index/2022/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2022/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3764344,
+      "sha256": "737f7a6e86fe80d7ddb4b721d0adbf40ddd2509c66e7e5185d664f13fae91b5e",
+      "last_modified": "Sat, 07 Nov 2026 08:14:57 GMT",
+      "path": "full-index/2022/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2022/QTR3/master.gz",
+      "status": 200,
+      "bytes": 3140925,
+      "sha256": "3a1c586a8687fe5d0cab5826300366e944cc10ecc6ae258d2bb5bd85b4757648",
+      "last_modified": "Sat, 07 Nov 2026 08:16:23 GMT",
+      "path": "full-index/2022/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2022/QTR4/master.gz",
+      "status": 200,
+      "bytes": 3037086,
+      "sha256": "5edf6d5c0520a36ad6303c94f3e29b0ed7cd16bb6d7649e8e7eccc9e4f48be11",
+      "last_modified": "Sat, 07 Nov 2026 08:17:45 GMT",
+      "path": "full-index/2022/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2023/QTR1/master.gz",
+      "status": 200,
+      "bytes": 4310544,
+      "sha256": "2896e9f8d1567b29ffe7cb60f642e752d93b00f0046f7309a29d82331e1232da",
+      "last_modified": "Sat, 07 Nov 2026 08:20:20 GMT",
+      "path": "full-index/2023/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2023/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3905089,
+      "sha256": "1ec1685cad666494a5b68c061f98eeffa9478ed142f123c755e60a8bda02107a",
+      "last_modified": "Sat, 07 Nov 2026 08:22:29 GMT",
+      "path": "full-index/2023/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2023/QTR3/master.gz",
+      "status": 200,
+      "bytes": 3252679,
+      "sha256": "12bf526d8312edf64807f809822459b87a15614aae3bfa48fe43860c620b034b",
+      "last_modified": "Sat, 07 Nov 2026 08:24:04 GMT",
+      "path": "full-index/2023/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2023/QTR4/master.gz",
+      "status": 200,
+      "bytes": 3229309,
+      "sha256": "9ec4446aeb6f14fc6c251784c7e1d0252e167688237a28c3d8be949f01789f5c",
+      "last_modified": "Sat, 07 Nov 2026 08:25:37 GMT",
+      "path": "full-index/2023/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2024/QTR1/master.gz",
+      "status": 200,
+      "bytes": 4492117,
+      "sha256": "ea5d8ddacd9e915d861f6c582c621e2107d80c6ff1c0ce82c8e7926364e39bc7",
+      "last_modified": "Sat, 07 Nov 2026 08:28:27 GMT",
+      "path": "full-index/2024/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2024/QTR2/master.gz",
+      "status": 200,
+      "bytes": 3949763,
+      "sha256": "b4a77c6d867d8b359db053958f7431846158a41f0cd7a6868341be9edcd00ef5",
+      "last_modified": "Sat, 07 Nov 2026 08:30:40 GMT",
+      "path": "full-index/2024/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2024/QTR3/master.gz",
+      "status": 200,
+      "bytes": 3425278,
+      "sha256": "a47f23c2d90daa7b13253bea163acbe6c8c64d3019517abd40ec982fba21eb19",
+      "last_modified": "Sat, 07 Nov 2026 08:32:26 GMT",
+      "path": "full-index/2024/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2024/QTR4/master.gz",
+      "status": 200,
+      "bytes": 3508577,
+      "sha256": "c39020bac452573cd11accfc4ba76f7fa1e0834e48cf0738723ecf15d37b9a28",
+      "last_modified": "Sat, 07 Nov 2026 08:34:22 GMT",
+      "path": "full-index/2024/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2025/QTR1/master.gz",
+      "status": 200,
+      "bytes": 4212826,
+      "sha256": "28dfbee267e24611cf14b218961f990f5650e0147dee61fba9de4a1f940e6ac5",
+      "last_modified": "Sat, 07 Nov 2026 08:36:51 GMT",
+      "path": "full-index/2025/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2025/QTR2/master.gz",
+      "status": 200,
+      "bytes": 4153416,
+      "sha256": "6a1c0d31a5b5118beacdf3c9b7473791004f1746afe28c2233920aae6eac78df",
+      "last_modified": "Sat, 07 Nov 2026 08:39:12 GMT",
+      "path": "full-index/2025/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2025/QTR3/master.gz",
+      "status": 200,
+      "bytes": 3616365,
+      "sha256": "bf7a6a777d3fc098838d91de4a19040dced9bb051d44b50baa6e21ea63e21a2f",
+      "last_modified": "Sat, 07 Nov 2026 08:41:07 GMT",
+      "path": "full-index/2025/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2025/QTR4/master.gz",
+      "status": 200,
+      "bytes": 3411314,
+      "sha256": "0ba7659651c72d0d24fd6eb24049eea112291a6637bcc3e480cb5784db64529e",
+      "last_modified": "Sat, 07 Nov 2026 08:42:52 GMT",
+      "path": "full-index/2025/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2026/QTR1/master.gz",
+      "status": 200,
+      "bytes": 4459248,
+      "sha256": "358887d3d562d3914194ab57d7555a5048ad4fe8156c8e88493e4fa5fd1eb717",
+      "last_modified": "Sat, 07 Nov 2026 08:45:38 GMT",
+      "path": "full-index/2026/QTR1/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2026/QTR2/master.gz",
+      "status": 200,
+      "bytes": 4288582,
+      "sha256": "3aeacbfbe5cecb5832923bddaffe774a45da18fb6a45fc476e75927a0b66e109",
+      "last_modified": "Sat, 07 Nov 2026 08:48:14 GMT",
+      "path": "full-index/2026/QTR2/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2026/QTR3/master.gz",
+      "status": 200,
+      "bytes": 3682508,
+      "sha256": "2a10c0d644392b4eff4300bd08a5507055f51c74dcd57d402120097c8bad12a5",
+      "last_modified": "Sat, 07 Nov 2026 08:50:14 GMT",
+      "path": "full-index/2026/QTR3/master.gz",
+      "kind": "quarterly_master_index"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/full-index/2026/QTR4/master.gz",
+      "status": 200,
+      "bytes": 1861640,
+      "sha256": "284e54f37a4ec049ed39025c29427b7c7d18e6b8923986e9915ffdc422299feb",
+      "last_modified": "Sat, 14 Nov 2026 03:02:21 GMT",
+      "path": "full-index/2026/QTR4/master.gz",
+      "kind": "quarterly_master_index"
+    }
+  ]
+}

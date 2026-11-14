@@ -1,7 +1,7 @@
 {
   "ticker": "TER",
   "cik": "0000097210",
-  "retrieved_utc": "20260806T143416Z",
+  "retrieved_utc": "20261114T070809Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -67,13 +67,13 @@
       "concept": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
       "resolved_tag": "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
       "unit": "USD",
-      "value": 3473313000,
-      "end": "2026-06-28",
-      "filed": "2026-07-31",
+      "value": 3687896000,
+      "end": "2026-09-27",
+      "filed": "2026-10-30",
       "form": "10-Q",
       "fy": 2026,
-      "fp": "Q2",
-      "frame": "CY2026Q2I"
+      "fp": "Q3",
+      "frame": "CY2026Q3I"
     },
     {
       "concept": "CashAndCashEquivalentsAtCarryingValue",

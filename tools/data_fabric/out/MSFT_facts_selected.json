@@ -1,7 +1,7 @@
 {
   "ticker": "MSFT",
   "cik": "0000789019",
-  "retrieved_utc": "20260806T143409Z",
+  "retrieved_utc": "20261114T070803Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -13,7 +13,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "AssetsCurrent",
@@ -25,7 +25,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "Liabilities",
@@ -37,7 +37,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "LiabilitiesCurrent",
@@ -49,7 +49,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "StockholdersEquity",
@@ -61,7 +61,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "CashAndCashEquivalentsAtCarryingValue",
@@ -73,7 +73,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
@@ -85,7 +85,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "LongTermDebt",
@@ -97,7 +97,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "LongTermDebtNoncurrent",
@@ -109,7 +109,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "LongTermDebtCurrent",
@@ -121,7 +121,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "ShortTermBorrowings",
@@ -181,7 +181,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026"
+      "frame": null
     },
     {
       "concept": "OperatingIncomeLoss",
@@ -313,7 +313,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "CommonStockSharesIssued",
@@ -325,7 +325,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
@@ -409,7 +409,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "ContractWithCustomerLiability",
@@ -421,7 +421,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "RevenueRemainingPerformanceObligation",
@@ -445,7 +445,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     },
     {
       "concept": "AccountsReceivableNetCurrent",
@@ -457,7 +457,7 @@
       "form": "10-K",
       "fy": 2026,
       "fp": "FY",
-      "frame": "CY2026Q2I"
+      "frame": null
     }
   ],
   "meta": {

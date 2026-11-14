@@ -1,7 +1,7 @@
 {
   "ticker": "TSLA",
   "cik": "0001318605",
-  "retrieved_utc": "20260806T143417Z",
+  "retrieved_utc": "20261114T070809Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -181,7 +181,7 @@
       "form": "10-K",
       "fy": 2025,
       "fp": "FY",
-      "frame": "CY2025"
+      "frame": null
     },
     {
       "concept": "OperatingIncomeLoss",

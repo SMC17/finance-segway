@@ -1,8 +1,8 @@
 {
  "source": "SEC EDGAR submissions API (data.sec.gov/submissions/CIK##########.json)",
- "retrieved_at": "2026-08-06",
+ "retrieved_at": "2026-11-14",
  "retrieved_for": "standards/universe taxonomy sector classification",
- "note": "Per-company SIC code and description as filed with the SEC. CIK overrides cover issuers absent from SEC's ticker map (AEP). The harvest refuses to write if any constituent is unresolvable.",
+ "note": "Per-company SIC code and description as filed with the SEC. CIK overrides cover issuers absent from SEC's ticker map (AEP, EA, WBD). The harvest refuses to write if any constituent is unresolvable.",
  "companies": {
   "AAPL": {
    "cik": "0000320193",

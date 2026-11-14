@@ -1,7 +1,7 @@
 {
   "ticker": "GEHC",
   "cik": "0001932393",
-  "retrieved_utc": "20260806T143401Z",
+  "retrieved_utc": "20261114T070757Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -235,13 +235,13 @@
       "concept": "NetCashProvidedByUsedInOperatingActivities",
       "resolved_tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
       "unit": "USD",
-      "value": 290000000,
-      "end": "2026-03-31",
-      "filed": "2026-04-29",
+      "value": 1365000000,
+      "end": "2026-09-30",
+      "filed": "2026-10-28",
       "form": "10-Q",
       "fy": 2026,
-      "fp": "Q1",
-      "frame": "CY2026Q1"
+      "fp": "Q3",
+      "frame": null
     },
     {
       "concept": "NetCashProvidedByUsedInInvestingActivities",

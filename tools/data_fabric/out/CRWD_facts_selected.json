@@ -1,7 +1,7 @@
 {
   "ticker": "CRWD",
   "cik": "0001535527",
-  "retrieved_utc": "20260806T143357Z",
+  "retrieved_utc": "20261114T070754Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -230,6 +230,18 @@
       "fy": 2026,
       "fp": "FY",
       "frame": "CY2025"
+    },
+    {
+      "concept": "DepreciationDepletionAndAmortization",
+      "resolved_tag": "us-gaap:DepreciationDepletionAndAmortization",
+      "unit": "USD",
+      "value": 50100000,
+      "end": "2026-07-31",
+      "filed": "2026-08-27",
+      "form": "10-Q",
+      "fy": 2027,
+      "fp": "Q2",
+      "frame": null
     },
     {
       "concept": "PaymentsToAcquirePropertyPlantAndEquipment",

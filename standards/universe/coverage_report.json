@@ -1,0 +1,2513 @@
+{
+  "as_of_taxonomy": "2026-08-06",
+  "scope": "all-sectors",
+  "companies_total": 102,
+  "companies_ready": 95,
+  "companies_with_gaps": 7,
+  "gaps": [
+    {
+      "symbol": "ALAB",
+      "gaps": [
+        "thin history: 4 fiscal years"
+      ]
+    },
+    {
+      "symbol": "ASML",
+      "gaps": [
+        "reports in ['EUR', 'EUR/shares', 'shares'] - do not mix with USD peers unconverted"
+      ]
+    },
+    {
+      "symbol": "CCEP",
+      "gaps": [
+        "reports in ['EUR', 'EUR/shares'] - do not mix with USD peers unconverted"
+      ]
+    },
+    {
+      "symbol": "CRWV",
+      "gaps": [
+        "thin history: 3 fiscal years"
+      ]
+    },
+    {
+      "symbol": "HONA",
+      "gaps": [
+        "no annual revenue history (new filer with no annual report yet, or an unmapped taxonomy tag)"
+      ]
+    },
+    {
+      "symbol": "SNDK",
+      "gaps": [
+        "thin history: 4 fiscal years"
+      ]
+    },
+    {
+      "symbol": "SPCX",
+      "gaps": [
+        "no annual revenue history (new filer with no annual report yet, or an unmapped taxonomy tag)"
+      ]
+    }
+  ],
+  "companies": [
+    {
+      "symbol": "AAPL",
+      "cik": "0000320193",
+      "sector_id": "information_technology",
+      "sic": "3571",
+      "weight_qqq": 0.0772,
+      "series": {
+        "concepts": 37,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2026-09-26",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-02"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "ABNB",
+      "cik": "0001559720",
+      "sector_id": "consumer_discretionary",
+      "sic": "7340",
+      "weight_qqq": 0.0026,
+      "series": {
+        "concepts": 26,
+        "revenue_years": 7,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-05"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "ADBE",
+      "cik": "0000796343",
+      "sector_id": "information_technology",
+      "sic": "7372",
+      "weight_qqq": 0.0039,
+      "series": {
+        "concepts": 36,
+        "revenue_years": 19,
+        "latest_fiscal_end": "2025-11-28",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 4,
+        "latest_filed": "2026-06-11"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "ADI",
+      "cik": "0000006281",
+      "sector_id": "information_technology",
+      "sic": "3674",
+      "weight_qqq": 0.0084,
+      "series": {
+        "concepts": 31,
+        "revenue_years": 9,
+        "latest_fiscal_end": "2025-11-01",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-08-19"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "ADP",
+      "cik": "0000008670",
+      "sector_id": "information_technology",
+      "sic": "7374",
+      "weight_qqq": 0.0043,
+      "series": {
+        "concepts": 33,
+        "revenue_years": 19,
+        "latest_fiscal_end": "2026-06-30",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-28"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "ADSK",
+      "cik": "0000769397",
+      "sector_id": "information_technology",
+      "sic": "7372",
+      "weight_qqq": 0.0019,
+      "series": {
+        "concepts": 31,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2026-01-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-05-28"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "AEP",
+      "cik": "0000004904",
+      "sector_id": "utilities",
+      "sic": "4911",
+      "weight_qqq": 0.0032,
+      "series": {
+        "concepts": 32,
+        "revenue_years": 19,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-28"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "ALAB",
+      "cik": "0001736297",
+      "sector_id": "information_technology",
+      "sic": "3674",
+      "weight_qqq": 0.0025,
+      "series": {
+        "concepts": 28,
+        "revenue_years": 4,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-03"
+      },
+      "gaps": [
+        "thin history: 4 fiscal years"
+      ]
+    },
+    {
+      "symbol": "ALNY",
+      "cik": "0001178670",
+      "sector_id": "healthcare",
+      "sic": "2834",
+      "weight_qqq": 0.0016,
+      "series": {
+        "concepts": 31,
+        "revenue_years": 11,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-29"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "AMAT",
+      "cik": "0000006951",
+      "sector_id": "information_technology",
+      "sic": "3674",
+      "weight_qqq": 0.0196,
+      "series": {
+        "concepts": 37,
+        "revenue_years": 8,
+        "latest_fiscal_end": "2025-10-26",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-12"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "AMD",
+      "cik": "0000002488",
+      "sector_id": "information_technology",
+      "sic": "3674",
+      "weight_qqq": 0.0401,
+      "series": {
+        "concepts": 34,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-27",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 4,
+        "latest_filed": "2026-11-03"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "AMGN",
+      "cik": "0000318154",
+      "sector_id": "healthcare",
+      "sic": "2836",
+      "weight_qqq": 0.0088,
+      "series": {
+        "concepts": 29,
+        "revenue_years": 14,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-03"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "AMZN",
+      "cik": "0001018724",
+      "sector_id": "consumer_discretionary",
+      "sic": "5961",
+      "weight_qqq": 0.0425,
+      "series": {
+        "concepts": 33,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 4,
+        "latest_filed": "2026-10-29"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "APP",
+      "cik": "0001751008",
+      "sector_id": "information_technology",
+      "sic": "7370",
+      "weight_qqq": 0.0056,
+      "series": {
+        "concepts": 34,
+        "revenue_years": 7,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-04"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "ARM",
+      "cik": "0001973239",
+      "sector_id": "information_technology",
+      "sic": "3674",
+      "weight_qqq": 0.0054,
+      "series": {
+        "concepts": 29,
+        "revenue_years": 5,
+        "latest_fiscal_end": "2026-03-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 0,
+        "exhibits": 0,
+        "latest_filed": null
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "ASML",
+      "cik": "0000937966",
+      "sector_id": "information_technology",
+      "sic": "3559",
+      "weight_qqq": 0.0074,
+      "series": {
+        "concepts": 33,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "EUR",
+          "EUR/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 0,
+        "exhibits": 0,
+        "latest_filed": null
+      },
+      "gaps": [
+        "reports in ['EUR', 'EUR/shares', 'shares'] - do not mix with USD peers unconverted"
+      ]
+    },
+    {
+      "symbol": "AVGO",
+      "cik": "0001730168",
+      "sector_id": "information_technology",
+      "sic": "3674",
+      "weight_qqq": 0.0303,
+      "series": {
+        "concepts": 35,
+        "revenue_years": 9,
+        "latest_fiscal_end": "2025-11-02",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-09-02"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "AXON",
+      "cik": "0001069183",
+      "sector_id": "industrials",
+      "sic": "3480",
+      "weight_qqq": 0.0018,
+      "series": {
+        "concepts": 31,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-05"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "BKNG",
+      "cik": "0001075531",
+      "sector_id": "consumer_discretionary",
+      "sic": "4700",
+      "weight_qqq": 0.0061,
+      "series": {
+        "concepts": 30,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-03"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "BKR",
+      "cik": "0001701605",
+      "sector_id": "energy",
+      "sic": "3533",
+      "weight_qqq": 0.0025,
+      "series": {
+        "concepts": 24,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-27"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "CCEP",
+      "cik": "0001650107",
+      "sector_id": "consumer_staples",
+      "sic": "2086",
+      "weight_qqq": 0.0021,
+      "series": {
+        "concepts": 16,
+        "revenue_years": 11,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "EUR",
+          "EUR/shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 0,
+        "exhibits": 0,
+        "latest_filed": null
+      },
+      "gaps": [
+        "reports in ['EUR', 'EUR/shares'] - do not mix with USD peers unconverted"
+      ]
+    },
+    {
+      "symbol": "CDNS",
+      "cik": "0000813672",
+      "sector_id": "information_technology",
+      "sic": "7372",
+      "weight_qqq": 0.0041,
+      "series": {
+        "concepts": 27,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 4,
+        "latest_filed": "2026-07-27"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "CEG",
+      "cik": "0001868275",
+      "sector_id": "utilities",
+      "sic": "4911",
+      "weight_qqq": 0.0044,
+      "series": {
+        "concepts": 31,
+        "revenue_years": 6,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 4,
+        "latest_filed": "2026-11-09"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "CMCSA",
+      "cik": "0001166691",
+      "sector_id": "communication_services",
+      "sic": "4841",
+      "weight_qqq": 0.0037,
+      "series": {
+        "concepts": 25,
+        "revenue_years": 17,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 4,
+        "latest_filed": "2026-10-22"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "COST",
+      "cik": "0000909832",
+      "sector_id": "consumer_staples",
+      "sic": "5331",
+      "weight_qqq": 0.0183,
+      "series": {
+        "concepts": 31,
+        "revenue_years": 18,
+        "latest_fiscal_end": "2026-08-30",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 4,
+        "latest_filed": "2026-09-24"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "CPRT",
+      "cik": "0000900075",
+      "sector_id": "consumer_discretionary",
+      "sic": "5500",
+      "weight_qqq": 0.0011,
+      "series": {
+        "concepts": 34,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2026-07-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-09-10"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "CRWD",
+      "cik": "0001535527",
+      "sector_id": "information_technology",
+      "sic": "7372",
+      "weight_qqq": 0.0085,
+      "series": {
+        "concepts": 32,
+        "revenue_years": 9,
+        "latest_fiscal_end": "2026-01-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-06-03"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "CRWV",
+      "cik": "0001769628",
+      "sector_id": "information_technology",
+      "sic": "7372",
+      "weight_qqq": 0.0016,
+      "series": {
+        "concepts": 31,
+        "revenue_years": 3,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-05-07"
+      },
+      "gaps": [
+        "thin history: 3 fiscal years"
+      ]
+    },
+    {
+      "symbol": "CSCO",
+      "cik": "0000858877",
+      "sector_id": "information_technology",
+      "sic": "3576",
+      "weight_qqq": 0.0197,
+      "series": {
+        "concepts": 41,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2026-07-25",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-12"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "CSX",
+      "cik": "0000277948",
+      "sector_id": "industrials",
+      "sic": "4011",
+      "weight_qqq": 0.0041,
+      "series": {
+        "concepts": 26,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 4,
+        "latest_filed": "2026-10-21"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "CTAS",
+      "cik": "0000723254",
+      "sector_id": "consumer_discretionary",
+      "sic": "2320",
+      "weight_qqq": 0.0036,
+      "series": {
+        "concepts": 33,
+        "revenue_years": 11,
+        "latest_fiscal_end": "2026-05-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-09-23"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "DASH",
+      "cik": "0001792789",
+      "sector_id": "consumer_discretionary",
+      "sic": "7389",
+      "weight_qqq": 0.0033,
+      "series": {
+        "concepts": 27,
+        "revenue_years": 8,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-29"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "DDOG",
+      "cik": "0001561550",
+      "sector_id": "information_technology",
+      "sic": "7372",
+      "weight_qqq": 0.0036,
+      "series": {
+        "concepts": 29,
+        "revenue_years": 9,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-08-06"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "DXCM",
+      "cik": "0001093557",
+      "sector_id": "healthcare",
+      "sic": "3841",
+      "weight_qqq": 0.0012,
+      "series": {
+        "concepts": 33,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-29"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "EA",
+      "cik": "0000712515",
+      "sector_id": "communication_services",
+      "sic": "7372",
+      "weight_qqq": 0.0023,
+      "series": {
+        "concepts": 28,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2026-03-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-05-05"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "EXC",
+      "cik": "0001109357",
+      "sector_id": "utilities",
+      "sic": "4931",
+      "weight_qqq": 0.0021,
+      "series": {
+        "concepts": 33,
+        "revenue_years": 18,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 4,
+        "latest_filed": "2026-10-30"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "FANG",
+      "cik": "0001539838",
+      "sector_id": "energy",
+      "sic": "1311",
+      "weight_qqq": 0.0025,
+      "series": {
+        "concepts": 34,
+        "revenue_years": 9,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 1,
+        "exhibits": 2,
+        "latest_filed": "2026-11-02"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "FAST",
+      "cik": "0000815556",
+      "sector_id": "industrials",
+      "sic": "5200",
+      "weight_qqq": 0.0023,
+      "series": {
+        "concepts": 28,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-14"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "FTNT",
+      "cik": "0001262039",
+      "sector_id": "information_technology",
+      "sic": "3577",
+      "weight_qqq": 0.0051,
+      "series": {
+        "concepts": 33,
+        "revenue_years": 9,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-28"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "GEHC",
+      "cik": "0001932393",
+      "sector_id": "healthcare",
+      "sic": "3844",
+      "weight_qqq": 0.0012,
+      "series": {
+        "concepts": 30,
+        "revenue_years": 5,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-28"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "GILD",
+      "cik": "0000882095",
+      "sector_id": "healthcare",
+      "sic": "2836",
+      "weight_qqq": 0.0072,
+      "series": {
+        "concepts": 31,
+        "revenue_years": 11,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-29"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "GOOG",
+      "cik": "0001652044",
+      "sector_id": "communication_services",
+      "sic": "7370",
+      "weight_qqq": 0.0301,
+      "series": {
+        "concepts": 37,
+        "revenue_years": 12,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-28"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "GOOGL",
+      "cik": "0001652044",
+      "sector_id": "communication_services",
+      "sic": "7370",
+      "weight_qqq": 0.0321,
+      "series": {
+        "concepts": 37,
+        "revenue_years": 12,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-28"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "HON",
+      "cik": "0000773840",
+      "sector_id": "industrials",
+      "sic": "3724",
+      "weight_qqq": 0.0033,
+      "series": {
+        "concepts": 33,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-22"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "HONA",
+      "cik": "0002089271",
+      "sector_id": "industrials",
+      "sic": "3724",
+      "weight_qqq": 0.0029,
+      "series": {
+        "concepts": 0,
+        "revenue_years": 0,
+        "latest_fiscal_end": null,
+        "units": [],
+        "missing_core": [
+          "Revenues",
+          "NetIncomeLoss",
+          "Assets"
+        ]
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 3,
+        "latest_filed": "2026-10-28"
+      },
+      "gaps": [
+        "no annual revenue history (new filer with no annual report yet, or an unmapped taxonomy tag)"
+      ]
+    },
+    {
+      "symbol": "IDXX",
+      "cik": "0000874716",
+      "sector_id": "healthcare",
+      "sic": "2835",
+      "weight_qqq": 0.0019,
+      "series": {
+        "concepts": 36,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-02"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "INTC",
+      "cik": "0000050863",
+      "sector_id": "information_technology",
+      "sic": "3674",
+      "weight_qqq": 0.023,
+      "series": {
+        "concepts": 34,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-27",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-29"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "INTU",
+      "cik": "0000896878",
+      "sector_id": "information_technology",
+      "sic": "7372",
+      "weight_qqq": 0.0035,
+      "series": {
+        "concepts": 32,
+        "revenue_years": 11,
+        "latest_fiscal_end": "2026-07-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 3,
+        "latest_filed": "2026-05-20"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "ISRG",
+      "cik": "0001035267",
+      "sector_id": "healthcare",
+      "sic": "3842",
+      "weight_qqq": 0.0054,
+      "series": {
+        "concepts": 28,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-20"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "KDP",
+      "cik": "0001418135",
+      "sector_id": "consumer_staples",
+      "sic": "2080",
+      "weight_qqq": 0.0018,
+      "series": {
+        "concepts": 33,
+        "revenue_years": 11,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-03"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "KHC",
+      "cik": "0001637459",
+      "sector_id": "consumer_staples",
+      "sic": "2030",
+      "weight_qqq": 0.0014,
+      "series": {
+        "concepts": 30,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-27",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-04"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "KLAC",
+      "cik": "0000319201",
+      "sector_id": "information_technology",
+      "sic": "3827",
+      "weight_qqq": 0.0125,
+      "series": {
+        "concepts": 35,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2026-06-30",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-28"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "LIN",
+      "cik": "0001707925",
+      "sector_id": "materials",
+      "sic": "2810",
+      "weight_qqq": 0.0105,
+      "series": {
+        "concepts": 35,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-29"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "LITE",
+      "cik": "0001633978",
+      "sector_id": "information_technology",
+      "sic": "3669",
+      "weight_qqq": 0.0029,
+      "series": {
+        "concepts": 37,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2026-06-27",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-02"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "LRCX",
+      "cik": "0000707549",
+      "sector_id": "information_technology",
+      "sic": "3559",
+      "weight_qqq": 0.0178,
+      "series": {
+        "concepts": 35,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2026-06-28",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-21"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "MAR",
+      "cik": "0001048286",
+      "sector_id": "consumer_discretionary",
+      "sic": "7011",
+      "weight_qqq": 0.0043,
+      "series": {
+        "concepts": 27,
+        "revenue_years": 19,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-02"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "MCHP",
+      "cik": "0000827054",
+      "sector_id": "information_technology",
+      "sic": "3674",
+      "weight_qqq": 0.0021,
+      "series": {
+        "concepts": 34,
+        "revenue_years": 9,
+        "latest_fiscal_end": "2026-03-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-05"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "MDLZ",
+      "cik": "0001103982",
+      "sector_id": "consumer_staples",
+      "sic": "2000",
+      "weight_qqq": 0.0035,
+      "series": {
+        "concepts": 30,
+        "revenue_years": 19,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-29"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "MELI",
+      "cik": "0001099590",
+      "sector_id": "consumer_discretionary",
+      "sic": "7389",
+      "weight_qqq": 0.0041,
+      "series": {
+        "concepts": 34,
+        "revenue_years": 9,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-04"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "META",
+      "cik": "0001326801",
+      "sector_id": "communication_services",
+      "sic": "7370",
+      "weight_qqq": 0.03,
+      "series": {
+        "concepts": 32,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-21"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "MNST",
+      "cik": "0000865752",
+      "sector_id": "consumer_staples",
+      "sic": "2086",
+      "weight_qqq": 0.0042,
+      "series": {
+        "concepts": 28,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": [
+          "NetIncomeLoss"
+        ]
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 4,
+        "latest_filed": "2026-11-05"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "MPWR",
+      "cik": "0001280452",
+      "sector_id": "information_technology",
+      "sic": "3674",
+      "weight_qqq": 0.0031,
+      "series": {
+        "concepts": 30,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 3,
+        "latest_filed": "2026-10-29"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "MRVL",
+      "cik": "0001835632",
+      "sector_id": "information_technology",
+      "sic": "3674",
+      "weight_qqq": 0.0082,
+      "series": {
+        "concepts": 33,
+        "revenue_years": 7,
+        "latest_fiscal_end": "2026-01-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 3,
+        "latest_filed": "2026-11-02"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "MSFT",
+      "cik": "0000789019",
+      "sector_id": "information_technology",
+      "sic": "7372",
+      "weight_qqq": 0.0468,
+      "series": {
+        "concepts": 38,
+        "revenue_years": 11,
+        "latest_fiscal_end": "2026-06-30",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-07-29"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "MSTR",
+      "cik": "0001050446",
+      "sector_id": "information_technology",
+      "sic": "6199",
+      "weight_qqq": 0.0015,
+      "series": {
+        "concepts": 32,
+        "revenue_years": 16,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-29"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "MU",
+      "cik": "0000723125",
+      "sector_id": "information_technology",
+      "sic": "3674",
+      "weight_qqq": 0.0482,
+      "series": {
+        "concepts": 36,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2026-09-03",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-09-30"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "NBIS",
+      "cik": "0001513845",
+      "sector_id": "information_technology",
+      "sic": "7370",
+      "weight_qqq": 0.0021,
+      "series": {
+        "concepts": 33,
+        "revenue_years": 15,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 0,
+        "exhibits": 0,
+        "latest_filed": null
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "NFLX",
+      "cik": "0001065280",
+      "sector_id": "communication_services",
+      "sic": "7841",
+      "weight_qqq": 0.0129,
+      "series": {
+        "concepts": 32,
+        "revenue_years": 19,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-20"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "NVDA",
+      "cik": "0001045810",
+      "sector_id": "information_technology",
+      "sic": "3674",
+      "weight_qqq": 0.0828,
+      "series": {
+        "concepts": 38,
+        "revenue_years": 18,
+        "latest_fiscal_end": "2026-01-25",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 4,
+        "latest_filed": "2026-08-26"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "NXPI",
+      "cik": "0001413447",
+      "sector_id": "information_technology",
+      "sic": "3674",
+      "weight_qqq": 0.0031,
+      "series": {
+        "concepts": 35,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-27"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "ODFL",
+      "cik": "0000878927",
+      "sector_id": "industrials",
+      "sic": "4213",
+      "weight_qqq": 0.0022,
+      "series": {
+        "concepts": 22,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-28"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "ORLY",
+      "cik": "0000898173",
+      "sector_id": "consumer_discretionary",
+      "sic": "5531",
+      "weight_qqq": 0.0032,
+      "series": {
+        "concepts": 28,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-28"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "PANW",
+      "cik": "0001327567",
+      "sector_id": "information_technology",
+      "sic": "3577",
+      "weight_qqq": 0.0122,
+      "series": {
+        "concepts": 34,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2026-07-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-09-01"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "PAYX",
+      "cik": "0000723531",
+      "sector_id": "industrials",
+      "sic": "8700",
+      "weight_qqq": 0.0018,
+      "series": {
+        "concepts": 32,
+        "revenue_years": 19,
+        "latest_fiscal_end": "2026-05-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-09-23"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "PCAR",
+      "cik": "0000075362",
+      "sector_id": "consumer_discretionary",
+      "sic": "3711",
+      "weight_qqq": 0.0031,
+      "series": {
+        "concepts": 18,
+        "revenue_years": 18,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-27"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "PDD",
+      "cik": "0001737806",
+      "sector_id": "consumer_discretionary",
+      "sic": "7389",
+      "weight_qqq": 0.0025,
+      "series": {
+        "concepts": 29,
+        "revenue_years": 8,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 0,
+        "exhibits": 0,
+        "latest_filed": null
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "PEP",
+      "cik": "0000077476",
+      "sector_id": "consumer_staples",
+      "sic": "2080",
+      "weight_qqq": 0.0083,
+      "series": {
+        "concepts": 31,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-27",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-08"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "PLTR",
+      "cik": "0001321655",
+      "sector_id": "information_technology",
+      "sic": "7372",
+      "weight_qqq": 0.0127,
+      "series": {
+        "concepts": 33,
+        "revenue_years": 8,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-08-03"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "PYPL",
+      "cik": "0001633917",
+      "sector_id": "financials",
+      "sic": "7389",
+      "weight_qqq": 0.0022,
+      "series": {
+        "concepts": 31,
+        "revenue_years": 8,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-27"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "QCOM",
+      "cik": "0000804328",
+      "sector_id": "information_technology",
+      "sic": "3663",
+      "weight_qqq": 0.0082,
+      "series": {
+        "concepts": 35,
+        "revenue_years": 20,
+        "latest_fiscal_end": "2026-09-27",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-04"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "REGN",
+      "cik": "0000872589",
+      "sector_id": "healthcare",
+      "sic": "2834",
+      "weight_qqq": 0.003,
+      "series": {
+        "concepts": 29,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 1,
+        "exhibits": 1,
+        "latest_filed": "2026-10-30"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "RKLB",
+      "cik": "0001819994",
+      "sector_id": "industrials",
+      "sic": "3760",
+      "weight_qqq": 0.0018,
+      "series": {
+        "concepts": 33,
+        "revenue_years": 6,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-09"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "ROP",
+      "cik": "0000882835",
+      "sector_id": "industrials",
+      "sic": "3823",
+      "weight_qqq": 0.0015,
+      "series": {
+        "concepts": 35,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-22"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "ROST",
+      "cik": "0000745732",
+      "sector_id": "consumer_discretionary",
+      "sic": "5651",
+      "weight_qqq": 0.0034,
+      "series": {
+        "concepts": 26,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2026-01-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-08-20"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "SBUX",
+      "cik": "0000829224",
+      "sector_id": "consumer_discretionary",
+      "sic": "5810",
+      "weight_qqq": 0.0053,
+      "series": {
+        "concepts": 32,
+        "revenue_years": 16,
+        "latest_fiscal_end": "2026-09-27",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-29"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "SHOP",
+      "cik": "0001594805",
+      "sector_id": "information_technology",
+      "sic": "7372",
+      "weight_qqq": 0.0064,
+      "series": {
+        "concepts": 30,
+        "revenue_years": 7,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-08-05"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "SNDK",
+      "cik": "0002023554",
+      "sector_id": "information_technology",
+      "sic": "3572",
+      "weight_qqq": 0.0105,
+      "series": {
+        "concepts": 31,
+        "revenue_years": 4,
+        "latest_fiscal_end": "2026-07-03",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-29"
+      },
+      "gaps": [
+        "thin history: 4 fiscal years"
+      ]
+    },
+    {
+      "symbol": "SNPS",
+      "cik": "0000883241",
+      "sector_id": "information_technology",
+      "sic": "7372",
+      "weight_qqq": 0.0032,
+      "series": {
+        "concepts": 39,
+        "revenue_years": 15,
+        "latest_fiscal_end": "2025-10-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-05-27"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "SPCX",
+      "cik": "0001181412",
+      "sector_id": "industrials",
+      "sic": "7370",
+      "weight_qqq": 0.0098,
+      "series": {
+        "concepts": 0,
+        "revenue_years": 0,
+        "latest_fiscal_end": null,
+        "units": [],
+        "missing_core": [
+          "Revenues",
+          "NetIncomeLoss",
+          "Assets"
+        ]
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-20"
+      },
+      "gaps": [
+        "no annual revenue history (new filer with no annual report yet, or an unmapped taxonomy tag)"
+      ]
+    },
+    {
+      "symbol": "STX",
+      "cik": "0001137789",
+      "sector_id": "information_technology",
+      "sic": "3572",
+      "weight_qqq": 0.0091,
+      "series": {
+        "concepts": 31,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2026-07-03",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-27"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "TER",
+      "cik": "0000097210",
+      "sector_id": "information_technology",
+      "sic": "3825",
+      "weight_qqq": 0.0026,
+      "series": {
+        "concepts": 37,
+        "revenue_years": 18,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-28"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "TMUS",
+      "cik": "0001283699",
+      "sector_id": "communication_services",
+      "sic": "4812",
+      "weight_qqq": 0.0092,
+      "series": {
+        "concepts": 34,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 4,
+        "latest_filed": "2026-10-28"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "TRI",
+      "cik": "0001075124",
+      "sector_id": "communication_services",
+      "sic": "2741",
+      "weight_qqq": 0.0015,
+      "series": {
+        "concepts": 17,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 0,
+        "exhibits": 0,
+        "latest_filed": null
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "TSLA",
+      "cik": "0001318605",
+      "sector_id": "consumer_discretionary",
+      "sic": "3711",
+      "weight_qqq": 0.0301,
+      "series": {
+        "concepts": 37,
+        "revenue_years": 17,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-21"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "TTWO",
+      "cik": "0000946581",
+      "sector_id": "communication_services",
+      "sic": "7372",
+      "weight_qqq": 0.0019,
+      "series": {
+        "concepts": 37,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2026-03-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-09"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "TXN",
+      "cik": "0000097476",
+      "sector_id": "information_technology",
+      "sic": "3674",
+      "weight_qqq": 0.0119,
+      "series": {
+        "concepts": 29,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-21"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "VRTX",
+      "cik": "0000875320",
+      "sector_id": "healthcare",
+      "sic": "2834",
+      "weight_qqq": 0.0053,
+      "series": {
+        "concepts": 30,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-11-02"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "WBD",
+      "cik": "0001437107",
+      "sector_id": "communication_services",
+      "sic": "4841",
+      "weight_qqq": 0.0029,
+      "series": {
+        "concepts": 33,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 4,
+        "latest_filed": "2026-08-06"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "WDAY",
+      "cik": "0001327811",
+      "sector_id": "information_technology",
+      "sic": "7374",
+      "weight_qqq": 0.0012,
+      "series": {
+        "concepts": 35,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2026-01-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 1,
+        "exhibits": 1,
+        "latest_filed": "2026-08-27"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "WDC",
+      "cik": "0000106040",
+      "sector_id": "information_technology",
+      "sic": "3572",
+      "weight_qqq": 0.0085,
+      "series": {
+        "concepts": 32,
+        "revenue_years": 10,
+        "latest_fiscal_end": "2026-07-03",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-22"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "WMT",
+      "cik": "0000104169",
+      "sector_id": "consumer_staples",
+      "sic": "5331",
+      "weight_qqq": 0.0238,
+      "series": {
+        "concepts": 30,
+        "revenue_years": 19,
+        "latest_fiscal_end": "2026-01-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 4,
+        "latest_filed": "2026-08-20"
+      },
+      "gaps": []
+    },
+    {
+      "symbol": "XEL",
+      "cik": "0000072903",
+      "sector_id": "utilities",
+      "sic": "4931",
+      "weight_qqq": 0.0022,
+      "series": {
+        "concepts": 28,
+        "revenue_years": 12,
+        "latest_fiscal_end": "2025-12-31",
+        "units": [
+          "USD",
+          "USD/shares",
+          "shares"
+        ],
+        "missing_core": []
+      },
+      "earnings_materials": {
+        "filings": 2,
+        "exhibits": 2,
+        "latest_filed": "2026-10-29"
+      },
+      "gaps": []
+    }
+  ]
+}

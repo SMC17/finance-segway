@@ -1,7 +1,7 @@
 {
   "ticker": "ADSK",
   "cik": "0000769397",
-  "retrieved_utc": "20260806T143353Z",
+  "retrieved_utc": "20261114T070750Z",
   "concepts": [
     {
       "concept": "Assets",
@@ -86,6 +86,18 @@
       "fy": 2026,
       "fp": "FY",
       "frame": "CY2025Q4I"
+    },
+    {
+      "concept": "ShortTermBorrowings",
+      "resolved_tag": "us-gaap:ShortTermBorrowings",
+      "unit": "USD",
+      "value": 994000000,
+      "end": "2026-07-31",
+      "filed": "2026-08-28",
+      "form": "10-Q",
+      "fy": 2027,
+      "fp": "Q2",
+      "frame": "CY2026Q2I"
     },
     {
       "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
