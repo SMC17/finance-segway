@@ -175,7 +175,8 @@ TRU_WINDDOWN = {
     "as_of": "2018-03-15",
     "notes": (
         "On 2018-03-15 Toys \"R\" Us announced it would close all 744 remaining U.S. stores and wind "
-        "down Toys Delaware, 178 days (5.9 months) after its petition: the closest large U.S. retail "
+        "down Toys Delaware. The wind-down motion was filed on 2018-03-14, 177 days (5.8 months) after the "
+        "2017-09-18 petition, and announced in a Form 8-K dated 2018-03-15: the closest large U.S. retail "
         "Chapter 11 that turned into a liquidation and filed with the SEC."
     ),
 }
@@ -493,8 +494,8 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
            "No Chapter 11 case existed at the case date, so no fee application could exist.",
            [LOPUCKI_FEES], "$52.995mm to $71.036mm (85% interval of the calculator's worked example, 2001 dollars, no post-2010 inflation adjustment).")
     add(ws, "C8", 6, "modeler_assumption", TRU_WINDDOWN,
-        "Time to distribution in a liquidation = 6 months: Toys \"R\" Us took 178 days (5.9 months) from "
-        "its 2017-09-18 petition to its 2018-03-15 U.S. liquidation decision.")
+        "Time to distribution in a liquidation = 6 months: Toys \"R\" Us filed its U.S. wind-down motion "
+        "177 days (5.8 months) after its 2017-09-18 petition, on 2018-03-14 (announced by 8-K on 2018-03-15).")
     driver(ws, "C8", "undisclosed_metric_driver",
            "A liquidation timeline for Bed Bath & Beyond did not exist at the case date; grounded in the "
            "closest large U.S. retail Chapter 11 that converted to a liquidation.",
