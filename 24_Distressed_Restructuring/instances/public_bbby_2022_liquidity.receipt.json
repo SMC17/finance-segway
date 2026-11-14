@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "instance_id": "distressed-public-bbby-2022-liquidity",
-  "as_of": "2022-08-27",
+  "as_of": "2022-09-30",
   "manifest": "standards/public_cases/distressed-public-bbby-2022-liquidity.json",
   "template": "24_Distressed_Restructuring/_template_RESTRUCTURING.xlsx",
   "output": "24_Distressed_Restructuring/instances/public_bbby_2022_liquidity.xlsx",
@@ -10,9 +10,537 @@
       "sheet": "13-Week Liquidity",
       "cell": "C3",
       "previous": 20,
-      "value": 166.7,
+      "value": 135.27,
       "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
-      "source_as_of": "2022-08-27"
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "C4",
+      "previous": 5,
+      "value": 113.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615821000033/bbbyamendedandrestatedablc.htm",
+      "source_as_of": "2021-08-10"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D7",
+      "previous": 8,
+      "value": 110.5398,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E7",
+      "previous": 7,
+      "value": 124.2648,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F7",
+      "previous": 0.75,
+      "value": 1.0894,
+      "source_url": "https://fred.stlouisfed.org/series/SOFR",
+      "source_as_of": "2022-09-29"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G7",
+      "previous": 0.5,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H7",
+      "previous": 0,
+      "value": 205.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D8",
+      "previous": 8,
+      "value": 110.5398,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E8",
+      "previous": 7,
+      "value": 124.2648,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F8",
+      "previous": 0.75,
+      "value": 1.0894,
+      "source_url": "https://fred.stlouisfed.org/series/SOFR",
+      "source_as_of": "2022-09-29"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G8",
+      "previous": 0.5,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H8",
+      "previous": 0,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D9",
+      "previous": 8,
+      "value": 110.5398,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E9",
+      "previous": 7,
+      "value": 124.2648,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F9",
+      "previous": 0.75,
+      "value": 1.0894,
+      "source_url": "https://fred.stlouisfed.org/series/SOFR",
+      "source_as_of": "2022-09-29"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G9",
+      "previous": 0.5,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H9",
+      "previous": 0,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D10",
+      "previous": 8,
+      "value": 110.5398,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E10",
+      "previous": 7,
+      "value": 124.2648,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F10",
+      "previous": 0.75,
+      "value": 1.0894,
+      "source_url": "https://fred.stlouisfed.org/series/SOFR",
+      "source_as_of": "2022-09-29"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G10",
+      "previous": 0.5,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H10",
+      "previous": 0,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D11",
+      "previous": 8,
+      "value": 110.5398,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E11",
+      "previous": 7,
+      "value": 124.2648,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F11",
+      "previous": 0.75,
+      "value": 1.0894,
+      "source_url": "https://fred.stlouisfed.org/series/SOFR",
+      "source_as_of": "2022-09-29"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G11",
+      "previous": 0.5,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H11",
+      "previous": 0,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D12",
+      "previous": 8,
+      "value": 110.5398,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E12",
+      "previous": 7,
+      "value": 124.2648,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F12",
+      "previous": 0.75,
+      "value": 1.0894,
+      "source_url": "https://fred.stlouisfed.org/series/SOFR",
+      "source_as_of": "2022-09-29"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G12",
+      "previous": 0.5,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H12",
+      "previous": 0,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D13",
+      "previous": 8,
+      "value": 110.5398,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E13",
+      "previous": 7,
+      "value": 124.2648,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F13",
+      "previous": 0.75,
+      "value": 1.0894,
+      "source_url": "https://fred.stlouisfed.org/series/SOFR",
+      "source_as_of": "2022-09-29"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G13",
+      "previous": 0.5,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H13",
+      "previous": 0,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D14",
+      "previous": 8,
+      "value": 110.5398,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E14",
+      "previous": 7,
+      "value": 124.2648,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F14",
+      "previous": 0.75,
+      "value": 1.0894,
+      "source_url": "https://fred.stlouisfed.org/series/SOFR",
+      "source_as_of": "2022-09-29"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G14",
+      "previous": 0.5,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H14",
+      "previous": 0,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D15",
+      "previous": 8,
+      "value": 110.5398,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E15",
+      "previous": 7,
+      "value": 124.2648,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F15",
+      "previous": 0.75,
+      "value": 1.0894,
+      "source_url": "https://fred.stlouisfed.org/series/SOFR",
+      "source_as_of": "2022-09-29"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G15",
+      "previous": 0.5,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H15",
+      "previous": 0,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D16",
+      "previous": 8,
+      "value": 110.5398,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E16",
+      "previous": 7,
+      "value": 124.2648,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F16",
+      "previous": 0.75,
+      "value": 1.0894,
+      "source_url": "https://fred.stlouisfed.org/series/SOFR",
+      "source_as_of": "2022-09-29"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G16",
+      "previous": 0.5,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H16",
+      "previous": 0,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D17",
+      "previous": 8,
+      "value": 110.5398,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E17",
+      "previous": 7,
+      "value": 124.2648,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F17",
+      "previous": 0.75,
+      "value": 1.0894,
+      "source_url": "https://fred.stlouisfed.org/series/SOFR",
+      "source_as_of": "2022-09-29"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G17",
+      "previous": 0.5,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H17",
+      "previous": 0,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D18",
+      "previous": 8,
+      "value": 110.5398,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E18",
+      "previous": 7,
+      "value": 124.2648,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F18",
+      "previous": 0.75,
+      "value": 1.0894,
+      "source_url": "https://fred.stlouisfed.org/series/SOFR",
+      "source_as_of": "2022-09-29"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G18",
+      "previous": 0.5,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H18",
+      "previous": 0,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D19",
+      "previous": 8,
+      "value": 110.5398,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E19",
+      "previous": 7,
+      "value": 124.2648,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F19",
+      "previous": 0.75,
+      "value": 1.0894,
+      "source_url": "https://fred.stlouisfed.org/series/SOFR",
+      "source_as_of": "2022-09-29"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G19",
+      "previous": 0.5,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H19",
+      "previous": 0,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
     },
     {
       "sheet": "New Money",
@@ -20,14 +548,220 @@
       "previous": 25,
       "value": 690.0,
       "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
-      "source_as_of": "2022-08-27"
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C7",
+      "previous": 0.02,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615821000033/bbbyamendedandrestatedablc.htm",
+      "source_as_of": "2021-08-10"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C8",
+      "previous": 0.12,
+      "value": 0.0471,
+      "source_url": "https://fred.stlouisfed.org/series/SOFR",
+      "source_as_of": "2022-09-29"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C9",
+      "previous": 1,
+      "value": 3.8576,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+      "source_as_of": "2022-09-01"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C10",
+      "previous": 0.03,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+      "source_as_of": "2022-09-01"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C11",
+      "previous": 1,
+      "value": 1,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+      "source_as_of": "2022-09-01"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C5",
+      "previous": 0,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C6",
+      "previous": 0,
+      "value": 550.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C7",
+      "previous": 0,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C8",
+      "previous": 0,
+      "value": 1184.4,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000047/bbby-20220226.htm",
+      "source_as_of": "2022-04-21"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C9",
+      "previous": 0,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C10",
+      "previous": 0,
+      "value": 0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C12",
+      "previous": 0,
+      "value": 804.3,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D5",
+      "previous": 1,
+      "value": 1,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D6",
+      "previous": 2,
+      "value": 2,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D7",
+      "previous": 3,
+      "value": 3,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D8",
+      "previous": 4,
+      "value": 4,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D9",
+      "previous": 5,
+      "value": 5,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D10",
+      "previous": 6,
+      "value": 6,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C5",
+      "previous": 0,
+      "value": 3197.563,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C6",
+      "previous": 0,
+      "value": 1623.422,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+      "source_as_of": "2022-09-01"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C7",
+      "previous": 0,
+      "value": 61.356,
+      "source_url": "https://lopucki.law.ufl.edu/fee_calculator_prediction.php",
+      "source_as_of": "2011-01-01"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C8",
+      "previous": 6,
+      "value": 6,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1005414/000119312518083225/d552404d8k.htm",
+      "source_as_of": "2018-03-15"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C9",
+      "previous": 0.15,
+      "value": 0.1071,
+      "source_url": "https://fred.stlouisfed.org/series/SOFR",
+      "source_as_of": "2022-09-29"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D5",
+      "previous": 0,
+      "value": 804.3,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+      "source_as_of": "2022-09-30"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D7",
+      "previous": 0,
+      "value": 61.356,
+      "source_url": "https://lopucki.law.ufl.edu/fee_calculator_prediction.php",
+      "source_as_of": "2011-01-01"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D8",
+      "previous": 18,
+      "value": 11,
+      "source_url": "https://cfo.com/news/companies-spending-less-time-in-bankruptcy-fitch/658759/",
+      "source_as_of": "2018-08-08"
     }
   ],
-  "workbook_sha256": "df3d766de52586c422aba352b81c319c665a254b8cb171cd1822ff9d32ad3811",
-  "generated_on": "2026-08-04",
-  "refresh_schema": "source-addressed-v2",
-  "classification": "external_historical_case",
-  "counts_toward_M4": false,
-  "hash_refreshed_on": "2026-09-07",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
+  "workbook_sha256": "1ccf9167aa20443c2c476daf6143ef41ed28ce290e2f0449c3f9efc030625204",
+  "generated_on": "2026-11-13",
+  "hash_refreshed_on": "2026-11-13",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "counts_toward_M4": false
 }
