@@ -5,23 +5,885 @@
   "counts_toward_M4": false,
   "template": "24_Distressed_Restructuring/_template_RESTRUCTURING.xlsx",
   "output": "24_Distressed_Restructuring/instances/public_bbby_2022_liquidity.xlsx",
-  "as_of": "2022-08-27",
+  "as_of": "2022-09-30",
   "scenario": "Downside",
   "cover": {
-    "Situation type:": "Bed Bath & Beyond 2022 liquidity deterioration"
+    "Title:": "Bed Bath & Beyond Inc. (Nasdaq: BBBY) — Distressed / Restructuring Model",
+    "Situation type:": "Out-of-court liquidity stress: Bed Bath & Beyond Inc. (Nasdaq: BBBY, CIK 0000886158), fiscal Q2 2022 ended 2022-08-27",
+    "Petition/filing date:": "None as of 2022-09-30: no bankruptcy petition had been filed",
+    "Refresh cadence:": "Quarterly, on each Form 10-Q / 10-K; this case is frozen at the Q2 FY2022 Form 10-Q filed 2022-09-30"
   },
   "inputs": [
     {
       "sheet": "13-Week Liquidity",
       "cell": "C3",
-      "value": 166.7,
+      "value": 135.27,
       "input_kind": "observed",
       "source": {
-        "name": "Bed Bath & Beyond Q2 2022 Form 10-Q",
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
         "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
-        "as_of": "2022-08-27",
-        "notes": "U.S. SEC / Bed Bath & Beyond; frozen curated observation as of case date"
-      }
+        "as_of": "2022-09-30",
+        "notes": "Unrestricted cash and cash equivalents at 2022-08-27, $135.270mm (balance sheet). The earlier value 166.7 was cash INCLUDING $31.4mm of long-term restricted cash held in other assets, which is not unrestricted liquidity. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "C4",
+      "value": 113.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Amended and Restated Credit Agreement dated 2021-08-09 (Form 8-K Exhibit 10.1)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615821000033/bbbyamendedandrestatedablc.htm",
+        "as_of": "2021-08-10",
+        "notes": "Minimum operating liquidity = max(10% x $1,130.0mm ABL commitments, $95.0mm) = $113.0mm, the availability level below which the springing fixed-charge covenant applies (Section 6.14). Bed Bath & Beyond's FCCR was negative, so falling below it is a default trigger. Source: Filed 2021-08-10, accession 0000886158-21-000033. Section 6.14: the fixed charge coverage covenant springs when Availability is less than the greater of 10% of the Line Cap and $95,000,000. Applicable Rate grid: Eurodollar/term spread 1.75% when Average Quarterly Availability is below 33% of the Aggregate Revolving Commitment. Commitment fee 0.20%-0.25% on unused commitments; no fee is charged per draw. The 2022-08-31 amendment itself was filed only as scanned page images (10-Q Exhibit 4.1) and was not machine-read, so these 2021 terms are cited as the last text-readable version."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D7",
+      "value": 110.5398,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 1 receipts = fiscal Q2 2022 net sales $1,437.018mm / 13 weeks = $110.5398mm. Run-rate: Q2 is the latest disclosed quarter and is itself 13 weeks. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E7",
+      "value": 124.2648,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 1 disbursements = (Q2 net sales 1,437.018 - Q2 operating cash flow (-198.874) - Q2 interest paid 32.2) / 13 + remaining fiscal 2022 capex (250.0 planned - 226.5 spent) / 26 = $124.2648mm. Includes capital expenditure because the template has no separate capex row. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F7",
+      "value": 1.0894,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+        "url": "https://fred.stlouisfed.org/series/SOFR",
+        "as_of": "2022-09-29",
+        "notes": "Week 1 interest = (ABL $350.0mm x (SOFR 2.96% + 1.75%) + FILO $375.0mm x (SOFR 2.96% + 7.75%)) / 52 = $1.0894mm. No senior-note coupon falls in the window (coupons are paid 1 Feb and 1 Aug). Source: SOFR for 2022-09-29 = 2.96%, the latest rate published on or before the 2022-09-30 case date (the New York Fed publishes each day's SOFR the next business day)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G7",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 1 professional fees = 0. Bed Bath & Beyond had disclosed no restructuring-adviser retention or fee amount by 2022-09-30; any adviser cost is inside the operating disbursements, which are pinned to Q2 operating cash flow. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H7",
+      "value": 205.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 1 new money = $175.0mm net additional Credit Facility borrowings after quarter end (Note 13) + $30.0mm ATM equity proceeds after quarter end (Note 14) = $205.0mm. Placed in week 1 (2022-08-28 to 2022-09-03), which contains the FILO funding date (on or before 2022-09-02) and the ATM program start (2022-08-31); the 10-Q gives amounts, not dates. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D8",
+      "value": 110.5398,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 2 receipts = fiscal Q2 2022 net sales $1,437.018mm / 13 weeks = $110.5398mm. Run-rate: Q2 is the latest disclosed quarter and is itself 13 weeks. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E8",
+      "value": 124.2648,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 2 disbursements = (Q2 net sales 1,437.018 - Q2 operating cash flow (-198.874) - Q2 interest paid 32.2) / 13 + remaining fiscal 2022 capex (250.0 planned - 226.5 spent) / 26 = $124.2648mm. Includes capital expenditure because the template has no separate capex row. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F8",
+      "value": 1.0894,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+        "url": "https://fred.stlouisfed.org/series/SOFR",
+        "as_of": "2022-09-29",
+        "notes": "Week 2 interest = (ABL $350.0mm x (SOFR 2.96% + 1.75%) + FILO $375.0mm x (SOFR 2.96% + 7.75%)) / 52 = $1.0894mm. No senior-note coupon falls in the window (coupons are paid 1 Feb and 1 Aug). Source: SOFR for 2022-09-29 = 2.96%, the latest rate published on or before the 2022-09-30 case date (the New York Fed publishes each day's SOFR the next business day)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G8",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 2 professional fees = 0. Bed Bath & Beyond had disclosed no restructuring-adviser retention or fee amount by 2022-09-30; any adviser cost is inside the operating disbursements, which are pinned to Q2 operating cash flow. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H8",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 2 new money = 0: no further committed financing was disclosed by 2022-09-30. Undrawn ABL capacity is carried on the New Money sheet, not as a scheduled draw. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D9",
+      "value": 110.5398,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 3 receipts = fiscal Q2 2022 net sales $1,437.018mm / 13 weeks = $110.5398mm. Run-rate: Q2 is the latest disclosed quarter and is itself 13 weeks. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E9",
+      "value": 124.2648,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 3 disbursements = (Q2 net sales 1,437.018 - Q2 operating cash flow (-198.874) - Q2 interest paid 32.2) / 13 + remaining fiscal 2022 capex (250.0 planned - 226.5 spent) / 26 = $124.2648mm. Includes capital expenditure because the template has no separate capex row. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F9",
+      "value": 1.0894,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+        "url": "https://fred.stlouisfed.org/series/SOFR",
+        "as_of": "2022-09-29",
+        "notes": "Week 3 interest = (ABL $350.0mm x (SOFR 2.96% + 1.75%) + FILO $375.0mm x (SOFR 2.96% + 7.75%)) / 52 = $1.0894mm. No senior-note coupon falls in the window (coupons are paid 1 Feb and 1 Aug). Source: SOFR for 2022-09-29 = 2.96%, the latest rate published on or before the 2022-09-30 case date (the New York Fed publishes each day's SOFR the next business day)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G9",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 3 professional fees = 0. Bed Bath & Beyond had disclosed no restructuring-adviser retention or fee amount by 2022-09-30; any adviser cost is inside the operating disbursements, which are pinned to Q2 operating cash flow. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H9",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 3 new money = 0: no further committed financing was disclosed by 2022-09-30. Undrawn ABL capacity is carried on the New Money sheet, not as a scheduled draw. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D10",
+      "value": 110.5398,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 4 receipts = fiscal Q2 2022 net sales $1,437.018mm / 13 weeks = $110.5398mm. Run-rate: Q2 is the latest disclosed quarter and is itself 13 weeks. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E10",
+      "value": 124.2648,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 4 disbursements = (Q2 net sales 1,437.018 - Q2 operating cash flow (-198.874) - Q2 interest paid 32.2) / 13 + remaining fiscal 2022 capex (250.0 planned - 226.5 spent) / 26 = $124.2648mm. Includes capital expenditure because the template has no separate capex row. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F10",
+      "value": 1.0894,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+        "url": "https://fred.stlouisfed.org/series/SOFR",
+        "as_of": "2022-09-29",
+        "notes": "Week 4 interest = (ABL $350.0mm x (SOFR 2.96% + 1.75%) + FILO $375.0mm x (SOFR 2.96% + 7.75%)) / 52 = $1.0894mm. No senior-note coupon falls in the window (coupons are paid 1 Feb and 1 Aug). Source: SOFR for 2022-09-29 = 2.96%, the latest rate published on or before the 2022-09-30 case date (the New York Fed publishes each day's SOFR the next business day)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G10",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 4 professional fees = 0. Bed Bath & Beyond had disclosed no restructuring-adviser retention or fee amount by 2022-09-30; any adviser cost is inside the operating disbursements, which are pinned to Q2 operating cash flow. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H10",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 4 new money = 0: no further committed financing was disclosed by 2022-09-30. Undrawn ABL capacity is carried on the New Money sheet, not as a scheduled draw. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D11",
+      "value": 110.5398,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 5 receipts = fiscal Q2 2022 net sales $1,437.018mm / 13 weeks = $110.5398mm. Run-rate: Q2 is the latest disclosed quarter and is itself 13 weeks. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E11",
+      "value": 124.2648,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 5 disbursements = (Q2 net sales 1,437.018 - Q2 operating cash flow (-198.874) - Q2 interest paid 32.2) / 13 + remaining fiscal 2022 capex (250.0 planned - 226.5 spent) / 26 = $124.2648mm. Includes capital expenditure because the template has no separate capex row. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F11",
+      "value": 1.0894,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+        "url": "https://fred.stlouisfed.org/series/SOFR",
+        "as_of": "2022-09-29",
+        "notes": "Week 5 interest = (ABL $350.0mm x (SOFR 2.96% + 1.75%) + FILO $375.0mm x (SOFR 2.96% + 7.75%)) / 52 = $1.0894mm. No senior-note coupon falls in the window (coupons are paid 1 Feb and 1 Aug). Source: SOFR for 2022-09-29 = 2.96%, the latest rate published on or before the 2022-09-30 case date (the New York Fed publishes each day's SOFR the next business day)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G11",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 5 professional fees = 0. Bed Bath & Beyond had disclosed no restructuring-adviser retention or fee amount by 2022-09-30; any adviser cost is inside the operating disbursements, which are pinned to Q2 operating cash flow. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H11",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 5 new money = 0: no further committed financing was disclosed by 2022-09-30. Undrawn ABL capacity is carried on the New Money sheet, not as a scheduled draw. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D12",
+      "value": 110.5398,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 6 receipts = fiscal Q2 2022 net sales $1,437.018mm / 13 weeks = $110.5398mm. Run-rate: Q2 is the latest disclosed quarter and is itself 13 weeks. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E12",
+      "value": 124.2648,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 6 disbursements = (Q2 net sales 1,437.018 - Q2 operating cash flow (-198.874) - Q2 interest paid 32.2) / 13 + remaining fiscal 2022 capex (250.0 planned - 226.5 spent) / 26 = $124.2648mm. Includes capital expenditure because the template has no separate capex row. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F12",
+      "value": 1.0894,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+        "url": "https://fred.stlouisfed.org/series/SOFR",
+        "as_of": "2022-09-29",
+        "notes": "Week 6 interest = (ABL $350.0mm x (SOFR 2.96% + 1.75%) + FILO $375.0mm x (SOFR 2.96% + 7.75%)) / 52 = $1.0894mm. No senior-note coupon falls in the window (coupons are paid 1 Feb and 1 Aug). Source: SOFR for 2022-09-29 = 2.96%, the latest rate published on or before the 2022-09-30 case date (the New York Fed publishes each day's SOFR the next business day)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G12",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 6 professional fees = 0. Bed Bath & Beyond had disclosed no restructuring-adviser retention or fee amount by 2022-09-30; any adviser cost is inside the operating disbursements, which are pinned to Q2 operating cash flow. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H12",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 6 new money = 0: no further committed financing was disclosed by 2022-09-30. Undrawn ABL capacity is carried on the New Money sheet, not as a scheduled draw. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D13",
+      "value": 110.5398,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 7 receipts = fiscal Q2 2022 net sales $1,437.018mm / 13 weeks = $110.5398mm. Run-rate: Q2 is the latest disclosed quarter and is itself 13 weeks. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E13",
+      "value": 124.2648,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 7 disbursements = (Q2 net sales 1,437.018 - Q2 operating cash flow (-198.874) - Q2 interest paid 32.2) / 13 + remaining fiscal 2022 capex (250.0 planned - 226.5 spent) / 26 = $124.2648mm. Includes capital expenditure because the template has no separate capex row. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F13",
+      "value": 1.0894,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+        "url": "https://fred.stlouisfed.org/series/SOFR",
+        "as_of": "2022-09-29",
+        "notes": "Week 7 interest = (ABL $350.0mm x (SOFR 2.96% + 1.75%) + FILO $375.0mm x (SOFR 2.96% + 7.75%)) / 52 = $1.0894mm. No senior-note coupon falls in the window (coupons are paid 1 Feb and 1 Aug). Source: SOFR for 2022-09-29 = 2.96%, the latest rate published on or before the 2022-09-30 case date (the New York Fed publishes each day's SOFR the next business day)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G13",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 7 professional fees = 0. Bed Bath & Beyond had disclosed no restructuring-adviser retention or fee amount by 2022-09-30; any adviser cost is inside the operating disbursements, which are pinned to Q2 operating cash flow. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H13",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 7 new money = 0: no further committed financing was disclosed by 2022-09-30. Undrawn ABL capacity is carried on the New Money sheet, not as a scheduled draw. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D14",
+      "value": 110.5398,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 8 receipts = fiscal Q2 2022 net sales $1,437.018mm / 13 weeks = $110.5398mm. Run-rate: Q2 is the latest disclosed quarter and is itself 13 weeks. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E14",
+      "value": 124.2648,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 8 disbursements = (Q2 net sales 1,437.018 - Q2 operating cash flow (-198.874) - Q2 interest paid 32.2) / 13 + remaining fiscal 2022 capex (250.0 planned - 226.5 spent) / 26 = $124.2648mm. Includes capital expenditure because the template has no separate capex row. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F14",
+      "value": 1.0894,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+        "url": "https://fred.stlouisfed.org/series/SOFR",
+        "as_of": "2022-09-29",
+        "notes": "Week 8 interest = (ABL $350.0mm x (SOFR 2.96% + 1.75%) + FILO $375.0mm x (SOFR 2.96% + 7.75%)) / 52 = $1.0894mm. No senior-note coupon falls in the window (coupons are paid 1 Feb and 1 Aug). Source: SOFR for 2022-09-29 = 2.96%, the latest rate published on or before the 2022-09-30 case date (the New York Fed publishes each day's SOFR the next business day)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G14",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 8 professional fees = 0. Bed Bath & Beyond had disclosed no restructuring-adviser retention or fee amount by 2022-09-30; any adviser cost is inside the operating disbursements, which are pinned to Q2 operating cash flow. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H14",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 8 new money = 0: no further committed financing was disclosed by 2022-09-30. Undrawn ABL capacity is carried on the New Money sheet, not as a scheduled draw. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D15",
+      "value": 110.5398,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 9 receipts = fiscal Q2 2022 net sales $1,437.018mm / 13 weeks = $110.5398mm. Run-rate: Q2 is the latest disclosed quarter and is itself 13 weeks. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E15",
+      "value": 124.2648,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 9 disbursements = (Q2 net sales 1,437.018 - Q2 operating cash flow (-198.874) - Q2 interest paid 32.2) / 13 + remaining fiscal 2022 capex (250.0 planned - 226.5 spent) / 26 = $124.2648mm. Includes capital expenditure because the template has no separate capex row. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F15",
+      "value": 1.0894,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+        "url": "https://fred.stlouisfed.org/series/SOFR",
+        "as_of": "2022-09-29",
+        "notes": "Week 9 interest = (ABL $350.0mm x (SOFR 2.96% + 1.75%) + FILO $375.0mm x (SOFR 2.96% + 7.75%)) / 52 = $1.0894mm. No senior-note coupon falls in the window (coupons are paid 1 Feb and 1 Aug). Source: SOFR for 2022-09-29 = 2.96%, the latest rate published on or before the 2022-09-30 case date (the New York Fed publishes each day's SOFR the next business day)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G15",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 9 professional fees = 0. Bed Bath & Beyond had disclosed no restructuring-adviser retention or fee amount by 2022-09-30; any adviser cost is inside the operating disbursements, which are pinned to Q2 operating cash flow. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H15",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 9 new money = 0: no further committed financing was disclosed by 2022-09-30. Undrawn ABL capacity is carried on the New Money sheet, not as a scheduled draw. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D16",
+      "value": 110.5398,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 10 receipts = fiscal Q2 2022 net sales $1,437.018mm / 13 weeks = $110.5398mm. Run-rate: Q2 is the latest disclosed quarter and is itself 13 weeks. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E16",
+      "value": 124.2648,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 10 disbursements = (Q2 net sales 1,437.018 - Q2 operating cash flow (-198.874) - Q2 interest paid 32.2) / 13 + remaining fiscal 2022 capex (250.0 planned - 226.5 spent) / 26 = $124.2648mm. Includes capital expenditure because the template has no separate capex row. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F16",
+      "value": 1.0894,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+        "url": "https://fred.stlouisfed.org/series/SOFR",
+        "as_of": "2022-09-29",
+        "notes": "Week 10 interest = (ABL $350.0mm x (SOFR 2.96% + 1.75%) + FILO $375.0mm x (SOFR 2.96% + 7.75%)) / 52 = $1.0894mm. No senior-note coupon falls in the window (coupons are paid 1 Feb and 1 Aug). Source: SOFR for 2022-09-29 = 2.96%, the latest rate published on or before the 2022-09-30 case date (the New York Fed publishes each day's SOFR the next business day)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G16",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 10 professional fees = 0. Bed Bath & Beyond had disclosed no restructuring-adviser retention or fee amount by 2022-09-30; any adviser cost is inside the operating disbursements, which are pinned to Q2 operating cash flow. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H16",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 10 new money = 0: no further committed financing was disclosed by 2022-09-30. Undrawn ABL capacity is carried on the New Money sheet, not as a scheduled draw. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D17",
+      "value": 110.5398,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 11 receipts = fiscal Q2 2022 net sales $1,437.018mm / 13 weeks = $110.5398mm. Run-rate: Q2 is the latest disclosed quarter and is itself 13 weeks. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E17",
+      "value": 124.2648,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 11 disbursements = (Q2 net sales 1,437.018 - Q2 operating cash flow (-198.874) - Q2 interest paid 32.2) / 13 + remaining fiscal 2022 capex (250.0 planned - 226.5 spent) / 26 = $124.2648mm. Includes capital expenditure because the template has no separate capex row. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F17",
+      "value": 1.0894,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+        "url": "https://fred.stlouisfed.org/series/SOFR",
+        "as_of": "2022-09-29",
+        "notes": "Week 11 interest = (ABL $350.0mm x (SOFR 2.96% + 1.75%) + FILO $375.0mm x (SOFR 2.96% + 7.75%)) / 52 = $1.0894mm. No senior-note coupon falls in the window (coupons are paid 1 Feb and 1 Aug). Source: SOFR for 2022-09-29 = 2.96%, the latest rate published on or before the 2022-09-30 case date (the New York Fed publishes each day's SOFR the next business day)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G17",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 11 professional fees = 0. Bed Bath & Beyond had disclosed no restructuring-adviser retention or fee amount by 2022-09-30; any adviser cost is inside the operating disbursements, which are pinned to Q2 operating cash flow. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H17",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 11 new money = 0: no further committed financing was disclosed by 2022-09-30. Undrawn ABL capacity is carried on the New Money sheet, not as a scheduled draw. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D18",
+      "value": 110.5398,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 12 receipts = fiscal Q2 2022 net sales $1,437.018mm / 13 weeks = $110.5398mm. Run-rate: Q2 is the latest disclosed quarter and is itself 13 weeks. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E18",
+      "value": 124.2648,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 12 disbursements = (Q2 net sales 1,437.018 - Q2 operating cash flow (-198.874) - Q2 interest paid 32.2) / 13 + remaining fiscal 2022 capex (250.0 planned - 226.5 spent) / 26 = $124.2648mm. Includes capital expenditure because the template has no separate capex row. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F18",
+      "value": 1.0894,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+        "url": "https://fred.stlouisfed.org/series/SOFR",
+        "as_of": "2022-09-29",
+        "notes": "Week 12 interest = (ABL $350.0mm x (SOFR 2.96% + 1.75%) + FILO $375.0mm x (SOFR 2.96% + 7.75%)) / 52 = $1.0894mm. No senior-note coupon falls in the window (coupons are paid 1 Feb and 1 Aug). Source: SOFR for 2022-09-29 = 2.96%, the latest rate published on or before the 2022-09-30 case date (the New York Fed publishes each day's SOFR the next business day)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G18",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 12 professional fees = 0. Bed Bath & Beyond had disclosed no restructuring-adviser retention or fee amount by 2022-09-30; any adviser cost is inside the operating disbursements, which are pinned to Q2 operating cash flow. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H18",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 12 new money = 0: no further committed financing was disclosed by 2022-09-30. Undrawn ABL capacity is carried on the New Money sheet, not as a scheduled draw. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D19",
+      "value": 110.5398,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 13 receipts = fiscal Q2 2022 net sales $1,437.018mm / 13 weeks = $110.5398mm. Run-rate: Q2 is the latest disclosed quarter and is itself 13 weeks. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E19",
+      "value": 124.2648,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 13 disbursements = (Q2 net sales 1,437.018 - Q2 operating cash flow (-198.874) - Q2 interest paid 32.2) / 13 + remaining fiscal 2022 capex (250.0 planned - 226.5 spent) / 26 = $124.2648mm. Includes capital expenditure because the template has no separate capex row. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F19",
+      "value": 1.0894,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+        "url": "https://fred.stlouisfed.org/series/SOFR",
+        "as_of": "2022-09-29",
+        "notes": "Week 13 interest = (ABL $350.0mm x (SOFR 2.96% + 1.75%) + FILO $375.0mm x (SOFR 2.96% + 7.75%)) / 52 = $1.0894mm. No senior-note coupon falls in the window (coupons are paid 1 Feb and 1 Aug). Source: SOFR for 2022-09-29 = 2.96%, the latest rate published on or before the 2022-09-30 case date (the New York Fed publishes each day's SOFR the next business day)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G19",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 13 professional fees = 0. Bed Bath & Beyond had disclosed no restructuring-adviser retention or fee amount by 2022-09-30; any adviser cost is inside the operating disbursements, which are pinned to Q2 operating cash flow. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H19",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Week 13 new money = 0: no further committed financing was disclosed by 2022-09-30. Undrawn ABL capacity is carried on the New Money sheet, not as a scheduled draw. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
     },
     {
       "sheet": "New Money",
@@ -29,39 +891,444 @@
       "value": 690.0,
       "input_kind": "observed",
       "source": {
-        "name": "Bed Bath & Beyond Q2 2022 Form 10-Q",
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
         "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
-        "as_of": "2022-08-27",
-        "notes": "U.S. SEC / Bed Bath & Beyond; frozen curated observation as of case date"
-      }
+        "as_of": "2022-09-30",
+        "notes": "Available borrowing capacity at the end of fiscal September 2022, after the ABL upsizing to $1,130.0mm and the $375.0mm FILO (Note 2 and MD&A Liquidity). Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C7",
+      "value": 0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Amended and Restated Credit Agreement dated 2021-08-09 (Form 8-K Exhibit 10.1)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615821000033/bbbyamendedandrestatedablc.htm",
+        "as_of": "2021-08-10",
+        "notes": "Upfront fee per draw = 0: the ABL charges commitment fees on unused commitments (0.20%-0.25%) and letter-of-credit fees, not a fee on each revolver draw. Any fee on the 2022-08-31 amendment was not disclosed. Source: Filed 2021-08-10, accession 0000886158-21-000033. Section 6.14: the fixed charge coverage covenant springs when Availability is less than the greater of 10% of the Line Cap and $95,000,000. Applicable Rate grid: Eurodollar/term spread 1.75% when Average Quarterly Availability is below 33% of the Aggregate Revolving Commitment. Commitment fee 0.20%-0.25% on unused commitments; no fee is charged per draw. The 2022-08-31 amendment itself was filed only as scanned page images (10-Q Exhibit 4.1) and was not machine-read, so these 2021 terms are cited as the last text-readable version."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C8",
+      "value": 0.0471,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+        "url": "https://fred.stlouisfed.org/series/SOFR",
+        "as_of": "2022-09-29",
+        "notes": "ABL revolver cash rate = SOFR 2.96% (2022-09-29) + 1.75% top-tier margin = 4.71%. The remaining $690.0mm capacity is the ABL revolver, because the FILO term loan was fully drawn by 2022-09-02. Source: SOFR for 2022-09-29 = 2.96%, the latest rate published on or before the 2022-09-30 case date (the New York Fed publishes each day's SOFR the next business day)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C9",
+      "value": 3.8576,
+      "input_kind": "derived",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+        "as_of": "2022-09-01",
+        "notes": "Tenor = days from the 2022-09-30 case date to the 2026-08-09 ABL maturity (1,409) / 365.25 = 3.8576 years. Source: Filed 2022-09-01, accession 0001193125-22-235718. ABL commitments raised by $130.0mm to $1,130.0mm (matures 2026-08-09); new $375.0mm FILO term loan drawn on or before 2022-09-02 (matures 2027-08-31); FILO margin SOFR + 7.75% (SOFR floor 1.00%); ABL SOFR margin 1.25% to 1.75%; ABL repayable at any time without premium or penalty; first-priority liens on substantially all assets; ABL borrowing base 90% of eligible card receivables and inventory."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C10",
+      "value": 0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+        "as_of": "2022-09-01",
+        "notes": "Exit fee = 0: the 8-K states ABL borrowings may be repaid at any time without premium or penalty. Source: Filed 2022-09-01, accession 0001193125-22-235718. ABL commitments raised by $130.0mm to $1,130.0mm (matures 2026-08-09); new $375.0mm FILO term loan drawn on or before 2022-09-02 (matures 2027-08-31); FILO margin SOFR + 7.75% (SOFR floor 1.00%); ABL SOFR margin 1.25% to 1.75%; ABL repayable at any time without premium or penalty; first-priority liens on substantially all assets; ABL borrowing base 90% of eligible card receivables and inventory."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C11",
+      "value": 1,
+      "input_kind": "derived",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+        "as_of": "2022-09-01",
+        "notes": "Priority multiplier 1.0x: the Credit Facilities hold first-priority liens on substantially all assets, senior to the unsecured notes. Source: Filed 2022-09-01, accession 0001193125-22-235718. ABL commitments raised by $130.0mm to $1,130.0mm (matures 2026-08-09); new $375.0mm FILO term loan drawn on or before 2022-09-02 (matures 2027-08-31); FILO margin SOFR + 7.75% (SOFR floor 1.00%); ABL SOFR margin 1.25% to 1.75%; ABL repayable at any time without premium or penalty; first-priority liens on substantially all assets; ABL borrowing base 90% of eligible card receivables and inventory."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C5",
+      "value": 0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "DIP claim = 0: no Chapter 11 case and no DIP facility existed at 2022-08-27 or 2022-09-30. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C6",
+      "value": 550.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "First-lien claim = $550.0mm ABL borrowings at 2022-08-27 (Note 13). Excludes $136.4mm of undrawn letters of credit. Post-quarter the first-lien total rose to $725.0mm, but the waterfall is valued at the 2022-08-27 market marks, so it uses the 2022-08-27 balance. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C7",
+      "value": 0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Second-lien claim = 0: Note 13 discloses no second-lien debt. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C8",
+      "value": 1184.4,
+      "input_kind": "derived",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-K for the fiscal year ended 2022-02-26 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000047/bbby-20220226.htm",
+        "as_of": "2022-04-21",
+        "notes": "Senior unsecured notes principal = 284.4 (3.749% 2024) + (300.0 - 75.0) (4.915% 2034) + (900.0 - 225.0) (5.165% 2044) = $1,184.4mm. Ties to the 10-Q: long-term debt 1,729.964 = ABL 550.0 + 1,184.4 - unamortized costs 4.4 (difference 0.036, rounding). Source: Filed 2022-04-21, accession 0000886158-22-000047. Senior notes outstanding principal: approximately $284.4mm of 3.749% notes due 2024 (Contractual Obligations); fiscal 2020 purchases of $75.0mm of the 4.915% 2034 notes (issued $300.0mm) and approximately $225.0mm of the 5.165% 2044 notes (issued $900.0mm) (Note 7)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C9",
+      "value": 0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Subordinated debt = 0: Note 13 discloses none. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C10",
+      "value": 0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Equity face claim = 0: book shareholders' equity at 2022-08-27 was a deficit of $(577.654)mm, so equity carries no positive claim. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C12",
+      "value": 804.3,
+      "input_kind": "derived",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Value available for distribution = ABL 550.0 at carrying value (the 10-Q states it approximates fair value) + senior notes at Level 1 fair value 254.3 = $804.3mm at 2022-08-27. This is the creditor-implied value; it excludes the equity's ~80.4mm-share market value, which the bond market did not underwrite. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D5",
+      "value": 1,
+      "input_kind": "derived",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Seniority rank 1 under absolute priority, from the disclosed lien status: DIP, first lien (ABL/FILO, first-priority liens), second lien, senior unsecured notes, subordinated, equity. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D6",
+      "value": 2,
+      "input_kind": "derived",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Seniority rank 2 under absolute priority, from the disclosed lien status: DIP, first lien (ABL/FILO, first-priority liens), second lien, senior unsecured notes, subordinated, equity. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D7",
+      "value": 3,
+      "input_kind": "derived",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Seniority rank 3 under absolute priority, from the disclosed lien status: DIP, first lien (ABL/FILO, first-priority liens), second lien, senior unsecured notes, subordinated, equity. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D8",
+      "value": 4,
+      "input_kind": "derived",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Seniority rank 4 under absolute priority, from the disclosed lien status: DIP, first lien (ABL/FILO, first-priority liens), second lien, senior unsecured notes, subordinated, equity. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D9",
+      "value": 5,
+      "input_kind": "derived",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Seniority rank 5 under absolute priority, from the disclosed lien status: DIP, first lien (ABL/FILO, first-priority liens), second lien, senior unsecured notes, subordinated, equity. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D10",
+      "value": 6,
+      "input_kind": "derived",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Seniority rank 6 under absolute priority, from the disclosed lien status: DIP, first lien (ABL/FILO, first-priority liens), second lien, senior unsecured notes, subordinated, equity. Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C5",
+      "value": 3197.563,
+      "input_kind": "derived",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Liquidation gross asset value = total assets 4,666.639 - operating lease right-of-use assets 1,469.076 = $3,197.563mm at 2022-08-27 (lease assets are not saleable in a liquidation). Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C6",
+      "value": 1623.422,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+        "as_of": "2022-09-01",
+        "notes": "Liquidation discount = 3,197.563 - (cash 135.270 + 90% x inventory 1,576.270 + investment securities 20.228) = $1,623.422mm. Inventory recovers at the ABL's 90% advance rate; prepaid assets, property and equipment and other assets recover nothing. Source: Filed 2022-09-01, accession 0001193125-22-235718. ABL commitments raised by $130.0mm to $1,130.0mm (matures 2026-08-09); new $375.0mm FILO term loan drawn on or before 2022-09-02 (matures 2027-08-31); FILO margin SOFR + 7.75% (SOFR floor 1.00%); ABL SOFR margin 1.25% to 1.75%; ABL repayable at any time without premium or penalty; first-priority liens on substantially all assets; ABL borrowing base 90% of eligible card receivables and inventory."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C7",
+      "value": 61.356,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "LoPucki-Doherty Professional Fees Calculator (University of Florida Levin College of Law), worked example",
+        "url": "https://lopucki.law.ufl.edu/fee_calculator_prediction.php",
+        "as_of": "2011-01-01",
+        "notes": "Liquidation administrative and professional fees = $61.356mm, the LoPucki-Doherty predicted award for a $4.2bn-asset, non-prepackaged case (Bed Bath & Beyond's total assets were $4.667bn). Source: Model from LoPucki & Doherty, Professional Fees in Corporate Bankruptcies (Oxford 2011), table 3.1. The page's worked example: assets $4,200,000,000, revenues $4,196,600,000, filed 2001, not prepackaged, not prenegotiated; predicted court-awarded fees and expenses from filing through confirmation $61,355,784, 85% interval $52,994,569 to $71,036,188. The live calculator's back end no longer responds, so Bed Bath & Beyond's own inputs could not be run."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C8",
+      "value": 6,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Toys \"R\" Us, Inc. Form 8-K, Item 8.01, U.S. wind-down and liquidation (2018-03-15)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1005414/000119312518083225/d552404d8k.htm",
+        "as_of": "2018-03-15",
+        "notes": "Time to distribution in a liquidation = 6 months: Toys \"R\" Us took 178 days (5.9 months) from its 2017-09-18 petition to its 2018-03-15 U.S. liquidation decision. Source: On 2018-03-15 Toys \"R\" Us announced it would close all 744 remaining U.S. stores and wind down Toys Delaware, 178 days (5.9 months) after its petition: the closest large U.S. retail Chapter 11 that turned into a liquidation and filed with the SEC."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C9",
+      "value": 0.1071,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+        "url": "https://fred.stlouisfed.org/series/SOFR",
+        "as_of": "2022-09-29",
+        "notes": "Discount rate = SOFR 2.96% (2022-09-29) + FILO margin 7.75% = 10.71%, the contracted cash cost of Bed Bath & Beyond's newest secured debt on the case date. Source: SOFR for 2022-09-29 = 2.96%, the latest rate published on or before the 2022-09-30 case date (the New York Fed publishes each day's SOFR the next business day)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D5",
+      "value": 804.3,
+      "input_kind": "derived",
+      "source": {
+        "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "as_of": "2022-09-30",
+        "notes": "Going-concern value = the $804.3mm creditor-implied value at 2022-08-27 used in the Recovery Waterfall (ABL 550.0 + senior notes Level 1 fair value 254.3). Source: Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D7",
+      "value": 61.356,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "LoPucki-Doherty Professional Fees Calculator (University of Florida Levin College of Law), worked example",
+        "url": "https://lopucki.law.ufl.edu/fee_calculator_prediction.php",
+        "as_of": "2011-01-01",
+        "notes": "Reorganization administrative and professional fees = $61.356mm, the LoPucki-Doherty predicted award (filing through confirmation) for a $4.2bn-asset, non-prepackaged case. Source: Model from LoPucki & Doherty, Professional Fees in Corporate Bankruptcies (Oxford 2011), table 3.1. The page's worked example: assets $4,200,000,000, revenues $4,196,600,000, filed 2001, not prepackaged, not prenegotiated; predicted court-awarded fees and expenses from filing through confirmation $61,355,784, 85% interval $52,994,569 to $71,036,188. The live calculator's back end no longer responds, so Bed Bath & Beyond's own inputs could not be run."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D8",
+      "value": 11,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Fitch Ratings bankruptcy case-study findings as reported by CFO.com, 'Companies Spending Less Time in Bankruptcy: Fitch' (2018-08-08)",
+        "url": "https://cfo.com/news/companies-spending-less-time-in-bankruptcy-fitch/658759/",
+        "as_of": "2018-08-08",
+        "notes": "Time to distribution in a reorganization = 11 months, Fitch's median petition-to-confirmation time for conventional (non-prepackaged) cases confirmed in 2017. Source: Median petition-to-confirmation time: 11 months for conventional (non-prepackaged) cases confirmed in 2017; 7 months across 304 cases confirmed 2003 to early 2017; under 10 months for filers with $2bn-$4bn of assets."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
     }
   ],
   "sources": [
     {
-      "name": "Bed Bath & Beyond Q2 2022 Form 10-Q",
+      "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
       "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
-      "as_of": "2022-08-27",
-      "notes": "U.S. SEC / Bed Bath & Beyond; frozen curated observation as of case date"
+      "as_of": "2022-09-30",
+      "notes": "Filed 2022-09-30, accession 0000886158-22-000150. Balance sheet, statements of operations and cash flows as of and for the periods ended 2022-08-27; Note 2 (liquidity), Note 5 (fair value of the senior notes), Note 6 (cash), Note 13 (long-term debt, including post-quarter borrowings) and Note 14 (ATM program)."
     },
     {
-      "name": "Bed Bath & Beyond 2022 Form 10-K and Chapter 11 disclosure",
+      "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-05-28 (SEC EDGAR, CIK 0000886158)",
+      "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000081/bbby-20220528.htm",
+      "as_of": "2022-06-29",
+      "notes": "Filed 2022-06-29, accession 0000886158-22-000081. First-quarter operating cash flow (-$383.551mm) and interest paid ($1.3mm, XBRL InterestPaidNet), subtracted from the six-month figures to isolate fiscal Q2 2022."
+    },
+    {
+      "name": "Bed Bath & Beyond XBRL company facts (SEC EDGAR, CIK 0000886158)",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000886158.json",
+      "as_of": "2022-09-30",
+      "notes": "InterestPaidNet: $1.3mm for 2022-02-27 to 2022-05-28 (10-Q filed 2022-06-29) and $33.5mm for 2022-02-27 to 2022-08-27 (10-Q filed 2022-09-30). Only facts filed on or before 2022-09-30 are used."
+    },
+    {
+      "name": "Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+      "url": "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+      "as_of": "2022-09-01",
+      "notes": "Filed 2022-09-01, accession 0001193125-22-235718. ABL commitments raised by $130.0mm to $1,130.0mm (matures 2026-08-09); new $375.0mm FILO term loan drawn on or before 2022-09-02 (matures 2027-08-31); FILO margin SOFR + 7.75% (SOFR floor 1.00%); ABL SOFR margin 1.25% to 1.75%; ABL repayable at any time without premium or penalty; first-priority liens on substantially all assets; ABL borrowing base 90% of eligible card receivables and inventory."
+    },
+    {
+      "name": "Bed Bath & Beyond Inc. Form 8-K, Items 2.02/7.01/8.01, strategic and financial update (2022-08-31)",
+      "url": "https://www.sec.gov/Archives/edgar/data/886158/000119312522234603/d279013d8k.htm",
+      "as_of": "2022-08-31",
+      "notes": "Filed 2022-08-31, accession 0001193125-22-234603. Fiscal 2022 capital expenditures now planned at approximately $250mm (previously $400mm)."
+    },
+    {
+      "name": "Bed Bath & Beyond Inc. Form 10-K for the fiscal year ended 2022-02-26 (SEC EDGAR, CIK 0000886158)",
+      "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000047/bbby-20220226.htm",
+      "as_of": "2022-04-21",
+      "notes": "Filed 2022-04-21, accession 0000886158-22-000047. Senior notes outstanding principal: approximately $284.4mm of 3.749% notes due 2024 (Contractual Obligations); fiscal 2020 purchases of $75.0mm of the 4.915% 2034 notes (issued $300.0mm) and approximately $225.0mm of the 5.165% 2044 notes (issued $900.0mm) (Note 7)."
+    },
+    {
+      "name": "Bed Bath & Beyond Inc. Amended and Restated Credit Agreement dated 2021-08-09 (Form 8-K Exhibit 10.1)",
+      "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615821000033/bbbyamendedandrestatedablc.htm",
+      "as_of": "2021-08-10",
+      "notes": "Filed 2021-08-10, accession 0000886158-21-000033. Section 6.14: the fixed charge coverage covenant springs when Availability is less than the greater of 10% of the Line Cap and $95,000,000. Applicable Rate grid: Eurodollar/term spread 1.75% when Average Quarterly Availability is below 33% of the Aggregate Revolving Commitment. Commitment fee 0.20%-0.25% on unused commitments; no fee is charged per draw. The 2022-08-31 amendment itself was filed only as scanned page images (10-Q Exhibit 4.1) and was not machine-read, so these 2021 terms are cited as the last text-readable version."
+    },
+    {
+      "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/series/SOFR",
+      "as_of": "2022-09-29",
+      "notes": "SOFR for 2022-09-29 = 2.96%, the latest rate published on or before the 2022-09-30 case date (the New York Fed publishes each day's SOFR the next business day)."
+    },
+    {
+      "name": "Fitch Ratings bankruptcy case-study findings as reported by CFO.com, 'Companies Spending Less Time in Bankruptcy: Fitch' (2018-08-08)",
+      "url": "https://cfo.com/news/companies-spending-less-time-in-bankruptcy-fitch/658759/",
+      "as_of": "2018-08-08",
+      "notes": "Median petition-to-confirmation time: 11 months for conventional (non-prepackaged) cases confirmed in 2017; 7 months across 304 cases confirmed 2003 to early 2017; under 10 months for filers with $2bn-$4bn of assets."
+    },
+    {
+      "name": "Toys \"R\" Us, Inc. Form 8-K, Item 7.01, Chapter 11 petition (2017-09-18)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1005414/000119312517287834/d451484d8k.htm",
+      "as_of": "2017-09-19",
+      "notes": "Toys \"R\" Us and subsidiaries filed Chapter 11 petitions on 2017-09-18 (E.D. Va.)."
+    },
+    {
+      "name": "Toys \"R\" Us, Inc. Form 8-K, Item 8.01, U.S. wind-down and liquidation (2018-03-15)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1005414/000119312518083225/d552404d8k.htm",
+      "as_of": "2018-03-15",
+      "notes": "On 2018-03-15 Toys \"R\" Us announced it would close all 744 remaining U.S. stores and wind down Toys Delaware, 178 days (5.9 months) after its petition: the closest large U.S. retail Chapter 11 that turned into a liquidation and filed with the SEC."
+    },
+    {
+      "name": "LoPucki-Doherty Professional Fees Calculator (University of Florida Levin College of Law), worked example",
+      "url": "https://lopucki.law.ufl.edu/fee_calculator_prediction.php",
+      "as_of": "2011-01-01",
+      "notes": "Model from LoPucki & Doherty, Professional Fees in Corporate Bankruptcies (Oxford 2011), table 3.1. The page's worked example: assets $4,200,000,000, revenues $4,196,600,000, filed 2001, not prepackaged, not prenegotiated; predicted court-awarded fees and expenses from filing through confirmation $61,355,784, 85% interval $52,994,569 to $71,036,188. The live calculator's back end no longer responds, so Bed Bath & Beyond's own inputs could not be run."
+    },
+    {
+      "name": "Bed Bath & Beyond Inc. Form 10-K for fiscal 2022 and Chapter 11 disclosure",
       "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615823000059/bbby-20230225.htm",
-      "as_of": "2022-08-27",
-      "notes": "U.S. SEC / Bed Bath & Beyond; frozen curated observation as of case date"
+      "as_of": "2023-04-23",
+      "notes": "Filed after the case date. Used only for the realized outcome (Chapter 11 petition 2023-04-23), never for an input."
     },
     {
       "name": "Frozen source snapshot",
       "url": "repo://24_Distressed_Restructuring/sources/snapshots/distressed-public-bbby-2022-liquidity.json",
-      "as_of": "2022-08-27",
+      "as_of": "2022-09-30",
       "notes": "Immutable curated observation package with SHA-256 digest"
     }
   ],
   "refresh": {
-    "date": "2026-08-04",
-    "trigger": "External historical evidence materialization",
+    "date": "2026-11-13",
+    "trigger": "Source every template input from public disclosures available on or before 2022-09-30",
     "source_snapshot": "repo://24_Distressed_Restructuring/sources/snapshots/distressed-public-bbby-2022-liquidity.json",
-    "what_changed": "Generated public case distressed-public-bbby-2022-liquidity from canonical release template",
-    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
+    "what_changed": "Case date moved from 2022-08-27 (period end) to 2022-09-30 (10-Q filing date). Every input cell sourced as observed, derived, or a declared driver with a named basis. 13-Week Liquidity C3 corrected from 166.7 (cash including restricted cash) to 135.27 (unrestricted).",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending. The weekly cash flows are run-rate drivers pinned to fiscal Q2 2022 operating cash flow, not a company forecast. The waterfall uses the 2022-08-27 bond-market value of creditor claims; general unsecured claims (accounts payable $783.681mm, lease rejection claims) have no row in this template and are not modeled.",
     "next_check": "On source revision, builder change, monitoring breach, or annual review"
   },
   "outcome": {
@@ -74,5 +1341,1109 @@
   "lineage": {
     "source_snapshot": "repo://24_Distressed_Restructuring/sources/snapshots/distressed-public-bbby-2022-liquidity.json",
     "synthetic_benchmark_inputs_allowed": false
-  }
+  },
+  "driver_declarations": [
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "C4",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "No cash floor is disclosed. The tightest disclosed liquidity trigger is the ABL's springing FCCR threshold on Availability; it is applied here to cash as the operating floor.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Amended and Restated Credit Agreement dated 2021-08-09 (Form 8-K Exhibit 10.1); Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615821000033/bbbyamendedandrestatedablc.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm"
+        ],
+        "range": "$95.0mm (fixed floor) to $113.0mm (10% of the amended $1,130.0mm commitments); the cash-dominion trigger, max(12.5% of Line Cap, $120mm), would be $141.25mm."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D7",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weekly receipts were never disclosed; held at the fiscal Q2 2022 weekly run-rate.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "Q2 FY2022 net sales $1,437.018mm over 13 weeks; Q1 FY2022 was $1,463.418mm (six-month $2,900.436mm less Q2)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E7",
+      "driver_type": "balancing_residual",
+      "rationale": "Operating disbursements are the residual that makes 13 weeks of receipts less disbursements less interest reproduce the disclosed fiscal Q2 2022 operating cash flow of -$198.874mm exactly, plus the disclosed remaining fiscal 2022 capex plan.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-05-28 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond XBRL company facts (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 2.02/7.01/8.01, strategic and financial update (2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000081/bbby-20220528.htm",
+          "https://data.sec.gov/api/xbrl/companyfacts/CIK0000886158.json",
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522234603/d279013d8k.htm"
+        ],
+        "range": "Pinned: Q2 operating cash flow -582.425 - (-383.551) = -198.874; capex 250.0 - 226.5 = 23.5 over 26 weeks."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F7",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weekly interest is computed from disclosed balances and margins at the case-date SOFR; the rate path after 2022-09-30 and the ABL margin tier are assumptions.",
+      "basis": {
+        "source_name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis; Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://fred.stlouisfed.org/series/SOFR",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm"
+        ],
+        "range": "ABL margin 1.25%-1.75% (tier 1.75% used, availability 31.5% < 33% of commitments at 2022-08-27); FILO SOFR + 7.75%."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G7",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No professional-fee disclosure existed by the case date.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "0 by disclosure; fees, if any, are inside disbursements pinned to Q2 operating cash flow."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H7",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Amounts are disclosed; the week in which they landed is not.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm"
+        ],
+        "range": "Total $205.0mm across weeks 1-5 (2022-08-28 to 2022-09-30); placed in week 1."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D8",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weekly receipts were never disclosed; held at the fiscal Q2 2022 weekly run-rate.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "Q2 FY2022 net sales $1,437.018mm over 13 weeks; Q1 FY2022 was $1,463.418mm (six-month $2,900.436mm less Q2)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E8",
+      "driver_type": "balancing_residual",
+      "rationale": "Operating disbursements are the residual that makes 13 weeks of receipts less disbursements less interest reproduce the disclosed fiscal Q2 2022 operating cash flow of -$198.874mm exactly, plus the disclosed remaining fiscal 2022 capex plan.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-05-28 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond XBRL company facts (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 2.02/7.01/8.01, strategic and financial update (2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000081/bbby-20220528.htm",
+          "https://data.sec.gov/api/xbrl/companyfacts/CIK0000886158.json",
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522234603/d279013d8k.htm"
+        ],
+        "range": "Pinned: Q2 operating cash flow -582.425 - (-383.551) = -198.874; capex 250.0 - 226.5 = 23.5 over 26 weeks."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F8",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weekly interest is computed from disclosed balances and margins at the case-date SOFR; the rate path after 2022-09-30 and the ABL margin tier are assumptions.",
+      "basis": {
+        "source_name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis; Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://fred.stlouisfed.org/series/SOFR",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm"
+        ],
+        "range": "ABL margin 1.25%-1.75% (tier 1.75% used, availability 31.5% < 33% of commitments at 2022-08-27); FILO SOFR + 7.75%."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G8",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No professional-fee disclosure existed by the case date.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "0 by disclosure; fees, if any, are inside disbursements pinned to Q2 operating cash flow."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H8",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Amounts are disclosed; the week in which they landed is not.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm"
+        ],
+        "range": "Total $205.0mm across weeks 1-5 (2022-08-28 to 2022-09-30); placed in week 1."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D9",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weekly receipts were never disclosed; held at the fiscal Q2 2022 weekly run-rate.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "Q2 FY2022 net sales $1,437.018mm over 13 weeks; Q1 FY2022 was $1,463.418mm (six-month $2,900.436mm less Q2)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E9",
+      "driver_type": "balancing_residual",
+      "rationale": "Operating disbursements are the residual that makes 13 weeks of receipts less disbursements less interest reproduce the disclosed fiscal Q2 2022 operating cash flow of -$198.874mm exactly, plus the disclosed remaining fiscal 2022 capex plan.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-05-28 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond XBRL company facts (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 2.02/7.01/8.01, strategic and financial update (2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000081/bbby-20220528.htm",
+          "https://data.sec.gov/api/xbrl/companyfacts/CIK0000886158.json",
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522234603/d279013d8k.htm"
+        ],
+        "range": "Pinned: Q2 operating cash flow -582.425 - (-383.551) = -198.874; capex 250.0 - 226.5 = 23.5 over 26 weeks."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weekly interest is computed from disclosed balances and margins at the case-date SOFR; the rate path after 2022-09-30 and the ABL margin tier are assumptions.",
+      "basis": {
+        "source_name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis; Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://fred.stlouisfed.org/series/SOFR",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm"
+        ],
+        "range": "ABL margin 1.25%-1.75% (tier 1.75% used, availability 31.5% < 33% of commitments at 2022-08-27); FILO SOFR + 7.75%."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G9",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No professional-fee disclosure existed by the case date.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "0 by disclosure; fees, if any, are inside disbursements pinned to Q2 operating cash flow."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Amounts are disclosed; the week in which they landed is not.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm"
+        ],
+        "range": "Total $205.0mm across weeks 1-5 (2022-08-28 to 2022-09-30); placed in week 1."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D10",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weekly receipts were never disclosed; held at the fiscal Q2 2022 weekly run-rate.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "Q2 FY2022 net sales $1,437.018mm over 13 weeks; Q1 FY2022 was $1,463.418mm (six-month $2,900.436mm less Q2)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E10",
+      "driver_type": "balancing_residual",
+      "rationale": "Operating disbursements are the residual that makes 13 weeks of receipts less disbursements less interest reproduce the disclosed fiscal Q2 2022 operating cash flow of -$198.874mm exactly, plus the disclosed remaining fiscal 2022 capex plan.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-05-28 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond XBRL company facts (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 2.02/7.01/8.01, strategic and financial update (2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000081/bbby-20220528.htm",
+          "https://data.sec.gov/api/xbrl/companyfacts/CIK0000886158.json",
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522234603/d279013d8k.htm"
+        ],
+        "range": "Pinned: Q2 operating cash flow -582.425 - (-383.551) = -198.874; capex 250.0 - 226.5 = 23.5 over 26 weeks."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F10",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weekly interest is computed from disclosed balances and margins at the case-date SOFR; the rate path after 2022-09-30 and the ABL margin tier are assumptions.",
+      "basis": {
+        "source_name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis; Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://fred.stlouisfed.org/series/SOFR",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm"
+        ],
+        "range": "ABL margin 1.25%-1.75% (tier 1.75% used, availability 31.5% < 33% of commitments at 2022-08-27); FILO SOFR + 7.75%."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G10",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No professional-fee disclosure existed by the case date.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "0 by disclosure; fees, if any, are inside disbursements pinned to Q2 operating cash flow."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H10",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Amounts are disclosed; the week in which they landed is not.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm"
+        ],
+        "range": "Total $205.0mm across weeks 1-5 (2022-08-28 to 2022-09-30); placed in week 1."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D11",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weekly receipts were never disclosed; held at the fiscal Q2 2022 weekly run-rate.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "Q2 FY2022 net sales $1,437.018mm over 13 weeks; Q1 FY2022 was $1,463.418mm (six-month $2,900.436mm less Q2)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E11",
+      "driver_type": "balancing_residual",
+      "rationale": "Operating disbursements are the residual that makes 13 weeks of receipts less disbursements less interest reproduce the disclosed fiscal Q2 2022 operating cash flow of -$198.874mm exactly, plus the disclosed remaining fiscal 2022 capex plan.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-05-28 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond XBRL company facts (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 2.02/7.01/8.01, strategic and financial update (2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000081/bbby-20220528.htm",
+          "https://data.sec.gov/api/xbrl/companyfacts/CIK0000886158.json",
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522234603/d279013d8k.htm"
+        ],
+        "range": "Pinned: Q2 operating cash flow -582.425 - (-383.551) = -198.874; capex 250.0 - 226.5 = 23.5 over 26 weeks."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F11",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weekly interest is computed from disclosed balances and margins at the case-date SOFR; the rate path after 2022-09-30 and the ABL margin tier are assumptions.",
+      "basis": {
+        "source_name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis; Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://fred.stlouisfed.org/series/SOFR",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm"
+        ],
+        "range": "ABL margin 1.25%-1.75% (tier 1.75% used, availability 31.5% < 33% of commitments at 2022-08-27); FILO SOFR + 7.75%."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G11",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No professional-fee disclosure existed by the case date.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "0 by disclosure; fees, if any, are inside disbursements pinned to Q2 operating cash flow."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H11",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Amounts are disclosed; the week in which they landed is not.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm"
+        ],
+        "range": "Total $205.0mm across weeks 1-5 (2022-08-28 to 2022-09-30); placed in week 1."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D12",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weekly receipts were never disclosed; held at the fiscal Q2 2022 weekly run-rate.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "Q2 FY2022 net sales $1,437.018mm over 13 weeks; Q1 FY2022 was $1,463.418mm (six-month $2,900.436mm less Q2)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E12",
+      "driver_type": "balancing_residual",
+      "rationale": "Operating disbursements are the residual that makes 13 weeks of receipts less disbursements less interest reproduce the disclosed fiscal Q2 2022 operating cash flow of -$198.874mm exactly, plus the disclosed remaining fiscal 2022 capex plan.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-05-28 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond XBRL company facts (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 2.02/7.01/8.01, strategic and financial update (2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000081/bbby-20220528.htm",
+          "https://data.sec.gov/api/xbrl/companyfacts/CIK0000886158.json",
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522234603/d279013d8k.htm"
+        ],
+        "range": "Pinned: Q2 operating cash flow -582.425 - (-383.551) = -198.874; capex 250.0 - 226.5 = 23.5 over 26 weeks."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F12",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weekly interest is computed from disclosed balances and margins at the case-date SOFR; the rate path after 2022-09-30 and the ABL margin tier are assumptions.",
+      "basis": {
+        "source_name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis; Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://fred.stlouisfed.org/series/SOFR",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm"
+        ],
+        "range": "ABL margin 1.25%-1.75% (tier 1.75% used, availability 31.5% < 33% of commitments at 2022-08-27); FILO SOFR + 7.75%."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G12",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No professional-fee disclosure existed by the case date.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "0 by disclosure; fees, if any, are inside disbursements pinned to Q2 operating cash flow."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H12",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Amounts are disclosed; the week in which they landed is not.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm"
+        ],
+        "range": "Total $205.0mm across weeks 1-5 (2022-08-28 to 2022-09-30); placed in week 1."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D13",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weekly receipts were never disclosed; held at the fiscal Q2 2022 weekly run-rate.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "Q2 FY2022 net sales $1,437.018mm over 13 weeks; Q1 FY2022 was $1,463.418mm (six-month $2,900.436mm less Q2)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E13",
+      "driver_type": "balancing_residual",
+      "rationale": "Operating disbursements are the residual that makes 13 weeks of receipts less disbursements less interest reproduce the disclosed fiscal Q2 2022 operating cash flow of -$198.874mm exactly, plus the disclosed remaining fiscal 2022 capex plan.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-05-28 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond XBRL company facts (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 2.02/7.01/8.01, strategic and financial update (2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000081/bbby-20220528.htm",
+          "https://data.sec.gov/api/xbrl/companyfacts/CIK0000886158.json",
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522234603/d279013d8k.htm"
+        ],
+        "range": "Pinned: Q2 operating cash flow -582.425 - (-383.551) = -198.874; capex 250.0 - 226.5 = 23.5 over 26 weeks."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F13",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weekly interest is computed from disclosed balances and margins at the case-date SOFR; the rate path after 2022-09-30 and the ABL margin tier are assumptions.",
+      "basis": {
+        "source_name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis; Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://fred.stlouisfed.org/series/SOFR",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm"
+        ],
+        "range": "ABL margin 1.25%-1.75% (tier 1.75% used, availability 31.5% < 33% of commitments at 2022-08-27); FILO SOFR + 7.75%."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G13",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No professional-fee disclosure existed by the case date.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "0 by disclosure; fees, if any, are inside disbursements pinned to Q2 operating cash flow."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H13",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Amounts are disclosed; the week in which they landed is not.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm"
+        ],
+        "range": "Total $205.0mm across weeks 1-5 (2022-08-28 to 2022-09-30); placed in week 1."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D14",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weekly receipts were never disclosed; held at the fiscal Q2 2022 weekly run-rate.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "Q2 FY2022 net sales $1,437.018mm over 13 weeks; Q1 FY2022 was $1,463.418mm (six-month $2,900.436mm less Q2)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E14",
+      "driver_type": "balancing_residual",
+      "rationale": "Operating disbursements are the residual that makes 13 weeks of receipts less disbursements less interest reproduce the disclosed fiscal Q2 2022 operating cash flow of -$198.874mm exactly, plus the disclosed remaining fiscal 2022 capex plan.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-05-28 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond XBRL company facts (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 2.02/7.01/8.01, strategic and financial update (2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000081/bbby-20220528.htm",
+          "https://data.sec.gov/api/xbrl/companyfacts/CIK0000886158.json",
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522234603/d279013d8k.htm"
+        ],
+        "range": "Pinned: Q2 operating cash flow -582.425 - (-383.551) = -198.874; capex 250.0 - 226.5 = 23.5 over 26 weeks."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F14",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weekly interest is computed from disclosed balances and margins at the case-date SOFR; the rate path after 2022-09-30 and the ABL margin tier are assumptions.",
+      "basis": {
+        "source_name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis; Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://fred.stlouisfed.org/series/SOFR",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm"
+        ],
+        "range": "ABL margin 1.25%-1.75% (tier 1.75% used, availability 31.5% < 33% of commitments at 2022-08-27); FILO SOFR + 7.75%."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G14",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No professional-fee disclosure existed by the case date.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "0 by disclosure; fees, if any, are inside disbursements pinned to Q2 operating cash flow."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H14",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Amounts are disclosed; the week in which they landed is not.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm"
+        ],
+        "range": "Total $205.0mm across weeks 1-5 (2022-08-28 to 2022-09-30); placed in week 1."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D15",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weekly receipts were never disclosed; held at the fiscal Q2 2022 weekly run-rate.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "Q2 FY2022 net sales $1,437.018mm over 13 weeks; Q1 FY2022 was $1,463.418mm (six-month $2,900.436mm less Q2)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E15",
+      "driver_type": "balancing_residual",
+      "rationale": "Operating disbursements are the residual that makes 13 weeks of receipts less disbursements less interest reproduce the disclosed fiscal Q2 2022 operating cash flow of -$198.874mm exactly, plus the disclosed remaining fiscal 2022 capex plan.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-05-28 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond XBRL company facts (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 2.02/7.01/8.01, strategic and financial update (2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000081/bbby-20220528.htm",
+          "https://data.sec.gov/api/xbrl/companyfacts/CIK0000886158.json",
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522234603/d279013d8k.htm"
+        ],
+        "range": "Pinned: Q2 operating cash flow -582.425 - (-383.551) = -198.874; capex 250.0 - 226.5 = 23.5 over 26 weeks."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F15",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weekly interest is computed from disclosed balances and margins at the case-date SOFR; the rate path after 2022-09-30 and the ABL margin tier are assumptions.",
+      "basis": {
+        "source_name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis; Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://fred.stlouisfed.org/series/SOFR",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm"
+        ],
+        "range": "ABL margin 1.25%-1.75% (tier 1.75% used, availability 31.5% < 33% of commitments at 2022-08-27); FILO SOFR + 7.75%."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G15",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No professional-fee disclosure existed by the case date.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "0 by disclosure; fees, if any, are inside disbursements pinned to Q2 operating cash flow."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H15",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Amounts are disclosed; the week in which they landed is not.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm"
+        ],
+        "range": "Total $205.0mm across weeks 1-5 (2022-08-28 to 2022-09-30); placed in week 1."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D16",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weekly receipts were never disclosed; held at the fiscal Q2 2022 weekly run-rate.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "Q2 FY2022 net sales $1,437.018mm over 13 weeks; Q1 FY2022 was $1,463.418mm (six-month $2,900.436mm less Q2)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E16",
+      "driver_type": "balancing_residual",
+      "rationale": "Operating disbursements are the residual that makes 13 weeks of receipts less disbursements less interest reproduce the disclosed fiscal Q2 2022 operating cash flow of -$198.874mm exactly, plus the disclosed remaining fiscal 2022 capex plan.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-05-28 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond XBRL company facts (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 2.02/7.01/8.01, strategic and financial update (2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000081/bbby-20220528.htm",
+          "https://data.sec.gov/api/xbrl/companyfacts/CIK0000886158.json",
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522234603/d279013d8k.htm"
+        ],
+        "range": "Pinned: Q2 operating cash flow -582.425 - (-383.551) = -198.874; capex 250.0 - 226.5 = 23.5 over 26 weeks."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F16",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weekly interest is computed from disclosed balances and margins at the case-date SOFR; the rate path after 2022-09-30 and the ABL margin tier are assumptions.",
+      "basis": {
+        "source_name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis; Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://fred.stlouisfed.org/series/SOFR",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm"
+        ],
+        "range": "ABL margin 1.25%-1.75% (tier 1.75% used, availability 31.5% < 33% of commitments at 2022-08-27); FILO SOFR + 7.75%."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G16",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No professional-fee disclosure existed by the case date.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "0 by disclosure; fees, if any, are inside disbursements pinned to Q2 operating cash flow."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H16",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Amounts are disclosed; the week in which they landed is not.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm"
+        ],
+        "range": "Total $205.0mm across weeks 1-5 (2022-08-28 to 2022-09-30); placed in week 1."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D17",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weekly receipts were never disclosed; held at the fiscal Q2 2022 weekly run-rate.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "Q2 FY2022 net sales $1,437.018mm over 13 weeks; Q1 FY2022 was $1,463.418mm (six-month $2,900.436mm less Q2)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E17",
+      "driver_type": "balancing_residual",
+      "rationale": "Operating disbursements are the residual that makes 13 weeks of receipts less disbursements less interest reproduce the disclosed fiscal Q2 2022 operating cash flow of -$198.874mm exactly, plus the disclosed remaining fiscal 2022 capex plan.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-05-28 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond XBRL company facts (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 2.02/7.01/8.01, strategic and financial update (2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000081/bbby-20220528.htm",
+          "https://data.sec.gov/api/xbrl/companyfacts/CIK0000886158.json",
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522234603/d279013d8k.htm"
+        ],
+        "range": "Pinned: Q2 operating cash flow -582.425 - (-383.551) = -198.874; capex 250.0 - 226.5 = 23.5 over 26 weeks."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F17",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weekly interest is computed from disclosed balances and margins at the case-date SOFR; the rate path after 2022-09-30 and the ABL margin tier are assumptions.",
+      "basis": {
+        "source_name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis; Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://fred.stlouisfed.org/series/SOFR",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm"
+        ],
+        "range": "ABL margin 1.25%-1.75% (tier 1.75% used, availability 31.5% < 33% of commitments at 2022-08-27); FILO SOFR + 7.75%."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G17",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No professional-fee disclosure existed by the case date.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "0 by disclosure; fees, if any, are inside disbursements pinned to Q2 operating cash flow."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H17",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Amounts are disclosed; the week in which they landed is not.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm"
+        ],
+        "range": "Total $205.0mm across weeks 1-5 (2022-08-28 to 2022-09-30); placed in week 1."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D18",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weekly receipts were never disclosed; held at the fiscal Q2 2022 weekly run-rate.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "Q2 FY2022 net sales $1,437.018mm over 13 weeks; Q1 FY2022 was $1,463.418mm (six-month $2,900.436mm less Q2)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E18",
+      "driver_type": "balancing_residual",
+      "rationale": "Operating disbursements are the residual that makes 13 weeks of receipts less disbursements less interest reproduce the disclosed fiscal Q2 2022 operating cash flow of -$198.874mm exactly, plus the disclosed remaining fiscal 2022 capex plan.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-05-28 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond XBRL company facts (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 2.02/7.01/8.01, strategic and financial update (2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000081/bbby-20220528.htm",
+          "https://data.sec.gov/api/xbrl/companyfacts/CIK0000886158.json",
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522234603/d279013d8k.htm"
+        ],
+        "range": "Pinned: Q2 operating cash flow -582.425 - (-383.551) = -198.874; capex 250.0 - 226.5 = 23.5 over 26 weeks."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F18",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weekly interest is computed from disclosed balances and margins at the case-date SOFR; the rate path after 2022-09-30 and the ABL margin tier are assumptions.",
+      "basis": {
+        "source_name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis; Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://fred.stlouisfed.org/series/SOFR",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm"
+        ],
+        "range": "ABL margin 1.25%-1.75% (tier 1.75% used, availability 31.5% < 33% of commitments at 2022-08-27); FILO SOFR + 7.75%."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G18",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No professional-fee disclosure existed by the case date.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "0 by disclosure; fees, if any, are inside disbursements pinned to Q2 operating cash flow."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H18",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Amounts are disclosed; the week in which they landed is not.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm"
+        ],
+        "range": "Total $205.0mm across weeks 1-5 (2022-08-28 to 2022-09-30); placed in week 1."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D19",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Weekly receipts were never disclosed; held at the fiscal Q2 2022 weekly run-rate.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "Q2 FY2022 net sales $1,437.018mm over 13 weeks; Q1 FY2022 was $1,463.418mm (six-month $2,900.436mm less Q2)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E19",
+      "driver_type": "balancing_residual",
+      "rationale": "Operating disbursements are the residual that makes 13 weeks of receipts less disbursements less interest reproduce the disclosed fiscal Q2 2022 operating cash flow of -$198.874mm exactly, plus the disclosed remaining fiscal 2022 capex plan.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-05-28 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond XBRL company facts (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 2.02/7.01/8.01, strategic and financial update (2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000081/bbby-20220528.htm",
+          "https://data.sec.gov/api/xbrl/companyfacts/CIK0000886158.json",
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522234603/d279013d8k.htm"
+        ],
+        "range": "Pinned: Q2 operating cash flow -582.425 - (-383.551) = -198.874; capex 250.0 - 226.5 = 23.5 over 26 weeks."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F19",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Weekly interest is computed from disclosed balances and margins at the case-date SOFR; the rate path after 2022-09-30 and the ABL margin tier are assumptions.",
+      "basis": {
+        "source_name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis; Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://fred.stlouisfed.org/series/SOFR",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm"
+        ],
+        "range": "ABL margin 1.25%-1.75% (tier 1.75% used, availability 31.5% < 33% of commitments at 2022-08-27); FILO SOFR + 7.75%."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G19",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No professional-fee disclosure existed by the case date.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [],
+        "range": "0 by disclosure; fees, if any, are inside disbursements pinned to Q2 operating cash flow."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H19",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Amounts are disclosed; the week in which they landed is not.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158); Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm"
+        ],
+        "range": "Total $205.0mm across weeks 1-5 (2022-08-28 to 2022-09-30); placed in week 1."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C7",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "The amendment's fee letter was not filed; the 2021 agreement's fee structure has no per-draw fee.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Amended and Restated Credit Agreement dated 2021-08-09 (Form 8-K Exhibit 10.1)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615821000033/bbbyamendedandrestatedablc.htm",
+        "additional_source_urls": [],
+        "range": "0 per draw; 0.20%-0.25% per year on unused commitments, not modeled by the template."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C8",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "The disclosed margin grid is a range; the tier and the SOFR path after the case date are assumptions.",
+      "basis": {
+        "source_name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis; Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31); Bed Bath & Beyond Inc. Amended and Restated Credit Agreement dated 2021-08-09 (Form 8-K Exhibit 10.1)",
+        "source_url": "https://fred.stlouisfed.org/series/SOFR",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615821000033/bbbyamendedandrestatedablc.htm"
+        ],
+        "range": "4.21% (SOFR 2.96% + 1.25%) to 4.71% (+ 1.75%); 2022-08-27 weighted average actually paid 3.72%."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C6",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No liquidation analysis was published before 2022-09-30. The lenders' own advance rate is the only disclosed measure of what the collateral fetches in a forced sale.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31); Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm"
+        ],
+        "range": "Inventory recovery 90% (ABL advance rate) to 105% (ABL 90% + FILO 15% stacked advance rate); other non-cash assets 0%."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C7",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No Chapter 11 case existed at the case date, so no fee application could exist.",
+      "basis": {
+        "source_name": "LoPucki-Doherty Professional Fees Calculator (University of Florida Levin College of Law), worked example",
+        "source_url": "https://lopucki.law.ufl.edu/fee_calculator_prediction.php",
+        "additional_source_urls": [],
+        "range": "$52.995mm to $71.036mm (85% interval of the calculator's worked example, 2001 dollars, no post-2010 inflation adjustment)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C8",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "A liquidation timeline for Bed Bath & Beyond did not exist at the case date; grounded in the closest large U.S. retail Chapter 11 that converted to a liquidation.",
+      "basis": {
+        "source_name": "Toys \"R\" Us, Inc. Form 8-K, Item 8.01, U.S. wind-down and liquidation (2018-03-15); Toys \"R\" Us, Inc. Form 8-K, Item 7.01, Chapter 11 petition (2017-09-18)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1005414/000119312518083225/d552404d8k.htm",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/1005414/000119312517287834/d451484d8k.htm"
+        ],
+        "range": "5.9 months (petition to liquidation decision); distributions follow store-closing sales, so this is a lower bound."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "No discount rate for delayed creditor recoveries is disclosed; the choice of the FILO's contracted rate as the rate creditors demand for waiting is a modeling judgment, so it is declared rather than claimed as derived.",
+      "basis": {
+        "source_name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis; Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+        "source_url": "https://fred.stlouisfed.org/series/SOFR",
+        "additional_source_urls": [
+          "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm"
+        ],
+        "range": "4.71% (SOFR 2.96% + ABL top-tier margin 1.75%) to 10.71% (SOFR 2.96% + FILO margin 7.75%); 10.71% used."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D7",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No Chapter 11 case existed at the case date, so no fee application could exist.",
+      "basis": {
+        "source_name": "LoPucki-Doherty Professional Fees Calculator (University of Florida Levin College of Law), worked example",
+        "source_url": "https://lopucki.law.ufl.edu/fee_calculator_prediction.php",
+        "additional_source_urls": [],
+        "range": "$52.995mm to $71.036mm (85% interval of the calculator's worked example)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D8",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "No plan or restructuring support agreement existed at the case date.",
+      "basis": {
+        "source_name": "Fitch Ratings bankruptcy case-study findings as reported by CFO.com, 'Companies Spending Less Time in Bankruptcy: Fitch' (2018-08-08)",
+        "source_url": "https://cfo.com/news/companies-spending-less-time-in-bankruptcy-fitch/658759/",
+        "additional_source_urls": [],
+        "range": "7 months (median of 304 cases, 2003-early 2017) to 11 months (conventional cases, 2017); under 10 months for $2bn-$4bn filers."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C6",
+      "driver_type": "generated_metadata",
+      "rationale": "Populated from the manifest as_of date, 2022-09-30, which is the EDGAR filing date of the Form 10-Q that supplies this case's latest data.",
+      "basis": {
+        "source_name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
+        "range": "Fixed: filing date 2022-09-30 (accession 0000886158-22-000150)."
+      },
+      "emitted_by": "tools/build_distressed_bbby_case.py"
+    }
+  ]
 }

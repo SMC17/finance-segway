@@ -4,21 +4,149 @@
   "domain": "Distressed & Restructuring",
   "case_id": "distressed-public-bbby-2022-liquidity",
   "case_type": "adversarial",
-  "as_of": "2022-08-27",
+  "as_of": "2022-09-30",
   "capture_method": "curated_public_observation",
   "sources": [
     {
-      "name": "Bed Bath & Beyond Q2 2022 Form 10-Q",
+      "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)",
       "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000150/bbby-20220827.htm",
       "publisher": "U.S. SEC / Bed Bath & Beyond",
+      "filed": "2022-09-30",
       "captured_values": {
-        "cash_usd_mm": 166.7,
-        "six_month_operating_cash_use_usd_mm": 582.4,
-        "post_facility_borrowing_availability_usd_mm": 690.0
+        "cash_and_cash_equivalents_usd_mm": 135.27,
+        "restricted_cash_long_term_usd_mm": 31.4,
+        "cash_including_restricted_usd_mm": 166.716,
+        "merchandise_inventories_usd_mm": 1576.27,
+        "prepaid_and_other_current_assets_usd_mm": 192.615,
+        "long_term_investment_securities_usd_mm": 20.228,
+        "property_and_equipment_net_usd_mm": 1121.203,
+        "operating_lease_assets_usd_mm": 1469.076,
+        "other_assets_usd_mm": 151.977,
+        "total_assets_usd_mm": 4666.639,
+        "long_term_debt_carrying_usd_mm": 1729.964,
+        "total_shareholders_deficit_usd_mm": -577.654,
+        "abl_borrowings_2022_08_27_usd_mm": 550.0,
+        "abl_weighted_average_interest_rate": 0.0372,
+        "letters_of_credit_outstanding_usd_mm": 136.4,
+        "senior_notes_fair_value_level1_usd_mm": 254.3,
+        "senior_notes_carrying_value_usd_mm": 1184.0,
+        "senior_notes_unamortized_financing_costs_usd_mm": 4.4,
+        "abl_availability_2022_08_27_usd_mm": 315.0,
+        "available_borrowing_capacity_end_fiscal_september_2022_usd_mm": 690.0,
+        "post_quarter_additional_borrowings_usd_mm": 175.0,
+        "post_quarter_total_credit_facility_borrowings_usd_mm": 725.0,
+        "filo_commitment_usd_mm": 375.0,
+        "atm_post_quarter_proceeds_usd_mm": 30.0,
+        "atm_post_quarter_shares_sold_millions": 3.0,
+        "net_sales_q2_fy2022_usd_mm": 1437.018,
+        "net_cash_used_in_operating_activities_6m_usd_mm": -582.425,
+        "interest_paid_6m_usd_mm": 33.5,
+        "capital_expenditures_6m_usd_mm": 226.5,
+        "common_shares_outstanding_2022_08_27": 80362695
       }
     },
     {
-      "name": "Bed Bath & Beyond 2022 Form 10-K and Chapter 11 disclosure",
+      "name": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-05-28 (SEC EDGAR, CIK 0000886158)",
+      "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000081/bbby-20220528.htm",
+      "publisher": "U.S. SEC / Bed Bath & Beyond",
+      "filed": "2022-06-29",
+      "captured_values": {
+        "net_cash_used_in_operating_activities_q1_usd_mm": -383.551,
+        "interest_paid_q1_usd_mm": 1.3
+      }
+    },
+    {
+      "name": "Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)",
+      "url": "https://www.sec.gov/Archives/edgar/data/886158/000119312522235718/d399971d8k.htm",
+      "publisher": "U.S. SEC / Bed Bath & Beyond",
+      "filed": "2022-09-01",
+      "captured_values": {
+        "abl_commitments_before_amendment_usd_mm": 1000.0,
+        "abl_commitments_after_amendment_usd_mm": 1130.0,
+        "filo_commitment_usd_mm": 375.0,
+        "filo_funding_date": "2022-09-02",
+        "abl_maturity_date": "2026-08-09",
+        "filo_maturity_date": "2027-08-31",
+        "filo_sofr_margin": 0.0775,
+        "abl_sofr_margin_low": 0.0125,
+        "abl_sofr_margin_high": 0.0175,
+        "abl_advance_rate_inventory_and_card_receivables": 0.9
+      }
+    },
+    {
+      "name": "Bed Bath & Beyond Inc. Form 8-K, Items 2.02/7.01/8.01, strategic and financial update (2022-08-31)",
+      "url": "https://www.sec.gov/Archives/edgar/data/886158/000119312522234603/d279013d8k.htm",
+      "publisher": "U.S. SEC / Bed Bath & Beyond",
+      "filed": "2022-08-31",
+      "captured_values": {
+        "fiscal_2022_planned_capex_usd_mm": 250.0
+      }
+    },
+    {
+      "name": "Bed Bath & Beyond Inc. Form 10-K for the fiscal year ended 2022-02-26 (SEC EDGAR, CIK 0000886158)",
+      "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615822000047/bbby-20220226.htm",
+      "publisher": "U.S. SEC / Bed Bath & Beyond",
+      "filed": "2022-04-21",
+      "captured_values": {
+        "notes_2024_principal_usd_mm": 284.4,
+        "notes_2034_issued_usd_mm": 300.0,
+        "notes_2034_purchased_fy2020_usd_mm": 75.0,
+        "notes_2044_issued_usd_mm": 900.0,
+        "notes_2044_purchased_fy2020_usd_mm": 225.0
+      }
+    },
+    {
+      "name": "Bed Bath & Beyond Inc. Amended and Restated Credit Agreement dated 2021-08-09 (Form 8-K Exhibit 10.1)",
+      "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615821000033/bbbyamendedandrestatedablc.htm",
+      "publisher": "U.S. SEC / Bed Bath & Beyond",
+      "filed": "2021-08-10",
+      "captured_values": {
+        "fccr_trigger_line_cap_share": 0.1,
+        "fccr_trigger_floor_usd_mm": 95.0,
+        "commitment_fee_low": 0.002,
+        "commitment_fee_high": 0.0025
+      }
+    },
+    {
+      "name": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/series/SOFR",
+      "publisher": "Federal Reserve Bank of St. Louis / Federal Reserve Bank of New York",
+      "captured_values": {
+        "sofr_2022_09_29": 0.0296
+      }
+    },
+    {
+      "name": "Fitch Ratings bankruptcy case-study findings as reported by CFO.com, 'Companies Spending Less Time in Bankruptcy: Fitch' (2018-08-08)",
+      "url": "https://cfo.com/news/companies-spending-less-time-in-bankruptcy-fitch/658759/",
+      "publisher": "CFO.com (reporting Fitch Ratings)",
+      "captured_values": {
+        "median_months_conventional_2017": 11,
+        "median_months_all_2003_2017": 7
+      }
+    },
+    {
+      "name": "Toys \"R\" Us, Inc. Form 8-K, Item 8.01, U.S. wind-down and liquidation (2018-03-15)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1005414/000119312518083225/d552404d8k.htm",
+      "publisher": "U.S. SEC / Toys \"R\" Us",
+      "captured_values": {
+        "petition_date": "2017-09-18",
+        "wind_down_announcement_date": "2018-03-15"
+      }
+    },
+    {
+      "name": "LoPucki-Doherty Professional Fees Calculator (University of Florida Levin College of Law), worked example",
+      "url": "https://lopucki.law.ufl.edu/fee_calculator_prediction.php",
+      "publisher": "University of Florida Levin College of Law",
+      "captured_values": {
+        "example_assets_usd": 4200000000,
+        "example_revenues_usd": 4196600000,
+        "example_predicted_fees_usd": 61355784,
+        "example_fees_lower_85_usd": 52994569,
+        "example_fees_upper_85_usd": 71036188
+      }
+    },
+    {
+      "name": "Bed Bath & Beyond Inc. Form 10-K for fiscal 2022 and Chapter 11 disclosure",
       "url": "https://www.sec.gov/Archives/edgar/data/886158/000088615823000059/bbby-20230225.htm",
       "publisher": "U.S. SEC / Bed Bath & Beyond",
       "captured_values": {
@@ -30,16 +158,660 @@
     {
       "sheet": "13-Week Liquidity",
       "cell": "C3",
-      "value": 166.7,
+      "value": 135.27,
       "kind": "observed",
-      "source": "Bed Bath & Beyond Q2 2022 Form 10-Q"
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "C4",
+      "value": 113.0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Amended and Restated Credit Agreement dated 2021-08-09 (Form 8-K Exhibit 10.1)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D7",
+      "value": 110.5398,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E7",
+      "value": 124.2648,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F7",
+      "value": 1.0894,
+      "kind": "modeler_assumption",
+      "source": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G7",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H7",
+      "value": 205.0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D8",
+      "value": 110.5398,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E8",
+      "value": 124.2648,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F8",
+      "value": 1.0894,
+      "kind": "modeler_assumption",
+      "source": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G8",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H8",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D9",
+      "value": 110.5398,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E9",
+      "value": 124.2648,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F9",
+      "value": 1.0894,
+      "kind": "modeler_assumption",
+      "source": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G9",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H9",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D10",
+      "value": 110.5398,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E10",
+      "value": 124.2648,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F10",
+      "value": 1.0894,
+      "kind": "modeler_assumption",
+      "source": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G10",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H10",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D11",
+      "value": 110.5398,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E11",
+      "value": 124.2648,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F11",
+      "value": 1.0894,
+      "kind": "modeler_assumption",
+      "source": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G11",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H11",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D12",
+      "value": 110.5398,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E12",
+      "value": 124.2648,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F12",
+      "value": 1.0894,
+      "kind": "modeler_assumption",
+      "source": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G12",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H12",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D13",
+      "value": 110.5398,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E13",
+      "value": 124.2648,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F13",
+      "value": 1.0894,
+      "kind": "modeler_assumption",
+      "source": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G13",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H13",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D14",
+      "value": 110.5398,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E14",
+      "value": 124.2648,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F14",
+      "value": 1.0894,
+      "kind": "modeler_assumption",
+      "source": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G14",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H14",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D15",
+      "value": 110.5398,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E15",
+      "value": 124.2648,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F15",
+      "value": 1.0894,
+      "kind": "modeler_assumption",
+      "source": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G15",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H15",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D16",
+      "value": 110.5398,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E16",
+      "value": 124.2648,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F16",
+      "value": 1.0894,
+      "kind": "modeler_assumption",
+      "source": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G16",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H16",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D17",
+      "value": 110.5398,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E17",
+      "value": 124.2648,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F17",
+      "value": 1.0894,
+      "kind": "modeler_assumption",
+      "source": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G17",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H17",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D18",
+      "value": 110.5398,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E18",
+      "value": 124.2648,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F18",
+      "value": 1.0894,
+      "kind": "modeler_assumption",
+      "source": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G18",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H18",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D19",
+      "value": 110.5398,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E19",
+      "value": 124.2648,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F19",
+      "value": 1.0894,
+      "kind": "modeler_assumption",
+      "source": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G19",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H19",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
     },
     {
       "sheet": "New Money",
       "cell": "C5",
       "value": 690.0,
       "kind": "observed",
-      "source": "Bed Bath & Beyond Q2 2022 Form 10-Q"
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C7",
+      "value": 0,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Amended and Restated Credit Agreement dated 2021-08-09 (Form 8-K Exhibit 10.1)"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C8",
+      "value": 0.0471,
+      "kind": "modeler_assumption",
+      "source": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C9",
+      "value": 3.8576,
+      "kind": "derived",
+      "source": "Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C10",
+      "value": 0,
+      "kind": "observed",
+      "source": "Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C11",
+      "value": 1,
+      "kind": "derived",
+      "source": "Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C5",
+      "value": 0,
+      "kind": "observed",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C6",
+      "value": 550.0,
+      "kind": "observed",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C7",
+      "value": 0,
+      "kind": "observed",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C8",
+      "value": 1184.4,
+      "kind": "derived",
+      "source": "Bed Bath & Beyond Inc. Form 10-K for the fiscal year ended 2022-02-26 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C9",
+      "value": 0,
+      "kind": "observed",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C10",
+      "value": 0,
+      "kind": "derived",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C12",
+      "value": 804.3,
+      "kind": "derived",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D5",
+      "value": 1,
+      "kind": "derived",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D6",
+      "value": 2,
+      "kind": "derived",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D7",
+      "value": 3,
+      "kind": "derived",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D8",
+      "value": 4,
+      "kind": "derived",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D9",
+      "value": 5,
+      "kind": "derived",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D10",
+      "value": 6,
+      "kind": "derived",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C5",
+      "value": 3197.563,
+      "kind": "derived",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C6",
+      "value": 1623.422,
+      "kind": "modeler_assumption",
+      "source": "Bed Bath & Beyond Inc. Form 8-K, Items 1.01 and 2.03, ABL amendment and FILO facility (event 2022-08-31)"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C7",
+      "value": 61.356,
+      "kind": "modeler_assumption",
+      "source": "LoPucki-Doherty Professional Fees Calculator (University of Florida Levin College of Law), worked example"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C8",
+      "value": 6,
+      "kind": "modeler_assumption",
+      "source": "Toys \"R\" Us, Inc. Form 8-K, Item 8.01, U.S. wind-down and liquidation (2018-03-15)"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C9",
+      "value": 0.1071,
+      "kind": "modeler_assumption",
+      "source": "Secured Overnight Financing Rate (SOFR), FRED series SOFR, Federal Reserve Bank of St. Louis"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D5",
+      "value": 804.3,
+      "kind": "derived",
+      "source": "Bed Bath & Beyond Inc. Form 10-Q for the quarter ended 2022-08-27 (SEC EDGAR, CIK 0000886158)"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D7",
+      "value": 61.356,
+      "kind": "modeler_assumption",
+      "source": "LoPucki-Doherty Professional Fees Calculator (University of Florida Levin College of Law), worked example"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D8",
+      "value": 11,
+      "kind": "modeler_assumption",
+      "source": "Fitch Ratings bankruptcy case-study findings as reported by CFO.com, 'Companies Spending Less Time in Bankruptcy: Fitch' (2018-08-08)"
     }
   ],
   "series": null,
@@ -51,5 +823,5 @@
     "status": "recorded"
   },
   "counts_toward_m4": false,
-  "snapshot_sha256": "27f118532e350a338e29b5e59fe7323165bb0fb321865af5b8a6aebabf69b048"
+  "snapshot_sha256": "21f0315c9d7e877ed3b0f3370ab62e3231dbc0ab39cb96a14601e7a8f72d094d"
 }
