@@ -147,6 +147,12 @@ S = {
         "as_of": "2016-01-26",
         "publisher": "Board of Governors of the Federal Reserve System",
     },
+    "yahoo_goog": {
+        "name": "Yahoo Finance chart API daily close for GOOG (Alphabet Class C) on 2016-06-10 (split-adjusted)",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/GOOG?period1=1465430400&period2=1465689600&interval=1d",
+        "as_of": UNAFFECTED,
+        "publisher": "Yahoo Finance",
+    },
     "dwre_14d9": {
         "name": "Demandware Schedule 14D-9 (Goldman Sachs selected historical premia analysis), filed 2016-06-10",
         "url": "https://www.sec.gov/Archives/edgar/data/1301031/000119312516618542/d207591dsc14d9.htm",
@@ -247,7 +253,14 @@ UST_30Y_2016_06_10 = 0.0244
 FOMC_INFLATION_GOAL = 0.02
 # Goldman Sachs premia analysis in the Demandware 14D-9.
 PREMIA = {"saas_median": 0.31, "saas_average": 0.40, "tech_500m_plus_median_2009_2016": 0.37,
-          "tech_500m_plus_average_2016_ytd": 0.41}
+          "tech_500m_plus_average_2016_ytd": 0.41,
+          # Goldman's table of AVERAGE premia by year; its "Median 37%" is the
+          # median of these eight yearly averages, not of the deals.
+          "tech_500m_plus_annual_average_premia": {"2009": 0.39, "2010": 0.41, "2011": 0.35, "2012": 0.35,
+                                                   "2013": 0.34, "2014": 0.36, "2015": 0.38,
+                                                   "2016_through_2016_05_27": 0.41}}
+_avgs = sorted(PREMIA["tech_500m_plus_annual_average_premia"].values())
+assert round((_avgs[3] + _avgs[4]) / 2, 4) == PREMIA["tech_500m_plus_median_2009_2016"]
 
 # Comparable companies. Shares are the cover-page counts of each 10-Q (all
 # classes); balance sheet and LTM figures are SEC XBRL company facts filed on
@@ -258,7 +271,12 @@ PEERS = [
     # ticker, close, price source, split note, shares_mm, cash, debt, ltm_rev, ltm_opinc, ltm_da, ltm_ni
     {"ticker": "GOOGL", "close": 733.19, "price_src": "yahoo",
      "price_note": "Yahoo split-adjusted close 36.6595 x 20 (Alphabet 20-for-1 split, 2022; StockholdersEquityNoteStockSplitConversionRatio1 = 20 in Alphabet's 2022 10-Q)",
-     "shares_mm": 293.675151 + 49.440407 + 343.439675, "cash": 75264.0, "debt": 3221.0 + 1987.0,
+     "shares_mm": 293.675151 + 49.440407 + 343.439675,
+     # Class C (GOOG) trades separately and closed below Class A; Class B is
+     # unlisted and converts 1:1 into Class A, so it is valued at the Class A close.
+     "class_c_shares_mm": 343.439675, "class_c_close": 719.41,
+     "class_c_note": "GOOG close 35.9705 x 20 = 719.41 (Yahoo split-adjusted, same 20-for-1 split)",
+     "cash": 75264.0, "debt": 3221.0 + 1987.0,
      "ltm_rev": 77988.0, "ltm_opinc": 20255.0, "ltm_da": (4132 + 931) + (1155 + 216) - (938 + 239),
      "ltm_ni": 17040.0},
     {"ticker": "AMZN", "close": 717.91, "price_src": "yahoo",
@@ -502,11 +520,13 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
              note + " Same in Adversarial: the Analyst Projections Qatalyst also used are not disclosed "
              "numerically, so the Adversarial stress sits in the discount rate and terminal growth instead.")
     emit("Transaction Analysis", "C17", PREMIA["tech_500m_plus_median_2009_2016"], "modeler_assumption", "dwre_14d9",
-         "Offer-premium warning = 37%, the median one-day premium of all-cash U.S. technology acquisitions "
-         "above $500mm, 2009 to 2016-05-27 (Goldman Sachs analysis in the Demandware 14D-9).")
+         "Offer-premium warning = 37%: Goldman Sachs' 'Median' of the eight annual AVERAGE one-day premia of "
+         "all-cash U.S. technology acquisitions above $500mm enterprise value, 2009 to 2016-05-27 (39%, 41%, "
+         "35%, 35%, 34%, 36%, 38%, 41%; median of the eight = (36% + 38%) / 2 = 37%). It is a median of yearly "
+         "averages, not the median deal premium (Demandware 14D-9, Selected Historical Premia Analysis).")
     declare("Transaction Analysis", "C17", "scenario_lever",
             "Premium escalation threshold: a policy screen, set at the precedent median.", "dwre_14d9",
-            "$500M+ tech all-cash median premium 37%; 2016 YTD average 41%.")
+            "$500M+ tech all-cash premia: median of the 2009-2016 annual averages 37%; 2016 YTD average 41%.")
     emit("Transaction Analysis", "D17", PREMIA["saas_median"], "modeler_assumption", "dwre_14d9",
          "Adversarial offer-premium warning = 31%, the median premium of the SaaS transactions in the same "
          "Goldman Sachs analysis (high 120%, average 40%, low 18%).")
@@ -569,7 +589,18 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
     comps_snapshot = []
     for row, p in zip(rows, PEERS):
         name, url, filed = PEER_SOURCES[p["ticker"]]
-        mcap = p["close"] * p["shares_mm"]
+        if "class_c_shares_mm" in p:
+            ab_shares = p["shares_mm"] - p["class_c_shares_mm"]
+            mcap = p["close"] * ab_shares + p["class_c_close"] * p["class_c_shares_mm"]
+            mcap_note = (f"Market cap = Class A + Class B {ab_shares:.6f}mm x GOOGL close {p['close']} + Class C "
+                         f"{p['class_c_shares_mm']:.6f}mm x GOOG close {p['class_c_close']} = {mcap:.1f} $mm "
+                         "(10-Q cover share counts at 2016-04-21). Class B is unlisted and converts 1:1 into "
+                         f"Class A, so it takes the Class A price. {p['class_c_note']}; "
+                         f"source {S['yahoo_goog']['url']}.")
+        else:
+            mcap = p["close"] * p["shares_mm"]
+            mcap_note = (f"Market cap = {p['close']} x {p['shares_mm']:.6f}mm shares outstanding "
+                         f"({p.get('shares_src', '10-Q cover, all classes')}) = {mcap:.1f} $mm.")
         ev = mcap + p["debt"] - p["cash"]
         ebitda = p["ltm_opinc"] + p["ltm_da"]
         price_key = p["price_src"]
@@ -585,9 +616,7 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
            f"Qatalyst selected company ({'consumer internet' if row < 9 else 'SaaS'}); proxy page 53.")
         pe(f"C{row}", p["close"], "observed" if p["ticker"] in ("TWTR", "CRM", "WDAY", "FB") else "derived",
            f"Close on 2016-06-10, the date Qatalyst used. {p['price_note']}.", key=price_key)
-        pe(f"D{row}", mcap, "derived",
-           f"Market cap = {p['close']} x {p['shares_mm']:.6f}mm shares outstanding ({p.get('shares_src', '10-Q cover, all classes')}) "
-           f"= {mcap:.1f} $mm.")
+        pe(f"D{row}", mcap, "derived", mcap_note)
         pe(f"E{row}", ev, "derived",
            f"EV = market cap {mcap:.1f} + debt {p['debt']:.3f} - cash and current marketable securities "
            f"{p['cash']:.3f} = {ev:.1f} $mm (latest balance sheet filed before 2016-06-10; capital leases excluded).")
@@ -615,7 +644,11 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
                                "enterprise_value_usd_mm": round(ev, 3), "ltm_revenue_usd_mm": p["ltm_rev"],
                                "ltm_operating_income_usd_mm": p["ltm_opinc"], "ltm_da_usd_mm": p["ltm_da"],
                                "ltm_net_income_usd_mm": p["ltm_ni"], "filing": url, "filed": filed,
-                               "price_source": S[price_key]["name"], "price_note": p["price_note"]})
+                               "price_source": S[price_key]["name"], "price_note": p["price_note"],
+                               **({"class_c_shares_mm": p["class_c_shares_mm"],
+                                   "class_c_close_usd_2016_06_10": p["class_c_close"],
+                                   "class_c_price_source": S["yahoo_goog"]["name"]}
+                                  if "class_c_shares_mm" in p else {})})
 
     # ---------------- Cover ----------------
     cover = {
@@ -656,12 +689,69 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
                               "source_url": "repo://01_Investment_Banking/_template_BASE.xlsx"},
                     "emitted_by": OWNER})
 
+    # ---------------- Presentation fills ----------------
+    # The template ships bracketed placeholders outside the input surface: a
+    # "Source: [10-K/10-Q cite or user estimate]" note on every Assumptions row
+    # and "[data table — Excel What-If Analysis]" in the Sensitivity grid. They
+    # are replaced here, through the manifest, never by editing the workbook.
+    fills: list[dict[str, Any]] = []
+
+    def fill(sheet: str, cell: str, value: Any, purpose: str, key: str, note: str) -> None:
+        fills.append({"sheet": sheet, "cell": cell, "value": value, "purpose": purpose,
+                      "source": src(key, note), "emitted_by": OWNER})
+
+    proxy_cite = "LinkedIn DEFM14A filed 2016-07-22, management Forecasts pp. 58-60"
+    row_notes = {
+        5: ("proxy", f"Source: {proxy_cite}: revenue 2016E-2020E over the prior year; FY2015 base 2,990.911 $mm "
+                     "from the FY2015 10-K. Derived."),
+        6: ("lnkd_10k", f"Driver: held at the FY2015 actual {gm_2015:.4%} (FY2015 10-K, filed 2016-02-12). The "
+                        "Forecasts do not disclose cost of revenue. Declared modeler_assumption."),
+        7: ("proxy", f"Driver (balancing residual): gross margin less the EBIT margin implied by the Forecasts "
+                     f"(net income + tax + other expense; {proxy_cite}). EBIT ties to the Forecasts exactly."),
+        8: ("proxy", f"Source: {proxy_cite}: tax provision / pre-tax income. 2016E is negative because the "
+                     "Forecasts carry a tax provision on a pre-tax loss. Derived."),
+        9: ("proxy", f"Source: {proxy_cite}: D&A / purchases of property and equipment. Derived."),
+        10: ("proxy", f"Source: {proxy_cite}: purchases of property and equipment / revenue. Derived."),
+        11: ("proxy", f"Source: {proxy_cite}: -(CFO - net income - D&A - SBC) / revenue change. The residual "
+                      "also holds non-cash items the Forecasts do not separate. Derived."),
+        12: ("proxy", f"Driver: fully diluted {fd196:.3f}mm at $196 (10-Q for 2016-03-31) grown geometrically to "
+                      "the proxy's ~12% management-projected dilution over five years. Declared modeler_assumption."),
+        13: ("proxy", "Source: midpoint of Qatalyst Partners' 10.0%-13.0% discount-rate range (DEFM14A filed "
+                      "2016-07-22). Derived."),
+        14: ("treasury", "Driver: 30-year Treasury par yield 2.44% on 2016-06-10 (U.S. Treasury daily par yield "
+                         "curve). Declared modeler_assumption."),
+    }
+    for row, (key, text) in row_notes.items():
+        fill("Assumptions", f"H{row}", text, "source_note", key,
+             f"Row-level source note for Assumptions row {row}; each cell's full derivation is in its own "
+             "manifest input.")
+    for r in range(5, 10):
+        for c in "CDEFG":
+            formula = (f'=IF(OR(IS!$E$5="",IS!$E$5=0),"n/a - no forecast base",'
+                       f"(NPV($B{r},DCF!$C$5:$G$5)+DCF!$G$5*(1+{c}$4)/($B{r}-{c}$4)/(1+$B{r})^5"
+                       f"-DCF!$I$11)/DCF!$I$13)")
+            fill("Sensitivity", f"{c}{r}", formula, "formula_grid", "proxy",
+                 "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's "
+                 "own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less "
+                 "net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base "
+                 "11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid.")
+    comps_note = (
+        "Peer set: Qatalyst Partners selected 10 companies (DEFM14A p. 53): consumer internet Alphabet, Amazon, "
+        "Facebook, Twitter; SaaS Cornerstone OnDemand, NetSuite, Salesforce, ServiceNow, Ultimate Software, "
+        "Workday. The template has 7 rows, so the 3 smallest SaaS peers by LTM revenue (NetSuite "
+        f"{SAAS_LTM_REVENUE['N']:,.1f}, Ultimate Software {SAAS_LTM_REVENUE['ULTI']:,.1f}, Cornerstone OnDemand "
+        f"{SAAS_LTM_REVENUE['CSOD']:,.1f} $mm) are omitted. Template limitation, not a selection judgment. "
+        "Multiples are LTM; Qatalyst used CY2017E consensus, which is not public."
+    )
+    fill("Comps", "B15", comps_note, "source_note", "proxy",
+         "Discloses that the comps table carries 7 of Qatalyst's 10 selected companies.")
+
     # A modeler_assumption already declared above must not ALSO be counted as an
     # undeclared driver; the scanner keys both forms on (sheet, cell).
     sources_used = sorted({i["source"]["url"] for i in inputs})
     source_entries = []
     for key, s in S.items():
-        if s["url"] in sources_used or key in ("close_8k", "msft_424b2", "q3_10q"):
+        if s["url"] in sources_used or key in ("close_8k", "msft_424b2", "q3_10q", "yahoo_goog"):
             source_entries.append({"name": s["name"], "url": s["url"], "as_of": s["as_of"],
                                    "notes": f"{s['publisher']}."})
     for ticker, (name, url, filed) in PEER_SOURCES.items():
@@ -772,6 +862,7 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
             "next_check": "On source revision, builder change, monitoring breach, or annual review",
         },
         "driver_declarations": sorted(drivers, key=key),
+        "presentation_fills": sorted(fills, key=key),
     }
     return manifest, snapshot
 

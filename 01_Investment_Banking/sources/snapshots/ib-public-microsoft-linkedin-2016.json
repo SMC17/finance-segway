@@ -307,7 +307,17 @@
         "saas_median": 0.31,
         "saas_average": 0.4,
         "tech_500m_plus_median_2009_2016": 0.37,
-        "tech_500m_plus_average_2016_ytd": 0.41
+        "tech_500m_plus_average_2016_ytd": 0.41,
+        "tech_500m_plus_annual_average_premia": {
+          "2009": 0.39,
+          "2010": 0.41,
+          "2011": 0.35,
+          "2012": 0.35,
+          "2013": 0.34,
+          "2014": 0.36,
+          "2015": 0.38,
+          "2016_through_2016_05_27": 0.41
+        }
       }
     },
     {
@@ -320,10 +330,10 @@
             "ticker": "GOOGL",
             "close_usd_2016_06_10": 733.19,
             "shares_outstanding_mm": 686.555233,
-            "market_cap_usd_mm": 503375.431,
+            "market_cap_usd_mm": 498642.833,
             "debt_usd_mm": 5208.0,
             "cash_usd_mm": 75264.0,
-            "enterprise_value_usd_mm": 433319.431,
+            "enterprise_value_usd_mm": 428586.833,
             "ltm_revenue_usd_mm": 77988.0,
             "ltm_operating_income_usd_mm": 20255.0,
             "ltm_da_usd_mm": 5257,
@@ -331,7 +341,10 @@
             "filing": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000021/goog10-qq12016.htm",
             "filed": "2016-05-03",
             "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
-            "price_note": "Yahoo split-adjusted close 36.6595 x 20 (Alphabet 20-for-1 split, 2022; StockholdersEquityNoteStockSplitConversionRatio1 = 20 in Alphabet's 2022 10-Q)"
+            "price_note": "Yahoo split-adjusted close 36.6595 x 20 (Alphabet 20-for-1 split, 2022; StockholdersEquityNoteStockSplitConversionRatio1 = 20 in Alphabet's 2022 10-Q)",
+            "class_c_shares_mm": 343.439675,
+            "class_c_close_usd_2016_06_10": 719.41,
+            "class_c_price_source": "Yahoo Finance chart API daily close for GOOG (Alphabet Class C) on 2016-06-10 (split-adjusted)"
           },
           {
             "ticker": "AMZN",
@@ -1285,35 +1298,35 @@
     {
       "sheet": "Comps",
       "cell": "D5",
-      "value": 503375.431283,
+      "value": 498642.832562,
       "kind": "derived",
       "source": "Alphabet Form 10-Q, quarter ended 2016-03-31"
     },
     {
       "sheet": "Comps",
       "cell": "E5",
-      "value": 433319.431283,
+      "value": 428586.832562,
       "kind": "derived",
       "source": "Alphabet Form 10-Q, quarter ended 2016-03-31"
     },
     {
       "sheet": "Comps",
       "cell": "F5",
-      "value": 5.556232,
+      "value": 5.495548,
       "kind": "derived",
       "source": "Alphabet Form 10-Q, quarter ended 2016-03-31"
     },
     {
       "sheet": "Comps",
       "cell": "G5",
-      "value": 16.984926,
+      "value": 16.799421,
       "kind": "derived",
       "source": "Alphabet Form 10-Q, quarter ended 2016-03-31"
     },
     {
       "sheet": "Comps",
       "cell": "H5",
-      "value": 29.540812,
+      "value": 29.263077,
       "kind": "derived",
       "source": "Alphabet Form 10-Q, quarter ended 2016-03-31"
     },
@@ -1628,5 +1641,5 @@
     "status": "recorded"
   },
   "counts_toward_m4": false,
-  "snapshot_sha256": "d0ee6ae10be0a09e5510042573e7a1f199058e3b2d7298707f29f115c8d24dbd"
+  "snapshot_sha256": "267cc38aa942f99d5d453cea64792e5b6d7ca14776549a8f08e92a4ce47edc6f"
 }

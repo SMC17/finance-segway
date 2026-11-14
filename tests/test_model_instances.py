@@ -131,6 +131,56 @@ class ModelInstanceTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "no\s+title text in B2"):
                 apply_manifest(manifest, root)
 
+    def _with_fills(self, root: Path, fills: list) -> Path:
+        path = self.write_manifest(root)
+        manifest = json.loads(path.read_text(encoding="utf-8"))
+        manifest["presentation_fills"] = fills
+        path.write_text(json.dumps(manifest), encoding="utf-8")
+        return path
+
+    def _fill(self, cell: str, value) -> dict:
+        return {"sheet": "Assumptions", "cell": cell, "value": value, "purpose": "source_note",
+                "source": {"url": "https://example.com/source", "as_of": "2026-08-03"}}
+
+    def test_presentation_fill_replaces_a_bracketed_placeholder(self):
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.create_template(root)
+            workbook = load_workbook(root / "template.xlsx")
+            workbook["Assumptions"]["H5"] = "Source: [10-K/10-Q cite or user estimate]"
+            workbook.save(root / "template.xlsx")
+            manifest = self._with_fills(root, [self._fill("H5", "Source: 10-K"), self._fill("H9", "=C5+1")])
+            receipt = apply_manifest(manifest, root)
+            output = load_workbook(root / "instances/test.xlsx")
+            self.assertEqual(output["Assumptions"]["H5"].value, "Source: 10-K")
+            self.assertEqual(output["Assumptions"]["H9"].value, "=C5+1")
+            self.assertEqual([f["cell"] for f in receipt["applied_presentation_fills"]], ["H5", "H9"])
+
+    def test_presentation_fill_refuses_real_template_values(self):
+        cases = {"C5": "would overwrite template value", "D5": "would overwrite template value"}
+        for cell, message in cases.items():
+            with TemporaryDirectory() as directory:
+                root = Path(directory)
+                self.create_template(root)
+                manifest = self._with_fills(root, [self._fill(cell, 1)])
+                with self.assertRaisesRegex(ValueError, "collides with a manifest input|" + message):
+                    apply_manifest(manifest, root)
+
+    def test_presentation_fill_refuses_input_cells_and_missing_source(self):
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.create_template(root)
+            workbook = load_workbook(root / "template.xlsx")
+            from openpyxl.styles import Font
+            workbook["Assumptions"]["E5"].font = Font(color="FF0000FF")
+            workbook.save(root / "template.xlsx")
+            with self.assertRaisesRegex(ValueError, "targets an input cell"):
+                apply_manifest(self._with_fills(root, [self._fill("E5", 1)]), root)
+            bad = self._fill("H5", "x")
+            bad["source"] = {}
+            with self.assertRaisesRegex(ValueError, "needs a purpose and a source url"):
+                apply_manifest(self._with_fills(root, [bad]), root)
+
     def test_validate_only_does_not_write(self):
         with TemporaryDirectory() as directory:
             root = Path(directory)

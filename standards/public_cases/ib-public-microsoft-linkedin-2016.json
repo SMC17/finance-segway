@@ -875,33 +875,33 @@
     {
       "sheet": "Comps",
       "cell": "D5",
-      "value": 503375.431283,
+      "value": 498642.832562,
       "input_kind": "derived",
       "source": {
         "name": "Alphabet Form 10-Q, quarter ended 2016-03-31",
         "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000021/goog10-qq12016.htm",
         "as_of": "2016-05-03",
-        "notes": "Market cap = 733.19 x 686.555233mm shares outstanding (10-Q cover, all classes) = 503375.4 $mm."
+        "notes": "Market cap = Class A + Class B 343.115558mm x GOOGL close 733.19 + Class C 343.439675mm x GOOG close 719.41 = 498642.8 $mm (10-Q cover share counts at 2016-04-21). Class B is unlisted and converts 1:1 into Class A, so it takes the Class A price. GOOG close 35.9705 x 20 = 719.41 (Yahoo split-adjusted, same 20-for-1 split); source https://query1.finance.yahoo.com/v8/finance/chart/GOOG?period1=1465430400&period2=1465689600&interval=1d."
       },
       "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
     },
     {
       "sheet": "Comps",
       "cell": "E5",
-      "value": 433319.431283,
+      "value": 428586.832562,
       "input_kind": "derived",
       "source": {
         "name": "Alphabet Form 10-Q, quarter ended 2016-03-31",
         "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000021/goog10-qq12016.htm",
         "as_of": "2016-05-03",
-        "notes": "EV = market cap 503375.4 + debt 5208.000 - cash and current marketable securities 75264.000 = 433319.4 $mm (latest balance sheet filed before 2016-06-10; capital leases excluded)."
+        "notes": "EV = market cap 498642.8 + debt 5208.000 - cash and current marketable securities 75264.000 = 428586.8 $mm (latest balance sheet filed before 2016-06-10; capital leases excluded)."
       },
       "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
     },
     {
       "sheet": "Comps",
       "cell": "F5",
-      "value": 5.556232,
+      "value": 5.495548,
       "input_kind": "derived",
       "source": {
         "name": "Alphabet Form 10-Q, quarter ended 2016-03-31",
@@ -914,7 +914,7 @@
     {
       "sheet": "Comps",
       "cell": "G5",
-      "value": 16.984926,
+      "value": 16.799421,
       "input_kind": "derived",
       "source": {
         "name": "Alphabet Form 10-Q, quarter ended 2016-03-31",
@@ -927,13 +927,13 @@
     {
       "sheet": "Comps",
       "cell": "H5",
-      "value": 29.540812,
+      "value": 29.263077,
       "input_kind": "derived",
       "source": {
         "name": "Alphabet Form 10-Q, quarter ended 2016-03-31",
         "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000021/goog10-qq12016.htm",
         "as_of": "2016-05-03",
-        "notes": "P/E = market cap 503375.4 / LTM net income 17040.000 $mm."
+        "notes": "P/E = market cap 498642.8 / LTM net income 17040.000 $mm."
       },
       "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
     },
@@ -2142,7 +2142,7 @@
         "name": "Demandware Schedule 14D-9 (Goldman Sachs selected historical premia analysis), filed 2016-06-10",
         "url": "https://www.sec.gov/Archives/edgar/data/1301031/000119312516618542/d207591dsc14d9.htm",
         "as_of": "2016-06-10",
-        "notes": "Offer-premium warning = 37%, the median one-day premium of all-cash U.S. technology acquisitions above $500mm, 2009 to 2016-05-27 (Goldman Sachs analysis in the Demandware 14D-9)."
+        "notes": "Offer-premium warning = 37%: Goldman Sachs' 'Median' of the eight annual AVERAGE one-day premia of all-cash U.S. technology acquisitions above $500mm enterprise value, 2009 to 2016-05-27 (39%, 41%, 35%, 35%, 34%, 36%, 38%, 41%; median of the eight = (36% + 38%) / 2 = 37%). It is a median of yearly averages, not the median deal premium (Demandware 14D-9, Selected Historical Premia Analysis)."
       },
       "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
     },
@@ -2275,6 +2275,12 @@
       "url": "https://www.federalreserve.gov/monetarypolicy/files/FOMC_LongerRunGoals_20160126.pdf",
       "as_of": "2016-01-26",
       "notes": "Board of Governors of the Federal Reserve System."
+    },
+    {
+      "name": "Yahoo Finance chart API daily close for GOOG (Alphabet Class C) on 2016-06-10 (split-adjusted)",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/GOOG?period1=1465430400&period2=1465689600&interval=1d",
+      "as_of": "2016-06-10",
+      "notes": "Yahoo Finance."
     },
     {
       "name": "Demandware Schedule 14D-9 (Goldman Sachs selected historical premia analysis), filed 2016-06-10",
@@ -2728,7 +2734,7 @@
         "source_name": "Demandware Schedule 14D-9 (Goldman Sachs selected historical premia analysis), filed 2016-06-10",
         "source_url": "https://www.sec.gov/Archives/edgar/data/1301031/000119312516618542/d207591dsc14d9.htm",
         "as_of": "2016-06-10",
-        "note": "$500M+ tech all-cash median premium 37%; 2016 YTD average 41%."
+        "note": "$500M+ tech all-cash premia: median of the 2009-2016 annual averages 37%; 2016 YTD average 41%."
       },
       "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
     },
@@ -2768,6 +2774,476 @@
         "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
         "as_of": "2016-07-22",
         "note": "Qatalyst illustrative DCF range $156.43-$238.39 per share."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    }
+  ],
+  "presentation_fills": [
+    {
+      "sheet": "Assumptions",
+      "cell": "H5",
+      "value": "Source: LinkedIn DEFM14A filed 2016-07-22, management Forecasts pp. 58-60: revenue 2016E-2020E over the prior year; FY2015 base 2,990.911 $mm from the FY2015 10-K. Derived.",
+      "purpose": "source_note",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Row-level source note for Assumptions row 5; each cell's full derivation is in its own manifest input."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H6",
+      "value": "Driver: held at the FY2015 actual 85.9956% (FY2015 10-K, filed 2016-02-12). The Forecasts do not disclose cost of revenue. Declared modeler_assumption.",
+      "purpose": "source_note",
+      "source": {
+        "name": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+        "as_of": "2016-02-12",
+        "notes": "Row-level source note for Assumptions row 6; each cell's full derivation is in its own manifest input."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H7",
+      "value": "Driver (balancing residual): gross margin less the EBIT margin implied by the Forecasts (net income + tax + other expense; LinkedIn DEFM14A filed 2016-07-22, management Forecasts pp. 58-60). EBIT ties to the Forecasts exactly.",
+      "purpose": "source_note",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Row-level source note for Assumptions row 7; each cell's full derivation is in its own manifest input."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H8",
+      "value": "Source: LinkedIn DEFM14A filed 2016-07-22, management Forecasts pp. 58-60: tax provision / pre-tax income. 2016E is negative because the Forecasts carry a tax provision on a pre-tax loss. Derived.",
+      "purpose": "source_note",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Row-level source note for Assumptions row 8; each cell's full derivation is in its own manifest input."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H9",
+      "value": "Source: LinkedIn DEFM14A filed 2016-07-22, management Forecasts pp. 58-60: D&A / purchases of property and equipment. Derived.",
+      "purpose": "source_note",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Row-level source note for Assumptions row 9; each cell's full derivation is in its own manifest input."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H10",
+      "value": "Source: LinkedIn DEFM14A filed 2016-07-22, management Forecasts pp. 58-60: purchases of property and equipment / revenue. Derived.",
+      "purpose": "source_note",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Row-level source note for Assumptions row 10; each cell's full derivation is in its own manifest input."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H11",
+      "value": "Source: LinkedIn DEFM14A filed 2016-07-22, management Forecasts pp. 58-60: -(CFO - net income - D&A - SBC) / revenue change. The residual also holds non-cash items the Forecasts do not separate. Derived.",
+      "purpose": "source_note",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Row-level source note for Assumptions row 11; each cell's full derivation is in its own manifest input."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H12",
+      "value": "Driver: fully diluted 142.498mm at $196 (10-Q for 2016-03-31) grown geometrically to the proxy's ~12% management-projected dilution over five years. Declared modeler_assumption.",
+      "purpose": "source_note",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Row-level source note for Assumptions row 12; each cell's full derivation is in its own manifest input."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H13",
+      "value": "Source: midpoint of Qatalyst Partners' 10.0%-13.0% discount-rate range (DEFM14A filed 2016-07-22). Derived.",
+      "purpose": "source_note",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Row-level source note for Assumptions row 13; each cell's full derivation is in its own manifest input."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H14",
+      "value": "Driver: 30-year Treasury par yield 2.44% on 2016-06-10 (U.S. Treasury daily par yield curve). Declared modeler_assumption.",
+      "purpose": "source_note",
+      "source": {
+        "name": "U.S. Treasury daily par yield curve rates, 2016",
+        "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2016/all?type=daily_treasury_yield_curve&field_tdr_date_value=2016&page&_format=csv",
+        "as_of": "2016-06-10",
+        "notes": "Row-level source note for Assumptions row 14; each cell's full derivation is in its own manifest input."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B15",
+      "value": "Peer set: Qatalyst Partners selected 10 companies (DEFM14A p. 53): consumer internet Alphabet, Amazon, Facebook, Twitter; SaaS Cornerstone OnDemand, NetSuite, Salesforce, ServiceNow, Ultimate Software, Workday. The template has 7 rows, so the 3 smallest SaaS peers by LTM revenue (NetSuite 792.9, Ultimate Software 660.4, Cornerstone OnDemand 365.0 $mm) are omitted. Template limitation, not a selection judgment. Multiples are LTM; Qatalyst used CY2017E consensus, which is not public.",
+      "purpose": "source_note",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Discloses that the comps table carries 7 of Qatalyst's 10 selected companies."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "C5",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B5,DCF!$C$5:$G$5)+DCF!$G$5*(1+C$4)/($B5-C$4)/(1+$B5)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "D5",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B5,DCF!$C$5:$G$5)+DCF!$G$5*(1+D$4)/($B5-D$4)/(1+$B5)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "E5",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B5,DCF!$C$5:$G$5)+DCF!$G$5*(1+E$4)/($B5-E$4)/(1+$B5)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "F5",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B5,DCF!$C$5:$G$5)+DCF!$G$5*(1+F$4)/($B5-F$4)/(1+$B5)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "G5",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B5,DCF!$C$5:$G$5)+DCF!$G$5*(1+G$4)/($B5-G$4)/(1+$B5)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "C6",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B6,DCF!$C$5:$G$5)+DCF!$G$5*(1+C$4)/($B6-C$4)/(1+$B6)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "D6",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B6,DCF!$C$5:$G$5)+DCF!$G$5*(1+D$4)/($B6-D$4)/(1+$B6)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "E6",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B6,DCF!$C$5:$G$5)+DCF!$G$5*(1+E$4)/($B6-E$4)/(1+$B6)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "F6",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B6,DCF!$C$5:$G$5)+DCF!$G$5*(1+F$4)/($B6-F$4)/(1+$B6)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "G6",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B6,DCF!$C$5:$G$5)+DCF!$G$5*(1+G$4)/($B6-G$4)/(1+$B6)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "C7",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B7,DCF!$C$5:$G$5)+DCF!$G$5*(1+C$4)/($B7-C$4)/(1+$B7)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "D7",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B7,DCF!$C$5:$G$5)+DCF!$G$5*(1+D$4)/($B7-D$4)/(1+$B7)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "E7",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B7,DCF!$C$5:$G$5)+DCF!$G$5*(1+E$4)/($B7-E$4)/(1+$B7)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "F7",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B7,DCF!$C$5:$G$5)+DCF!$G$5*(1+F$4)/($B7-F$4)/(1+$B7)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "G7",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B7,DCF!$C$5:$G$5)+DCF!$G$5*(1+G$4)/($B7-G$4)/(1+$B7)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "C8",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B8,DCF!$C$5:$G$5)+DCF!$G$5*(1+C$4)/($B8-C$4)/(1+$B8)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "D8",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B8,DCF!$C$5:$G$5)+DCF!$G$5*(1+D$4)/($B8-D$4)/(1+$B8)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "E8",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B8,DCF!$C$5:$G$5)+DCF!$G$5*(1+E$4)/($B8-E$4)/(1+$B8)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "F8",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B8,DCF!$C$5:$G$5)+DCF!$G$5*(1+F$4)/($B8-F$4)/(1+$B8)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "G8",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B8,DCF!$C$5:$G$5)+DCF!$G$5*(1+G$4)/($B8-G$4)/(1+$B8)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "C9",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B9,DCF!$C$5:$G$5)+DCF!$G$5*(1+C$4)/($B9-C$4)/(1+$B9)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "D9",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B9,DCF!$C$5:$G$5)+DCF!$G$5*(1+D$4)/($B9-D$4)/(1+$B9)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "E9",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B9,DCF!$C$5:$G$5)+DCF!$G$5*(1+E$4)/($B9-E$4)/(1+$B9)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "F9",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B9,DCF!$C$5:$G$5)+DCF!$G$5*(1+F$4)/($B9-F$4)/(1+$B9)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
+      },
+      "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "G9",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B9,DCF!$C$5:$G$5)+DCF!$G$5*(1+G$4)/($B9-G$4)/(1+$B9)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source": {
+        "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+        "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+        "as_of": "2016-07-22",
+        "notes": "Implied value per share at WACC in column B and terminal growth in row 4: the DCF sheet's own arithmetic (end-of-year discounting of DCF!C5:G5, Gordon terminal value on DCF!G5, less net debt DCF!I11, over diluted shares DCF!I13) with the two rates replaced. At the Base 11.5% / 2.44% it reproduces DCF!I14. The axis values are the template's grid."
       },
       "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
     }
