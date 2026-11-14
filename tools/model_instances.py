@@ -32,6 +32,46 @@ class AppliedInput:
     source_as_of: str | None
 
 
+# A presentation fill writes a source note or a formula into a cell OUTSIDE the
+# input surface: a template's bracketed placeholder ("Source: [10-K/10-Q cite or
+# user estimate]", "[data table — Excel What-If Analysis]") or an empty cell
+# beside a table. It is not an input and earns no coverage credit, so it is kept
+# apart from `inputs` and is refused anywhere it could hide a number: on a
+# blue-font input cell, on a formula, on a cell an input also writes, or on any
+# template value that is not empty and not a bracketed placeholder.
+def _is_placeholder(value: Any) -> bool:
+    return value is None or (isinstance(value, str) and "[" in value and "]" in value
+                             and not value.startswith("="))
+
+
+def _apply_presentation_fills(workbook: Any, manifest: dict[str, Any]) -> list[dict[str, Any]]:
+    written = {(item["sheet"], item["cell"]) for item in manifest["inputs"]}
+    applied: list[dict[str, Any]] = []
+    for item in manifest.get("presentation_fills", []):
+        sheet_name, address = item["sheet"], item["cell"]
+        if sheet_name not in workbook.sheetnames:
+            raise ValueError(f"presentation fill references missing sheet {sheet_name}")
+        if (sheet_name, address) in written:
+            raise ValueError(f"presentation fill {sheet_name}!{address} collides with a manifest input")
+        source = item.get("source") or {}
+        if not str(source.get("url", "")).strip() or not str(item.get("purpose", "")).strip():
+            raise ValueError(f"presentation fill {sheet_name}!{address} needs a purpose and a source url")
+        cell = workbook[sheet_name][address]
+        color = cell.font.color.rgb if cell.font is not None and cell.font.color is not None else None
+        if isinstance(color, str) and color[-6:].upper() == BLUE:
+            raise ValueError(f"presentation fill {sheet_name}!{address} targets an input cell; use inputs")
+        if not _is_placeholder(cell.value):
+            raise ValueError(
+                f"presentation fill {sheet_name}!{address} would overwrite template value {cell.value!r}; "
+                "only empty cells and bracketed placeholders may be filled"
+            )
+        applied.append({"sheet": sheet_name, "cell": address, "previous": cell.value,
+                        "value": item.get("value"), "purpose": item["purpose"],
+                        "source_url": source.get("url"), "source_as_of": source.get("as_of")})
+        cell.value = item.get("value")
+    return applied
+
+
 def _load_manifest(path: Path) -> dict[str, Any]:
     manifest = json.loads(path.read_text(encoding="utf-8"))
     required = {"schema_version", "id", "template", "output", "as_of", "inputs"}
@@ -206,6 +246,7 @@ def apply_manifest(manifest_path: Path, root: Path, *, validate_only: bool = Fal
             cell.fill = PatternFill("solid", fgColor=YELLOW)
     if validate_only:
         return {"manifest": str(manifest_path), "template": str(template), "inputs": len(applied), "valid": True}
+    fills = _apply_presentation_fills(workbook, manifest)
     _set_cover(workbook, manifest)
     _append_sources(workbook, manifest)
     _append_refresh(workbook, manifest)
@@ -219,6 +260,7 @@ def apply_manifest(manifest_path: Path, root: Path, *, validate_only: bool = Fal
         "template": manifest["template"],
         "output": manifest["output"],
         "applied_inputs": [asdict(item) for item in applied],
+        **({"applied_presentation_fills": fills} if fills else {}),
         "workbook_sha256": hashlib.sha256(output.read_bytes()).hexdigest(),
         "generated_on": date.today().isoformat(),
     }

@@ -7,115 +7,59 @@
   "output": "01_Investment_Banking/instances/public_microsoft_linkedin_2016.xlsx",
   "applied_inputs": [
     {
-      "sheet": "Transaction Analysis",
-      "cell": "C5",
-      "previous": 1000,
-      "value": 26200.0,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
-      "source_as_of": "2016-12-08"
-    },
-    {
-      "sheet": "Transaction Analysis",
-      "cell": "C8",
-      "previous": 100,
-      "value": 133.673469,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
-      "source_as_of": "2016-12-08"
-    },
-    {
-      "sheet": "Transaction Analysis",
-      "cell": "C9",
-      "previous": 9.5,
-      "value": 196.0,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
-      "source_as_of": "2016-12-08"
-    },
-    {
-      "sheet": "Transaction Analysis",
-      "cell": "C10",
-      "previous": 0.1,
-      "value": 0.09,
-      "source_url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.htm",
-      "source_as_of": "2016-06-13"
-    },
-    {
-      "sheet": "Transaction Analysis",
-      "cell": "D10",
-      "previous": 0.05,
-      "value": 0.09,
-      "source_url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.htm",
-      "source_as_of": "2016-06-13"
-    },
-    {
-      "sheet": "Transaction Analysis",
-      "cell": "C11",
-      "previous": 0.03,
-      "value": 0.025,
-      "source_url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.htm",
-      "source_as_of": "2016-06-13"
-    },
-    {
-      "sheet": "Transaction Analysis",
-      "cell": "D11",
-      "previous": 0.06,
-      "value": 0.025,
-      "source_url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.htm",
-      "source_as_of": "2016-06-13"
-    },
-    {
       "sheet": "Accretion Dilution",
       "cell": "C5",
       "previous": 100,
-      "value": 16800.0,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312516662209/d187868d10k.htm",
-      "source_as_of": "2016-06-30"
+      "value": 16798.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312516662209/d187868d10k.htm",
+      "source_as_of": "2016-07-28"
     },
     {
       "sheet": "Accretion Dilution",
       "cell": "D5",
       "previous": 100,
-      "value": 16800.0,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312516662209/d187868d10k.htm",
-      "source_as_of": "2016-06-30"
+      "value": 16798.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312516662209/d187868d10k.htm",
+      "source_as_of": "2016-07-28"
     },
     {
       "sheet": "Accretion Dilution",
       "cell": "C6",
       "previous": 100,
-      "value": 8000.0,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312516662209/d187868d10k.htm",
-      "source_as_of": "2016-06-30"
+      "value": 8013.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312516662209/d187868d10k.htm",
+      "source_as_of": "2016-07-28"
     },
     {
       "sheet": "Accretion Dilution",
       "cell": "D6",
       "previous": 100,
-      "value": 8000.0,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312516662209/d187868d10k.htm",
-      "source_as_of": "2016-06-30"
+      "value": 8013.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312516662209/d187868d10k.htm",
+      "source_as_of": "2016-07-28"
     },
     {
       "sheet": "Accretion Dilution",
       "cell": "C7",
       "previous": 10,
-      "value": -164.8,
-      "source_url": "https://news.linkedin.com/2016/linkedin-announces-fourth-quarter-and-full-year-2015-results",
-      "source_as_of": "2015-12-31"
+      "value": -164.761,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
     },
     {
       "sheet": "Accretion Dilution",
       "cell": "D7",
       "previous": 5,
-      "value": -164.8,
-      "source_url": "https://news.linkedin.com/2016/linkedin-announces-fourth-quarter-and-full-year-2015-results",
-      "source_as_of": "2015-12-31"
+      "value": -275.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
     },
     {
       "sheet": "Accretion Dilution",
       "cell": "C8",
       "previous": 5,
-      "value": 0.0,
-      "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-microsoft-linkedin-2016.json",
+      "value": 127.573287,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312516619689/d116815dex991.htm",
       "source_as_of": "2016-06-13"
     },
     {
@@ -123,23 +67,23 @@
       "cell": "D8",
       "previous": 0,
       "value": 0.0,
-      "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-microsoft-linkedin-2016.json",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312516619689/d116815dex991.htm",
       "source_as_of": "2016-06-13"
     },
     {
       "sheet": "Accretion Dilution",
       "cell": "C9",
       "previous": 3,
-      "value": 592.5,
-      "source_url": "https://www.forbes.com/sites/spleverage/2016/08/02/microsofts-bond-offering-for-linkedin-buy-5th-largest-deal-ever/",
+      "value": 450.014771,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312516667093/d234953dfwp.htm",
       "source_as_of": "2016-08-02"
     },
     {
       "sheet": "Accretion Dilution",
       "cell": "D9",
       "previous": 20,
-      "value": 592.5,
-      "source_url": "https://www.forbes.com/sites/spleverage/2016/08/02/microsofts-bond-offering-for-linkedin-buy-5th-largest-deal-ever/",
+      "value": 596.981621,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312516667093/d234953dfwp.htm",
       "source_as_of": "2016-08-02"
     },
     {
@@ -148,7 +92,7 @@
       "previous": 10,
       "value": 0.0,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
-      "source_as_of": "2016-06-13"
+      "source_as_of": "2016-07-22"
     },
     {
       "sheet": "Accretion Dilution",
@@ -156,36 +100,1580 @@
       "previous": 50,
       "value": 0.0,
       "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C11",
+      "previous": 0,
+      "value": -0.01,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312516619689/d116815dex991.htm",
+      "source_as_of": "2016-06-13"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D11",
+      "previous": 0,
+      "value": -0.01,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312516619689/d116815dex991.htm",
+      "source_as_of": "2016-06-13"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "previous": 0,
+      "value": 0.249786,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "previous": 0,
+      "value": 0.234617,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E5",
+      "previous": 0,
+      "value": 0.19805,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F5",
+      "previous": 0,
+      "value": 0.161331,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G5",
+      "previous": 0,
+      "value": 0.147018,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "previous": 0,
+      "value": 0.859956,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D6",
+      "previous": 0,
+      "value": 0.859956,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E6",
+      "previous": 0,
+      "value": 0.859956,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F6",
+      "previous": 0,
+      "value": 0.859956,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G6",
+      "previous": 0,
+      "value": 0.859956,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "previous": 0,
+      "value": 0.892059,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "previous": 0,
+      "value": 0.831571,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E7",
+      "previous": 0,
+      "value": 0.763375,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F7",
+      "previous": 0,
+      "value": 0.714496,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G7",
+      "previous": 0,
+      "value": 0.683039,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "previous": 0,
+      "value": -0.544944,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "previous": 0,
+      "value": 0.352941,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E8",
+      "previous": 0,
+      "value": 0.349785,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F8",
+      "previous": 0,
+      "value": 0.349827,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G8",
+      "previous": 0,
+      "value": 0.349765,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "previous": 0,
+      "value": 0.707196,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "previous": 0,
+      "value": 1.043333,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E9",
+      "previous": 0,
+      "value": 1.021382,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F9",
+      "previous": 0,
+      "value": 0.957944,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G9",
+      "previous": 0,
+      "value": 1.06961,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C10",
+      "previous": 0,
+      "value": 0.215623,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "previous": 0,
+      "value": 0.130011,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E10",
+      "previous": 0,
+      "value": 0.109966,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F10",
+      "previous": 0,
+      "value": 0.099984,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G10",
+      "previous": 0,
+      "value": 0.079973,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "previous": 0,
+      "value": -0.519349,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "previous": 0,
+      "value": -0.216648,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E11",
+      "previous": 0,
+      "value": -0.417943,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F11",
+      "previous": 0,
+      "value": -0.522422,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G11",
+      "previous": 0,
+      "value": -0.53178,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C12",
+      "previous": 0,
+      "value": 145.765122,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D12",
+      "previous": 0,
+      "value": 149.106723,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E12",
+      "previous": 0,
+      "value": 152.524928,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F12",
+      "previous": 0,
+      "value": 156.021495,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G12",
+      "previous": 0,
+      "value": 159.598218,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C13",
+      "previous": 0,
+      "value": 0.115,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D13",
+      "previous": 0,
+      "value": 0.115,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E13",
+      "previous": 0,
+      "value": 0.115,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F13",
+      "previous": 0,
+      "value": 0.115,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G13",
+      "previous": 0,
+      "value": 0.115,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C14",
+      "previous": 0,
+      "value": 0.0244,
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2016/all?type=daily_treasury_yield_curve&field_tdr_date_value=2016&page&_format=csv",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D14",
+      "previous": 0,
+      "value": 0.0244,
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2016/all?type=daily_treasury_yield_curve&field_tdr_date_value=2016&page&_format=csv",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E14",
+      "previous": 0,
+      "value": 0.0244,
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2016/all?type=daily_treasury_yield_curve&field_tdr_date_value=2016&page&_format=csv",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F14",
+      "previous": 0,
+      "value": 0.0244,
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2016/all?type=daily_treasury_yield_curve&field_tdr_date_value=2016&page&_format=csv",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G14",
+      "previous": 0,
+      "value": 0.0244,
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2016/all?type=daily_treasury_yield_curve&field_tdr_date_value=2016&page&_format=csv",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B5",
+      "previous": "[TICKER]",
+      "value": "GOOGL",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000021/goog10-qq12016.htm",
+      "source_as_of": "2016-05-03"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C5",
+      "previous": 0,
+      "value": 733.19,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D5",
+      "previous": 0,
+      "value": 498642.832562,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000021/goog10-qq12016.htm",
+      "source_as_of": "2016-05-03"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E5",
+      "previous": 0,
+      "value": 428586.832562,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000021/goog10-qq12016.htm",
+      "source_as_of": "2016-05-03"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F5",
+      "previous": 0,
+      "value": 5.495548,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000021/goog10-qq12016.htm",
+      "source_as_of": "2016-05-03"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G5",
+      "previous": 0,
+      "value": 16.799421,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000021/goog10-qq12016.htm",
+      "source_as_of": "2016-05-03"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H5",
+      "previous": 0,
+      "value": 29.263077,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000021/goog10-qq12016.htm",
+      "source_as_of": "2016-05-03"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B6",
+      "previous": "[TICKER]",
+      "value": "AMZN",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872416000227/amzn-20160331x10q.htm",
+      "source_as_of": "2016-04-29"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C6",
+      "previous": 0,
+      "value": 717.91,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D6",
+      "previous": 0,
+      "value": 338730.010764,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872416000227/amzn-20160331x10q.htm",
+      "source_as_of": "2016-04-29"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E6",
+      "previous": 0,
+      "value": 331276.010764,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872416000227/amzn-20160331x10q.htm",
+      "source_as_of": "2016-04-29"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F6",
+      "previous": 0,
+      "value": 2.920867,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872416000227/amzn-20160331x10q.htm",
+      "source_as_of": "2016-04-29"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G6",
+      "previous": 0,
+      "value": 34.043368,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872416000227/amzn-20160331x10q.htm",
+      "source_as_of": "2016-04-29"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H6",
+      "previous": 0,
+      "value": 290.506013,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872416000227/amzn-20160331x10q.htm",
+      "source_as_of": "2016-04-29"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B7",
+      "previous": "[TICKER]",
+      "value": "FB",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680116000067/fb-3312016x10q.htm",
+      "source_as_of": "2016-04-28"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C7",
+      "previous": 0,
+      "value": 116.62,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D7",
+      "previous": 0,
+      "value": 333568.713239,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680116000067/fb-3312016x10q.htm",
+      "source_as_of": "2016-04-28"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E7",
+      "previous": 0,
+      "value": 312947.713239,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680116000067/fb-3312016x10q.htm",
+      "source_as_of": "2016-04-28"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F7",
+      "previous": 0,
+      "value": 15.831826,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680116000067/fb-3312016x10q.htm",
+      "source_as_of": "2016-04-28"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G7",
+      "previous": 0,
+      "value": 33.502592,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680116000067/fb-3312016x10q.htm",
+      "source_as_of": "2016-04-28"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H7",
+      "previous": 0,
+      "value": 71.184104,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680116000067/fb-3312016x10q.htm",
+      "source_as_of": "2016-04-28"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B8",
+      "previous": "[TICKER]",
+      "value": "TWTR",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1418091/000156459016017462/twtr-10q_20160331.htm",
+      "source_as_of": "2016-05-03"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C8",
+      "previous": 0,
+      "value": 14.02,
+      "source_url": "https://www.alphavantage.co/documentation/#weekly",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D8",
+      "previous": 0,
+      "value": 9840.601997,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1418091/000156459016017462/twtr-10q_20160331.htm",
+      "source_as_of": "2016-05-03"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E8",
+      "previous": 0,
+      "value": 7739.704997,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1418091/000156459016017462/twtr-10q_20160331.htm",
+      "source_as_of": "2016-05-03"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F8",
+      "previous": 0,
+      "value": 3.25661,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1418091/000156459016017462/twtr-10q_20160331.htm",
+      "source_as_of": "2016-05-03"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G8",
+      "previous": 0,
+      "value": "NM",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1418091/000156459016017462/twtr-10q_20160331.htm",
+      "source_as_of": "2016-05-03"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H8",
+      "previous": 0,
+      "value": "NM",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1418091/000156459016017462/twtr-10q_20160331.htm",
+      "source_as_of": "2016-05-03"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B9",
+      "previous": "[TICKER]",
+      "value": "CRM",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852416000066/crmq1fy1710-q.htm",
+      "source_as_of": "2016-05-20"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C9",
+      "previous": 0,
+      "value": 81.83,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D9",
+      "previous": 0,
+      "value": 55439.825,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852416000066/crmq1fy1710-q.htm",
+      "source_as_of": "2016-05-20"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E9",
+      "previous": 0,
+      "value": 54701.803,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852416000066/crmq1fy1710-q.htm",
+      "source_as_of": "2016-05-20"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F9",
+      "previous": 0,
+      "value": 7.73427,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852416000066/crmq1fy1710-q.htm",
+      "source_as_of": "2016-05-20"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G9",
+      "previous": 0,
+      "value": 82.085662,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852416000066/crmq1fy1710-q.htm",
+      "source_as_of": "2016-05-20"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H9",
+      "previous": 0,
+      "value": "NM",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852416000066/crmq1fy1710-q.htm",
+      "source_as_of": "2016-05-20"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B10",
+      "previous": "[TICKER]",
+      "value": "WDAY",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1327811/000132781116000041/wday-04302016x10q.htm",
+      "source_as_of": "2016-06-01"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C10",
+      "previous": 0,
+      "value": 77.63,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D10",
+      "previous": 0,
+      "value": 15293.11,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1327811/000132781116000041/wday-04302016x10q.htm",
+      "source_as_of": "2016-06-01"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E10",
+      "previous": 0,
+      "value": 13727.095,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1327811/000132781116000041/wday-04302016x10q.htm",
+      "source_as_of": "2016-06-01"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F10",
+      "previous": 0,
+      "value": 10.922094,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1327811/000132781116000041/wday-04302016x10q.htm",
+      "source_as_of": "2016-06-01"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G10",
+      "previous": 0,
+      "value": "NM",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1327811/000132781116000041/wday-04302016x10q.htm",
+      "source_as_of": "2016-06-01"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H10",
+      "previous": 0,
+      "value": "NM",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1327811/000132781116000041/wday-04302016x10q.htm",
+      "source_as_of": "2016-06-01"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B11",
+      "previous": "[TICKER]",
+      "value": "NOW",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371516000364/now-2016331x10q.htm",
+      "source_as_of": "2016-05-06"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C11",
+      "previous": 0,
+      "value": 74.03,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D11",
+      "previous": 0,
+      "value": 12055.649507,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371516000364/now-2016331x10q.htm",
+      "source_as_of": "2016-05-06"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E11",
+      "previous": 0,
+      "value": 11637.419507,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371516000364/now-2016331x10q.htm",
+      "source_as_of": "2016-05-06"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F11",
+      "previous": 0,
+      "value": 10.585294,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371516000364/now-2016331x10q.htm",
+      "source_as_of": "2016-05-06"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G11",
+      "previous": 0,
+      "value": "NM",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371516000364/now-2016331x10q.htm",
+      "source_as_of": "2016-05-06"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H11",
+      "previous": 0,
+      "value": "NM",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371516000364/now-2016331x10q.htm",
+      "source_as_of": "2016-05-06"
+    },
+    {
+      "sheet": "Cover",
+      "cell": "B11",
+      "previous": "[fill in]",
+      "value": "Microsoft paid $196.00 a share in cash for LinkedIn, a 49.5% premium to the 2016-06-10 close of $131.08 and a $26.2bn enterprise value, financed primarily with new debt; the merger closed on 2016-12-08. The price rests on management's Forecasts, which grow revenue from $2,991mm in 2015 to $7,365mm in 2020 and levered free cash flow from $458mm to $2,107mm: at Qatalyst's 10.0%-13.0% discount rates, the case is whether those cash flows arrive, not the bridge.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I5",
+      "previous": 0.1,
+      "value": 0.115,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I6",
+      "previous": 0.025,
+      "value": 0.0244,
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2016/all?type=daily_treasury_yield_curve&field_tdr_date_value=2016&page&_format=csv",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I11",
+      "previous": 0,
+      "value": -1837.138,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000043/a20160331-10qdocument.htm",
+      "source_as_of": "2016-04-29"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I13",
+      "previous": 1,
+      "value": 142.498409,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000043/a20160331-10qdocument.htm",
+      "source_as_of": "2016-04-29"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C5",
+      "previous": null,
+      "value": 1528.545,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D5",
+      "previous": null,
+      "value": 2218.767,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E5",
+      "previous": null,
+      "value": 2990.911,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C7",
+      "previous": null,
+      "value": 202.908,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D7",
+      "previous": null,
+      "value": 293.797,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E7",
+      "previous": null,
+      "value": 418.858,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C10",
+      "previous": null,
+      "value": 1277.825,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D10",
+      "previous": null,
+      "value": 1888.835,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E10",
+      "previous": null,
+      "value": 2722.995,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C13",
+      "previous": null,
+      "value": 134.516,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D13",
+      "previous": null,
+      "value": 236.946,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E13",
+      "previous": null,
+      "value": 420.472,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C15",
+      "previous": null,
+      "value": 0.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D15",
+      "previous": null,
+      "value": 6.797,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E15",
+      "previous": null,
+      "value": 50.882,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C17",
+      "previous": null,
+      "value": 22.459,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D17",
+      "previous": null,
+      "value": 46.525,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E17",
+      "previous": null,
+      "value": -49.969,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C19",
+      "previous": null,
+      "value": 118.944,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D19",
+      "previous": null,
+      "value": 122.8,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E19",
+      "previous": null,
+      "value": 129.024,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C5",
+      "previous": 1000,
+      "value": 26200.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312516619689/d116815dex991.htm",
       "source_as_of": "2016-06-13"
     },
     {
       "sheet": "Transaction Analysis",
       "cell": "D5",
       "previous": 1000,
-      "value": 26200.0,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
-      "source_as_of": "2016-12-08"
+      "value": 16754.075982,
+      "source_url": "https://www.alphavantage.co/documentation/#weekly",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C6",
+      "previous": 200,
+      "value": 1322.5,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000043/a20160331-10qdocument.htm",
+      "source_as_of": "2016-04-29"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D6",
+      "previous": 200,
+      "value": 1322.5,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000043/a20160331-10qdocument.htm",
+      "source_as_of": "2016-04-29"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C7",
+      "previous": 100,
+      "value": 3159.638,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000043/a20160331-10qdocument.htm",
+      "source_as_of": "2016-04-29"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D7",
+      "previous": 100,
+      "value": 3159.638,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000043/a20160331-10qdocument.htm",
+      "source_as_of": "2016-04-29"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C8",
+      "previous": 100,
+      "value": 142.498409,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000043/a20160331-10qdocument.htm",
+      "source_as_of": "2016-04-29"
     },
     {
       "sheet": "Transaction Analysis",
       "cell": "D8",
       "previous": 100,
-      "value": 133.673469,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
-      "source_as_of": "2016-12-08"
+      "value": 141.83105,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000043/a20160331-10qdocument.htm",
+      "source_as_of": "2016-04-29"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C9",
+      "previous": 9.5,
+      "value": 196.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
     },
     {
       "sheet": "Transaction Analysis",
       "cell": "D9",
       "previous": 15,
       "value": 196.0,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000059/a20160930-10qdocument.htm",
-      "source_as_of": "2016-12-08"
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C10",
+      "previous": 0.1,
+      "value": 0.115,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D10",
+      "previous": 0.05,
+      "value": 0.13,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C11",
+      "previous": 0.03,
+      "value": 0.0244,
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2016/all?type=daily_treasury_yield_curve&field_tdr_date_value=2016&page&_format=csv",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D11",
+      "previous": 0.06,
+      "value": 0.02,
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/files/FOMC_LongerRunGoals_20160126.pdf",
+      "source_as_of": "2016-01-26"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C12",
+      "previous": 70,
+      "value": 462.298125,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D12",
+      "previous": 70,
+      "value": 462.298125,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C13",
+      "previous": 75,
+      "value": 898.298125,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D13",
+      "previous": 65,
+      "value": 898.298125,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C14",
+      "previous": 80,
+      "value": 1371.298125,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D14",
+      "previous": 60,
+      "value": 1371.298125,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C15",
+      "previous": 85,
+      "value": 1695.298125,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D15",
+      "previous": 55,
+      "value": 1695.298125,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C16",
+      "previous": 90,
+      "value": 2107.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D16",
+      "previous": 50,
+      "value": 2107.0,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C17",
+      "previous": 0.3,
+      "value": 0.37,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1301031/000119312516618542/d207591dsc14d9.htm",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D17",
+      "previous": 0.3,
+      "value": 0.31,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1301031/000119312516618542/d207591dsc14d9.htm",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C18",
+      "previous": 0.5,
+      "value": 0.207588,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D18",
+      "previous": 0.5,
+      "value": 0.207588,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
     }
   ],
-  "workbook_sha256": "2b497c628a3cab62eb675ea1ac70c4153a100d53add9e9828a52afa3bd53b6f6",
-  "generated_on": "2026-11-11",
+  "applied_presentation_fills": [
+    {
+      "sheet": "Assumptions",
+      "cell": "H5",
+      "previous": "Source: [10-K/10-Q cite or user estimate]",
+      "value": "Source: LinkedIn DEFM14A filed 2016-07-22, management Forecasts pp. 58-60: revenue 2016E-2020E over the prior year; FY2015 base 2,990.911 $mm from the FY2015 10-K. Derived.",
+      "purpose": "source_note",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H6",
+      "previous": "Source: [10-K/10-Q cite or user estimate]",
+      "value": "Driver: held at the FY2015 actual 85.9956% (FY2015 10-K, filed 2016-02-12). The Forecasts do not disclose cost of revenue. Declared modeler_assumption.",
+      "purpose": "source_note",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "source_as_of": "2016-02-12"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H7",
+      "previous": "Source: [10-K/10-Q cite or user estimate]",
+      "value": "Driver (balancing residual): gross margin less the EBIT margin implied by the Forecasts (net income + tax + other expense; LinkedIn DEFM14A filed 2016-07-22, management Forecasts pp. 58-60). EBIT ties to the Forecasts exactly.",
+      "purpose": "source_note",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H8",
+      "previous": "Source: [10-K/10-Q cite or user estimate]",
+      "value": "Source: LinkedIn DEFM14A filed 2016-07-22, management Forecasts pp. 58-60: tax provision / pre-tax income. 2016E is negative because the Forecasts carry a tax provision on a pre-tax loss. Derived.",
+      "purpose": "source_note",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H9",
+      "previous": "Source: [10-K/10-Q cite or user estimate]",
+      "value": "Source: LinkedIn DEFM14A filed 2016-07-22, management Forecasts pp. 58-60: D&A / purchases of property and equipment. Derived.",
+      "purpose": "source_note",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H10",
+      "previous": "Source: [10-K/10-Q cite or user estimate]",
+      "value": "Source: LinkedIn DEFM14A filed 2016-07-22, management Forecasts pp. 58-60: purchases of property and equipment / revenue. Derived.",
+      "purpose": "source_note",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H11",
+      "previous": "Source: [10-K/10-Q cite or user estimate]",
+      "value": "Source: LinkedIn DEFM14A filed 2016-07-22, management Forecasts pp. 58-60: -(CFO - net income - D&A - SBC) / revenue change. The residual also holds non-cash items the Forecasts do not separate. Derived.",
+      "purpose": "source_note",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H12",
+      "previous": "Source: [10-K/10-Q cite or user estimate]",
+      "value": "Driver: fully diluted 142.498mm at $196 (10-Q for 2016-03-31) grown geometrically to the proxy's ~12% management-projected dilution over five years. Declared modeler_assumption.",
+      "purpose": "source_note",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H13",
+      "previous": "Source: [10-K/10-Q cite or user estimate]",
+      "value": "Source: midpoint of Qatalyst Partners' 10.0%-13.0% discount-rate range (DEFM14A filed 2016-07-22). Derived.",
+      "purpose": "source_note",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "H14",
+      "previous": "Source: [10-K/10-Q cite or user estimate]",
+      "value": "Driver: 30-year Treasury par yield 2.44% on 2016-06-10 (U.S. Treasury daily par yield curve). Declared modeler_assumption.",
+      "purpose": "source_note",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2016/all?type=daily_treasury_yield_curve&field_tdr_date_value=2016&page&_format=csv",
+      "source_as_of": "2016-06-10"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B15",
+      "previous": null,
+      "value": "Peer set: Qatalyst Partners selected 10 companies (DEFM14A p. 53): consumer internet Alphabet, Amazon, Facebook, Twitter; SaaS Cornerstone OnDemand, NetSuite, Salesforce, ServiceNow, Ultimate Software, Workday. The template has 7 rows, so the 3 smallest SaaS peers by LTM revenue (NetSuite 792.9, Ultimate Software 660.4, Cornerstone OnDemand 365.0 $mm) are omitted. Template limitation, not a selection judgment. Multiples are LTM; Qatalyst used CY2017E consensus, which is not public.",
+      "purpose": "source_note",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "C5",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B5,DCF!$C$5:$G$5)+DCF!$G$5*(1+C$4)/($B5-C$4)/(1+$B5)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "D5",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B5,DCF!$C$5:$G$5)+DCF!$G$5*(1+D$4)/($B5-D$4)/(1+$B5)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "E5",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B5,DCF!$C$5:$G$5)+DCF!$G$5*(1+E$4)/($B5-E$4)/(1+$B5)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "F5",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B5,DCF!$C$5:$G$5)+DCF!$G$5*(1+F$4)/($B5-F$4)/(1+$B5)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "G5",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B5,DCF!$C$5:$G$5)+DCF!$G$5*(1+G$4)/($B5-G$4)/(1+$B5)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "C6",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B6,DCF!$C$5:$G$5)+DCF!$G$5*(1+C$4)/($B6-C$4)/(1+$B6)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "D6",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B6,DCF!$C$5:$G$5)+DCF!$G$5*(1+D$4)/($B6-D$4)/(1+$B6)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "E6",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B6,DCF!$C$5:$G$5)+DCF!$G$5*(1+E$4)/($B6-E$4)/(1+$B6)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "F6",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B6,DCF!$C$5:$G$5)+DCF!$G$5*(1+F$4)/($B6-F$4)/(1+$B6)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "G6",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B6,DCF!$C$5:$G$5)+DCF!$G$5*(1+G$4)/($B6-G$4)/(1+$B6)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "C7",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B7,DCF!$C$5:$G$5)+DCF!$G$5*(1+C$4)/($B7-C$4)/(1+$B7)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "D7",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B7,DCF!$C$5:$G$5)+DCF!$G$5*(1+D$4)/($B7-D$4)/(1+$B7)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "E7",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B7,DCF!$C$5:$G$5)+DCF!$G$5*(1+E$4)/($B7-E$4)/(1+$B7)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "F7",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B7,DCF!$C$5:$G$5)+DCF!$G$5*(1+F$4)/($B7-F$4)/(1+$B7)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "G7",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B7,DCF!$C$5:$G$5)+DCF!$G$5*(1+G$4)/($B7-G$4)/(1+$B7)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "C8",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B8,DCF!$C$5:$G$5)+DCF!$G$5*(1+C$4)/($B8-C$4)/(1+$B8)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "D8",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B8,DCF!$C$5:$G$5)+DCF!$G$5*(1+D$4)/($B8-D$4)/(1+$B8)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "E8",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B8,DCF!$C$5:$G$5)+DCF!$G$5*(1+E$4)/($B8-E$4)/(1+$B8)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "F8",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B8,DCF!$C$5:$G$5)+DCF!$G$5*(1+F$4)/($B8-F$4)/(1+$B8)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "G8",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B8,DCF!$C$5:$G$5)+DCF!$G$5*(1+G$4)/($B8-G$4)/(1+$B8)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "C9",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B9,DCF!$C$5:$G$5)+DCF!$G$5*(1+C$4)/($B9-C$4)/(1+$B9)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "D9",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B9,DCF!$C$5:$G$5)+DCF!$G$5*(1+D$4)/($B9-D$4)/(1+$B9)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "E9",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B9,DCF!$C$5:$G$5)+DCF!$G$5*(1+E$4)/($B9-E$4)/(1+$B9)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "F9",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B9,DCF!$C$5:$G$5)+DCF!$G$5*(1+F$4)/($B9-F$4)/(1+$B9)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    },
+    {
+      "sheet": "Sensitivity",
+      "cell": "G9",
+      "previous": "[data table \u2014 Excel What-If Analysis]",
+      "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B9,DCF!$C$5:$G$5)+DCF!$G$5*(1+G$4)/($B9-G$4)/(1+$B9)^5-DCF!$I$11)/DCF!$I$13)",
+      "purpose": "formula_grid",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "source_as_of": "2016-07-22"
+    }
+  ],
+  "workbook_sha256": "b0b4fa1d0ad198b662748378483ae1b6f4b7395262bc6519bc9811e2a00db001",
+  "generated_on": "2026-11-13",
   "refresh_schema": "source-addressed-v2",
   "classification": "external_historical_case",
-  "counts_toward_M4": false
+  "counts_toward_M4": false,
+  "hash_refreshed_on": "2026-11-13",
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
 }

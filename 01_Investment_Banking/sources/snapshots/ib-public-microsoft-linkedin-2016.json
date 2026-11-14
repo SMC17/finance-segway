@@ -5,7 +5,7 @@
   "case_id": "ib-public-microsoft-linkedin-2016",
   "case_type": "conventional",
   "as_of": "2016-12-08",
-  "capture_method": "curated_public_observation",
+  "capture_method": "curated_public_observation_from_primary_filings",
   "sources": [
     {
       "name": "LinkedIn September 2016 Form 10-Q merger disclosure",
@@ -24,29 +24,1612 @@
       "captured_values": {
         "merger_completed": 1
       }
+    },
+    {
+      "name": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1271024/000104746916014430/a2229104zdefm14a.htm",
+      "publisher": "U.S. SEC / LinkedIn",
+      "captured_values": {
+        "forecast_years": [
+          "2016E",
+          "2017E",
+          "2018E",
+          "2019E",
+          "2020E"
+        ],
+        "forecast_revenue_usd_mm": [
+          3738,
+          4615,
+          5529,
+          6421,
+          7365
+        ],
+        "forecast_adjusted_ebitda_usd_mm": [
+          1031,
+          1391,
+          1824,
+          2236,
+          2666
+        ],
+        "forecast_modified_ebitda_usd_mm": [
+          954,
+          1301,
+          1728,
+          2136,
+          2571
+        ],
+        "forecast_net_income_usd_mm": [
+          -275,
+          44,
+          303,
+          565,
+          831
+        ],
+        "forecast_tax_usd_mm": [
+          97,
+          24,
+          163,
+          304,
+          447
+        ],
+        "forecast_other_expense_usd_mm": [
+          58,
+          63,
+          68,
+          65,
+          25
+        ],
+        "forecast_da_usd_mm": [
+          570,
+          626,
+          621,
+          615,
+          630
+        ],
+        "forecast_sbc_usd_mm": [
+          581,
+          634,
+          669,
+          687,
+          733
+        ],
+        "forecast_capitalized_software_usd_mm": [
+          -77,
+          -90,
+          -96,
+          -100,
+          -95
+        ],
+        "forecast_cfo_usd_mm": [
+          1264,
+          1494,
+          1975,
+          2333,
+          2696
+        ],
+        "forecast_capex_usd_mm": [
+          806,
+          600,
+          608,
+          642,
+          589
+        ],
+        "forecast_levered_fcf_usd_mm": [
+          458,
+          894,
+          1367,
+          1691,
+          2107
+        ],
+        "qatalyst_dcf_discount_rate_low": 0.1,
+        "qatalyst_dcf_discount_rate_high": 0.13,
+        "qatalyst_dcf_value_per_share_low_usd": 156.43,
+        "qatalyst_dcf_value_per_share_high_usd": 238.39,
+        "projected_dilution_from_equity_grants": 0.12,
+        "consumer_internet_peers": [
+          "Alphabet, Inc.",
+          "Amazon.com, Inc.",
+          "Facebook, Inc.",
+          "Twitter Inc."
+        ],
+        "saas_peers": [
+          "Cornerstone OnDemand Inc.",
+          "NetSuite Inc.",
+          "Salesforce.com, Inc.",
+          "ServiceNow, Inc.",
+          "Ultimate Software Group, Inc.",
+          "Workday, Inc."
+        ],
+        "premium_to_unaffected_close": 0.495,
+        "offer_price_usd": 196.0,
+        "record_date_class_a_shares": 119167595,
+        "record_date_class_b_shares": 15559383
+      }
+    },
+    {
+      "name": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12",
+      "url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000035/a20151231-10xkdocument.htm",
+      "publisher": "U.S. SEC / LinkedIn",
+      "captured_values": {
+        "FY2013": {
+          "revenue_usd_mm": 1528.545,
+          "cost_of_revenue_usd_mm": 202.908,
+          "sales_marketing_usd_mm": 522.1,
+          "product_development_usd_mm": 395.643,
+          "general_admin_usd_mm": 225.566,
+          "da_usd_mm": 134.516,
+          "interest_expense_usd_mm": 0.0,
+          "tax_usd_mm": 22.459,
+          "diluted_shares_mm": 118.944,
+          "operating_income_usd_mm": 47.812
+        },
+        "FY2014": {
+          "revenue_usd_mm": 2218.767,
+          "cost_of_revenue_usd_mm": 293.797,
+          "sales_marketing_usd_mm": 774.411,
+          "product_development_usd_mm": 536.184,
+          "general_admin_usd_mm": 341.294,
+          "da_usd_mm": 236.946,
+          "interest_expense_usd_mm": 6.797,
+          "tax_usd_mm": 46.525,
+          "diluted_shares_mm": 122.8,
+          "operating_income_usd_mm": 36.135
+        },
+        "FY2015": {
+          "revenue_usd_mm": 2990.911,
+          "cost_of_revenue_usd_mm": 418.858,
+          "sales_marketing_usd_mm": 1048.129,
+          "product_development_usd_mm": 775.66,
+          "general_admin_usd_mm": 478.734,
+          "da_usd_mm": 420.472,
+          "interest_expense_usd_mm": 50.882,
+          "tax_usd_mm": -49.969,
+          "diluted_shares_mm": 129.024,
+          "operating_income_usd_mm": -150.942,
+          "net_loss_usd_mm": -164.761,
+          "net_loss_attributable_usd_mm": -166.144,
+          "federal_statutory_rate": 0.35
+        }
+      }
+    },
+    {
+      "name": "LinkedIn Form 10-Q for the quarter ended 2016-03-31, filed 2016-04-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1271024/000127102416000043/a20160331-10qdocument.htm",
+      "publisher": "U.S. SEC / LinkedIn",
+      "captured_values": {
+        "class_a_shares_2016_04_21": 117984839,
+        "class_b_shares_2016_04_21": 15559383,
+        "rsus_unvested_2016_03_31": 7766829,
+        "options_outstanding_2016_03_31": 2534824,
+        "options_weighted_avg_exercise_usd": 104.19,
+        "cash_and_equivalents_usd_mm": 759.451,
+        "marketable_securities_usd_mm": 2400.187,
+        "convertible_notes_principal_usd_mm": 1322.5,
+        "convertible_notes_coupon": 0.005,
+        "convertible_notes_maturity": "2019-11-01",
+        "redeemable_noncontrolling_interest_usd_mm": 27.321
+      }
+    },
+    {
+      "name": "Alpha Vantage TIME_SERIES_WEEKLY (unadjusted weekly close), week ending 2016-06-10",
+      "url": "https://www.alphavantage.co/documentation/#weekly",
+      "publisher": "Alpha Vantage",
+      "captured_values": {
+        "LNKD_close_usd_2016_06_10": 131.08,
+        "TWTR_close_usd_2016_06_10": 14.02,
+        "check_offer_premium": 0.49527
+      }
+    },
+    {
+      "name": "Microsoft Form 8-K Exhibit 99.1, Microsoft-LinkedIn investor presentation, filed 2016-06-13",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312516619689/d116815dex991.htm",
+      "publisher": "U.S. SEC / Microsoft",
+      "captured_values": {
+        "enterprise_value_usd_mm": 26200.0,
+        "cost_synergies_annual_by_2018_usd_mm": 150.0,
+        "eps_guidance": "~1% dilutive to non-GAAP EPS in FY17 and FY18; accretive in FY19",
+        "financing": "primarily new debt"
+      }
+    },
+    {
+      "name": "Microsoft Form 10-K for fiscal year 2016, filed 2016-07-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312516662209/d187868d10k.htm",
+      "publisher": "U.S. SEC / Microsoft",
+      "captured_values": {
+        "net_income_usd_mm": 16798.0,
+        "diluted_shares_mm": 8013.0,
+        "income_before_tax_usd_mm": 19751.0,
+        "provision_for_tax_usd_mm": 2953.0
+      }
+    },
+    {
+      "name": "Microsoft pricing term sheet (FWP) for $19.75bn of senior notes, filed 2016-08-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312516667093/d234953dfwp.htm",
+      "publisher": "U.S. SEC / Microsoft",
+      "captured_values": {
+        "tranches": [
+          {
+            "principal_usd_mm": 2500,
+            "coupon": 0.011
+          },
+          {
+            "principal_usd_mm": 2750,
+            "coupon": 0.0155
+          },
+          {
+            "principal_usd_mm": 1500,
+            "coupon": 0.02
+          },
+          {
+            "principal_usd_mm": 4000,
+            "coupon": 0.024
+          },
+          {
+            "principal_usd_mm": 2250,
+            "coupon": 0.0345
+          },
+          {
+            "principal_usd_mm": 4500,
+            "coupon": 0.037
+          },
+          {
+            "principal_usd_mm": 2250,
+            "coupon": 0.0395
+          }
+        ],
+        "total_principal_usd_mm": 19750,
+        "annual_coupon_usd_mm": 529.125
+      }
+    },
+    {
+      "name": "U.S. Treasury daily par yield curve rates, 2016",
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2016/all?type=daily_treasury_yield_curve&field_tdr_date_value=2016&page&_format=csv",
+      "publisher": "U.S. Department of the Treasury",
+      "captured_values": {
+        "date": "2016-06-10",
+        "par_yield_30y": 0.0244,
+        "par_yield_10y": 0.0164
+      }
+    },
+    {
+      "name": "FOMC Statement on Longer-Run Goals and Monetary Policy Strategy, as amended effective 2016-01-26",
+      "url": "https://www.federalreserve.gov/monetarypolicy/files/FOMC_LongerRunGoals_20160126.pdf",
+      "publisher": "Board of Governors of the Federal Reserve System",
+      "captured_values": {
+        "longer_run_inflation_goal_pce": 0.02
+      }
+    },
+    {
+      "name": "Demandware Schedule 14D-9 (Goldman Sachs selected historical premia analysis), filed 2016-06-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1301031/000119312516618542/d207591dsc14d9.htm",
+      "publisher": "U.S. SEC / Demandware",
+      "captured_values": {
+        "saas_median": 0.31,
+        "saas_average": 0.4,
+        "tech_500m_plus_median_2009_2016": 0.37,
+        "tech_500m_plus_average_2016_ytd": 0.41,
+        "tech_500m_plus_annual_average_premia": {
+          "2009": 0.39,
+          "2010": 0.41,
+          "2011": 0.35,
+          "2012": 0.35,
+          "2013": 0.34,
+          "2014": 0.36,
+          "2015": 0.38,
+          "2016_through_2016_05_27": 0.41
+        }
+      }
+    },
+    {
+      "name": "Comparable companies at 2016-06-10",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "publisher": "U.S. SEC (XBRL company facts and 10-Q cover pages); prices per row",
+      "captured_values": {
+        "rows": [
+          {
+            "ticker": "GOOGL",
+            "close_usd_2016_06_10": 733.19,
+            "shares_outstanding_mm": 686.555233,
+            "market_cap_usd_mm": 498642.833,
+            "debt_usd_mm": 5208.0,
+            "cash_usd_mm": 75264.0,
+            "enterprise_value_usd_mm": 428586.833,
+            "ltm_revenue_usd_mm": 77988.0,
+            "ltm_operating_income_usd_mm": 20255.0,
+            "ltm_da_usd_mm": 5257,
+            "ltm_net_income_usd_mm": 17040.0,
+            "filing": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000021/goog10-qq12016.htm",
+            "filed": "2016-05-03",
+            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
+            "price_note": "Yahoo split-adjusted close 36.6595 x 20 (Alphabet 20-for-1 split, 2022; StockholdersEquityNoteStockSplitConversionRatio1 = 20 in Alphabet's 2022 10-Q)",
+            "class_c_shares_mm": 343.439675,
+            "class_c_close_usd_2016_06_10": 719.41,
+            "class_c_price_source": "Yahoo Finance chart API daily close for GOOG (Alphabet Class C) on 2016-06-10 (split-adjusted)"
+          },
+          {
+            "ticker": "AMZN",
+            "close_usd_2016_06_10": 717.91,
+            "shares_outstanding_mm": 471.82796,
+            "market_cap_usd_mm": 338730.011,
+            "debt_usd_mm": 8405.0,
+            "cash_usd_mm": 15859.0,
+            "enterprise_value_usd_mm": 331276.011,
+            "ltm_revenue_usd_mm": 113417.0,
+            "ltm_operating_income_usd_mm": 3049.0,
+            "ltm_da_usd_mm": 6682.0,
+            "ltm_net_income_usd_mm": 1166.0,
+            "filing": "https://www.sec.gov/Archives/edgar/data/1018724/000101872416000227/amzn-20160331x10q.htm",
+            "filed": "2016-04-29",
+            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
+            "price_note": "Yahoo split-adjusted close 35.8955 x 20 (Amazon 20-for-1 split effective 2022-06-06 per Alpha Vantage SPLITS)"
+          },
+          {
+            "ticker": "FB",
+            "close_usd_2016_06_10": 116.62,
+            "shares_outstanding_mm": 2860.304521,
+            "market_cap_usd_mm": 333568.713,
+            "debt_usd_mm": 0.0,
+            "cash_usd_mm": 20621.0,
+            "enterprise_value_usd_mm": 312947.713,
+            "ltm_revenue_usd_mm": 19767.0,
+            "ltm_operating_income_usd_mm": 7301.0,
+            "ltm_da_usd_mm": 2040.0,
+            "ltm_net_income_usd_mm": 4686.0,
+            "filing": "https://www.sec.gov/Archives/edgar/data/1326801/000132680116000067/fb-3312016x10q.htm",
+            "filed": "2016-04-28",
+            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
+            "price_note": "Yahoo close (ticker META today); no split since 2016"
+          },
+          {
+            "ticker": "TWTR",
+            "close_usd_2016_06_10": 14.02,
+            "shares_outstanding_mm": 701.897432,
+            "market_cap_usd_mm": 9840.602,
+            "debt_usd_mm": 1475.513,
+            "cash_usd_mm": 3576.41,
+            "enterprise_value_usd_mm": 7739.705,
+            "ltm_revenue_usd_mm": 2376.614,
+            "ltm_operating_income_usd_mm": -362.536,
+            "ltm_da_usd_mm": 333.58,
+            "ltm_net_income_usd_mm": -438.32,
+            "filing": "https://www.sec.gov/Archives/edgar/data/1418091/000156459016017462/twtr-10q_20160331.htm",
+            "filed": "2016-05-03",
+            "price_source": "Alpha Vantage TIME_SERIES_WEEKLY (unadjusted weekly close), week ending 2016-06-10",
+            "price_note": "Alpha Vantage weekly close"
+          },
+          {
+            "ticker": "CRM",
+            "close_usd_2016_06_10": 81.83,
+            "shares_outstanding_mm": 677.5,
+            "market_cap_usd_mm": 55439.825,
+            "debt_usd_mm": 1293.17,
+            "cash_usd_mm": 2031.192,
+            "enterprise_value_usd_mm": 54701.803,
+            "ltm_revenue_usd_mm": 7072.652,
+            "ltm_operating_income_usd_mm": 135.804,
+            "ltm_da_usd_mm": 530.595,
+            "ltm_net_income_usd_mm": -12.759,
+            "filing": "https://www.sec.gov/Archives/edgar/data/1108524/000110852416000066/crmq1fy1710-q.htm",
+            "filed": "2016-05-20",
+            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
+            "price_note": "Yahoo close; no split since 2016"
+          },
+          {
+            "ticker": "WDAY",
+            "close_usd_2016_06_10": 77.63,
+            "shares_outstanding_mm": 197.0,
+            "market_cap_usd_mm": 15293.11,
+            "debt_usd_mm": 514.075,
+            "cash_usd_mm": 2080.09,
+            "enterprise_value_usd_mm": 13727.095,
+            "ltm_revenue_usd_mm": 1256.819,
+            "ltm_operating_income_usd_mm": -284.904,
+            "ltm_da_usd_mm": 93.494,
+            "ltm_net_income_usd_mm": null,
+            "filing": "https://www.sec.gov/Archives/edgar/data/1327811/000132781116000041/wday-04302016x10q.htm",
+            "filed": "2016-06-01",
+            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
+            "price_note": "Yahoo close; Alpha Vantage SPLITS lists no split"
+          },
+          {
+            "ticker": "NOW",
+            "close_usd_2016_06_10": 74.03,
+            "shares_outstanding_mm": 162.848163,
+            "market_cap_usd_mm": 12055.65,
+            "debt_usd_mm": 482.643,
+            "cash_usd_mm": 900.873,
+            "enterprise_value_usd_mm": 11637.42,
+            "ltm_revenue_usd_mm": 1099.395,
+            "ltm_operating_income_usd_mm": -436.285,
+            "ltm_da_usd_mm": 63.984,
+            "ltm_net_income_usd_mm": -473.665,
+            "filing": "https://www.sec.gov/Archives/edgar/data/1373715/000137371516000364/now-2016331x10q.htm",
+            "filed": "2016-05-06",
+            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
+            "price_note": "Yahoo split-adjusted close 14.806 x 5 (ServiceNow 5-for-1 split effective 2025-12-18 per Alpha Vantage SPLITS)"
+          }
+        ],
+        "saas_selection_rule": "three largest SaaS peers by LTM revenue",
+        "saas_ltm_revenue_usd_mm": {
+          "CRM": 7072.652,
+          "WDAY": 1256.819,
+          "NOW": 1099.395,
+          "N": 792.91,
+          "ULTI": 660.418,
+          "CSOD": 365.02
+        }
+      }
     }
   ],
   "input_overrides": [
+    {
+      "sheet": "IS",
+      "cell": "C5",
+      "value": 1528.545,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C7",
+      "value": 202.908,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C10",
+      "value": 1277.825,
+      "kind": "derived",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C13",
+      "value": 134.516,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C15",
+      "value": 0.0,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C17",
+      "value": 22.459,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C19",
+      "value": 118.944,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D5",
+      "value": 2218.767,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D7",
+      "value": 293.797,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D10",
+      "value": 1888.835,
+      "kind": "derived",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D13",
+      "value": 236.946,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D15",
+      "value": 6.797,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D17",
+      "value": 46.525,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D19",
+      "value": 122.8,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E5",
+      "value": 2990.911,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E7",
+      "value": 418.858,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E10",
+      "value": 2722.995,
+      "kind": "derived",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E13",
+      "value": 420.472,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E15",
+      "value": 50.882,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E17",
+      "value": -49.969,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E19",
+      "value": 129.024,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 0.249786,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 0.859956,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.892059,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "value": -0.544944,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "value": 0.707196,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C10",
+      "value": 0.215623,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "value": -0.519349,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C12",
+      "value": 145.765122,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C13",
+      "value": 0.115,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C14",
+      "value": 0.0244,
+      "kind": "modeler_assumption",
+      "source": "U.S. Treasury daily par yield curve rates, 2016"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "value": 0.234617,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D6",
+      "value": 0.859956,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": 0.831571,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "value": 0.352941,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "value": 1.043333,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 0.130011,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "value": -0.216648,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D12",
+      "value": 149.106723,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D13",
+      "value": 0.115,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D14",
+      "value": 0.0244,
+      "kind": "modeler_assumption",
+      "source": "U.S. Treasury daily par yield curve rates, 2016"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E5",
+      "value": 0.19805,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E6",
+      "value": 0.859956,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E7",
+      "value": 0.763375,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E8",
+      "value": 0.349785,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E9",
+      "value": 1.021382,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E10",
+      "value": 0.109966,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E11",
+      "value": -0.417943,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E12",
+      "value": 152.524928,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E13",
+      "value": 0.115,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E14",
+      "value": 0.0244,
+      "kind": "modeler_assumption",
+      "source": "U.S. Treasury daily par yield curve rates, 2016"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F5",
+      "value": 0.161331,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F6",
+      "value": 0.859956,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F7",
+      "value": 0.714496,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F8",
+      "value": 0.349827,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F9",
+      "value": 0.957944,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F10",
+      "value": 0.099984,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F11",
+      "value": -0.522422,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F12",
+      "value": 156.021495,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F13",
+      "value": 0.115,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F14",
+      "value": 0.0244,
+      "kind": "modeler_assumption",
+      "source": "U.S. Treasury daily par yield curve rates, 2016"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G5",
+      "value": 0.147018,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G6",
+      "value": 0.859956,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G7",
+      "value": 0.683039,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G8",
+      "value": 0.349765,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G9",
+      "value": 1.06961,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G10",
+      "value": 0.079973,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G11",
+      "value": -0.53178,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G12",
+      "value": 159.598218,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G13",
+      "value": 0.115,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G14",
+      "value": 0.0244,
+      "kind": "modeler_assumption",
+      "source": "U.S. Treasury daily par yield curve rates, 2016"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I5",
+      "value": 0.115,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I6",
+      "value": 0.0244,
+      "kind": "modeler_assumption",
+      "source": "U.S. Treasury daily par yield curve rates, 2016"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I11",
+      "value": -1837.138,
+      "kind": "derived",
+      "source": "LinkedIn Form 10-Q for the quarter ended 2016-03-31, filed 2016-04-29"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I13",
+      "value": 142.498409,
+      "kind": "derived",
+      "source": "LinkedIn Form 10-Q for the quarter ended 2016-03-31, filed 2016-04-29"
+    },
     {
       "sheet": "Transaction Analysis",
       "cell": "C5",
       "value": 26200.0,
       "kind": "observed",
-      "source": "LinkedIn September 2016 Form 10-Q merger disclosure"
+      "source": "Microsoft Form 8-K Exhibit 99.1, Microsoft-LinkedIn investor presentation, filed 2016-06-13"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D5",
+      "value": 16754.075982,
+      "kind": "derived",
+      "source": "Alpha Vantage TIME_SERIES_WEEKLY (unadjusted weekly close), week ending 2016-06-10"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C6",
+      "value": 1322.5,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-Q for the quarter ended 2016-03-31, filed 2016-04-29"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C7",
+      "value": 3159.638,
+      "kind": "derived",
+      "source": "LinkedIn Form 10-Q for the quarter ended 2016-03-31, filed 2016-04-29"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D6",
+      "value": 1322.5,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-Q for the quarter ended 2016-03-31, filed 2016-04-29"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D7",
+      "value": 3159.638,
+      "kind": "derived",
+      "source": "LinkedIn Form 10-Q for the quarter ended 2016-03-31, filed 2016-04-29"
     },
     {
       "sheet": "Transaction Analysis",
       "cell": "C8",
-      "value": 133.673469,
+      "value": 142.498409,
       "kind": "derived",
-      "source": "LinkedIn September 2016 Form 10-Q merger disclosure"
+      "source": "LinkedIn Form 10-Q for the quarter ended 2016-03-31, filed 2016-04-29"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D8",
+      "value": 141.83105,
+      "kind": "derived",
+      "source": "LinkedIn Form 10-Q for the quarter ended 2016-03-31, filed 2016-04-29"
     },
     {
       "sheet": "Transaction Analysis",
       "cell": "C9",
       "value": 196.0,
       "kind": "observed",
-      "source": "LinkedIn September 2016 Form 10-Q merger disclosure"
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D9",
+      "value": 196.0,
+      "kind": "observed",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C10",
+      "value": 0.115,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D10",
+      "value": 0.13,
+      "kind": "observed",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C11",
+      "value": 0.0244,
+      "kind": "modeler_assumption",
+      "source": "U.S. Treasury daily par yield curve rates, 2016"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D11",
+      "value": 0.02,
+      "kind": "modeler_assumption",
+      "source": "FOMC Statement on Longer-Run Goals and Monetary Policy Strategy, as amended effective 2016-01-26"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C12",
+      "value": 462.298125,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D12",
+      "value": 462.298125,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C13",
+      "value": 898.298125,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D13",
+      "value": 898.298125,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C14",
+      "value": 1371.298125,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D14",
+      "value": 1371.298125,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C15",
+      "value": 1695.298125,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D15",
+      "value": 1695.298125,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C16",
+      "value": 2107.0,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D16",
+      "value": 2107.0,
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C17",
+      "value": 0.37,
+      "kind": "modeler_assumption",
+      "source": "Demandware Schedule 14D-9 (Goldman Sachs selected historical premia analysis), filed 2016-06-10"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D17",
+      "value": 0.31,
+      "kind": "modeler_assumption",
+      "source": "Demandware Schedule 14D-9 (Goldman Sachs selected historical premia analysis), filed 2016-06-10"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C18",
+      "value": 0.207588,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D18",
+      "value": 0.207588,
+      "kind": "modeler_assumption",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C5",
+      "value": 16798.0,
+      "kind": "observed",
+      "source": "Microsoft Form 10-K for fiscal year 2016, filed 2016-07-28"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C6",
+      "value": 8013.0,
+      "kind": "observed",
+      "source": "Microsoft Form 10-K for fiscal year 2016, filed 2016-07-28"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C10",
+      "value": 0.0,
+      "kind": "observed",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C11",
+      "value": -0.01,
+      "kind": "modeler_assumption",
+      "source": "Microsoft Form 8-K Exhibit 99.1, Microsoft-LinkedIn investor presentation, filed 2016-06-13"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D5",
+      "value": 16798.0,
+      "kind": "observed",
+      "source": "Microsoft Form 10-K for fiscal year 2016, filed 2016-07-28"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D6",
+      "value": 8013.0,
+      "kind": "observed",
+      "source": "Microsoft Form 10-K for fiscal year 2016, filed 2016-07-28"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D10",
+      "value": 0.0,
+      "kind": "observed",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D11",
+      "value": -0.01,
+      "kind": "modeler_assumption",
+      "source": "Microsoft Form 8-K Exhibit 99.1, Microsoft-LinkedIn investor presentation, filed 2016-06-13"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C7",
+      "value": -164.761,
+      "kind": "observed",
+      "source": "LinkedIn Form 10-K for fiscal year 2015, filed 2016-02-12"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D7",
+      "value": -275.0,
+      "kind": "observed",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C8",
+      "value": 127.573287,
+      "kind": "derived",
+      "source": "Microsoft Form 8-K Exhibit 99.1, Microsoft-LinkedIn investor presentation, filed 2016-06-13"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D8",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Microsoft Form 8-K Exhibit 99.1, Microsoft-LinkedIn investor presentation, filed 2016-06-13"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C9",
+      "value": 450.014771,
+      "kind": "derived",
+      "source": "Microsoft pricing term sheet (FWP) for $19.75bn of senior notes, filed 2016-08-02"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D9",
+      "value": 596.981621,
+      "kind": "derived",
+      "source": "Microsoft pricing term sheet (FWP) for $19.75bn of senior notes, filed 2016-08-02"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B5",
+      "value": "GOOGL",
+      "kind": "observed",
+      "source": "Alphabet Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C5",
+      "value": 733.19,
+      "kind": "derived",
+      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D5",
+      "value": 498642.832562,
+      "kind": "derived",
+      "source": "Alphabet Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E5",
+      "value": 428586.832562,
+      "kind": "derived",
+      "source": "Alphabet Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F5",
+      "value": 5.495548,
+      "kind": "derived",
+      "source": "Alphabet Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G5",
+      "value": 16.799421,
+      "kind": "derived",
+      "source": "Alphabet Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H5",
+      "value": 29.263077,
+      "kind": "derived",
+      "source": "Alphabet Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B6",
+      "value": "AMZN",
+      "kind": "observed",
+      "source": "Amazon.com Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C6",
+      "value": 717.91,
+      "kind": "derived",
+      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D6",
+      "value": 338730.010764,
+      "kind": "derived",
+      "source": "Amazon.com Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E6",
+      "value": 331276.010764,
+      "kind": "derived",
+      "source": "Amazon.com Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F6",
+      "value": 2.920867,
+      "kind": "derived",
+      "source": "Amazon.com Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G6",
+      "value": 34.043368,
+      "kind": "derived",
+      "source": "Amazon.com Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H6",
+      "value": 290.506013,
+      "kind": "derived",
+      "source": "Amazon.com Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B7",
+      "value": "FB",
+      "kind": "observed",
+      "source": "Facebook Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C7",
+      "value": 116.62,
+      "kind": "observed",
+      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D7",
+      "value": 333568.713239,
+      "kind": "derived",
+      "source": "Facebook Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E7",
+      "value": 312947.713239,
+      "kind": "derived",
+      "source": "Facebook Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F7",
+      "value": 15.831826,
+      "kind": "derived",
+      "source": "Facebook Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G7",
+      "value": 33.502592,
+      "kind": "derived",
+      "source": "Facebook Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H7",
+      "value": 71.184104,
+      "kind": "derived",
+      "source": "Facebook Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B8",
+      "value": "TWTR",
+      "kind": "observed",
+      "source": "Twitter Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C8",
+      "value": 14.02,
+      "kind": "observed",
+      "source": "Alpha Vantage TIME_SERIES_WEEKLY (unadjusted weekly close), week ending 2016-06-10"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D8",
+      "value": 9840.601997,
+      "kind": "derived",
+      "source": "Twitter Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E8",
+      "value": 7739.704997,
+      "kind": "derived",
+      "source": "Twitter Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F8",
+      "value": 3.25661,
+      "kind": "derived",
+      "source": "Twitter Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G8",
+      "value": "NM",
+      "kind": "derived",
+      "source": "Twitter Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H8",
+      "value": "NM",
+      "kind": "derived",
+      "source": "Twitter Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B9",
+      "value": "CRM",
+      "kind": "observed",
+      "source": "Salesforce.com Form 10-Q, quarter ended 2016-04-30"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C9",
+      "value": 81.83,
+      "kind": "observed",
+      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D9",
+      "value": 55439.825,
+      "kind": "derived",
+      "source": "Salesforce.com Form 10-Q, quarter ended 2016-04-30"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E9",
+      "value": 54701.803,
+      "kind": "derived",
+      "source": "Salesforce.com Form 10-Q, quarter ended 2016-04-30"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F9",
+      "value": 7.73427,
+      "kind": "derived",
+      "source": "Salesforce.com Form 10-Q, quarter ended 2016-04-30"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G9",
+      "value": 82.085662,
+      "kind": "derived",
+      "source": "Salesforce.com Form 10-Q, quarter ended 2016-04-30"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H9",
+      "value": "NM",
+      "kind": "derived",
+      "source": "Salesforce.com Form 10-Q, quarter ended 2016-04-30"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B10",
+      "value": "WDAY",
+      "kind": "observed",
+      "source": "Workday Form 10-Q, quarter ended 2016-04-30"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C10",
+      "value": 77.63,
+      "kind": "observed",
+      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D10",
+      "value": 15293.11,
+      "kind": "derived",
+      "source": "Workday Form 10-Q, quarter ended 2016-04-30"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E10",
+      "value": 13727.095,
+      "kind": "derived",
+      "source": "Workday Form 10-Q, quarter ended 2016-04-30"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F10",
+      "value": 10.922094,
+      "kind": "derived",
+      "source": "Workday Form 10-Q, quarter ended 2016-04-30"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G10",
+      "value": "NM",
+      "kind": "derived",
+      "source": "Workday Form 10-Q, quarter ended 2016-04-30"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H10",
+      "value": "NM",
+      "kind": "derived",
+      "source": "Workday Form 10-Q, quarter ended 2016-04-30"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B11",
+      "value": "NOW",
+      "kind": "observed",
+      "source": "ServiceNow Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C11",
+      "value": 74.03,
+      "kind": "derived",
+      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D11",
+      "value": 12055.649507,
+      "kind": "derived",
+      "source": "ServiceNow Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E11",
+      "value": 11637.419507,
+      "kind": "derived",
+      "source": "ServiceNow Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F11",
+      "value": 10.585294,
+      "kind": "derived",
+      "source": "ServiceNow Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G11",
+      "value": "NM",
+      "kind": "derived",
+      "source": "ServiceNow Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H11",
+      "value": "NM",
+      "kind": "derived",
+      "source": "ServiceNow Form 10-Q, quarter ended 2016-03-31"
+    },
+    {
+      "sheet": "Cover",
+      "cell": "B11",
+      "value": "Microsoft paid $196.00 a share in cash for LinkedIn, a 49.5% premium to the 2016-06-10 close of $131.08 and a $26.2bn enterprise value, financed primarily with new debt; the merger closed on 2016-12-08. The price rests on management's Forecasts, which grow revenue from $2,991mm in 2015 to $7,365mm in 2020 and levered free cash flow from $458mm to $2,107mm: at Qatalyst's 10.0%-13.0% discount rates, the case is whether those cash flows arrive, not the bridge.",
+      "kind": "derived",
+      "source": "LinkedIn definitive merger proxy statement (DEFM14A), filed 2016-07-22"
     }
   ],
   "series": null,
@@ -58,5 +1641,5 @@
     "status": "recorded"
   },
   "counts_toward_m4": false,
-  "snapshot_sha256": "68558043eb73280c7224ab11e28cd840e6faee4df4c7c8c60812263f36202301"
+  "snapshot_sha256": "267cc38aa942f99d5d453cea64792e5b6d7ca14776549a8f08e92a4ce47edc6f"
 }
