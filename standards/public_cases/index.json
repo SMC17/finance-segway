@@ -14,7 +14,7 @@
       "manifest": "standards/public_cases/ib-public-hp-autonomy-2012-stress.json",
       "output": "01_Investment_Banking/instances/public_hp_autonomy_2012_stress.xlsx",
       "snapshot": "01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
-      "snapshot_sha256": "0699ecbd28057d77e798a13005680ae41339f3b6218704c75b49670f852063fb",
+      "snapshot_sha256": "7f14f8f2f2ae5acd538f5be5bcdcdbc781874a74a0e544dae154ff0e9b6730d8",
       "counts_toward_m4": false,
       "outcome": {
         "metric": "impairment_usd_mm",
@@ -32,170 +32,1663 @@
         "output": "01_Investment_Banking/instances/public_hp_autonomy_2012_stress.xlsx",
         "applied_inputs": [
           {
-            "sheet": "Transaction Analysis",
-            "cell": "D5",
-            "previous": 1000,
-            "value": 11100.0,
-            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
-            "source_as_of": "2012-10-31"
-          },
-          {
-            "sheet": "Transaction Analysis",
-            "cell": "D8",
-            "previous": 100,
-            "value": 1.0,
-            "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
-            "source_as_of": "2012-10-31"
-          },
-          {
-            "sheet": "Transaction Analysis",
-            "cell": "D9",
-            "previous": 15,
-            "value": 11100.0,
-            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
-            "source_as_of": "2012-10-31"
-          },
-          {
-            "sheet": "Transaction Analysis",
-            "cell": "D16",
-            "previous": 50,
-            "value": 2300.0,
-            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
-            "source_as_of": "2012-10-31"
-          },
-          {
-            "sheet": "Transaction Analysis",
-            "cell": "C10",
-            "previous": 0.1,
-            "value": 0.1,
-            "source_url": "https://aswathdamodaran.blogspot.com/2012/11/hps-deal-from-hell-mark-it-up-and-write.html",
-            "source_as_of": "2012-10-31"
-          },
-          {
-            "sheet": "Transaction Analysis",
-            "cell": "D10",
-            "previous": 0.05,
-            "value": 0.1,
-            "source_url": "https://aswathdamodaran.blogspot.com/2012/11/hps-deal-from-hell-mark-it-up-and-write.html",
-            "source_as_of": "2012-10-31"
-          },
-          {
-            "sheet": "Transaction Analysis",
-            "cell": "C11",
-            "previous": 0.03,
-            "value": 0.03,
-            "source_url": "https://aswathdamodaran.blogspot.com/2012/11/hps-deal-from-hell-mark-it-up-and-write.html",
-            "source_as_of": "2012-10-31"
-          },
-          {
-            "sheet": "Transaction Analysis",
-            "cell": "D11",
-            "previous": 0.06,
-            "value": 0.03,
-            "source_url": "https://aswathdamodaran.blogspot.com/2012/11/hps-deal-from-hell-mark-it-up-and-write.html",
-            "source_as_of": "2012-10-31"
-          },
-          {
             "sheet": "Accretion Dilution",
             "cell": "C5",
             "previous": 100,
-            "value": 7074.0,
-            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746911010094/a2206500z10-k.htm",
-            "source_as_of": "2011-10-31"
-          },
-          {
-            "sheet": "Accretion Dilution",
-            "cell": "D5",
-            "previous": 100,
-            "value": 7074.0,
-            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746911010094/a2206500z10-k.htm",
-            "source_as_of": "2011-10-31"
+            "value": 10379.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000004721711000050/q4exhibit99-1.htm",
+            "source_as_of": "2011-11-21"
           },
           {
             "sheet": "Accretion Dilution",
             "cell": "C6",
             "previous": 100,
-            "value": 2131.0,
-            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746911010094/a2206500z10-k.htm",
-            "source_as_of": "2011-10-31"
-          },
-          {
-            "sheet": "Accretion Dilution",
-            "cell": "D6",
-            "previous": 100,
-            "value": 2131.0,
-            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746911010094/a2206500z10-k.htm",
-            "source_as_of": "2011-10-31"
+            "value": 2128.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000004721711000050/q4exhibit99-1.htm",
+            "source_as_of": "2011-11-21"
           },
           {
             "sheet": "Accretion Dilution",
             "cell": "C7",
             "previous": 10,
-            "value": 379.0,
+            "value": 292.216,
             "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
-            "source_as_of": "2010-12-31"
-          },
-          {
-            "sheet": "Accretion Dilution",
-            "cell": "D7",
-            "previous": 5,
-            "value": 379.0,
-            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
-            "source_as_of": "2010-12-31"
+            "source_as_of": "2011-02-01"
           },
           {
             "sheet": "Accretion Dilution",
             "cell": "C8",
             "previous": 5,
             "value": 0.0,
-            "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
-            "source_as_of": "2012-10-31"
-          },
-          {
-            "sheet": "Accretion Dilution",
-            "cell": "D8",
-            "previous": 0,
-            "value": 0.0,
-            "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
-            "source_as_of": "2012-10-31"
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
           },
           {
             "sheet": "Accretion Dilution",
             "cell": "C9",
             "previous": 3,
-            "value": 500.0,
-            "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
-            "source_as_of": "2012-10-31"
-          },
-          {
-            "sheet": "Accretion Dilution",
-            "cell": "D9",
-            "previous": 20,
-            "value": 500.0,
-            "source_url": "repo://01_Investment_Banking/sources/snapshots/ib-public-hp-autonomy-2012-stress.json",
-            "source_as_of": "2012-10-31"
+            "value": 208.032,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746911010094/a2206500z10-k.htm",
+            "source_as_of": "2011-12-14"
           },
           {
             "sheet": "Accretion Dilution",
             "cell": "C10",
             "previous": 10,
             "value": 0.0,
-            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
-            "source_as_of": "2012-10-31"
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "C11",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D5",
+            "previous": 100,
+            "value": 7074.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000004721711000050/q4exhibit99-1.htm",
+            "source_as_of": "2011-11-21"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D6",
+            "previous": 100,
+            "value": 2128.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000004721711000050/q4exhibit99-1.htm",
+            "source_as_of": "2011-11-21"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D7",
+            "previous": 5,
+            "value": 217.293,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D8",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D9",
+            "previous": 20,
+            "value": 351.563882,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746911010094/a2206500z10-k.htm",
+            "source_as_of": "2011-12-14"
           },
           {
             "sheet": "Accretion Dilution",
             "cell": "D10",
             "previous": 50,
             "value": 0.0,
-            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Accretion Dilution",
+            "cell": "D11",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C5",
+            "previous": 0,
+            "value": 0.176666,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C6",
+            "previous": 0,
+            "value": 0.806067,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C7",
+            "previous": 0,
+            "value": 0.442524,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C8",
+            "previous": 0,
+            "value": 0.28,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C9",
+            "previous": 0,
+            "value": 1.01471,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C10",
+            "previous": 0,
+            "value": 0.112787,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C11",
+            "previous": 0,
+            "value": 0.404781,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C12",
+            "previous": 0,
+            "value": 244.473,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C13",
+            "previous": 0,
+            "value": 0.078709,
+            "source_url": "https://pages.stern.nyu.edu/~adamodar/pc/archives/wacc11.xls",
+            "source_as_of": "2012-01-05"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "C14",
+            "previous": 0,
+            "value": 0.0172,
+            "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2012/all?type=daily_treasury_yield_curve&field_tdr_date_value=2012&page&_format=csv",
             "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D5",
+            "previous": 0,
+            "value": 0.1525,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D6",
+            "previous": 0,
+            "value": 0.806067,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D7",
+            "previous": 0,
+            "value": 0.442524,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D8",
+            "previous": 0,
+            "value": 0.28,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D9",
+            "previous": 0,
+            "value": 1.01471,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D10",
+            "previous": 0,
+            "value": 0.112787,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D11",
+            "previous": 0,
+            "value": 0.404781,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D12",
+            "previous": 0,
+            "value": 244.473,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D13",
+            "previous": 0,
+            "value": 0.078709,
+            "source_url": "https://pages.stern.nyu.edu/~adamodar/pc/archives/wacc11.xls",
+            "source_as_of": "2012-01-05"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "D14",
+            "previous": 0,
+            "value": 0.0172,
+            "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2012/all?type=daily_treasury_yield_curve&field_tdr_date_value=2012&page&_format=csv",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E5",
+            "previous": 0,
+            "value": 0.128333,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E6",
+            "previous": 0,
+            "value": 0.806067,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E7",
+            "previous": 0,
+            "value": 0.442524,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E8",
+            "previous": 0,
+            "value": 0.28,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E9",
+            "previous": 0,
+            "value": 1.01471,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E10",
+            "previous": 0,
+            "value": 0.112787,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E11",
+            "previous": 0,
+            "value": 0.404781,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E12",
+            "previous": 0,
+            "value": 244.473,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E13",
+            "previous": 0,
+            "value": 0.078709,
+            "source_url": "https://pages.stern.nyu.edu/~adamodar/pc/archives/wacc11.xls",
+            "source_as_of": "2012-01-05"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "E14",
+            "previous": 0,
+            "value": 0.0172,
+            "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2012/all?type=daily_treasury_yield_curve&field_tdr_date_value=2012&page&_format=csv",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F5",
+            "previous": 0,
+            "value": 0.104167,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F6",
+            "previous": 0,
+            "value": 0.806067,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F7",
+            "previous": 0,
+            "value": 0.442524,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F8",
+            "previous": 0,
+            "value": 0.28,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F9",
+            "previous": 0,
+            "value": 1.01471,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F10",
+            "previous": 0,
+            "value": 0.112787,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F11",
+            "previous": 0,
+            "value": 0.404781,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F12",
+            "previous": 0,
+            "value": 244.473,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F13",
+            "previous": 0,
+            "value": 0.078709,
+            "source_url": "https://pages.stern.nyu.edu/~adamodar/pc/archives/wacc11.xls",
+            "source_as_of": "2012-01-05"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "F14",
+            "previous": 0,
+            "value": 0.0172,
+            "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2012/all?type=daily_treasury_yield_curve&field_tdr_date_value=2012&page&_format=csv",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G5",
+            "previous": 0,
+            "value": 0.08,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G6",
+            "previous": 0,
+            "value": 0.806067,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G7",
+            "previous": 0,
+            "value": 0.442524,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G8",
+            "previous": 0,
+            "value": 0.28,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G9",
+            "previous": 0,
+            "value": 1.01471,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G10",
+            "previous": 0,
+            "value": 0.112787,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G11",
+            "previous": 0,
+            "value": 0.404781,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G12",
+            "previous": 0,
+            "value": 244.473,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G13",
+            "previous": 0,
+            "value": 0.078709,
+            "source_url": "https://pages.stern.nyu.edu/~adamodar/pc/archives/wacc11.xls",
+            "source_as_of": "2012-01-05"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "G14",
+            "previous": 0,
+            "value": 0.0172,
+            "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2012/all?type=daily_treasury_yield_curve&field_tdr_date_value=2012&page&_format=csv",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "B5",
+            "previous": "[TICKER]",
+            "value": "OTEX",
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001002638.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "B6",
+            "previous": "[TICKER]",
+            "value": "ORCL",
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001341439.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "B7",
+            "previous": "[TICKER]",
+            "value": "IBM",
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000051143.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "B8",
+            "previous": "[TICKER]",
+            "value": "MSFT",
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "B9",
+            "previous": "[TICKER]",
+            "value": "CVLT",
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "B10",
+            "previous": "[TICKER]",
+            "value": "TDC",
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000816761.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "B11",
+            "previous": "[TICKER]",
+            "value": "MSTR",
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001050446.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "C5",
+            "previous": 0,
+            "value": 53.95,
+            "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/OTEX?period1=1351468800&period2=1351814400&interval=1d&events=split",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "C6",
+            "previous": 0,
+            "value": 31.08,
+            "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ORCL?period1=1351468800&period2=1351814400&interval=1d&events=split",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "C7",
+            "previous": 0,
+            "value": 194.53,
+            "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/IBM?period1=1351468800&period2=1351814400&interval=1d&events=split",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "C8",
+            "previous": 0,
+            "value": 28.54,
+            "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/MSFT?period1=1351468800&period2=1351814400&interval=1d&events=split",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "C9",
+            "previous": 0,
+            "value": 62.37,
+            "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CVLT?period1=1351468800&period2=1351814400&interval=1d&events=split",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "C10",
+            "previous": 0,
+            "value": 68.31,
+            "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/TDC?period1=1351468800&period2=1351814400&interval=1d&events=split",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "C11",
+            "previous": 0,
+            "value": 94.47,
+            "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/MSTR?period1=1351468800&period2=1351814400&interval=1d&events=split",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "D5",
+            "previous": 0,
+            "value": 3150.98,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001002638.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "D6",
+            "previous": 0,
+            "value": 149776.26,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001341439.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "D7",
+            "previous": 0,
+            "value": 219805.76,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000051143.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "D8",
+            "previous": 0,
+            "value": 240205.85,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "D9",
+            "previous": 0,
+            "value": 2803.51,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "D10",
+            "previous": 0,
+            "value": 11517.07,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000816761.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "D11",
+            "previous": 0,
+            "value": 1032.98,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001050446.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "E5",
+            "previous": 0,
+            "value": 3187.61,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001002638.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "E6",
+            "previous": 0,
+            "value": 132940.26,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001341439.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "E7",
+            "previous": 0,
+            "value": 241218.76,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000051143.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "E8",
+            "previous": 0,
+            "value": 185561.85,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "E9",
+            "previous": 0,
+            "value": 2483.42,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "E10",
+            "previous": 0,
+            "value": 10992.07,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000816761.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "E11",
+            "previous": 0,
+            "value": 837.44,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001050446.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "F5",
+            "previous": 0,
+            "value": 2.6399,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001002638.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "F6",
+            "previous": 0,
+            "value": 3.5813,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001341439.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "F7",
+            "previous": 0,
+            "value": 2.2562,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000051143.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "F8",
+            "previous": 0,
+            "value": 2.517,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "F9",
+            "previous": 0,
+            "value": 6.1072,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "F10",
+            "previous": 0,
+            "value": 4.6537,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000816761.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "F11",
+            "previous": 0,
+            "value": 1.4897,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001050446.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "G5",
+            "previous": 0,
+            "value": 10.3211,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001002638.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "G6",
+            "previous": 0,
+            "value": 7.9978,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001341439.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "G7",
+            "previous": 0,
+            "value": 9.1966,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000051143.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "G8",
+            "previous": 0,
+            "value": 7.5035,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "G9",
+            "previous": 0,
+            "value": 46.1749,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "G10",
+            "previous": 0,
+            "value": 19.699,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000816761.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "G11",
+            "previous": 0,
+            "value": 24.9476,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001050446.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "H5",
+            "previous": 0,
+            "value": 25.3286,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001002638.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "H6",
+            "previous": 0,
+            "value": 15.8571,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001341439.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "H7",
+            "previous": 0,
+            "value": 14.8951,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000051143.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "H8",
+            "previous": 0,
+            "value": 14.27,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "H9",
+            "previous": 0,
+            "value": 91.7206,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "H10",
+            "previous": 0,
+            "value": 33.322,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000816761.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Comps",
+            "cell": "H11",
+            "previous": 0,
+            "value": 58.3148,
+            "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001050446.json",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Cover",
+            "cell": "B11",
+            "previous": "[fill in]",
+            "value": "HP paid $11.0bn in cash for Autonomy (\u00a325.50 a share, a 63.7% premium to the unaffected price) against FY2010 reported revenue of $870mm and IFRS net profit of $217mm. On Autonomy's own reported numbers, a DCF gives $13.75 a share with no growth at the case-date cost of capital (7.87%) and $26.43 with FY2010 growth fading to the 8% market growth HP cited, at the signing-date cost of capital (8.14%), against $42.11 paid; HP's 10-Q says Autonomy's fair value only approximated its carrying value at acquisition.",
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912008732/a2210845z10-q.htm",
+            "source_as_of": "2012-09-10"
+          },
+          {
+            "sheet": "DCF",
+            "cell": "I5",
+            "previous": 0.1,
+            "value": 0.078709,
+            "source_url": "https://pages.stern.nyu.edu/~adamodar/pc/archives/wacc11.xls",
+            "source_as_of": "2012-01-05"
+          },
+          {
+            "sheet": "DCF",
+            "cell": "I6",
+            "previous": 0.025,
+            "value": 0.0172,
+            "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2012/all?type=daily_treasury_yield_curve&field_tdr_date_value=2012&page&_format=csv",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "DCF",
+            "cell": "I11",
+            "previous": 0,
+            "value": -233.657,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "DCF",
+            "cell": "I13",
+            "previous": 1,
+            "value": 244.473,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "IS",
+            "cell": "C5",
+            "previous": null,
+            "value": 503.229,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announces-results-for-the-twelve-months-and-fourth-quarter-ended-december-31-2009-83419142.html",
+            "source_as_of": "2010-02-03"
+          },
+          {
+            "sheet": "IS",
+            "cell": "C7",
+            "previous": null,
+            "value": 64.527,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announces-results-for-the-twelve-months-and-fourth-quarter-ended-december-31-2009-83419142.html",
+            "source_as_of": "2010-02-03"
+          },
+          {
+            "sheet": "IS",
+            "cell": "C10",
+            "previous": null,
+            "value": 252.209,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announces-results-for-the-twelve-months-and-fourth-quarter-ended-december-31-2009-83419142.html",
+            "source_as_of": "2010-02-03"
+          },
+          {
+            "sheet": "IS",
+            "cell": "C13",
+            "previous": null,
+            "value": 38.408,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announces-results-for-the-twelve-months-and-fourth-quarter-ended-december-31-2009-83419142.html",
+            "source_as_of": "2010-02-03"
+          },
+          {
+            "sheet": "IS",
+            "cell": "C15",
+            "previous": null,
+            "value": 0.786,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announces-results-for-the-twelve-months-and-fourth-quarter-ended-december-31-2009-83419142.html",
+            "source_as_of": "2010-02-03"
+          },
+          {
+            "sheet": "IS",
+            "cell": "C17",
+            "previous": null,
+            "value": 53.958,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announces-results-for-the-twelve-months-and-fourth-quarter-ended-december-31-2009-83419142.html",
+            "source_as_of": "2010-02-03"
+          },
+          {
+            "sheet": "IS",
+            "cell": "C19",
+            "previous": null,
+            "value": 217.158,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announces-results-for-the-twelve-months-and-fourth-quarter-ended-december-31-2009-83419142.html",
+            "source_as_of": "2010-02-03"
+          },
+          {
+            "sheet": "IS",
+            "cell": "D5",
+            "previous": null,
+            "value": 739.688,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "IS",
+            "cell": "D7",
+            "previous": null,
+            "value": 137.397,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "IS",
+            "cell": "D10",
+            "previous": null,
+            "value": 330.113,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "IS",
+            "cell": "D13",
+            "previous": null,
+            "value": 81.083,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "IS",
+            "cell": "D15",
+            "previous": null,
+            "value": 6.112,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "IS",
+            "cell": "D17",
+            "previous": null,
+            "value": 74.515,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "IS",
+            "cell": "D19",
+            "previous": null,
+            "value": 240.555,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "IS",
+            "cell": "E5",
+            "previous": null,
+            "value": 870.366,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "IS",
+            "cell": "E7",
+            "previous": null,
+            "value": 168.793,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "IS",
+            "cell": "E10",
+            "previous": null,
+            "value": 385.158,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "IS",
+            "cell": "E13",
+            "previous": null,
+            "value": 99.61,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "IS",
+            "cell": "E15",
+            "previous": null,
+            "value": 34.221,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "IS",
+            "cell": "E17",
+            "previous": null,
+            "value": 64.901,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "IS",
+            "cell": "E19",
+            "previous": null,
+            "value": 244.473,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C5",
+            "previous": 1000,
+            "value": 6030.418141,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C6",
+            "previous": 200,
+            "value": 826.943,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C7",
+            "previous": 100,
+            "value": 1060.6,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C8",
+            "previous": 100,
+            "value": 243.469433,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C9",
+            "previous": 9.5,
+            "value": 42.11,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_18k.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C10",
+            "previous": 0.1,
+            "value": 0.081378,
+            "source_url": "https://pages.stern.nyu.edu/~adamodar/pc/archives/wacc10.xls",
+            "source_as_of": "2011-01-05"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C11",
+            "previous": 0.03,
+            "value": 0.0217,
+            "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2011/all?type=daily_treasury_yield_curve&field_tdr_date_value=2011&page&_format=csv",
+            "source_as_of": "2011-12-30"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C12",
+            "previous": 70,
+            "value": 269.765829,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C13",
+            "previous": 75,
+            "value": 310.905059,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C14",
+            "previous": 80,
+            "value": 350.804497,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C15",
+            "previous": 85,
+            "value": 387.346607,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C16",
+            "previous": 90,
+            "value": 418.334335,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C17",
+            "previous": 0.3,
+            "value": 0.36,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "C18",
+            "previous": 0.5,
+            "value": 0.38,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912008732/a2210845z10-q.htm",
+            "source_as_of": "2012-09-10"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D5",
+            "previous": 1000,
+            "value": 6030.418141,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D6",
+            "previous": 200,
+            "value": 826.943,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D7",
+            "previous": 100,
+            "value": 1060.6,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D8",
+            "previous": 100,
+            "value": 243.469433,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D9",
+            "previous": 15,
+            "value": 42.11,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_18k.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D10",
+            "previous": 0.05,
+            "value": 0.078709,
+            "source_url": "https://pages.stern.nyu.edu/~adamodar/pc/archives/wacc11.xls",
+            "source_as_of": "2012-01-05"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D11",
+            "previous": 0.06,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912008732/a2210845z10-q.htm",
+            "source_as_of": "2012-09-10"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D12",
+            "previous": 70,
+            "value": 245.087609,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D13",
+            "previous": 65,
+            "value": 245.087609,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D14",
+            "previous": 60,
+            "value": 245.087609,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D15",
+            "previous": 55,
+            "value": 245.087609,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D16",
+            "previous": 50,
+            "value": 245.087609,
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D17",
+            "previous": 0.3,
+            "value": 0.36,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+            "source_as_of": "2011-08-19"
+          },
+          {
+            "sheet": "Transaction Analysis",
+            "cell": "D18",
+            "previous": 0.5,
+            "value": 0.38,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912008732/a2210845z10-q.htm",
+            "source_as_of": "2012-09-10"
           }
         ],
-        "workbook_sha256": "3e2725fa7207d35264c7feb945d15f7b9c87381909139b5a7aeb9f10d75dfa87",
-        "generated_on": "2026-11-11",
-        "refresh_schema": "source-addressed-v2",
-        "classification": "external_historical_case",
+        "applied_presentation_fills": [
+          {
+            "sheet": "Assumptions",
+            "cell": "H5",
+            "previous": "Source: [10-K/10-Q cite or user estimate]",
+            "value": "Source: Autonomy FY2010 results release (revenue growth FY2010 = 870.366/739.688 - 1) fading linearly to the 8% EIM market growth in HP's Rule 2.5 announcement, 2011-08-18.",
+            "purpose": "source_note",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "H6",
+            "previous": "Source: [10-K/10-Q cite or user estimate]",
+            "value": "Source: Autonomy FY2010 results release, gross margin = (870.366 - 168.793)/870.366, held flat.",
+            "purpose": "source_note",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "H7",
+            "previous": "Source: [10-K/10-Q cite or user estimate]",
+            "value": "Source: Autonomy FY2010 results release, total operating expenses 385.158 / revenue 870.366, held flat.",
+            "purpose": "source_note",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "H8",
+            "previous": "Source: [10-K/10-Q cite or user estimate]",
+            "value": "Source: Autonomy FY2010 results release, 2011 effective tax rate guidance 27-29%, midpoint 28%.",
+            "purpose": "source_note",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "H9",
+            "previous": "Source: [10-K/10-Q cite or user estimate]",
+            "value": "Source: Autonomy FY2010 results release, D&A 99.610 / (fixed assets 59.624 + product development 38.542), held flat.",
+            "purpose": "source_note",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "H10",
+            "previous": "Source: [10-K/10-Q cite or user estimate]",
+            "value": "Source: Autonomy FY2010 results release, capex (fixed assets + capitalized product development) 98.166 / revenue 870.366, held flat.",
+            "purpose": "source_note",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "H11",
+            "previous": "Source: [10-K/10-Q cite or user estimate]",
+            "value": "Source: Autonomy FY2010 results release, operating working capital increase 52.896 / revenue increase 130.678.",
+            "purpose": "source_note",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "H12",
+            "previous": "Source: [10-K/10-Q cite or user estimate]",
+            "value": "Source: Autonomy FY2010 results release, IFRS diluted weighted average shares 244.473mm, held flat.",
+            "purpose": "source_note",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "H13",
+            "previous": "Source: [10-K/10-Q cite or user estimate]",
+            "value": "Driver: Damodaran Online, January 2012 cost of capital, Computer Software (wacc11.xls) = 7.8709%. Autonomy's own WACC is not disclosed.",
+            "purpose": "source_note",
+            "source_url": "https://pages.stern.nyu.edu/~adamodar/pc/archives/wacc11.xls",
+            "source_as_of": "2012-01-05"
+          },
+          {
+            "sheet": "Assumptions",
+            "cell": "H14",
+            "previous": "Source: [10-K/10-Q cite or user estimate]",
+            "value": "Driver: U.S. Treasury 10-year par yield on 2012-10-31 = 1.72%, as a ceiling for perpetual growth.",
+            "purpose": "source_note",
+            "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2012/all?type=daily_treasury_yield_curve&field_tdr_date_value=2012&page&_format=csv",
+            "source_as_of": "2012-10-31"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "C5",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B5,DCF!$C$5:$G$5)+DCF!$G$5*(1+C$4)/($B5-C$4)/(1+$B5)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "C6",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B6,DCF!$C$5:$G$5)+DCF!$G$5*(1+C$4)/($B6-C$4)/(1+$B6)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "C7",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B7,DCF!$C$5:$G$5)+DCF!$G$5*(1+C$4)/($B7-C$4)/(1+$B7)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "C8",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B8,DCF!$C$5:$G$5)+DCF!$G$5*(1+C$4)/($B8-C$4)/(1+$B8)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "C9",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B9,DCF!$C$5:$G$5)+DCF!$G$5*(1+C$4)/($B9-C$4)/(1+$B9)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "D5",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B5,DCF!$C$5:$G$5)+DCF!$G$5*(1+D$4)/($B5-D$4)/(1+$B5)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "D6",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B6,DCF!$C$5:$G$5)+DCF!$G$5*(1+D$4)/($B6-D$4)/(1+$B6)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "D7",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B7,DCF!$C$5:$G$5)+DCF!$G$5*(1+D$4)/($B7-D$4)/(1+$B7)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "D8",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B8,DCF!$C$5:$G$5)+DCF!$G$5*(1+D$4)/($B8-D$4)/(1+$B8)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "D9",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B9,DCF!$C$5:$G$5)+DCF!$G$5*(1+D$4)/($B9-D$4)/(1+$B9)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "E5",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B5,DCF!$C$5:$G$5)+DCF!$G$5*(1+E$4)/($B5-E$4)/(1+$B5)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "E6",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B6,DCF!$C$5:$G$5)+DCF!$G$5*(1+E$4)/($B6-E$4)/(1+$B6)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "E7",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B7,DCF!$C$5:$G$5)+DCF!$G$5*(1+E$4)/($B7-E$4)/(1+$B7)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "E8",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B8,DCF!$C$5:$G$5)+DCF!$G$5*(1+E$4)/($B8-E$4)/(1+$B8)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "E9",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B9,DCF!$C$5:$G$5)+DCF!$G$5*(1+E$4)/($B9-E$4)/(1+$B9)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "F5",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B5,DCF!$C$5:$G$5)+DCF!$G$5*(1+F$4)/($B5-F$4)/(1+$B5)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "F6",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B6,DCF!$C$5:$G$5)+DCF!$G$5*(1+F$4)/($B6-F$4)/(1+$B6)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "F7",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B7,DCF!$C$5:$G$5)+DCF!$G$5*(1+F$4)/($B7-F$4)/(1+$B7)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "F8",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B8,DCF!$C$5:$G$5)+DCF!$G$5*(1+F$4)/($B8-F$4)/(1+$B8)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "F9",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B9,DCF!$C$5:$G$5)+DCF!$G$5*(1+F$4)/($B9-F$4)/(1+$B9)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "G5",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B5,DCF!$C$5:$G$5)+DCF!$G$5*(1+G$4)/($B5-G$4)/(1+$B5)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "G6",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B6,DCF!$C$5:$G$5)+DCF!$G$5*(1+G$4)/($B6-G$4)/(1+$B6)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "G7",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B7,DCF!$C$5:$G$5)+DCF!$G$5*(1+G$4)/($B7-G$4)/(1+$B7)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "G8",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B8,DCF!$C$5:$G$5)+DCF!$G$5*(1+G$4)/($B8-G$4)/(1+$B8)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          },
+          {
+            "sheet": "Sensitivity",
+            "cell": "G9",
+            "previous": "[data table \u2014 Excel What-If Analysis]",
+            "value": "=IF(OR(IS!$E$5=\"\",IS!$E$5=0),\"n/a - no forecast base\",(NPV($B9,DCF!$C$5:$G$5)+DCF!$G$5*(1+G$4)/($B9-G$4)/(1+$B9)^5-DCF!$I$11)/DCF!$I$13)",
+            "purpose": "formula_grid",
+            "source_url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+            "source_as_of": "2011-02-01"
+          }
+        ],
+        "workbook_sha256": "c16d3e4421a5ba9b3a503f615d8565445637fcfdf61b09e517bdefc9528c938d",
+        "generated_on": "2026-11-13",
+        "hash_refreshed_on": "2026-11-13",
+        "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
         "counts_toward_M4": false
       }
     },

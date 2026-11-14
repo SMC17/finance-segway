@@ -6,46 +6,2247 @@
   "case_type": "adversarial",
   "as_of": "2012-10-31",
   "capture_method": "curated_public_observation",
+  "generated_by": "tools/deepen_investment_banking_hp_autonomy.py",
   "sources": [
     {
+      "id": "auto_fy2010",
+      "name": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)",
+      "url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announced-results-for-the-year-ended-december-31-2010-114992659.html",
+      "publisher": "Autonomy Corporation plc via PR Newswire",
+      "published": "2011-02-01",
+      "outcome_only": false
+    },
+    {
+      "id": "auto_fy2009",
+      "name": "Autonomy Corporation plc results for the twelve months ended December 31, 2009 (PR Newswire release)",
+      "url": "https://www.prnewswire.com/news-releases/autonomy-corporation-plc-announces-results-for-the-twelve-months-and-fourth-quarter-ended-december-31-2009-83419142.html",
+      "publisher": "Autonomy Corporation plc via PR Newswire",
+      "published": "2010-02-03",
+      "outcome_only": false
+    },
+    {
+      "id": "hp_8k_20110819",
+      "name": "HP Form 8-K filed 2011-08-19, Item 1.01 (Autonomy Offer Agreement)",
+      "url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_18k.htm",
+      "publisher": "U.S. SEC / Hewlett-Packard",
+      "published": "2011-08-19",
+      "outcome_only": false
+    },
+    {
+      "id": "rule_2_5",
+      "name": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)",
+      "url": "https://www.sec.gov/Archives/edgar/data/47217/000110465911047805/a11-24706_1ex99d1.htm",
+      "publisher": "U.S. SEC / Hewlett-Packard",
+      "published": "2011-08-19",
+      "outcome_only": false
+    },
+    {
+      "id": "hp_10k_fy2011",
+      "name": "Hewlett-Packard Form 10-K for fiscal year ended 2011-10-31",
+      "url": "https://www.sec.gov/Archives/edgar/data/47217/000104746911010094/a2206500z10-k.htm",
+      "publisher": "U.S. SEC / Hewlett-Packard",
+      "published": "2011-12-14",
+      "outcome_only": false
+    },
+    {
+      "id": "hp_q4fy11_release",
+      "name": "HP fourth quarter and fiscal 2011 results release (Form 8-K Exhibit 99.1, filed 2011-11-21)",
+      "url": "https://www.sec.gov/Archives/edgar/data/47217/000004721711000050/q4exhibit99-1.htm",
+      "publisher": "U.S. SEC / Hewlett-Packard",
+      "published": "2011-11-21",
+      "outcome_only": false
+    },
+    {
+      "id": "hp_10q_q3fy12",
+      "name": "Hewlett-Packard Form 10-Q for the quarter ended 2012-07-31",
+      "url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912008732/a2210845z10-q.htm",
+      "publisher": "U.S. SEC / Hewlett-Packard",
+      "published": "2012-09-10",
+      "outcome_only": false
+    },
+    {
+      "id": "damodaran_wacc_jan2011",
+      "name": "Damodaran Online, cost of capital by industry, January 2011 release (archives/wacc10.xls)",
+      "url": "https://pages.stern.nyu.edu/~adamodar/pc/archives/wacc10.xls",
+      "publisher": "Aswath Damodaran, NYU Stern",
+      "published": "2011-01-05",
+      "outcome_only": false
+    },
+    {
+      "id": "damodaran_wacc_jan2012",
+      "name": "Damodaran Online, cost of capital by industry, January 2012 release (archives/wacc11.xls)",
+      "url": "https://pages.stern.nyu.edu/~adamodar/pc/archives/wacc11.xls",
+      "publisher": "Aswath Damodaran, NYU Stern",
+      "published": "2012-01-05",
+      "outcome_only": false
+    },
+    {
+      "id": "ust_2010",
+      "name": "U.S. Treasury daily par yield curve rates, 2010",
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2010/all?type=daily_treasury_yield_curve&field_tdr_date_value=2010&page&_format=csv",
+      "publisher": "U.S. Department of the Treasury",
+      "published": "2010-12-31",
+      "outcome_only": false
+    },
+    {
+      "id": "ust_2011",
+      "name": "U.S. Treasury daily par yield curve rates, 2011",
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2011/all?type=daily_treasury_yield_curve&field_tdr_date_value=2011&page&_format=csv",
+      "publisher": "U.S. Department of the Treasury",
+      "published": "2011-12-30",
+      "outcome_only": false
+    },
+    {
+      "id": "ust_2012",
+      "name": "U.S. Treasury daily par yield curve rates, 2012",
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2012/all?type=daily_treasury_yield_curve&field_tdr_date_value=2012&page&_format=csv",
+      "publisher": "U.S. Department of the Treasury",
+      "published": "2012-10-31",
+      "outcome_only": false
+    },
+    {
+      "id": "hp_10k_fy2012_outcome",
       "name": "Hewlett-Packard 2012 Form 10-K Autonomy impairment",
       "url": "https://www.sec.gov/Archives/edgar/data/47217/000104746912011417/a2211959z10-k.htm",
       "publisher": "U.S. SEC / Hewlett-Packard",
-      "captured_values": {
-        "autonomy_purchase_price_usd_mm": 11100.0,
-        "autonomy_impairment_usd_mm": 8800.0,
-        "residual_value_after_impairment_usd_mm": 2300.0
+      "published": "2012-12-27",
+      "outcome_only": true
+    }
+  ],
+  "captured_values": {
+    "auto_rev_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 870.366,
+      "excerpt": "Revenues (see note 3) 870,366 739,688"
+    },
+    "auto_rev_2009_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 739.688,
+      "excerpt": "Revenues (see note 3) 870,366 739,688"
+    },
+    "auto_cogs_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 168.793,
+      "excerpt": "Total cost of revenues (168,793) (137,397)"
+    },
+    "auto_cogs_2009_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 137.397,
+      "excerpt": "Total cost of revenues (168,793) (137,397)"
+    },
+    "auto_opex_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 385.158,
+      "excerpt": "Total operating expenses (385,158) (330,113)"
+    },
+    "auto_opex_2009_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 330.113,
+      "excerpt": "Total operating expenses (385,158) (330,113)"
+    },
+    "auto_ebit_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 316.415,
+      "excerpt": "Profit from operations 316,415 272,178"
+    },
+    "auto_ebit_2009_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 272.178,
+      "excerpt": "Profit from operations 316,415 272,178"
+    },
+    "auto_pbt_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 282.194,
+      "excerpt": "Profit before income taxes 282,194 266,066"
+    },
+    "auto_pbt_2009_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 266.066,
+      "excerpt": "Profit before income taxes 282,194 266,066"
+    },
+    "auto_tax_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 64.901,
+      "excerpt": "Income taxes (see note 4) (64,901) (74,515)"
+    },
+    "auto_tax_2009_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 74.515,
+      "excerpt": "Income taxes (see note 4) (64,901) (74,515)"
+    },
+    "auto_net_profit_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 217.293,
+      "excerpt": "Net profit 217,293 191,551"
+    },
+    "auto_adj_net_profit_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 292.216,
+      "excerpt": "Net profit (adj.) 292,216 232,798"
+    },
+    "auto_da_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 99.61,
+      "excerpt": "Depreciation and amortization 99,610 81,083"
+    },
+    "auto_da_2009_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 81.083,
+      "excerpt": "Depreciation and amortization 99,610 81,083"
+    },
+    "auto_diluted_shares_2010_mm": {
+      "source": "auto_fy2010",
+      "value": 244.473,
+      "excerpt": "(IFRS) 244,473 240,555"
+    },
+    "auto_diluted_shares_2009_mm": {
+      "source": "auto_fy2010",
+      "value": 240.555,
+      "excerpt": "(IFRS) 244,473 240,555"
+    },
+    "auto_fixed_asset_purchases_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 59.624,
+      "excerpt": "Purchase of fixed assets (59,624) (34,429)"
+    },
+    "auto_product_development_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 38.542,
+      "excerpt": "Expenditure on product (38,542) (24,722)"
+    },
+    "auto_receivables_movement_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": -60.983,
+      "excerpt": "Receivables (60,983) (78,396)"
+    },
+    "auto_inventories_movement_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 0.369,
+      "excerpt": "Inventories 369 235"
+    },
+    "auto_payables_movement_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 7.718,
+      "excerpt": "Payables 7,718 4,267"
+    },
+    "auto_bank_loan_current_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 78.745,
+      "excerpt": "Bank loan (78,745) (52,375)"
+    },
+    "auto_bank_loan_noncurrent_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 66.407,
+      "excerpt": "Bank loan (66,407) (145,152)"
+    },
+    "auto_convertible_notes_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 681.791,
+      "excerpt": "Convertible loan notes (681,791)"
+    },
+    "auto_cash_2010_usd_mm": {
+      "source": "auto_fy2010",
+      "value": 1060.6,
+      "excerpt": "Cash and cash equivalents 1,060,600 242,791"
+    },
+    "auto_tax_guidance_2011_low_pct": {
+      "source": "auto_fy2010",
+      "value": 0.27,
+      "excerpt": "effective tax rate for 2011 will likely be in the range of 27-29%"
+    },
+    "auto_tax_guidance_2011_high_pct": {
+      "source": "auto_fy2010",
+      "value": 0.29,
+      "excerpt": "effective tax rate for 2011 will likely be in the range of 27-29%"
+    },
+    "auto_rev_2008_usd_mm": {
+      "source": "auto_fy2009",
+      "value": 503.229,
+      "excerpt": "Revenues (see note 3) 739,688 503,229"
+    },
+    "auto_cogs_2008_usd_mm": {
+      "source": "auto_fy2009",
+      "value": 64.527,
+      "excerpt": "Total cost of revenues (137,397) (64,527)"
+    },
+    "auto_opex_2008_usd_mm": {
+      "source": "auto_fy2009",
+      "value": 252.209,
+      "excerpt": "Total operating expenses (330,113) (252,209)"
+    },
+    "auto_ebit_2008_usd_mm": {
+      "source": "auto_fy2009",
+      "value": 186.493,
+      "excerpt": "Profit from operations 272,178 186,493"
+    },
+    "auto_pbt_2008_usd_mm": {
+      "source": "auto_fy2009",
+      "value": 185.707,
+      "excerpt": "Profit before income taxes 266,066 185,707"
+    },
+    "auto_tax_2008_usd_mm": {
+      "source": "auto_fy2009",
+      "value": 53.958,
+      "excerpt": "Income taxes (see note 4) (74,515) (53,958)"
+    },
+    "auto_da_2008_usd_mm": {
+      "source": "auto_fy2009",
+      "value": 38.408,
+      "excerpt": "Depreciation and amortization 81,083 38,408"
+    },
+    "auto_diluted_shares_2008_mm": {
+      "source": "auto_fy2009",
+      "value": 217.158,
+      "excerpt": "of diluted earnings per share 240,555 217,158"
+    },
+    "offer_price_gbp": {
+      "source": "rule_2_5",
+      "value": 25.5,
+      "excerpt": "Autonomy Shareholders will be entitled to receive £25.50 in cash per Autonomy Share"
+    },
+    "offer_price_usd": {
+      "source": "hp_8k_20110819",
+      "value": 42.11,
+      "excerpt": "for £25.50 ($42.11) per share in cash"
+    },
+    "unaffected_close_gbp": {
+      "source": "rule_2_5",
+      "value": 15.58,
+      "excerpt": "a premium of approximately 64 per cent to the Closing Price of £15.58 per Autonomy Share on 17 August 2011"
+    },
+    "disclosed_premium_pct": {
+      "source": "rule_2_5",
+      "value": 0.64,
+      "excerpt": "a premium of approximately 64 per cent to the Closing Price of £15.58"
+    },
+    "premium_to_52_week_high_pct": {
+      "source": "rule_2_5",
+      "value": 0.36,
+      "excerpt": "a premium of approximately 36 per cent to the fifty-two week high price of an Autonomy Share of £18.81"
+    },
+    "shares_in_issue_mm": {
+      "source": "rule_2_5",
+      "value": 243.469433,
+      "excerpt": "based on there being 243,469,433 Autonomy Shares now in issue"
+    },
+    "fully_diluted_offer_value_gbp_mm": {
+      "source": "rule_2_5",
+      "value": 7091.0,
+      "excerpt": "The Offer values Autonomy’s fully diluted share capital at approximately £7,091 million"
+    },
+    "eim_market_growth_pct": {
+      "source": "rule_2_5",
+      "value": 0.08,
+      "excerpt": "$20 billion Enterprise Information Management space, which is growing at 8 per cent annually"
+    },
+    "cash_consideration_flag": {
+      "source": "rule_2_5",
+      "value": 0.0,
+      "excerpt": "terms of a recommended cash offer for the entire issued and to be issued share capital of Autonomy"
+    },
+    "accretion_expectation_flag": {
+      "source": "rule_2_5",
+      "value": 0.0,
+      "excerpt": "expect the acquisition to be accretive to Non-GAAP earnings per share for HP stockholders in the first full year following completion"
+    },
+    "hp_net_earnings_fy2011_usd_mm": {
+      "source": "hp_q4fy11_release",
+      "value": 7074.0,
+      "excerpt": "GAAP net earnings $ 7,074 $ 8,761"
+    },
+    "hp_nongaap_net_earnings_fy2011_usd_mm": {
+      "source": "hp_q4fy11_release",
+      "value": 10379.0,
+      "excerpt": "Non-GAAP net earnings $ 10,379 $ 10,866"
+    },
+    "hp_diluted_shares_fy2011_mm": {
+      "source": "hp_q4fy11_release",
+      "value": 2128.0,
+      "excerpt": "Weighted-average shares used to compute diluted EPS 2,128 2,372"
+    },
+    "hp_autonomy_consideration_usd_mm": {
+      "source": "hp_10k_fy2011",
+      "value": 11000.0,
+      "excerpt": "The acquisition date fair value consideration of $11 billion consisted of cash"
+    },
+    "hp_weighted_average_interest_rate_fy2011_pct": {
+      "source": "hp_10k_fy2011",
+      "value": 0.024,
+      "excerpt": "Weighted-average interest rate 2.4 %"
+    },
+    "hp_effective_tax_rate_fy2011_pct": {
+      "source": "hp_10k_fy2011",
+      "value": 0.212,
+      "excerpt": "Our effective tax rates were 21.2%, 20.2% and 18.6% in fiscal 2011, 2010 and 2009"
+    },
+    "hp_sept2011_note_2015_usd_mm": {
+      "source": "hp_10k_fy2011",
+      "value": 750.0,
+      "excerpt": "$750 issued at discount to par at a price of 99.977% in September 2011 at 2.35%, due March 2015"
+    },
+    "hp_sept2011_note_2016_usd_mm": {
+      "source": "hp_10k_fy2011",
+      "value": 1300.0,
+      "excerpt": "$1,300 issued at discount to par at a price of 99.784% in September 2011 at 3.0% , due September 2016"
+    },
+    "hp_sept2011_note_2021_usd_mm": {
+      "source": "hp_10k_fy2011",
+      "value": 1000.0,
+      "excerpt": "$1,000 issued at discount to par at a price of 99.816% in September 2011 at 4.375% due September 2021"
+    },
+    "hp_sept2011_note_2041_usd_mm": {
+      "source": "hp_10k_fy2011",
+      "value": 1200.0,
+      "excerpt": "$1,200 issued at discount to par at a price of 99.863% in September 2011 at 6.0% due September 2041"
+    },
+    "hp_fiscal_year_end_flag": {
+      "source": "hp_10k_fy2011",
+      "value": 0.0,
+      "excerpt": "For the fiscal year ended October 31, 2011"
+    },
+    "autonomy_goodwill_jul2012_usd_bn": {
+      "source": "hp_10q_q3fy12",
+      "value": 6.9,
+      "excerpt": "$6.9 billion relates to the Autonomy acquisition"
+    },
+    "autonomy_headroom_at_acquisition_flag": {
+      "source": "hp_10q_q3fy12",
+      "value": 0.0,
+      "excerpt": "At the time of the Autonomy acquisition in October 2011, the fair value of Autonomy approximated the carrying value"
+    },
+    "legacy_software_headroom_pct": {
+      "source": "hp_10q_q3fy12",
+      "value": 0.38,
+      "excerpt": "the excess of fair value over carrying value of the legacy HP software business was 38% of the carrying value"
+    },
+    "software_license_growth_q3fy12_pct": {
+      "source": "hp_10q_q3fy12",
+      "value": 0.02,
+      "excerpt": "net revenue from services, support and licenses increased by 65%, 16% and 2%"
+    },
+    "damodaran_software_wacc_jan2011_pct": {
+      "source": "damodaran_wacc_jan2011",
+      "value": 0.08137796024670886,
+      "excerpt": "Computer Software/Svcs"
+    },
+    "damodaran_treasury_input_jan2011_pct": {
+      "source": "damodaran_wacc_jan2011",
+      "value": 0.0329,
+      "excerpt": "Long Term Treasury bond rate ="
+    },
+    "damodaran_software_wacc_jan2012_pct": {
+      "source": "damodaran_wacc_jan2012",
+      "value": 0.07870902376552068,
+      "excerpt": "Computer Software"
+    },
+    "damodaran_treasury_input_jan2012_pct": {
+      "source": "damodaran_wacc_jan2012",
+      "value": 0.0187,
+      "excerpt": "Long Term Treasury bond rate ="
+    },
+    "ust10y_2010_12_31_pct": {
+      "source": "ust_2010",
+      "value": 0.033,
+      "excerpt": "12/31/2010,0.07,0.12,0.19,0.29,0.61,1.02,2.01,2.71,3.30"
+    },
+    "ust10y_2011_08_17_pct": {
+      "source": "ust_2011",
+      "value": 0.0217,
+      "excerpt": "08/17/2011,0.01,0.01,0.06,0.12,0.19,0.33,0.92,1.48,2.17"
+    },
+    "ust10y_2011_12_30_pct": {
+      "source": "ust_2011",
+      "value": 0.0189,
+      "excerpt": "12/30/2011,0.01,0.02,0.06,0.12,0.25,0.36,0.83,1.35,1.89"
+    },
+    "ust10y_2012_10_31_pct": {
+      "source": "ust_2012",
+      "value": 0.0172,
+      "excerpt": "10/31/2012,0.09,0.11,0.16,0.18,0.30,0.38,0.72,1.14,1.72"
+    }
+  },
+  "outcome_source": {
+    "name": "Hewlett-Packard 2012 Form 10-K Autonomy impairment",
+    "captured_values": {
+      "autonomy_impairment_usd_mm": 8800.0
+    },
+    "note": "Filed 2012-12-27, after the case date; outcome only."
+  },
+  "comparable_companies": [
+    {
+      "ticker": "OTEX",
+      "name": "Open Text Corporation",
+      "cik": "0001002638",
+      "yahoo_close": 13.487500190734863,
+      "split_factor": 4.0,
+      "split_note": "2:1 splits on 2014-01-24 and 2017-01-23 (Yahoo split events); close is restated to the 2012 share basis by x4",
+      "shares": [
+        "dei:EntityCommonStockSharesOutstanding",
+        "0001002638-12-000011",
+        "2012-08-03",
+        58405575
+      ],
+      "debt": [
+        [
+          "LongTermDebt",
+          "0001002638-12-000011",
+          "2012-06-30",
+          596374000
+        ]
+      ],
+      "cash": [
+        [
+          "CashAndCashEquivalentsAtCarryingValue",
+          "0001002638-12-000011",
+          "2012-06-30",
+          559747000
+        ]
+      ],
+      "revenue": [
+        "Revenues",
+        "0001002638-12-000011",
+        "2012-06-30",
+        1207473000
+      ],
+      "ebit_parts": [
+        [
+          "OperatingIncomeLoss",
+          "0001002638-12-000011",
+          "2012-06-30",
+          149360000
+        ]
+      ],
+      "da_parts": [
+        [
+          "DepreciationDepletionAndAmortization",
+          "0001002638-12-000011",
+          "2012-06-30",
+          159485000
+        ]
+      ],
+      "eps": [
+        "EarningsPerShareDiluted",
+        "0001002638-12-000011",
+        "2012-06-30",
+        2.13
+      ],
+      "computed": {
+        "ticker": "OTEX",
+        "price": 53.95,
+        "shares_mm": 58.405575,
+        "mcap": 3150.98,
+        "debt": 596.374,
+        "cash": 559.747,
+        "ev": 3187.61,
+        "revenue": 1207.473,
+        "ebitda": 308.845,
+        "ev_rev": 2.6399,
+        "ev_ebitda": 10.3211,
+        "pe": 25.3286
+      }
+    },
+    {
+      "ticker": "ORCL",
+      "name": "Oracle Corporation",
+      "cik": "0001341439",
+      "yahoo_close": 31.079999923706055,
+      "split_factor": 1.0,
+      "split_note": "no split since 2012",
+      "shares": [
+        "cover page text",
+        "0001193125-12-401697",
+        "2012-09-17",
+        4819056000
+      ],
+      "shares_url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312512401697/d397317d10q.htm",
+      "shares_excerpt": "The number of shares of registrant’s common stock outstanding as of September 17, 2012 was: 4,819,056,000.",
+      "debt": [
+        [
+          "DebtCurrent",
+          "0001193125-12-401697",
+          "2012-08-31",
+          1250000000
+        ],
+        [
+          "LongTermNotesPayable",
+          "0001193125-12-401697",
+          "2012-08-31",
+          13521000000
+        ]
+      ],
+      "cash": [
+        [
+          "CashAndCashEquivalentsAtCarryingValue",
+          "0001193125-12-401697",
+          "2012-08-31",
+          15667000000
+        ],
+        [
+          "AvailableForSaleSecuritiesCurrent",
+          "0001193125-12-401697",
+          "2012-08-31",
+          15940000000
+        ]
+      ],
+      "revenue": [
+        "Revenues",
+        "0001193125-12-284007",
+        "2012-05-31",
+        37121000000
+      ],
+      "ebit_parts": [
+        [
+          "OperatingIncomeLoss",
+          "0001193125-12-284007",
+          "2012-05-31",
+          13706000000
+        ]
+      ],
+      "da_parts": [
+        [
+          "Depreciation",
+          "0001193125-12-284007",
+          "2012-05-31",
+          486000000
+        ],
+        [
+          "AmortizationOfIntangibleAssets",
+          "0001193125-12-284007",
+          "2012-05-31",
+          2430000000
+        ]
+      ],
+      "eps": [
+        "EarningsPerShareDiluted",
+        "0001193125-12-284007",
+        "2012-05-31",
+        1.96
+      ],
+      "computed": {
+        "ticker": "ORCL",
+        "price": 31.08,
+        "shares_mm": 4819.056,
+        "mcap": 149776.26,
+        "debt": 14771.0,
+        "cash": 31607.0,
+        "ev": 132940.26,
+        "revenue": 37121.0,
+        "ebitda": 16622.0,
+        "ev_rev": 3.5813,
+        "ev_ebitda": 7.9978,
+        "pe": 15.8571
+      }
+    },
+    {
+      "ticker": "IBM",
+      "name": "International Business Machines Corporation",
+      "cik": "0000051143",
+      "yahoo_close": 185.9751434326172,
+      "split_factor": 1.046,
+      "split_note": "Yahoo carries the 2021-11-04 Kyndryl spin-off as a 1046:1000 split; close is restated to the 2012 basis by x1.046",
+      "shares": [
+        "dei:EntityCommonStockSharesOutstanding",
+        "0001104659-12-072210",
+        "2012-09-30",
+        1129932457
+      ],
+      "debt": [
+        [
+          "DebtCurrent",
+          "0001104659-12-072210",
+          "2012-09-30",
+          9334000000
+        ],
+        [
+          "LongTermDebtNoncurrent",
+          "0001104659-12-072210",
+          "2012-09-30",
+          24333000000
+        ]
+      ],
+      "cash": [
+        [
+          "CashAndCashEquivalentsAtCarryingValue",
+          "0001104659-12-072210",
+          "2012-09-30",
+          11909000000
+        ],
+        [
+          "MarketableSecuritiesCurrent",
+          "0001104659-12-072210",
+          "2012-09-30",
+          345000000
+        ]
+      ],
+      "revenue": [
+        "Revenues",
+        "0001047469-12-001742",
+        "2011-12-31",
+        106916000000
+      ],
+      "ebit_parts": [
+        [
+          "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+          "0001047469-12-001742",
+          "2011-12-31",
+          21003000000
+        ],
+        [
+          "InterestExpense",
+          "0001047469-12-001742",
+          "2011-12-31",
+          411000000
+        ]
+      ],
+      "da_parts": [
+        [
+          "Depreciation",
+          "0001047469-12-001742",
+          "2011-12-31",
+          3589000000
+        ],
+        [
+          "AmortizationOfIntangibleAssets",
+          "0001047469-12-001742",
+          "2011-12-31",
+          1226000000
+        ]
+      ],
+      "eps": [
+        "EarningsPerShareDiluted",
+        "0001047469-12-001742",
+        "2011-12-31",
+        13.06
+      ],
+      "computed": {
+        "ticker": "IBM",
+        "price": 194.53,
+        "shares_mm": 1129.932457,
+        "mcap": 219805.76,
+        "debt": 33667.0,
+        "cash": 12254.0,
+        "ev": 241218.76,
+        "revenue": 106916.0,
+        "ebitda": 26229.0,
+        "ev_rev": 2.2562,
+        "ev_ebitda": 9.1966,
+        "pe": 14.8951
+      }
+    },
+    {
+      "ticker": "MSFT",
+      "name": "Microsoft Corporation",
+      "cik": "0000789019",
+      "yahoo_close": 28.540000915527344,
+      "split_factor": 1.0,
+      "split_note": "no split since 2012",
+      "shares": [
+        "dei:EntityCommonStockSharesOutstanding",
+        "0001193125-12-427209",
+        "2012-10-15",
+        8416462491
+      ],
+      "debt": [
+        [
+          "LongTermDebt",
+          "0001193125-12-427209",
+          "2012-09-30",
+          12000000000
+        ]
+      ],
+      "cash": [
+        [
+          "CashAndCashEquivalentsAtCarryingValue",
+          "0001193125-12-427209",
+          "2012-09-30",
+          5036000000
+        ],
+        [
+          "AvailableForSaleSecuritiesCurrent",
+          "0001193125-12-427209",
+          "2012-09-30",
+          61608000000
+        ]
+      ],
+      "revenue": [
+        "SalesRevenueNet",
+        "0001193125-12-316848",
+        "2012-06-30",
+        73723000000
+      ],
+      "ebit_parts": [
+        [
+          "OperatingIncomeLoss",
+          "0001193125-12-316848",
+          "2012-06-30",
+          21763000000
+        ]
+      ],
+      "da_parts": [
+        [
+          "10-K cash flow line 'Depreciation, amortization, and other'",
+          "0001193125-12-316848",
+          "2012-06-30",
+          2967000000
+        ]
+      ],
+      "da_url": "https://www.sec.gov/Archives/edgar/data/789019/000119312512316848/d347676d10k.htm",
+      "da_excerpt": "Depreciation, amortization, and other 2,967",
+      "eps": [
+        "EarningsPerShareDiluted",
+        "0001193125-12-316848",
+        "2012-06-30",
+        2.0
+      ],
+      "computed": {
+        "ticker": "MSFT",
+        "price": 28.54,
+        "shares_mm": 8416.462491,
+        "mcap": 240205.85,
+        "debt": 12000.0,
+        "cash": 66644.0,
+        "ev": 185561.85,
+        "revenue": 73723.0,
+        "ebitda": 24730.0,
+        "ev_rev": 2.517,
+        "ev_ebitda": 7.5035,
+        "pe": 14.27
+      }
+    },
+    {
+      "ticker": "CVLT",
+      "name": "CommVault Systems, Inc.",
+      "cik": "0001169561",
+      "yahoo_close": 62.369998931884766,
+      "split_factor": 1.0,
+      "split_note": "no split since 2012",
+      "shares": [
+        "dei:EntityCommonStockSharesOutstanding",
+        "0001193125-12-332000",
+        "2012-07-25",
+        44949576
+      ],
+      "debt": [],
+      "cash": [
+        [
+          "CashAndCashEquivalentsAtCarryingValue",
+          "0001193125-12-332000",
+          "2012-06-30",
+          318135000
+        ],
+        [
+          "ShortTermInvestments",
+          "0001193125-12-332000",
+          "2012-06-30",
+          1948000
+        ]
+      ],
+      "revenue": [
+        "Revenues",
+        "0001193125-12-234191",
+        "2012-03-31",
+        406639000
+      ],
+      "ebit_parts": [
+        [
+          "OperatingIncomeLoss",
+          "0001193125-12-234191",
+          "2012-03-31",
+          49299000
+        ]
+      ],
+      "da_parts": [
+        [
+          "DepreciationDepletionAndAmortization",
+          "0001193125-12-234191",
+          "2012-03-31",
+          4484000
+        ]
+      ],
+      "eps": [
+        "EarningsPerShareDiluted",
+        "0001193125-12-234191",
+        "2012-03-31",
+        0.68
+      ],
+      "computed": {
+        "ticker": "CVLT",
+        "price": 62.37,
+        "shares_mm": 44.949576,
+        "mcap": 2803.51,
+        "debt": 0.0,
+        "cash": 320.083,
+        "ev": 2483.42,
+        "revenue": 406.639,
+        "ebitda": 53.783,
+        "ev_rev": 6.1072,
+        "ev_ebitda": 46.1749,
+        "pe": 91.7206
+      }
+    },
+    {
+      "ticker": "TDC",
+      "name": "Teradata Corporation",
+      "cik": "0000816761",
+      "yahoo_close": 68.30999755859375,
+      "split_factor": 1.0,
+      "split_note": "no split since 2012",
+      "shares": [
+        "dei:EntityCommonStockSharesOutstanding",
+        "0001193125-12-333968",
+        "2012-07-27",
+        168600000
+      ],
+      "debt": [
+        [
+          "10-Q text: term loan principal outstanding",
+          "0001193125-12-333968",
+          "2012-06-30",
+          296000000
+        ]
+      ],
+      "debt_url": "https://www.sec.gov/Archives/edgar/data/816761/000119312512333968/d377038d10q.htm",
+      "debt_excerpt": "As of June 30, 2012, the term loan principal outstanding was $296 million",
+      "cash": [
+        [
+          "CashAndCashEquivalentsAtCarryingValue",
+          "0001193125-12-333968",
+          "2012-06-30",
+          821000000
+        ]
+      ],
+      "revenue": [
+        "Revenues",
+        "0001193125-12-087334",
+        "2011-12-31",
+        2362000000
+      ],
+      "ebit_parts": [
+        [
+          "OperatingIncomeLoss",
+          "0001193125-12-087334",
+          "2011-12-31",
+          456000000
+        ]
+      ],
+      "da_parts": [
+        [
+          "DepreciationAndAmortization",
+          "0001193125-12-087334",
+          "2011-12-31",
+          102000000
+        ]
+      ],
+      "eps": [
+        "EarningsPerShareDiluted",
+        "0001193125-12-087334",
+        "2011-12-31",
+        2.05
+      ],
+      "computed": {
+        "ticker": "TDC",
+        "price": 68.31,
+        "shares_mm": 168.6,
+        "mcap": 11517.07,
+        "debt": 296.0,
+        "cash": 821.0,
+        "ev": 10992.07,
+        "revenue": 2362.0,
+        "ebitda": 558.0,
+        "ev_rev": 4.6537,
+        "ev_ebitda": 19.699,
+        "pe": 33.322
+      }
+    },
+    {
+      "ticker": "MSTR",
+      "name": "MicroStrategy Incorporated",
+      "cik": "0001050446",
+      "yahoo_close": 9.446999549865723,
+      "split_factor": 10.0,
+      "split_note": "10:1 split on 2024-08-08 (Yahoo split event); close is restated to the 2012 basis by x10",
+      "shares": [
+        "cover page text (class A + class B)",
+        "0001193125-12-335169",
+        "2012-07-24",
+        10934472
+      ],
+      "shares_url": "https://www.sec.gov/Archives/edgar/data/1050446/000119312512335169/d371508d10q.htm",
+      "shares_excerpt": "8,707,145 and 2,227,327, respectively.",
+      "debt": [],
+      "cash": [
+        [
+          "CashAndCashEquivalentsAtCarryingValue",
+          "0001193125-12-335169",
+          "2012-06-30",
+          195540000
+        ]
+      ],
+      "revenue": [
+        "Revenues",
+        "0001193125-12-067605",
+        "2011-12-31",
+        562150000
+      ],
+      "ebit_parts": [
+        [
+          "OperatingIncomeLoss",
+          "0001193125-12-067605",
+          "2011-12-31",
+          15042000
+        ]
+      ],
+      "da_parts": [
+        [
+          "DepreciationAmortizationAndAccretionNet",
+          "0001193125-12-067605",
+          "2011-12-31",
+          18526000
+        ]
+      ],
+      "eps": [
+        "EarningsPerShareDiluted",
+        "0001193125-12-067605",
+        "2011-12-31",
+        1.62
+      ],
+      "computed": {
+        "ticker": "MSTR",
+        "price": 94.47,
+        "shares_mm": 10.934472,
+        "mcap": 1032.98,
+        "debt": 0.0,
+        "cash": 195.54,
+        "ev": 837.44,
+        "revenue": 562.15,
+        "ebitda": 33.568,
+        "ev_rev": 1.4897,
+        "ev_ebitda": 24.9476,
+        "pe": 58.3148
       }
     }
   ],
+  "derivations": {
+    "nonop_2008": 0.786,
+    "nonop_2009": 6.112,
+    "nonop_2010": 34.221,
+    "growth_2010": 0.17666637825677856,
+    "gross_margin_2010": 0.8060666432282511,
+    "opex_pct_2010": 0.442524179483114,
+    "tax_rate_2011_guidance": 0.28,
+    "capex_2010": 98.166,
+    "capex_pct_2010": 0.11278703442000262,
+    "da_pct_capex_2010": 1.014709777315975,
+    "nwc_increase_2010": 52.896,
+    "nwc_pct_rev_chg_2010": 0.4047812179555855,
+    "growth_path": [
+      0.176666,
+      0.1525,
+      0.128333,
+      0.104167,
+      0.08
+    ],
+    "debt_2010": 826.943,
+    "cash_2010": 1060.6,
+    "net_debt_2010": -233.65699999999993,
+    "fx_usd_per_gbp": 1.6513725490196078,
+    "unaffected_price_usd": 25.728384313725492,
+    "unaffected_equity_usd_mm": 6264.07514086884,
+    "unaffected_ev_usd_mm": 6030.41814086884,
+    "ufcf_base_path": [
+      269.765829,
+      310.905059,
+      350.804497,
+      387.346607,
+      418.334335
+    ],
+    "tax_rate_2010": 0.229987171945541,
+    "ufcf_2010_actual": 245.08760898885168,
+    "fin_cost_avg_rate": 208.032,
+    "sept2011_fixed_coupon": 0.040558823529411765,
+    "fin_cost_marginal": 351.56388235294116
+  },
+  "transaction_dcf_check": {
+    "base": {
+      "enterprise_value_usd_mm": 6202.263,
+      "equity_value_usd_mm": 6435.92,
+      "per_share": 26.4342
+    },
+    "stress": {
+      "enterprise_value_usd_mm": 3113.844,
+      "equity_value_usd_mm": 3347.501,
+      "per_share": 13.7492
+    }
+  },
   "input_overrides": [
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C5",
+      "value": 10379.0,
+      "kind": "observed",
+      "source": "HP fourth quarter and fiscal 2011 results release (Form 8-K Exhibit 99.1, filed 2011-11-21)"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C6",
+      "value": 2128.0,
+      "kind": "observed",
+      "source": "HP fourth quarter and fiscal 2011 results release (Form 8-K Exhibit 99.1, filed 2011-11-21)"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C7",
+      "value": 292.216,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C8",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C9",
+      "value": 208.032,
+      "kind": "derived",
+      "source": "Hewlett-Packard Form 10-K for fiscal year ended 2011-10-31"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C10",
+      "value": 0.0,
+      "kind": "observed",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "C11",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D5",
+      "value": 7074.0,
+      "kind": "observed",
+      "source": "HP fourth quarter and fiscal 2011 results release (Form 8-K Exhibit 99.1, filed 2011-11-21)"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D6",
+      "value": 2128.0,
+      "kind": "observed",
+      "source": "HP fourth quarter and fiscal 2011 results release (Form 8-K Exhibit 99.1, filed 2011-11-21)"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D7",
+      "value": 217.293,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D8",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D9",
+      "value": 351.563882,
+      "kind": "derived",
+      "source": "Hewlett-Packard Form 10-K for fiscal year ended 2011-10-31"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D10",
+      "value": 0.0,
+      "kind": "observed",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
+    },
+    {
+      "sheet": "Accretion Dilution",
+      "cell": "D11",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C5",
+      "value": 0.176666,
+      "kind": "derived",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C6",
+      "value": 0.806067,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C7",
+      "value": 0.442524,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C8",
+      "value": 0.28,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C9",
+      "value": 1.01471,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C10",
+      "value": 0.112787,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C11",
+      "value": 0.404781,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C12",
+      "value": 244.473,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C13",
+      "value": 0.078709,
+      "kind": "modeler_assumption",
+      "source": "Damodaran Online, cost of capital by industry, January 2012 release (archives/wacc11.xls)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "C14",
+      "value": 0.0172,
+      "kind": "modeler_assumption",
+      "source": "U.S. Treasury daily par yield curve rates, 2012"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D5",
+      "value": 0.1525,
+      "kind": "derived",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D6",
+      "value": 0.806067,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D7",
+      "value": 0.442524,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D8",
+      "value": 0.28,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D9",
+      "value": 1.01471,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D10",
+      "value": 0.112787,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D11",
+      "value": 0.404781,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D12",
+      "value": 244.473,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D13",
+      "value": 0.078709,
+      "kind": "modeler_assumption",
+      "source": "Damodaran Online, cost of capital by industry, January 2012 release (archives/wacc11.xls)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "D14",
+      "value": 0.0172,
+      "kind": "modeler_assumption",
+      "source": "U.S. Treasury daily par yield curve rates, 2012"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E5",
+      "value": 0.128333,
+      "kind": "derived",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E6",
+      "value": 0.806067,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E7",
+      "value": 0.442524,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E8",
+      "value": 0.28,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E9",
+      "value": 1.01471,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E10",
+      "value": 0.112787,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E11",
+      "value": 0.404781,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E12",
+      "value": 244.473,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E13",
+      "value": 0.078709,
+      "kind": "modeler_assumption",
+      "source": "Damodaran Online, cost of capital by industry, January 2012 release (archives/wacc11.xls)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "E14",
+      "value": 0.0172,
+      "kind": "modeler_assumption",
+      "source": "U.S. Treasury daily par yield curve rates, 2012"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F5",
+      "value": 0.104167,
+      "kind": "derived",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F6",
+      "value": 0.806067,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F7",
+      "value": 0.442524,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F8",
+      "value": 0.28,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F9",
+      "value": 1.01471,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F10",
+      "value": 0.112787,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F11",
+      "value": 0.404781,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F12",
+      "value": 244.473,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F13",
+      "value": 0.078709,
+      "kind": "modeler_assumption",
+      "source": "Damodaran Online, cost of capital by industry, January 2012 release (archives/wacc11.xls)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "F14",
+      "value": 0.0172,
+      "kind": "modeler_assumption",
+      "source": "U.S. Treasury daily par yield curve rates, 2012"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G5",
+      "value": 0.08,
+      "kind": "derived",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G6",
+      "value": 0.806067,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G7",
+      "value": 0.442524,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G8",
+      "value": 0.28,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G9",
+      "value": 1.01471,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G10",
+      "value": 0.112787,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G11",
+      "value": 0.404781,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G12",
+      "value": 244.473,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G13",
+      "value": 0.078709,
+      "kind": "modeler_assumption",
+      "source": "Damodaran Online, cost of capital by industry, January 2012 release (archives/wacc11.xls)"
+    },
+    {
+      "sheet": "Assumptions",
+      "cell": "G14",
+      "value": 0.0172,
+      "kind": "modeler_assumption",
+      "source": "U.S. Treasury daily par yield curve rates, 2012"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B5",
+      "value": "OTEX",
+      "kind": "observed",
+      "source": "Open Text Corporation SEC XBRL company facts (CIK 0001002638)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B6",
+      "value": "ORCL",
+      "kind": "observed",
+      "source": "Oracle Corporation SEC XBRL company facts (CIK 0001341439)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B7",
+      "value": "IBM",
+      "kind": "observed",
+      "source": "International Business Machines Corporation SEC XBRL company facts (CIK 0000051143)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B8",
+      "value": "MSFT",
+      "kind": "observed",
+      "source": "Microsoft Corporation SEC XBRL company facts (CIK 0000789019)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B9",
+      "value": "CVLT",
+      "kind": "observed",
+      "source": "CommVault Systems, Inc. SEC XBRL company facts (CIK 0001169561)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B10",
+      "value": "TDC",
+      "kind": "observed",
+      "source": "Teradata Corporation SEC XBRL company facts (CIK 0000816761)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "B11",
+      "value": "MSTR",
+      "kind": "observed",
+      "source": "MicroStrategy Incorporated SEC XBRL company facts (CIK 0001050446)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C5",
+      "value": 53.95,
+      "kind": "observed",
+      "source": "Yahoo Finance daily chart, OTEX, close on 2012-10-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C6",
+      "value": 31.08,
+      "kind": "observed",
+      "source": "Yahoo Finance daily chart, ORCL, close on 2012-10-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C7",
+      "value": 194.53,
+      "kind": "observed",
+      "source": "Yahoo Finance daily chart, IBM, close on 2012-10-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C8",
+      "value": 28.54,
+      "kind": "observed",
+      "source": "Yahoo Finance daily chart, MSFT, close on 2012-10-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C9",
+      "value": 62.37,
+      "kind": "observed",
+      "source": "Yahoo Finance daily chart, CVLT, close on 2012-10-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C10",
+      "value": 68.31,
+      "kind": "observed",
+      "source": "Yahoo Finance daily chart, TDC, close on 2012-10-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "C11",
+      "value": 94.47,
+      "kind": "observed",
+      "source": "Yahoo Finance daily chart, MSTR, close on 2012-10-31"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D5",
+      "value": 3150.98,
+      "kind": "derived",
+      "source": "Open Text Corporation SEC XBRL company facts (CIK 0001002638)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D6",
+      "value": 149776.26,
+      "kind": "derived",
+      "source": "Oracle Corporation SEC XBRL company facts (CIK 0001341439)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D7",
+      "value": 219805.76,
+      "kind": "derived",
+      "source": "International Business Machines Corporation SEC XBRL company facts (CIK 0000051143)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D8",
+      "value": 240205.85,
+      "kind": "derived",
+      "source": "Microsoft Corporation SEC XBRL company facts (CIK 0000789019)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D9",
+      "value": 2803.51,
+      "kind": "derived",
+      "source": "CommVault Systems, Inc. SEC XBRL company facts (CIK 0001169561)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D10",
+      "value": 11517.07,
+      "kind": "derived",
+      "source": "Teradata Corporation SEC XBRL company facts (CIK 0000816761)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "D11",
+      "value": 1032.98,
+      "kind": "derived",
+      "source": "MicroStrategy Incorporated SEC XBRL company facts (CIK 0001050446)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E5",
+      "value": 3187.61,
+      "kind": "derived",
+      "source": "Open Text Corporation SEC XBRL company facts (CIK 0001002638)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E6",
+      "value": 132940.26,
+      "kind": "derived",
+      "source": "Oracle Corporation SEC XBRL company facts (CIK 0001341439)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E7",
+      "value": 241218.76,
+      "kind": "derived",
+      "source": "International Business Machines Corporation SEC XBRL company facts (CIK 0000051143)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E8",
+      "value": 185561.85,
+      "kind": "derived",
+      "source": "Microsoft Corporation SEC XBRL company facts (CIK 0000789019)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E9",
+      "value": 2483.42,
+      "kind": "derived",
+      "source": "CommVault Systems, Inc. SEC XBRL company facts (CIK 0001169561)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E10",
+      "value": 10992.07,
+      "kind": "derived",
+      "source": "Teradata Corporation SEC XBRL company facts (CIK 0000816761)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "E11",
+      "value": 837.44,
+      "kind": "derived",
+      "source": "MicroStrategy Incorporated SEC XBRL company facts (CIK 0001050446)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F5",
+      "value": 2.6399,
+      "kind": "derived",
+      "source": "Open Text Corporation SEC XBRL company facts (CIK 0001002638)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F6",
+      "value": 3.5813,
+      "kind": "derived",
+      "source": "Oracle Corporation SEC XBRL company facts (CIK 0001341439)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F7",
+      "value": 2.2562,
+      "kind": "derived",
+      "source": "International Business Machines Corporation SEC XBRL company facts (CIK 0000051143)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F8",
+      "value": 2.517,
+      "kind": "derived",
+      "source": "Microsoft Corporation SEC XBRL company facts (CIK 0000789019)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F9",
+      "value": 6.1072,
+      "kind": "derived",
+      "source": "CommVault Systems, Inc. SEC XBRL company facts (CIK 0001169561)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F10",
+      "value": 4.6537,
+      "kind": "derived",
+      "source": "Teradata Corporation SEC XBRL company facts (CIK 0000816761)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "F11",
+      "value": 1.4897,
+      "kind": "derived",
+      "source": "MicroStrategy Incorporated SEC XBRL company facts (CIK 0001050446)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G5",
+      "value": 10.3211,
+      "kind": "derived",
+      "source": "Open Text Corporation SEC XBRL company facts (CIK 0001002638)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G6",
+      "value": 7.9978,
+      "kind": "derived",
+      "source": "Oracle Corporation SEC XBRL company facts (CIK 0001341439)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G7",
+      "value": 9.1966,
+      "kind": "derived",
+      "source": "International Business Machines Corporation SEC XBRL company facts (CIK 0000051143)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G8",
+      "value": 7.5035,
+      "kind": "derived",
+      "source": "Microsoft Corporation SEC XBRL company facts (CIK 0000789019)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G9",
+      "value": 46.1749,
+      "kind": "derived",
+      "source": "CommVault Systems, Inc. SEC XBRL company facts (CIK 0001169561)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G10",
+      "value": 19.699,
+      "kind": "derived",
+      "source": "Teradata Corporation SEC XBRL company facts (CIK 0000816761)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "G11",
+      "value": 24.9476,
+      "kind": "derived",
+      "source": "MicroStrategy Incorporated SEC XBRL company facts (CIK 0001050446)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H5",
+      "value": 25.3286,
+      "kind": "derived",
+      "source": "Open Text Corporation SEC XBRL company facts (CIK 0001002638)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H6",
+      "value": 15.8571,
+      "kind": "derived",
+      "source": "Oracle Corporation SEC XBRL company facts (CIK 0001341439)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H7",
+      "value": 14.8951,
+      "kind": "derived",
+      "source": "International Business Machines Corporation SEC XBRL company facts (CIK 0000051143)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H8",
+      "value": 14.27,
+      "kind": "derived",
+      "source": "Microsoft Corporation SEC XBRL company facts (CIK 0000789019)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H9",
+      "value": 91.7206,
+      "kind": "derived",
+      "source": "CommVault Systems, Inc. SEC XBRL company facts (CIK 0001169561)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H10",
+      "value": 33.322,
+      "kind": "derived",
+      "source": "Teradata Corporation SEC XBRL company facts (CIK 0000816761)"
+    },
+    {
+      "sheet": "Comps",
+      "cell": "H11",
+      "value": 58.3148,
+      "kind": "derived",
+      "source": "MicroStrategy Incorporated SEC XBRL company facts (CIK 0001050446)"
+    },
+    {
+      "sheet": "Cover",
+      "cell": "B11",
+      "value": "HP paid $11.0bn in cash for Autonomy (£25.50 a share, a 63.7% premium to the unaffected price) against FY2010 reported revenue of $870mm and IFRS net profit of $217mm. On Autonomy's own reported numbers, a DCF gives $13.75 a share with no growth at the case-date cost of capital (7.87%) and $26.43 with FY2010 growth fading to the 8% market growth HP cited, at the signing-date cost of capital (8.14%), against $42.11 paid; HP's 10-Q says Autonomy's fair value only approximated its carrying value at acquisition.",
+      "kind": "derived",
+      "source": "Hewlett-Packard Form 10-Q for the quarter ended 2012-07-31"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I5",
+      "value": 0.078709,
+      "kind": "modeler_assumption",
+      "source": "Damodaran Online, cost of capital by industry, January 2012 release (archives/wacc11.xls)"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I6",
+      "value": 0.0172,
+      "kind": "modeler_assumption",
+      "source": "U.S. Treasury daily par yield curve rates, 2012"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I11",
+      "value": -233.657,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "DCF",
+      "cell": "I13",
+      "value": 244.473,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C5",
+      "value": 503.229,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the twelve months ended December 31, 2009 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C7",
+      "value": 64.527,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the twelve months ended December 31, 2009 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C10",
+      "value": 252.209,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the twelve months ended December 31, 2009 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C13",
+      "value": 38.408,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the twelve months ended December 31, 2009 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C15",
+      "value": 0.786,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the twelve months ended December 31, 2009 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C17",
+      "value": 53.958,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the twelve months ended December 31, 2009 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "C19",
+      "value": 217.158,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the twelve months ended December 31, 2009 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D5",
+      "value": 739.688,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D7",
+      "value": 137.397,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D10",
+      "value": 330.113,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D13",
+      "value": 81.083,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D15",
+      "value": 6.112,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D17",
+      "value": 74.515,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "D19",
+      "value": 240.555,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E5",
+      "value": 870.366,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E7",
+      "value": 168.793,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E10",
+      "value": 385.158,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E13",
+      "value": 99.61,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E15",
+      "value": 34.221,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E17",
+      "value": 64.901,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "IS",
+      "cell": "E19",
+      "value": 244.473,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C5",
+      "value": 6030.418141,
+      "kind": "derived",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C6",
+      "value": 826.943,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C7",
+      "value": 1060.6,
+      "kind": "observed",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C8",
+      "value": 243.469433,
+      "kind": "observed",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C9",
+      "value": 42.11,
+      "kind": "observed",
+      "source": "HP Form 8-K filed 2011-08-19, Item 1.01 (Autonomy Offer Agreement)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C10",
+      "value": 0.081378,
+      "kind": "modeler_assumption",
+      "source": "Damodaran Online, cost of capital by industry, January 2011 release (archives/wacc10.xls)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C11",
+      "value": 0.0217,
+      "kind": "modeler_assumption",
+      "source": "U.S. Treasury daily par yield curve rates, 2011"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C12",
+      "value": 269.765829,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C13",
+      "value": 310.905059,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C14",
+      "value": 350.804497,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C15",
+      "value": 387.346607,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C16",
+      "value": 418.334335,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C17",
+      "value": 0.36,
+      "kind": "modeler_assumption",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "C18",
+      "value": 0.38,
+      "kind": "modeler_assumption",
+      "source": "Hewlett-Packard Form 10-Q for the quarter ended 2012-07-31"
+    },
     {
       "sheet": "Transaction Analysis",
       "cell": "D5",
-      "value": 11100.0,
+      "value": 6030.418141,
+      "kind": "derived",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D6",
+      "value": 826.943,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D7",
+      "value": 1060.6,
       "kind": "observed",
-      "source": "Hewlett-Packard 2012 Form 10-K Autonomy impairment"
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
     },
     {
       "sheet": "Transaction Analysis",
       "cell": "D8",
-      "value": 1.0,
-      "kind": "modeler_assumption",
-      "source": "Transaction normalization to one unit"
+      "value": 243.469433,
+      "kind": "observed",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
     },
     {
       "sheet": "Transaction Analysis",
       "cell": "D9",
-      "value": 11100.0,
+      "value": 42.11,
+      "kind": "observed",
+      "source": "HP Form 8-K filed 2011-08-19, Item 1.01 (Autonomy Offer Agreement)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D10",
+      "value": 0.078709,
+      "kind": "modeler_assumption",
+      "source": "Damodaran Online, cost of capital by industry, January 2012 release (archives/wacc11.xls)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D11",
+      "value": 0.0,
+      "kind": "modeler_assumption",
+      "source": "Hewlett-Packard Form 10-Q for the quarter ended 2012-07-31"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D12",
+      "value": 245.087609,
       "kind": "derived",
-      "source": "Hewlett-Packard 2012 Form 10-K Autonomy impairment"
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D13",
+      "value": 245.087609,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D14",
+      "value": 245.087609,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D15",
+      "value": 245.087609,
+      "kind": "derived",
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
     },
     {
       "sheet": "Transaction Analysis",
       "cell": "D16",
-      "value": 2300.0,
+      "value": 245.087609,
       "kind": "derived",
-      "source": "Hewlett-Packard 2012 Form 10-K Autonomy impairment"
+      "source": "Autonomy Corporation plc results for the year ended December 31, 2010 (PR Newswire release)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D17",
+      "value": 0.36,
+      "kind": "modeler_assumption",
+      "source": "Rule 2.5 Announcement of the recommended cash offer for Autonomy (HP Form 8-K Exhibit 99.1, filed 2011-08-19)"
+    },
+    {
+      "sheet": "Transaction Analysis",
+      "cell": "D18",
+      "value": 0.38,
+      "kind": "modeler_assumption",
+      "source": "Hewlett-Packard Form 10-Q for the quarter ended 2012-07-31"
     }
   ],
   "series": null,
@@ -57,5 +2258,5 @@
     "status": "recorded"
   },
   "counts_toward_m4": false,
-  "snapshot_sha256": "0699ecbd28057d77e798a13005680ae41339f3b6218704c75b49670f852063fb"
+  "snapshot_sha256": "7f14f8f2f2ae5acd538f5be5bcdcdbc781874a74a0e544dae154ff0e9b6730d8"
 }
