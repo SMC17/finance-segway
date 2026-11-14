@@ -340,7 +340,7 @@
             "ltm_net_income_usd_mm": 17040.0,
             "filing": "https://www.sec.gov/Archives/edgar/data/1652044/000165204416000021/goog10-qq12016.htm",
             "filed": "2016-05-03",
-            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
+            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), GOOGL",
             "price_note": "Yahoo split-adjusted close 36.6595 x 20 (Alphabet 20-for-1 split, 2022; StockholdersEquityNoteStockSplitConversionRatio1 = 20 in Alphabet's 2022 10-Q)",
             "class_c_shares_mm": 343.439675,
             "class_c_close_usd_2016_06_10": 719.41,
@@ -360,7 +360,7 @@
             "ltm_net_income_usd_mm": 1166.0,
             "filing": "https://www.sec.gov/Archives/edgar/data/1018724/000101872416000227/amzn-20160331x10q.htm",
             "filed": "2016-04-29",
-            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
+            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), AMZN",
             "price_note": "Yahoo split-adjusted close 35.8955 x 20 (Amazon 20-for-1 split effective 2022-06-06 per Alpha Vantage SPLITS)"
           },
           {
@@ -377,7 +377,7 @@
             "ltm_net_income_usd_mm": 4686.0,
             "filing": "https://www.sec.gov/Archives/edgar/data/1326801/000132680116000067/fb-3312016x10q.htm",
             "filed": "2016-04-28",
-            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
+            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), FB",
             "price_note": "Yahoo close (ticker META today); no split since 2016"
           },
           {
@@ -411,7 +411,7 @@
             "ltm_net_income_usd_mm": -12.759,
             "filing": "https://www.sec.gov/Archives/edgar/data/1108524/000110852416000066/crmq1fy1710-q.htm",
             "filed": "2016-05-20",
-            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
+            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), CRM",
             "price_note": "Yahoo close; no split since 2016"
           },
           {
@@ -428,7 +428,7 @@
             "ltm_net_income_usd_mm": null,
             "filing": "https://www.sec.gov/Archives/edgar/data/1327811/000132781116000041/wday-04302016x10q.htm",
             "filed": "2016-06-01",
-            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
+            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), WDAY",
             "price_note": "Yahoo close; Alpha Vantage SPLITS lists no split"
           },
           {
@@ -445,8 +445,8 @@
             "ltm_net_income_usd_mm": -473.665,
             "filing": "https://www.sec.gov/Archives/edgar/data/1373715/000137371516000364/now-2016331x10q.htm",
             "filed": "2016-05-06",
-            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
-            "price_note": "Yahoo split-adjusted close 14.806 x 5 (ServiceNow 5-for-1 split effective 2025-12-18 per Alpha Vantage SPLITS)"
+            "price_source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), NOW",
+            "price_note": "Yahoo split-adjusted close 14.806 x 5 (ServiceNow 5-for-1 split effective 2025-12-18, per Yahoo Finance split events)"
           }
         ],
         "saas_selection_rule": "three largest SaaS peers by LTM revenue",
@@ -1293,7 +1293,7 @@
       "cell": "C5",
       "value": 733.19,
       "kind": "derived",
-      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)"
+      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), GOOGL"
     },
     {
       "sheet": "Comps",
@@ -1342,7 +1342,7 @@
       "cell": "C6",
       "value": 717.91,
       "kind": "derived",
-      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)"
+      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), AMZN"
     },
     {
       "sheet": "Comps",
@@ -1391,7 +1391,7 @@
       "cell": "C7",
       "value": 116.62,
       "kind": "observed",
-      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)"
+      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), FB"
     },
     {
       "sheet": "Comps",
@@ -1489,7 +1489,7 @@
       "cell": "C9",
       "value": 81.83,
       "kind": "observed",
-      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)"
+      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), CRM"
     },
     {
       "sheet": "Comps",
@@ -1538,7 +1538,7 @@
       "cell": "C10",
       "value": 77.63,
       "kind": "observed",
-      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)"
+      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), WDAY"
     },
     {
       "sheet": "Comps",
@@ -1587,7 +1587,7 @@
       "cell": "C11",
       "value": 74.03,
       "kind": "derived",
-      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)"
+      "source": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), NOW"
     },
     {
       "sheet": "Comps",
@@ -1641,5 +1641,5 @@
     "status": "recorded"
   },
   "counts_toward_m4": false,
-  "snapshot_sha256": "267cc38aa942f99d5d453cea64792e5b6d7ca14776549a8f08e92a4ce47edc6f"
+  "snapshot_sha256": "dd1e0ad42d68bf33d721e9698394c0b692de318c85b33f53d07ae12b4688fafa"
 }

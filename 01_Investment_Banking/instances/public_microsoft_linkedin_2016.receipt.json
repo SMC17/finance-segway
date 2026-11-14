@@ -531,7 +531,7 @@
       "cell": "C5",
       "previous": 0,
       "value": 733.19,
-      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/GOOGL?period1=1465516800&period2=1465603200&interval=1d",
       "source_as_of": "2016-06-10"
     },
     {
@@ -587,7 +587,7 @@
       "cell": "C6",
       "previous": 0,
       "value": 717.91,
-      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AMZN?period1=1465516800&period2=1465603200&interval=1d",
       "source_as_of": "2016-06-10"
     },
     {
@@ -643,7 +643,7 @@
       "cell": "C7",
       "previous": 0,
       "value": 116.62,
-      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/META?period1=1465516800&period2=1465603200&interval=1d",
       "source_as_of": "2016-06-10"
     },
     {
@@ -811,7 +811,7 @@
       "cell": "C10",
       "previous": 0,
       "value": 77.63,
-      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/WDAY?period1=1465516800&period2=1465603200&interval=1d",
       "source_as_of": "2016-06-10"
     },
     {
@@ -867,7 +867,7 @@
       "cell": "C11",
       "previous": 0,
       "value": 74.03,
-      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/NOW?period1=1465516800&period2=1465603200&interval=1d",
       "source_as_of": "2016-06-10"
     },
     {
@@ -1669,11 +1669,9 @@
       "source_as_of": "2016-07-22"
     }
   ],
-  "workbook_sha256": "b0b4fa1d0ad198b662748378483ae1b6f4b7395262bc6519bc9811e2a00db001",
+  "workbook_sha256": "1475936d4930be4c932ae5ae159f5c04b98f747b64deb4349abd4a1928f14904",
   "generated_on": "2026-11-13",
-  "refresh_schema": "source-addressed-v2",
-  "classification": "external_historical_case",
-  "counts_toward_M4": false,
   "hash_refreshed_on": "2026-11-13",
-  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
+  "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes",
+  "counts_toward_M4": false
 }

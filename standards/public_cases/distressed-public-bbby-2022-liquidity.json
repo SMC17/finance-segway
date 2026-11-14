@@ -1180,7 +1180,7 @@
         "name": "Toys \"R\" Us, Inc. Form 8-K, Item 8.01, U.S. wind-down and liquidation (2018-03-15)",
         "url": "https://www.sec.gov/Archives/edgar/data/1005414/000119312518083225/d552404d8k.htm",
         "as_of": "2018-03-15",
-        "notes": "Time to distribution in a liquidation = 6 months: Toys \"R\" Us took 178 days (5.9 months) from its 2017-09-18 petition to its 2018-03-15 U.S. liquidation decision. Source: On 2018-03-15 Toys \"R\" Us announced it would close all 744 remaining U.S. stores and wind down Toys Delaware, 178 days (5.9 months) after its petition: the closest large U.S. retail Chapter 11 that turned into a liquidation and filed with the SEC."
+        "notes": "Time to distribution in a liquidation = 6 months: Toys \"R\" Us filed its U.S. wind-down motion 177 days (5.8 months) after its 2017-09-18 petition, on 2018-03-14 (announced by 8-K on 2018-03-15). Source: On 2018-03-15 Toys \"R\" Us announced it would close all 744 remaining U.S. stores and wind down Toys Delaware. The wind-down motion was filed on 2018-03-14, 177 days (5.8 months) after the 2017-09-18 petition, and announced in a Form 8-K dated 2018-03-15: the closest large U.S. retail Chapter 11 that turned into a liquidation and filed with the SEC."
       },
       "emitted_by": "tools/build_distressed_bbby_case.py"
     },
@@ -1302,7 +1302,7 @@
       "name": "Toys \"R\" Us, Inc. Form 8-K, Item 8.01, U.S. wind-down and liquidation (2018-03-15)",
       "url": "https://www.sec.gov/Archives/edgar/data/1005414/000119312518083225/d552404d8k.htm",
       "as_of": "2018-03-15",
-      "notes": "On 2018-03-15 Toys \"R\" Us announced it would close all 744 remaining U.S. stores and wind down Toys Delaware, 178 days (5.9 months) after its petition: the closest large U.S. retail Chapter 11 that turned into a liquidation and filed with the SEC."
+      "notes": "On 2018-03-15 Toys \"R\" Us announced it would close all 744 remaining U.S. stores and wind down Toys Delaware. The wind-down motion was filed on 2018-03-14, 177 days (5.8 months) after the 2017-09-18 petition, and announced in a Form 8-K dated 2018-03-15: the closest large U.S. retail Chapter 11 that turned into a liquidation and filed with the SEC."
     },
     {
       "name": "LoPucki-Doherty Professional Fees Calculator (University of Florida Levin College of Law), worked example",

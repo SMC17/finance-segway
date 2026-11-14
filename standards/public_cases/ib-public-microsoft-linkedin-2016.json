@@ -865,8 +865,8 @@
       "value": 733.19,
       "input_kind": "derived",
       "source": {
-        "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
-        "url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+        "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), GOOGL",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/GOOGL?period1=1465516800&period2=1465603200&interval=1d",
         "as_of": "2016-06-10",
         "notes": "Close on 2016-06-10, the date Qatalyst used. Yahoo split-adjusted close 36.6595 x 20 (Alphabet 20-for-1 split, 2022; StockholdersEquityNoteStockSplitConversionRatio1 = 20 in Alphabet's 2022 10-Q)."
       },
@@ -956,8 +956,8 @@
       "value": 717.91,
       "input_kind": "derived",
       "source": {
-        "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
-        "url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+        "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), AMZN",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/AMZN?period1=1465516800&period2=1465603200&interval=1d",
         "as_of": "2016-06-10",
         "notes": "Close on 2016-06-10, the date Qatalyst used. Yahoo split-adjusted close 35.8955 x 20 (Amazon 20-for-1 split effective 2022-06-06 per Alpha Vantage SPLITS)."
       },
@@ -1047,8 +1047,8 @@
       "value": 116.62,
       "input_kind": "observed",
       "source": {
-        "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
-        "url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+        "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), FB",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/META?period1=1465516800&period2=1465603200&interval=1d",
         "as_of": "2016-06-10",
         "notes": "Close on 2016-06-10, the date Qatalyst used. Yahoo close (ticker META today); no split since 2016."
       },
@@ -1229,7 +1229,7 @@
       "value": 81.83,
       "input_kind": "observed",
       "source": {
-        "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
+        "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), CRM",
         "url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
         "as_of": "2016-06-10",
         "notes": "Close on 2016-06-10, the date Qatalyst used. Yahoo close; no split since 2016."
@@ -1320,8 +1320,8 @@
       "value": 77.63,
       "input_kind": "observed",
       "source": {
-        "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
-        "url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+        "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), WDAY",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/WDAY?period1=1465516800&period2=1465603200&interval=1d",
         "as_of": "2016-06-10",
         "notes": "Close on 2016-06-10, the date Qatalyst used. Yahoo close; Alpha Vantage SPLITS lists no split."
       },
@@ -1336,7 +1336,7 @@
         "name": "Workday Form 10-Q, quarter ended 2016-04-30",
         "url": "https://www.sec.gov/Archives/edgar/data/1327811/000132781116000041/wday-04302016x10q.htm",
         "as_of": "2016-06-01",
-        "notes": "Market cap = 77.63 x 197.000000mm shares outstanding (10-Q cover, all classes) = 15293.1 $mm."
+        "notes": "Market cap = 77.63 x 197.000000mm shares outstanding (10-Q cover, 'approximately 197 million' Class A and Class B shares; the cover gives no exact count) = 15293.1 $mm."
       },
       "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
     },
@@ -1411,10 +1411,10 @@
       "value": 74.03,
       "input_kind": "derived",
       "source": {
-        "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
-        "url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+        "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), NOW",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/NOW?period1=1465516800&period2=1465603200&interval=1d",
         "as_of": "2016-06-10",
-        "notes": "Close on 2016-06-10, the date Qatalyst used. Yahoo split-adjusted close 14.806 x 5 (ServiceNow 5-for-1 split effective 2025-12-18 per Alpha Vantage SPLITS)."
+        "notes": "Close on 2016-06-10, the date Qatalyst used. Yahoo split-adjusted close 14.806 x 5 (ServiceNow 5-for-1 split effective 2025-12-18, per Yahoo Finance split events)."
       },
       "emitted_by": "tools/deepen_ib_microsoft_linkedin.py"
     },
@@ -2259,12 +2259,6 @@
       "notes": "Alpha Vantage."
     },
     {
-      "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios)",
-      "url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
-      "as_of": "2016-06-10",
-      "notes": "Yahoo Finance."
-    },
-    {
       "name": "U.S. Treasury daily par yield curve rates, 2016",
       "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2016/all?type=daily_treasury_yield_curve&field_tdr_date_value=2016&page&_format=csv",
       "as_of": "2016-06-10",
@@ -2287,6 +2281,42 @@
       "url": "https://www.sec.gov/Archives/edgar/data/1301031/000119312516618542/d207591dsc14d9.htm",
       "as_of": "2016-06-10",
       "notes": "U.S. SEC / Demandware."
+    },
+    {
+      "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), GOOGL",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/GOOGL?period1=1465516800&period2=1465603200&interval=1d",
+      "as_of": "2016-06-10",
+      "notes": "Yahoo Finance."
+    },
+    {
+      "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), AMZN",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/AMZN?period1=1465516800&period2=1465603200&interval=1d",
+      "as_of": "2016-06-10",
+      "notes": "Yahoo Finance."
+    },
+    {
+      "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), FB",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/META?period1=1465516800&period2=1465603200&interval=1d",
+      "as_of": "2016-06-10",
+      "notes": "Yahoo Finance."
+    },
+    {
+      "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), CRM",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/CRM?period1=1465516800&period2=1465603200&interval=1d",
+      "as_of": "2016-06-10",
+      "notes": "Yahoo Finance."
+    },
+    {
+      "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), WDAY",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/WDAY?period1=1465516800&period2=1465603200&interval=1d",
+      "as_of": "2016-06-10",
+      "notes": "Yahoo Finance."
+    },
+    {
+      "name": "Yahoo Finance chart API daily close for 2016-06-10 (split-adjusted; unadjusted by disclosed split ratios), NOW",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/NOW?period1=1465516800&period2=1465603200&interval=1d",
+      "as_of": "2016-06-10",
+      "notes": "Yahoo Finance."
     },
     {
       "name": "Alphabet Form 10-Q, quarter ended 2016-03-31",

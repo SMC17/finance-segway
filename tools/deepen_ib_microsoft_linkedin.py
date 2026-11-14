@@ -283,7 +283,7 @@ PEERS = [
      "price_note": "Yahoo split-adjusted close 35.8955 x 20 (Amazon 20-for-1 split effective 2022-06-06 per Alpha Vantage SPLITS)",
      "shares_mm": 471.827960, "cash": 12470.0 + 3389.0, "debt": 8405.0,
      "ltm_rev": 113417.0, "ltm_opinc": 3049.0, "ltm_da": 6682.0, "ltm_ni": 1166.0},
-    {"ticker": "FB", "close": 116.62, "price_src": "yahoo", "price_note": "Yahoo close (ticker META today); no split since 2016",
+    {"ticker": "FB", "yahoo_symbol": "META", "close": 116.62, "price_src": "yahoo", "price_note": "Yahoo close (ticker META today); no split since 2016",
      "shares_mm": 2311.865096 + 548.439425, "cash": 6456.0 + 14165.0, "debt": 0.0,
      "ltm_rev": 19767.0, "ltm_opinc": 7301.0, "ltm_da": 2040.0, "ltm_ni": 4686.0},
     {"ticker": "TWTR", "close": 14.02, "price_src": "av_weekly", "price_note": "Alpha Vantage weekly close",
@@ -293,10 +293,10 @@ PEERS = [
      "shares_mm": 677.5, "cash": 1799.083 + 232.109, "debt": 1095.104 + 198.066,
      "ltm_rev": 7072.652, "ltm_opinc": 135.804, "ltm_da": 530.595, "ltm_ni": -12.759},
     {"ticker": "WDAY", "close": 77.63, "price_src": "yahoo", "price_note": "Yahoo close; Alpha Vantage SPLITS lists no split",
-     "shares_mm": 197.0, "cash": 404.604 + 1675.486, "debt": 514.075,
+     "shares_mm": 197.0, "shares_src": "10-Q cover, 'approximately 197 million' Class A and Class B shares; the cover gives no exact count", "cash": 404.604 + 1675.486, "debt": 514.075,
      "ltm_rev": 1256.819, "ltm_opinc": -284.904, "ltm_da": 93.494, "ltm_ni": None},
     {"ticker": "NOW", "close": 74.03, "price_src": "yahoo",
-     "price_note": "Yahoo split-adjusted close 14.806 x 5 (ServiceNow 5-for-1 split effective 2025-12-18 per Alpha Vantage SPLITS)",
+     "price_note": "Yahoo split-adjusted close 14.806 x 5 (ServiceNow 5-for-1 split effective 2025-12-18, per Yahoo Finance split events)",
      "shares_mm": 162.848163, "shares_src": "shares outstanding at 2016-03-31, 10-Q stockholders' equity note; the cover rounds to ~162.8mm", "cash": 453.450 + 447.423, "debt": 482.643,
      "ltm_rev": 1099.395, "ltm_opinc": -436.285, "ltm_da": 63.984, "ltm_ni": -473.665},
 ]
@@ -604,6 +604,11 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
         ev = mcap + p["debt"] - p["cash"]
         ebitda = p["ltm_opinc"] + p["ltm_da"]
         price_key = p["price_src"]
+        if price_key == "yahoo":
+            # One source per ticker: each close is cited to its own chart, not a shared one.
+            price_key = f"yahoo_{p['ticker']}"
+            S.setdefault(price_key, {**S["yahoo"], "name": f"{S['yahoo']['name']}, {p['ticker']}",
+                                     "url": S["yahoo"]["url"].replace("/chart/CRM?", f"/chart/{p.get('yahoo_symbol', p['ticker'])}?")})
 
         def pe(sheet_cell: str, value: Any, kind: str, note: str, key: str = "") -> None:
             inputs.append({"sheet": "Comps", "cell": sheet_cell,
@@ -751,6 +756,8 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
     sources_used = sorted({i["source"]["url"] for i in inputs})
     source_entries = []
     for key, s in S.items():
+        if key == "yahoo":
+            continue  # template for the per-ticker entries; each close cites its own ticker's chart
         if s["url"] in sources_used or key in ("close_8k", "msft_424b2", "q3_10q", "yahoo_goog"):
             source_entries.append({"name": s["name"], "url": s["url"], "as_of": s["as_of"],
                                    "notes": f"{s['publisher']}."})
@@ -904,6 +911,8 @@ def main() -> int:
     SNAPSHOT_PATH.write_text(json.dumps(snapshot, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     MANIFEST_PATH.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     write_source_register(snapshot, manifest)
+    from public_case_index import report_sync  # keep the ledger hash in step with the snapshot
+    print(report_sync(CASE_ID, snapshot["snapshot_sha256"]))
     print(f"inputs={len(manifest['inputs'])} drivers={len(manifest['driver_declarations'])} "
           f"snapshot_sha256={snapshot['snapshot_sha256'][:16]}")
     return 0
