@@ -98,6 +98,29 @@ values do not cover it.
 - **Merging your own work over a red `independent-approval` check.** That check
   asks for review by someone other than the author. Ask; do not self-approve.
 
+### Owner decision: an independent audit replaces non-author review (13 November 2026)
+
+The owner has directed that pull requests from automated contributors may be
+merged without a non-author GitHub approval when an **independent audit**
+passes. The audit is a separate agent run, with no access to the author's
+reasoning, that:
+
+1. re-fetches a sample of the sources the PR cites (at least five, or all if
+   fewer) and confirms each recorded value against the source;
+2. confirms every new or changed input is `observed`, `derived` with stated
+   arithmetic, or a declared `modeler_assumption`, and that no hindsight was
+   used for the case's as-of date;
+3. reruns the gates: `python -m unittest discover -s tests -q` (no new
+   failures against `main`), `python tools/build_all_models.py` (27/27 parity
+   and 27/27 presentation parity), `python tools/verify_template_exhaustion.py`
+   (no case loses coverage), and the `verify_*` tools the change touches;
+4. posts its findings on the PR as a comment headed "Independent audit".
+
+A PR merges only on a passing audit comment. A failing audit blocks the merge
+until the author fixes it and a fresh audit passes. This decision does not
+change the M3 rule above: no agent writes `governance/signoff.json`, marks a
+model M3, or describes a model as validated for use.
+
 ### Owner-directed acceptance of PR #125
 
 On 12 November 2026 the owner accepted ChatGPT as the secondary technical
