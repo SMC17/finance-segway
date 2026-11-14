@@ -9875,7 +9875,7 @@
       "manifest": "standards/public_cases/distressed-public-hertz-2021-reorganization.json",
       "output": "24_Distressed_Restructuring/instances/public_hertz_2021_reorganization.xlsx",
       "snapshot": "24_Distressed_Restructuring/sources/snapshots/distressed-public-hertz-2021-reorganization.json",
-      "snapshot_sha256": "fcb0669ea127a18435a92a0fa1b446ff69664e64607e9a100c202aa61ab73519",
+      "snapshot_sha256": "6950a5804e4541eb120e67d338413fbb00f677425304110b456c89936cf9f5ed",
       "counts_toward_m4": false,
       "receipt": {
         "schema_version": "1.0",
@@ -9886,20 +9886,764 @@
         "output": "24_Distressed_Restructuring/instances/public_hertz_2021_reorganization.xlsx",
         "applied_inputs": [
           {
+            "sheet": "Recovery Waterfall",
+            "cell": "C5",
+            "previous": 0,
+            "value": 750.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "Recovery Waterfall",
+            "cell": "C6",
+            "previous": 0,
+            "value": 1271.932486,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+            "source_as_of": "2021-06-10"
+          },
+          {
+            "sheet": "Recovery Waterfall",
+            "cell": "C7",
+            "previous": 0,
+            "value": 362.750694,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+            "source_as_of": "2021-06-10"
+          },
+          {
+            "sheet": "Recovery Waterfall",
+            "cell": "C8",
+            "previous": 0,
+            "value": 2745.517361,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+            "source_as_of": "2021-06-10"
+          },
+          {
+            "sheet": "Recovery Waterfall",
+            "cell": "C9",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+            "source_as_of": "2021-06-10"
+          },
+          {
+            "sheet": "Recovery Waterfall",
+            "cell": "C10",
+            "previous": 0,
+            "value": 379.995911,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+            "source_as_of": "2021-06-10"
+          },
+          {
+            "sheet": "Recovery Waterfall",
+            "cell": "C12",
+            "previous": 0,
+            "value": 5510.196452,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+            "source_as_of": "2021-06-10"
+          },
+          {
+            "sheet": "Recovery Waterfall",
+            "cell": "D5",
+            "previous": 1,
+            "value": 1,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+            "source_as_of": "2021-06-10"
+          },
+          {
+            "sheet": "Recovery Waterfall",
+            "cell": "D6",
+            "previous": 2,
+            "value": 2,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+            "source_as_of": "2021-06-10"
+          },
+          {
+            "sheet": "Recovery Waterfall",
+            "cell": "D7",
+            "previous": 3,
+            "value": 3,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+            "source_as_of": "2021-06-10"
+          },
+          {
+            "sheet": "Recovery Waterfall",
+            "cell": "D8",
+            "previous": 4,
+            "value": 4,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+            "source_as_of": "2021-06-10"
+          },
+          {
+            "sheet": "Recovery Waterfall",
+            "cell": "D10",
+            "previous": 6,
+            "value": 6,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+            "source_as_of": "2021-06-10"
+          },
+          {
+            "sheet": "Recovery Waterfall",
+            "cell": "D9",
+            "previous": 5,
+            "value": 5,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+            "source_as_of": "2021-06-10"
+          },
+          {
             "sheet": "New Money",
             "cell": "C5",
             "previous": 25,
-            "value": 7500.0,
-            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785322000012/htz-20211231.htm",
-            "source_as_of": "2021-06-30"
+            "value": 1650.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785320000106/htz-20201030.htm",
+            "source_as_of": "2020-10-30"
+          },
+          {
+            "sheet": "New Money",
+            "cell": "C7",
+            "previous": 0.02,
+            "value": 0.034667,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "New Money",
+            "cell": "C8",
+            "previous": 0.12,
+            "value": 0.0825,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "New Money",
+            "cell": "C9",
+            "previous": 1,
+            "value": 1.169863,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785320000106/htz-20201030.htm",
+            "source_as_of": "2020-10-30"
+          },
+          {
+            "sheet": "New Money",
+            "cell": "C10",
+            "previous": 0.03,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785320000106/htz-20201030.htm",
+            "source_as_of": "2020-10-30"
+          },
+          {
+            "sheet": "New Money",
+            "cell": "C11",
+            "previous": 1,
+            "value": 1.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785320000106/htz-20201030.htm",
+            "source_as_of": "2020-10-30"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "C3",
+            "previous": 20,
+            "value": 1096.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "C4",
+            "previous": 5,
+            "value": 275.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "D7",
+            "previous": 8,
+            "value": 99.153846,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "E7",
+            "previous": 7,
+            "value": 126.230769,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "F7",
+            "previous": 0.75,
+            "value": 7.615385,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "G7",
+            "previous": 0.5,
+            "value": 4.461538,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "H7",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "D8",
+            "previous": 8,
+            "value": 99.153846,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "E8",
+            "previous": 7,
+            "value": 126.230769,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "F8",
+            "previous": 0.75,
+            "value": 7.615385,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "G8",
+            "previous": 0.5,
+            "value": 4.461538,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "H8",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "D9",
+            "previous": 8,
+            "value": 99.153846,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "E9",
+            "previous": 7,
+            "value": 126.230769,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "F9",
+            "previous": 0.75,
+            "value": 7.615385,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "G9",
+            "previous": 0.5,
+            "value": 4.461538,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "H9",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "D10",
+            "previous": 8,
+            "value": 99.153846,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "E10",
+            "previous": 7,
+            "value": 126.230769,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "F10",
+            "previous": 0.75,
+            "value": 7.615385,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "G10",
+            "previous": 0.5,
+            "value": 4.461538,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "H10",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "D11",
+            "previous": 8,
+            "value": 99.153846,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "E11",
+            "previous": 7,
+            "value": 126.230769,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "F11",
+            "previous": 0.75,
+            "value": 7.615385,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "G11",
+            "previous": 0.5,
+            "value": 4.461538,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "H11",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "D12",
+            "previous": 8,
+            "value": 99.153846,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "E12",
+            "previous": 7,
+            "value": 126.230769,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "F12",
+            "previous": 0.75,
+            "value": 7.615385,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "G12",
+            "previous": 0.5,
+            "value": 4.461538,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "H12",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "D13",
+            "previous": 8,
+            "value": 99.153846,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "E13",
+            "previous": 7,
+            "value": 126.230769,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "F13",
+            "previous": 0.75,
+            "value": 7.615385,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "G13",
+            "previous": 0.5,
+            "value": 4.461538,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "H13",
+            "previous": 0,
+            "value": 250.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000006/htz-20201231.htm",
+            "source_as_of": "2020-12-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "D14",
+            "previous": 8,
+            "value": 99.153846,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "E14",
+            "previous": 7,
+            "value": 126.230769,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "F14",
+            "previous": 0.75,
+            "value": 7.615385,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "G14",
+            "previous": 0.5,
+            "value": 4.461538,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "H14",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "D15",
+            "previous": 8,
+            "value": 99.153846,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "E15",
+            "previous": 7,
+            "value": 126.230769,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "F15",
+            "previous": 0.75,
+            "value": 7.615385,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "G15",
+            "previous": 0.5,
+            "value": 4.461538,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "H15",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "D16",
+            "previous": 8,
+            "value": 99.153846,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "E16",
+            "previous": 7,
+            "value": 126.230769,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "F16",
+            "previous": 0.75,
+            "value": 7.615385,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "G16",
+            "previous": 0.5,
+            "value": 4.461538,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "H16",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "D17",
+            "previous": 8,
+            "value": 99.153846,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "E17",
+            "previous": 7,
+            "value": 126.230769,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "F17",
+            "previous": 0.75,
+            "value": 7.615385,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "G17",
+            "previous": 0.5,
+            "value": 4.461538,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "H17",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "D18",
+            "previous": 8,
+            "value": 99.153846,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "E18",
+            "previous": 7,
+            "value": 126.230769,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "F18",
+            "previous": 0.75,
+            "value": 7.615385,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "G18",
+            "previous": 0.5,
+            "value": 4.461538,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "H18",
+            "previous": 0,
+            "value": 0.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "D19",
+            "previous": 8,
+            "value": 99.153846,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "E19",
+            "previous": 7,
+            "value": 126.230769,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "F19",
+            "previous": 0.75,
+            "value": 7.615385,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "G19",
+            "previous": 0.5,
+            "value": 4.461538,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "13-Week Liquidity",
+            "cell": "H19",
+            "previous": 0,
+            "value": 250.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "Liquidation vs Reorg",
+            "cell": "C5",
+            "previous": 0,
+            "value": 6008.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "Liquidation vs Reorg",
+            "cell": "D5",
+            "previous": 0,
+            "value": 5510.196452,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+            "source_as_of": "2021-06-10"
+          },
+          {
+            "sheet": "Liquidation vs Reorg",
+            "cell": "C6",
+            "previous": 0,
+            "value": 4014.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "Liquidation vs Reorg",
+            "cell": "C7",
+            "previous": 0,
+            "value": 59.84325,
+            "source_url": "https://www.law.cornell.edu/uscode/text/11/326",
+            "source_as_of": "2021-06-10"
+          },
+          {
+            "sheet": "Liquidation vs Reorg",
+            "cell": "D7",
+            "previous": 0,
+            "value": 64.0,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
+          },
+          {
+            "sheet": "Liquidation vs Reorg",
+            "cell": "C8",
+            "previous": 6,
+            "value": 7.557932,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000006/htz-20201231.htm",
+            "source_as_of": "2020-12-31"
+          },
+          {
+            "sheet": "Liquidation vs Reorg",
+            "cell": "D8",
+            "previous": 18,
+            "value": 0.657534,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_8k.htm",
+            "source_as_of": "2021-06-10"
+          },
+          {
+            "sheet": "Liquidation vs Reorg",
+            "cell": "C9",
+            "previous": 0.15,
+            "value": 0.0825,
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+            "source_as_of": "2021-03-31"
           }
         ],
-        "workbook_sha256": "a46d1c3057cdc948f9826151f55dac3802c9ce3713ca9a99d2c27841dd538cf7",
-        "generated_on": "2026-08-04",
+        "workbook_sha256": "bb55109476dbc00ed9d8026ad49099c5c06b60e93b0a334d1d798a1e35afc6b2",
+        "generated_on": "2026-11-13",
         "refresh_schema": "source-addressed-v2",
         "classification": "external_historical_case",
         "counts_toward_M4": false,
-        "hash_refreshed_on": "2026-09-07",
+        "hash_refreshed_on": "2026-11-13",
         "hash_refresh_reason": "Bind the public-evidence receipt to the exact committed workbook bytes"
       },
       "outcome": {

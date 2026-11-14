@@ -8,28 +8,1283 @@
   "as_of": "2021-06-30",
   "scenario": "Base",
   "cover": {
-    "Situation type:": "Hertz Chapter 11 emergence financing and recovery"
+    "Title:": "Hertz Global Holdings, Inc. — Distressed / Restructuring Model",
+    "Situation type:": "Chapter 11, In re The Hertz Corporation, et al., Case No. 20-11218 (MFW), Bankr. D. Del.; Plan confirmed 2021-06-10, emergence financing and recoveries",
+    "Petition/filing date:": "2020-05-22",
+    "Refresh cadence:": "None scheduled: closed historical case, refreshed only on source revision or builder change"
   },
   "inputs": [
     {
-      "sheet": "New Money",
+      "sheet": "Recovery Waterfall",
       "cell": "C5",
-      "value": 7500.0,
+      "value": 750.0,
       "input_kind": "observed",
       "source": {
-        "name": "Hertz 2021 Form 10-K",
-        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785322000012/htz-20211231.htm",
-        "as_of": "2021-06-30",
-        "notes": "U.S. SEC / Hertz; frozen curated observation as of case date"
-      }
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. DIP / super-priority face claim: Senior Secured Superpriority Debtor-in-Possession Credit Agreement principal outstanding at 2021-03-31, $750mm (latest balance public before the as-of date). USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C6",
+      "value": 1271.932486,
+      "input_kind": "observed",
+      "source": {
+        "name": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+        "as_of": "2021-06-10",
+        "notes": "Filed 2021-06-16. Class 3 First Lien Claims (Senior Term Loan and Senior RCF) Allowed in the amount of $1,271,932,486.00 per Plan Art. III.B.3(b), before the Donlen paydown, post-petition LC draws, hedge claims and accrued interest the Plan adds to render the class Unimpaired. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C7",
+      "value": 362.750694,
+      "input_kind": "observed",
+      "source": {
+        "name": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+        "as_of": "2021-06-10",
+        "notes": "Filed 2021-06-16. Class 4 Second Lien Note Claims (7.625% Senior Second Priority Secured Notes) Allowed in the amount of $362,750,694.00 per Plan Art. III.B.4(b), before post-petition interest. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C8",
+      "value": 2745.517361,
+      "input_kind": "derived",
+      "source": {
+        "name": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+        "as_of": "2021-06-10",
+        "notes": "Filed 2021-06-16. Class 5 Unsecured Note Claims, sum of the four Allowed amounts in Plan Art. III.B.5(b)(i): 804,522,222 (5.500%) + 926,700,000 (6.000%) + 503,211,806 (6.250%) + 511,083,333 (7.125%) = 2,745,517,361 USD = 2745.517361 USD millions. Excludes the ALOC Facility claims in the same class, which the Plan leaves to the Court to fix (drawn $142mm at 2021-03-31 per the Q1 10-Q), the $790.1mm HHN Notes guarantee claims (Class 6, paid by the issuer), and the $28.3mm 7.000% Unsecured Promissory Notes (Class 7 general unsecured)."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C9",
+      "value": 0.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+        "as_of": "2021-06-10",
+        "notes": "Filed 2021-06-16. Subordinated debt: the Plan's classification table (Art. III.A) has no subordinated debt class; the Q1 2021 10-Q debt table lists no subordinated instrument. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C10",
+      "value": 379.995911,
+      "input_kind": "derived",
+      "source": {
+        "name": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+        "as_of": "2021-06-10",
+        "notes": "Filed 2021-06-16. Class 11 Existing Hertz Parent Interests, the Plan's only Impaired class. Distribution value = cash of $1.53 per share (confirmed Plan Art. III.B.11(b)(i)) x 156,206,478 shares outstanding at 2021-06-10 (2021-06-16 8-K) = 238.995911 USD millions, + 3% of reorganized common (Plan Art. III.B.11(b)(ii)) at the equity value of approximately $4,700mm on which the Rights Offering is priced (2021-05-14 8-K/A; 0.03 x 4,700 = 141) = 379.995911 USD millions. The 30-year warrants (18% at a $6.5bn strike) or the alternative Rights Offering participation carry option value that is not disclosed and is excluded."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "C12",
+      "value": 5510.196452,
+      "input_kind": "derived",
+      "source": {
+        "name": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+        "as_of": "2021-06-10",
+        "notes": "Filed 2021-06-16. Plan distributable value to the six modeled classes = 750.0 + 1271.932486 + 362.750694 + 2745.517361 + 0 + 379.995911 = 5510.196452 USD millions. Every creditor class is paid in full in cash under Plan Art. III.B, so the value distributed equals the sum of the modeled claims plus equity's distribution. This is the Plan's distribution, not an independent enterprise valuation: the Debtors' valuation analysis sits in the Disclosure Statement on the claims agent site, which returns HTTP 403 to automated clients."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D5",
+      "value": 1,
+      "input_kind": "observed",
+      "source": {
+        "name": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+        "as_of": "2021-06-10",
+        "notes": "Filed 2021-06-16. Seniority rank 1: DIP Claims are superpriority administrative claims (Plan Art. II.B; DIP Credit Agreement, 2020-11-03 8-K). Order follows the Plan's classification and the absolute priority of secured, unsecured and equity interests."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D6",
+      "value": 2,
+      "input_kind": "observed",
+      "source": {
+        "name": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+        "as_of": "2021-06-10",
+        "notes": "Filed 2021-06-16. Seniority rank 2: Class 3 First Lien Claims. Order follows the Plan's classification and the absolute priority of secured, unsecured and equity interests."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D7",
+      "value": 3,
+      "input_kind": "observed",
+      "source": {
+        "name": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+        "as_of": "2021-06-10",
+        "notes": "Filed 2021-06-16. Seniority rank 3: Class 4 Second Lien Note Claims. Order follows the Plan's classification and the absolute priority of secured, unsecured and equity interests."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D8",
+      "value": 4,
+      "input_kind": "observed",
+      "source": {
+        "name": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+        "as_of": "2021-06-10",
+        "notes": "Filed 2021-06-16. Seniority rank 4: Class 5 Unsecured Funded Debt Claims. Order follows the Plan's classification and the absolute priority of secured, unsecured and equity interests."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D10",
+      "value": 6,
+      "input_kind": "observed",
+      "source": {
+        "name": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+        "as_of": "2021-06-10",
+        "notes": "Filed 2021-06-16. Seniority rank 6: Class 11 Existing Hertz Parent Interests, junior to every Claim. Order follows the Plan's classification and the absolute priority of secured, unsecured and equity interests."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D9",
+      "value": 5,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+        "as_of": "2021-06-10",
+        "notes": "Filed 2021-06-16. Declared driver. Seniority rank of the subordinated debt row. Hertz has no subordinated debt class, so the rank is the template's positional slot between unsecured claims and equity, not a fact about Hertz. Basis: Plan Art. III.A classification table: no subordinated debt class exists; the row carries a zero claim."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C5",
+      "value": 1650.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Hertz Form 8-K: DIP Credit Agreement (Item 1.01)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785320000106/htz-20201030.htm",
+        "as_of": "2020-10-30",
+        "notes": "Filed 2020-11-03. DIP Credit Agreement commitment: superpriority secured delayed-draw term loans of up to $1.65 billion ($1.0bn for interim fleet financing equity, $800mm for working capital). USD millions. Replaces the earlier 7,500 read off the FY2021 10-K (filed 2022-02-24), which was hindsight for a 2021-06-30 case."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C7",
+      "value": 0.034667,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Declared driver. Upfront fee as a share of drawn amount. The DIP fee letter is not on EDGAR; the credit agreement is on the claims agent site (HTTP 403). The value is the unamortized issuance cost on non-vehicle debt not subject to compromise divided by DIP principal drawn, both at 2021-03-31: 26 / 750. Basis: Q1 2021 10-Q Note 6: unamortized debt issuance costs (26) against DIP principal 750; attributing the whole 26 to the DIP is the assumption."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C8",
+      "value": 0.0825,
+      "input_kind": "observed",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. DIP cash interest rate: 8.25% weighted-average rate at 2021-03-31 per Note 6, equal to the contractual LIBOR + 7.25% with a 1.00% LIBOR floor disclosed in the 2020-11-03 8-K."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C9",
+      "value": 1.169863,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Form 8-K: DIP Credit Agreement (Item 1.01)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785320000106/htz-20201030.htm",
+        "as_of": "2020-10-30",
+        "notes": "Filed 2020-11-03. DIP tenor in years: closing 2020-10-30 to maturity 2021-12-31 = 427 days / 365 = 1.169863."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C10",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Form 8-K: DIP Credit Agreement (Item 1.01)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785320000106/htz-20201030.htm",
+        "as_of": "2020-10-30",
+        "notes": "Filed 2020-11-03. Declared driver. Exit fee. The 8-K summary of DIP economics discloses rate, floor, step-down, maturity and draw size and names no exit fee; the credit agreement that would confirm it is not reachable. Held at zero. Basis: 2020-11-03 8-K Item 1.01 summary of DIP Credit Agreement terms lists no exit or prepayment fee."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C11",
+      "value": 1.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Hertz Form 8-K: DIP Credit Agreement (Item 1.01)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785320000106/htz-20201030.htm",
+        "as_of": "2020-10-30",
+        "notes": "Filed 2020-11-03. Super-priority multiple 1.0x: the DIP is a superpriority secured facility with first priority liens on substantially all Debtor assets, consensual priming of the first-lien debt, and no roll-up."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "C3",
+      "value": 1096.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Initial unrestricted liquidity: Hertz Global consolidated cash and cash equivalents (unrestricted) at 2020-12-31, the opening of the 13-week window Q1 2021. Excludes $411mm restricted cash and DIP availability. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "C4",
+      "value": 275.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Minimum operating liquidity: the DIP Credit Agreement's $275mm month-end liquidity maintenance test. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D7",
+      "value": 99.153846,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 1 receipts: Q1 2021 total revenues 1,289 / 13 = 99.153846. Revenue stands in for cash receipts; weekly phasing is not disclosed and is spread evenly. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E7",
+      "value": 126.230769,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 1 operating disbursements, the balancing residual that ties week-13 ending cash to the disclosed 2021-03-31 unrestricted cash: (revenues 1,289 - interest paid 99 - reorganization items paid 58 + DIP draws 500 - change in unrestricted cash (-9)) / 13 = 1641 / 13 = 126.230769. Includes every other use of unrestricted cash in the quarter, fleet equity funding and transfers to restricted cash among them. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F7",
+      "value": 7.615385,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 1 interest: Q1 2021 cash interest paid, vehicle 69 + non-vehicle 30 = 99, / 13 = 7.615385. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G7",
+      "value": 4.461538,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 1 professional fees: Q1 2021 cash paid for reorganization items, primarily professional fees, 58 / 13 = 4.461538. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H7",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Declared driver. Week 1 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13. Basis: Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D8",
+      "value": 99.153846,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 2 receipts: Q1 2021 total revenues 1,289 / 13 = 99.153846. Revenue stands in for cash receipts; weekly phasing is not disclosed and is spread evenly. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E8",
+      "value": 126.230769,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 2 operating disbursements, the balancing residual that ties week-13 ending cash to the disclosed 2021-03-31 unrestricted cash: (revenues 1,289 - interest paid 99 - reorganization items paid 58 + DIP draws 500 - change in unrestricted cash (-9)) / 13 = 1641 / 13 = 126.230769. Includes every other use of unrestricted cash in the quarter, fleet equity funding and transfers to restricted cash among them. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F8",
+      "value": 7.615385,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 2 interest: Q1 2021 cash interest paid, vehicle 69 + non-vehicle 30 = 99, / 13 = 7.615385. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G8",
+      "value": 4.461538,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 2 professional fees: Q1 2021 cash paid for reorganization items, primarily professional fees, 58 / 13 = 4.461538. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H8",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Declared driver. Week 2 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13. Basis: Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D9",
+      "value": 99.153846,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 3 receipts: Q1 2021 total revenues 1,289 / 13 = 99.153846. Revenue stands in for cash receipts; weekly phasing is not disclosed and is spread evenly. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E9",
+      "value": 126.230769,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 3 operating disbursements, the balancing residual that ties week-13 ending cash to the disclosed 2021-03-31 unrestricted cash: (revenues 1,289 - interest paid 99 - reorganization items paid 58 + DIP draws 500 - change in unrestricted cash (-9)) / 13 = 1641 / 13 = 126.230769. Includes every other use of unrestricted cash in the quarter, fleet equity funding and transfers to restricted cash among them. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F9",
+      "value": 7.615385,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 3 interest: Q1 2021 cash interest paid, vehicle 69 + non-vehicle 30 = 99, / 13 = 7.615385. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G9",
+      "value": 4.461538,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 3 professional fees: Q1 2021 cash paid for reorganization items, primarily professional fees, 58 / 13 = 4.461538. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H9",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Declared driver. Week 3 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13. Basis: Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D10",
+      "value": 99.153846,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 4 receipts: Q1 2021 total revenues 1,289 / 13 = 99.153846. Revenue stands in for cash receipts; weekly phasing is not disclosed and is spread evenly. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E10",
+      "value": 126.230769,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 4 operating disbursements, the balancing residual that ties week-13 ending cash to the disclosed 2021-03-31 unrestricted cash: (revenues 1,289 - interest paid 99 - reorganization items paid 58 + DIP draws 500 - change in unrestricted cash (-9)) / 13 = 1641 / 13 = 126.230769. Includes every other use of unrestricted cash in the quarter, fleet equity funding and transfers to restricted cash among them. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F10",
+      "value": 7.615385,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 4 interest: Q1 2021 cash interest paid, vehicle 69 + non-vehicle 30 = 99, / 13 = 7.615385. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G10",
+      "value": 4.461538,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 4 professional fees: Q1 2021 cash paid for reorganization items, primarily professional fees, 58 / 13 = 4.461538. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H10",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Declared driver. Week 4 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13. Basis: Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D11",
+      "value": 99.153846,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 5 receipts: Q1 2021 total revenues 1,289 / 13 = 99.153846. Revenue stands in for cash receipts; weekly phasing is not disclosed and is spread evenly. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E11",
+      "value": 126.230769,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 5 operating disbursements, the balancing residual that ties week-13 ending cash to the disclosed 2021-03-31 unrestricted cash: (revenues 1,289 - interest paid 99 - reorganization items paid 58 + DIP draws 500 - change in unrestricted cash (-9)) / 13 = 1641 / 13 = 126.230769. Includes every other use of unrestricted cash in the quarter, fleet equity funding and transfers to restricted cash among them. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F11",
+      "value": 7.615385,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 5 interest: Q1 2021 cash interest paid, vehicle 69 + non-vehicle 30 = 99, / 13 = 7.615385. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G11",
+      "value": 4.461538,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 5 professional fees: Q1 2021 cash paid for reorganization items, primarily professional fees, 58 / 13 = 4.461538. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H11",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Declared driver. Week 5 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13. Basis: Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D12",
+      "value": 99.153846,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 6 receipts: Q1 2021 total revenues 1,289 / 13 = 99.153846. Revenue stands in for cash receipts; weekly phasing is not disclosed and is spread evenly. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E12",
+      "value": 126.230769,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 6 operating disbursements, the balancing residual that ties week-13 ending cash to the disclosed 2021-03-31 unrestricted cash: (revenues 1,289 - interest paid 99 - reorganization items paid 58 + DIP draws 500 - change in unrestricted cash (-9)) / 13 = 1641 / 13 = 126.230769. Includes every other use of unrestricted cash in the quarter, fleet equity funding and transfers to restricted cash among them. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F12",
+      "value": 7.615385,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 6 interest: Q1 2021 cash interest paid, vehicle 69 + non-vehicle 30 = 99, / 13 = 7.615385. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G12",
+      "value": 4.461538,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 6 professional fees: Q1 2021 cash paid for reorganization items, primarily professional fees, 58 / 13 = 4.461538. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H12",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Declared driver. Week 6 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13. Basis: Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D13",
+      "value": 99.153846,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 7 receipts: Q1 2021 total revenues 1,289 / 13 = 99.153846. Revenue stands in for cash receipts; weekly phasing is not disclosed and is spread evenly. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E13",
+      "value": 126.230769,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 7 operating disbursements, the balancing residual that ties week-13 ending cash to the disclosed 2021-03-31 unrestricted cash: (revenues 1,289 - interest paid 99 - reorganization items paid 58 + DIP draws 500 - change in unrestricted cash (-9)) / 13 = 1641 / 13 = 126.230769. Includes every other use of unrestricted cash in the quarter, fleet equity funding and transfers to restricted cash among them. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F13",
+      "value": 7.615385,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 7 interest: Q1 2021 cash interest paid, vehicle 69 + non-vehicle 30 = 99, / 13 = 7.615385. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G13",
+      "value": 4.461538,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 7 professional fees: Q1 2021 cash paid for reorganization items, primarily professional fees, 58 / 13 = 4.461538. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H13",
+      "value": 250.0,
+      "input_kind": "observed",
+      "source": {
+        "name": "Hertz Global Holdings 2020 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000006/htz-20201231.htm",
+        "as_of": "2020-12-31",
+        "notes": "Filed 2021-02-26. Week 7 (2021-02-12 to 2021-02-18) new money: the $250mm DIP draw made on 2021-02-16. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D14",
+      "value": 99.153846,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 8 receipts: Q1 2021 total revenues 1,289 / 13 = 99.153846. Revenue stands in for cash receipts; weekly phasing is not disclosed and is spread evenly. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E14",
+      "value": 126.230769,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 8 operating disbursements, the balancing residual that ties week-13 ending cash to the disclosed 2021-03-31 unrestricted cash: (revenues 1,289 - interest paid 99 - reorganization items paid 58 + DIP draws 500 - change in unrestricted cash (-9)) / 13 = 1641 / 13 = 126.230769. Includes every other use of unrestricted cash in the quarter, fleet equity funding and transfers to restricted cash among them. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F14",
+      "value": 7.615385,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 8 interest: Q1 2021 cash interest paid, vehicle 69 + non-vehicle 30 = 99, / 13 = 7.615385. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G14",
+      "value": 4.461538,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 8 professional fees: Q1 2021 cash paid for reorganization items, primarily professional fees, 58 / 13 = 4.461538. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H14",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Declared driver. Week 8 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13. Basis: Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D15",
+      "value": 99.153846,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 9 receipts: Q1 2021 total revenues 1,289 / 13 = 99.153846. Revenue stands in for cash receipts; weekly phasing is not disclosed and is spread evenly. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E15",
+      "value": 126.230769,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 9 operating disbursements, the balancing residual that ties week-13 ending cash to the disclosed 2021-03-31 unrestricted cash: (revenues 1,289 - interest paid 99 - reorganization items paid 58 + DIP draws 500 - change in unrestricted cash (-9)) / 13 = 1641 / 13 = 126.230769. Includes every other use of unrestricted cash in the quarter, fleet equity funding and transfers to restricted cash among them. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F15",
+      "value": 7.615385,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 9 interest: Q1 2021 cash interest paid, vehicle 69 + non-vehicle 30 = 99, / 13 = 7.615385. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G15",
+      "value": 4.461538,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 9 professional fees: Q1 2021 cash paid for reorganization items, primarily professional fees, 58 / 13 = 4.461538. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H15",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Declared driver. Week 9 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13. Basis: Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D16",
+      "value": 99.153846,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 10 receipts: Q1 2021 total revenues 1,289 / 13 = 99.153846. Revenue stands in for cash receipts; weekly phasing is not disclosed and is spread evenly. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E16",
+      "value": 126.230769,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 10 operating disbursements, the balancing residual that ties week-13 ending cash to the disclosed 2021-03-31 unrestricted cash: (revenues 1,289 - interest paid 99 - reorganization items paid 58 + DIP draws 500 - change in unrestricted cash (-9)) / 13 = 1641 / 13 = 126.230769. Includes every other use of unrestricted cash in the quarter, fleet equity funding and transfers to restricted cash among them. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F16",
+      "value": 7.615385,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 10 interest: Q1 2021 cash interest paid, vehicle 69 + non-vehicle 30 = 99, / 13 = 7.615385. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G16",
+      "value": 4.461538,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 10 professional fees: Q1 2021 cash paid for reorganization items, primarily professional fees, 58 / 13 = 4.461538. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H16",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Declared driver. Week 10 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13. Basis: Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D17",
+      "value": 99.153846,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 11 receipts: Q1 2021 total revenues 1,289 / 13 = 99.153846. Revenue stands in for cash receipts; weekly phasing is not disclosed and is spread evenly. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E17",
+      "value": 126.230769,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 11 operating disbursements, the balancing residual that ties week-13 ending cash to the disclosed 2021-03-31 unrestricted cash: (revenues 1,289 - interest paid 99 - reorganization items paid 58 + DIP draws 500 - change in unrestricted cash (-9)) / 13 = 1641 / 13 = 126.230769. Includes every other use of unrestricted cash in the quarter, fleet equity funding and transfers to restricted cash among them. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F17",
+      "value": 7.615385,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 11 interest: Q1 2021 cash interest paid, vehicle 69 + non-vehicle 30 = 99, / 13 = 7.615385. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G17",
+      "value": 4.461538,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 11 professional fees: Q1 2021 cash paid for reorganization items, primarily professional fees, 58 / 13 = 4.461538. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H17",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Declared driver. Week 11 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13. Basis: Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D18",
+      "value": 99.153846,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 12 receipts: Q1 2021 total revenues 1,289 / 13 = 99.153846. Revenue stands in for cash receipts; weekly phasing is not disclosed and is spread evenly. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E18",
+      "value": 126.230769,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 12 operating disbursements, the balancing residual that ties week-13 ending cash to the disclosed 2021-03-31 unrestricted cash: (revenues 1,289 - interest paid 99 - reorganization items paid 58 + DIP draws 500 - change in unrestricted cash (-9)) / 13 = 1641 / 13 = 126.230769. Includes every other use of unrestricted cash in the quarter, fleet equity funding and transfers to restricted cash among them. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F18",
+      "value": 7.615385,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 12 interest: Q1 2021 cash interest paid, vehicle 69 + non-vehicle 30 = 99, / 13 = 7.615385. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G18",
+      "value": 4.461538,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 12 professional fees: Q1 2021 cash paid for reorganization items, primarily professional fees, 58 / 13 = 4.461538. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H18",
+      "value": 0.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Declared driver. Week 12 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13. Basis: Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "D19",
+      "value": 99.153846,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 13 receipts: Q1 2021 total revenues 1,289 / 13 = 99.153846. Revenue stands in for cash receipts; weekly phasing is not disclosed and is spread evenly. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "E19",
+      "value": 126.230769,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 13 operating disbursements, the balancing residual that ties week-13 ending cash to the disclosed 2021-03-31 unrestricted cash: (revenues 1,289 - interest paid 99 - reorganization items paid 58 + DIP draws 500 - change in unrestricted cash (-9)) / 13 = 1641 / 13 = 126.230769. Includes every other use of unrestricted cash in the quarter, fleet equity funding and transfers to restricted cash among them. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "F19",
+      "value": 7.615385,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 13 interest: Q1 2021 cash interest paid, vehicle 69 + non-vehicle 30 = 99, / 13 = 7.615385. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "G19",
+      "value": 4.461538,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Week 13 professional fees: Q1 2021 cash paid for reorganization items, primarily professional fees, 58 / 13 = 4.461538. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H19",
+      "value": 250.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Declared driver. Week 13 new money: the second Q1 DIP draw. DIP principal rose from 250 to 750 in Q1 2021, so draws totaled 500; 250 is dated 2021-02-16, leaving 250 whose date is not disclosed. Placed in the last week, the latest date consistent with the 2021-03-31 balance, which gives the lowest interim cash path. Basis: Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31; 2020 10-K: $250mm drawn 2021-02-16."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C5",
+      "value": 6008.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Liquidation gross asset value: book assets available to the waterfall classes at 2021-03-31 = total assets 16,610 - (liabilities not subject to compromise 11,342 - non-vehicle debt not subject to compromise 740, which is the DIP, a waterfall class) = 6008. Vehicle ABS debt, operating leases and other non-compromised liabilities are netted first because their collateral or claims rank outside the modeled classes. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D5",
+      "value": 5510.196452,
+      "input_kind": "derived",
+      "source": {
+        "name": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+        "as_of": "2021-06-10",
+        "notes": "Filed 2021-06-16. Reorganization value to the same classes: the Plan distributable value from Recovery Waterfall!C12, 5510.196452 USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C6",
+      "value": 4014.0,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Declared driver. Liquidation discount: goodwill 1,045 + intangible assets 2,969 = 4014, assumed to realize nothing in a Chapter 7 while tangible assets realize book. The Debtors' own liquidation analysis is in the Disclosure Statement, which is not reachable (HTTP 403). Basis: Q1 2021 10-Q balance sheet at 2021-03-31: goodwill 1,045 and intangible assets, net 2,969."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C7",
+      "value": 59.84325,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "11 U.S.C. 326(a), limitation on compensation of a Chapter 7 trustee",
+        "url": "https://www.law.cornell.edu/uscode/text/11/326",
+        "as_of": "2021-06-10",
+        "notes": "Filed 1994-10-22. Declared driver. Chapter 7 administrative fees: the statutory maximum trustee compensation under 11 U.S.C. 326(a) (25% of the first $5,000, 10% of the next $45,000, 5% of the next $950,000, 3% above $1,000,000) on distributions of 1994 USD millions = 59.84325. Trustee professionals' fees would add to this and are not estimated, so the figure is a floor. Basis: 11 U.S.C. 326(a) fee schedule applied to C5 - C6."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D7",
+      "value": 64.0,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Reorganization professional fees still to be paid: reorganization charges unpaid at 2021-03-31, 57 in accrued liabilities + 7 in accounts payable = 64. Fees incurred after 2021-03-31 are not yet disclosed at the as-of date. USD millions."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C8",
+      "value": 7.557932,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Global Holdings 2020 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000006/htz-20201231.htm",
+        "as_of": "2020-12-31",
+        "notes": "Filed 2021-02-26. Declared driver. Chapter 7 time to distribution: the months needed to sell the 2021-03-31 fleet (net book 6,360) at Hertz's own 2020 disposal pace (proceeds 10,098 / 12 = 841.5 a month) = 7.557932. 2020 was the year the Interim Lease Order forced fleet disposals, so it is Hertz's observed stress-sale pace. Basis: 2020 Form 10-K cash flow statement (disposal proceeds 10,098) and Q1 2021 10-Q balance sheet (fleet 6,360)."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "D8",
+      "value": 0.657534,
+      "input_kind": "derived",
+      "source": {
+        "name": "Hertz Form 8-K: Plan confirmation (Item 1.03)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_8k.htm",
+        "as_of": "2021-06-10",
+        "notes": "Filed 2021-06-16. Reorganization time to distribution: Plan distributions are made on the Effective Date; confirmation 2021-06-10 to the targeted Effective Date at the end of June 2021 = 20 days / (365/12) = 0.657534 months."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C9",
+      "value": 0.0825,
+      "input_kind": "modeler_assumption",
+      "source": {
+        "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "notes": "Filed 2021-05-07. Declared driver. Discount rate for delayed recovery: the DIP all-in rate of 8.25%, Hertz's own marginal cost of senior secured financing at 2021-03-31. A creditor's required return on a delayed distribution is not a disclosure. FRED's ICE BofA high-yield yield series now publish only the trailing three years and cannot supply a 2021 value. Basis: Q1 2021 10-Q Note 6: DIP weighted-average interest rate 8.25% at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
     }
   ],
   "sources": [
     {
+      "name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+      "as_of": "2021-03-31",
+      "notes": "Filed 2021-05-07. U.S. SEC / Hertz Global Holdings, Inc. (CIK 0001657853)."
+    },
+    {
+      "name": "Hertz Global Holdings 2020 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000006/htz-20201231.htm",
+      "as_of": "2020-12-31",
+      "notes": "Filed 2021-02-26. U.S. SEC / Hertz Global Holdings, Inc. (CIK 0001657853)."
+    },
+    {
+      "name": "Hertz Form 8-K: DIP Credit Agreement (Item 1.01)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785320000106/htz-20201030.htm",
+      "as_of": "2020-10-30",
+      "notes": "Filed 2020-11-03. U.S. SEC / Hertz Global Holdings, Inc. (CIK 0001657853)."
+    },
+    {
+      "name": "Hertz Form 8-K/A: Plan Sponsor selection and Proposed Plan terms",
+      "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921066944/tm2116104d2_8k.htm",
+      "as_of": "2021-05-11",
+      "notes": "Filed 2021-05-14. U.S. SEC / Hertz Global Holdings, Inc. (CIK 0001657853)."
+    },
+    {
+      "name": "Hertz Form 8-K: Plan confirmation (Item 1.03)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_8k.htm",
+      "as_of": "2021-06-10",
+      "notes": "Filed 2021-06-16. U.S. SEC / Hertz Global Holdings, Inc. (CIK 0001657853)."
+    },
+    {
+      "name": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+      "as_of": "2021-06-10",
+      "notes": "Filed 2021-06-16. U.S. SEC / Hertz Global Holdings, Inc. (CIK 0001657853)."
+    },
+    {
+      "name": "11 U.S.C. 326(a), limitation on compensation of a Chapter 7 trustee",
+      "url": "https://www.law.cornell.edu/uscode/text/11/326",
+      "as_of": "2021-06-10",
+      "notes": "Filed 1994-10-22. U.S. Code (Legal Information Institute)."
+    },
+    {
       "name": "Hertz 2021 Form 10-K",
       "url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785322000012/htz-20211231.htm",
-      "as_of": "2021-06-30",
-      "notes": "U.S. SEC / Hertz; frozen curated observation as of case date"
+      "as_of": "2021-12-31",
+      "notes": "Filed 2022-02-24. Realized outcome only (emergence completed); no input is read from it."
     },
     {
       "name": "Frozen source snapshot",
@@ -39,12 +1294,12 @@
     }
   ],
   "refresh": {
-    "date": "2026-08-04",
-    "trigger": "External historical evidence materialization",
+    "date": "2026-11-13",
+    "trigger": "Depth pass: source every template input from filings public by the as-of date",
     "source_snapshot": "repo://24_Distressed_Restructuring/sources/snapshots/distressed-public-hertz-2021-reorganization.json",
-    "what_changed": "Generated public case distressed-public-hertz-2021-reorganization from canonical release template",
-    "reviewer_notes": "External historical case; human stakeholder approval remains pending",
-    "next_check": "On source revision, builder change, monitoring breach, or annual review"
+    "what_changed": "Sourced the capital structure from the Allowed claim amounts in the confirmed Plan, the DIP terms from the 2020-11-03 8-K and the Q1 2021 10-Q, the 13-week cash schedule from Q1 2021 actuals, and the liquidation comparison from the Q1 2021 balance sheet. Replaced New Money!C5 = 7,500, which was read off the FY2021 10-K filed 2022-02-24 and was hindsight for a 2021-06-30 case, with the $1,650mm DIP commitment. Filled every Cover field.",
+    "reviewer_notes": "External historical case; human stakeholder approval remains pending. The waterfall's distributable value is the Plan's distribution, not an independent valuation, so recoveries are 100% by construction. Twenty cells are declared drivers grounded in named filings or statute because the Disclosure Statement, DIP fee letter and monthly operating reports are on a site that refuses automated retrieval.",
+    "next_check": "On source revision, builder change, or annual review"
   },
   "outcome": {
     "metric": "chapter_11_emergence_completed",
@@ -56,5 +1311,267 @@
   "lineage": {
     "source_snapshot": "repo://24_Distressed_Restructuring/sources/snapshots/distressed-public-hertz-2021-reorganization.json",
     "synthetic_benchmark_inputs_allowed": false
-  }
+  },
+  "driver_declarations": [
+    {
+      "sheet": "Recovery Waterfall",
+      "cell": "D9",
+      "driver_type": "presentation_convention",
+      "rationale": "Seniority rank of the subordinated debt row. Hertz has no subordinated debt class, so the rank is the template's positional slot between unsecured claims and equity, not a fact about Hertz.",
+      "basis": {
+        "source_name": "Second Modified Third Amended Joint Chapter 11 Plan of Reorganization (Exhibit 2.1 to the 2021-06-16 Form 8-K)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_ex2-1.htm",
+        "as_of": "2021-06-10",
+        "note": "Plan Art. III.A classification table: no subordinated debt class exists; the row carries a zero claim."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C7",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Upfront fee as a share of drawn amount. The DIP fee letter is not on EDGAR; the credit agreement is on the claims agent site (HTTP 403). The value is the unamortized issuance cost on non-vehicle debt not subject to compromise divided by DIP principal drawn, both at 2021-03-31: 26 / 750.",
+      "basis": {
+        "source_name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "note": "Q1 2021 10-Q Note 6: unamortized debt issuance costs (26) against DIP principal 750; attributing the whole 26 to the DIP is the assumption."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "New Money",
+      "cell": "C10",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Exit fee. The 8-K summary of DIP economics discloses rate, floor, step-down, maturity and draw size and names no exit fee; the credit agreement that would confirm it is not reachable. Held at zero.",
+      "basis": {
+        "source_name": "Hertz Form 8-K: DIP Credit Agreement (Item 1.01)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785320000106/htz-20201030.htm",
+        "as_of": "2020-10-30",
+        "note": "2020-11-03 8-K Item 1.01 summary of DIP Credit Agreement terms lists no exit or prepayment fee."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H7",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Week 1 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13.",
+      "basis": {
+        "source_name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "note": "Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H8",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Week 2 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13.",
+      "basis": {
+        "source_name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "note": "Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H9",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Week 3 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13.",
+      "basis": {
+        "source_name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "note": "Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H10",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Week 4 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13.",
+      "basis": {
+        "source_name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "note": "Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H11",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Week 5 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13.",
+      "basis": {
+        "source_name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "note": "Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H12",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Week 6 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13.",
+      "basis": {
+        "source_name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "note": "Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H14",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Week 8 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13.",
+      "basis": {
+        "source_name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "note": "Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H15",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Week 9 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13.",
+      "basis": {
+        "source_name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "note": "Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H16",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Week 10 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13.",
+      "basis": {
+        "source_name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "note": "Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H17",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Week 11 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13.",
+      "basis": {
+        "source_name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "note": "Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H18",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Week 12 new money held at zero. Q1 DIP draws total 500: 250 dated 2021-02-16 (week 7) and 250 undated, placed in week 13.",
+      "basis": {
+        "source_name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "note": "Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "13-Week Liquidity",
+      "cell": "H19",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Week 13 new money: the second Q1 DIP draw. DIP principal rose from 250 to 750 in Q1 2021, so draws totaled 500; 250 is dated 2021-02-16, leaving 250 whose date is not disclosed. Placed in the last week, the latest date consistent with the 2021-03-31 balance, which gives the lowest interim cash path.",
+      "basis": {
+        "source_name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "note": "Q1 2021 10-Q Note 6: DIP principal 250 at 2020-12-31 and 750 at 2021-03-31; 2020 10-K: $250mm drawn 2021-02-16."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C6",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Liquidation discount: goodwill 1,045 + intangible assets 2,969 = 4014, assumed to realize nothing in a Chapter 7 while tangible assets realize book. The Debtors' own liquidation analysis is in the Disclosure Statement, which is not reachable (HTTP 403).",
+      "basis": {
+        "source_name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "note": "Q1 2021 10-Q balance sheet at 2021-03-31: goodwill 1,045 and intangible assets, net 2,969."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C7",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Chapter 7 administrative fees: the statutory maximum trustee compensation under 11 U.S.C. 326(a) (25% of the first $5,000, 10% of the next $45,000, 5% of the next $950,000, 3% above $1,000,000) on distributions of 1994 USD millions = 59.84325. Trustee professionals' fees would add to this and are not estimated, so the figure is a floor.",
+      "basis": {
+        "source_name": "11 U.S.C. 326(a), limitation on compensation of a Chapter 7 trustee",
+        "source_url": "https://www.law.cornell.edu/uscode/text/11/326",
+        "as_of": "2021-06-10",
+        "note": "11 U.S.C. 326(a) fee schedule applied to C5 - C6."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C8",
+      "driver_type": "undisclosed_metric_driver",
+      "rationale": "Chapter 7 time to distribution: the months needed to sell the 2021-03-31 fleet (net book 6,360) at Hertz's own 2020 disposal pace (proceeds 10,098 / 12 = 841.5 a month) = 7.557932. 2020 was the year the Interim Lease Order forced fleet disposals, so it is Hertz's observed stress-sale pace.",
+      "basis": {
+        "source_name": "Hertz Global Holdings 2020 Form 10-K",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000006/htz-20201231.htm",
+        "as_of": "2020-12-31",
+        "note": "2020 Form 10-K cash flow statement (disposal proceeds 10,098) and Q1 2021 10-Q balance sheet (fleet 6,360)."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Liquidation vs Reorg",
+      "cell": "C9",
+      "driver_type": "undisclosed_term_driver",
+      "rationale": "Discount rate for delayed recovery: the DIP all-in rate of 8.25%, Hertz's own marginal cost of senior secured financing at 2021-03-31. A creditor's required return on a delayed distribution is not a disclosure. FRED's ICE BofA high-yield yield series now publish only the trailing three years and cannot supply a 2021 value.",
+      "basis": {
+        "source_name": "Hertz Global Holdings Q1 2021 Form 10-Q",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000165785321000013/htz-20210331.htm",
+        "as_of": "2021-03-31",
+        "note": "Q1 2021 10-Q Note 6: DIP weighted-average interest rate 8.25% at 2021-03-31."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    },
+    {
+      "sheet": "Cover",
+      "cell": "C6",
+      "driver_type": "generated_metadata",
+      "rationale": "Last refreshed: written from the manifest as_of (2021-06-30), the Plan's targeted Effective Date.",
+      "basis": {
+        "source_name": "Hertz Form 8-K: Plan confirmation (Item 1.03)",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1657853/000110465921081986/tm2119738d1_8k.htm",
+        "as_of": "2021-06-30",
+        "note": "The as-of date is the Effective Date the Debtors targeted in the confirmation 8-K."
+      },
+      "emitted_by": "tools/deepen_distressed_hertz.py"
+    }
+  ]
 }

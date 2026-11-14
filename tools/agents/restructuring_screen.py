@@ -344,24 +344,26 @@ HERTZ_MANIFEST_PATH = ROOT / "standards" / "public_cases" / "distressed-public-h
 def hertz_fixture() -> ToolInput:
     """Real reference instance: reuses this repo's own already-sourced
     distressed-public-hertz-2021-reorganization public case -- Hertz's real
-    $7.5bn Chapter 11 exit financing commitment, with real provenance.
-    Deliberately sparse, matching what the existing real case itself
-    sources: only the New Money commitment, not a full capital structure
-    or recovery waterfall, since this tool must not invent facts the
-    original case did not source just to make the demonstration denser.
+    column-C facts (claims, DIP terms, liquidity floor, liquidation inputs),
+    each carrying the provenance its own manifest entry records. Only
+    observed and derived inputs are submitted: a declared driver is not a
+    fact, and this tool must never pass one off as one.
     """
     if not HERTZ_MANIFEST_PATH.exists():
         raise FileNotFoundError(f"{HERTZ_MANIFEST_PATH.relative_to(ROOT)} not found")
     manifest = json.loads(HERTZ_MANIFEST_PATH.read_text(encoding="utf-8"))
     retrieval_date = date.today().isoformat()
-    source = manifest["sources"][0]
-
     facts: dict[str, dict[str, float]] = {}
     provenance: dict[str, dict[str, Provenance]] = {}
     for item in manifest["inputs"]:
         sheet_name = item["sheet"]
         if sheet_name not in INPUT_SHEETS:
             continue
+        if item.get("input_kind") not in {"observed", "derived"}:
+            continue
+        if not item["cell"].startswith("C"):
+            continue
+        source = item.get("source") or manifest["sources"][0]
         rows = {v: k for k, v in _input_rows(sheet_name).items()}
         row = int(item["cell"][1:])
         label = rows.get(row)
